@@ -1,0 +1,86 @@
+[
+  {
+    "language": "ko",
+    "posts": [
+      {
+        "category": "Product",
+        "subject": "제목.1",
+        "content": "내용.1",
+        "readMinutes": "1",
+        "createdAt": "2026.01.01",
+        "link": "https://google.com"
+      },
+      {
+        "category": "Security",
+        "subject": "제목.2",
+        "content": "내용.2",
+        "readMinutes": "2",
+        "createdAt": "2026.01.02",
+        "link": "https://google.com"
+      }
+    ]
+  },
+  {
+    "language": "en",
+    "posts": [
+      {
+        "category": "Product",
+        "subject": "영어 제목.1",
+        "content": "영어 내용.1",
+        "readMinutes": "1",
+        "createdAt": "2026.01.01",
+        "link": "https://google.com"
+      },
+      {
+        "category": "Security",
+        "subject": "영어 제목.2",
+        "content": "영어 내용.2",
+        "readMinutes": "2",
+        "createdAt": "2026.01.02",
+        "link": "https://google.com"
+      }
+    ]
+  },
+  {
+    "language": "zh",
+    "posts": [
+      {
+        "category": "Product",
+        "subject": "중국어 제목.1",
+        "content": "중국어 내용.1",
+        "readMinutes": "1",
+        "createdAt": "2026.01.01",
+        "link": "https://google.com"
+      },
+      {
+        "category": "Security",
+        "subject": "중국어 제목.2",
+        "content": "중국어 내용.2",
+        "readMinutes": "2",
+        "createdAt": "2026.01.02",
+        "link": "https://google.com"
+      }
+    ]
+  },
+  {
+    "language": "ja",
+    "posts": [
+      {
+        "category": "Product",
+        "subject": "일본어 제목.1",
+        "content": "일본어 내용.1",
+        "readMinutes": "1",
+        "createdAt": "2026.01.01",
+        "link": "https://google.com"
+      },
+      {
+        "category": "Security",
+        "subject": "일본어 제목.2",
+        "content": "일본어 내용.2",
+        "readMinutes": "2",
+        "createdAt": "2026.01.02",
+        "link": "https://google.com"
+      }
+    ]
+  }
+]

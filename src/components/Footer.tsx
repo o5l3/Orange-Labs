@@ -8,7 +8,10 @@ export default function Footer() {
     {
       title: t('nav.products'),
       links: [
-        { label: t('nav.orange-the-client'), path: '/products/orange-the-client' },
+        {
+          label: t('nav.orange-the-client'),
+          path: '/products/orange-the-client',
+        },
       ],
     },
     {
@@ -41,7 +44,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer style={{ backgroundColor: '#0e0e11', borderTop: '1px solid #2a2a33' }}>
+    <footer
+      style={{ backgroundColor: '#0e0e11', borderTop: '1px solid #2a2a33' }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         {/* Top section: logo + nav */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
@@ -63,7 +68,10 @@ export default function Footer() {
           {/* Nav columns */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="text-xs font-semibold tracking-wider mb-4" style={{ color: '#9ca3af' }}>
+              <h3
+                className="text-xs font-semibold tracking-wider mb-4"
+                style={{ color: '#9ca3af' }}
+              >
                 {section.title.toUpperCase()}
               </h3>
               <ul className="space-y-3">
@@ -73,8 +81,12 @@ export default function Footer() {
                       to={link.path}
                       className="text-sm transition-colors"
                       style={{ color: '#6b7280' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = '#6b7280')}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.color = '#f97316')
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.color = '#6b7280')
+                      }
                     >
                       {link.label}
                     </Link>
@@ -90,10 +102,17 @@ export default function Footer() {
           className="mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
           style={{ borderTop: '1px solid #2a2a33', color: '#4b5563' }}
         >
-          <span>{t('footer.rights', { year: new Date().getFullYear() })}</span>
+          <span>{t('footer.rights')}</span>
           <div className="flex gap-6">
-            <Link to="/privacy" className="transition-colors hover:text-gray-300">{t('footer.privacy')}</Link>
-            <Link to="/terms" className="transition-colors hover:text-gray-300">{t('footer.terms')}</Link>
+            <Link
+              to="/privacy"
+              className="transition-colors hover:text-gray-300"
+            >
+              {t('footer.privacy')}
+            </Link>
+            <Link to="/terms" className="transition-colors hover:text-gray-300">
+              {t('footer.terms')}
+            </Link>
           </div>
         </div>
       </div>

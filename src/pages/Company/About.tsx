@@ -245,7 +245,7 @@ export default function About() {
               key={c.nameKey}
               className="rounded-2xl p-8 mb-5 relative overflow-hidden"
               style={{
-                background: `linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0.03) 100%)`,
+                background: 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0.03) 100%)',
                 border: '1px solid rgba(249,115,22,0.35)',
               }}
             >
