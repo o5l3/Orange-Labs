@@ -5,10 +5,45 @@ export default function About() {
   const { t } = useTranslation();
 
   const stats = [
-    { value: '2021', label: t('about.stat_founded') },
-    { value: '50+', label: t('about.stat_clients') },
-    { value: '10,000+', label: t('about.stat_endpoints') },
-    { value: '99.9%', label: t('about.stat_uptime') },
+    { value: '2023', label: t('about.stat_founded') },
+    { value: t('about.stat_gs_value'), label: t('about.stat_gs') },
+    { value: '4', label: t('about.stat_group') },
+    { value: 'TIPS', label: t('about.stat_tips') },
+  ];
+
+  const groupCompanies = [
+    {
+      nameKey: 'about.group_c2_name',
+      yearKey: 'about.group_c2_year',
+      roleKey: 'about.group_c2_role',
+      descKey: 'about.group_c2_desc',
+      isMain: true,
+      color: '#f97316',
+    },
+    {
+      nameKey: 'about.group_c1_name',
+      yearKey: 'about.group_c1_year',
+      roleKey: 'about.group_c1_role',
+      descKey: 'about.group_c1_desc',
+      isMain: false,
+      color: '#6366f1',
+    },
+    {
+      nameKey: 'about.group_c3_name',
+      yearKey: 'about.group_c3_year',
+      roleKey: 'about.group_c3_role',
+      descKey: 'about.group_c3_desc',
+      isMain: false,
+      color: '#0ea5e9',
+    },
+    {
+      nameKey: 'about.group_c4_name',
+      yearKey: 'about.group_c4_year',
+      roleKey: 'about.group_c4_role',
+      descKey: 'about.group_c4_desc',
+      isMain: false,
+      color: '#10b981',
+    },
   ];
 
   const capabilities = [
@@ -76,21 +111,9 @@ export default function About() {
   ];
 
   const valueProps = [
-    {
-      icon: '⚡',
-      title: t('about.vp1_title'),
-      desc: t('about.vp1_desc'),
-    },
-    {
-      icon: '🚀',
-      title: t('about.vp2_title'),
-      desc: t('about.vp2_desc'),
-    },
-    {
-      icon: '🛡️',
-      title: t('about.vp3_title'),
-      desc: t('about.vp3_desc'),
-    },
+    { icon: '⚡', title: t('about.vp1_title'), desc: t('about.vp1_desc') },
+    { icon: '🚀', title: t('about.vp2_title'), desc: t('about.vp2_desc') },
+    { icon: '🛡️', title: t('about.vp3_title'), desc: t('about.vp3_desc') },
   ];
 
   const timeline = [
@@ -101,7 +124,11 @@ export default function About() {
     { date: '2025.09', label: t('about.tl5') },
   ];
 
-  const clients = ['CROWN', 'HYOSUNG ITX', 'U BASE', 'SUN at FOOD'];
+  const clients = [
+    '한일네트웍스', '한일시멘트', '한일현대시멘트',
+    'CROWN', 'HYOSUNG ITX', 'U BASE GROUP', 'SUN AT FOOD',
+    '부천도시공사', '국립순천대학교',
+  ];
 
   return (
     <div style={{ backgroundColor: '#111114', color: '#f1f1f3' }}>
@@ -116,14 +143,15 @@ export default function About() {
           <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.05) 0%, transparent 70%)' }} />
         </div>
         <div className="relative max-w-5xl mx-auto text-center">
-          <div className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-8 tracking-wider"
-            style={{ backgroundColor: 'rgba(249,115,22,0.12)', color: '#f97316', border: '1px solid rgba(249,115,22,0.3)' }}>
+          <div
+            className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-8 tracking-wider"
+            style={{ backgroundColor: 'rgba(249,115,22,0.12)', color: '#f97316', border: '1px solid rgba(249,115,22,0.3)' }}
+          >
             {t('about.badge')}
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            {t('about.hero_title_1')}{' '}
-            <span style={{ color: '#f97316' }}>{t('about.hero_title_2')}</span>
-            <br />
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            {t('about.hero_title_1')}<br />
+            <span style={{ color: '#f97316' }}>{t('about.hero_title_2')}</span><br />
             {t('about.hero_title_3')}
           </h1>
           <p className="text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto" style={{ color: '#9ca3af' }}>
@@ -132,19 +160,19 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Stats Bar ── */}
+      {/* ── Stats ── */}
       <section style={{ borderTop: '1px solid #1f1f28', borderBottom: '1px solid #1f1f28', backgroundColor: '#111114' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold mb-1" style={{ color: '#f97316' }}>{s.value}</div>
+              <div className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: '#f97316' }}>{s.value}</div>
               <div className="text-sm" style={{ color: '#9ca3af' }}>{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── Mission ── */}
+      {/* ── Founding Background / Mission ── */}
       <section className="py-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -163,8 +191,8 @@ export default function About() {
           </div>
           <div className="rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #1a1a22 0%, #1f1520 100%)', border: '1px solid #2a2a36' }}>
             <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>FLAGSHIP PRODUCT</div>
-            <div className="text-2xl font-bold mb-2" style={{ color: '#f1f1f3' }}>Orange The Client</div>
-            <div className="text-sm mb-6" style={{ color: '#9ca3af' }}>Enterprise Endpoint Management & Security Platform</div>
+            <div className="text-2xl font-bold mb-2" style={{ color: '#f1f1f3' }}>Orange The Client v1.6</div>
+            <div className="text-sm mb-6" style={{ color: '#9ca3af' }}>{t('about.product_tagline')}</div>
             <div className="space-y-3">
               {[
                 t('about.product_bullet1'),
@@ -178,12 +206,15 @@ export default function About() {
                 </div>
               ))}
             </div>
-            <div className="mt-8 pt-6" style={{ borderTop: '1px solid #2a2a36' }}>
+            <div className="mt-6 pt-5" style={{ borderTop: '1px solid #2a2a36' }}>
               <div className="text-xs mb-2" style={{ color: '#6b7280' }}>{t('about.compliance_label')}</div>
               <div className="flex flex-wrap gap-2">
-                {['GDPR', 'CCPA', '개인정보보호법'].map((c) => (
-                  <span key={c} className="px-2 py-0.5 text-xs rounded"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#f97316', border: '1px solid rgba(249,115,22,0.2)' }}>
+                {['GDPR', 'CCPA', t('about.compliance_pipa')].map((c) => (
+                  <span
+                    key={c}
+                    className="px-2 py-0.5 text-xs rounded"
+                    style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#f97316', border: '1px solid rgba(249,115,22,0.2)' }}
+                  >
                     {c}
                   </span>
                 ))}
@@ -193,8 +224,109 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Architecture ── */}
+      {/* ── Group Companies ── */}
       <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>
+              {t('about.group_badge')}
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+              {t('about.group_title')}
+            </h2>
+            <p className="text-base max-w-xl mx-auto" style={{ color: '#9ca3af' }}>
+              {t('about.group_desc')}
+            </p>
+          </div>
+
+          {/* Main company (OrangeLabs) — full width card */}
+          {groupCompanies.filter(c => c.isMain).map((c) => (
+            <div
+              key={c.nameKey}
+              className="rounded-2xl p-8 mb-5 relative overflow-hidden"
+              style={{
+                background: `linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0.03) 100%)`,
+                border: '1px solid rgba(249,115,22,0.35)',
+              }}
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span
+                      className="px-2 py-0.5 text-xs font-bold rounded"
+                      style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}
+                    >
+                      제조사 · 개발
+                    </span>
+                    <span className="text-xs" style={{ color: '#6b7280' }}>{t(c.yearKey)}</span>
+                  </div>
+                  <h3 className="text-2xl font-black mb-1" style={{ color: '#f1f1f3' }}>{t(c.nameKey)}</h3>
+                  <p className="text-sm mb-3" style={{ color: '#f97316', fontWeight: 600 }}>{t(c.roleKey)}</p>
+                  <p className="text-sm" style={{ color: '#9ca3af' }}>{t(c.descKey)}</p>
+                </div>
+                <div
+                  className="shrink-0 rounded-xl px-6 py-4 text-center"
+                  style={{ backgroundColor: 'rgba(249,115,22,0.06)', border: '1px solid rgba(249,115,22,0.2)', minWidth: 160 }}
+                >
+                  <div className="text-3xl font-black mb-1" style={{ color: '#f97316' }}>v1.6</div>
+                  <div className="text-xs" style={{ color: '#9ca3af' }}>Orange The Client</div>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {/* CEO Card */}
+          <div
+            className="rounded-2xl p-6 mb-5"
+            style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
+          >
+            <div className="flex items-center gap-5">
+              <div
+                className="w-14 h-14 rounded-full flex items-center justify-center text-2xl shrink-0"
+                style={{ backgroundColor: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.25)' }}
+              >
+                👤
+              </div>
+              <div>
+                <div className="text-xs font-semibold tracking-widest mb-1 uppercase" style={{ color: '#f97316' }}>
+                  {t('about.ceo_badge')}
+                </div>
+                <div className="text-lg font-bold" style={{ color: '#f1f1f3' }}>{t('about.ceo_name')}</div>
+                <div className="text-sm mb-1" style={{ color: '#f97316' }}>{t('about.ceo_title')}</div>
+                <div className="text-sm" style={{ color: '#9ca3af' }}>{t('about.ceo_desc')}</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Other 3 companies */}
+          <div className="grid sm:grid-cols-3 gap-4">
+            {groupCompanies.filter(c => !c.isMain).map((c) => (
+              <div
+                key={c.nameKey}
+                className="rounded-xl p-6"
+                style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
+              >
+                <div
+                  className="w-8 h-1 rounded-full mb-4"
+                  style={{ backgroundColor: c.color }}
+                />
+                <div className="text-xs mb-1" style={{ color: '#6b7280' }}>{t(c.yearKey)}</div>
+                <h3 className="text-base font-bold mb-1" style={{ color: '#f1f1f3' }}>{t(c.nameKey)}</h3>
+                <div
+                  className="text-xs font-semibold mb-3 px-2 py-0.5 rounded-full inline-block"
+                  style={{ backgroundColor: `${c.color}18`, color: c.color, border: `1px solid ${c.color}40` }}
+                >
+                  {t(c.roleKey)}
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>{t(c.descKey)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Architecture ── */}
+      <section className="py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>
@@ -211,11 +343,10 @@ export default function About() {
             {archLayers.map((layer, i) => (
               <div
                 key={layer.num}
-                className="relative flex items-center gap-5 px-6 py-4 rounded-xl transition-all"
+                className="relative flex items-center gap-5 px-6 py-4 rounded-xl"
                 style={{
                   background: `linear-gradient(90deg, ${layer.color}33 0%, ${layer.color}11 100%)`,
                   border: `1px solid ${layer.color}55`,
-                  opacity: 0.9 + i * 0.025,
                 }}
               >
                 <div className="text-xs font-mono font-bold w-7 flex-shrink-0" style={{ color: '#f97316' }}>{layer.num}</div>
@@ -237,7 +368,7 @@ export default function About() {
       </section>
 
       {/* ── Core Capabilities ── */}
-      <section className="py-24 px-4 sm:px-6">
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>
@@ -251,11 +382,13 @@ export default function About() {
             {capabilities.map((cap) => (
               <div
                 key={cap.title}
-                className="p-6 rounded-xl transition-all hover:border-orange-500/40"
+                className="p-6 rounded-xl"
                 style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
               >
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#f97316' }}>
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+                  style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#f97316' }}
+                >
                   {cap.icon}
                 </div>
                 <h3 className="text-base font-semibold mb-2" style={{ color: '#f1f1f3' }}>{cap.title}</h3>
@@ -267,7 +400,7 @@ export default function About() {
       </section>
 
       {/* ── Value Props ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
+      <section className="py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#f1f1f3' }}>
@@ -290,8 +423,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Release Timeline ── */}
-      <section className="py-24 px-4 sm:px-6">
+      {/* ── Company Timeline ── */}
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>
@@ -301,28 +434,42 @@ export default function About() {
               {t('about.tl_title')}
             </h2>
           </div>
+
           {/* Desktop horizontal */}
           <div className="hidden md:block relative">
             <div className="absolute top-5 left-0 right-0 h-px" style={{ backgroundColor: '#2a2a36' }} />
             <div className="flex justify-between relative">
               {timeline.map((item, i) => (
                 <div key={item.date} className="flex flex-col items-center" style={{ width: `${100 / timeline.length}%` }}>
-                  <div className="w-3 h-3 rounded-full mb-4 relative z-10"
-                    style={{ backgroundColor: i === timeline.length - 1 ? '#f97316' : '#374151', border: '2px solid', borderColor: i === timeline.length - 1 ? '#f97316' : '#4b5563' }} />
+                  <div
+                    className="w-3 h-3 rounded-full mb-4 relative z-10"
+                    style={{
+                      backgroundColor: i === timeline.length - 1 ? '#f97316' : '#374151',
+                      border: '2px solid',
+                      borderColor: i === timeline.length - 1 ? '#f97316' : '#4b5563',
+                    }}
+                  />
                   <div className="text-xs font-mono font-bold mb-1" style={{ color: '#f97316' }}>{item.date}</div>
                   <div className="text-xs text-center px-2 leading-relaxed" style={{ color: '#9ca3af' }}>{item.label}</div>
                 </div>
               ))}
             </div>
           </div>
+
           {/* Mobile vertical */}
           <div className="md:hidden relative pl-6">
             <div className="absolute left-2 top-0 bottom-0 w-px" style={{ backgroundColor: '#2a2a36' }} />
             <div className="space-y-8">
               {timeline.map((item, i) => (
                 <div key={item.date} className="relative flex items-start gap-4">
-                  <div className="absolute -left-5 w-3 h-3 rounded-full mt-0.5"
-                    style={{ backgroundColor: i === timeline.length - 1 ? '#f97316' : '#374151', border: '2px solid', borderColor: i === timeline.length - 1 ? '#f97316' : '#4b5563' }} />
+                  <div
+                    className="absolute -left-5 w-3 h-3 rounded-full mt-0.5"
+                    style={{
+                      backgroundColor: i === timeline.length - 1 ? '#f97316' : '#374151',
+                      border: '2px solid',
+                      borderColor: i === timeline.length - 1 ? '#f97316' : '#4b5563',
+                    }}
+                  />
                   <div>
                     <div className="text-xs font-mono font-bold mb-0.5" style={{ color: '#f97316' }}>{item.date}</div>
                     <div className="text-sm" style={{ color: '#9ca3af' }}>{item.label}</div>
@@ -335,23 +482,27 @@ export default function About() {
       </section>
 
       {/* ── Reference Clients ── */}
-      <section className="py-16 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12', borderTop: '1px solid #1f1f28' }}>
+      <section className="py-16 px-4 sm:px-6" style={{ borderTop: '1px solid #1f1f28' }}>
         <div className="max-w-5xl mx-auto text-center">
-          <div className="text-xs font-semibold tracking-widest mb-8 uppercase" style={{ color: '#6b7280' }}>
+          <div className="text-xs font-semibold tracking-widest mb-10 uppercase" style={{ color: '#6b7280' }}>
             {t('about.clients_label')}
           </div>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">
+          <div className="flex flex-wrap justify-center gap-3">
             {clients.map((name) => (
-              <div key={name} className="text-lg font-bold tracking-wide" style={{ color: '#4b5563' }}>
+              <span
+                key={name}
+                className="px-4 py-2 rounded-lg text-sm font-medium"
+                style={{ backgroundColor: '#1a1a1f', color: '#9ca3af', border: '1px solid #2a2a33' }}
+              >
                 {name}
-              </div>
+              </span>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 px-4 sm:px-6">
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
             {t('about.cta_title')}
@@ -368,7 +519,7 @@ export default function About() {
               {t('about.cta_btn1')}
             </Link>
             <Link
-              to="/products/agent"
+              to="/products/orange-the-client"
               className="px-7 py-3 rounded-lg font-semibold text-sm transition-all"
               style={{ backgroundColor: 'transparent', color: '#f97316', border: '1px solid rgba(249,115,22,0.4)' }}
             >

@@ -2,15 +2,85 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import DotPattern from '../components/DotPattern';
 
-// Partner logos using well-known brand SVG-style placeholders
+// Individual logo card
+function LogoCard({ name, logo }: { name: string; logo: string }) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        margin: '0 10px',
+        padding: '12px 24px',
+        height: '96px',
+        minWidth: '160px',
+        borderRadius: '12px',
+        backgroundColor: '#1a1a1f',
+        border: '1px solid #2a2a33',
+        flexShrink: 0,
+        opacity: 1,
+        transition: 'border-color 0.2s',
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(249,115,22,0.4)';
+        const img = e.currentTarget.querySelector('img') as HTMLImageElement | null;
+        if (img) img.style.filter = 'none';
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.borderColor = '#2a2a33';
+        const img = e.currentTarget.querySelector('img') as HTMLImageElement | null;
+        if (img) img.style.filter = 'brightness(0) invert(1) opacity(0.4)';
+      }}
+    >
+      <img
+        src={logo}
+        alt={name}
+        style={{
+          maxHeight: '40px',
+          maxWidth: '120px',
+          width: 'auto',
+          height: 'auto',
+          objectFit: 'contain',
+          filter: 'brightness(0) invert(1) opacity(0.4)',
+          transition: 'filter 0.2s',
+        }}
+        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+      />
+      <span style={{
+        color: '#6b7280',
+        fontSize: '11px',
+        fontWeight: 500,
+        whiteSpace: 'nowrap',
+        letterSpacing: '0.03em',
+        lineHeight: 1,
+      }}>
+        {name}
+      </span>
+    </div>
+  );
+}
+
+// 11 placeholder partner logos — replace src values with actual logo images later
 const partners = [
-  { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
-  { name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg' },
-  { name: 'Amazon', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
-  { name: 'Meta', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg' },
-  { name: 'IBM', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg' },
-  { name: 'Salesforce', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg' },
+  { name: '한일네트웍스', logo: '/images/partners/hanil_logo.png', },
+  { name: '한일시멘트', logo: '/images/partners/hanil_logo.png' },
+  { name: '효성ITX', logo: '/images/partners/hyosung_itx_logo.png' },
+  { name: '국립순천대학교', logo: '/images/partners/sunchon_national_university_logo.png' },
+  { name: '부천도시공사', logo: '/images/partners/bucheon_environment_logo.png' },
+  { name: 'U BASE', logo: '/images/partners/ubase_logo.png' },
+  { name: 'SUN AT FOOD', logo: '/images/partners/sun_at_food_logo.png' },
+  { name: '교보생명', logo: '/images/partners/kyobo_life_logo.png' },
+  { name: '현대해상', logo: '/images/partners/hyundai_fire_logo.png' },
+  { name: '크라운해태', logo: '/images/partners/crown_haetae_logo.png' },
+  { name: '유솔정보통신', logo: '/images/partners/yousol_logo.png' },
 ];
+
+// Split into 3 rows (4 / 4 / 3) and duplicate for seamless loop
+const row1 = partners.slice(0, 4);
+const row2 = partners.slice(4, 8);
+const row3 = partners.slice(8, 11);
 
 export default function Home() {
   const navigate = useNavigate();
@@ -244,44 +314,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partners Section */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
-        <div className="max-w-7xl mx-auto">
+      {/* Partners Section — 3-row infinite marquee */}
+      <section className="py-20" style={{ backgroundColor: '#111114', overflow: 'hidden' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
           <h2 className="text-center text-2xl sm:text-3xl font-bold mb-3" style={{ color: '#f1f1f3' }}>
             {t('home.partners_title')}
           </h2>
-          <p className="text-center text-sm mb-12" style={{ color: '#6b7280' }}>
+          <p className="text-center text-sm" style={{ color: '#6b7280' }}>
             {t('home.partners_desc')}
           </p>
+        </div>
 
-          <div
-            className="rounded-2xl p-10 cursor-pointer transition-all"
-            style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
-            onClick={() => navigate('/company/partners')}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#2a2a33')}
-          >
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center">
-              {partners.map((partner) => (
-                <div key={partner.name} className="flex items-center justify-center">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="h-8 object-contain grayscale opacity-50 hover:opacity-80 hover:grayscale-0 transition-all"
-                    style={{ maxWidth: '100px' }}
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      const next = e.currentTarget.nextElementSibling as HTMLElement;
-                      if (next) next.style.display = 'block';
-                    }}
-                  />
-                  <span
-                    className="text-sm font-semibold hidden"
-                    style={{ color: '#4b5563' }}
-                  >
-                    {partner.name}
-                  </span>
-                </div>
+        {/* Fade edges */}
+        <div style={{ position: 'relative' }}>
+          <div style={{
+            position: 'absolute', top: 0, left: 0, width: '120px', height: '100%', zIndex: 2,
+            background: 'linear-gradient(to right, #111114 0%, transparent 100%)',
+            pointerEvents: 'none',
+          }} />
+          <div style={{
+            position: 'absolute', top: 0, right: 0, width: '120px', height: '100%', zIndex: 2,
+            background: 'linear-gradient(to left, #111114 0%, transparent 100%)',
+            pointerEvents: 'none',
+          }} />
+
+          {/* Row 1 — scrolls left */}
+          <div style={{ overflow: 'hidden', marginBottom: '16px' }}>
+            <div className="marquee-left" style={{ display: 'flex', width: 'max-content' }}>
+              {[...row1, ...row1, ...row1, ...row1].map((p, i) => (
+                <LogoCard key={`r1-${i}`} name={p.name} logo={p.logo} />
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 — scrolls right */}
+          <div style={{ overflow: 'hidden', marginBottom: '16px' }}>
+            <div className="marquee-right" style={{ display: 'flex', width: 'max-content' }}>
+              {[...row2, ...row2, ...row2, ...row2].map((p, i) => (
+                <LogoCard key={`r2-${i}`} name={p.name} logo={p.logo} />
+              ))}
+            </div>
+          </div>
+
+          {/* Row 3 — scrolls left (slower) */}
+          <div style={{ overflow: 'hidden' }}>
+            <div className="marquee-left-slow" style={{ display: 'flex', width: 'max-content' }}>
+              {[...row3, ...row3, ...row3, ...row3, ...row3, ...row3].map((p, i) => (
+                <LogoCard key={`r3-${i}`} name={p.name} logo={p.logo} />
               ))}
             </div>
           </div>
