@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 interface BlogPost {
   category: string;
+  categoryColor: string;
   subject: string;
   content: string;
   readMinutes: string;
@@ -31,12 +32,6 @@ const formatDate = (dateStr: string, lang: string): string => {
   }).format(date);
 };
 
-const categoryColors: Record<string, string> = {
-  Engineering: '#3b82f6',
-  Product: '#f97316',
-  Security: '#10b981',
-  Insights: '#a855f7',
-};
 
 export default function TechBlog() {
   const { t, i18n } = useTranslation();
@@ -83,13 +78,13 @@ export default function TechBlog() {
             onClick={() => post.link && window.open(post.link, '_blank', 'noopener,noreferrer')}
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="text-xs font-semibold px-2 py-1 rounded-full" style={{ backgroundColor: `${categoryColors[post.category] ?? '#6b7280'}22`, color: categoryColors[post.category] ?? '#6b7280' }}>
+              <span className="text-xs font-semibold px-2 py-1 rounded-full" style={{ backgroundColor: `${post.categoryColor ?? '#6b7280'}22`, color: post.categoryColor ?? '#6b7280' }}>
                 {post.category}
               </span>
               <span className="text-xs" style={{ color: '#4b5563' }}>{post.readMinutes} {t('blog.minRead')}</span>
             </div>
-            <h2 className="text-base font-semibold mb-3 flex-1" style={{ color: '#f1f1f3', lineHeight: '1.5' }}>{post.subject}</h2>
-            <p className="text-sm mb-4 leading-relaxed" style={{ color: '#9ca3af' }}>{post.content}</p>
+            <h2 className="text-base font-semibold mb-3" style={{ color: '#f1f1f3', lineHeight: '1.5' }}>{post.subject}</h2>
+            <p className="text-sm mb-4 leading-relaxed flex-1" style={{ color: '#9ca3af' }}>{post.content}</p>
             <div className="flex items-center justify-between">
               <span className="text-xs" style={{ color: '#4b5563' }}>{formatDate(post.createdAt, i18n.language.split('-')[0])}</span>
               <span className="text-xs font-medium flex items-center gap-1" style={{ color: '#f97316' }}>

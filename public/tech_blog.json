@@ -3,20 +3,40 @@
     "language": "ko",
     "posts": [
       {
-        "category": "Product",
-        "subject": "제목.1",
-        "content": "내용.1",
-        "readMinutes": "1",
-        "createdAt": "2026.01.01",
-        "link": "https://google.com"
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "블루투스 끊김의 숨겨진 원인: 배터리 전원 정책 추적 가이드",
+        "content": "재택근무 시 블루투스가 자꾸 끊기는 원인을 Windows 전원 정책과 배터리 방전 속도에서 찾고, PowerShell로 진단하는 방법을 안내합니다.",
+        "readMinutes": "5",
+        "createdAt": "2026.03.25",
+        "link": "https://o5l3.github.io/blogs/#/post/bluetooth-battery-disconnect-guide"
       },
       {
-        "category": "Security",
-        "subject": "제목.2",
-        "content": "내용.2",
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "WMIPrvSE.exe 고 CPU 사용 원친 추적 가이드",
+        "content": "Windows WMI Provider Host(WMIPrvSE.exe)가 높은 CPU를 사용할 때의 원인 분석 및 해결 방법을 PowerShell 명령어와 함께 상세히 안내합니다.",
+        "readMinutes": "6",
+        "createdAt": "2026.01.24",
+        "link": "https://o5l3.github.io/blogs/#/post/wmiprvse-high-cpu-guide"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "고객사 PC 성능 분석 보고서 2",
+        "content": "2025년 12월 고객사의 17개 노드에 대한 성능 분석 보고서입니다. CPU, 메모리, 디스크, 핸들 메트릭을 종합 분석하고, 메모리 과다 사용 프로그램을 식별합니다.",
+        "readMinutes": "1",
+        "createdAt": "2025.12.15",
+        "link": "https://o5l3.github.io/blogs/#/post/pc-performance-report-2"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "고객사 PC 성능 저하 사례 분석 보고서",
+        "content": "2025년 10월 고객사 24대 PC에서 발견된 198건의 성능 저하 증상을 분석한 보고서입니다. 파일 시스템 지연, 비정상 프로세스 종료, CPU 과다 사용, BSOD 등의 사례를 다룹니다.",
         "readMinutes": "2",
-        "createdAt": "2026.01.02",
-        "link": "https://google.com"
+        "createdAt": "2025.11.17",
+        "link": "https://o5l3.github.io/blogs/#/post/pc-performance-report-1"
       }
     ]
   },
@@ -24,20 +44,40 @@
     "language": "en",
     "posts": [
       {
-        "category": "Product",
-        "subject": "영어 제목.1",
-        "content": "영어 내용.1",
-        "readMinutes": "1",
-        "createdAt": "2026.01.01",
-        "link": "https://google.com"
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Hidden Causes of Bluetooth Disconnection: A Guide to Tracing Battery Power Policies",
+        "content": "Discover why Bluetooth keeps disconnecting during remote work by investigating Windows power policies and battery drain rates, with step-by-step PowerShell diagnostics.",
+        "readMinutes": "5",
+        "createdAt": "2026.03.25",
+        "link": "https://o5l3.github.io/blogs/#/post/bluetooth-battery-disconnect-guide"
       },
       {
-        "category": "Security",
-        "subject": "영어 제목.2",
-        "content": "영어 내용.2",
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Tracing the Root Cause of High CPU Usage by WMIPrvSE.exe",
+        "content": "A detailed guide on analyzing and resolving high CPU usage caused by Windows WMI Provider Host (WMIPrvSE.exe), complete with PowerShell commands for diagnosis.",
+        "readMinutes": "6",
+        "createdAt": "2026.01.24",
+        "link": "https://o5l3.github.io/blogs/#/post/wmiprvse-high-cpu-guide"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "Client PC Performance Analysis Report 2",
+        "content": "A performance analysis report covering 17 client nodes in December 2025. Provides a comprehensive review of CPU, memory, disk, and handle metrics, and identifies programs with excessive memory consumption.",
+        "readMinutes": "1",
+        "createdAt": "2025.12.15",
+        "link": "https://o5l3.github.io/blogs/#/post/pc-performance-report-2"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "Client PC Performance Degradation Case Analysis Report",
+        "content": "A report analyzing 198 performance degradation symptoms found across 24 client PCs in October 2025, covering cases such as file system delays, abnormal process terminations, excessive CPU usage, and BSOD.",
         "readMinutes": "2",
-        "createdAt": "2026.01.02",
-        "link": "https://google.com"
+        "createdAt": "2025.11.17",
+        "link": "https://o5l3.github.io/blogs/#/post/pc-performance-report-1"
       }
     ]
   },
@@ -45,20 +85,40 @@
     "language": "zh",
     "posts": [
       {
-        "category": "Product",
-        "subject": "중국어 제목.1",
-        "content": "중국어 내용.1",
-        "readMinutes": "1",
-        "createdAt": "2026.01.01",
-        "link": "https://google.com"
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "蓝牙断连的隐藏原因：电池电源策略追踪指南",
+        "content": "从Windows电源策略和电池放电速度中找出远程办公时蓝牙频繁断连的根本原因，并介绍如何使用PowerShell进行诊断。",
+        "readMinutes": "5",
+        "createdAt": "2026.03.25",
+        "link": "https://o5l3.github.io/blogs/#/post/bluetooth-battery-disconnect-guide"
       },
       {
-        "category": "Security",
-        "subject": "중국어 제목.2",
-        "content": "중국어 내용.2",
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "WMIPrvSE.exe 高CPU占用原因追踪指南",
+        "content": "详细介绍Windows WMI Provider Host（WMIPrvSE.exe）占用高CPU时的原因分析与解决方法，并附带PowerShell诊断命令说明。",
+        "readMinutes": "6",
+        "createdAt": "2026.01.24",
+        "link": "https://o5l3.github.io/blogs/#/post/wmiprvse-high-cpu-guide"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "客户PC性能分析报告 2",
+        "content": "这是2025年12月针对客户17个节点的性能分析报告，综合分析了CPU、内存、磁盘和句柄指标，并识别出内存占用过高的程序。",
+        "readMinutes": "1",
+        "createdAt": "2025.12.15",
+        "link": "https://o5l3.github.io/blogs/#/post/pc-performance-report-2"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "客户PC性能下降案例分析报告",
+        "content": "本报告对2025年10月客户24台PC中发现的198起性能下降症状进行了分析，涵盖文件系统延迟、异常进程终止、CPU过度占用及蓝屏（BSOD）等典型案例。",
         "readMinutes": "2",
-        "createdAt": "2026.01.02",
-        "link": "https://google.com"
+        "createdAt": "2025.11.17",
+        "link": "https://o5l3.github.io/blogs/#/post/pc-performance-report-1"
       }
     ]
   },
@@ -66,20 +126,40 @@
     "language": "ja",
     "posts": [
       {
-        "category": "Product",
-        "subject": "일본어 제목.1",
-        "content": "일본어 내용.1",
-        "readMinutes": "1",
-        "createdAt": "2026.01.01",
-        "link": "https://google.com"
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Bluetooth切断の隠れた原因：バッテリー電源ポリシー追跡ガイド",
+        "content": "在宅勤務中にBluetoothが頻繁に切断される原因をWindowsの電源ポリシーとバッテリー放電速度から探り、PowerShellで診断する方法を詳しく解説します。",
+        "readMinutes": "5",
+        "createdAt": "2026.03.25",
+        "link": "https://o5l3.github.io/blogs/#/post/bluetooth-battery-disconnect-guide"
       },
       {
-        "category": "Security",
-        "subject": "일본어 제목.2",
-        "content": "일본어 내용.2",
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "WMIPrvSE.exe 高CPU使用率の原因追跡ガイド",
+        "content": "Windows WMI Provider Host（WMIPrvSE.exe）がCPUを高負荷で使用する場合の原因分析と解決方法を、PowerShellコマンドとともに詳しく解説します。",
+        "readMinutes": "6",
+        "createdAt": "2026.01.24",
+        "link": "https://o5l3.github.io/blogs/#/post/wmiprvse-high-cpu-guide"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "顧客PC性能分析レポート 2",
+        "content": "2025年12月、顧客の17ノードを対象とした性能分析レポートです。CPU・メモリ・ディスク・ハンドルのメトリクスを総合的に分析し、メモリを過剰消費するプログラムを特定します。",
+        "readMinutes": "1",
+        "createdAt": "2025.12.15",
+        "link": "https://o5l3.github.io/blogs/#/post/pc-performance-report-2"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "顧客PC性能低下事例分析レポート",
+        "content": "2025年10月に顧客の24台のPCで発見された198件の性能低下症状を分析したレポートです。ファイルシステムの遅延、異常なプロセス終了、CPU過負荷、BSODなどの事例を取り上げています。",
         "readMinutes": "2",
-        "createdAt": "2026.01.02",
-        "link": "https://google.com"
+        "createdAt": "2025.11.17",
+        "link": "https://o5l3.github.io/blogs/#/post/pc-performance-report-1"
       }
     ]
   }
