@@ -195,10 +195,10 @@ export default function OrangeTheClient() {
   };
 
   // ── 라이트박스 상태 ──
-  const [lbOpen, setLbOpen]   = useState(false);
-  const [lbSrc,  setLbSrc]    = useState('');
-  const [lbZoom, setLbZoom]   = useState(1);
-  const [lbPos,  setLbPos]    = useState({ x: 0, y: 0 });
+  const [lbOpen, setLbOpen] = useState(false);
+  const [lbSrc, setLbSrc] = useState('');
+  const [lbZoom, setLbZoom] = useState(1);
+  const [lbPos, setLbPos] = useState({ x: 0, y: 0 });
   const lbDragging = useRef(false);
   const lbDragStart = useRef({ mx: 0, my: 0, ix: 0, iy: 0 });
 
@@ -209,7 +209,7 @@ export default function OrangeTheClient() {
     setLbOpen(true);
   };
   const closeLightbox = () => setLbOpen(false);
-  const lbZoomIn  = () => setLbZoom((z) => Math.min(+(z + 0.25).toFixed(2), 4));
+  const lbZoomIn = () => setLbZoom((z) => Math.min(+(z + 0.25).toFixed(2), 4));
   const lbZoomOut = () => setLbZoom((z) => Math.max(+(z - 0.25).toFixed(2), 0.25));
 
   const lbMouseDown = (e: React.MouseEvent) => {
@@ -224,7 +224,9 @@ export default function OrangeTheClient() {
       y: lbDragStart.current.iy + (e.clientY - lbDragStart.current.my),
     });
   };
-  const lbMouseUp = () => { lbDragging.current = false; };
+  const lbMouseUp = () => {
+    lbDragging.current = false;
+  };
 
   const lbWheel = (e: React.WheelEvent) => {
     e.preventDefault();
@@ -236,7 +238,6 @@ export default function OrangeTheClient() {
 
   return (
     <div style={{ backgroundColor: '#0e0e11' }}>
-
       {/* ── 라이트박스 오버레이 ── */}
       {lbOpen && (
         <div
@@ -265,19 +266,39 @@ export default function OrangeTheClient() {
             <img
               src={lbSrc}
               draggable={false}
-              style={{ maxWidth: '88vw', maxHeight: '82vh', display: 'block', borderRadius: '8px', pointerEvents: 'none' }}
+              style={{
+                maxWidth: '88vw',
+                maxHeight: '82vh',
+                display: 'block',
+                borderRadius: '8px',
+                pointerEvents: 'none',
+              }}
             />
           </div>
 
           {/* 상단 우측: 닫기 버튼 */}
           <button
             className="absolute top-5 right-5 flex items-center justify-center rounded-full transition-all"
-            style={{ width: '40px', height: '40px', backgroundColor: 'rgba(255,255,255,0.12)', color: '#fff', zIndex: 2, border: '1px solid rgba(255,255,255,0.2)' }}
+            style={{
+              width: '40px',
+              height: '40px',
+              backgroundColor: 'rgba(255,255,255,0.12)',
+              color: '#fff',
+              zIndex: 2,
+              border: '1px solid rgba(255,255,255,0.2)',
+            }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.22)')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)')}
             onClick={closeLightbox}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
@@ -285,44 +306,108 @@ export default function OrangeTheClient() {
           {/* 하단 중앙: 확대/축소 컨트롤 */}
           <div
             className="absolute bottom-6 flex items-center gap-3 px-4 py-2 rounded-full"
-            style={{ zIndex: 2, backgroundColor: 'rgba(0,0,0,0.6)', border: '1px solid rgba(255,255,255,0.15)' }}
+            style={{
+              zIndex: 2,
+              backgroundColor: 'rgba(0,0,0,0.6)',
+              border: '1px solid rgba(255,255,255,0.15)',
+            }}
           >
             <button
               className="flex items-center justify-center rounded-full transition-all"
-              style={{ width: '32px', height: '32px', backgroundColor: 'rgba(255,255,255,0.1)', color: '#fff' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)')}
+              style={{
+                width: '32px',
+                height: '32px',
+                backgroundColor: 'rgba(255,255,255,0.1)',
+                color: '#fff',
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)')
+              }
               onClick={lbZoomOut}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
               </svg>
             </button>
-            <span className="text-sm font-semibold tabular-nums" style={{ color: '#e5e7eb', minWidth: '44px', textAlign: 'center' }}>
+            <span
+              className="text-sm font-semibold tabular-nums"
+              style={{ color: '#e5e7eb', minWidth: '44px', textAlign: 'center' }}
+            >
               {Math.round(lbZoom * 100)}%
             </span>
             <button
               className="flex items-center justify-center rounded-full transition-all"
-              style={{ width: '32px', height: '32px', backgroundColor: 'rgba(255,255,255,0.1)', color: '#fff' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)')}
+              style={{
+                width: '32px',
+                height: '32px',
+                backgroundColor: 'rgba(255,255,255,0.1)',
+                color: '#fff',
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)')
+              }
               onClick={lbZoomIn}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12h14" />
               </svg>
             </button>
-            <div style={{ width: '1px', height: '20px', backgroundColor: 'rgba(255,255,255,0.2)' }} />
+            <div
+              style={{ width: '1px', height: '20px', backgroundColor: 'rgba(255,255,255,0.2)' }}
+            />
             <button
               className="flex items-center justify-center rounded-full transition-all"
-              style={{ width: '32px', height: '32px', backgroundColor: 'rgba(255,255,255,0.1)', color: '#fff' }}
+              style={{
+                width: '32px',
+                height: '32px',
+                backgroundColor: 'rgba(255,255,255,0.1)',
+                color: '#fff',
+              }}
               title="원래 크기"
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)')}
-              onClick={() => { setLbZoom(1); setLbPos({ x: 0, y: 0 }); }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)')
+              }
+              onClick={() => {
+                setLbZoom(1);
+                setLbPos({ x: 0, y: 0 });
+              }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4h4M16 4h4v4M4 16v4h4M16 20h4v-4" />
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 8V4h4M16 4h4v4M4 16v4h4M16 20h4v-4"
+                />
               </svg>
             </button>
           </div>
@@ -1429,9 +1514,12 @@ export default function OrangeTheClient() {
             >
               {t('otc.mgr_badge')}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: '#f1f1f3' }}>
               {t('otc.mgr_title')}
             </h2>
+            <p className="max-w-2xl mx-auto text-sm" style={{ color: '#9ca3af' }}>
+              {t('otc.mgr_desc')}
+            </p>
           </div>
 
           {/* 캐러셀(2/3) + 설명(1/3) */}
@@ -1502,10 +1590,13 @@ export default function OrangeTheClient() {
                     <div
                       key={i}
                       onClick={
-                        isLeft   ? mgrPrev :
-                        isRight  ? mgrNext :
-                        isCenter ? () => openLightbox(item.img) :
-                        undefined
+                        isLeft
+                          ? mgrPrev
+                          : isRight
+                            ? mgrNext
+                            : isCenter
+                              ? () => openLightbox(item.img)
+                              : undefined
                       }
                       style={{
                         position: 'absolute',
@@ -1515,7 +1606,7 @@ export default function OrangeTheClient() {
                         height,
                         zIndex: isCenter ? 3 : 1,
                         opacity: isCenter ? 1 : visible ? 0.5 : 0,
-                        cursor: isCenter ? 'zoom-in' : (isLeft || isRight) ? 'pointer' : 'default',
+                        cursor: isCenter ? 'zoom-in' : isLeft || isRight ? 'pointer' : 'default',
                         transition:
                           'left 0.45s cubic-bezier(0.4,0,0.2,1), width 0.45s cubic-bezier(0.4,0,0.2,1), height 0.45s cubic-bezier(0.4,0,0.2,1), top 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.45s ease',
                         borderRadius: '3px',
@@ -1597,7 +1688,7 @@ export default function OrangeTheClient() {
               <ul className="space-y-3">
                 {managerItems[mgrIdx].contentKeys.map((key) => (
                   <li key={key} className="flex items-start gap-2">
-                    <span className="shrink-0 mt-0.5" style={{ color: '#f97316' }}>
+                    <span className="shrink-0 -mt-0.5" style={{ color: '#f97316' }}>
                       ✦
                     </span>
                     <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
@@ -1804,23 +1895,6 @@ export default function OrangeTheClient() {
                 ))}
               </tbody>
             </table>
-          </div>
-          <div
-            className="rounded-xl px-6 py-4 flex items-start gap-3"
-            style={{
-              backgroundColor: 'rgba(249,115,22,0.06)',
-              border: '1px solid rgba(249,115,22,0.2)',
-            }}
-          >
-            <span className="text-lg mt-0.5">💡</span>
-            <div>
-              <span className="font-bold text-sm" style={{ color: '#f97316' }}>
-                {t('otc.compare_key')}{' '}
-              </span>
-              <span className="text-sm" style={{ color: '#d1d5db' }}>
-                {t('otc.compare_key_desc')}
-              </span>
-            </div>
           </div>
         </div>
       </section>
