@@ -19,7 +19,7 @@ export default function Footer() {
       links: [
         { label: t('nav.introduction'), path: '/resources/introduction' },
         { label: t('nav.userManual'), path: '/resources/user-manual' },
-        { label: t('nav.techBlog'), path: '/resources/blog' },
+        { label: t('nav.techBlog'), path: '/resources/tech-blog' },
       ],
     },
     {
@@ -44,9 +44,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer
-      style={{ backgroundColor: '#0e0e11', borderTop: '1px solid #2a2a33' }}
-    >
+    <footer style={{ backgroundColor: '#0e0e11', borderTop: '1px solid #2a2a33' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         {/* Top section: logo + nav */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
@@ -81,12 +79,8 @@ export default function Footer() {
                       to={link.path}
                       className="text-sm transition-colors"
                       style={{ color: '#6b7280' }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.color = '#f97316')
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.color = '#6b7280')
-                      }
+                      onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = '#6b7280')}
                     >
                       {link.label}
                     </Link>
@@ -104,10 +98,7 @@ export default function Footer() {
         >
           <span>{t('footer.rights')}</span>
           <div className="flex gap-6">
-            <Link
-              to="/privacy"
-              className="transition-colors hover:text-gray-300"
-            >
+            <Link to="/privacy" className="transition-colors hover:text-gray-300">
               {t('footer.privacy')}
             </Link>
             <Link to="/terms" className="transition-colors hover:text-gray-300">

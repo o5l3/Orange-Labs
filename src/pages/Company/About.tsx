@@ -49,8 +49,18 @@ export default function About() {
   const capabilities = [
     {
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
+          />
         </svg>
       ),
       title: t('about.cap1_title'),
@@ -58,8 +68,18 @@ export default function About() {
     },
     {
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          />
         </svg>
       ),
       title: t('about.cap2_title'),
@@ -67,8 +87,18 @@ export default function About() {
     },
     {
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+          />
         </svg>
       ),
       title: t('about.cap3_title'),
@@ -76,8 +106,18 @@ export default function About() {
     },
     {
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+          />
         </svg>
       ),
       title: t('about.cap4_title'),
@@ -85,8 +125,18 @@ export default function About() {
     },
     {
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
         </svg>
       ),
       title: t('about.cap5_title'),
@@ -94,8 +144,18 @@ export default function About() {
     },
     {
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+          />
         </svg>
       ),
       title: t('about.cap6_title'),
@@ -125,48 +185,92 @@ export default function About() {
   ];
 
   const clients = [
-    '한일네트웍스', '한일시멘트', '한일현대시멘트',
-    'CROWN', 'HYOSUNG ITX', 'U BASE GROUP', 'SUN AT FOOD',
-    '부천도시공사', '국립순천대학교',
+    '한일네트웍스',
+    '한일시멘트',
+    '한일현대시멘트',
+    'CROWN',
+    'HYOSUNG ITX',
+    'U BASE GROUP',
+    'SUN AT FOOD',
+    '부천도시공사',
+    '국립순천대학교',
   ];
 
   return (
     <div style={{ backgroundColor: '#111114', color: '#f1f1f3' }}>
-
       {/* ── Hero ── */}
       <section
         className="relative py-32 px-4 sm:px-6 overflow-hidden"
         style={{ background: 'linear-gradient(160deg, #111114 0%, #17101a 60%, #111114 100%)' }}
       >
         <div className="absolute inset-0 pointer-events-none">
-          <div style={{ position: 'absolute', top: '20%', left: '10%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%)' }} />
-          <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.05) 0%, transparent 70%)' }} />
+          <div
+            style={{
+              position: 'absolute',
+              top: '20%',
+              left: '10%',
+              width: 500,
+              height: 500,
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%)',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '10%',
+              right: '5%',
+              width: 400,
+              height: 400,
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(249,115,22,0.05) 0%, transparent 70%)',
+            }}
+          />
         </div>
         <div className="relative max-w-5xl mx-auto text-center">
           <div
             className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-8 tracking-wider"
-            style={{ backgroundColor: 'rgba(249,115,22,0.12)', color: '#f97316', border: '1px solid rgba(249,115,22,0.3)' }}
+            style={{
+              backgroundColor: 'rgba(249,115,22,0.12)',
+              color: '#f97316',
+              border: '1px solid rgba(249,115,22,0.3)',
+            }}
           >
             {t('about.badge')}
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            {t('about.hero_title_1')}<br />
-            <span style={{ color: '#f97316' }}>{t('about.hero_title_2')}</span><br />
+            {t('about.hero_title_1')}
+            <br />
+            <span style={{ color: '#f97316' }}>{t('about.hero_title_2')}</span>
+            <br />
             {t('about.hero_title_3')}
           </h1>
-          <p className="text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto" style={{ color: '#9ca3af' }}>
+          <p
+            className="text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto"
+            style={{ color: '#9ca3af' }}
+          >
             {t('about.hero_desc')}
           </p>
         </div>
       </section>
 
       {/* ── Stats ── */}
-      <section style={{ borderTop: '1px solid #1f1f28', borderBottom: '1px solid #1f1f28', backgroundColor: '#111114' }}>
+      <section
+        style={{
+          borderTop: '1px solid #1f1f28',
+          borderBottom: '1px solid #1f1f28',
+          backgroundColor: '#111114',
+        }}
+      >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: '#f97316' }}>{s.value}</div>
-              <div className="text-sm" style={{ color: '#9ca3af' }}>{s.label}</div>
+              <div className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: '#f97316' }}>
+                {s.value}
+              </div>
+              <div className="text-sm" style={{ color: '#9ca3af' }}>
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
@@ -176,10 +280,16 @@ export default function About() {
       <section className="py-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="text-xs font-semibold tracking-widest mb-4 uppercase" style={{ color: '#f97316' }}>
+            <div
+              className="text-xs font-semibold tracking-widest mb-4 uppercase"
+              style={{ color: '#f97316' }}
+            >
               {t('about.mission_badge')}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6 leading-snug" style={{ color: '#f1f1f3' }}>
+            <h2
+              className="text-3xl sm:text-4xl font-bold mb-6 leading-snug"
+              style={{ color: '#f1f1f3' }}
+            >
               {t('about.mission_title')}
             </h2>
             <p className="text-base leading-relaxed mb-4" style={{ color: '#9ca3af' }}>
@@ -189,10 +299,25 @@ export default function About() {
               {t('about.mission_p2')}
             </p>
           </div>
-          <div className="rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #1a1a22 0%, #1f1520 100%)', border: '1px solid #2a2a36' }}>
-            <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>FLAGSHIP PRODUCT</div>
-            <div className="text-2xl font-bold mb-2" style={{ color: '#f1f1f3' }}>Orange The Client v1.6</div>
-            <div className="text-sm mb-6" style={{ color: '#9ca3af' }}>{t('about.product_tagline')}</div>
+          <div
+            className="rounded-2xl p-8"
+            style={{
+              background: 'linear-gradient(135deg, #1a1a22 0%, #1f1520 100%)',
+              border: '1px solid #2a2a36',
+            }}
+          >
+            <div
+              className="text-xs font-semibold tracking-widest mb-3 uppercase"
+              style={{ color: '#f97316' }}
+            >
+              FLAGSHIP PRODUCT
+            </div>
+            <div className="text-2xl font-bold mb-2" style={{ color: '#f1f1f3' }}>
+              Orange The Client v1.6
+            </div>
+            <div className="text-sm mb-6" style={{ color: '#9ca3af' }}>
+              {t('about.product_tagline')}
+            </div>
             <div className="space-y-3">
               {[
                 t('about.product_bullet1'),
@@ -201,19 +326,30 @@ export default function About() {
                 t('about.product_bullet4'),
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#f97316' }} />
-                  <span className="text-sm leading-relaxed" style={{ color: '#d1d5db' }}>{item}</span>
+                  <div
+                    className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                    style={{ backgroundColor: '#f97316' }}
+                  />
+                  <span className="text-sm leading-relaxed" style={{ color: '#d1d5db' }}>
+                    {item}
+                  </span>
                 </div>
               ))}
             </div>
             <div className="mt-6 pt-5" style={{ borderTop: '1px solid #2a2a36' }}>
-              <div className="text-xs mb-2" style={{ color: '#6b7280' }}>{t('about.compliance_label')}</div>
+              <div className="text-xs mb-2" style={{ color: '#6b7280' }}>
+                {t('about.compliance_label')}
+              </div>
               <div className="flex flex-wrap gap-2">
                 {['GDPR', 'CCPA', t('about.compliance_pipa')].map((c) => (
                   <span
                     key={c}
                     className="px-2 py-0.5 text-xs rounded"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#f97316', border: '1px solid rgba(249,115,22,0.2)' }}
+                    style={{
+                      backgroundColor: 'rgba(249,115,22,0.1)',
+                      color: '#f97316',
+                      border: '1px solid rgba(249,115,22,0.2)',
+                    }}
                   >
                     {c}
                   </span>
@@ -228,7 +364,10 @@ export default function About() {
       <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>
+            <div
+              className="text-xs font-semibold tracking-widest mb-3 uppercase"
+              style={{ color: '#f97316' }}
+            >
               {t('about.group_badge')}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
@@ -240,40 +379,59 @@ export default function About() {
           </div>
 
           {/* Main company (OrangeLabs) — full width card */}
-          {groupCompanies.filter(c => c.isMain).map((c) => (
-            <div
-              key={c.nameKey}
-              className="rounded-2xl p-8 mb-5 relative overflow-hidden"
-              style={{
-                background: 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0.03) 100%)',
-                border: '1px solid rgba(249,115,22,0.35)',
-              }}
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span
-                      className="px-2 py-0.5 text-xs font-bold rounded"
-                      style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}
-                    >
-                      제조사 · 개발
-                    </span>
-                    <span className="text-xs" style={{ color: '#6b7280' }}>{t(c.yearKey)}</span>
+          {groupCompanies
+            .filter((c) => c.isMain)
+            .map((c) => (
+              <div
+                key={c.nameKey}
+                className="rounded-2xl p-8 mb-5 relative overflow-hidden"
+                style={{
+                  background:
+                    'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0.03) 100%)',
+                  border: '1px solid rgba(249,115,22,0.35)',
+                }}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-1">
+                      <span
+                        className="px-2 py-0.5 text-xs font-bold rounded"
+                        style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}
+                      >
+                        제조사 · 개발
+                      </span>
+                      <span className="text-xs" style={{ color: '#6b7280' }}>
+                        {t(c.yearKey)}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-black mb-1" style={{ color: '#f1f1f3' }}>
+                      {t(c.nameKey)}
+                    </h3>
+                    <p className="text-sm mb-3" style={{ color: '#f97316', fontWeight: 600 }}>
+                      {t(c.roleKey)}
+                    </p>
+                    <p className="text-sm" style={{ color: '#9ca3af' }}>
+                      {t(c.descKey)}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-black mb-1" style={{ color: '#f1f1f3' }}>{t(c.nameKey)}</h3>
-                  <p className="text-sm mb-3" style={{ color: '#f97316', fontWeight: 600 }}>{t(c.roleKey)}</p>
-                  <p className="text-sm" style={{ color: '#9ca3af' }}>{t(c.descKey)}</p>
-                </div>
-                <div
-                  className="shrink-0 rounded-xl px-6 py-4 text-center"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.06)', border: '1px solid rgba(249,115,22,0.2)', minWidth: 160 }}
-                >
-                  <div className="text-3xl font-black mb-1" style={{ color: '#f97316' }}>v1.6</div>
-                  <div className="text-xs" style={{ color: '#9ca3af' }}>Orange The Client</div>
+                  <div
+                    className="shrink-0 rounded-xl px-6 py-4 text-center"
+                    style={{
+                      backgroundColor: 'rgba(249,115,22,0.06)',
+                      border: '1px solid rgba(249,115,22,0.2)',
+                      minWidth: 160,
+                    }}
+                  >
+                    <div className="text-3xl font-black mb-1" style={{ color: '#f97316' }}>
+                      v1.6
+                    </div>
+                    <div className="text-xs" style={{ color: '#9ca3af' }}>
+                      Orange The Client
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
 
           {/* CEO Card */}
           <div
@@ -283,44 +441,65 @@ export default function About() {
             <div className="flex items-center gap-5">
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center text-2xl shrink-0"
-                style={{ backgroundColor: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.25)' }}
+                style={{
+                  backgroundColor: 'rgba(249,115,22,0.1)',
+                  border: '1px solid rgba(249,115,22,0.25)',
+                }}
               >
                 👤
               </div>
               <div>
-                <div className="text-xs font-semibold tracking-widest mb-1 uppercase" style={{ color: '#f97316' }}>
+                <div
+                  className="text-xs font-semibold tracking-widest mb-1 uppercase"
+                  style={{ color: '#f97316' }}
+                >
                   {t('about.ceo_badge')}
                 </div>
-                <div className="text-lg font-bold" style={{ color: '#f1f1f3' }}>{t('about.ceo_name')}</div>
-                <div className="text-sm mb-1" style={{ color: '#f97316' }}>{t('about.ceo_title')}</div>
-                <div className="text-sm" style={{ color: '#9ca3af' }}>{t('about.ceo_desc')}</div>
+                <div className="text-lg font-bold" style={{ color: '#f1f1f3' }}>
+                  {t('about.ceo_name')}
+                </div>
+                <div className="text-sm mb-1" style={{ color: '#f97316' }}>
+                  {t('about.ceo_title')}
+                </div>
+                <div className="text-sm" style={{ color: '#9ca3af' }}>
+                  {t('about.ceo_desc')}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Other 3 companies */}
           <div className="grid sm:grid-cols-3 gap-4">
-            {groupCompanies.filter(c => !c.isMain).map((c) => (
-              <div
-                key={c.nameKey}
-                className="rounded-xl p-6"
-                style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
-              >
+            {groupCompanies
+              .filter((c) => !c.isMain)
+              .map((c) => (
                 <div
-                  className="w-8 h-1 rounded-full mb-4"
-                  style={{ backgroundColor: c.color }}
-                />
-                <div className="text-xs mb-1" style={{ color: '#6b7280' }}>{t(c.yearKey)}</div>
-                <h3 className="text-base font-bold mb-1" style={{ color: '#f1f1f3' }}>{t(c.nameKey)}</h3>
-                <div
-                  className="text-xs font-semibold mb-3 px-2 py-0.5 rounded-full inline-block"
-                  style={{ backgroundColor: `${c.color}18`, color: c.color, border: `1px solid ${c.color}40` }}
+                  key={c.nameKey}
+                  className="rounded-xl p-6"
+                  style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
                 >
-                  {t(c.roleKey)}
+                  <div className="w-8 h-1 rounded-full mb-4" style={{ backgroundColor: c.color }} />
+                  <div className="text-xs mb-1" style={{ color: '#6b7280' }}>
+                    {t(c.yearKey)}
+                  </div>
+                  <h3 className="text-base font-bold mb-1" style={{ color: '#f1f1f3' }}>
+                    {t(c.nameKey)}
+                  </h3>
+                  <div
+                    className="text-xs font-semibold mb-3 px-2 py-0.5 rounded-full inline-block"
+                    style={{
+                      backgroundColor: `${c.color}18`,
+                      color: c.color,
+                      border: `1px solid ${c.color}40`,
+                    }}
+                  >
+                    {t(c.roleKey)}
+                  </div>
+                  <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                    {t(c.descKey)}
+                  </p>
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>{t(c.descKey)}</p>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>
@@ -329,7 +508,10 @@ export default function About() {
       <section className="py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>
+            <div
+              className="text-xs font-semibold tracking-widest mb-3 uppercase"
+              style={{ color: '#f97316' }}
+            >
               {t('about.arch_badge')}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
@@ -349,15 +531,30 @@ export default function About() {
                   border: `1px solid ${layer.color}55`,
                 }}
               >
-                <div className="text-xs font-mono font-bold w-7 flex-shrink-0" style={{ color: '#f97316' }}>{layer.num}</div>
+                <div
+                  className="text-xs font-mono font-bold w-7 flex-shrink-0"
+                  style={{ color: '#f97316' }}
+                >
+                  {layer.num}
+                </div>
                 <div className="flex-1">
-                  <div className="text-sm font-semibold mb-0.5" style={{ color: '#f1f1f3' }}>{layer.label}</div>
-                  <div className="text-xs" style={{ color: '#9ca3af' }}>{layer.desc}</div>
+                  <div className="text-sm font-semibold mb-0.5" style={{ color: '#f1f1f3' }}>
+                    {layer.label}
+                  </div>
+                  <div className="text-xs" style={{ color: '#9ca3af' }}>
+                    {layer.desc}
+                  </div>
                 </div>
                 {i < archLayers.length - 1 && (
                   <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 z-10">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M7 2v10M3 9l4 4 4-4" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="M7 2v10M3 9l4 4 4-4"
+                        stroke="#f97316"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </div>
                 )}
@@ -371,7 +568,10 @@ export default function About() {
       <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>
+            <div
+              className="text-xs font-semibold tracking-widest mb-3 uppercase"
+              style={{ color: '#f97316' }}
+            >
               {t('about.cap_badge')}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#f1f1f3' }}>
@@ -391,8 +591,12 @@ export default function About() {
                 >
                   {cap.icon}
                 </div>
-                <h3 className="text-base font-semibold mb-2" style={{ color: '#f1f1f3' }}>{cap.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>{cap.desc}</p>
+                <h3 className="text-base font-semibold mb-2" style={{ color: '#f1f1f3' }}>
+                  {cap.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                  {cap.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -412,11 +616,18 @@ export default function About() {
               <div
                 key={vp.title}
                 className="p-8 rounded-2xl text-center"
-                style={{ background: 'linear-gradient(135deg, #1a1a22 0%, #16131a 100%)', border: '1px solid #2a2a36' }}
+                style={{
+                  background: 'linear-gradient(135deg, #1a1a22 0%, #16131a 100%)',
+                  border: '1px solid #2a2a36',
+                }}
               >
                 <div className="text-4xl mb-4">{vp.icon}</div>
-                <h3 className="text-xl font-bold mb-3" style={{ color: '#f1f1f3' }}>{vp.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>{vp.desc}</p>
+                <h3 className="text-xl font-bold mb-3" style={{ color: '#f1f1f3' }}>
+                  {vp.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                  {vp.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -427,7 +638,10 @@ export default function About() {
       <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <div className="text-xs font-semibold tracking-widest mb-3 uppercase" style={{ color: '#f97316' }}>
+            <div
+              className="text-xs font-semibold tracking-widest mb-3 uppercase"
+              style={{ color: '#f97316' }}
+            >
               {t('about.tl_badge')}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#f1f1f3' }}>
@@ -437,10 +651,17 @@ export default function About() {
 
           {/* Desktop horizontal */}
           <div className="hidden md:block relative">
-            <div className="absolute top-5 left-0 right-0 h-px" style={{ backgroundColor: '#2a2a36' }} />
+            <div
+              className="absolute top-5 left-0 right-0 h-px"
+              style={{ backgroundColor: '#2a2a36' }}
+            />
             <div className="flex justify-between relative">
               {timeline.map((item, i) => (
-                <div key={item.date} className="flex flex-col items-center" style={{ width: `${100 / timeline.length}%` }}>
+                <div
+                  key={item.date}
+                  className="flex flex-col items-center"
+                  style={{ width: `${100 / timeline.length}%` }}
+                >
                   <div
                     className="w-3 h-3 rounded-full mb-4 relative z-10"
                     style={{
@@ -449,8 +670,15 @@ export default function About() {
                       borderColor: i === timeline.length - 1 ? '#f97316' : '#4b5563',
                     }}
                   />
-                  <div className="text-xs font-mono font-bold mb-1" style={{ color: '#f97316' }}>{item.date}</div>
-                  <div className="text-xs text-center px-2 leading-relaxed" style={{ color: '#9ca3af' }}>{item.label}</div>
+                  <div className="text-xs font-mono font-bold mb-1" style={{ color: '#f97316' }}>
+                    {item.date}
+                  </div>
+                  <div
+                    className="text-xs text-center px-2 leading-relaxed"
+                    style={{ color: '#9ca3af' }}
+                  >
+                    {item.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -458,7 +686,10 @@ export default function About() {
 
           {/* Mobile vertical */}
           <div className="md:hidden relative pl-6">
-            <div className="absolute left-2 top-0 bottom-0 w-px" style={{ backgroundColor: '#2a2a36' }} />
+            <div
+              className="absolute left-2 top-0 bottom-0 w-px"
+              style={{ backgroundColor: '#2a2a36' }}
+            />
             <div className="space-y-8">
               {timeline.map((item, i) => (
                 <div key={item.date} className="relative flex items-start gap-4">
@@ -471,8 +702,15 @@ export default function About() {
                     }}
                   />
                   <div>
-                    <div className="text-xs font-mono font-bold mb-0.5" style={{ color: '#f97316' }}>{item.date}</div>
-                    <div className="text-sm" style={{ color: '#9ca3af' }}>{item.label}</div>
+                    <div
+                      className="text-xs font-mono font-bold mb-0.5"
+                      style={{ color: '#f97316' }}
+                    >
+                      {item.date}
+                    </div>
+                    <div className="text-sm" style={{ color: '#9ca3af' }}>
+                      {item.label}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -484,7 +722,10 @@ export default function About() {
       {/* ── Reference Clients ── */}
       <section className="py-16 px-4 sm:px-6" style={{ borderTop: '1px solid #1f1f28' }}>
         <div className="max-w-5xl mx-auto text-center">
-          <div className="text-xs font-semibold tracking-widest mb-10 uppercase" style={{ color: '#6b7280' }}>
+          <div
+            className="text-xs font-semibold tracking-widest mb-10 uppercase"
+            style={{ color: '#6b7280' }}
+          >
             {t('about.clients_label')}
           </div>
           <div className="flex flex-wrap justify-center gap-3">
@@ -492,7 +733,11 @@ export default function About() {
               <span
                 key={name}
                 className="px-4 py-2 rounded-lg text-sm font-medium"
-                style={{ backgroundColor: '#1a1a1f', color: '#9ca3af', border: '1px solid #2a2a33' }}
+                style={{
+                  backgroundColor: '#1a1a1f',
+                  color: '#9ca3af',
+                  border: '1px solid #2a2a33',
+                }}
               >
                 {name}
               </span>
@@ -521,14 +766,17 @@ export default function About() {
             <Link
               to="/products/orange-the-client"
               className="px-7 py-3 rounded-lg font-semibold text-sm transition-all"
-              style={{ backgroundColor: 'transparent', color: '#f97316', border: '1px solid rgba(249,115,22,0.4)' }}
+              style={{
+                backgroundColor: 'transparent',
+                color: '#f97316',
+                border: '1px solid rgba(249,115,22,0.4)',
+              }}
             >
               {t('about.cta_btn2')}
             </Link>
           </div>
         </div>
       </section>
-
     </div>
   );
 }

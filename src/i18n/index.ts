@@ -6,7 +6,12 @@ import zh from './locales/zh.json';
 import ja from './locales/ja.json';
 
 i18n.use(initReactI18next).init({
-  resources: { en: { translation: en }, ko: { translation: ko }, zh: { translation: zh }, ja: { translation: ja } },
+  resources: {
+    en: { translation: en },
+    ko: { translation: ko },
+    zh: { translation: zh },
+    ja: { translation: ja },
+  },
   lng: localStorage.getItem('lang') || 'en',
   fallbackLng: 'en',
   interpolation: { escapeValue: false },

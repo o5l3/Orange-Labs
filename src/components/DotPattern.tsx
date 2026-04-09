@@ -2,17 +2,23 @@ import { useEffect, useRef } from 'react';
 
 const SPACING = 20;
 const MAX_LINES = 5;
-const SPEED = 200;          // px/s
-const LIFETIME = 28;        // seconds
-const FADE_DURATION = 1;    // seconds
+const SPEED = 200; // px/s
+const LIFETIME = 28; // seconds
+const FADE_DURATION = 1; // seconds
 
 type Dir = 'up' | 'down' | 'left' | 'right';
 
 const dirDelta: Record<Dir, [number, number]> = {
-  right: [1, 0], left: [-1, 0], down: [0, 1], up: [0, -1],
+  right: [1, 0],
+  left: [-1, 0],
+  down: [0, 1],
+  up: [0, -1],
 };
 const opposite: Record<Dir, Dir> = {
-  right: 'left', left: 'right', up: 'down', down: 'up',
+  right: 'left',
+  left: 'right',
+  up: 'down',
+  down: 'up',
 };
 
 /** Head가 방향을 바꾼 그리드 노드 — Tail이 같은 지점에 도달하면 소비 */
@@ -24,9 +30,15 @@ interface TurnRecord {
 
 interface LineParticle {
   // ── Head (앞 끝) ──────────────────────────────────────
-  hCol: number; hRow: number; hDir: Dir; hProg: number; // 0‥1
+  hCol: number;
+  hRow: number;
+  hDir: Dir;
+  hProg: number; // 0‥1
   // ── Tail (뒤 끝, Head보다 1칸 뒤) ────────────────────
-  tCol: number; tRow: number; tDir: Dir; tProg: number;
+  tCol: number;
+  tRow: number;
+  tDir: Dir;
+  tProg: number;
   tailDelay: number; // 남은 지연(셀 단위) — 이 값이 0이 되면 Tail 움직임 시작
   // ── 대기 중인 방향 전환 기록 ─────────────────────────
   turns: TurnRecord[];
@@ -65,8 +77,14 @@ export default function DotPattern() {
       const allDirs: Dir[] = ['up', 'down', 'left', 'right'];
       const dir = allDirs[Math.floor(Math.random() * allDirs.length)];
       return {
-        hCol: col, hRow: row, hDir: dir, hProg: 0,
-        tCol: col, tRow: row, tDir: dir, tProg: 0,
+        hCol: col,
+        hRow: row,
+        hDir: dir,
+        hProg: 0,
+        tCol: col,
+        tRow: row,
+        tDir: dir,
+        tProg: 0,
         tailDelay: 2, // 2칸 지연으로 선 길이 = 2셀
         turns: [],
         age: 0,
@@ -78,9 +96,12 @@ export default function DotPattern() {
       lastTime = now;
       const t = (now - startTime) / 1000;
 
-      const W = canvas.offsetWidth;   // CSS 픽셀
-      const H = canvas.offsetHeight;  // CSS 픽셀
-      if (!W || !H) { animFrameId = requestAnimationFrame(tick); return; }
+      const W = canvas.offsetWidth; // CSS 픽셀
+      const H = canvas.offsetHeight; // CSS 픽셀
+      if (!W || !H) {
+        animFrameId = requestAnimationFrame(tick);
+        return;
+      }
 
       ctx.clearRect(0, 0, W, H);
 
@@ -93,8 +114,8 @@ export default function DotPattern() {
         for (let col = 0; col < cols; col++) {
           const x = col * SPACING;
           const y = row * SPACING;
-          const wave1 = Math.sin((col * 0.38) + (row * 0.55) - t * 2.5) * 0.5 + 0.5;
-          const wave2 = Math.sin((col * 0.22) - (row * 0.3) + t * 1.8 + 1.2) * 0.5 + 0.5;
+          const wave1 = Math.sin(col * 0.38 + row * 0.55 - t * 2.5) * 0.5 + 0.5;
+          const wave2 = Math.sin(col * 0.22 - row * 0.3 + t * 1.8 + 1.2) * 0.5 + 0.5;
           const waveValue = wave1 * 0.6 + wave2 * 0.4;
           const edgeX = Math.min(col / (cols * 0.18), (cols - 1 - col) / (cols * 0.18), 1);
           const edgeY = Math.min(row / (rows * 0.18), (rows - 1 - row) / (rows * 0.18), 1);
@@ -122,7 +143,10 @@ export default function DotPattern() {
         const p = lines[i];
         p.age += dt;
 
-        if (p.age >= LIFETIME) { lines.splice(i, 1); continue; }
+        if (p.age >= LIFETIME) {
+          lines.splice(i, 1);
+          continue;
+        }
 
         // ── Head 이동 ──────────────────────────────────────────
         p.hProg += steps;
@@ -141,7 +165,7 @@ export default function DotPattern() {
 
           // U턴 금지, 40% 확률로 방향 전환
           const allDirs: Dir[] = ['up', 'down', 'left', 'right'];
-          const choices = allDirs.filter(d => d !== opposite[p.hDir]);
+          const choices = allDirs.filter((d) => d !== opposite[p.hDir]);
           let newDir = p.hDir;
           if (Math.random() < 0.4) {
             newDir = choices[Math.floor(Math.random() * choices.length)];
@@ -152,7 +176,10 @@ export default function DotPattern() {
           p.hDir = newDir;
         }
 
-        if (headDied) { lines.splice(i, 1); continue; }
+        if (headDied) {
+          lines.splice(i, 1);
+          continue;
+        }
 
         // ── Tail 이동 (Head보다 1칸 뒤) ───────────────────────
         // tailDelay가 0이 되는 순간부터 실제 이동 시작
@@ -169,9 +196,7 @@ export default function DotPattern() {
           p.tRow += dr;
 
           // 해당 노드에 예약된 방향 전환이 있으면 적용
-          if (p.turns.length > 0 &&
-              p.turns[0].col === p.tCol &&
-              p.turns[0].row === p.tRow) {
+          if (p.turns.length > 0 && p.turns[0].col === p.tCol && p.turns[0].row === p.tRow) {
             p.tDir = p.turns.shift()!.dir;
           }
         }
@@ -190,7 +215,6 @@ export default function DotPattern() {
         const [tdc, tdr] = dirDelta[p.tDir];
         const tx = (p.tCol + tdc * p.tProg) * SPACING;
         const ty = (p.tRow + tdr * p.tProg) * SPACING;
-
 
         ctx.save();
         ctx.lineWidth = 0.5;
@@ -219,7 +243,10 @@ export default function DotPattern() {
           const [x1, y1] = waypoints[k];
           const [x2, y2] = waypoints[k + 1];
           const segDist = Math.hypot(x2 - x1, y2 - y1);
-          if (segDist < 0.5) { distSoFar += segDist; continue; }
+          if (segDist < 0.5) {
+            distSoFar += segDist;
+            continue;
+          }
 
           const opA = totalDist > 0 ? (distSoFar / totalDist) * 0.8 : 0;
           const opB = totalDist > 0 ? ((distSoFar + segDist) / totalDist) * 0.8 : 0.8;

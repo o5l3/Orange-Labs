@@ -79,7 +79,14 @@ export default function Pricing() {
       <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider" style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#f97316', border: '1px solid rgba(249,115,22,0.3)' }}>
+            <div
+              className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"
+              style={{
+                backgroundColor: 'rgba(249,115,22,0.1)',
+                color: '#f97316',
+                border: '1px solid rgba(249,115,22,0.3)',
+              }}
+            >
               {t('pricing.badge')}
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
@@ -109,18 +116,39 @@ export default function Pricing() {
                   </div>
                 )}
                 <div className="mb-6">
-                  <div className="text-xs font-semibold tracking-wider mb-1" style={{ color: '#f97316' }}>
+                  <div
+                    className="text-xs font-semibold tracking-wider mb-1"
+                    style={{ color: '#f97316' }}
+                  >
                     {plan.subtitle.toUpperCase()}
                   </div>
-                  <h2 className="text-xl font-bold mb-4" style={{ color: '#f1f1f3' }}>{plan.name}</h2>
-                  <div className="text-4xl font-bold mb-1" style={{ color: '#f1f1f3' }}>{plan.price}</div>
-                  <div className="text-sm" style={{ color: '#6b7280' }}>{plan.priceNote}</div>
+                  <h2 className="text-xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+                    {plan.name}
+                  </h2>
+                  <div className="text-4xl font-bold mb-1" style={{ color: '#f1f1f3' }}>
+                    {plan.price}
+                  </div>
+                  <div className="text-sm" style={{ color: '#6b7280' }}>
+                    {plan.priceNote}
+                  </div>
                 </div>
 
                 <ul className="space-y-3 mb-8 flex-1">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm" style={{ color: '#d1d5db' }}>
-                      <svg className="mt-0.5 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2.5">
+                    <li
+                      key={feature}
+                      className="flex items-start gap-2 text-sm"
+                      style={{ color: '#d1d5db' }}
+                    >
+                      <svg
+                        className="mt-0.5 flex-shrink-0"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#f97316"
+                        strokeWidth="2.5"
+                      >
                         <path d="M20 6L9 17l-5-5" />
                       </svg>
                       {feature}

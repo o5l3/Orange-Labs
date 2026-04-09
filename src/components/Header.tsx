@@ -24,9 +24,7 @@ export default function Header() {
       dropdown: [
         {
           group: t('nav.solutions'),
-          items: [
-            { label: t('nav.orange-the-client'), path: '/products/orange-the-client' },
-          ],
+          items: [{ label: t('nav.orange-the-client'), path: '/products/orange-the-client' }],
         },
       ],
     },
@@ -43,7 +41,7 @@ export default function Header() {
         },
         {
           group: t('nav.learn'),
-          items: [{ label: t('nav.techBlog'), path: '/resources/blog' }],
+          items: [{ label: t('nav.techBlog'), path: '/resources/tech-blog' }],
         },
       ],
     },
@@ -94,7 +92,10 @@ export default function Header() {
     <header
       ref={headerRef}
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
-      style={{ backgroundColor: 'rgba(13,13,16,0.75)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+      style={{
+        backgroundColor: 'rgba(13,13,16,0.75)',
+        borderBottom: '1px solid rgba(255,255,255,0.07)',
+      }}
     >
       <div className="w-full px-6 sm:px-10 flex items-center h-16 relative">
         {/* Logo */}
@@ -131,8 +132,18 @@ export default function Header() {
                 >
                   {item.label}
                   <svg
-                    width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"
-                    style={{ transform: activeDropdown === item.key ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{
+                      transform: activeDropdown === item.key ? 'rotate(180deg)' : 'rotate(0)',
+                      transition: 'transform 0.2s',
+                    }}
                   >
                     <path d="M2 4L6 8L10 4" />
                   </svg>
@@ -149,7 +160,10 @@ export default function Header() {
                   {item.dropdown.map((group, gi) => (
                     <div key={gi}>
                       {group.group && (
-                        <div className="px-4 py-1 text-xs font-semibold tracking-wider" style={{ color: '#6b7280' }}>
+                        <div
+                          className="px-4 py-1 text-xs font-semibold tracking-wider"
+                          style={{ color: '#6b7280' }}
+                        >
                           {group.group}
                         </div>
                       )}
@@ -179,19 +193,30 @@ export default function Header() {
 
         {/* Desktop Right: Language */}
         <div className="absolute right-6 sm:right-10 hidden md:flex items-center gap-3">
-
           {/* Language switcher */}
           <div className="relative">
             <button
               className="flex items-center gap-1.5 px-2 py-2 rounded-md transition-colors"
               style={{ color: langOpen ? '#f97316' : '#9ca3af' }}
-              onClick={() => { setLangOpen(!langOpen); setActiveDropdown(null); }}
+              onClick={() => {
+                setLangOpen(!langOpen);
+                setActiveDropdown(null);
+              }}
               aria-label="Select language"
               onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
-              onMouseLeave={(e) => { if (!langOpen) e.currentTarget.style.color = '#9ca3af'; }}
+              onMouseLeave={(e) => {
+                if (!langOpen) e.currentTarget.style.color = '#9ca3af';
+              }}
             >
               {/* Globe icon */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
@@ -209,12 +234,21 @@ export default function Header() {
                     className="w-full flex items-center justify-between px-4 py-2 text-sm transition-colors"
                     style={{ color: i18n.language === lang.code ? '#f97316' : '#d1d5db' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
-                    onMouseLeave={(e) => { if (i18n.language !== lang.code) e.currentTarget.style.color = '#d1d5db'; }}
+                    onMouseLeave={(e) => {
+                      if (i18n.language !== lang.code) e.currentTarget.style.color = '#d1d5db';
+                    }}
                     onClick={() => changeLanguage(lang.code)}
                   >
                     <span>{lang.label}</span>
                     {i18n.language === lang.code && (
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                      >
                         <path d="M20 6L9 17l-5-5" />
                       </svg>
                     )}
@@ -232,10 +266,20 @@ export default function Header() {
             <button
               className="flex items-center gap-1 p-2 rounded-md"
               style={{ color: '#9ca3af' }}
-              onClick={() => { setLangOpen(!langOpen); setMobileMenuOpen(false); }}
+              onClick={() => {
+                setLangOpen(!langOpen);
+                setMobileMenuOpen(false);
+              }}
               aria-label="Select language"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
@@ -254,7 +298,14 @@ export default function Header() {
                   >
                     <span>{lang.label}</span>
                     {i18n.language === lang.code && (
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                      >
                         <path d="M20 6L9 17l-5-5" />
                       </svg>
                     )}
@@ -267,19 +318,40 @@ export default function Header() {
           {/* Hamburger */}
           <button
             className="flex flex-col gap-1.5 p-2"
-            onClick={() => { setMobileMenuOpen(!mobileMenuOpen); setLangOpen(false); }}
+            onClick={() => {
+              setMobileMenuOpen(!mobileMenuOpen);
+              setLangOpen(false);
+            }}
             aria-label="Toggle menu"
           >
-            <span className="block w-6 h-0.5 transition-all duration-300" style={{ backgroundColor: '#d1d5db', transform: mobileMenuOpen ? 'translateY(8px) rotate(45deg)' : '' }} />
-            <span className="block w-6 h-0.5 transition-all duration-300" style={{ backgroundColor: '#d1d5db', opacity: mobileMenuOpen ? 0 : 1 }} />
-            <span className="block w-6 h-0.5 transition-all duration-300" style={{ backgroundColor: '#d1d5db', transform: mobileMenuOpen ? 'translateY(-8px) rotate(-45deg)' : '' }} />
+            <span
+              className="block w-6 h-0.5 transition-all duration-300"
+              style={{
+                backgroundColor: '#d1d5db',
+                transform: mobileMenuOpen ? 'translateY(8px) rotate(45deg)' : '',
+              }}
+            />
+            <span
+              className="block w-6 h-0.5 transition-all duration-300"
+              style={{ backgroundColor: '#d1d5db', opacity: mobileMenuOpen ? 0 : 1 }}
+            />
+            <span
+              className="block w-6 h-0.5 transition-all duration-300"
+              style={{
+                backgroundColor: '#d1d5db',
+                transform: mobileMenuOpen ? 'translateY(-8px) rotate(-45deg)' : '',
+              }}
+            />
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden" style={{ backgroundColor: '#1a1a1f', borderTop: '1px solid #2a2a33' }}>
+        <div
+          className="md:hidden"
+          style={{ backgroundColor: '#1a1a1f', borderTop: '1px solid #2a2a33' }}
+        >
           {navItems.map((item) => (
             <div key={item.key}>
               {item.path ? (
@@ -299,8 +371,20 @@ export default function Header() {
                     onClick={() => setMobileExpanded(mobileExpanded === item.key ? null : item.key)}
                   >
                     {item.label}
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"
-                      style={{ transform: mobileExpanded === item.key ? 'rotate(180deg)' : '', transition: 'transform 0.2s' }}>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{
+                        transform: mobileExpanded === item.key ? 'rotate(180deg)' : '',
+                        transition: 'transform 0.2s',
+                      }}
+                    >
                       <path d="M2 4L6 8L10 4" />
                     </svg>
                   </button>
@@ -309,7 +393,10 @@ export default function Header() {
                       {item.dropdown.map((group, gi) => (
                         <div key={gi}>
                           {group.group && (
-                            <div className="px-8 pt-2 pb-1 text-xs font-semibold tracking-wider" style={{ color: '#6b7280' }}>
+                            <div
+                              className="px-8 pt-2 pb-1 text-xs font-semibold tracking-wider"
+                              style={{ color: '#6b7280' }}
+                            >
                               {group.group}
                             </div>
                           )}
@@ -319,7 +406,10 @@ export default function Header() {
                               to={sub.path}
                               className="block px-8 py-2 text-sm"
                               style={{ color: '#9ca3af' }}
-                              onClick={() => { setMobileMenuOpen(false); setMobileExpanded(null); }}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileExpanded(null);
+                              }}
                             >
                               {sub.label}
                             </Link>
@@ -332,7 +422,6 @@ export default function Header() {
               )}
             </div>
           ))}
-
         </div>
       )}
     </header>

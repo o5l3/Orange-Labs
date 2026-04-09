@@ -38,18 +38,13 @@ function PartnerCard({ name, logo }: { name: string; logo: string }) {
         cursor: 'default',
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor =
-          'rgba(249,115,22,0.4)';
-        const img = e.currentTarget.querySelector(
-          'img',
-        ) as HTMLImageElement | null;
+        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(249,115,22,0.4)';
+        const img = e.currentTarget.querySelector('img') as HTMLImageElement | null;
         if (img) img.style.filter = 'none';
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.borderColor = '#2a2a33';
-        const img = e.currentTarget.querySelector(
-          'img',
-        ) as HTMLImageElement | null;
+        const img = e.currentTarget.querySelector('img') as HTMLImageElement | null;
         if (img) img.style.filter = 'brightness(0) invert(1) opacity(0.4)';
       }}
     >
@@ -116,26 +111,17 @@ export default function Partners() {
           >
             {t('partners.badge')}
           </div>
-          <h1
-            className="text-4xl sm:text-5xl font-bold mb-6"
-            style={{ color: '#f1f1f3' }}
-          >
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6" style={{ color: '#f1f1f3' }}>
             {t('partners.title')}
           </h1>
-          <p
-            className="text-lg max-w-2xl mx-auto"
-            style={{ color: '#9ca3af', lineHeight: '1.7' }}
-          >
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#9ca3af', lineHeight: '1.7' }}>
             {t('partners.desc')}
           </p>
         </div>
       </section>
 
       {/* Partners Grid */}
-      <section
-        className="py-20 px-4 sm:px-6"
-        style={{ backgroundColor: '#111114' }}
-      >
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {partners.map((p) => (
@@ -146,10 +132,7 @@ export default function Partners() {
       </section>
 
       {/* Become a Partner */}
-      <section
-        className="py-20 px-4 sm:px-6"
-        style={{ backgroundColor: '#0e0e11' }}
-      >
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#0e0e11' }}>
         <div
           className="max-w-3xl mx-auto rounded-2xl p-12 text-center"
           style={{
@@ -167,28 +150,18 @@ export default function Partners() {
           >
             PARTNERSHIP
           </div>
-          <h2
-            className="text-2xl sm:text-3xl font-bold mb-4"
-            style={{ color: '#f1f1f3' }}
-          >
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
             {t('partners.become_title')}
           </h2>
-          <p
-            className="mb-8 max-w-lg mx-auto"
-            style={{ color: '#9ca3af', lineHeight: '1.7' }}
-          >
+          <p className="mb-8 max-w-lg mx-auto" style={{ color: '#9ca3af', lineHeight: '1.7' }}>
             {t('partners.become_desc')}
           </p>
           <Link
             to="/company/contact-us"
             className="inline-block px-8 py-3 rounded-full font-semibold transition-all"
             style={{ backgroundColor: '#f97316', color: '#fff' }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = '#ea6c0a')
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = '#f97316')
-            }
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}
           >
             {t('partners.become_cta')}
           </Link>
