@@ -7,8 +7,8 @@ export default function About() {
   const stats = [
     { value: '2023', label: t('about.stat_founded') },
     { value: t('about.stat_gs_value'), label: t('about.stat_gs') },
-    { value: '4', label: t('about.stat_group') },
     { value: 'TIPS', label: t('about.stat_tips') },
+    { value: '4', label: t('about.stat_group') },
   ];
 
   const groupCompanies = [
@@ -177,24 +177,20 @@ export default function About() {
   ];
 
   const timeline = [
-    { date: '2023.11', label: t('about.tl1') },
-    { date: '2024.03', label: t('about.tl2') },
-    { date: '2024.04', label: t('about.tl3') },
-    { date: '2025.07', label: t('about.tl4') },
-    { date: '2025.09', label: t('about.tl5') },
+    { date: '2023.11', title: t('about.tl1_title'), desc: t('about.tl1_desc') },
+    { date: '2024.04', title: t('about.tl2_title'), desc: t('about.tl2_desc') },
+    { date: '2024.05', title: t('about.tl3_title'), desc: t('about.tl3_desc') },
+    { date: '2024.08', title: t('about.tl4_title'), desc: t('about.tl4_desc') },
+    { date: '2024.12', title: t('about.tl5_title'), desc: t('about.tl5_desc') },
+    { date: '2025.02', title: t('about.tl6_title'), desc: t('about.tl6_desc') },
+    { date: '2025.03', title: t('about.tl7_title'), desc: t('about.tl7_desc') },
+    { date: '2025.07', title: t('about.tl8_title'), desc: t('about.tl8_desc') },
+    { date: '2025.09', title: t('about.tl9_title'), desc: t('about.tl9_desc') },
+    { date: '2025.10', title: t('about.tl10_title'), desc: t('about.tl10_desc') },
+    { date: '2025.12', title: t('about.tl11_title'), desc: t('about.tl11_desc') },
+    { date: '2026.01', title: t('about.tl12_title'), desc: t('about.tl12_desc') },
   ];
 
-  const clients = [
-    '한일네트웍스',
-    '한일시멘트',
-    '한일현대시멘트',
-    'CROWN',
-    'HYOSUNG ITX',
-    'U BASE GROUP',
-    'SUN AT FOOD',
-    '부천도시공사',
-    '국립순천대학교',
-  ];
 
   return (
     <div style={{ backgroundColor: '#111114', color: '#f1f1f3' }}>
@@ -378,91 +374,79 @@ export default function About() {
             </p>
           </div>
 
-          {/* Main company (OrangeLabs) — full width card */}
-          {groupCompanies
-            .filter((c) => c.isMain)
-            .map((c) => (
-              <div
-                key={c.nameKey}
-                className="rounded-2xl p-8 mb-5 relative overflow-hidden"
-                style={{
-                  background:
-                    'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0.03) 100%)',
-                  border: '1px solid rgba(249,115,22,0.35)',
-                }}
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span
-                        className="px-2 py-0.5 text-xs font-bold rounded"
-                        style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}
-                      >
-                        제조사 · 개발
-                      </span>
-                      <span className="text-xs" style={{ color: '#6b7280' }}>
-                        {t(c.yearKey)}
-                      </span>
-                    </div>
-                    <h3 className="text-2xl font-black mb-1" style={{ color: '#f1f1f3' }}>
-                      {t(c.nameKey)}
-                    </h3>
-                    <p className="text-sm mb-3" style={{ color: '#f97316', fontWeight: 600 }}>
-                      {t(c.roleKey)}
-                    </p>
-                    <p className="text-sm" style={{ color: '#9ca3af' }}>
-                      {t(c.descKey)}
-                    </p>
-                  </div>
-                  <div
-                    className="shrink-0 rounded-xl px-6 py-4 text-center"
-                    style={{
-                      backgroundColor: 'rgba(249,115,22,0.06)',
-                      border: '1px solid rgba(249,115,22,0.2)',
-                      minWidth: 160,
-                    }}
-                  >
-                    <div className="text-3xl font-black mb-1" style={{ color: '#f97316' }}>
-                      v1.6
-                    </div>
-                    <div className="text-xs" style={{ color: '#9ca3af' }}>
-                      Orange The Client
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-          {/* CEO Card */}
-          <div
-            className="rounded-2xl p-6 mb-5"
-            style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
-          >
-            <div className="flex items-center gap-5">
-              <div
-                className="w-14 h-14 rounded-full flex items-center justify-center text-2xl shrink-0"
-                style={{
-                  backgroundColor: 'rgba(249,115,22,0.1)',
-                  border: '1px solid rgba(249,115,22,0.25)',
-                }}
-              >
-                👤
-              </div>
-              <div>
+          {/* Main company + CEO — same row */}
+          <div className="flex flex-col lg:flex-row gap-5 mb-5">
+            {/* Main company (OrangeLabs) card */}
+            {groupCompanies
+              .filter((c) => c.isMain)
+              .map((c) => (
                 <div
-                  className="text-xs font-semibold tracking-widest mb-1 uppercase"
-                  style={{ color: '#f97316' }}
+                  key={c.nameKey}
+                  className="flex-1 rounded-2xl p-8 relative overflow-hidden"
+                  style={{
+                    background:
+                      'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0.03) 100%)',
+                    border: '1px solid rgba(249,115,22,0.35)',
+                  }}
                 >
-                  {t('about.ceo_badge')}
+                  <div className="flex items-center gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-1">
+                        <span
+                          className="px-2 py-0.5 text-xs font-bold rounded"
+                          style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}
+                        >
+                          제조사 · 개발
+                        </span>
+                        <span className="text-xs" style={{ color: '#6b7280' }}>
+                          {t(c.yearKey)}
+                        </span>
+                      </div>
+                      <h3 className="text-2xl font-black mb-1" style={{ color: '#f1f1f3' }}>
+                        {t(c.nameKey)}
+                      </h3>
+                      <p className="text-sm mb-3" style={{ color: '#f97316', fontWeight: 600 }}>
+                        {t(c.roleKey)}
+                      </p>
+                      <p className="text-sm" style={{ color: '#9ca3af' }}>
+                        {t(c.descKey)}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-lg font-bold" style={{ color: '#f1f1f3' }}>
-                  {t('about.ceo_name')}
+              ))}
+
+            {/* CEO Card */}
+            <div
+              className="flex-1 rounded-2xl p-6"
+              style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
+            >
+              <div className="flex items-center gap-5">
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center text-2xl shrink-0"
+                  style={{
+                    backgroundColor: 'rgba(249,115,22,0.1)',
+                    border: '1px solid rgba(249,115,22,0.25)',
+                  }}
+                >
+                  👤
                 </div>
-                <div className="text-sm mb-1" style={{ color: '#f97316' }}>
-                  {t('about.ceo_title')}
-                </div>
-                <div className="text-sm" style={{ color: '#9ca3af' }}>
-                  {t('about.ceo_desc')}
+                <div>
+                  <div
+                    className="text-xs font-semibold tracking-widest mb-1 uppercase"
+                    style={{ color: '#f97316' }}
+                  >
+                    {t('about.ceo_badge')}
+                  </div>
+                  <div className="text-lg font-bold" style={{ color: '#f1f1f3' }}>
+                    {t('about.ceo_name')}
+                  </div>
+                  <div className="text-sm mb-1" style={{ color: '#f97316' }}>
+                    {t('about.ceo_title')}
+                  </div>
+                  <div className="text-sm" style={{ color: '#9ca3af' }}>
+                    {t('about.ceo_desc')}
+                  </div>
                 </div>
               </div>
             </div>
@@ -649,68 +633,72 @@ export default function About() {
             </h2>
           </div>
 
-          {/* Desktop horizontal */}
-          <div className="hidden md:block relative">
+          {/* Desktop & Mobile — vertical zigzag */}
+          <div className="relative max-w-3xl mx-auto">
+            {/* center line */}
             <div
-              className="absolute top-5 left-0 right-0 h-px"
+              className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block"
               style={{ backgroundColor: '#2a2a36' }}
             />
-            <div className="flex justify-between relative">
+            {/* mobile left line */}
+            <div
+              className="absolute left-[18px] top-0 bottom-0 w-px md:hidden"
+              style={{ backgroundColor: '#2a2a36' }}
+            />
+            <div className="space-y-6">
               {timeline.map((item, i) => (
                 <div
                   key={item.date}
-                  className="flex flex-col items-center"
-                  style={{ width: `${100 / timeline.length}%` }}
+                  className={`relative flex items-start gap-6 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                 >
+                  {/* Desktop card */}
                   <div
-                    className="w-3 h-3 rounded-full mb-4 relative z-10"
-                    style={{
-                      backgroundColor: i === timeline.length - 1 ? '#f97316' : '#374151',
-                      border: '2px solid',
-                      borderColor: i === timeline.length - 1 ? '#f97316' : '#4b5563',
-                    }}
-                  />
-                  <div className="text-xs font-mono font-bold mb-1" style={{ color: '#f97316' }}>
-                    {item.date}
-                  </div>
-                  <div
-                    className="text-xs text-center px-2 leading-relaxed"
-                    style={{ color: '#9ca3af' }}
+                    className={`hidden md:flex flex-1 ${i % 2 === 0 ? 'justify-end pr-10' : 'justify-start pl-10'}`}
                   >
-                    {item.label}
+                    <div
+                      className="rounded-xl px-5 py-4 max-w-[260px] w-full"
+                      style={{
+                        backgroundColor: '#16161d',
+                        border: `1px solid ${i === timeline.length - 1 ? 'rgba(249,115,22,0.4)' : '#2a2a36'}`,
+                      }}
+                    >
+                      <p className="text-xs font-bold font-mono mb-1" style={{ color: '#f97316' }}>
+                        {item.date}
+                      </p>
+                      <h3 className="text-sm font-bold mb-1" style={{ color: '#f1f1f3' }}>
+                        {item.title}
+                      </h3>
+                      <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Mobile vertical */}
-          <div className="md:hidden relative pl-6">
-            <div
-              className="absolute left-2 top-0 bottom-0 w-px"
-              style={{ backgroundColor: '#2a2a36' }}
-            />
-            <div className="space-y-8">
-              {timeline.map((item, i) => (
-                <div key={item.date} className="relative flex items-start gap-4">
+                  {/* Dot */}
                   <div
-                    className="absolute -left-5 w-3 h-3 rounded-full mt-0.5"
+                    className="absolute left-[14px] md:left-1/2 w-[10px] h-[10px] rounded-full mt-4 -translate-x-[4px] md:-translate-x-[5px] z-10 ring-4"
                     style={{
                       backgroundColor: i === timeline.length - 1 ? '#f97316' : '#374151',
                       border: '2px solid',
                       borderColor: i === timeline.length - 1 ? '#f97316' : '#4b5563',
+                      boxShadow: '0 0 0 4px #0e0e12',
                     }}
                   />
-                  <div>
-                    <div
-                      className="text-xs font-mono font-bold mb-0.5"
-                      style={{ color: '#f97316' }}
-                    >
+
+                  {/* Desktop spacer */}
+                  <div className="hidden md:block flex-1" />
+
+                  {/* Mobile card */}
+                  <div className="md:hidden ml-10">
+                    <p className="text-xs font-bold font-mono mb-0.5" style={{ color: '#f97316' }}>
                       {item.date}
-                    </div>
-                    <div className="text-sm" style={{ color: '#9ca3af' }}>
-                      {item.label}
-                    </div>
+                    </p>
+                    <h3 className="text-sm font-bold mb-0.5" style={{ color: '#f1f1f3' }}>
+                      {item.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -719,32 +707,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Reference Clients ── */}
-      <section className="py-16 px-4 sm:px-6" style={{ borderTop: '1px solid #1f1f28' }}>
-        <div className="max-w-5xl mx-auto text-center">
-          <div
-            className="text-xs font-semibold tracking-widest mb-10 uppercase"
-            style={{ color: '#6b7280' }}
-          >
-            {t('about.clients_label')}
-          </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            {clients.map((name) => (
-              <span
-                key={name}
-                className="px-4 py-2 rounded-lg text-sm font-medium"
-                style={{
-                  backgroundColor: '#1a1a1f',
-                  color: '#9ca3af',
-                  border: '1px solid #2a2a33',
-                }}
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── Divider ── */}
+      <div style={{ borderTop: '1px solid #1f1f28' }} />
 
       {/* ── CTA ── */}
       <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
