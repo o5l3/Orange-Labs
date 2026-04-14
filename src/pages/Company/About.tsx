@@ -191,7 +191,6 @@ export default function About() {
     { date: '2026.01', title: t('about.tl12_title'), desc: t('about.tl12_desc') },
   ];
 
-
   return (
     <div style={{ backgroundColor: '#111114', color: '#f1f1f3' }}>
       {/* ── Hero ── */}
@@ -721,20 +720,11 @@ export default function About() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/company/contact"
-              className="px-7 py-3 rounded-lg font-semibold text-sm transition-all"
-              style={{ backgroundColor: '#f97316', color: '#fff' }}
-            >
-              {t('about.cta_btn1')}
-            </Link>
-            <Link
               to="/products/orange-the-client"
-              className="px-7 py-3 rounded-lg font-semibold text-sm transition-all"
-              style={{
-                backgroundColor: 'transparent',
-                color: '#f97316',
-                border: '1px solid rgba(249,115,22,0.4)',
-              }}
+              className="px-6 py-3 rounded-full font-semibold transition-all"
+              style={{ backgroundColor: '#f97316', color: '#fff' }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}
             >
               {t('about.cta_btn2')}
             </Link>

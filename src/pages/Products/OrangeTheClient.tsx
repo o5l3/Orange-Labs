@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const pillars = [
@@ -165,7 +164,6 @@ const managerItems = [
 const MGR_COUNT = managerItems.length;
 
 export default function OrangeTheClient() {
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
   // ── 캐러셀 상태 ──
@@ -456,15 +454,6 @@ export default function OrangeTheClient() {
             {t('otc.hero_desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              className="px-8 py-4 rounded-full text-base font-semibold transition-all"
-              style={{ backgroundColor: '#f97316', color: '#fff' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}
-              onClick={() => navigate('/company/contact')}
-            >
-              {t('otc.hero_cta1')}
-            </button>
             <a
               href="/pdf/OrangeTheClient_Product_Introduction.pdf"
               target="_blank"
@@ -1916,15 +1905,6 @@ export default function OrangeTheClient() {
             {t('otc.cta_desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              className="px-8 py-3 rounded-full font-semibold transition-all"
-              style={{ backgroundColor: '#f97316', color: '#fff' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}
-              onClick={() => navigate('/company/contact')}
-            >
-              {t('otc.cta_btn1')}
-            </button>
             <a
               href="/pdf/OrangeTheClient_Product_Introduction.pdf"
               target="_blank"

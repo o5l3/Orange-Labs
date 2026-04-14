@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const deptColors: Record<string, string> = {
@@ -9,7 +8,6 @@ const deptColors: Record<string, string> = {
 };
 
 export default function Careers() {
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
   const openings = [
@@ -18,36 +16,42 @@ export default function Careers() {
       dept: t('careers.jobs.engineering'),
       location: 'Seoul / Remote',
       type: t('careers.fulltime'),
+      link: 'https://www.wanted.co.kr/wd/274779'
     },
     {
       title: t('careers.jobs.frontend'),
       dept: t('careers.jobs.engineering'),
       location: 'Seoul / Remote',
       type: t('careers.fulltime'),
+      link: 'https://www.wanted.co.kr/wd/274779'
     },
     {
       title: t('careers.jobs.backend'),
       dept: t('careers.jobs.engineering'),
       location: 'Seoul / Remote',
       type: t('careers.fulltime'),
+      link: 'https://www.wanted.co.kr/wd/274779'
     },
     {
       title: t('careers.jobs.pm'),
       dept: t('careers.jobs.product'),
       location: 'Seoul',
       type: t('careers.fulltime'),
+      link: 'https://www.wanted.co.kr/wd/274779'
     },
     {
       title: t('careers.jobs.sales'),
       dept: t('careers.jobs.salesDept'),
       location: 'Seoul / Remote',
       type: t('careers.fulltime'),
+      link: 'https://www.wanted.co.kr/wd/274779'
     },
     {
       title: t('careers.jobs.sa'),
       dept: t('careers.jobs.cs'),
       location: 'Seoul / Remote',
       type: t('careers.fulltime'),
+      link: 'https://www.wanted.co.kr/wd/274779'
     },
   ];
 
@@ -146,7 +150,7 @@ export default function Careers() {
                 style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
                 onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
                 onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#2a2a33')}
-                onClick={() => navigate('/company/contact')}
+                onClick={() => window.open(job.link, '_blank', 'noopener,noreferrer')}
               >
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#f1f1f3' }}>
@@ -177,6 +181,10 @@ export default function Careers() {
                     color: '#f97316',
                     border: '1px solid rgba(249,115,22,0.3)',
                   }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open(job.link, '_blank', 'noopener,noreferrer');
+                  }}
                 >
                   {t('careers.apply')}
                 </button>
@@ -195,15 +203,25 @@ export default function Careers() {
           <p className="mb-8" style={{ color: '#9ca3af' }}>
             {t('careers.noRole_desc')}
           </p>
-          <button
-            className="px-6 py-3 rounded-full font-semibold transition-all"
-            style={{ backgroundColor: '#f97316', color: '#fff' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}
-            onClick={() => navigate('/company/contact')}
-          >
-            {t('careers.contact')}
-          </button>
+          {/*<button*/}
+          {/*  className="px-6 py-3 rounded-full font-semibold transition-all"*/}
+          {/*  style={{ backgroundColor: '#f97316', color: '#fff' }}*/}
+          {/*  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}*/}
+          {/*  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}*/}
+          {/*  onClick={() => navigate('/company/contact')}*/}
+          {/*>*/}
+          {/*  {t('careers.contact')}*/}
+          {/*</button>*/}
+          <div className="flex justify-center items-center">
+            <a href="mailto:kim.tigerj@orangesys.co.kr?subject=이력서&body=이력서">
+              <div
+                className="px-6 py-3 rounded-full font-semibold transition-all"
+                style={{ backgroundColor: '#f97316', color: '#fff' }}
+              >
+                {t('careers.contact')}
+              </div>
+            </a>
+          </div>
         </div>
       </section>
     </div>

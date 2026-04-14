@@ -98,7 +98,7 @@ export default function Home() {
 
   const stats = [
     { value: '2023', label: t('home.stats.founded') },
-    { value: 'GS 1등급', label: t('home.stats.gs') },
+    { value: t('home.stats.gsValue'), label: t('home.stats.gs') },
     { value: 'TIPS', label: t('home.stats.tips') },
     { value: '4', label: t('home.stats.group') },
   ];
@@ -359,15 +359,6 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              className="px-8 py-4 rounded-full text-base font-semibold transition-all"
-              style={{ backgroundColor: '#f97316', color: '#fff' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}
-              onClick={() => navigate('/company/contact')}
-            >
-              {t('home.getStarted')}
-            </button>
-            <button
               className="px-8 py-4 rounded-full text-base font-semibold transition-all flex items-center justify-center gap-2"
               style={{
                 border: '1px solid #2a2a33',
@@ -382,7 +373,7 @@ export default function Home() {
                 e.currentTarget.style.borderColor = '#2a2a33';
                 e.currentTarget.style.color = '#d1d5db';
               }}
-              onClick={() => navigate('/products/orange-the-client')}
+              onClick={() => navigate('/resources/demo-videos')}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z" />
@@ -685,30 +676,32 @@ export default function Home() {
             {t('home.cta_desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              className="px-8 py-4 rounded-full text-base font-semibold transition-all"
-              style={{ backgroundColor: '#f97316', color: '#fff' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}
-              onClick={() => navigate('/company/contact')}
-            >
-              {t('home.contactSales')}
-            </button>
-            <button
+            {/*<button*/}
+            {/*  className="px-8 py-4 rounded-full text-base font-semibold transition-all"*/}
+            {/*  style={{ backgroundColor: '#f97316', color: '#fff' }}*/}
+            {/*  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}*/}
+            {/*  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}*/}
+            {/*  onClick={() => navigate('/company/contact')}*/}
+            {/*>*/}
+            {/*  {t('home.contactSales')}*/}
+            {/*</button>*/}
+            <a
+              href="/pdf/OrangeTheClient_Product_Introduction.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 rounded-full text-base font-semibold transition-all"
               style={{ border: '1px solid #2a2a33', color: '#d1d5db' }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#f97316';
-                e.currentTarget.style.color = '#f97316';
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = '#f97316';
+                (e.currentTarget as HTMLAnchorElement).style.color = '#f97316';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#2a2a33';
-                e.currentTarget.style.color = '#d1d5db';
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = '#2a2a33';
+                (e.currentTarget as HTMLAnchorElement).style.color = '#d1d5db';
               }}
-              onClick={() => navigate('/pricing')}
             >
               {t('home.viewPricing')}
-            </button>
+            </a>
           </div>
         </div>
       </section>

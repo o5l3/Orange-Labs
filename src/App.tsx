@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import OrangeTheClient from './pages/Products/OrangeTheClient';
 import Introduction from './pages/Resources/Introduction';
 import UserManual from './pages/Resources/UserManual';
+import DemoVideos from './pages/Resources/DemoVideos';
 import TechBlog from './pages/Resources/TechBlog';
 import TechBlogContent from './pages/Resources/TechBlogContent';
 import About from './pages/Company/About';
@@ -14,6 +15,8 @@ import Partners from './pages/Company/Partners';
 import Support from './pages/Company/Support';
 import ContactUs from './pages/Company/ContactUs';
 import Pricing from './pages/Pricing';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 function NotFound() {
   const { t } = useTranslation();
@@ -49,6 +52,7 @@ export default function App() {
           <Route path="/products/orange-the-client" element={<OrangeTheClient />} />
           <Route path="/resources/introduction" element={<Introduction />} />
           <Route path="/resources/user-manual" element={<UserManual />} />
+          <Route path="/resources/demo-videos" element={<DemoVideos />} />
           <Route path="/resources/tech-blog" element={<TechBlog />} />
           <Route path="/resources/tech-blog/:slug" element={<TechBlogContent />} />
           <Route path="/company/about" element={<About />} />
@@ -57,6 +61,8 @@ export default function App() {
           <Route path="/company/support" element={<Support />} />
           <Route path="/company/contact" element={<ContactUs />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

@@ -1,28 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const faqs = [
-  {
-    q: 'What is the SLA for Orange The Client?',
-    a: 'We guarantee 99.9% uptime with 24/7 monitoring. Any downtime beyond this threshold is credited to your account.',
-  },
-  {
-    q: 'How do I get technical support?',
-    a: 'Enterprise customers have access to a dedicated support channel with guaranteed response times. You can also submit tickets via our support portal.',
-  },
-  {
-    q: 'Is there a sandbox environment?',
-    a: 'Yes, all plans include access to a fully isolated sandbox environment for testing and development.',
-  },
-  {
-    q: 'How are software updates handled?',
-    a: 'Updates are deployed automatically with zero downtime. We use rolling deployments and always notify customers in advance of major releases.',
-  },
-];
-
 export default function Support() {
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const faqs = [1, 2, 3, 4, 5, 6].map((n) => ({
+    q: t(`support.faq_${n}_q`),
+    a: t(`support.faq_${n}_a`),
+  }));
 
   const cards = [
     {
@@ -94,15 +80,23 @@ export default function Support() {
             {faqs.map((faq) => (
               <div
                 key={faq.q}
-                className="p-6 rounded-xl"
+                className="p-6 rounded-xl overflow-hidden relative"
                 style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
               >
-                <h3 className="font-semibold mb-2" style={{ color: '#f1f1f3' }}>
-                  {faq.q}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
-                  {faq.a}
-                </p>
+                <span
+                  className="absolute -top-6 -left-2 text-9xl font-black leading-none select-none pointer-events-none"
+                  style={{ color: 'rgba(249,115,22,0.08)' }}
+                >
+                  Q
+                </span>
+                <div className="relative">
+                  <h3 className="font-semibold mb-2" style={{ color: '#f1f1f3' }}>
+                    {faq.q}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                    {faq.a}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

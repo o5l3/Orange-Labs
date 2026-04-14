@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 const partners = [
   { name: '한일네트웍스', logo: '/images/partners/hanil_logo.png' },
@@ -156,15 +155,17 @@ export default function Partners() {
           <p className="mb-8 max-w-lg mx-auto" style={{ color: '#9ca3af', lineHeight: '1.7' }}>
             {t('partners.become_desc')}
           </p>
-          <Link
-            to="/company/contact-us"
+          <a
+            href="https://orangesys.co.kr/contact/inquiry"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-full font-semibold transition-all"
             style={{ backgroundColor: '#f97316', color: '#fff' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}
           >
             {t('partners.become_cta')}
-          </Link>
+          </a>
         </div>
       </section>
     </div>
