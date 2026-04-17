@@ -375,9 +375,9 @@ export default function Home() {
               }}
               onClick={() => navigate('/resources/demo-videos')}
             >
-              {/*<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">*/}
-              {/*  <path d="M8 5v14l11-7z" />*/}
-              {/*</svg>*/}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
               {t('home.watchDemo')}
             </button>
           </div>
