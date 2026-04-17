@@ -62,11 +62,6 @@ export default function Header() {
         },
       ],
     },
-    {
-      label: t('nav.pricing'),
-      key: 'pricing',
-      path: '/pricing',
-    },
   ];
 
   const changeLanguage = (code: string) => {

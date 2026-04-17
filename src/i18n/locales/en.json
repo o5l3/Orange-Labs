@@ -409,7 +409,9 @@
       "engineering": "Engineering",
       "product": "Product",
       "salesDept": "Sales",
-      "cs": "Customer Success"
+      "cs": "Customer Success",
+      "sys_software": "WIN32 System Software (C++) Development",
+      "frontend_dashboard": "Frontend Developer — Real-time Dashboard / Data Visualization"
     }
   },
   "partners": {

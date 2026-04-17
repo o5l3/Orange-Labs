@@ -409,7 +409,9 @@
       "engineering": "엔지니어링",
       "product": "제품",
       "salesDept": "영업",
-      "cs": "고객 성공"
+      "cs": "고객 성공",
+      "sys_software": "WIN32 시스템 소프트웨어(C++) 개발",
+      "frontend_dashboard": "프론트엔드 개발자 — 실시간 대시보드 / 데이터 시각화"
     }
   },
   "partners": {

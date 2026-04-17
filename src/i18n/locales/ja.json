@@ -409,7 +409,9 @@
       "engineering": "エンジニアリング",
       "product": "プロダクト",
       "salesDept": "セールス",
-      "cs": "カスタマーサクセス"
+      "cs": "カスタマーサクセス",
+      "sys_software": "WIN32 システムソフトウェア(C++)開発",
+      "frontend_dashboard": "フロントエンドエンジニア — リアルタイムダッシュボード / データ可視化"
     }
   },
   "partners": {

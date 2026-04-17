@@ -2,6 +2,9 @@ import { useTranslation } from 'react-i18next';
 
 const deptColors: Record<string, string> = {
   Engineering: '#3b82f6',
+  엔지니어링: '#3b82f6',
+  エンジニアリング: '#3b82f6',
+  工程: '#3b82f6',
   Product: '#f97316',
   Sales: '#10b981',
   'Customer Success': '#a855f7',
@@ -12,46 +15,18 @@ export default function Careers() {
 
   const openings = [
     {
-      title: t('careers.jobs.ai_engineer'),
+      title: t('careers.jobs.sys_software'),
       dept: t('careers.jobs.engineering'),
-      location: 'Seoul / Remote',
-      type: t('careers.fulltime'),
-      link: 'https://www.wanted.co.kr/wd/274779'
-    },
-    {
-      title: t('careers.jobs.frontend'),
-      dept: t('careers.jobs.engineering'),
-      location: 'Seoul / Remote',
-      type: t('careers.fulltime'),
-      link: 'https://www.wanted.co.kr/wd/274779'
-    },
-    {
-      title: t('careers.jobs.backend'),
-      dept: t('careers.jobs.engineering'),
-      location: 'Seoul / Remote',
-      type: t('careers.fulltime'),
-      link: 'https://www.wanted.co.kr/wd/274779'
-    },
-    {
-      title: t('careers.jobs.pm'),
-      dept: t('careers.jobs.product'),
       location: 'Seoul',
       type: t('careers.fulltime'),
-      link: 'https://www.wanted.co.kr/wd/274779'
+      link: 'https://www.wanted.co.kr/wd/277479',
     },
     {
-      title: t('careers.jobs.sales'),
-      dept: t('careers.jobs.salesDept'),
-      location: 'Seoul / Remote',
+      title: t('careers.jobs.frontend_dashboard'),
+      dept: t('careers.jobs.engineering'),
+      location: 'Seoul',
       type: t('careers.fulltime'),
-      link: 'https://www.wanted.co.kr/wd/274779'
-    },
-    {
-      title: t('careers.jobs.sa'),
-      dept: t('careers.jobs.cs'),
-      location: 'Seoul / Remote',
-      type: t('careers.fulltime'),
-      link: 'https://www.wanted.co.kr/wd/274779'
+      link: 'https://www.wanted.co.kr/wd/274779',
     },
   ];
 

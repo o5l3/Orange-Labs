@@ -409,7 +409,9 @@
       "engineering": "工程",
       "product": "产品",
       "salesDept": "销售",
-      "cs": "客户成功"
+      "cs": "客户成功",
+      "sys_software": "WIN32 系统软件(C++)开发",
+      "frontend_dashboard": "前端开发者 — 实时仪表盘 / 数据可视化"
     }
   },
   "partners": {

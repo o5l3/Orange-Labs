@@ -33,15 +33,6 @@ export default function Footer() {
         { label: t('nav.contactUs'), path: '/company/contact' },
       ],
     },
-    {
-      title: t('nav.pricing'),
-      links: [
-        { label: t('pricing.plan1_sub'), path: '/pricing' },
-        { label: t('pricing.plan2_sub'), path: '/pricing' },
-        { label: t('pricing.plan3_sub'), path: '/pricing' },
-        { label: t('pricing.plan4_sub'), path: '/pricing' },
-      ],
-    },
   ];
 
   return (
