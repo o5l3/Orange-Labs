@@ -70,8 +70,9 @@
   --partner-card-border: #e4e4e7;
   --partner-card-label: #52525b;
   --partner-card-label-hover: #18181b;
-  --partner-logo-filter: brightness(0) opacity(0.75);
-  --partners-page-logo-filter: brightness(0) opacity(0.55);
+  /* 라이트 모드: 필터 제거하고 원본 컬러 로고 그대로 노출 */
+  --partner-logo-filter: none;
+  --partners-page-logo-filter: none;
 }
 
 html {

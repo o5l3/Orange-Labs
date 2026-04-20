@@ -105,7 +105,8 @@ export default function Header() {
               alt="OrangeLabs"
               className="h-5 object-contain"
               style={{
-                filter: theme === 'light' ? 'invert(1) brightness(0.15)' : 'none',
+                // 라이트 모드: invert 후 hue-rotate 180°로 주황은 유지, 흰색 "labs"만 검정으로
+                filter: theme === 'light' ? 'invert(1) hue-rotate(180deg)' : 'none',
               }}
             />
           </Link>
