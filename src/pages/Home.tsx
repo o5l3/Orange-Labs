@@ -16,19 +16,25 @@ function LogoCard({ name, logo }: { name: string; logo: string }) {
         padding: '16px 20px',
         height: '104px',
         borderRadius: '12px',
-        backgroundColor: '#1a1a1f',
-        border: '1px solid #2a2a33',
-        transition: 'border-color 0.2s',
+        backgroundColor: 'var(--partner-card-bg)',
+        border: '1px solid var(--partner-card-border)',
+        transition: 'border-color 0.2s, background-color 0.2s',
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(249,115,22,0.4)';
+        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(249,115,22,0.5)';
+        (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--partner-card-bg-hover)';
         const img = e.currentTarget.querySelector('img') as HTMLImageElement | null;
         if (img) img.style.filter = 'none';
+        const label = e.currentTarget.querySelector('span') as HTMLElement | null;
+        if (label) label.style.color = 'var(--partner-card-label-hover)';
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = '#2a2a33';
+        (e.currentTarget as HTMLElement).style.borderColor = 'var(--partner-card-border)';
+        (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--partner-card-bg)';
         const img = e.currentTarget.querySelector('img') as HTMLImageElement | null;
-        if (img) img.style.filter = 'brightness(0) invert(1) opacity(0.8)';
+        if (img) img.style.filter = 'var(--partner-logo-filter)';
+        const label = e.currentTarget.querySelector('span') as HTMLElement | null;
+        if (label) label.style.color = 'var(--partner-card-label)';
       }}
     >
       <img
@@ -40,7 +46,7 @@ function LogoCard({ name, logo }: { name: string; logo: string }) {
           width: 'auto',
           height: 'auto',
           objectFit: 'contain',
-          filter: 'brightness(0) invert(1) opacity(0.8)',
+          filter: 'var(--partner-logo-filter)',
           transition: 'filter 0.2s',
         }}
         onError={(e) => {
@@ -49,12 +55,13 @@ function LogoCard({ name, logo }: { name: string; logo: string }) {
       />
       <span
         style={{
-          color: '#6b7280',
+          color: 'var(--partner-card-label)',
           fontSize: '11px',
           fontWeight: 500,
           whiteSpace: 'nowrap',
           letterSpacing: '0.03em',
           lineHeight: 1,
+          transition: 'color 0.2s',
         }}
       >
         {name}

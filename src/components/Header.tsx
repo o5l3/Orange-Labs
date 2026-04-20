@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../theme/ThemeContext';
 
 const languages = [
   { code: 'en', label: 'English', short: 'EN' },
@@ -12,6 +13,7 @@ const languages = [
 
 export default function Header() {
   const { t, i18n } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
@@ -90,8 +92,8 @@ export default function Header() {
       ref={headerRef}
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
       style={{
-        backgroundColor: 'rgba(13,13,16,0.75)',
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
+        backgroundColor: theme === 'dark' ? 'rgba(13,13,16,0.75)' : 'rgba(255,255,255,0.78)',
+        borderBottom: theme === 'dark' ? '1px solid rgba(255,255,255,0.07)' : '1px solid rgba(0,0,0,0.08)',
       }}
     >
       <div className="w-full px-6 sm:px-10 flex items-center h-16 relative">
@@ -102,7 +104,9 @@ export default function Header() {
               src="/images/orangelabs_text_logo.png"
               alt="OrangeLabs"
               className="h-5 object-contain"
-              // style={{ filter: 'brightness(1.1)' }}
+              style={{
+                filter: theme === 'light' ? 'invert(1) brightness(0.15)' : 'none',
+              }}
             />
           </Link>
         </div>
@@ -113,7 +117,7 @@ export default function Header() {
             <div key={item.key} className="relative">
               <button
                 className="flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-md"
-                style={{ color: activeDropdown === item.key ? '#f97316' : '#d1d5db' }}
+                style={{ color: activeDropdown === item.key ? '#f97316' : 'var(--fg)' }}
                 onMouseEnter={() => setActiveDropdown(item.key)}
                 onClick={() => setActiveDropdown(activeDropdown === item.key ? null : item.key)}
               >
@@ -140,7 +144,7 @@ export default function Header() {
               {item.dropdown && activeDropdown === item.key && (
                 <div
                   className="absolute top-full left-0 mt-1 rounded-xl shadow-2xl py-4 min-w-52"
-                  style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                  style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   {item.dropdown.map((group, gi) => (
@@ -148,7 +152,7 @@ export default function Header() {
                       {group.group && (
                         <div
                           className="px-4 py-1 text-xs font-semibold tracking-wider"
-                          style={{ color: '#6b7280' }}
+                          style={{ color: 'var(--fg-muted)' }}
                         >
                           {group.group}
                         </div>
@@ -158,16 +162,16 @@ export default function Header() {
                           key={sub.path}
                           to={sub.path}
                           className="block px-4 py-2 text-sm transition-colors"
-                          style={{ color: '#d1d5db' }}
+                          style={{ color: 'var(--fg)' }}
                           onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
-                          onMouseLeave={(e) => (e.currentTarget.style.color = '#d1d5db')}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--fg)')}
                           onClick={() => setActiveDropdown(null)}
                         >
                           {sub.label}
                         </Link>
                       ))}
                       {gi < item.dropdown!.length - 1 && (
-                        <div className="my-2 mx-4" style={{ borderTop: '1px solid #2a2a33' }} />
+                        <div className="my-2 mx-4" style={{ borderTop: '1px solid var(--border)' }} />
                       )}
                     </div>
                   ))}
@@ -177,13 +181,25 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop Right: Language */}
+        {/* Desktop Right: Language + Theme */}
         <div className="absolute right-6 sm:right-10 hidden md:flex items-center gap-3">
+          {/* Theme toggle */}
+          <button
+            className="flex items-center px-2 py-2 rounded-md transition-colors"
+            style={{ color: 'var(--fg-muted)' }}
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--fg-muted)')}
+          >
+            <span className="text-xs font-medium">{theme === 'dark' ? 'DARK' : 'LIGHT'}</span>
+          </button>
+
           {/* Language switcher */}
           <div className="relative">
             <button
               className="flex items-center gap-1.5 px-2 py-2 rounded-md transition-colors"
-              style={{ color: langOpen ? '#f97316' : '#9ca3af' }}
+              style={{ color: langOpen ? '#f97316' : 'var(--fg-muted)' }}
               onClick={() => {
                 setLangOpen(!langOpen);
                 setActiveDropdown(null);
@@ -191,7 +207,7 @@ export default function Header() {
               aria-label="Select language"
               onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
               onMouseLeave={(e) => {
-                if (!langOpen) e.currentTarget.style.color = '#9ca3af';
+                if (!langOpen) e.currentTarget.style.color = 'var(--fg-muted)';
               }}
             >
               {/* Globe icon */}
@@ -212,16 +228,16 @@ export default function Header() {
             {langOpen && (
               <div
                 className="absolute top-full right-0 mt-1 rounded-xl shadow-2xl py-2 min-w-36"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
                     className="w-full flex items-center justify-between px-4 py-2 text-sm transition-colors"
-                    style={{ color: i18n.language === lang.code ? '#f97316' : '#d1d5db' }}
+                    style={{ color: i18n.language === lang.code ? '#f97316' : 'var(--fg)' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
                     onMouseLeave={(e) => {
-                      if (i18n.language !== lang.code) e.currentTarget.style.color = '#d1d5db';
+                      if (i18n.language !== lang.code) e.currentTarget.style.color = 'var(--fg)';
                     }}
                     onClick={() => changeLanguage(lang.code)}
                   >
@@ -245,13 +261,23 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile right: language + hamburger */}
+        {/* Mobile right: theme + language + hamburger */}
         <div className="ml-auto md:hidden flex items-center gap-2">
+          {/* Mobile theme toggle */}
+          <button
+            className="flex items-center px-2 py-2 rounded-md"
+            style={{ color: 'var(--fg-muted)' }}
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            <span className="text-xs font-medium">{theme === 'dark' ? 'DARK' : 'LIGHT'}</span>
+          </button>
+
           {/* Mobile language switcher */}
           <div className="relative">
             <button
               className="flex items-center gap-1 p-2 rounded-md"
-              style={{ color: '#9ca3af' }}
+              style={{ color: 'var(--fg-muted)' }}
               onClick={() => {
                 setLangOpen(!langOpen);
                 setMobileMenuOpen(false);
@@ -273,13 +299,13 @@ export default function Header() {
             {langOpen && (
               <div
                 className="absolute top-full right-0 mt-1 rounded-xl shadow-2xl py-2 min-w-36 z-50"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
                     className="w-full flex items-center justify-between px-4 py-2 text-sm"
-                    style={{ color: i18n.language === lang.code ? '#f97316' : '#d1d5db' }}
+                    style={{ color: i18n.language === lang.code ? '#f97316' : 'var(--fg)' }}
                     onClick={() => changeLanguage(lang.code)}
                   >
                     <span>{lang.label}</span>
@@ -313,18 +339,18 @@ export default function Header() {
             <span
               className="block w-6 h-0.5 transition-all duration-300"
               style={{
-                backgroundColor: '#d1d5db',
+                backgroundColor: 'var(--fg)',
                 transform: mobileMenuOpen ? 'translateY(8px) rotate(45deg)' : '',
               }}
             />
             <span
               className="block w-6 h-0.5 transition-all duration-300"
-              style={{ backgroundColor: '#d1d5db', opacity: mobileMenuOpen ? 0 : 1 }}
+              style={{ backgroundColor: 'var(--fg)', opacity: mobileMenuOpen ? 0 : 1 }}
             />
             <span
               className="block w-6 h-0.5 transition-all duration-300"
               style={{
-                backgroundColor: '#d1d5db',
+                backgroundColor: 'var(--fg)',
                 transform: mobileMenuOpen ? 'translateY(-8px) rotate(-45deg)' : '',
               }}
             />
@@ -336,13 +362,13 @@ export default function Header() {
       {mobileMenuOpen && (
         <div
           className="md:hidden"
-          style={{ backgroundColor: '#1a1a1f', borderTop: '1px solid #2a2a33' }}
+          style={{ backgroundColor: 'var(--surface)', borderTop: '1px solid var(--border)' }}
         >
           {navItems.map((item) => (
             <div key={item.key}>
               <button
                 className="w-full flex items-center justify-between px-6 py-3 text-sm font-medium"
-                style={{ color: '#d1d5db' }}
+                style={{ color: 'var(--fg)' }}
                 onClick={() => setMobileExpanded(mobileExpanded === item.key ? null : item.key)}
               >
                 {item.label}
@@ -370,7 +396,7 @@ export default function Header() {
                       {group.group && (
                         <div
                           className="px-8 pt-2 pb-1 text-xs font-semibold tracking-wider"
-                          style={{ color: '#6b7280' }}
+                          style={{ color: 'var(--fg-muted)' }}
                         >
                           {group.group}
                         </div>
@@ -380,7 +406,7 @@ export default function Header() {
                           key={sub.path}
                           to={sub.path}
                           className="block px-8 py-2 text-sm"
-                          style={{ color: '#9ca3af' }}
+                          style={{ color: 'var(--fg-muted)' }}
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setMobileExpanded(null);
