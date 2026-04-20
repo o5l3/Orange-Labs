@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const languages = [
-  { code: 'en', label: 'English' },
-  { code: 'ko', label: '한국어' },
-  { code: 'zh', label: '中文' },
-  { code: 'ja', label: '日本語' },
+  { code: 'en', label: 'English', short: 'EN' },
+  { code: 'ko', label: '한국어', short: 'KO' },
+  { code: 'zh-Hans', label: '中文(简体)', short: '简' },
+  { code: 'zh-Hant', label: '中文(繁體)', short: '繁' },
+  { code: 'ja', label: '日本語', short: 'JA' },
 ];
 
 export default function Header() {
@@ -216,7 +217,7 @@ export default function Header() {
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
-              <span className="text-xs font-medium">{currentLang.code.toUpperCase()}</span>
+              <span className="text-xs font-medium">{currentLang.short}</span>
             </button>
 
             {langOpen && (
