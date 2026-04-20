@@ -11,6 +11,7 @@ concurrency:
 
 jobs:
   mirror:
+    if: github.repository == 'o5l3/Orange-Labs'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout full history
