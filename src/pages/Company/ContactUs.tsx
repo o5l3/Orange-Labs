@@ -26,12 +26,17 @@ export default function ContactUs() {
 
           <div className="space-y-6">
             {[
-              { icon: '📧', label: t('contact.email'), value: 'sales@orangesys.co.kr', href: 'mailto:sales@orangesys.co.kr' },
-              { icon: '🏢', label: t('contact.office'), value: t('contact.officeVal') },
-              { icon: '🕐', label: t('contact.hours'),  value: t('contact.hoursVal') },
+              { num: '01', label: t('contact.email'), value: 'sales@orangesys.co.kr', href: 'mailto:sales@orangesys.co.kr' },
+              { num: '02', label: t('contact.office'), value: t('contact.officeVal') },
+              { num: '03', label: t('contact.hours'),  value: t('contact.hoursVal') },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4">
-                <span className="text-xl">{item.icon}</span>
+                <span
+                  className="text-xs font-bold tracking-widest pt-1 shrink-0"
+                  style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+                >
+                  {item.num}
+                </span>
                 <div>
                   <div className="text-xs font-semibold mb-0.5" style={{ color: 'var(--fg-dim)' }}>
                     {item.label}

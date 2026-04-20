@@ -6,30 +6,30 @@ const pillars = [
     titleKey: 'otc.p1_title',
     subKey: 'otc.p1_sub',
     items: ['otc.p1_i1', 'otc.p1_i2', 'otc.p1_i3'],
-    icon: '⚡',
+    num: '01',
     color: 'var(--accent)',
   },
   {
     titleKey: 'otc.p2_title',
     subKey: 'otc.p2_sub',
     items: ['otc.p2_i1', 'otc.p2_i2', 'otc.p2_i3'],
-    icon: '🎯',
+    num: '02',
     color: 'var(--accent)',
   },
   {
     titleKey: 'otc.p3_title',
     subKey: 'otc.p3_sub',
     items: ['otc.p3_i1', 'otc.p3_i2', 'otc.p3_i3'],
-    icon: '🛡️',
+    num: '03',
     color: 'var(--accent)',
   },
 ];
 
 const archComponents = [
-  { titleKey: 'otc.arch1_title', descKey: 'otc.arch1_desc', icon: '💻' },
-  { titleKey: 'otc.arch2_title', descKey: 'otc.arch2_desc', icon: '⚙️' },
-  { titleKey: 'otc.arch3_title', descKey: 'otc.arch3_desc', icon: '🖥️' },
-  { titleKey: 'otc.arch4_title', descKey: 'otc.arch4_desc', icon: '📊' },
+  { titleKey: 'otc.arch1_title', descKey: 'otc.arch1_desc', num: '01' },
+  { titleKey: 'otc.arch2_title', descKey: 'otc.arch2_desc', num: '02' },
+  { titleKey: 'otc.arch3_title', descKey: 'otc.arch3_desc', num: '03' },
+  { titleKey: 'otc.arch4_title', descKey: 'otc.arch4_desc', num: '04' },
 ];
 
 const chartData = [
@@ -586,7 +586,12 @@ export default function OrangeTheClient() {
                   border: '1px solid rgba(249,115,22,0.2)',
                 }}
               >
-                <span className="text-lg mt-0.5">💡</span>
+                <span
+                  className="text-xs font-bold tracking-widest mt-0.5 shrink-0"
+                  style={{ color: 'var(--accent)' }}
+                >
+                  NOTE
+                </span>
                 <div>
                   <span className="text-sm" style={{ color: 'var(--fg-strong)' }}>
                     {t('otc.problem_p2')}
@@ -961,7 +966,12 @@ export default function OrangeTheClient() {
                   border: '1px solid var(--border)',
                 }}
               >
-                <div className="text-3xl mb-3">{comp.icon}</div>
+                <div
+                  className="text-2xl font-bold mb-3 tracking-tight"
+                  style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+                >
+                  {comp.num}
+                </div>
                 <h3
                   className="text-lg font-bold mb-2 px-3 py-1 rounded-full inline-block"
                   style={{
@@ -1010,7 +1020,12 @@ export default function OrangeTheClient() {
                   border: '1px solid var(--border)',
                 }}
               >
-                <div className="text-3xl mb-4">{p.icon}</div>
+                <div
+                  className="text-2xl font-bold mb-4 tracking-tight"
+                  style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+                >
+                  {p.num}
+                </div>
                 <div className="text-xs font-semibold mb-1" style={{ color: 'var(--fg-muted)' }}>
                   {t(p.titleKey)}
                 </div>
@@ -1061,13 +1076,15 @@ export default function OrangeTheClient() {
                   {/* 장애 발생 */}
                   <div className="flex flex-col items-center gap-1.5 shrink-0">
                     <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl"
+                      className="w-14 h-14 rounded-xl flex items-center justify-center text-xl font-bold"
                       style={{
                         backgroundColor: 'rgba(239,68,68,0.1)',
                         border: '1px solid rgba(239,68,68,0.3)',
+                        color: '#ef4444',
+                        fontVariantNumeric: 'tabular-nums',
                       }}
                     >
-                      ⚠️
+                      00
                     </div>
                     <span className="text-xs font-semibold" style={{ color: '#ef4444' }}>
                       {t('otc.feat_card_spd1_fault')}
@@ -1080,17 +1097,19 @@ export default function OrangeTheClient() {
                   {/* ① 실시간 인지 + 관리자 */}
                   <div className="flex flex-col items-center gap-1.5 shrink-0">
                     <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl"
+                      className="w-14 h-14 rounded-xl flex items-center justify-center text-xl font-bold"
                       style={{
                         backgroundColor: 'rgba(249,115,22,0.1)',
                         border: '1px solid rgba(249,115,22,0.3)',
+                        color: 'var(--accent)',
+                        fontVariantNumeric: 'tabular-nums',
                       }}
                     >
-                      👨‍💻
+                      01
                     </div>
                     <div className="text-center">
                       <div className="text-xs font-semibold" style={{ color: 'var(--accent)' }}>
-                        ① {t('otc.feat_card_spd1_s1')}
+                        {t('otc.feat_card_spd1_s1')}
                       </div>
                       <div className="text-xs" style={{ color: 'var(--fg-muted)' }}>
                         {t('otc.feat_card_spd1_s1_label')}
@@ -1103,16 +1122,18 @@ export default function OrangeTheClient() {
                   {/* ② 관리자 원인확인 */}
                   <div className="flex flex-col items-center gap-1.5 shrink-0">
                     <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl"
+                      className="w-14 h-14 rounded-xl flex items-center justify-center text-xl font-bold"
                       style={{
                         backgroundColor: 'rgba(249,115,22,0.1)',
                         border: '1px solid rgba(249,115,22,0.3)',
+                        color: 'var(--accent)',
+                        fontVariantNumeric: 'tabular-nums',
                       }}
                     >
-                      🔍
+                      02
                     </div>
                     <div className="text-xs font-semibold text-center" style={{ color: 'var(--accent)' }}>
-                      ② {t('otc.feat_card_spd1_s2')}
+                      {t('otc.feat_card_spd1_s2')}
                     </div>
                   </div>
 
@@ -1121,16 +1142,18 @@ export default function OrangeTheClient() {
                   {/* ③ 제조사 통보 */}
                   <div className="flex flex-col items-center gap-1.5 shrink-0">
                     <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl"
+                      className="w-14 h-14 rounded-xl flex items-center justify-center text-xl font-bold"
                       style={{
                         backgroundColor: 'rgba(249,115,22,0.1)',
                         border: '1px solid rgba(249,115,22,0.3)',
+                        color: 'var(--accent)',
+                        fontVariantNumeric: 'tabular-nums',
                       }}
                     >
-                      📢
+                      03
                     </div>
                     <div className="text-xs font-semibold text-center" style={{ color: 'var(--accent)' }}>
-                      ③ {t('otc.feat_card_spd1_s3')}
+                      {t('otc.feat_card_spd1_s3')}
                     </div>
                   </div>
 
@@ -1139,17 +1162,19 @@ export default function OrangeTheClient() {
                   {/* ④ 분석 리포트 제공 + 조치 */}
                   <div className="flex flex-col items-center gap-1.5 shrink-0">
                     <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl"
+                      className="w-14 h-14 rounded-xl flex items-center justify-center text-xl font-bold"
                       style={{
                         backgroundColor: 'rgba(249,115,22,0.1)',
                         border: '1px solid rgba(249,115,22,0.3)',
+                        color: 'var(--accent)',
+                        fontVariantNumeric: 'tabular-nums',
                       }}
                     >
-                      ⚙️
+                      04
                     </div>
                     <div className="text-center">
                       <div className="text-xs font-semibold" style={{ color: 'var(--accent)' }}>
-                        ④ {t('otc.feat_card_spd1_s4')}
+                        {t('otc.feat_card_spd1_s4')}
                       </div>
                       <div className="text-xs" style={{ color: 'var(--fg-muted)' }}>
                         {t('otc.feat_card_spd1_s4_label')}
@@ -1184,7 +1209,7 @@ export default function OrangeTheClient() {
                 {(['otc.feat_card_spd2_p1', 'otc.feat_card_spd2_p2'] as string[]).map((key) => (
                   <div key={key} className="flex items-start gap-2">
                     <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
-                      ✓
+                      —
                     </span>
                     <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                       {t(key)}
@@ -1319,7 +1344,7 @@ export default function OrangeTheClient() {
                   ).map((key) => (
                     <div key={key} className="flex items-start gap-2 mb-2">
                       <span className="text-xs mt-0.5" style={{ color: 'var(--accent)' }}>
-                        ✓
+                        —
                       </span>
                       <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {t(key)}
@@ -1348,7 +1373,7 @@ export default function OrangeTheClient() {
                   ).map((item) => (
                     <div key={item.boldKey} className="flex items-start gap-2">
                       <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
-                        ✓
+                        —
                       </span>
                       <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-strong)' }}>
                         {t(item.preKey)}
@@ -1384,7 +1409,7 @@ export default function OrangeTheClient() {
                 {(['otc.feat_card2_p1', 'otc.feat_card2_p2'] as string[]).map((key) => (
                   <div key={key} className="flex items-start gap-2 mb-2">
                     <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
-                      ✓
+                      —
                     </span>
                     <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                       {t(key)}
@@ -1403,7 +1428,7 @@ export default function OrangeTheClient() {
                   {(['otc.feat_card2_ai_p1', 'otc.feat_card2_ai_p2'] as string[]).map((key) => (
                     <div key={key} className="flex items-start gap-2 mb-2">
                       <span className="text-xs mt-0.5" style={{ color: 'var(--accent)' }}>
-                        ✓
+                        —
                       </span>
                       <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {t(key)}
@@ -1421,7 +1446,7 @@ export default function OrangeTheClient() {
                   {(['otc.feat_card2_result1', 'otc.feat_card2_result2'] as string[]).map((key) => (
                     <div key={key} className="flex items-start gap-2">
                       <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
-                        ✓
+                        —
                       </span>
                       <p
                         className="text-sm font-semibold leading-relaxed"
@@ -1473,7 +1498,7 @@ export default function OrangeTheClient() {
                     {card.points.map((key) => (
                       <div key={key} className="flex items-start gap-2">
                         <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
-                          ✓
+                          —
                         </span>
                         <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                           {t(key)}
@@ -1678,7 +1703,7 @@ export default function OrangeTheClient() {
                 {managerItems[mgrIdx].contentKeys.map((key) => (
                   <li key={key} className="flex items-start gap-2">
                     <span className="shrink-0 -mt-0.5" style={{ color: 'var(--accent)' }}>
-                      ✦
+                      *
                     </span>
                     <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                       {t(key)}

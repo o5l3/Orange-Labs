@@ -12,19 +12,19 @@ export default function Support() {
 
   const cards = [
     {
-      icon: '📚',
+      num: '01',
       title: t('support.docs_title'),
       desc: t('support.docs_desc'),
       action: () => navigate('/resources/introduction'),
     },
     {
-      icon: '💬',
+      num: '02',
       title: t('support.contact_title'),
       desc: t('support.contact_desc'),
       action: () => navigate('/company/contact'),
     },
     {
-      icon: '🎓',
+      num: '03',
       title: t('support.onboard_title'),
       desc: t('support.onboard_desc'),
       action: () => navigate('/company/contact'),
@@ -62,7 +62,12 @@ export default function Support() {
                 onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
                 onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
               >
-                <div className="text-3xl mb-3">{card.icon}</div>
+                <div
+                  className="text-2xl font-bold mb-3 tracking-tight"
+                  style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+                >
+                  {card.num}
+                </div>
                 <h3 className="font-semibold mb-2" style={{ color: 'var(--fg)' }}>
                   {card.title}
                 </h3>

@@ -6,16 +6,16 @@ export default function Introduction() {
   const navigate = useNavigate();
 
   const components = [
-    { key: 'agent',   icon: '🖥️' },
-    { key: 'kernel',  icon: '⚙️' },
-    { key: 'manager', icon: '🗄️' },
-    { key: 'console', icon: '📊' },
+    { key: 'agent',   num: '01' },
+    { key: 'kernel',  num: '02' },
+    { key: 'manager', num: '03' },
+    { key: 'console', num: '04' },
   ];
 
   const concepts = [
-    { key: '1', icon: '⚡' },
-    { key: '2', icon: '🔒' },
-    { key: '3', icon: '🔑' },
+    { key: '1', num: '01' },
+    { key: '2', num: '02' },
+    { key: '3', num: '03' },
   ];
 
   const steps = [1, 2, 3, 4];
@@ -46,14 +46,19 @@ export default function Introduction() {
         {t('introduction.components_title')}
       </h2>
       <div className="grid sm:grid-cols-2 gap-4 mb-16">
-        {components.map(({ key, icon }) => (
+        {components.map(({ key, num }) => (
           <div
             key={key}
             className="p-6 rounded-xl"
             style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
           >
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-2xl">{icon}</span>
+              <span
+                className="text-sm font-bold tracking-widest"
+                style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+              >
+                {num}
+              </span>
               <h3 className="font-bold text-lg" style={{ color: 'var(--accent)' }}>
                 {t(`introduction.component_${key}_title`)}
               </h3>
@@ -70,13 +75,18 @@ export default function Introduction() {
         {t('introduction.concepts_title')}
       </h2>
       <div className="space-y-4 mb-16">
-        {concepts.map(({ key, icon }) => (
+        {concepts.map(({ key, num }) => (
           <div
             key={key}
             className="p-6 rounded-xl flex gap-4"
             style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
           >
-            <span className="text-xl mt-0.5 shrink-0">{icon}</span>
+            <span
+              className="text-sm font-bold tracking-widest mt-1 shrink-0"
+              style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+            >
+              {num}
+            </span>
             <div>
               <h3 className="font-semibold mb-2" style={{ color: 'var(--fg)' }}>
                 {t(`introduction.concept_${key}_title`)}
@@ -184,7 +194,12 @@ export default function Introduction() {
           onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
           onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
         >
-          <div className="text-2xl mb-3">📖</div>
+          <div
+            className="text-xs font-bold tracking-widest mb-3"
+            style={{ color: 'var(--accent)' }}
+          >
+            MANUAL
+          </div>
           <h3 className="font-semibold mb-2" style={{ color: 'var(--fg)' }}>
             {t('introduction.next_manual_title')}
           </h3>
@@ -199,7 +214,12 @@ export default function Introduction() {
           onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
           onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
         >
-          <div className="text-2xl mb-3">✍️</div>
+          <div
+            className="text-xs font-bold tracking-widest mb-3"
+            style={{ color: 'var(--accent)' }}
+          >
+            BLOG
+          </div>
           <h3 className="font-semibold mb-2" style={{ color: 'var(--fg)' }}>
             {t('introduction.next_blog_title')}
           </h3>

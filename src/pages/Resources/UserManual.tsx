@@ -4,24 +4,24 @@ export default function UserManual() {
   const { t } = useTranslation();
 
   const managerSections = [
-    { icon: '📊', key: 'dashboard' },
-    { icon: '🖥',  key: 'node' },
-    { icon: '⚠️', key: 'symptom' },
-    { icon: '📈', key: 'load' },
-    { icon: '📅', key: 'daily' },
-    { icon: '⌨️', key: 'command' },
-    { icon: '📄', key: 'report' },
-    { icon: '🔧', key: 'rule' },
-    { icon: '🏢', key: 'org' },
-    { icon: '⚙️', key: 'setting' },
+    { num: '01', key: 'dashboard' },
+    { num: '02', key: 'node' },
+    { num: '03', key: 'symptom' },
+    { num: '04', key: 'load' },
+    { num: '05', key: 'daily' },
+    { num: '06', key: 'command' },
+    { num: '07', key: 'report' },
+    { num: '08', key: 'rule' },
+    { num: '09', key: 'org' },
+    { num: '10', key: 'setting' },
   ];
 
   const agentCards = [
-    { icon: '📥', key: 'install' },
-    { icon: '🔄', key: 'update' },
-    { icon: '🗑️', key: 'delete' },
-    { icon: '🔍', key: 'detect' },
-    { icon: '🔔', key: 'tray' },
+    { num: '01', key: 'install' },
+    { num: '02', key: 'update' },
+    { num: '03', key: 'delete' },
+    { num: '04', key: 'detect' },
+    { num: '05', key: 'tray' },
   ];
 
   const equipRows: [string, string, string, string][] = [
@@ -223,7 +223,12 @@ export default function UserManual() {
       <div className="grid sm:grid-cols-2 gap-4 mb-8">
         <div className="p-6 rounded-xl" style={cardBase}>
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-xl">🌐</span>
+            <span
+              className="text-xs font-bold tracking-widest"
+              style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+            >
+              01
+            </span>
             <h3 className="font-bold" style={{ color: 'var(--accent)' }}>{t('userManual.manager_access_title')}</h3>
           </div>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
@@ -232,7 +237,12 @@ export default function UserManual() {
         </div>
         <div className="p-6 rounded-xl" style={cardBase}>
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-xl">🔐</span>
+            <span
+              className="text-xs font-bold tracking-widest"
+              style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+            >
+              02
+            </span>
             <h3 className="font-bold" style={{ color: 'var(--accent)' }}>{t('userManual.manager_login_title')}</h3>
           </div>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
@@ -246,9 +256,14 @@ export default function UserManual() {
         {t('userManual.manager_sections_title')}
       </h3>
       <div className="grid sm:grid-cols-2 gap-3 mb-16">
-        {managerSections.map(({ icon, key }) => (
+        {managerSections.map(({ num, key }) => (
           <div key={key} className="p-5 rounded-xl flex gap-3" style={cardBase}>
-            <span className="text-lg mt-0.5 shrink-0">{icon}</span>
+            <span
+              className="text-xs font-bold tracking-widest mt-1 shrink-0"
+              style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+            >
+              {num}
+            </span>
             <div>
               <h4 className="font-semibold text-sm mb-1" style={{ color: 'var(--fg)' }}>
                 {t(`userManual.manager_sec_${key}_title`)}
@@ -322,9 +337,14 @@ export default function UserManual() {
 
       {/* Agent Feature Cards */}
       <div className="grid sm:grid-cols-2 gap-4">
-        {agentCards.map(({ icon, key }) => (
+        {agentCards.map(({ num, key }) => (
           <div key={key} className="p-5 rounded-xl flex gap-3" style={cardBase}>
-            <span className="text-xl mt-0.5 shrink-0">{icon}</span>
+            <span
+              className="text-xs font-bold tracking-widest mt-1 shrink-0"
+              style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+            >
+              {num}
+            </span>
             <div>
               <h4 className="font-semibold mb-1" style={{ color: 'var(--fg)' }}>
                 {t(`userManual.agent_${key}_title`)}

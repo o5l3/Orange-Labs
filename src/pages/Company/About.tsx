@@ -171,9 +171,9 @@ export default function About() {
   ];
 
   const valueProps = [
-    { icon: '⚡', title: t('about.vp1_title'), desc: t('about.vp1_desc') },
-    { icon: '🚀', title: t('about.vp2_title'), desc: t('about.vp2_desc') },
-    { icon: '🛡️', title: t('about.vp3_title'), desc: t('about.vp3_desc') },
+    { num: '01', title: t('about.vp1_title'), desc: t('about.vp1_desc') },
+    { num: '02', title: t('about.vp2_title'), desc: t('about.vp2_desc') },
+    { num: '03', title: t('about.vp3_title'), desc: t('about.vp3_desc') },
   ];
 
   const timeline = [
@@ -422,13 +422,17 @@ export default function About() {
             >
               <div className="flex items-center gap-5">
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center text-2xl shrink-0"
+                  className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
                   style={{
                     backgroundColor: 'rgba(249,115,22,0.1)',
                     border: '1px solid rgba(249,115,22,0.25)',
+                    color: 'var(--accent)',
                   }}
                 >
-                  👤
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
                 </div>
                 <div>
                   <div
@@ -604,7 +608,12 @@ export default function About() {
                   border: '1px solid var(--border-2)',
                 }}
               >
-                <div className="text-4xl mb-4">{vp.icon}</div>
+                <div
+                  className="text-3xl font-bold mb-4 tracking-tight"
+                  style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+                >
+                  {vp.num}
+                </div>
                 <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--fg)' }}>
                   {vp.title}
                 </h3>

@@ -31,16 +31,12 @@ export default function Careers() {
   ];
 
   const perks = [
-    { icon: '🚀', title: t('careers.perks.work_title'), desc: t('careers.perks.work_desc') },
-    { icon: '🏠', title: t('careers.perks.remote_title'), desc: t('careers.perks.remote_desc') },
-    { icon: '📈', title: t('careers.perks.growth_title'), desc: t('careers.perks.growth_desc') },
-    { icon: '💰', title: t('careers.perks.comp_title'), desc: t('careers.perks.comp_desc') },
-    { icon: '🏥', title: t('careers.perks.health_title'), desc: t('careers.perks.health_desc') },
-    {
-      icon: '📚',
-      title: t('careers.perks.learning_title'),
-      desc: t('careers.perks.learning_desc'),
-    },
+    { num: '01', title: t('careers.perks.work_title'), desc: t('careers.perks.work_desc') },
+    { num: '02', title: t('careers.perks.remote_title'), desc: t('careers.perks.remote_desc') },
+    { num: '03', title: t('careers.perks.growth_title'), desc: t('careers.perks.growth_desc') },
+    { num: '04', title: t('careers.perks.comp_title'), desc: t('careers.perks.comp_desc') },
+    { num: '05', title: t('careers.perks.health_title'), desc: t('careers.perks.health_desc') },
+    { num: '06', title: t('careers.perks.learning_title'), desc: t('careers.perks.learning_desc') },
   ];
 
   return (
@@ -96,7 +92,12 @@ export default function Careers() {
                 className="p-6 rounded-xl flex gap-4"
                 style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
-                <span className="text-2xl">{perk.icon}</span>
+                <span
+                  className="text-sm font-bold tracking-widest shrink-0"
+                  style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+                >
+                  {perk.num}
+                </span>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: 'var(--fg)' }}>
                     {perk.title}
