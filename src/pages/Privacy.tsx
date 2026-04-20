@@ -1,22 +1,22 @@
 export default function Privacy() {
   return (
-    <div style={{ backgroundColor: '#111114', color: '#f1f1f3' }}>
-      <section className="py-20 px-4 sm:px-6" style={{ borderBottom: '1px solid #1f1f28' }}>
+    <div style={{ backgroundColor: 'var(--bg)', color: 'var(--fg)' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ borderBottom: '1px solid var(--surface-3)' }}>
         <div className="max-w-3xl mx-auto">
           <div
             className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"
             style={{
               backgroundColor: 'rgba(249,115,22,0.12)',
-              color: '#f97316',
+              color: 'var(--accent)',
               border: '1px solid rgba(249,115,22,0.3)',
             }}
           >
             LEGAL
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
             개인정보처리방침
           </h1>
-          <p className="text-sm" style={{ color: '#6b7280' }}>
+          <p className="text-sm" style={{ color: 'var(--fg-dim)' }}>
             시행일: 2025년 1월 1일 &nbsp;|&nbsp; 최종 수정일: 2025년 1월 1일
           </p>
         </div>
@@ -25,11 +25,11 @@ export default function Privacy() {
       <section className="py-16 px-4 sm:px-6">
         <div
           className="max-w-3xl mx-auto space-y-12 text-sm leading-relaxed"
-          style={{ color: '#d1d5db' }}
+          style={{ color: 'var(--fg-strong)' }}
         >
           {/* 1 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제1조 (개인정보의 처리 목적)
             </h2>
             <p>
@@ -38,7 +38,7 @@ export default function Privacy() {
               경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할
               예정입니다.
             </p>
-            <ul className="mt-3 space-y-2 list-disc list-inside" style={{ color: '#9ca3af' }}>
+            <ul className="mt-3 space-y-2 list-disc list-inside" style={{ color: 'var(--fg-muted)' }}>
               <li>서비스 제공 및 계약 이행 (제품 데모 요청, 견적 문의, 기술 지원)</li>
               <li>회원 가입 및 관리 (본인 확인, 서비스 이용 관리)</li>
               <li>마케팅 및 광고 활용 (이벤트·신제품 정보 제공, 뉴스레터 발송) — 별도 동의 시</li>
@@ -48,31 +48,31 @@ export default function Privacy() {
 
           {/* 2 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제2조 (처리하는 개인정보의 항목)
             </h2>
             <p className="mb-3">회사는 서비스 제공을 위해 아래의 개인정보를 수집·처리합니다.</p>
             <div
               className="rounded-xl p-5 space-y-3"
-              style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
+              style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border-2)' }}
             >
               <div>
-                <span className="font-semibold" style={{ color: '#f97316' }}>
+                <span className="font-semibold" style={{ color: 'var(--accent)' }}>
                   필수 항목:{' '}
                 </span>
-                <span style={{ color: '#9ca3af' }}>이름, 회사명, 직책, 이메일 주소, 전화번호</span>
+                <span style={{ color: 'var(--fg-muted)' }}>이름, 회사명, 직책, 이메일 주소, 전화번호</span>
               </div>
               <div>
-                <span className="font-semibold" style={{ color: '#f97316' }}>
+                <span className="font-semibold" style={{ color: 'var(--accent)' }}>
                   선택 항목:{' '}
                 </span>
-                <span style={{ color: '#9ca3af' }}>부서, 관심 제품·서비스, 문의 내용</span>
+                <span style={{ color: 'var(--fg-muted)' }}>부서, 관심 제품·서비스, 문의 내용</span>
               </div>
               <div>
-                <span className="font-semibold" style={{ color: '#f97316' }}>
+                <span className="font-semibold" style={{ color: 'var(--accent)' }}>
                   자동 수집 항목:{' '}
                 </span>
-                <span style={{ color: '#9ca3af' }}>
+                <span style={{ color: 'var(--fg-muted)' }}>
                   IP 주소, 쿠키, 방문 일시, 서비스 이용 기록, 브라우저 정보
                 </span>
               </div>
@@ -81,14 +81,14 @@ export default function Privacy() {
 
           {/* 3 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제3조 (개인정보의 처리 및 보유 기간)
             </h2>
             <p>
               회사는 법령에 따른 개인정보 보유·이용 기간 또는 정보주체로부터 개인정보를 수집 시에
               동의받은 개인정보 보유·이용 기간 내에서 개인정보를 처리·보유합니다.
             </p>
-            <ul className="mt-3 space-y-2 list-disc list-inside" style={{ color: '#9ca3af' }}>
+            <ul className="mt-3 space-y-2 list-disc list-inside" style={{ color: 'var(--fg-muted)' }}>
               <li>서비스 문의 및 상담 기록: 수집일로부터 3년</li>
               <li>계약 및 청약 철회 기록: 5년 (전자상거래 등에서의 소비자 보호에 관한 법률)</li>
               <li>대금 결제 및 재화 공급 기록: 5년</li>
@@ -98,7 +98,7 @@ export default function Privacy() {
 
           {/* 4 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제4조 (개인정보의 제3자 제공)
             </h2>
             <p>
@@ -111,29 +111,29 @@ export default function Privacy() {
 
           {/* 5 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제5조 (개인정보 처리 위탁)
             </h2>
             <p className="mb-3">
               회사는 서비스 향상을 위해 아래와 같이 개인정보 처리 업무를 위탁하고 있습니다.
             </p>
-            <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #2a2a36' }}>
-              <table className="w-full text-xs" style={{ color: '#9ca3af' }}>
+            <div className="rounded-xl overflow-hidden" style={{ border: '1px solid var(--border-2)' }}>
+              <table className="w-full text-xs" style={{ color: 'var(--fg-muted)' }}>
                 <thead>
-                  <tr style={{ backgroundColor: '#16161d', borderBottom: '1px solid #2a2a36' }}>
-                    <th className="text-left px-4 py-3 font-semibold" style={{ color: '#f1f1f3' }}>
+                  <tr style={{ backgroundColor: 'var(--surface-2)', borderBottom: '1px solid var(--border-2)' }}>
+                    <th className="text-left px-4 py-3 font-semibold" style={{ color: 'var(--fg)' }}>
                       수탁업체
                     </th>
-                    <th className="text-left px-4 py-3 font-semibold" style={{ color: '#f1f1f3' }}>
+                    <th className="text-left px-4 py-3 font-semibold" style={{ color: 'var(--fg)' }}>
                       위탁 업무 내용
                     </th>
-                    <th className="text-left px-4 py-3 font-semibold" style={{ color: '#f1f1f3' }}>
+                    <th className="text-left px-4 py-3 font-semibold" style={{ color: 'var(--fg)' }}>
                       보유 및 이용 기간
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr style={{ borderBottom: '1px solid #2a2a36' }}>
+                  <tr style={{ borderBottom: '1px solid var(--border-2)' }}>
                     <td className="px-4 py-3">이메일 발송 서비스 제공사</td>
                     <td className="px-4 py-3">이메일 발송 및 관리</td>
                     <td className="px-4 py-3">위탁 계약 종료 시까지</td>
@@ -150,20 +150,20 @@ export default function Privacy() {
 
           {/* 6 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제6조 (정보주체의 권리·의무 및 행사 방법)
             </h2>
             <p className="mb-3">
               정보주체는 회사에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수
               있습니다.
             </p>
-            <ul className="space-y-2 list-disc list-inside" style={{ color: '#9ca3af' }}>
+            <ul className="space-y-2 list-disc list-inside" style={{ color: 'var(--fg-muted)' }}>
               <li>개인정보 열람 요구</li>
               <li>오류 등이 있을 경우 정정 요구</li>
               <li>삭제 요구</li>
               <li>처리 정지 요구</li>
             </ul>
-            <p className="mt-3" style={{ color: '#9ca3af' }}>
+            <p className="mt-3" style={{ color: 'var(--fg-muted)' }}>
               위 권리 행사는 회사에 대해 서면, 전화, 전자우편, 모사전송(FAX) 등을 통하여 하실 수
               있으며 회사는 이에 대해 지체 없이 조치하겠습니다.
             </p>
@@ -171,7 +171,7 @@ export default function Privacy() {
 
           {/* 7 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제7조 (개인정보의 파기)
             </h2>
             <p>
@@ -184,13 +184,13 @@ export default function Privacy() {
 
           {/* 8 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제8조 (개인정보의 안전성 확보 조치)
             </h2>
             <p className="mb-3">
               회사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.
             </p>
-            <ul className="space-y-2 list-disc list-inside" style={{ color: '#9ca3af' }}>
+            <ul className="space-y-2 list-disc list-inside" style={{ color: 'var(--fg-muted)' }}>
               <li>관리적 조치: 내부 관리 계획 수립·시행, 정기적 직원 교육</li>
               <li>
                 기술적 조치: 개인정보 처리 시스템 접근 권한 관리, 접근 통제 시스템 설치, 고유 식별
@@ -202,7 +202,7 @@ export default function Privacy() {
 
           {/* 9 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제9조 (쿠키의 설치·운영 및 거부)
             </h2>
             <p>
@@ -215,7 +215,7 @@ export default function Privacy() {
 
           {/* 10 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제10조 (개인정보 보호책임자)
             </h2>
             <p className="mb-3">
@@ -224,23 +224,23 @@ export default function Privacy() {
             </p>
             <div
               className="rounded-xl p-5"
-              style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
+              style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border-2)' }}
             >
-              <div className="space-y-2" style={{ color: '#9ca3af' }}>
+              <div className="space-y-2" style={{ color: 'var(--fg-muted)' }}>
                 <div>
-                  <span className="font-semibold" style={{ color: '#f1f1f3' }}>
+                  <span className="font-semibold" style={{ color: 'var(--fg)' }}>
                     성명:{' '}
                   </span>
                   김범진
                 </div>
                 <div>
-                  <span className="font-semibold" style={{ color: '#f1f1f3' }}>
+                  <span className="font-semibold" style={{ color: 'var(--fg)' }}>
                     직책:{' '}
                   </span>
                   대표이사
                 </div>
                 <div>
-                  <span className="font-semibold" style={{ color: '#f1f1f3' }}>
+                  <span className="font-semibold" style={{ color: 'var(--fg)' }}>
                     연락처:{' '}
                   </span>
                   contact@orangesys.co.kr
@@ -251,7 +251,7 @@ export default function Privacy() {
 
           {/* 11 */}
           <div>
-            <h2 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
               제11조 (개인정보 처리방침 변경)
             </h2>
             <p>
@@ -263,7 +263,7 @@ export default function Privacy() {
 
           <div
             className="rounded-xl p-5 text-xs"
-            style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36', color: '#6b7280' }}
+            style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border-2)', color: 'var(--fg-dim)' }}
           >
             본 방침은 2025년 1월 1일부터 시행됩니다. 이전 개인정보처리방침은 회사에 문의하시면
             확인하실 수 있습니다.

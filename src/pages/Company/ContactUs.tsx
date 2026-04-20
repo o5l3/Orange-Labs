@@ -5,22 +5,22 @@ export default function ContactUs() {
 
   return (
     <div>
-      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-5xl mx-auto">
           <div
             className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"
             style={{
               backgroundColor: 'rgba(249,115,22,0.1)',
-              color: '#f97316',
+              color: 'var(--accent)',
               border: '1px solid rgba(249,115,22,0.3)',
             }}
           >
             {t('contact.badge')}
           </div>
-          <h1 className="text-4xl font-bold mb-6" style={{ color: '#f1f1f3' }}>
+          <h1 className="text-4xl font-bold mb-6" style={{ color: 'var(--fg)' }}>
             {t('contact.title')}
           </h1>
-          <p className="text-base leading-relaxed mb-10" style={{ color: '#9ca3af' }}>
+          <p className="text-base leading-relaxed mb-10" style={{ color: 'var(--fg-muted)' }}>
             {t('contact.desc')}
           </p>
 
@@ -33,16 +33,16 @@ export default function ContactUs() {
               <div key={item.label} className="flex items-start gap-4">
                 <span className="text-xl">{item.icon}</span>
                 <div>
-                  <div className="text-xs font-semibold mb-0.5" style={{ color: '#6b7280' }}>
+                  <div className="text-xs font-semibold mb-0.5" style={{ color: 'var(--fg-dim)' }}>
                     {item.label}
                   </div>
-                  <div className="text-sm" style={{ color: '#d1d5db' }}>
+                  <div className="text-sm" style={{ color: 'var(--fg-strong)' }}>
                     {item.href ? (
                       <a
                         href={item.href}
-                        style={{ color: '#d1d5db' }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = '#d1d5db')}
+                        style={{ color: 'var(--fg-strong)' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--fg-strong)')}
                       >
                         {item.value}
                       </a>

@@ -5,7 +5,7 @@ const deptColors: Record<string, string> = {
   엔지니어링: '#3b82f6',
   エンジニアリング: '#3b82f6',
   工程: '#3b82f6',
-  Product: '#f97316',
+  Product: 'var(--accent)',
   Sales: '#10b981',
   'Customer Success': '#a855f7',
 };
@@ -49,7 +49,7 @@ export default function Careers() {
       <section
         className="py-24 px-4 sm:px-6"
         style={{
-          background: 'linear-gradient(135deg, #111114 0%, #1a1020 100%)',
+          background: 'linear-gradient(135deg, var(--bg) 0%, var(--surface) 100%)',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -66,27 +66,27 @@ export default function Careers() {
             className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"
             style={{
               backgroundColor: 'rgba(249,115,22,0.1)',
-              color: '#f97316',
+              color: 'var(--accent)',
               border: '1px solid rgba(249,115,22,0.3)',
             }}
           >
             {t('careers.badge')}
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold mb-6" style={{ color: '#f1f1f3' }}>
+          <h1 className="text-4xl sm:text-6xl font-bold mb-6" style={{ color: 'var(--fg)' }}>
             {t('careers.title_1')}
             <br />
-            <span style={{ color: '#f97316' }}>{t('careers.title_2')}</span>
+            <span style={{ color: 'var(--accent)' }}>{t('careers.title_2')}</span>
           </h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#9ca3af', lineHeight: '1.7' }}>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--fg-muted)', lineHeight: '1.7' }}>
             {t('careers.desc')}
           </p>
         </div>
       </section>
 
       {/* Perks */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#0e0e11' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-12" style={{ color: '#f1f1f3' }}>
+          <h2 className="text-2xl font-bold text-center mb-12" style={{ color: 'var(--fg)' }}>
             {t('careers.why')}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -94,14 +94,14 @@ export default function Careers() {
               <div
                 key={perk.title}
                 className="p-6 rounded-xl flex gap-4"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
                 <span className="text-2xl">{perk.icon}</span>
                 <div>
-                  <h3 className="font-semibold mb-1" style={{ color: '#f1f1f3' }}>
+                  <h3 className="font-semibold mb-1" style={{ color: 'var(--fg)' }}>
                     {perk.title}
                   </h3>
-                  <p className="text-sm" style={{ color: '#9ca3af' }}>
+                  <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>
                     {perk.desc}
                   </p>
                 </div>
@@ -112,9 +112,9 @@ export default function Careers() {
       </section>
 
       {/* Open Positions */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold mb-10" style={{ color: '#f1f1f3' }}>
+          <h2 className="text-2xl font-bold mb-10" style={{ color: 'var(--fg)' }}>
             {t('careers.openings')}
           </h2>
           <div className="space-y-3">
@@ -122,29 +122,29 @@ export default function Careers() {
               <div
                 key={job.title}
                 className="flex flex-col sm:flex-row sm:items-center justify-between p-5 rounded-xl cursor-pointer transition-all gap-4"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#2a2a33')}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
                 onClick={() => window.open(job.link, '_blank', 'noopener,noreferrer')}
               >
                 <div>
-                  <h3 className="font-semibold mb-1" style={{ color: '#f1f1f3' }}>
+                  <h3 className="font-semibold mb-1" style={{ color: 'var(--fg)' }}>
                     {job.title}
                   </h3>
                   <div className="flex flex-wrap gap-3">
                     <span
                       className="text-xs px-2 py-0.5 rounded-full"
                       style={{
-                        backgroundColor: `${deptColors[job.dept] ?? '#6b7280'}22`,
-                        color: deptColors[job.dept] ?? '#6b7280',
+                        backgroundColor: `${deptColors[job.dept] ?? 'var(--fg-dim)'}22`,
+                        color: deptColors[job.dept] ?? 'var(--fg-dim)',
                       }}
                     >
                       {job.dept}
                     </span>
-                    <span className="text-xs" style={{ color: '#6b7280' }}>
+                    <span className="text-xs" style={{ color: 'var(--fg-dim)' }}>
                       {job.location}
                     </span>
-                    <span className="text-xs" style={{ color: '#6b7280' }}>
+                    <span className="text-xs" style={{ color: 'var(--fg-dim)' }}>
                       {job.type}
                     </span>
                   </div>
@@ -153,7 +153,7 @@ export default function Careers() {
                   className="text-sm font-semibold px-4 py-2 rounded-full whitespace-nowrap transition-all"
                   style={{
                     backgroundColor: 'rgba(249,115,22,0.1)',
-                    color: '#f97316',
+                    color: 'var(--accent)',
                     border: '1px solid rgba(249,115,22,0.3)',
                   }}
                   onClick={(e) => {
@@ -170,19 +170,19 @@ export default function Careers() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 text-center" style={{ backgroundColor: '#0e0e11' }}>
+      <section className="py-16 px-4 sm:px-6 text-center" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div className="max-w-xl mx-auto">
-          <h2 className="text-2xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+          <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
             {t('careers.noRole_title')}
           </h2>
-          <p className="mb-8" style={{ color: '#9ca3af' }}>
+          <p className="mb-8" style={{ color: 'var(--fg-muted)' }}>
             {t('careers.noRole_desc')}
           </p>
           {/*<button*/}
           {/*  className="px-6 py-3 rounded-full font-semibold transition-all"*/}
-          {/*  style={{ backgroundColor: '#f97316', color: '#fff' }}*/}
-          {/*  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}*/}
-          {/*  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}*/}
+          {/*  style={{ backgroundColor: 'var(--accent)', color: '#fff' }}*/}
+          {/*  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-strong)')}*/}
+          {/*  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent)')}*/}
           {/*  onClick={() => navigate('/company/contact')}*/}
           {/*>*/}
           {/*  {t('careers.contact')}*/}
@@ -191,7 +191,7 @@ export default function Careers() {
             <a href="mailto:kim.tigerj@orangesys.co.kr?subject=이력서&body=이력서">
               <div
                 className="px-6 py-3 rounded-full font-semibold transition-all"
-                style={{ backgroundColor: '#f97316', color: '#fff' }}
+                style={{ backgroundColor: 'var(--accent)', color: '#fff' }}
               >
                 {t('careers.contact')}
               </div>

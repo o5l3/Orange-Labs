@@ -22,19 +22,19 @@ function NotFound() {
   const { t } = useTranslation();
   return (
     <div className="flex flex-col items-center justify-center py-40 px-4 text-center">
-      <div className="text-7xl font-bold mb-4" style={{ color: '#f97316' }}>
+      <div className="text-7xl font-bold mb-4" style={{ color: 'var(--accent)' }}>
         404
       </div>
-      <h1 className="text-2xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+      <h1 className="text-2xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
         {t('notFound.title')}
       </h1>
-      <p className="mb-8" style={{ color: '#9ca3af' }}>
+      <p className="mb-8" style={{ color: 'var(--fg-muted)' }}>
         {t('notFound.desc')}
       </p>
       <a
         href="/"
         className="px-6 py-3 rounded-full font-semibold text-sm"
-        style={{ backgroundColor: '#f97316', color: '#fff' }}
+        style={{ backgroundColor: 'var(--accent)', color: '#fff' }}
       >
         {t('notFound.home')}
       </a>

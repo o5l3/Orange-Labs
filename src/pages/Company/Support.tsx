@@ -33,22 +33,22 @@ export default function Support() {
 
   return (
     <div>
-      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-4xl mx-auto">
           <div
             className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"
             style={{
               backgroundColor: 'rgba(249,115,22,0.1)',
-              color: '#f97316',
+              color: 'var(--accent)',
               border: '1px solid rgba(249,115,22,0.3)',
             }}
           >
             {t('support.badge')}
           </div>
-          <h1 className="text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+          <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
             {t('support.title')}
           </h1>
-          <p className="text-lg mb-16" style={{ color: '#9ca3af' }}>
+          <p className="text-lg mb-16" style={{ color: 'var(--fg-muted)' }}>
             {t('support.desc')}
           </p>
 
@@ -57,23 +57,23 @@ export default function Support() {
               <div
                 key={card.title}
                 className="p-6 rounded-xl cursor-pointer transition-all"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
                 onClick={card.action}
                 onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#2a2a33')}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
               >
                 <div className="text-3xl mb-3">{card.icon}</div>
-                <h3 className="font-semibold mb-2" style={{ color: '#f1f1f3' }}>
+                <h3 className="font-semibold mb-2" style={{ color: 'var(--fg)' }}>
                   {card.title}
                 </h3>
-                <p className="text-sm" style={{ color: '#9ca3af' }}>
+                <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>
                   {card.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          <h2 className="text-2xl font-bold mb-8" style={{ color: '#f1f1f3' }}>
+          <h2 className="text-2xl font-bold mb-8" style={{ color: 'var(--fg)' }}>
             {t('support.faq')}
           </h2>
           <div className="space-y-4">
@@ -81,7 +81,7 @@ export default function Support() {
               <div
                 key={faq.q}
                 className="p-6 rounded-xl overflow-hidden relative"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
                 <span
                   className="absolute -top-6 -left-2 text-9xl font-black leading-none select-none pointer-events-none"
@@ -90,10 +90,10 @@ export default function Support() {
                   Q
                 </span>
                 <div className="relative">
-                  <h3 className="font-semibold mb-2" style={{ color: '#f1f1f3' }}>
+                  <h3 className="font-semibold mb-2" style={{ color: 'var(--fg)' }}>
                     {faq.q}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                     {faq.a}
                   </p>
                 </div>

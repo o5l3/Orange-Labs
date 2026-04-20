@@ -18,7 +18,7 @@ export default function About() {
       roleKey: 'about.group_c2_role',
       descKey: 'about.group_c2_desc',
       isMain: true,
-      color: '#f97316',
+      color: 'var(--accent)',
     },
     {
       nameKey: 'about.group_c1_name',
@@ -164,7 +164,7 @@ export default function About() {
   ];
 
   const archLayers = [
-    { num: '01', label: 'Hardware', desc: t('about.arch1_desc'), color: '#374151' },
+    { num: '01', label: 'Hardware', desc: t('about.arch1_desc'), color: 'var(--fg-dimmer)' },
     { num: '02', label: 'Kernel Driver', desc: t('about.arch2_desc'), color: '#1e3a5f' },
     { num: '03', label: 'Agent', desc: t('about.arch3_desc'), color: '#7c2d12' },
     { num: '04', label: 'Manager / Console', desc: t('about.arch4_desc'), color: '#9a3412' },
@@ -192,11 +192,11 @@ export default function About() {
   ];
 
   return (
-    <div style={{ backgroundColor: '#111114', color: '#f1f1f3' }}>
+    <div style={{ backgroundColor: 'var(--bg)', color: 'var(--fg)' }}>
       {/* ── Hero ── */}
       <section
         className="relative py-32 px-4 sm:px-6 overflow-hidden"
-        style={{ background: 'linear-gradient(160deg, #111114 0%, #17101a 60%, #111114 100%)' }}
+        style={{ background: 'linear-gradient(160deg, var(--bg) 0%, var(--surface) 60%, var(--bg) 100%)' }}
       >
         <div className="absolute inset-0 pointer-events-none">
           <div
@@ -227,7 +227,7 @@ export default function About() {
             className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-8 tracking-wider"
             style={{
               backgroundColor: 'rgba(249,115,22,0.12)',
-              color: '#f97316',
+              color: 'var(--accent)',
               border: '1px solid rgba(249,115,22,0.3)',
             }}
           >
@@ -236,13 +236,13 @@ export default function About() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             {t('about.hero_title_1')}
             <br />
-            <span style={{ color: '#f97316' }}>{t('about.hero_title_2')}</span>
+            <span style={{ color: 'var(--accent)' }}>{t('about.hero_title_2')}</span>
             <br />
             {t('about.hero_title_3')}
           </h1>
           <p
             className="text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto"
-            style={{ color: '#9ca3af' }}
+            style={{ color: 'var(--fg-muted)' }}
           >
             {t('about.hero_desc')}
           </p>
@@ -252,18 +252,18 @@ export default function About() {
       {/* ── Stats ── */}
       <section
         style={{
-          borderTop: '1px solid #1f1f28',
-          borderBottom: '1px solid #1f1f28',
-          backgroundColor: '#111114',
+          borderTop: '1px solid var(--surface-3)',
+          borderBottom: '1px solid var(--surface-3)',
+          backgroundColor: 'var(--bg)',
         }}
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: '#f97316' }}>
+              <div className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: 'var(--accent)' }}>
                 {s.value}
               </div>
-              <div className="text-sm" style={{ color: '#9ca3af' }}>
+              <div className="text-sm" style={{ color: 'var(--fg-muted)' }}>
                 {s.label}
               </div>
             </div>
@@ -277,40 +277,40 @@ export default function About() {
           <div>
             <div
               className="text-xs font-semibold tracking-widest mb-4 uppercase"
-              style={{ color: '#f97316' }}
+              style={{ color: 'var(--accent)' }}
             >
               {t('about.mission_badge')}
             </div>
             <h2
               className="text-3xl sm:text-4xl font-bold mb-6 leading-snug"
-              style={{ color: '#f1f1f3' }}
+              style={{ color: 'var(--fg)' }}
             >
               {t('about.mission_title')}
             </h2>
-            <p className="text-base leading-relaxed mb-4" style={{ color: '#9ca3af' }}>
+            <p className="text-base leading-relaxed mb-4" style={{ color: 'var(--fg-muted)' }}>
               {t('about.mission_p1')}
             </p>
-            <p className="text-base leading-relaxed" style={{ color: '#9ca3af' }}>
+            <p className="text-base leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
               {t('about.mission_p2')}
             </p>
           </div>
           <div
             className="rounded-2xl p-8"
             style={{
-              background: 'linear-gradient(135deg, #1a1a22 0%, #1f1520 100%)',
-              border: '1px solid #2a2a36',
+              background: 'linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%)',
+              border: '1px solid var(--border-2)',
             }}
           >
             <div
               className="text-xs font-semibold tracking-widest mb-3 uppercase"
-              style={{ color: '#f97316' }}
+              style={{ color: 'var(--accent)' }}
             >
               FLAGSHIP PRODUCT
             </div>
-            <div className="text-2xl font-bold mb-2" style={{ color: '#f1f1f3' }}>
+            <div className="text-2xl font-bold mb-2" style={{ color: 'var(--fg)' }}>
               Orange The Client v1.6
             </div>
-            <div className="text-sm mb-6" style={{ color: '#9ca3af' }}>
+            <div className="text-sm mb-6" style={{ color: 'var(--fg-muted)' }}>
               {t('about.product_tagline')}
             </div>
             <div className="space-y-3">
@@ -323,16 +323,16 @@ export default function About() {
                 <div key={item} className="flex items-start gap-3">
                   <div
                     className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                    style={{ backgroundColor: '#f97316' }}
+                    style={{ backgroundColor: 'var(--accent)' }}
                   />
-                  <span className="text-sm leading-relaxed" style={{ color: '#d1d5db' }}>
+                  <span className="text-sm leading-relaxed" style={{ color: 'var(--fg-strong)' }}>
                     {item}
                   </span>
                 </div>
               ))}
             </div>
-            <div className="mt-6 pt-5" style={{ borderTop: '1px solid #2a2a36' }}>
-              <div className="text-xs mb-2" style={{ color: '#6b7280' }}>
+            <div className="mt-6 pt-5" style={{ borderTop: '1px solid var(--border-2)' }}>
+              <div className="text-xs mb-2" style={{ color: 'var(--fg-dim)' }}>
                 {t('about.compliance_label')}
               </div>
               <div className="flex flex-wrap gap-2">
@@ -342,7 +342,7 @@ export default function About() {
                     className="px-2 py-0.5 text-xs rounded"
                     style={{
                       backgroundColor: 'rgba(249,115,22,0.1)',
-                      color: '#f97316',
+                      color: 'var(--accent)',
                       border: '1px solid rgba(249,115,22,0.2)',
                     }}
                   >
@@ -356,19 +356,19 @@ export default function About() {
       </section>
 
       {/* ── Group Companies ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <div
               className="text-xs font-semibold tracking-widest mb-3 uppercase"
-              style={{ color: '#f97316' }}
+              style={{ color: 'var(--accent)' }}
             >
               {t('about.group_badge')}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
               {t('about.group_title')}
             </h2>
-            <p className="text-base max-w-xl mx-auto" style={{ color: '#9ca3af' }}>
+            <p className="text-base max-w-xl mx-auto" style={{ color: 'var(--fg-muted)' }}>
               {t('about.group_desc')}
             </p>
           </div>
@@ -393,21 +393,21 @@ export default function About() {
                       <div className="flex items-center gap-3 mb-1">
                         <span
                           className="px-2 py-0.5 text-xs font-bold rounded"
-                          style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}
+                          style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}
                         >
                           제조사 · 개발
                         </span>
-                        <span className="text-xs" style={{ color: '#6b7280' }}>
+                        <span className="text-xs" style={{ color: 'var(--fg-dim)' }}>
                           {t(c.yearKey)}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-black mb-1" style={{ color: '#f1f1f3' }}>
+                      <h3 className="text-2xl font-black mb-1" style={{ color: 'var(--fg)' }}>
                         {t(c.nameKey)}
                       </h3>
-                      <p className="text-sm mb-3" style={{ color: '#f97316', fontWeight: 600 }}>
+                      <p className="text-sm mb-3" style={{ color: 'var(--accent)', fontWeight: 600 }}>
                         {t(c.roleKey)}
                       </p>
-                      <p className="text-sm" style={{ color: '#9ca3af' }}>
+                      <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>
                         {t(c.descKey)}
                       </p>
                     </div>
@@ -418,7 +418,7 @@ export default function About() {
             {/* CEO Card */}
             <div
               className="flex-1 rounded-2xl p-6"
-              style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
+              style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border-2)' }}
             >
               <div className="flex items-center gap-5">
                 <div
@@ -433,17 +433,17 @@ export default function About() {
                 <div>
                   <div
                     className="text-xs font-semibold tracking-widest mb-1 uppercase"
-                    style={{ color: '#f97316' }}
+                    style={{ color: 'var(--accent)' }}
                   >
                     {t('about.ceo_badge')}
                   </div>
-                  <div className="text-lg font-bold" style={{ color: '#f1f1f3' }}>
+                  <div className="text-lg font-bold" style={{ color: 'var(--fg)' }}>
                     {t('about.ceo_name')}
                   </div>
-                  <div className="text-sm mb-1" style={{ color: '#f97316' }}>
+                  <div className="text-sm mb-1" style={{ color: 'var(--accent)' }}>
                     {t('about.ceo_title')}
                   </div>
-                  <div className="text-sm" style={{ color: '#9ca3af' }}>
+                  <div className="text-sm" style={{ color: 'var(--fg-muted)' }}>
                     {t('about.ceo_desc')}
                   </div>
                 </div>
@@ -459,13 +459,13 @@ export default function About() {
                 <div
                   key={c.nameKey}
                   className="rounded-xl p-6"
-                  style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
+                  style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border-2)' }}
                 >
                   <div className="w-8 h-1 rounded-full mb-4" style={{ backgroundColor: c.color }} />
-                  <div className="text-xs mb-1" style={{ color: '#6b7280' }}>
+                  <div className="text-xs mb-1" style={{ color: 'var(--fg-dim)' }}>
                     {t(c.yearKey)}
                   </div>
-                  <h3 className="text-base font-bold mb-1" style={{ color: '#f1f1f3' }}>
+                  <h3 className="text-base font-bold mb-1" style={{ color: 'var(--fg)' }}>
                     {t(c.nameKey)}
                   </h3>
                   <div
@@ -478,7 +478,7 @@ export default function About() {
                   >
                     {t(c.roleKey)}
                   </div>
-                  <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                  <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                     {t(c.descKey)}
                   </p>
                 </div>
@@ -493,14 +493,14 @@ export default function About() {
           <div className="text-center mb-14">
             <div
               className="text-xs font-semibold tracking-widest mb-3 uppercase"
-              style={{ color: '#f97316' }}
+              style={{ color: 'var(--accent)' }}
             >
               {t('about.arch_badge')}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
               {t('about.arch_title')}
             </h2>
-            <p className="text-base max-w-xl mx-auto" style={{ color: '#9ca3af' }}>
+            <p className="text-base max-w-xl mx-auto" style={{ color: 'var(--fg-muted)' }}>
               {t('about.arch_sub')}
             </p>
           </div>
@@ -516,15 +516,15 @@ export default function About() {
               >
                 <div
                   className="text-xs font-mono font-bold w-7 flex-shrink-0"
-                  style={{ color: '#f97316' }}
+                  style={{ color: 'var(--accent)' }}
                 >
                   {layer.num}
                 </div>
                 <div className="flex-1">
-                  <div className="text-sm font-semibold mb-0.5" style={{ color: '#f1f1f3' }}>
+                  <div className="text-sm font-semibold mb-0.5" style={{ color: 'var(--fg)' }}>
                     {layer.label}
                   </div>
-                  <div className="text-xs" style={{ color: '#9ca3af' }}>
+                  <div className="text-xs" style={{ color: 'var(--fg-muted)' }}>
                     {layer.desc}
                   </div>
                 </div>
@@ -533,7 +533,7 @@ export default function About() {
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                       <path
                         d="M7 2v10M3 9l4 4 4-4"
-                        stroke="#f97316"
+                        stroke="var(--accent)"
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -548,16 +548,16 @@ export default function About() {
       </section>
 
       {/* ── Core Capabilities ── */}
-      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <div
               className="text-xs font-semibold tracking-widest mb-3 uppercase"
-              style={{ color: '#f97316' }}
+              style={{ color: 'var(--accent)' }}
             >
               {t('about.cap_badge')}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: 'var(--fg)' }}>
               {t('about.cap_title')}
             </h2>
           </div>
@@ -566,18 +566,18 @@ export default function About() {
               <div
                 key={cap.title}
                 className="p-6 rounded-xl"
-                style={{ backgroundColor: '#16161d', border: '1px solid #2a2a36' }}
+                style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border-2)' }}
               >
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#f97316' }}
+                  style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: 'var(--accent)' }}
                 >
                   {cap.icon}
                 </div>
-                <h3 className="text-base font-semibold mb-2" style={{ color: '#f1f1f3' }}>
+                <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--fg)' }}>
                   {cap.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                   {cap.desc}
                 </p>
               </div>
@@ -590,7 +590,7 @@ export default function About() {
       <section className="py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: 'var(--fg)' }}>
               {t('about.vp_title')}
             </h2>
           </div>
@@ -600,15 +600,15 @@ export default function About() {
                 key={vp.title}
                 className="p-8 rounded-2xl text-center"
                 style={{
-                  background: 'linear-gradient(135deg, #1a1a22 0%, #16131a 100%)',
-                  border: '1px solid #2a2a36',
+                  background: 'linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%)',
+                  border: '1px solid var(--border-2)',
                 }}
               >
                 <div className="text-4xl mb-4">{vp.icon}</div>
-                <h3 className="text-xl font-bold mb-3" style={{ color: '#f1f1f3' }}>
+                <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--fg)' }}>
                   {vp.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                   {vp.desc}
                 </p>
               </div>
@@ -618,16 +618,16 @@ export default function About() {
       </section>
 
       {/* ── Company Timeline ── */}
-      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <div
               className="text-xs font-semibold tracking-widest mb-3 uppercase"
-              style={{ color: '#f97316' }}
+              style={{ color: 'var(--accent)' }}
             >
               {t('about.tl_badge')}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: 'var(--fg)' }}>
               {t('about.tl_title')}
             </h2>
           </div>
@@ -637,12 +637,12 @@ export default function About() {
             {/* center line */}
             <div
               className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block"
-              style={{ backgroundColor: '#2a2a36' }}
+              style={{ backgroundColor: 'var(--border-2)' }}
             />
             {/* mobile left line */}
             <div
               className="absolute left-[18px] top-0 bottom-0 w-px md:hidden"
-              style={{ backgroundColor: '#2a2a36' }}
+              style={{ backgroundColor: 'var(--border-2)' }}
             />
             <div className="space-y-6">
               {timeline.map((item, i) => (
@@ -657,17 +657,17 @@ export default function About() {
                     <div
                       className="rounded-xl px-5 py-4 max-w-[260px] w-full"
                       style={{
-                        backgroundColor: '#16161d',
-                        border: `1px solid ${i === timeline.length - 1 ? 'rgba(249,115,22,0.4)' : '#2a2a36'}`,
+                        backgroundColor: 'var(--surface-2)',
+                        border: `1px solid ${i === timeline.length - 1 ? 'rgba(249,115,22,0.4)' : 'var(--border-2)'}`,
                       }}
                     >
-                      <p className="text-xs font-bold font-mono mb-1" style={{ color: '#f97316' }}>
+                      <p className="text-xs font-bold font-mono mb-1" style={{ color: 'var(--accent)' }}>
                         {item.date}
                       </p>
-                      <h3 className="text-sm font-bold mb-1" style={{ color: '#f1f1f3' }}>
+                      <h3 className="text-sm font-bold mb-1" style={{ color: 'var(--fg)' }}>
                         {item.title}
                       </h3>
-                      <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                      <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {item.desc}
                       </p>
                     </div>
@@ -677,10 +677,10 @@ export default function About() {
                   <div
                     className="absolute left-[14px] md:left-1/2 w-[10px] h-[10px] rounded-full mt-4 -translate-x-[4px] md:-translate-x-[5px] z-10 ring-4"
                     style={{
-                      backgroundColor: i === timeline.length - 1 ? '#f97316' : '#374151',
+                      backgroundColor: i === timeline.length - 1 ? 'var(--accent)' : 'var(--fg-dimmer)',
                       border: '2px solid',
-                      borderColor: i === timeline.length - 1 ? '#f97316' : '#4b5563',
-                      boxShadow: '0 0 0 4px #0e0e12',
+                      borderColor: i === timeline.length - 1 ? 'var(--accent)' : 'var(--fg-dimmer)',
+                      boxShadow: '0 0 0 4px var(--bg-deep)',
                     }}
                   />
 
@@ -689,13 +689,13 @@ export default function About() {
 
                   {/* Mobile card */}
                   <div className="md:hidden ml-10">
-                    <p className="text-xs font-bold font-mono mb-0.5" style={{ color: '#f97316' }}>
+                    <p className="text-xs font-bold font-mono mb-0.5" style={{ color: 'var(--accent)' }}>
                       {item.date}
                     </p>
-                    <h3 className="text-sm font-bold mb-0.5" style={{ color: '#f1f1f3' }}>
+                    <h3 className="text-sm font-bold mb-0.5" style={{ color: 'var(--fg)' }}>
                       {item.title}
                     </h3>
-                    <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                    <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                       {item.desc}
                     </p>
                   </div>
@@ -707,24 +707,24 @@ export default function About() {
       </section>
 
       {/* ── Divider ── */}
-      <div style={{ borderTop: '1px solid #1f1f28' }} />
+      <div style={{ borderTop: '1px solid var(--surface-3)' }} />
 
       {/* ── CTA ── */}
-      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#0e0e12' }}>
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
             {t('about.cta_title')}
           </h2>
-          <p className="text-base mb-8" style={{ color: '#9ca3af' }}>
+          <p className="text-base mb-8" style={{ color: 'var(--fg-muted)' }}>
             {t('about.cta_desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/products/orange-the-client"
               className="px-6 py-3 rounded-full font-semibold transition-all"
-              style={{ backgroundColor: '#f97316', color: '#fff' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ea6c0a')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f97316')}
+              style={{ backgroundColor: 'var(--accent)', color: '#fff' }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-strong)')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent)')}
             >
               {t('about.cta_btn2')}
             </Link>

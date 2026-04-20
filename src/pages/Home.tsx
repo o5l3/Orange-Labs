@@ -230,7 +230,7 @@ export default function Home() {
       <section
         className="relative overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #111114 0%, #1a1020 50%, #111114 100%)',
+          background: 'linear-gradient(135deg, var(--bg) 0%, var(--surface) 50%, var(--bg) 100%)',
           minHeight: '60vh',
           display: 'flex',
           alignItems: 'center',
@@ -252,7 +252,7 @@ export default function Home() {
           <h1
             className="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tight mb-6"
             style={{
-              background: 'linear-gradient(135deg, #fb923c 0%, #f97316 55%, #ea6c0a 100%)',
+              background: 'linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 55%, var(--accent-strong) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -265,7 +265,7 @@ export default function Home() {
 
           <p
             className="max-w-2xl mx-auto text-2xl sm:text-3xl mb-10 font-bold"
-            style={{ color: '#f1f1f3', lineHeight: '1.4' }}
+            style={{ color: 'var(--fg)', lineHeight: '1.4' }}
           >
             {t('home.hero_desc')}
           </p>
@@ -274,17 +274,17 @@ export default function Home() {
             <button
               className="px-8 py-4 rounded-full text-base font-semibold transition-all flex items-center justify-center gap-2"
               style={{
-                border: '1px solid #2a2a33',
-                color: '#d1d5db',
+                border: '1px solid var(--border)',
+                color: 'var(--fg-strong)',
                 backgroundColor: 'transparent',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#f97316';
-                e.currentTarget.style.color = '#f97316';
+                e.currentTarget.style.borderColor = 'var(--accent)';
+                e.currentTarget.style.color = 'var(--accent)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#2a2a33';
-                e.currentTarget.style.color = '#d1d5db';
+                e.currentTarget.style.borderColor = 'var(--border)';
+                e.currentTarget.style.color = 'var(--fg-strong)';
               }}
               onClick={() => navigate('/resources/demo-videos')}
             >
@@ -302,20 +302,20 @@ export default function Home() {
         className="py-24 px-4 sm:px-6"
         style={{
           background:
-            'linear-gradient(to bottom, #111114 0%, #111114 85%, #0e0e11 100%)',
+            'linear-gradient(to bottom, var(--bg) 0%, var(--bg) 85%, var(--bg-deep) 100%)',
         }}
       >
         <div className="max-w-6xl mx-auto reveal">
           {/* 상단 라벨: 관찰·수집 */}
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div style={{ flex: 1, height: 1, backgroundColor: '#2a2a33', maxWidth: 160 }} />
+            <div style={{ flex: 1, height: 1, backgroundColor: 'var(--border)', maxWidth: 160 }} />
             <span
               className="text-xs font-semibold tracking-widest"
-              style={{ color: '#6b7280' }}
+              style={{ color: 'var(--fg-dim)' }}
             >
               {t('home.kf_label_observe')}
             </span>
-            <div style={{ flex: 1, height: 1, backgroundColor: '#2a2a33', maxWidth: 160 }} />
+            <div style={{ flex: 1, height: 1, backgroundColor: 'var(--border)', maxWidth: 160 }} />
           </div>
 
           {/* 2×2 그리드 */}
@@ -327,8 +327,8 @@ export default function Home() {
                   key={f.title}
                   className="relative p-8 rounded-2xl transition-all duration-300 overflow-hidden spotlight"
                   style={{
-                    background: `linear-gradient(135deg, ${axis.bg} 0%, #16161b 55%)`,
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    background: `linear-gradient(135deg, ${axis.bg} 0%, var(--surface-2) 55%)`,
+                    border: '1px solid var(--overlay-subtle)',
                   }}
                   onMouseMove={handleSpotlightMove}
                   onMouseEnter={(e) => {
@@ -338,7 +338,7 @@ export default function Home() {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
+                    e.currentTarget.style.borderColor = 'var(--overlay-subtle)';
                     e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
@@ -378,13 +378,13 @@ export default function Home() {
                       </div>
                       <h3
                         className="text-lg font-bold mb-2"
-                        style={{ color: '#f1f1f3', letterSpacing: '-0.01em' }}
+                        style={{ color: 'var(--fg)', letterSpacing: '-0.01em' }}
                       >
                         {f.title}
                       </h3>
                       <p
                         className="text-sm leading-relaxed"
-                        style={{ color: '#9ca3af' }}
+                        style={{ color: 'var(--fg-muted)' }}
                       >
                         {f.desc}
                       </p>
@@ -397,14 +397,14 @@ export default function Home() {
 
           {/* 하단 라벨: 조치·실행 */}
           <div className="flex items-center justify-center gap-4 mt-6">
-            <div style={{ flex: 1, height: 1, backgroundColor: '#2a2a33', maxWidth: 160 }} />
+            <div style={{ flex: 1, height: 1, backgroundColor: 'var(--border)', maxWidth: 160 }} />
             <span
               className="text-xs font-semibold tracking-widest"
-              style={{ color: '#6b7280' }}
+              style={{ color: 'var(--fg-dim)' }}
             >
               {t('home.kf_label_act')}
             </span>
-            <div style={{ flex: 1, height: 1, backgroundColor: '#2a2a33', maxWidth: 160 }} />
+            <div style={{ flex: 1, height: 1, backgroundColor: 'var(--border)', maxWidth: 160 }} />
           </div>
 
         </div>
@@ -415,14 +415,14 @@ export default function Home() {
         className="py-24 px-4 sm:px-6"
         style={{
           background:
-            'linear-gradient(to bottom, #0e0e11 0%, #0e0e11 85%, #111114 100%)',
+            'linear-gradient(to bottom, var(--bg-deep) 0%, var(--bg-deep) 85%, var(--bg) 100%)',
         }}
       >
         <div className="max-w-6xl mx-auto reveal">
           <div className="text-center mb-16">
             <h2
               className="text-3xl sm:text-4xl font-bold"
-              style={{ color: '#f1f1f3' }}
+              style={{ color: 'var(--fg)' }}
             >
               {t('home.usecase_title')}
             </h2>
@@ -434,23 +434,23 @@ export default function Home() {
                 key={u.key}
                 className="p-6 rounded-xl flex flex-col gap-4 transition-all spotlight"
                 style={{
-                  backgroundColor: '#1a1a1f',
-                  border: '1px solid #2a2a33',
+                  backgroundColor: 'var(--surface)',
+                  border: '1px solid var(--border)',
                 }}
                 onMouseMove={handleSpotlightMove}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')
                 }
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#2a2a33')}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
               >
                 <div className="flex-1">
                   <h3
                     className="text-base font-semibold mb-2"
-                    style={{ color: '#f1f1f3' }}
+                    style={{ color: 'var(--fg)' }}
                   >
                     {t(`home.usecase_${u.key}_title`)}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                     {t(`home.usecase_${u.key}_desc`)}
                   </p>
                 </div>
@@ -479,14 +479,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-16">
             <button
               className="px-8 py-3.5 rounded-full text-sm font-semibold transition-all btn-with-arrow"
-              style={{ border: '1px solid #2a2a33', color: '#d1d5db' }}
+              style={{ border: '1px solid var(--border)', color: 'var(--fg-strong)' }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#f97316';
-                e.currentTarget.style.color = '#f97316';
+                e.currentTarget.style.borderColor = 'var(--accent)';
+                e.currentTarget.style.color = 'var(--accent)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#2a2a33';
-                e.currentTarget.style.color = '#d1d5db';
+                e.currentTarget.style.borderColor = 'var(--border)';
+                e.currentTarget.style.color = 'var(--fg-strong)';
               }}
               onClick={() => navigate('/products/orange-the-client')}
             >
@@ -498,14 +498,14 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-full text-sm font-semibold transition-all flex items-center justify-center btn-with-arrow"
-              style={{ border: '1px solid #2a2a33', color: '#d1d5db' }}
+              style={{ border: '1px solid var(--border)', color: 'var(--fg-strong)' }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = '#f97316';
-                (e.currentTarget as HTMLAnchorElement).style.color = '#f97316';
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--accent)';
+                (e.currentTarget as HTMLAnchorElement).style.color = 'var(--accent)';
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = '#2a2a33';
-                (e.currentTarget as HTMLAnchorElement).style.color = '#d1d5db';
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--border)';
+                (e.currentTarget as HTMLAnchorElement).style.color = 'var(--fg-strong)';
               }}
             >
               {t('home.viewPricing')}
@@ -520,7 +520,7 @@ export default function Home() {
         className="py-20 px-4 sm:px-6"
         style={{
           background:
-            'linear-gradient(to bottom, #111114 0%, #111114 85%, #0e0e11 100%)',
+            'linear-gradient(to bottom, var(--bg) 0%, var(--bg) 85%, var(--bg-deep) 100%)',
           cursor: 'pointer',
         }}
         onClick={() => navigate('/company/partners')}
@@ -528,7 +528,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto reveal">
           <h2
             className="text-center text-2xl sm:text-3xl font-bold mb-12"
-            style={{ color: '#f1f1f3' }}
+            style={{ color: 'var(--fg)' }}
           >
             {t('home.partners_title')}
           </h2>

@@ -92,8 +92,8 @@ export default function Header() {
       ref={headerRef}
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
       style={{
-        backgroundColor: theme === 'dark' ? 'rgba(13,13,16,0.75)' : 'rgba(255,255,255,0.78)',
-        borderBottom: theme === 'dark' ? '1px solid rgba(255,255,255,0.07)' : '1px solid rgba(0,0,0,0.08)',
+        backgroundColor: 'var(--header-bg)',
+        borderBottom: '1px solid var(--header-border)',
       }}
     >
       <div className="w-full px-6 sm:px-10 flex items-center h-16 relative">
@@ -117,7 +117,7 @@ export default function Header() {
             <div key={item.key} className="relative">
               <button
                 className="flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-md"
-                style={{ color: activeDropdown === item.key ? '#f97316' : 'var(--fg)' }}
+                style={{ color: activeDropdown === item.key ? 'var(--accent)' : 'var(--fg)' }}
                 onMouseEnter={() => setActiveDropdown(item.key)}
                 onClick={() => setActiveDropdown(activeDropdown === item.key ? null : item.key)}
               >
@@ -163,7 +163,7 @@ export default function Header() {
                           to={sub.path}
                           className="block px-4 py-2 text-sm transition-colors"
                           style={{ color: 'var(--fg)' }}
-                          onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
                           onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--fg)')}
                           onClick={() => setActiveDropdown(null)}
                         >
@@ -189,7 +189,7 @@ export default function Header() {
             style={{ color: 'var(--fg-muted)' }}
             onClick={toggleTheme}
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
             onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--fg-muted)')}
           >
             <span className="text-xs font-medium">{theme === 'dark' ? 'DARK' : 'LIGHT'}</span>
@@ -199,13 +199,13 @@ export default function Header() {
           <div className="relative">
             <button
               className="flex items-center gap-1.5 px-2 py-2 rounded-md transition-colors"
-              style={{ color: langOpen ? '#f97316' : 'var(--fg-muted)' }}
+              style={{ color: langOpen ? 'var(--accent)' : 'var(--fg-muted)' }}
               onClick={() => {
                 setLangOpen(!langOpen);
                 setActiveDropdown(null);
               }}
               aria-label="Select language"
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
               onMouseLeave={(e) => {
                 if (!langOpen) e.currentTarget.style.color = 'var(--fg-muted)';
               }}
@@ -234,8 +234,8 @@ export default function Header() {
                   <button
                     key={lang.code}
                     className="w-full flex items-center justify-between px-4 py-2 text-sm transition-colors"
-                    style={{ color: i18n.language === lang.code ? '#f97316' : 'var(--fg)' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
+                    style={{ color: i18n.language === lang.code ? 'var(--accent)' : 'var(--fg)' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
                     onMouseLeave={(e) => {
                       if (i18n.language !== lang.code) e.currentTarget.style.color = 'var(--fg)';
                     }}
@@ -305,7 +305,7 @@ export default function Header() {
                   <button
                     key={lang.code}
                     className="w-full flex items-center justify-between px-4 py-2 text-sm"
-                    style={{ color: i18n.language === lang.code ? '#f97316' : 'var(--fg)' }}
+                    style={{ color: i18n.language === lang.code ? 'var(--accent)' : 'var(--fg)' }}
                     onClick={() => changeLanguage(lang.code)}
                   >
                     <span>{lang.label}</span>
@@ -390,7 +390,7 @@ export default function Header() {
                 </svg>
               </button>
               {mobileExpanded === item.key && item.dropdown && (
-                <div style={{ backgroundColor: '#111114' }}>
+                <div style={{ backgroundColor: 'var(--bg)' }}>
                   {item.dropdown.map((group, gi) => (
                     <div key={gi}>
                       {group.group && (

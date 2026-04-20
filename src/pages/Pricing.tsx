@@ -76,23 +76,23 @@ export default function Pricing() {
 
   return (
     <div>
-      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div
               className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"
               style={{
                 backgroundColor: 'rgba(249,115,22,0.1)',
-                color: '#f97316',
+                color: 'var(--accent)',
                 border: '1px solid rgba(249,115,22,0.3)',
               }}
             >
               {t('pricing.badge')}
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
               {t('pricing.title')}
             </h1>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#9ca3af' }}>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--fg-muted)' }}>
               {t('pricing.desc')}
             </p>
           </div>
@@ -103,14 +103,14 @@ export default function Pricing() {
                 key={plan.name}
                 className="p-8 rounded-2xl flex flex-col relative"
                 style={{
-                  backgroundColor: plan.highlight ? '#1e1020' : '#1a1a1f',
-                  border: plan.highlight ? '1px solid rgba(249,115,22,0.5)' : '1px solid #2a2a33',
+                  backgroundColor: plan.highlight ? 'var(--surface)' : 'var(--surface)',
+                  border: plan.highlight ? '1px solid rgba(249,115,22,0.5)' : '1px solid var(--border)',
                 }}
               >
                 {plan.highlight && (
                   <div
                     className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: '#f97316', color: '#fff' }}
+                    style={{ backgroundColor: 'var(--accent)', color: '#fff' }}
                   >
                     {t('pricing.popular')}
                   </div>
@@ -118,17 +118,17 @@ export default function Pricing() {
                 <div className="mb-6">
                   <div
                     className="text-xs font-semibold tracking-wider mb-1"
-                    style={{ color: '#f97316' }}
+                    style={{ color: 'var(--accent)' }}
                   >
                     {plan.subtitle.toUpperCase()}
                   </div>
-                  <h2 className="text-xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+                  <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
                     {plan.name}
                   </h2>
-                  <div className="text-4xl font-bold mb-1" style={{ color: '#f1f1f3' }}>
+                  <div className="text-4xl font-bold mb-1" style={{ color: 'var(--fg)' }}>
                     {plan.price}
                   </div>
-                  <div className="text-sm" style={{ color: '#6b7280' }}>
+                  <div className="text-sm" style={{ color: 'var(--fg-dim)' }}>
                     {plan.priceNote}
                   </div>
                 </div>
@@ -138,7 +138,7 @@ export default function Pricing() {
                     <li
                       key={feature}
                       className="flex items-start gap-2 text-sm"
-                      style={{ color: '#d1d5db' }}
+                      style={{ color: 'var(--fg-strong)' }}
                     >
                       <svg
                         className="mt-0.5 flex-shrink-0"
@@ -146,7 +146,7 @@ export default function Pricing() {
                         height="14"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#f97316"
+                        stroke="var(--accent)"
                         strokeWidth="2.5"
                       >
                         <path d="M20 6L9 17l-5-5" />
@@ -160,23 +160,23 @@ export default function Pricing() {
                   className="w-full py-3 rounded-full font-semibold text-sm transition-all"
                   style={
                     plan.highlight
-                      ? { backgroundColor: '#f97316', color: '#fff' }
-                      : { border: '1px solid #2a2a33', color: '#d1d5db' }
+                      ? { backgroundColor: 'var(--accent)', color: '#fff' }
+                      : { border: '1px solid var(--border)', color: 'var(--fg-strong)' }
                   }
                   onMouseEnter={(e) => {
                     if (plan.highlight) {
-                      e.currentTarget.style.backgroundColor = '#ea6c0a';
+                      e.currentTarget.style.backgroundColor = 'var(--accent-strong)';
                     } else {
-                      e.currentTarget.style.borderColor = '#f97316';
-                      e.currentTarget.style.color = '#f97316';
+                      e.currentTarget.style.borderColor = 'var(--accent)';
+                      e.currentTarget.style.color = 'var(--accent)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (plan.highlight) {
-                      e.currentTarget.style.backgroundColor = '#f97316';
+                      e.currentTarget.style.backgroundColor = 'var(--accent)';
                     } else {
-                      e.currentTarget.style.borderColor = '#2a2a33';
-                      e.currentTarget.style.color = '#d1d5db';
+                      e.currentTarget.style.borderColor = 'var(--border)';
+                      e.currentTarget.style.color = 'var(--fg-strong)';
                     }
                   }}
                   onClick={() => navigate('/company/contact')}
@@ -188,11 +188,11 @@ export default function Pricing() {
           </div>
 
           {/* FAQ note */}
-          <p className="text-center mt-12 text-sm" style={{ color: '#6b7280' }}>
+          <p className="text-center mt-12 text-sm" style={{ color: 'var(--fg-dim)' }}>
             {t('pricing.note')}{' '}
             <span
               className="cursor-pointer transition-colors"
-              style={{ color: '#f97316' }}
+              style={{ color: 'var(--accent)' }}
               onClick={() => navigate('/company/contact')}
             >
               {t('pricing.custom')}

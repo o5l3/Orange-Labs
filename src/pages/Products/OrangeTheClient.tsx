@@ -7,21 +7,21 @@ const pillars = [
     subKey: 'otc.p1_sub',
     items: ['otc.p1_i1', 'otc.p1_i2', 'otc.p1_i3'],
     icon: '⚡',
-    color: '#f97316',
+    color: 'var(--accent)',
   },
   {
     titleKey: 'otc.p2_title',
     subKey: 'otc.p2_sub',
     items: ['otc.p2_i1', 'otc.p2_i2', 'otc.p2_i3'],
     icon: '🎯',
-    color: '#f97316',
+    color: 'var(--accent)',
   },
   {
     titleKey: 'otc.p3_title',
     subKey: 'otc.p3_sub',
     items: ['otc.p3_i1', 'otc.p3_i2', 'otc.p3_i3'],
     icon: '🛡️',
-    color: '#f97316',
+    color: 'var(--accent)',
   },
 ];
 
@@ -42,8 +42,8 @@ const chartData = [
 const legendItems = [
   { labelKey: 'otc.legend_card', color: '#fed7aa' },
   { labelKey: 'otc.legend_savings', color: '#fdba74' },
-  { labelKey: 'otc.legend_insurance', color: '#fb923c' },
-  { labelKey: 'otc.legend_securities', color: '#f97316' },
+  { labelKey: 'otc.legend_insurance', color: 'var(--accent-light)' },
+  { labelKey: 'otc.legend_securities', color: 'var(--accent)' },
   { labelKey: 'otc.legend_bank', color: '#c2410c' },
 ];
 
@@ -235,7 +235,7 @@ export default function OrangeTheClient() {
   };
 
   return (
-    <div style={{ backgroundColor: '#0e0e11' }}>
+    <div style={{ backgroundColor: 'var(--bg-deep)' }}>
       {/* ── 라이트박스 오버레이 ── */}
       {lbOpen && (
         <div
@@ -280,13 +280,13 @@ export default function OrangeTheClient() {
             style={{
               width: '40px',
               height: '40px',
-              backgroundColor: 'rgba(255,255,255,0.12)',
+              backgroundColor: 'var(--overlay-mid)',
               color: '#fff',
               zIndex: 2,
-              border: '1px solid rgba(255,255,255,0.2)',
+              border: '1px solid var(--overlay-strong)',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.22)')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)')}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--overlay-strong)')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--overlay-mid)')}
             onClick={closeLightbox}
           >
             <svg
@@ -307,7 +307,7 @@ export default function OrangeTheClient() {
             style={{
               zIndex: 2,
               backgroundColor: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(255,255,255,0.15)',
+              border: '1px solid var(--overlay-mid)',
             }}
           >
             <button
@@ -315,14 +315,14 @@ export default function OrangeTheClient() {
               style={{
                 width: '32px',
                 height: '32px',
-                backgroundColor: 'rgba(255,255,255,0.1)',
+                backgroundColor: 'var(--overlay-mid)',
                 color: '#fff',
               }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)')
+                (e.currentTarget.style.backgroundColor = 'var(--overlay-strong)')
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)')
+                (e.currentTarget.style.backgroundColor = 'var(--overlay-mid)')
               }
               onClick={lbZoomOut}
             >
@@ -339,7 +339,7 @@ export default function OrangeTheClient() {
             </button>
             <span
               className="text-sm font-semibold tabular-nums"
-              style={{ color: '#e5e7eb', minWidth: '44px', textAlign: 'center' }}
+              style={{ color: 'var(--fg-strong)', minWidth: '44px', textAlign: 'center' }}
             >
               {Math.round(lbZoom * 100)}%
             </span>
@@ -348,14 +348,14 @@ export default function OrangeTheClient() {
               style={{
                 width: '32px',
                 height: '32px',
-                backgroundColor: 'rgba(255,255,255,0.1)',
+                backgroundColor: 'var(--overlay-mid)',
                 color: '#fff',
               }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)')
+                (e.currentTarget.style.backgroundColor = 'var(--overlay-strong)')
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)')
+                (e.currentTarget.style.backgroundColor = 'var(--overlay-mid)')
               }
               onClick={lbZoomIn}
             >
@@ -371,22 +371,22 @@ export default function OrangeTheClient() {
               </svg>
             </button>
             <div
-              style={{ width: '1px', height: '20px', backgroundColor: 'rgba(255,255,255,0.2)' }}
+              style={{ width: '1px', height: '20px', backgroundColor: 'var(--overlay-strong)' }}
             />
             <button
               className="flex items-center justify-center rounded-full transition-all"
               style={{
                 width: '32px',
                 height: '32px',
-                backgroundColor: 'rgba(255,255,255,0.1)',
+                backgroundColor: 'var(--overlay-mid)',
                 color: '#fff',
               }}
               title="원래 크기"
               onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)')
+                (e.currentTarget.style.backgroundColor = 'var(--overlay-strong)')
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)')
+                (e.currentTarget.style.backgroundColor = 'var(--overlay-mid)')
               }
               onClick={() => {
                 setLbZoom(1);
@@ -415,7 +415,7 @@ export default function OrangeTheClient() {
       <section
         className="py-24 px-4 sm:px-6"
         style={{
-          background: 'linear-gradient(135deg, #111114 0%, #1a0e08 100%)',
+          background: 'linear-gradient(135deg, var(--bg) 0%, var(--surface) 100%)',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -432,7 +432,7 @@ export default function OrangeTheClient() {
             className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-widest"
             style={{
               backgroundColor: 'rgba(249,115,22,0.1)',
-              color: '#f97316',
+              color: 'var(--accent)',
               border: '1px solid rgba(249,115,22,0.3)',
             }}
           >
@@ -440,16 +440,16 @@ export default function OrangeTheClient() {
           </div>
           <h1
             className="text-5xl sm:text-7xl font-bold tracking-tight mb-3"
-            style={{ color: '#f1f1f3' }}
+            style={{ color: 'var(--fg)' }}
           >
             {t('otc.hero_title')}
           </h1>
-          <p className="text-2xl sm:text-3xl font-bold mb-6" style={{ color: '#f97316' }}>
+          <p className="text-2xl sm:text-3xl font-bold mb-6" style={{ color: 'var(--accent)' }}>
             {t('otc.hero_tagline')}
           </p>
           <p
             className="text-lg max-w-2xl mx-auto mb-10"
-            style={{ color: '#9ca3af', lineHeight: '1.8' }}
+            style={{ color: 'var(--fg-muted)', lineHeight: '1.8' }}
           >
             {t('otc.hero_desc')}
           </p>
@@ -461,7 +461,7 @@ export default function OrangeTheClient() {
               className="px-8 py-4 rounded-full text-base font-semibold transition-all"
               style={{
                 border: '1px solid rgba(249,115,22,0.5)',
-                color: '#f97316',
+                color: 'var(--accent)',
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
@@ -478,20 +478,20 @@ export default function OrangeTheClient() {
       </section>
 
       {/* ── Problem / Background ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div
               className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 tracking-widest"
               style={{
                 backgroundColor: 'rgba(249,115,22,0.1)',
-                color: '#f97316',
+                color: 'var(--accent)',
                 border: '1px solid rgba(249,115,22,0.2)',
               }}
             >
               {t('otc.problem_badge')}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--fg)' }}>
               {t('otc.problem_title')}
             </h2>
           </div>
@@ -500,18 +500,18 @@ export default function OrangeTheClient() {
             <div
               className="rounded-2xl p-6"
               style={{
-                backgroundColor: '#1a1a1f',
+                backgroundColor: 'var(--surface)',
                 border: '1px solid rgba(249,115,22,0.2)',
               }}
             >
               {/* 카드 헤더 */}
-              <h3 className="text-sm font-bold mb-1" style={{ color: '#f1f1f3' }}>
+              <h3 className="text-sm font-bold mb-1" style={{ color: 'var(--fg)' }}>
                 {t('otc.chart_title')}
               </h3>
-              <p className="text-xs mb-0.5" style={{ color: '#9ca3af' }}>
+              <p className="text-xs mb-0.5" style={{ color: 'var(--fg-muted)' }}>
                 {t('otc.chart_subtitle')}
               </p>
-              <p className="text-3xl font-black mb-5" style={{ color: '#f97316' }}>
+              <p className="text-3xl font-black mb-5" style={{ color: 'var(--accent)' }}>
                 {t('otc.chart_stat')}
               </p>
 
@@ -530,14 +530,14 @@ export default function OrangeTheClient() {
                         >
                           <div style={{ flex: d.card, backgroundColor: '#fed7aa' }} />
                           <div style={{ flex: d.savings, backgroundColor: '#fdba74' }} />
-                          <div style={{ flex: d.insurance, backgroundColor: '#fb923c' }} />
-                          <div style={{ flex: d.securities, backgroundColor: '#f97316' }} />
+                          <div style={{ flex: d.insurance, backgroundColor: 'var(--accent-light)' }} />
+                          <div style={{ flex: d.securities, backgroundColor: 'var(--accent)' }} />
                           <div style={{ flex: d.bank, backgroundColor: '#c2410c' }} />
                         </div>
                         <span
                           className="mt-2 text-xs"
                           style={{
-                            color: d.year === '2022' ? '#f97316' : '#6b7280',
+                            color: d.year === '2022' ? 'var(--accent)' : 'var(--fg-dim)',
                             fontWeight: d.year === '2022' ? 700 : 400,
                           }}
                         >
@@ -557,10 +557,10 @@ export default function OrangeTheClient() {
                           className="w-3 h-3 rounded-sm shrink-0"
                           style={{
                             backgroundColor: item.color,
-                            border: '1px solid rgba(255,255,255,0.15)',
+                            border: '1px solid var(--overlay-mid)',
                           }}
                         />
-                        <span className="text-xs" style={{ color: '#9ca3af' }}>
+                        <span className="text-xs" style={{ color: 'var(--fg-muted)' }}>
                           {t(item.labelKey)}
                         </span>
                       </li>
@@ -570,12 +570,12 @@ export default function OrangeTheClient() {
               </div>
 
               {/* 출처 */}
-              <p className="mt-4 text-right" style={{ color: '#4b5563', fontSize: '0.6rem' }}>
+              <p className="mt-4 text-right" style={{ color: 'var(--fg-dimmer)', fontSize: '0.6rem' }}>
                 {t('otc.chart_source')}
               </p>
             </div>
             <div>
-              <p className="text-base mb-4" style={{ color: '#9ca3af', lineHeight: '1.8' }}>
+              <p className="text-base mb-4" style={{ color: 'var(--fg-muted)', lineHeight: '1.8' }}>
                 {t('otc.problem_desc')}
               </p>
 
@@ -588,7 +588,7 @@ export default function OrangeTheClient() {
               >
                 <span className="text-lg mt-0.5">💡</span>
                 <div>
-                  <span className="text-sm" style={{ color: '#d1d5db' }}>
+                  <span className="text-sm" style={{ color: 'var(--fg-strong)' }}>
                     {t('otc.problem_p2')}
                   </span>
                 </div>
@@ -600,7 +600,7 @@ export default function OrangeTheClient() {
           <div className="mt-14">
             <h3
               className="text-2xl sm:text-3xl font-bold mb-12 text-center"
-              style={{ color: '#f1f1f3' }}
+              style={{ color: 'var(--fg)' }}
             >
               {t('otc.prob2_title')}
             </h3>
@@ -608,7 +608,7 @@ export default function OrangeTheClient() {
               {/* 왼쪽: 4개 포인트 */}
               <div
                 className="rounded-2xl p-6 space-y-4"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
                 {(
                   [
@@ -621,15 +621,15 @@ export default function OrangeTheClient() {
                   <div key={i} className="flex gap-3 items-start">
                     {/*<span*/}
                     {/*  className="flex-shrink-0 w-2 h-2 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"*/}
-                    {/*  style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}*/}
+                    {/*  style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}*/}
                     {/*>*/}
                     {/*  /!*{i + 1}*!/*/}
                     {/*</span>*/}
                     <span
                       className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: '#4b5563' }}
+                      style={{ backgroundColor: 'var(--fg-dimmer)' }}
                     />
-                    <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                       {text}
                     </p>
                   </div>
@@ -683,7 +683,7 @@ export default function OrangeTheClient() {
           <div className="mt-14">
             <h3
               className="text-2xl sm:text-3xl font-bold mb-12 text-center"
-              style={{ color: '#f1f1f3' }}
+              style={{ color: 'var(--fg)' }}
             >
               {t('otc.prob3_title')}
             </h3>
@@ -691,16 +691,16 @@ export default function OrangeTheClient() {
               {/* 01 */}
               <div
                 className="rounded-2xl overflow-hidden"
-                style={{ border: '1px solid #2a2a33', backgroundColor: '#1a1a1f' }}
+                style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
               >
                 <div
                   className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: '#22222a' }}
+                  style={{ backgroundColor: 'var(--border)' }}
                 >
-                  <span className="text-base font-black" style={{ color: '#f97316' }}>
+                  <span className="text-base font-black" style={{ color: 'var(--accent)' }}>
                     {t('otc.prob3_col1_num')}
                   </span>
-                  <span className="text-base font-bold" style={{ color: '#f1f1f3' }}>
+                  <span className="text-base font-bold" style={{ color: 'var(--fg)' }}>
                     {t('otc.prob3_col1_title')}
                   </span>
                 </div>
@@ -709,9 +709,9 @@ export default function OrangeTheClient() {
                     <div key={i} className="flex gap-2 items-start">
                       <span
                         className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: '#4b5563' }}
+                        style={{ backgroundColor: 'var(--fg-dimmer)' }}
                       />
-                      <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                      <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {text}
                       </p>
                     </div>
@@ -719,9 +719,9 @@ export default function OrangeTheClient() {
                   <div className="flex gap-2 items-start pt-1">
                     <span
                       className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: '#f97316' }}
+                      style={{ backgroundColor: 'var(--accent)' }}
                     />
-                    <p className="text-sm leading-relaxed font-medium" style={{ color: '#f97316' }}>
+                    <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--accent)' }}>
                       {t('otc.prob3_col1_highlight')}
                     </p>
                   </div>
@@ -730,16 +730,16 @@ export default function OrangeTheClient() {
               {/* 02 */}
               <div
                 className="rounded-2xl overflow-hidden"
-                style={{ border: '1px solid #2a2a33', backgroundColor: '#1a1a1f' }}
+                style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
               >
                 <div
                   className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: '#22222a' }}
+                  style={{ backgroundColor: 'var(--border)' }}
                 >
-                  <span className="text-base font-black" style={{ color: '#f97316' }}>
+                  <span className="text-base font-black" style={{ color: 'var(--accent)' }}>
                     {t('otc.prob3_col2_num')}
                   </span>
-                  <span className="text-base font-bold" style={{ color: '#f1f1f3' }}>
+                  <span className="text-base font-bold" style={{ color: 'var(--fg)' }}>
                     {t('otc.prob3_col2_title')}
                   </span>
                 </div>
@@ -754,9 +754,9 @@ export default function OrangeTheClient() {
                     <div key={i} className="flex gap-2 items-start">
                       <span
                         className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: '#4b5563' }}
+                        style={{ backgroundColor: 'var(--fg-dimmer)' }}
                       />
-                      <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                      <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {text}
                       </p>
                     </div>
@@ -764,9 +764,9 @@ export default function OrangeTheClient() {
                   <div className="flex gap-2 items-start pt-1">
                     <span
                       className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: '#f97316' }}
+                      style={{ backgroundColor: 'var(--accent)' }}
                     />
-                    <p className="text-sm leading-relaxed font-medium" style={{ color: '#f97316' }}>
+                    <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--accent)' }}>
                       {t('otc.prob3_col2_highlight')}
                     </p>
                   </div>
@@ -776,9 +776,9 @@ export default function OrangeTheClient() {
             {/* 하단 결과 배너 */}
             <div
               className="mt-4 rounded-xl px-6 py-4 text-center"
-              style={{ backgroundColor: '#1a1410', border: '1px solid rgba(249,115,22,0.3)' }}
+              style={{ backgroundColor: 'var(--surface)', border: '1px solid rgba(249,115,22,0.3)' }}
             >
-              <p className="text-base font-bold" style={{ color: '#f97316' }}>
+              <p className="text-base font-bold" style={{ color: 'var(--accent)' }}>
                 {t('otc.prob3_result')}
               </p>
             </div>
@@ -787,7 +787,7 @@ export default function OrangeTheClient() {
       </section>
 
       {/* ── 제품 개요 ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-6xl mx-auto">
           {/* Badge + Title */}
           <div className="text-center mb-12">
@@ -795,13 +795,13 @@ export default function OrangeTheClient() {
               className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 tracking-widest"
               style={{
                 backgroundColor: 'rgba(249,115,22,0.1)',
-                color: '#f97316',
+                color: 'var(--accent)',
                 border: '1px solid rgba(249,115,22,0.2)',
               }}
             >
               {t('otc.overview_badge')}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--fg)' }}>
               {t('otc.overview_title')}
             </h2>
           </div>
@@ -812,24 +812,24 @@ export default function OrangeTheClient() {
               {/* Col 1: 정의 */}
               <div
                 className="rounded-2xl overflow-hidden flex flex-col"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
                 <div
                   className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: '#222228', borderBottom: '1px solid #2a2a33' }}
+                  style={{ backgroundColor: 'var(--border)', borderBottom: '1px solid var(--border)' }}
                 >
                   <span
                     className="text-xs font-bold px-2 py-0.5 rounded"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}
+                    style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}
                   >
                     {t('otc.ep_col1_num')}
                   </span>
-                  <span className="text-sm font-semibold" style={{ color: '#f1f1f3' }}>
+                  <span className="text-sm font-semibold" style={{ color: 'var(--fg)' }}>
                     {t('otc.ep_col1_title')}
                   </span>
                 </div>
                 <div className="p-5 flex-1 flex flex-col justify-between gap-4">
-                  <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                     {t('otc.ep_col1_desc')}
                   </p>
                   {/* Device icon row */}
@@ -840,7 +840,7 @@ export default function OrangeTheClient() {
                         className="text-xs px-2 py-1 rounded"
                         style={{
                           backgroundColor: 'rgba(249,115,22,0.08)',
-                          color: '#fb923c',
+                          color: 'var(--accent-light)',
                           border: '1px solid rgba(249,115,22,0.2)',
                         }}
                       >
@@ -854,19 +854,19 @@ export default function OrangeTheClient() {
               {/* Col 2: 중요성 */}
               <div
                 className="rounded-2xl overflow-hidden"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
                 <div
                   className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: '#222228', borderBottom: '1px solid #2a2a33' }}
+                  style={{ backgroundColor: 'var(--border)', borderBottom: '1px solid var(--border)' }}
                 >
                   <span
                     className="text-xs font-bold px-2 py-0.5 rounded"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}
+                    style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}
                   >
                     {t('otc.ep_col2_num')}
                   </span>
-                  <span className="text-sm font-semibold" style={{ color: '#f1f1f3' }}>
+                  <span className="text-sm font-semibold" style={{ color: 'var(--fg)' }}>
                     {t('otc.ep_col2_title')}
                   </span>
                 </div>
@@ -885,14 +885,14 @@ export default function OrangeTheClient() {
                       >
                         <span
                           className="block w-1.5 h-1.5 rounded-full"
-                          style={{ backgroundColor: '#f97316' }}
+                          style={{ backgroundColor: 'var(--accent)' }}
                         />
                       </span>
                       <div>
-                        <p className="text-xs font-semibold mb-0.5" style={{ color: '#f97316' }}>
+                        <p className="text-xs font-semibold mb-0.5" style={{ color: 'var(--accent)' }}>
                           {item.title}
                         </p>
-                        <p className="text-xs leading-relaxed" style={{ color: '#6b7280' }}>
+                        <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-dim)' }}>
                           {item.desc}
                         </p>
                       </div>
@@ -904,19 +904,19 @@ export default function OrangeTheClient() {
               {/* Col 3: 필요성 */}
               <div
                 className="rounded-2xl overflow-hidden"
-                style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
                 <div
                   className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: '#222228', borderBottom: '1px solid #2a2a33' }}
+                  style={{ backgroundColor: 'var(--border)', borderBottom: '1px solid var(--border)' }}
                 >
                   <span
                     className="text-xs font-bold px-2 py-0.5 rounded"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: '#f97316' }}
+                    style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}
                   >
                     {t('otc.ep_col3_num')}
                   </span>
-                  <span className="text-sm font-semibold" style={{ color: '#f1f1f3' }}>
+                  <span className="text-sm font-semibold" style={{ color: 'var(--fg)' }}>
                     {t('otc.ep_col3_title')}
                   </span>
                 </div>
@@ -929,10 +929,10 @@ export default function OrangeTheClient() {
                       >
                         <span
                           className="block w-1.5 h-1.5 rounded-full"
-                          style={{ backgroundColor: '#f97316' }}
+                          style={{ backgroundColor: 'var(--accent)' }}
                         />
                       </span>
-                      <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                      <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {text}
                       </p>
                     </div>
@@ -944,10 +944,10 @@ export default function OrangeTheClient() {
 
           {/* ── Part 2: 제품 구성 ── */}
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: 'var(--fg)' }}>
               {t('otc.arch_title')}
             </h2>
-            <p className="max-w-2xl mx-auto text-sm" style={{ color: '#9ca3af' }}>
+            <p className="max-w-2xl mx-auto text-sm" style={{ color: 'var(--fg-muted)' }}>
               {t('otc.arch_desc')}
             </p>
           </div>
@@ -957,8 +957,8 @@ export default function OrangeTheClient() {
                 key={comp.titleKey}
                 className="rounded-xl p-6 text-center"
                 style={{
-                  backgroundColor: '#1a1a1f',
-                  border: '1px solid #2a2a33',
+                  backgroundColor: 'var(--surface)',
+                  border: '1px solid var(--border)',
                 }}
               >
                 <div className="text-3xl mb-3">{comp.icon}</div>
@@ -966,12 +966,12 @@ export default function OrangeTheClient() {
                   className="text-lg font-bold mb-2 px-3 py-1 rounded-full inline-block"
                   style={{
                     backgroundColor: 'rgba(249,115,22,0.12)',
-                    color: '#f97316',
+                    color: 'var(--accent)',
                   }}
                 >
                   {t(comp.titleKey)}
                 </h3>
-                <p className="text-xs mt-3" style={{ color: '#9ca3af', lineHeight: '1.7' }}>
+                <p className="text-xs mt-3" style={{ color: 'var(--fg-muted)', lineHeight: '1.7' }}>
                   {t(comp.descKey)}
                 </p>
               </div>
@@ -981,7 +981,7 @@ export default function OrangeTheClient() {
       </section>
 
       {/* ── Key Features ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#0e0e11' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div className="max-w-6xl mx-auto">
           {/* 섹션 헤더 */}
           <div className="text-center mb-12">
@@ -989,13 +989,13 @@ export default function OrangeTheClient() {
               className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 tracking-widest"
               style={{
                 backgroundColor: 'rgba(249,115,22,0.1)',
-                color: '#f97316',
+                color: 'var(--accent)',
                 border: '1px solid rgba(249,115,22,0.2)',
               }}
             >
               {t('otc.features_badge')}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--fg)' }}>
               {t('otc.features_title')}
             </h2>
           </div>
@@ -1006,15 +1006,15 @@ export default function OrangeTheClient() {
                 key={p.titleKey}
                 className="rounded-2xl p-7"
                 style={{
-                  backgroundColor: '#1a1a1f',
-                  border: '1px solid #2a2a33',
+                  backgroundColor: 'var(--surface)',
+                  border: '1px solid var(--border)',
                 }}
               >
                 <div className="text-3xl mb-4">{p.icon}</div>
-                <div className="text-xs font-semibold mb-1" style={{ color: '#9ca3af' }}>
+                <div className="text-xs font-semibold mb-1" style={{ color: 'var(--fg-muted)' }}>
                   {t(p.titleKey)}
                 </div>
-                <div className="text-xl font-black mb-5" style={{ color: '#f97316' }}>
+                <div className="text-xl font-black mb-5" style={{ color: 'var(--accent)' }}>
                   {t(p.subKey)}
                 </div>
                 <ul className="space-y-2">
@@ -1022,9 +1022,9 @@ export default function OrangeTheClient() {
                     <li
                       key={ik}
                       className="flex items-start gap-2 text-sm"
-                      style={{ color: '#d1d5db' }}
+                      style={{ color: 'var(--fg-strong)' }}
                     >
-                      <span style={{ color: '#f97316', marginTop: 2 }}>•</span>
+                      <span style={{ color: 'var(--accent)', marginTop: 2 }}>•</span>
                       {t(ik)}
                     </li>
                   ))}
@@ -1037,7 +1037,7 @@ export default function OrangeTheClient() {
             {/* ── 카드 SPD-A: 신속성 - 실시간 탐지 ── */}
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: '1px solid #2a2a33', backgroundColor: '#1a1a1f' }}
+              style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
             >
               <div className="px-6 pt-6 pb-6">
                 <div className="flex items-center gap-2 mb-2">
@@ -1045,14 +1045,14 @@ export default function OrangeTheClient() {
                     className="text-xs font-bold px-2.5 py-1 rounded-full"
                     style={{
                       backgroundColor: 'rgba(249,115,22,0.15)',
-                      color: '#f97316',
+                      color: 'var(--accent)',
                       border: '1px solid rgba(249,115,22,0.35)',
                     }}
                   >
                     {t('otc.feat_spd')}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold mb-6" style={{ color: '#f1f1f3' }}>
+                <h3 className="text-lg font-bold mb-6" style={{ color: 'var(--fg)' }}>
                   {t('otc.feat_card_spd1_title')}
                 </h3>
 
@@ -1075,7 +1075,7 @@ export default function OrangeTheClient() {
                   </div>
 
                   {/* 화살표 */}
-                  <span style={{ color: '#f97316', fontSize: '1.2rem' }}>→</span>
+                  <span style={{ color: 'var(--accent)', fontSize: '1.2rem' }}>→</span>
 
                   {/* ① 실시간 인지 + 관리자 */}
                   <div className="flex flex-col items-center gap-1.5 shrink-0">
@@ -1089,16 +1089,16 @@ export default function OrangeTheClient() {
                       👨‍💻
                     </div>
                     <div className="text-center">
-                      <div className="text-xs font-semibold" style={{ color: '#f97316' }}>
+                      <div className="text-xs font-semibold" style={{ color: 'var(--accent)' }}>
                         ① {t('otc.feat_card_spd1_s1')}
                       </div>
-                      <div className="text-xs" style={{ color: '#9ca3af' }}>
+                      <div className="text-xs" style={{ color: 'var(--fg-muted)' }}>
                         {t('otc.feat_card_spd1_s1_label')}
                       </div>
                     </div>
                   </div>
 
-                  <span style={{ color: '#f97316', fontSize: '1.2rem' }}>→</span>
+                  <span style={{ color: 'var(--accent)', fontSize: '1.2rem' }}>→</span>
 
                   {/* ② 관리자 원인확인 */}
                   <div className="flex flex-col items-center gap-1.5 shrink-0">
@@ -1111,12 +1111,12 @@ export default function OrangeTheClient() {
                     >
                       🔍
                     </div>
-                    <div className="text-xs font-semibold text-center" style={{ color: '#f97316' }}>
+                    <div className="text-xs font-semibold text-center" style={{ color: 'var(--accent)' }}>
                       ② {t('otc.feat_card_spd1_s2')}
                     </div>
                   </div>
 
-                  <span style={{ color: '#f97316', fontSize: '1.2rem' }}>→</span>
+                  <span style={{ color: 'var(--accent)', fontSize: '1.2rem' }}>→</span>
 
                   {/* ③ 제조사 통보 */}
                   <div className="flex flex-col items-center gap-1.5 shrink-0">
@@ -1129,12 +1129,12 @@ export default function OrangeTheClient() {
                     >
                       📢
                     </div>
-                    <div className="text-xs font-semibold text-center" style={{ color: '#f97316' }}>
+                    <div className="text-xs font-semibold text-center" style={{ color: 'var(--accent)' }}>
                       ③ {t('otc.feat_card_spd1_s3')}
                     </div>
                   </div>
 
-                  <span style={{ color: '#f97316', fontSize: '1.2rem' }}>→</span>
+                  <span style={{ color: 'var(--accent)', fontSize: '1.2rem' }}>→</span>
 
                   {/* ④ 분석 리포트 제공 + 조치 */}
                   <div className="flex flex-col items-center gap-1.5 shrink-0">
@@ -1148,10 +1148,10 @@ export default function OrangeTheClient() {
                       ⚙️
                     </div>
                     <div className="text-center">
-                      <div className="text-xs font-semibold" style={{ color: '#f97316' }}>
+                      <div className="text-xs font-semibold" style={{ color: 'var(--accent)' }}>
                         ④ {t('otc.feat_card_spd1_s4')}
                       </div>
-                      <div className="text-xs" style={{ color: '#9ca3af' }}>
+                      <div className="text-xs" style={{ color: 'var(--fg-muted)' }}>
                         {t('otc.feat_card_spd1_s4_label')}
                       </div>
                     </div>
@@ -1163,30 +1163,30 @@ export default function OrangeTheClient() {
             {/* ── 카드 SPD-B: 신속성 - 실시간 성능 모니터링 ── */}
             <div
               className="rounded-2xl p-6"
-              style={{ border: '1px solid #2a2a33', backgroundColor: '#1a1a1f' }}
+              style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
             >
               <div className="flex items-center gap-2 mb-2">
                 <span
                   className="text-xs font-bold px-2.5 py-1 rounded-full"
                   style={{
                     backgroundColor: 'rgba(249,115,22,0.15)',
-                    color: '#f97316',
+                    color: 'var(--accent)',
                     border: '1px solid rgba(249,115,22,0.35)',
                   }}
                 >
                   {t('otc.feat_spd')}
                 </span>
               </div>
-              <h3 className="text-lg font-bold mb-5" style={{ color: '#f1f1f3' }}>
+              <h3 className="text-lg font-bold mb-5" style={{ color: 'var(--fg)' }}>
                 {t('otc.feat_card_spd2_title')}
               </h3>
               <div className="space-y-3">
                 {(['otc.feat_card_spd2_p1', 'otc.feat_card_spd2_p2'] as string[]).map((key) => (
                   <div key={key} className="flex items-start gap-2">
-                    <span className="text-sm mt-0.5 shrink-0" style={{ color: '#f97316' }}>
+                    <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
                       ✓
                     </span>
-                    <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                       {t(key)}
                     </p>
                   </div>
@@ -1197,7 +1197,7 @@ export default function OrangeTheClient() {
             {/* ── 카드 1: 정확성 - 장애분석기술 ── */}
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: '1px solid #2a2a33', backgroundColor: '#1a1a1f' }}
+              style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
             >
               {/* 카드 헤더 */}
               <div className="px-6 pt-6 pb-4">
@@ -1213,14 +1213,14 @@ export default function OrangeTheClient() {
                     {t('otc.feat_acc')}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold" style={{ color: '#f1f1f3' }}>
+                <h3 className="text-lg font-bold" style={{ color: 'var(--fg)' }}>
                   {t('otc.feat_card1_title')}
                 </h3>
               </div>
 
               {/* 장애 유형 별 */}
               <div className="mx-6 mb-0">
-                <div className="px-4 py-2 rounded-t-lg" style={{ backgroundColor: '#111114' }}>
+                <div className="px-4 py-2 rounded-t-lg" style={{ backgroundColor: 'var(--bg)' }}>
                   <span className="text-base font-bold" style={{ color: '#ffffff' }}>
                     {t('otc.feat_card1_type_label')}
                   </span>
@@ -1246,17 +1246,17 @@ export default function OrangeTheClient() {
                       key={item.titleKey}
                       className="p-4"
                       style={{
-                        backgroundColor: '#1a1a1f',
-                        borderRight: idx < 2 ? '1px solid #2a2a33' : 'none',
+                        backgroundColor: 'var(--surface)',
+                        borderRight: idx < 2 ? '1px solid var(--border)' : 'none',
                       }}
                     >
                       <span
                         className="inline-block text-sm font-semibold px-2 py-0.5 rounded mb-2"
-                        style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#f97316' }}
+                        style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: 'var(--accent)' }}
                       >
                         {t(item.titleKey)}
                       </span>
-                      <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                      <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {t(item.descKey)}
                       </p>
                     </div>
@@ -1266,7 +1266,7 @@ export default function OrangeTheClient() {
 
               {/* 솔루션 별 */}
               <div className="mx-6 mb-6 mt-px">
-                <div className="px-4 py-2" style={{ backgroundColor: '#111114' }}>
+                <div className="px-4 py-2" style={{ backgroundColor: 'var(--bg)' }}>
                   <span className="text-base font-bold" style={{ color: '#ffffff' }}>
                     {t('otc.feat_card1_sol_label')}
                   </span>
@@ -1283,17 +1283,17 @@ export default function OrangeTheClient() {
                       key={descKey}
                       className="p-4"
                       style={{
-                        backgroundColor: '#1a1a1f',
-                        borderRight: idx < 2 ? '1px solid #2a2a33' : 'none',
+                        backgroundColor: 'var(--surface)',
+                        borderRight: idx < 2 ? '1px solid var(--border)' : 'none',
                       }}
                     >
                       <span
                         className="inline-block text-sm font-semibold px-2 py-0.5 rounded mb-2"
-                        style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#f97316' }}
+                        style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: 'var(--accent)' }}
                       >
                         {t('otc.feat_card1_sol_badge')}
                       </span>
-                      <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                      <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {t(descKey)}
                       </p>
                     </div>
@@ -1304,10 +1304,10 @@ export default function OrangeTheClient() {
               {/* 하단 요약 */}
               <div
                 className="grid md:grid-cols-2 gap-px"
-                style={{ backgroundColor: '#2a2a33', borderTop: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--border)', borderTop: '1px solid var(--border)' }}
               >
-                <div className="p-6" style={{ backgroundColor: '#111114' }}>
-                  <p className="text-sm font-bold mb-4" style={{ color: '#f1f1f3' }}>
+                <div className="p-6" style={{ backgroundColor: 'var(--bg)' }}>
+                  <p className="text-sm font-bold mb-4" style={{ color: 'var(--fg)' }}>
                     {t('otc.feat_card1_summary_title')}
                   </p>
                   {(
@@ -1318,10 +1318,10 @@ export default function OrangeTheClient() {
                     ] as string[]
                   ).map((key) => (
                     <div key={key} className="flex items-start gap-2 mb-2">
-                      <span className="text-xs mt-0.5" style={{ color: '#f97316' }}>
+                      <span className="text-xs mt-0.5" style={{ color: 'var(--accent)' }}>
                         ✓
                       </span>
-                      <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                      <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {t(key)}
                       </p>
                     </div>
@@ -1347,12 +1347,12 @@ export default function OrangeTheClient() {
                     ] as { preKey: string; boldKey: string }[]
                   ).map((item) => (
                     <div key={item.boldKey} className="flex items-start gap-2">
-                      <span className="text-sm mt-0.5 shrink-0" style={{ color: '#f97316' }}>
+                      <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
                         ✓
                       </span>
-                      <p className="text-sm leading-relaxed" style={{ color: '#d1d5db' }}>
+                      <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-strong)' }}>
                         {t(item.preKey)}
-                        <strong style={{ color: '#f1f1f3' }}>{t(item.boldKey)}</strong>
+                        <strong style={{ color: 'var(--fg)' }}>{t(item.boldKey)}</strong>
                       </p>
                     </div>
                   ))}
@@ -1363,7 +1363,7 @@ export default function OrangeTheClient() {
             {/* ── 카드 2: 정확성 - 신뢰성 있는 분석자료 ── */}
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: '1px solid #2a2a33', backgroundColor: '#1a1a1f' }}
+              style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
             >
               <div className="px-6 pt-6 pb-4">
                 <div className="flex items-center gap-2 mb-2">
@@ -1378,15 +1378,15 @@ export default function OrangeTheClient() {
                     {t('otc.feat_acc')}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold mb-4" style={{ color: '#f1f1f3' }}>
+                <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--fg)' }}>
                   {t('otc.feat_card2_title')}
                 </h3>
                 {(['otc.feat_card2_p1', 'otc.feat_card2_p2'] as string[]).map((key) => (
                   <div key={key} className="flex items-start gap-2 mb-2">
-                    <span className="text-sm mt-0.5 shrink-0" style={{ color: '#f97316' }}>
+                    <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
                       ✓
                     </span>
-                    <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                       {t(key)}
                     </p>
                   </div>
@@ -1394,18 +1394,18 @@ export default function OrangeTheClient() {
               </div>
               <div
                 className="grid md:grid-cols-2 gap-px"
-                style={{ backgroundColor: '#2a2a33', borderTop: '1px solid #2a2a33' }}
+                style={{ backgroundColor: 'var(--border)', borderTop: '1px solid var(--border)' }}
               >
-                <div className="p-6" style={{ backgroundColor: '#111114' }}>
-                  <p className="text-sm font-bold mb-4" style={{ color: '#f1f1f3' }}>
+                <div className="p-6" style={{ backgroundColor: 'var(--bg)' }}>
+                  <p className="text-sm font-bold mb-4" style={{ color: 'var(--fg)' }}>
                     {t('otc.feat_card2_ai_title')}
                   </p>
                   {(['otc.feat_card2_ai_p1', 'otc.feat_card2_ai_p2'] as string[]).map((key) => (
                     <div key={key} className="flex items-start gap-2 mb-2">
-                      <span className="text-xs mt-0.5" style={{ color: '#f97316' }}>
+                      <span className="text-xs mt-0.5" style={{ color: 'var(--accent)' }}>
                         ✓
                       </span>
-                      <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>
+                      <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                         {t(key)}
                       </p>
                     </div>
@@ -1420,12 +1420,12 @@ export default function OrangeTheClient() {
                 >
                   {(['otc.feat_card2_result1', 'otc.feat_card2_result2'] as string[]).map((key) => (
                     <div key={key} className="flex items-start gap-2">
-                      <span className="text-sm mt-0.5 shrink-0" style={{ color: '#f97316' }}>
+                      <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
                         ✓
                       </span>
                       <p
                         className="text-sm font-semibold leading-relaxed"
-                        style={{ color: '#f1f1f3' }}
+                        style={{ color: 'var(--fg)' }}
                       >
                         {t(key)}
                       </p>
@@ -1452,7 +1452,7 @@ export default function OrangeTheClient() {
                 <div
                   key={card.titleKey}
                   className="rounded-2xl p-6"
-                  style={{ border: '1px solid #2a2a33', backgroundColor: '#1a1a1f' }}
+                  style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <span
@@ -1466,16 +1466,16 @@ export default function OrangeTheClient() {
                       {t('otc.feat_sta')}
                     </span>
                   </div>
-                  <h3 className="text-base font-bold mb-5" style={{ color: '#f1f1f3' }}>
+                  <h3 className="text-base font-bold mb-5" style={{ color: 'var(--fg)' }}>
                     {t(card.titleKey)}
                   </h3>
                   <div className="space-y-3">
                     {card.points.map((key) => (
                       <div key={key} className="flex items-start gap-2">
-                        <span className="text-sm mt-0.5 shrink-0" style={{ color: '#f97316' }}>
+                        <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
                           ✓
                         </span>
-                        <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                        <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                           {t(key)}
                         </p>
                       </div>
@@ -1489,7 +1489,7 @@ export default function OrangeTheClient() {
       </section>
 
       {/* ── Manager Features (주요 기능) ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-6xl mx-auto">
           {/* 섹션 헤더 */}
           <div className="text-center mb-12">
@@ -1497,16 +1497,16 @@ export default function OrangeTheClient() {
               className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 tracking-widest"
               style={{
                 backgroundColor: 'rgba(249,115,22,0.1)',
-                color: '#f97316',
+                color: 'var(--accent)',
                 border: '1px solid rgba(249,115,22,0.2)',
               }}
             >
               {t('otc.mgr_badge')}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: 'var(--fg)' }}>
               {t('otc.mgr_title')}
             </h2>
-            <p className="max-w-2xl mx-auto text-sm" style={{ color: '#9ca3af' }}>
+            <p className="max-w-2xl mx-auto text-sm" style={{ color: 'var(--fg-muted)' }}>
               {t('otc.mgr_desc')}
             </p>
           </div>
@@ -1520,7 +1520,7 @@ export default function OrangeTheClient() {
                 className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all z-10"
                 style={{
                   backgroundColor: 'rgba(249,115,22,0.1)',
-                  color: '#f97316',
+                  color: 'var(--accent)',
                   border: '1px solid rgba(249,115,22,0.3)',
                 }}
                 onMouseEnter={(e) =>
@@ -1627,7 +1627,7 @@ export default function OrangeTheClient() {
                 className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all z-10"
                 style={{
                   backgroundColor: 'rgba(249,115,22,0.1)',
-                  color: '#f97316',
+                  color: 'var(--accent)',
                   border: '1px solid rgba(249,115,22,0.3)',
                 }}
                 onMouseEnter={(e) =>
@@ -1654,7 +1654,7 @@ export default function OrangeTheClient() {
             {/* 오른쪽: 선택된 아이템 설명 (1/3) */}
             <div
               className="lg:col-span-1 rounded-2xl p-6"
-              style={{ backgroundColor: '#1a1a1f', border: '1px solid rgba(249,115,22,0.25)' }}
+              style={{ backgroundColor: 'var(--surface)', border: '1px solid rgba(249,115,22,0.25)' }}
             >
               {/* 인디케이터 */}
               <div className="flex items-center gap-1.5 mb-4">
@@ -1665,22 +1665,22 @@ export default function OrangeTheClient() {
                     style={{
                       width: i === mgrIdx ? '20px' : '6px',
                       height: '6px',
-                      backgroundColor: i === mgrIdx ? '#f97316' : '#374151',
+                      backgroundColor: i === mgrIdx ? 'var(--accent)' : 'var(--fg-dimmer)',
                     }}
                     onClick={() => setMgrIdx(i)}
                   />
                 ))}
               </div>
-              <h3 className="text-lg font-bold mb-4" style={{ color: '#f97316' }}>
+              <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--accent)' }}>
                 {t(managerItems[mgrIdx].titleKey)}
               </h3>
               <ul className="space-y-3">
                 {managerItems[mgrIdx].contentKeys.map((key) => (
                   <li key={key} className="flex items-start gap-2">
-                    <span className="shrink-0 -mt-0.5" style={{ color: '#f97316' }}>
+                    <span className="shrink-0 -mt-0.5" style={{ color: 'var(--accent)' }}>
                       ✦
                     </span>
-                    <p className="text-sm leading-relaxed" style={{ color: '#9ca3af' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                       {t(key)}
                     </p>
                   </li>
@@ -1692,35 +1692,35 @@ export default function OrangeTheClient() {
       </section>
 
       {/* ── Expected Impact ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div
               className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 tracking-widest"
               style={{
                 backgroundColor: 'rgba(249,115,22,0.1)',
-                color: '#f97316',
+                color: 'var(--accent)',
                 border: '1px solid rgba(249,115,22,0.2)',
               }}
             >
               {t('otc.impact_badge')}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--fg)' }}>
               {t('otc.impact_title')}
             </h2>
           </div>
-          <div className="overflow-x-auto rounded-xl" style={{ border: '1px solid #2a2a33' }}>
+          <div className="overflow-x-auto rounded-xl" style={{ border: '1px solid var(--border)' }}>
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ backgroundColor: '#1a1a1f' }}>
+                <tr style={{ backgroundColor: 'var(--surface)' }}>
                   {['otc.impact_col1', 'otc.impact_col2', 'otc.impact_col3', 'otc.impact_col4'].map(
                     (col) => (
                       <th
                         key={col}
                         className="px-4 py-3 text-left font-semibold"
                         style={{
-                          color: '#f1f1f3',
-                          borderBottom: '1px solid #2a2a33',
+                          color: 'var(--fg)',
+                          borderBottom: '1px solid var(--border)',
                         }}
                       >
                         {t(col)}
@@ -1734,19 +1734,19 @@ export default function OrangeTheClient() {
                   <tr
                     key={i}
                     style={{
-                      borderBottom: i < impactRows.length - 1 ? '1px solid #1f1f27' : undefined,
+                      borderBottom: i < impactRows.length - 1 ? '1px solid var(--surface-3)' : undefined,
                     }}
                   >
-                    <td className="px-4 py-3 font-semibold" style={{ color: '#f97316' }}>
+                    <td className="px-4 py-3 font-semibold" style={{ color: 'var(--accent)' }}>
                       {t(row[0])}
                     </td>
-                    <td className="px-4 py-3" style={{ color: '#6b7280' }}>
+                    <td className="px-4 py-3" style={{ color: 'var(--fg-dim)' }}>
                       {t(row[1])}
                     </td>
-                    <td className="px-4 py-3 font-semibold" style={{ color: '#f1f1f3' }}>
+                    <td className="px-4 py-3 font-semibold" style={{ color: 'var(--fg)' }}>
                       {t(row[2])}
                     </td>
-                    <td className="px-4 py-3 text-xs" style={{ color: '#9ca3af' }}>
+                    <td className="px-4 py-3 text-xs" style={{ color: 'var(--fg-muted)' }}>
                       {t(row[3])}
                     </td>
                   </tr>
@@ -1758,32 +1758,32 @@ export default function OrangeTheClient() {
       </section>
 
       {/* ── Product Comparison ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: '#0e0e11' }}>
+      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div
               className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 tracking-widest"
               style={{
                 backgroundColor: 'rgba(249,115,22,0.1)',
-                color: '#f97316',
+                color: 'var(--accent)',
                 border: '1px solid rgba(249,115,22,0.2)',
               }}
             >
               {t('otc.compare_badge')}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: '#f1f1f3' }}>
+            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--fg)' }}>
               {t('otc.compare_title')}
             </h2>
           </div>
-          <div className="overflow-x-auto rounded-xl mb-6" style={{ border: '1px solid #2a2a33' }}>
+          <div className="overflow-x-auto rounded-xl mb-6" style={{ border: '1px solid var(--border)' }}>
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ backgroundColor: '#1a1a1f' }}>
+                <tr style={{ backgroundColor: 'var(--surface)' }}>
                   <th
                     className="px-4 py-3 text-left font-semibold"
                     style={{
-                      color: '#9ca3af',
-                      borderBottom: '1px solid #2a2a33',
+                      color: 'var(--fg-muted)',
+                      borderBottom: '1px solid var(--border)',
                     }}
                   >
                     {t('otc.cmp_col_category')}
@@ -1791,8 +1791,8 @@ export default function OrangeTheClient() {
                   <th
                     className="px-4 py-3 text-left font-semibold"
                     style={{
-                      color: '#9ca3af',
-                      borderBottom: '1px solid #2a2a33',
+                      color: 'var(--fg-muted)',
+                      borderBottom: '1px solid var(--border)',
                     }}
                   >
                     {t('otc.cmp_col_item')}
@@ -1800,8 +1800,8 @@ export default function OrangeTheClient() {
                   <th
                     className="px-4 py-3 text-center font-black"
                     style={{
-                      color: '#f97316',
-                      borderBottom: '1px solid #2a2a33',
+                      color: 'var(--accent)',
+                      borderBottom: '1px solid var(--border)',
                     }}
                   >
                     OrangeLabs
@@ -1809,8 +1809,8 @@ export default function OrangeTheClient() {
                   <th
                     className="px-4 py-3 text-center font-semibold"
                     style={{
-                      color: '#9ca3af',
-                      borderBottom: '1px solid #2a2a33',
+                      color: 'var(--fg-muted)',
+                      borderBottom: '1px solid var(--border)',
                     }}
                   >
                     N社
@@ -1818,8 +1818,8 @@ export default function OrangeTheClient() {
                   <th
                     className="px-4 py-3 text-center font-semibold"
                     style={{
-                      color: '#9ca3af',
-                      borderBottom: '1px solid #2a2a33',
+                      color: 'var(--fg-muted)',
+                      borderBottom: '1px solid var(--border)',
                     }}
                   >
                     T社
@@ -1831,7 +1831,7 @@ export default function OrangeTheClient() {
                   <tr
                     key={i}
                     style={{
-                      borderBottom: i < compareRows.length - 1 ? '1px solid #1f1f27' : undefined,
+                      borderBottom: i < compareRows.length - 1 ? '1px solid var(--surface-3)' : undefined,
                     }}
                   >
                     <td className="px-4 py-3">
@@ -1839,18 +1839,18 @@ export default function OrangeTheClient() {
                         className="px-2 py-0.5 rounded text-xs font-semibold"
                         style={{
                           backgroundColor: 'rgba(249,115,22,0.1)',
-                          color: '#f97316',
+                          color: 'var(--accent)',
                         }}
                       >
                         {t(row.categoryKey)}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-xs" style={{ color: '#d1d5db' }}>
+                    <td className="px-4 py-3 text-xs" style={{ color: 'var(--fg-strong)' }}>
                       {t(row.itemKey)}
                     </td>
                     <td
                       className="px-4 py-3 text-center font-bold text-base"
-                      style={{ color: '#f97316' }}
+                      style={{ color: 'var(--accent)' }}
                     >
                       {row.orangeLabs ? t('otc.cmp_provided') : t('otc.cmp_unavailable')}
                     </td>
@@ -1858,7 +1858,7 @@ export default function OrangeTheClient() {
                       className="px-4 py-3 text-center text-xs"
                       style={{
                         color:
-                          row.n === true ? '#9ca3af' : row.n === 'partial' ? '#9ca3af' : '#374151',
+                          row.n === true ? 'var(--fg-muted)' : row.n === 'partial' ? 'var(--fg-muted)' : 'var(--fg-dimmer)',
                       }}
                     >
                       {row.n === true
@@ -1871,7 +1871,7 @@ export default function OrangeTheClient() {
                       className="px-4 py-3 text-center text-xs"
                       style={{
                         color:
-                          row.t === true ? '#9ca3af' : row.t === 'partial' ? '#9ca3af' : '#374151',
+                          row.t === true ? 'var(--fg-muted)' : row.t === 'partial' ? 'var(--fg-muted)' : 'var(--fg-dimmer)',
                       }}
                     >
                       {row.t === true
@@ -1889,7 +1889,7 @@ export default function OrangeTheClient() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 px-4 sm:px-6 text-center" style={{ backgroundColor: '#0e0e11' }}>
+      <section className="py-20 px-4 sm:px-6 text-center" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div
           className="max-w-2xl mx-auto rounded-2xl px-8 py-12"
           style={{
@@ -1898,10 +1898,10 @@ export default function OrangeTheClient() {
             border: '1px solid rgba(249,115,22,0.2)',
           }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
             {t('otc.cta_title')}
           </h2>
-          <p className="mb-8 text-base" style={{ color: '#9ca3af' }}>
+          <p className="mb-8 text-base" style={{ color: 'var(--fg-muted)' }}>
             {t('otc.cta_desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1912,7 +1912,7 @@ export default function OrangeTheClient() {
               className="px-8 py-3 rounded-full font-semibold transition-all"
               style={{
                 border: '1px solid rgba(249,115,22,0.5)',
-                color: '#f97316',
+                color: 'var(--accent)',
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.backgroundColor =

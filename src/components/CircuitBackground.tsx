@@ -200,7 +200,7 @@ export default function CircuitBackground() {
         <path
           key={`flow-${l.id}`}
           d={l.d}
-          stroke="#f97316"
+          stroke="var(--accent)"
           strokeWidth="1.1"
           fill="none"
           strokeLinecap="round"
@@ -231,7 +231,7 @@ export default function CircuitBackground() {
             cx={burstNode.x}
             cy={burstNode.y}
             r="3"
-            fill="#f97316"
+            fill="var(--accent)"
             style={{ animation: 'circuitFlash 1s ease-out forwards' }}
           />
           <circle
@@ -239,7 +239,7 @@ export default function CircuitBackground() {
             cy={burstNode.y}
             r="3"
             fill="none"
-            stroke="#f97316"
+            stroke="var(--accent)"
             strokeWidth="1.5"
             style={{ animation: 'circuitRing 1.5s ease-out forwards' }}
           />

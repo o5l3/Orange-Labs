@@ -59,35 +59,35 @@ export default function DemoVideos() {
   return (
     <div>
       {/* ── 히어로 ── */}
-      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: '#111114' }}>
+      <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-5xl mx-auto text-center">
           <div
             className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"
             style={{
               backgroundColor: 'rgba(249,115,22,0.1)',
-              color: '#f97316',
+              color: 'var(--accent)',
               border: '1px solid rgba(249,115,22,0.3)',
             }}
           >
             {t('nav.demoVideos')}
           </div>
-          <h1 className="text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+          <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
             {t('nav.demoVideos')}
           </h1>
-          <p className="text-base" style={{ color: '#9ca3af' }}>
+          <p className="text-base" style={{ color: 'var(--fg-muted)' }}>
             {t('demoVideos.pageDesc')}
           </p>
         </div>
       </section>
 
       {/* ── 영상 목록 ── */}
-      <section className="pb-20 px-4 sm:px-6" style={{ backgroundColor: '#0e0e11' }}>
+      <section className="pb-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg-deep)' }}>
         <div className="max-w-5xl mx-auto space-y-16">
           {videos.map((video) => (
             <div
               key={video.id}
               className="rounded-2xl overflow-hidden"
-              style={{ border: '1px solid #2a2a33' }}
+              style={{ border: '1px solid var(--border)' }}
             >
               {/* YouTube embed */}
               <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
@@ -102,13 +102,13 @@ export default function DemoVideos() {
               </div>
 
               {/* 제목 + 설명 */}
-              <div className="p-6" style={{ backgroundColor: '#2a2a32' }}>
-                <h2 className="text-xl font-bold mb-3" style={{ color: '#f1f1f3' }}>
+              <div className="p-6" style={{ backgroundColor: 'var(--border)' }}>
+                <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--fg)' }}>
                   {t(video.titleKey)}
                 </h2>
                 <p
                   className="text-sm leading-relaxed whitespace-pre-line"
-                  style={{ color: '#9ca3af' }}
+                  style={{ color: 'var(--fg-muted)' }}
                 >
                   {t(video.descKey)}
                 </p>

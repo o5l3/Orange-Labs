@@ -62,16 +62,16 @@ export default function TechBlog() {
           className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"
           style={{
             backgroundColor: 'rgba(249,115,22,0.1)',
-            color: '#f97316',
+            color: 'var(--accent)',
             border: '1px solid rgba(249,115,22,0.3)',
           }}
         >
           {t('blog.badge')}
         </div>
-        <h1 className="text-4xl font-bold mb-4" style={{ color: '#f1f1f3' }}>
+        <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
           {t('blog.title')}
         </h1>
-        <p className="text-lg" style={{ color: '#9ca3af' }}>
+        <p className="text-lg" style={{ color: 'var(--fg-muted)' }}>
           {t('blog.desc')}
         </p>
       </div>
@@ -81,9 +81,9 @@ export default function TechBlog() {
           <article
             key={`${post.subject}-${post.createdAt}`}
             className="p-6 rounded-2xl cursor-pointer transition-all flex flex-col"
-            style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+            style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
             onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#2a2a33')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
             onClick={() => {
               const slug = post.md.split('/').at(-1)?.replace(/\.md$/, '');
               if (slug) navigate(`/resources/tech-blog/${slug}`);
@@ -93,32 +93,32 @@ export default function TechBlog() {
               <span
                 className="text-xs font-semibold px-2 py-1 rounded-full"
                 style={{
-                  backgroundColor: `${post.categoryColor ?? '#6b7280'}22`,
-                  color: post.categoryColor ?? '#6b7280',
+                  backgroundColor: `${post.categoryColor ?? 'var(--fg-dim)'}22`,
+                  color: post.categoryColor ?? 'var(--fg-dim)',
                 }}
               >
                 {post.category}
               </span>
-              <span className="text-xs" style={{ color: '#4b5563' }}>
+              <span className="text-xs" style={{ color: 'var(--fg-dimmer)' }}>
                 {t('blog.minRead', { minutes: post.readMinutes })}
               </span>
             </div>
             <h2
               className="text-base font-semibold mb-3"
-              style={{ color: '#f1f1f3', lineHeight: '1.5' }}
+              style={{ color: 'var(--fg)', lineHeight: '1.5' }}
             >
               {post.subject}
             </h2>
-            <p className="text-sm mb-4 leading-relaxed flex-1" style={{ color: '#9ca3af' }}>
+            <p className="text-sm mb-4 leading-relaxed flex-1" style={{ color: 'var(--fg-muted)' }}>
               {post.content}
             </p>
             <div className="flex items-center justify-between">
-              <span className="text-xs" style={{ color: '#4b5563' }}>
+              <span className="text-xs" style={{ color: 'var(--fg-dimmer)' }}>
                 {formatDate(post.createdAt, i18n.language.split('-')[0])}
               </span>
               <span
                 className="text-xs font-medium flex items-center gap-1"
-                style={{ color: '#f97316' }}
+                style={{ color: 'var(--accent)' }}
               >
                 {t('blog.readMore')}
                 <svg

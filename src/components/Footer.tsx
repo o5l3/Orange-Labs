@@ -36,7 +36,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer style={{ backgroundColor: '#0e0e11', borderTop: '1px solid #2a2a33' }}>
+    <footer style={{ backgroundColor: 'var(--bg-deep)', borderTop: '1px solid var(--border)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         {/* Top section: nav */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
@@ -45,7 +45,7 @@ export default function Footer() {
             <div key={section.title}>
               <h3
                 className="text-xs font-semibold tracking-wider mb-4"
-                style={{ color: '#9ca3af' }}
+                style={{ color: 'var(--fg-muted)' }}
               >
                 {section.title.toUpperCase()}
               </h3>
@@ -55,9 +55,9 @@ export default function Footer() {
                     <Link
                       to={link.path}
                       className="text-sm transition-colors"
-                      style={{ color: '#6b7280' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = '#f97316')}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = '#6b7280')}
+                      style={{ color: 'var(--fg-dim)' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--fg-dim)')}
                     >
                       {link.label}
                     </Link>
@@ -71,7 +71,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
-          style={{ borderTop: '1px solid #2a2a33', color: '#4b5563' }}
+          style={{ borderTop: '1px solid var(--border)', color: 'var(--fg-dimmer)' }}
         >
           <span>{t('footer.rights')}</span>
           <div className="flex gap-6">

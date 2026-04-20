@@ -51,29 +51,29 @@ function PostCard({ post, label, onClick }: PostCardProps) {
   return (
     <div
       className="p-5 rounded-2xl cursor-pointer transition-all flex flex-col gap-2"
-      style={{ backgroundColor: '#1a1a1f', border: '1px solid #2a2a33' }}
+      style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
       onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
-      onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#2a2a33')}
+      onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
       onClick={onClick}
     >
-      <span className="text-xs font-semibold" style={{ color: '#f97316' }}>
+      <span className="text-xs font-semibold" style={{ color: 'var(--accent)' }}>
         {label}
       </span>
       <div className="flex items-center gap-2">
         <span
           className="text-xs font-semibold px-2 py-0.5 rounded-full shrink-0"
           style={{
-            backgroundColor: `${post.categoryColor ?? '#6b7280'}22`,
-            color: post.categoryColor ?? '#6b7280',
+            backgroundColor: `${post.categoryColor ?? 'var(--fg-dim)'}22`,
+            color: post.categoryColor ?? 'var(--fg-dim)',
           }}
         >
           {post.category}
         </span>
-        <span className="text-xs" style={{ color: '#4b5563' }}>
+        <span className="text-xs" style={{ color: 'var(--fg-dimmer)' }}>
           {formatDate(post.createdAt, lang)}
         </span>
       </div>
-      <p className="text-sm font-semibold leading-snug" style={{ color: '#f1f1f3' }}>
+      <p className="text-sm font-semibold leading-snug" style={{ color: 'var(--fg)' }}>
         {post.subject}
       </p>
     </div>
@@ -135,9 +135,9 @@ export default function TechBlogContent() {
       {/* 뒤로 가기 버튼 */}
       <button
         className="flex items-center gap-1 text-sm font-semibold mb-10 px-3 py-1.5 rounded-lg transition-all cursor-pointer"
-        style={{ color: '#f97316', backgroundColor: 'transparent' }}
+        style={{ color: 'var(--accent)', backgroundColor: 'transparent' }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.color = '#ea6c0a';
+          e.currentTarget.style.color = 'var(--accent-strong)';
           e.currentTarget.style.backgroundColor = 'rgba(249,115,22,0.08)';
           (e.currentTarget.querySelector('svg') as HTMLElement | null)?.style.setProperty(
             'transform',
@@ -145,7 +145,7 @@ export default function TechBlogContent() {
           );
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.color = '#f97316';
+          e.currentTarget.style.color = 'var(--accent)';
           e.currentTarget.style.backgroundColor = 'transparent';
           (e.currentTarget.querySelector('svg') as HTMLElement | null)?.style.setProperty(
             'transform',
@@ -172,23 +172,23 @@ export default function TechBlogContent() {
       {currentPost && (
         <div
           className="flex items-center justify-between flex-wrap mb-10 pb-6"
-          style={{ borderBottom: '1px solid #2a2a33' }}
+          style={{ borderBottom: '1px solid var(--border)' }}
         >
           <div className="flex items-center gap-3 flex-wrap">
             <span
               className="text-xs font-semibold px-2.5 py-1 rounded-full"
               style={{
-                backgroundColor: `${currentPost.categoryColor ?? '#6b7280'}22`,
-                color: currentPost.categoryColor ?? '#6b7280',
+                backgroundColor: `${currentPost.categoryColor ?? 'var(--fg-dim)'}22`,
+                color: currentPost.categoryColor ?? 'var(--fg-dim)',
               }}
             >
               {currentPost.category}
             </span>
-            <span className="text-xs" style={{ color: '#4b5563' }}>
+            <span className="text-xs" style={{ color: 'var(--fg-dimmer)' }}>
               {formatDate(currentPost.createdAt, lang)}
             </span>
           </div>
-          <span className="text-xs" style={{ color: '#4b5563' }}>
+          <span className="text-xs" style={{ color: 'var(--fg-dimmer)' }}>
             {t('blog.minRead', { minutes: currentPost.readMinutes })}
           </span>
         </div>
@@ -196,7 +196,7 @@ export default function TechBlogContent() {
 
       {/* MD 본문 */}
       {mdContent === null ? (
-        <div className="text-center py-24" style={{ color: '#6b7280' }}>
+        <div className="text-center py-24" style={{ color: 'var(--fg-dim)' }}>
           {t('blog.loading')}
         </div>
       ) : (
@@ -205,46 +205,46 @@ export default function TechBlogContent() {
             remarkPlugins={[remarkGfm]}
             components={{
               h1: ({ children }) => (
-                <h1 className="text-3xl font-bold mt-10 mb-4" style={{ color: '#f1f1f3' }}>
+                <h1 className="text-3xl font-bold mt-10 mb-4" style={{ color: 'var(--fg)' }}>
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
                 <h2
                   className="text-xl font-bold mt-8 mb-3 pb-2"
-                  style={{ color: '#f1f1f3', borderBottom: '1px solid #2a2a33' }}
+                  style={{ color: 'var(--fg)', borderBottom: '1px solid var(--border)' }}
                 >
                   {children}
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 className="text-base font-bold mt-6 mb-2" style={{ color: '#e5e7eb' }}>
+                <h3 className="text-base font-bold mt-6 mb-2" style={{ color: 'var(--fg-strong)' }}>
                   {children}
                 </h3>
               ),
               p: ({ children }) => (
-                <p className="text-sm leading-7 mb-4" style={{ color: '#9ca3af' }}>
+                <p className="text-sm leading-7 mb-4" style={{ color: 'var(--fg-muted)' }}>
                   {children}
                 </p>
               ),
               strong: ({ children }) => (
-                <strong className="font-semibold" style={{ color: '#f1f1f3' }}>
+                <strong className="font-semibold" style={{ color: 'var(--fg)' }}>
                   {children}
                 </strong>
               ),
               ul: ({ children }) => (
-                <ul className="mb-4 space-y-1.5 pl-1" style={{ color: '#9ca3af' }}>
+                <ul className="mb-4 space-y-1.5 pl-1" style={{ color: 'var(--fg-muted)' }}>
                   {children}
                 </ul>
               ),
               ol: ({ children }) => (
-                <ol className="mb-4 space-y-1.5 pl-5 list-decimal" style={{ color: '#9ca3af' }}>
+                <ol className="mb-4 space-y-1.5 pl-5 list-decimal" style={{ color: 'var(--fg-muted)' }}>
                   {children}
                 </ol>
               ),
               li: ({ children }) => (
                 <li className="text-sm leading-6 flex gap-2 items-start">
-                  <span style={{ color: '#f97316', marginTop: '2px' }}>•</span>
+                  <span style={{ color: 'var(--accent)', marginTop: '2px' }}>•</span>
                   <span>{children}</span>
                 </li>
               ),
@@ -259,7 +259,7 @@ export default function TechBlogContent() {
                 inline ? (
                   <code
                     className="px-1.5 py-0.5 rounded text-xs font-mono"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: '#fb923c' }}
+                    style={{ backgroundColor: 'rgba(249,115,22,0.1)', color: 'var(--accent-light)' }}
                     {...props}
                   >
                     {children}
@@ -267,7 +267,7 @@ export default function TechBlogContent() {
                 ) : (
                   <code
                     className="block text-xs font-mono leading-6"
-                    style={{ color: '#d1d5db' }}
+                    style={{ color: 'var(--fg-strong)' }}
                     {...props}
                   >
                     {children}
@@ -276,7 +276,7 @@ export default function TechBlogContent() {
               pre: ({ children }) => (
                 <pre
                   className="rounded-xl p-4 mb-4 overflow-x-auto text-xs"
-                  style={{ backgroundColor: '#111114', border: '1px solid #2a2a33' }}
+                  style={{ backgroundColor: 'var(--bg)', border: '1px solid var(--border)' }}
                 >
                   {children}
                 </pre>
@@ -284,7 +284,7 @@ export default function TechBlogContent() {
               blockquote: ({ children }) => (
                 <blockquote
                   className="pl-4 my-4 text-sm italic"
-                  style={{ borderLeft: '3px solid #f97316', color: '#9ca3af' }}
+                  style={{ borderLeft: '3px solid var(--accent)', color: 'var(--fg-muted)' }}
                 >
                   {children}
                 </blockquote>
@@ -295,16 +295,16 @@ export default function TechBlogContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline underline-offset-2"
-                  style={{ color: '#f97316' }}
+                  style={{ color: 'var(--accent)' }}
                 >
                   {children}
                 </a>
               ),
-              hr: () => <hr className="my-8" style={{ borderColor: '#2a2a33' }} />,
+              hr: () => <hr className="my-8" style={{ borderColor: 'var(--border)' }} />,
               table: ({ children }) => (
                 <div
                   className="overflow-x-auto mb-4 rounded-xl"
-                  style={{ border: '1px solid #2a2a33' }}
+                  style={{ border: '1px solid var(--border)' }}
                 >
                   <table className="w-full text-sm">{children}</table>
                 </div>
@@ -313,9 +313,9 @@ export default function TechBlogContent() {
                 <th
                   className="px-4 py-2 text-left text-xs font-semibold"
                   style={{
-                    backgroundColor: '#1a1a1f',
-                    color: '#f1f1f3',
-                    borderBottom: '1px solid #2a2a33',
+                    backgroundColor: 'var(--surface)',
+                    color: 'var(--fg)',
+                    borderBottom: '1px solid var(--border)',
                   }}
                 >
                   {children}
@@ -324,7 +324,7 @@ export default function TechBlogContent() {
               td: ({ children }) => (
                 <td
                   className="px-4 py-2 text-xs"
-                  style={{ color: '#9ca3af', borderBottom: '1px solid #1f1f27' }}
+                  style={{ color: 'var(--fg-muted)', borderBottom: '1px solid var(--surface-3)' }}
                 >
                   {children}
                 </td>
@@ -338,7 +338,7 @@ export default function TechBlogContent() {
 
       {/* 이전 / 다음 포스트 */}
       {posts.length > 0 && (olderPost || newerPost) && (
-        <div className="mt-16 pt-8" style={{ borderTop: '1px solid #2a2a33' }}>
+        <div className="mt-16 pt-8" style={{ borderTop: '1px solid var(--border)' }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               {olderPost && (
