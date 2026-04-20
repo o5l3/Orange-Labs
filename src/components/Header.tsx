@@ -111,41 +111,30 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => (
             <div key={item.key} className="relative">
-              {item.path ? (
-                <Link
-                  to={item.path}
-                  className="px-4 py-2 text-sm font-medium transition-colors rounded-md"
-                  style={{ color: activeDropdown === item.key ? '#f97316' : '#d1d5db' }}
-                  onMouseEnter={() => setActiveDropdown(null)}
+              <button
+                className="flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-md"
+                style={{ color: activeDropdown === item.key ? '#f97316' : '#d1d5db' }}
+                onMouseEnter={() => setActiveDropdown(item.key)}
+                onClick={() => setActiveDropdown(activeDropdown === item.key ? null : item.key)}
+              >
+                {item.label}
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{
+                    transform: activeDropdown === item.key ? 'rotate(180deg)' : 'rotate(0)',
+                    transition: 'transform 0.2s',
+                  }}
                 >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-md"
-                  style={{ color: activeDropdown === item.key ? '#f97316' : '#d1d5db' }}
-                  onMouseEnter={() => setActiveDropdown(item.key)}
-                  onClick={() => setActiveDropdown(activeDropdown === item.key ? null : item.key)}
-                >
-                  {item.label}
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{
-                      transform: activeDropdown === item.key ? 'rotate(180deg)' : 'rotate(0)',
-                      transition: 'transform 0.2s',
-                    }}
-                  >
-                    <path d="M2 4L6 8L10 4" />
-                  </svg>
-                </button>
-              )}
+                  <path d="M2 4L6 8L10 4" />
+                </svg>
+              </button>
 
               {/* Dropdown */}
               {item.dropdown && activeDropdown === item.key && (
@@ -351,71 +340,58 @@ export default function Header() {
         >
           {navItems.map((item) => (
             <div key={item.key}>
-              {item.path ? (
-                <Link
-                  to={item.path}
-                  className="block px-6 py-3 text-sm font-medium"
-                  style={{ color: '#d1d5db' }}
-                  onClick={() => setMobileMenuOpen(false)}
+              <button
+                className="w-full flex items-center justify-between px-6 py-3 text-sm font-medium"
+                style={{ color: '#d1d5db' }}
+                onClick={() => setMobileExpanded(mobileExpanded === item.key ? null : item.key)}
+              >
+                {item.label}
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{
+                    transform: mobileExpanded === item.key ? 'rotate(180deg)' : '',
+                    transition: 'transform 0.2s',
+                  }}
                 >
-                  {item.label}
-                </Link>
-              ) : (
-                <>
-                  <button
-                    className="w-full flex items-center justify-between px-6 py-3 text-sm font-medium"
-                    style={{ color: '#d1d5db' }}
-                    onClick={() => setMobileExpanded(mobileExpanded === item.key ? null : item.key)}
-                  >
-                    {item.label}
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      style={{
-                        transform: mobileExpanded === item.key ? 'rotate(180deg)' : '',
-                        transition: 'transform 0.2s',
-                      }}
-                    >
-                      <path d="M2 4L6 8L10 4" />
-                    </svg>
-                  </button>
-                  {mobileExpanded === item.key && item.dropdown && (
-                    <div style={{ backgroundColor: '#111114' }}>
-                      {item.dropdown.map((group, gi) => (
-                        <div key={gi}>
-                          {group.group && (
-                            <div
-                              className="px-8 pt-2 pb-1 text-xs font-semibold tracking-wider"
-                              style={{ color: '#6b7280' }}
-                            >
-                              {group.group}
-                            </div>
-                          )}
-                          {group.items.map((sub) => (
-                            <Link
-                              key={sub.path}
-                              to={sub.path}
-                              className="block px-8 py-2 text-sm"
-                              style={{ color: '#9ca3af' }}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setMobileExpanded(null);
-                              }}
-                            >
-                              {sub.label}
-                            </Link>
-                          ))}
+                  <path d="M2 4L6 8L10 4" />
+                </svg>
+              </button>
+              {mobileExpanded === item.key && item.dropdown && (
+                <div style={{ backgroundColor: '#111114' }}>
+                  {item.dropdown.map((group, gi) => (
+                    <div key={gi}>
+                      {group.group && (
+                        <div
+                          className="px-8 pt-2 pb-1 text-xs font-semibold tracking-wider"
+                          style={{ color: '#6b7280' }}
+                        >
+                          {group.group}
                         </div>
+                      )}
+                      {group.items.map((sub) => (
+                        <Link
+                          key={sub.path}
+                          to={sub.path}
+                          className="block px-8 py-2 text-sm"
+                          style={{ color: '#9ca3af' }}
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setMobileExpanded(null);
+                          }}
+                        >
+                          {sub.label}
+                        </Link>
                       ))}
                     </div>
-                  )}
-                </>
+                  ))}
+                </div>
               )}
             </div>
           ))}
