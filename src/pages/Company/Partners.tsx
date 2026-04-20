@@ -44,7 +44,7 @@ function PartnerCard({ name, logo }: { name: string; logo: string }) {
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)';
         const img = e.currentTarget.querySelector('img') as HTMLImageElement | null;
-        if (img) img.style.filter = 'brightness(0) invert(1) opacity(0.4)';
+        if (img) img.style.filter = 'var(--partners-page-logo-filter)';
       }}
     >
       <img
@@ -56,7 +56,7 @@ function PartnerCard({ name, logo }: { name: string; logo: string }) {
           width: 'auto',
           height: 'auto',
           objectFit: 'contain',
-          filter: 'brightness(0) invert(1) opacity(0.4)',
+          filter: 'var(--partners-page-logo-filter)',
           transition: 'filter 0.2s',
         }}
         onError={(e) => {

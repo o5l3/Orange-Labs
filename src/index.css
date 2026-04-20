@@ -35,6 +35,7 @@
   --partner-card-label: #9ca3af;
   --partner-card-label-hover: #f1f1f3;
   --partner-logo-filter: brightness(0) invert(1) opacity(0.8);
+  --partners-page-logo-filter: brightness(0) invert(1) opacity(0.4);
 }
 
 :root[data-theme='light'] {
@@ -70,6 +71,7 @@
   --partner-card-label: #52525b;
   --partner-card-label-hover: #18181b;
   --partner-logo-filter: brightness(0) opacity(0.75);
+  --partners-page-logo-filter: brightness(0) opacity(0.55);
 }
 
 html {
