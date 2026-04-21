@@ -1,50 +1,84 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
+const axisIcon1 = (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+    />
+  </svg>
+);
+const axisIcon2 = (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+    />
+  </svg>
+);
+const axisIcon3 = (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"
+    />
+  </svg>
+);
+const axisIcon4 = (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
+    />
+  </svg>
+);
+
 const pillars = [
   {
-    titleKey: 'otc.p1_title',
-    subKey: 'otc.p1_sub',
-    items: ['otc.p1_i1', 'otc.p1_i2', 'otc.p1_i3'],
+    label: '성능',
+    titleKey: 'home.kf1_title',
+    descKey: 'home.kf1_desc',
     num: '01',
-    color: 'var(--accent)',
+    main: '#60a5fa',
+    bg: 'rgba(59,130,246,0.12)',
+    border: 'rgba(59,130,246,0.35)',
+    icon: axisIcon1,
   },
   {
-    titleKey: 'otc.p2_title',
-    subKey: 'otc.p2_sub',
-    items: ['otc.p2_i1', 'otc.p2_i2', 'otc.p2_i3'],
+    label: '증상',
+    titleKey: 'home.kf2_title',
+    descKey: 'home.kf2_desc',
     num: '02',
-    color: 'var(--accent)',
+    main: '#f87171',
+    bg: 'rgba(239,68,68,0.12)',
+    border: 'rgba(239,68,68,0.35)',
+    icon: axisIcon2,
   },
   {
-    titleKey: 'otc.p3_title',
-    subKey: 'otc.p3_sub',
-    items: ['otc.p3_i1', 'otc.p3_i2', 'otc.p3_i3'],
+    label: '1:1',
+    titleKey: 'home.kf3_title',
+    descKey: 'home.kf3_desc',
     num: '03',
-    color: 'var(--accent)',
+    main: '#c084fc',
+    bg: 'rgba(168,85,247,0.12)',
+    border: 'rgba(168,85,247,0.35)',
+    icon: axisIcon3,
   },
-];
-
-const archComponents = [
-  { titleKey: 'otc.arch1_title', descKey: 'otc.arch1_desc', num: '01' },
-  { titleKey: 'otc.arch2_title', descKey: 'otc.arch2_desc', num: '02' },
-  { titleKey: 'otc.arch3_title', descKey: 'otc.arch3_desc', num: '03' },
-  { titleKey: 'otc.arch4_title', descKey: 'otc.arch4_desc', num: '04' },
-];
-
-const chartData = [
-  { year: '2019', bank: 23, securities: 20, insurance: 7, savings: 7, card: 3 },
-  { year: '2020', bank: 33, securities: 30, insurance: 10, savings: 10, card: 4 },
-  { year: '2021', bank: 50, securities: 45, insurance: 15, savings: 15, card: 7 },
-  { year: '2022', bank: 90, securities: 81, insurance: 27, savings: 27, card: 13 },
-];
-
-const legendItems = [
-  { labelKey: 'otc.legend_card', color: '#fed7aa' },
-  { labelKey: 'otc.legend_savings', color: '#fdba74' },
-  { labelKey: 'otc.legend_insurance', color: 'var(--accent-light)' },
-  { labelKey: 'otc.legend_securities', color: 'var(--accent)' },
-  { labelKey: 'otc.legend_bank', color: '#c2410c' },
+  {
+    label: '1:N',
+    titleKey: 'home.kf4_title',
+    descKey: 'home.kf4_desc',
+    num: '04',
+    main: '#4ade80',
+    bg: 'rgba(34,197,94,0.12)',
+    border: 'rgba(34,197,94,0.35)',
+    icon: axisIcon4,
+  },
 ];
 
 const impactRows = [
@@ -444,9 +478,6 @@ export default function OrangeTheClient() {
           >
             {t('otc.hero_title')}
           </h1>
-          <p className="text-2xl sm:text-3xl font-bold mb-6" style={{ color: 'var(--accent)' }}>
-            {t('otc.hero_tagline')}
-          </p>
           <p
             className="text-lg max-w-2xl mx-auto mb-10"
             style={{ color: 'var(--fg-muted)', lineHeight: '1.8' }}
@@ -477,518 +508,6 @@ export default function OrangeTheClient() {
         </div>
       </section>
 
-      {/* ── Problem / Background ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <div
-              className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 tracking-widest"
-              style={{
-                backgroundColor: 'rgba(249,115,22,0.1)',
-                color: 'var(--accent)',
-                border: '1px solid rgba(249,115,22,0.2)',
-              }}
-            >
-              {t('otc.problem_badge')}
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--fg)' }}>
-              {t('otc.problem_title')}
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* ── 스택 바 차트 카드 ── */}
-            <div
-              className="rounded-2xl p-6"
-              style={{
-                backgroundColor: 'var(--surface)',
-                border: '1px solid rgba(249,115,22,0.2)',
-              }}
-            >
-              {/* 카드 헤더 */}
-              <h3 className="text-sm font-bold mb-1" style={{ color: 'var(--fg)' }}>
-                {t('otc.chart_title')}
-              </h3>
-              <p className="text-xs mb-0.5" style={{ color: 'var(--fg-muted)' }}>
-                {t('otc.chart_subtitle')}
-              </p>
-              <p className="text-3xl font-black mb-5" style={{ color: 'var(--accent)' }}>
-                {t('otc.chart_stat')}
-              </p>
-
-              {/* 차트 + 범례 */}
-              <div className="flex gap-4">
-                {/* 스택 바 */}
-                <div className="flex-1 flex items-end justify-around gap-2" style={{ height: 160 }}>
-                  {chartData.map((d) => {
-                    const total = d.bank + d.securities + d.insurance + d.savings + d.card;
-                    const barH = Math.round((total / 238) * 160);
-                    return (
-                      <div key={d.year} className="flex-1 flex flex-col items-center">
-                        <div
-                          className="w-full flex flex-col rounded-t overflow-hidden"
-                          style={{ height: barH }}
-                        >
-                          <div style={{ flex: d.card, backgroundColor: '#fed7aa' }} />
-                          <div style={{ flex: d.savings, backgroundColor: '#fdba74' }} />
-                          <div style={{ flex: d.insurance, backgroundColor: 'var(--accent-light)' }} />
-                          <div style={{ flex: d.securities, backgroundColor: 'var(--accent)' }} />
-                          <div style={{ flex: d.bank, backgroundColor: '#c2410c' }} />
-                        </div>
-                        <span
-                          className="mt-2 text-xs"
-                          style={{
-                            color: d.year === '2022' ? 'var(--accent)' : 'var(--fg-dim)',
-                            fontWeight: d.year === '2022' ? 700 : 400,
-                          }}
-                        >
-                          {d.year}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* 범례 */}
-                <div className="flex flex-col gap-3" style={{ minWidth: 130 }}>
-                  <ul className="space-y-1.5">
-                    {legendItems.map((item) => (
-                      <li key={item.labelKey} className="flex items-center gap-2">
-                        <span
-                          className="w-3 h-3 rounded-sm shrink-0"
-                          style={{
-                            backgroundColor: item.color,
-                            border: '1px solid var(--overlay-mid)',
-                          }}
-                        />
-                        <span className="text-xs" style={{ color: 'var(--fg-muted)' }}>
-                          {t(item.labelKey)}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* 출처 */}
-              <p className="mt-4 text-right" style={{ color: 'var(--fg-dimmer)', fontSize: '0.6rem' }}>
-                {t('otc.chart_source')}
-              </p>
-            </div>
-            <div>
-              <p className="text-base mb-4" style={{ color: 'var(--fg-muted)', lineHeight: '1.8' }}>
-                {t('otc.problem_desc')}
-              </p>
-
-              <div
-                className="rounded-xl px-6 py-4 flex items-start gap-3"
-                style={{
-                  backgroundColor: 'rgba(249,115,22,0.06)',
-                  border: '1px solid rgba(249,115,22,0.2)',
-                }}
-              >
-                <span
-                  className="text-xs font-bold tracking-widest mt-0.5 shrink-0"
-                  style={{ color: 'var(--accent)' }}
-                >
-                  NOTE
-                </span>
-                <div>
-                  <span className="text-sm" style={{ color: 'var(--fg-strong)' }}>
-                    {t('otc.problem_p2')}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* ── Sub 1: PC 장애 인지의 어려움 ── */}
-          <div className="mt-14">
-            <h3
-              className="text-2xl sm:text-3xl font-bold mb-12 text-center"
-              style={{ color: 'var(--fg)' }}
-            >
-              {t('otc.prob2_title')}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6 items-start">
-              {/* 왼쪽: 4개 포인트 */}
-              <div
-                className="rounded-2xl p-6 space-y-4"
-                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
-              >
-                {(
-                  [
-                    t('otc.prob2_p1'),
-                    t('otc.prob2_p2'),
-                    t('otc.prob2_p3'),
-                    t('otc.prob2_p4'),
-                  ] as string[]
-                ).map((text, i) => (
-                  <div key={i} className="flex gap-3 items-start">
-                    {/*<span*/}
-                    {/*  className="flex-shrink-0 w-2 h-2 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"*/}
-                    {/*  style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}*/}
-                    {/*>*/}
-                    {/*  /!*{i + 1}*!/*/}
-                    {/*</span>*/}
-                    <span
-                      className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: 'var(--fg-dimmer)' }}
-                    />
-                    <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
-                      {text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              {/* 오른쪽: 결과 callout */}
-              <div
-                className="rounded-2xl overflow-hidden relative"
-                style={{
-                  border: '1px solid rgba(239,68,68,0.3)',
-                }}
-              >
-                <img
-                  src="/images/products/pc_error.png"
-                  alt="PC Error"
-                  className="w-full h-auto block"
-                  style={{ filter: 'grayscale(1)', opacity: 0.5 }}
-                />
-                {/* 도장 오버레이 */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span
-                    className="text-3xl font-black tracking-widest px-5 py-2"
-                    style={{
-                      color: '#ffffff',
-                      // color: '#dc2626',
-                      border: '4px solid #dc2626',
-                      borderRadius: '3px',
-                      transform: 'rotate(-22deg)',
-                      opacity: 1.0,
-                      letterSpacing: '0.18em',
-                      // textShadow: [
-                      //   '-1px -1px 0 rgba(255,255,255,0.58)',
-                      //   ' 1px -1px 0 rgba(255,255,255,0.58)',
-                      //   '-1px  1px 0 rgba(255,255,255,0.58)',
-                      //   ' 1px  1px 0 rgba(255,255,255,0.58)',
-                      //   '0 0 5px rgba(220,38,38,0.6)',
-                      // ].join(','),
-                      backgroundColor: 'rgba(239,68,68,0.65)',
-                      // backgroundColor: 'rgba(0,0,0,0.15)',
-                      boxShadow: '0 0 0 2px rgba(220,38,38,0.25)',
-                    }}
-                  >
-                    {t('otc.prob2_result')}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* ── Sub 2: 수작업 방식의 비효율 ── */}
-          <div className="mt-14">
-            <h3
-              className="text-2xl sm:text-3xl font-bold mb-12 text-center"
-              style={{ color: 'var(--fg)' }}
-            >
-              {t('otc.prob3_title')}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {/* 01 */}
-              <div
-                className="rounded-2xl overflow-hidden"
-                style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
-              >
-                <div
-                  className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: 'var(--border)' }}
-                >
-                  <span className="text-base font-black" style={{ color: 'var(--accent)' }}>
-                    {t('otc.prob3_col1_num')}
-                  </span>
-                  <span className="text-base font-bold" style={{ color: 'var(--fg)' }}>
-                    {t('otc.prob3_col1_title')}
-                  </span>
-                </div>
-                <div className="p-5 space-y-3">
-                  {([t('otc.prob3_col1_p1'), t('otc.prob3_col1_p2')] as string[]).map((text, i) => (
-                    <div key={i} className="flex gap-2 items-start">
-                      <span
-                        className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: 'var(--fg-dimmer)' }}
-                      />
-                      <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
-                        {text}
-                      </p>
-                    </div>
-                  ))}
-                  <div className="flex gap-2 items-start pt-1">
-                    <span
-                      className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: 'var(--accent)' }}
-                    />
-                    <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--accent)' }}>
-                      {t('otc.prob3_col1_highlight')}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {/* 02 */}
-              <div
-                className="rounded-2xl overflow-hidden"
-                style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
-              >
-                <div
-                  className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: 'var(--border)' }}
-                >
-                  <span className="text-base font-black" style={{ color: 'var(--accent)' }}>
-                    {t('otc.prob3_col2_num')}
-                  </span>
-                  <span className="text-base font-bold" style={{ color: 'var(--fg)' }}>
-                    {t('otc.prob3_col2_title')}
-                  </span>
-                </div>
-                <div className="p-5 space-y-3">
-                  {(
-                    [
-                      t('otc.prob3_col2_p1'),
-                      t('otc.prob3_col2_p2'),
-                      t('otc.prob3_col2_p3'),
-                    ] as string[]
-                  ).map((text, i) => (
-                    <div key={i} className="flex gap-2 items-start">
-                      <span
-                        className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: 'var(--fg-dimmer)' }}
-                      />
-                      <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
-                        {text}
-                      </p>
-                    </div>
-                  ))}
-                  <div className="flex gap-2 items-start pt-1">
-                    <span
-                      className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: 'var(--accent)' }}
-                    />
-                    <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--accent)' }}>
-                      {t('otc.prob3_col2_highlight')}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* 하단 결과 배너 */}
-            <div
-              className="mt-4 rounded-xl px-6 py-4 text-center"
-              style={{ backgroundColor: 'var(--surface)', border: '1px solid rgba(249,115,22,0.3)' }}
-            >
-              <p className="text-base font-bold" style={{ color: 'var(--accent)' }}>
-                {t('otc.prob3_result')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 제품 개요 ── */}
-      <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
-        <div className="max-w-6xl mx-auto">
-          {/* Badge + Title */}
-          <div className="text-center mb-12">
-            <div
-              className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 tracking-widest"
-              style={{
-                backgroundColor: 'rgba(249,115,22,0.1)',
-                color: 'var(--accent)',
-                border: '1px solid rgba(249,115,22,0.2)',
-              }}
-            >
-              {t('otc.overview_badge')}
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--fg)' }}>
-              {t('otc.overview_title')}
-            </h2>
-          </div>
-
-          {/* ── Part 1: Endpoint 개요 ── */}
-          <div className="mb-16">
-            <div className="grid md:grid-cols-3 gap-5">
-              {/* Col 1: 정의 */}
-              <div
-                className="rounded-2xl overflow-hidden flex flex-col"
-                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
-              >
-                <div
-                  className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: 'var(--border)', borderBottom: '1px solid var(--border)' }}
-                >
-                  <span
-                    className="text-xs font-bold px-2 py-0.5 rounded"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}
-                  >
-                    {t('otc.ep_col1_num')}
-                  </span>
-                  <span className="text-sm font-semibold" style={{ color: 'var(--fg)' }}>
-                    {t('otc.ep_col1_title')}
-                  </span>
-                </div>
-                <div className="p-5 flex-1 flex flex-col justify-between gap-4">
-                  <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
-                    {t('otc.ep_col1_desc')}
-                  </p>
-                  {/* Device icon row */}
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {['노트북', '데스크탑', '스마트폰', 'ATM', '의료단말'].map((d) => (
-                      <span
-                        key={d}
-                        className="text-xs px-2 py-1 rounded"
-                        style={{
-                          backgroundColor: 'rgba(249,115,22,0.08)',
-                          color: 'var(--accent-light)',
-                          border: '1px solid rgba(249,115,22,0.2)',
-                        }}
-                      >
-                        {d}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Col 2: 중요성 */}
-              <div
-                className="rounded-2xl overflow-hidden"
-                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
-              >
-                <div
-                  className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: 'var(--border)', borderBottom: '1px solid var(--border)' }}
-                >
-                  <span
-                    className="text-xs font-bold px-2 py-0.5 rounded"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}
-                  >
-                    {t('otc.ep_col2_num')}
-                  </span>
-                  <span className="text-sm font-semibold" style={{ color: 'var(--fg)' }}>
-                    {t('otc.ep_col2_title')}
-                  </span>
-                </div>
-                <div className="p-5 space-y-4">
-                  {(
-                    [
-                      { title: t('otc.ep_col2_b1_title'), desc: t('otc.ep_col2_b1_desc') },
-                      { title: t('otc.ep_col2_b2_title'), desc: t('otc.ep_col2_b2_desc') },
-                      { title: t('otc.ep_col2_b3_title'), desc: t('otc.ep_col2_b3_desc') },
-                    ] as { title: string; desc: string }[]
-                  ).map((item, i) => (
-                    <div key={i} className="flex gap-2 items-start">
-                      <span
-                        className="mt-1 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: 'rgba(249,115,22,0.15)' }}
-                      >
-                        <span
-                          className="block w-1.5 h-1.5 rounded-full"
-                          style={{ backgroundColor: 'var(--accent)' }}
-                        />
-                      </span>
-                      <div>
-                        <p className="text-xs font-semibold mb-0.5" style={{ color: 'var(--accent)' }}>
-                          {item.title}
-                        </p>
-                        <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-dim)' }}>
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Col 3: 필요성 */}
-              <div
-                className="rounded-2xl overflow-hidden"
-                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
-              >
-                <div
-                  className="px-5 py-3 flex items-center gap-3"
-                  style={{ backgroundColor: 'var(--border)', borderBottom: '1px solid var(--border)' }}
-                >
-                  <span
-                    className="text-xs font-bold px-2 py-0.5 rounded"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}
-                  >
-                    {t('otc.ep_col3_num')}
-                  </span>
-                  <span className="text-sm font-semibold" style={{ color: 'var(--fg)' }}>
-                    {t('otc.ep_col3_title')}
-                  </span>
-                </div>
-                <div className="p-5 space-y-4">
-                  {([t('otc.ep_col3_b1'), t('otc.ep_col3_b2')] as string[]).map((text, i) => (
-                    <div key={i} className="flex gap-2 items-start">
-                      <span
-                        className="mt-1 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: 'rgba(249,115,22,0.15)' }}
-                      >
-                        <span
-                          className="block w-1.5 h-1.5 rounded-full"
-                          style={{ backgroundColor: 'var(--accent)' }}
-                        />
-                      </span>
-                      <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
-                        {text}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* ── Part 2: 제품 구성 ── */}
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: 'var(--fg)' }}>
-              {t('otc.arch_title')}
-            </h2>
-            <p className="max-w-2xl mx-auto text-sm" style={{ color: 'var(--fg-muted)' }}>
-              {t('otc.arch_desc')}
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {archComponents.map((comp) => (
-              <div
-                key={comp.titleKey}
-                className="rounded-xl p-6 text-center"
-                style={{
-                  backgroundColor: 'var(--surface)',
-                  border: '1px solid var(--border)',
-                }}
-              >
-                <div
-                  className="text-2xl font-bold mb-3 tracking-tight"
-                  style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
-                >
-                  {comp.num}
-                </div>
-                <h3
-                  className="text-lg font-bold mb-2 px-3 py-1 rounded-full inline-block"
-                  style={{
-                    backgroundColor: 'rgba(249,115,22,0.12)',
-                    color: 'var(--accent)',
-                  }}
-                >
-                  {t(comp.titleKey)}
-                </h3>
-                <p className="text-xs mt-3" style={{ color: 'var(--fg-muted)', lineHeight: '1.7' }}>
-                  {t(comp.descKey)}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── Key Features ── */}
       <section className="py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg-deep)' }}>
@@ -1010,45 +529,121 @@ export default function OrangeTheClient() {
             </h2>
           </div>
 
-          <div className="mb-14 grid md:grid-cols-3 gap-6">
+          <div className="mb-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((p) => (
               <div
-                key={p.titleKey}
-                className="rounded-2xl p-7"
+                key={p.num}
+                className="relative p-6 rounded-2xl transition-all duration-300 overflow-hidden"
                 style={{
-                  backgroundColor: 'var(--surface)',
+                  background: `linear-gradient(135deg, ${p.bg} 0%, var(--surface) 55%)`,
                   border: '1px solid var(--border)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.borderColor = p.border;
+                  e.currentTarget.style.boxShadow = `0 12px 40px -12px ${p.main}55`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = 'var(--border)';
+                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
                 <div
-                  className="text-2xl font-bold mb-4 tracking-tight"
-                  style={{ color: 'var(--accent)', fontVariantNumeric: 'tabular-nums' }}
+                  className="absolute top-4 right-5 text-5xl font-black pointer-events-none select-none"
+                  style={{
+                    color: p.main,
+                    opacity: 0.12,
+                    lineHeight: 1,
+                    letterSpacing: '-0.04em',
+                  }}
                 >
                   {p.num}
                 </div>
-                <div className="text-xs font-semibold mb-1" style={{ color: 'var(--fg-muted)' }}>
-                  {t(p.titleKey)}
-                </div>
-                <div className="text-xl font-black mb-5" style={{ color: 'var(--accent)' }}>
-                  {t(p.subKey)}
-                </div>
-                <ul className="space-y-2">
-                  {p.items.map((ik) => (
-                    <li
-                      key={ik}
-                      className="flex items-start gap-2 text-sm"
-                      style={{ color: 'var(--fg-strong)' }}
+
+                <div className="relative flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-11 h-11 rounded-xl flex-shrink-0 flex items-center justify-center"
+                      style={{
+                        background: `linear-gradient(135deg, ${p.bg} 0%, rgba(0,0,0,0.12) 100%)`,
+                        color: p.main,
+                        boxShadow: `inset 0 0 0 1px ${p.border}`,
+                      }}
                     >
-                      <span style={{ color: 'var(--accent)', marginTop: 2 }}>•</span>
-                      {t(ik)}
-                    </li>
-                  ))}
-                </ul>
+                      {p.icon}
+                    </div>
+                    <div
+                      className="text-xs font-bold"
+                      style={{ color: p.main, letterSpacing: '0.18em' }}
+                    >
+                      {p.label}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3
+                      className="text-base font-bold mb-2"
+                      style={{ color: 'var(--fg)', letterSpacing: '-0.01em' }}
+                    >
+                      {t(p.titleKey)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
+                      {t(p.descKey)}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
 
           <div className="space-y-6">
+            <div className="flex items-center gap-3 pt-4 pb-1">
+              <div className="h-1 w-8 rounded-full" style={{ backgroundColor: '#60a5fa' }} />
+              <div className="text-xs font-bold tracking-widest" style={{ color: '#60a5fa', letterSpacing: '0.22em' }}>
+                성능
+              </div>
+            </div>
+            {/* ── 카드 SPD-B: 신속성 - 실시간 성능 모니터링 ── */}
+            <div
+              className="rounded-2xl p-6"
+              style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <span
+                  className="text-xs font-bold px-2.5 py-1 rounded-full"
+                  style={{
+                    backgroundColor: 'rgba(249,115,22,0.15)',
+                    color: 'var(--accent)',
+                    border: '1px solid rgba(249,115,22,0.35)',
+                  }}
+                >
+                  {t('otc.feat_spd')}
+                </span>
+              </div>
+              <h3 className="text-lg font-bold mb-5" style={{ color: 'var(--fg)' }}>
+                {t('otc.feat_card_spd2_title')}
+              </h3>
+              <div className="space-y-3">
+                {(['otc.feat_card_spd2_p1', 'otc.feat_card_spd2_p2'] as string[]).map((key) => (
+                  <div key={key} className="flex items-start gap-2">
+                    <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
+                      —
+                    </span>
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
+                      {t(key)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 pt-4 pb-1">
+              <div className="h-1 w-8 rounded-full" style={{ backgroundColor: '#f87171' }} />
+              <div className="text-xs font-bold tracking-widest" style={{ color: '#f87171', letterSpacing: '0.22em' }}>
+                증상
+              </div>
+            </div>
             {/* ── 카드 SPD-A: 신속성 - 실시간 탐지 ── */}
             <div
               className="rounded-2xl overflow-hidden"
@@ -1182,40 +777,6 @@ export default function OrangeTheClient() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* ── 카드 SPD-B: 신속성 - 실시간 성능 모니터링 ── */}
-            <div
-              className="rounded-2xl p-6"
-              style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <span
-                  className="text-xs font-bold px-2.5 py-1 rounded-full"
-                  style={{
-                    backgroundColor: 'rgba(249,115,22,0.15)',
-                    color: 'var(--accent)',
-                    border: '1px solid rgba(249,115,22,0.35)',
-                  }}
-                >
-                  {t('otc.feat_spd')}
-                </span>
-              </div>
-              <h3 className="text-lg font-bold mb-5" style={{ color: 'var(--fg)' }}>
-                {t('otc.feat_card_spd2_title')}
-              </h3>
-              <div className="space-y-3">
-                {(['otc.feat_card_spd2_p1', 'otc.feat_card_spd2_p2'] as string[]).map((key) => (
-                  <div key={key} className="flex items-start gap-2">
-                    <span className="text-sm mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>
-                      —
-                    </span>
-                    <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
-                      {t(key)}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
 
@@ -1460,6 +1021,12 @@ export default function OrangeTheClient() {
               </div>
             </div>
 
+            <div className="flex items-center gap-3 pt-4 pb-1">
+              <div className="h-1 w-8 rounded-full" style={{ backgroundColor: '#4ade80' }} />
+              <div className="text-xs font-bold tracking-widest" style={{ color: '#4ade80', letterSpacing: '0.22em' }}>
+                1:N
+              </div>
+            </div>
             {/* ── 카드 3·4: 안정성 ── */}
             <div className="grid md:grid-cols-2 gap-6">
               {(
