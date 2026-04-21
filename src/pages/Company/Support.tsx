@@ -15,7 +15,7 @@ export default function Support() {
       num: '01',
       title: t('support.docs_title'),
       desc: t('support.docs_desc'),
-      action: () => navigate('/resources/introduction'),
+      action: () => navigate('/resources/user-manual'),
     },
     {
       num: '02',

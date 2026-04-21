@@ -38,7 +38,6 @@ export default function Header() {
         {
           group: t('nav.docs'),
           items: [
-            { label: t('nav.introduction'), path: '/resources/introduction' },
             { label: t('nav.userManual'), path: '/resources/user-manual' },
             { label: t('nav.demoVideos'), path: '/resources/demo-videos' },
           ],

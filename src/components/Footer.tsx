@@ -17,7 +17,6 @@ export default function Footer() {
     {
       title: t('nav.resources'),
       links: [
-        { label: t('nav.introduction'), path: '/resources/introduction' },
         { label: t('nav.userManual'), path: '/resources/user-manual' },
         { label: t('nav.demoVideos'), path: '/resources/demo-videos' },
         { label: t('nav.techBlog'), path: '/resources/tech-blog' },

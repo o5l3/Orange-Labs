@@ -4,7 +4,6 @@ import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import OrangeTheClient from './pages/Products/OrangeTheClient';
-import Introduction from './pages/Resources/Introduction';
 import UserManual from './pages/Resources/UserManual';
 import DemoVideos from './pages/Resources/DemoVideos';
 import TechBlog from './pages/Resources/TechBlog';
@@ -50,7 +49,6 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/products/orange-the-client" element={<OrangeTheClient />} />
-          <Route path="/resources/introduction" element={<Introduction />} />
           <Route path="/resources/user-manual" element={<UserManual />} />
           <Route path="/resources/demo-videos" element={<DemoVideos />} />
           <Route path="/resources/tech-blog" element={<TechBlog />} />
