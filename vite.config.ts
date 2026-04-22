@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 
 const commit = (
   process.env.VERCEL_GIT_COMMIT_SHA ||
@@ -14,7 +13,6 @@ const buildTime = new Date().toISOString()
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),
     {
       name: 'inject-build-info',
       transformIndexHtml(html) {
