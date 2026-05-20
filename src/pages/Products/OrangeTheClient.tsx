@@ -461,49 +461,76 @@ export default function OrangeTheClient() {
               'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(249,115,22,0.12) 0%, transparent 70%)',
           }}
         />
-        <div className="relative max-w-4xl mx-auto text-center">
-          <div
-            className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-widest"
-            style={{
-              backgroundColor: 'rgba(249,115,22,0.1)',
-              color: 'var(--accent)',
-              border: '1px solid rgba(249,115,22,0.3)',
-            }}
-          >
-            {t('otc.hero_badge')}
-          </div>
-          <h1
-            className="text-5xl sm:text-7xl font-bold tracking-tight mb-3"
-            style={{ color: 'var(--fg)' }}
-          >
-            {t('otc.hero_title')}
-          </h1>
-          <p
-            className="text-lg max-w-2xl mx-auto mb-10"
-            style={{ color: 'var(--fg-muted)', lineHeight: '1.8' }}
-          >
-            {t('otc.hero_desc')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/pdf/OrangeTheClient_Product_Introduction.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full text-base font-semibold transition-all"
-              style={{
-                border: '1px solid rgba(249,115,22,0.5)',
-                color: 'var(--accent)',
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                  'rgba(249,115,22,0.1)';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
-              }}
-            >
-              {t('otc.hero_cta2')}
-            </a>
+        <div className="relative max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-[3fr_2fr] gap-10 lg:gap-12 items-center">
+            {/* 좌측: 텍스트 콘텐츠 */}
+            <div className="text-center lg:text-left">
+              <div
+                className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-widest"
+                style={{
+                  backgroundColor: 'rgba(249,115,22,0.1)',
+                  color: 'var(--accent)',
+                  border: '1px solid rgba(249,115,22,0.3)',
+                }}
+              >
+                {t('otc.hero_badge')}
+              </div>
+              <h1
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-3"
+                style={{ color: 'var(--fg)' }}
+              >
+                {t('otc.hero_title')}
+              </h1>
+              <p
+                className="text-lg max-w-2xl mx-auto lg:mx-0 mb-8"
+                style={{ color: 'var(--fg-muted)', lineHeight: '1.8' }}
+              >
+                {t('otc.hero_desc')}
+              </p>
+              <div
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1 text-xs mb-10"
+                style={{ color: 'var(--fg-muted)' }}
+              >
+                <span>{t('home.badges_gs')}</span>
+                <span aria-hidden="true">·</span>
+                <span>{t('home.badges_tips')}</span>
+                <span aria-hidden="true">·</span>
+                <span>{t('home.badges_g2b')}</span>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a
+                  href="/pdf/OrangeTheClient_Product_Introduction.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-full text-base font-semibold transition-all"
+                  style={{
+                    border: '1px solid rgba(249,115,22,0.5)',
+                    color: 'var(--accent)',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
+                      'rgba(249,115,22,0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
+                  }}
+                >
+                  {t('otc.hero_cta2')}
+                </a>
+              </div>
+            </div>
+
+            {/* 우측: 박스 이미지 */}
+            <div className="flex justify-center lg:justify-end">
+              <img
+                src="/images/orangebox_gs.png"
+                alt="Orange The Client"
+                className="w-full max-w-sm h-auto object-contain"
+                style={{
+                  filter: 'drop-shadow(0 20px 40px rgba(249,115,22,0.25))',
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>

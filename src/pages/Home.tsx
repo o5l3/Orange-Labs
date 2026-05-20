@@ -526,6 +526,16 @@ export default function Home() {
         onClick={() => navigate('/company/partners')}
       >
         <div className="max-w-6xl mx-auto reveal">
+          <div
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs mb-8"
+            style={{ color: 'var(--fg-muted)' }}
+          >
+            <span>{t('home.badges_gs')}</span>
+            <span aria-hidden="true">·</span>
+            <span>{t('home.badges_tips')}</span>
+            <span aria-hidden="true">·</span>
+            <span>{t('home.badges_g2b')}</span>
+          </div>
           <h2
             className="text-center text-2xl sm:text-3xl font-bold mb-12"
             style={{ color: 'var(--fg)' }}
