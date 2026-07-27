@@ -11,6 +11,10 @@
     "ja": {
       "title": "AG Grid で IP・バージョンが逆順に並ぶ理由 — comparator 不在による辞書順ソートの全体修正",
       "excerpt": "グリッドのバージョン列が x.x.x.x 形式なのに文字列としてソートされているという疑いから出発し、コードベースに AG Grid の comparator が一つも存在せず、すべてのソート列がデフォルトの辞書順比較に依存していた構造的問題を突き止めた記録。192.168.1.100 が 192.168.1.20 より前に来る IP の誤ソートとバージョンの誤ソートを、オクテット・セグメント単位の数値比較器で全体的に是正した。"
+    },
+    "zh-Hant": {
+      "title": "AG Grid 中 IP 與版本號排序顛倒的原因 —— 因缺少 comparator 導致字典序排序的全域修復",
+      "excerpt": "從懷疑 x.x.x.x 格式的版本列被當作字串排序出發，查明瞭結構性問題：程式碼庫中沒有任何 AG Grid comparator，所有可排序列都依賴預設的字典序比較。透過按八位組、按段的數值比較器，全域修正了 IP 排序錯誤（192.168.1.100 排在 192.168.1.20 之前）與版本排序錯誤。"
     }
   },
   "airgapped-offline-system-package-lock-upgrade": {
@@ -25,6 +29,10 @@
     "ja": {
       "title": "閉域網 Ubuntu サーバーのシステムパッケージ版数ロック + オフラインセキュリティアップグレード（.deb closure バンドル + lock.json）",
       "excerpt": "インターネットのない運用環境で nginx・redis・mongodb・mosquitto の CVE パッチを安全に適用するための system-packages.lock.json と、ubuntu:24.04 コンテナベースの依存 closure バンドル設計をまとめます。ビルド時間は 6.6 分から 49 秒に短縮しました。"
+    },
+    "zh-Hant": {
+      "title": "隔離網 Ubuntu 伺服器的系統包版本鎖定 + 離線安全升級（.deb closure 包 + lock.json）",
+      "excerpt": "介紹在無網際網路的執行環境中，為安全地為 nginx、redis、mongodb、mosquitto 應用 CVE 修補程式而設計的 system-packages.lock.json，以及基於 ubuntu:24.04 容器的依賴閉包打包方案。構建時間從 6.6 分鐘縮短至 49 秒。"
     }
   },
   "annual-review-2025-2026": {
@@ -39,6 +47,10 @@
     "ja": {
       "title": "1 年間に解いた問題たち — BSOD 分析器・DB Migration 体系・マネージャー RBAC・カーネルドライバのデッドロック・マネージャー診断ツール — 年次レビュー（2025-05-26 ~ 2026-05-26）",
       "excerpt": "サーバーバックエンド担当がサーバー DB Migration の v0000 baseline 体系・Python 環境 uv + 3.13 の閉域網オフラインインストール・Mosquitto/Nginx/MongoDB 設定強化・fail2ban・KISA セキュリティ検証でサーバーアーキテクチャを大整備。分析サービス担当がサーバー監視 SNMP 5 領域・nginx リバースプロキシ + HTTP/2・マネージャー RBAC 権限体系で運用基盤を完成。マネージャー・エージェント担当が BSOD 分析器、マネージャー状態パネルの現場診断ツール、Z-score ベースの症状ウィジェット共通基準、Git/Jira 自動化 5 種のレビュールーチンを敷設。カーネルドライバ担当が orange.sys Driver Unload デッドロックの根本解消・MS 署名プロセス SL キャプチャ基盤・ファイル削除・エラー症状化の 3 軸でカーネル安定性を引き上げ、ルール・データ分析担当が顧客データ 49 日の実測とルール・分析モデルの高度化で検知精度の土台を築いた 1 年。"
+    },
+    "zh-Hant": {
+      "title": "一年間解決的問題 —— BSOD 分析器、DB Migration 體系、管理器 RBAC、核心驅動死鎖、管理器診斷工具 —— 年報（2025-05-26 ~ 2026-05-26）",
+      "excerpt": "服務端後端組以 DB Migration v0000 baseline 體系、Python 環境 uv + 3.13 隔離網離線安裝、Mosquitto/Nginx/MongoDB 配置強化、fail2ban 與 KISA 安全驗證，對服務端架構進行了全面整備；分析服務組以伺服器監控 SNMP 五大領域、nginx 反向代理 + HTTP/2、管理器 RBAC 權限體系完善了維運基礎設施；管理器與代理組構建了 BSOD 分析器、管理器狀態面板現場診斷工具、基於 Z-score 的症狀元件通用基準與 5 類 Git/Jira 自動化評審例程；核心驅動組透過 orange.sys Driver Unload 死鎖的根本解決、MS 簽名處理程序 SL 捕獲基礎設施、檔案刪除與錯誤症狀化三軸提升了核心穩定性；規則與資料分析組以客戶資料 49 天實測及規則、分析模型的深化，奠定了偵測精度的基礎。"
     }
   },
   "azure-ad-migration-app-failure": {
@@ -53,6 +65,10 @@
     "ja": {
       "title": "Azure AD 移行後に既存プログラムが動かなくなる — アカウント依存のファイル・レジストリが生む FILE_NOT_FOUND / ACCESS_DENIED",
       "excerpt": "ローカルアカウントから Azure AD アカウントへ切り替えた後、画面のちらつきや Excel の動作不良などが発生する事例。既存アカウントの権限でインストールされたプログラムを新しい AD アカウントで実行すると、アカウントごとのディレクトリ・レジストリ依存によって ERROR_FILE_NOT_FOUND(2)・ERROR_ACCESS_DENIED(5) が出る仕組みと、アカウント移行が難しい理由をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "遷移至 Azure AD 後既有程式故障 —— 帳戶繫結的檔案與登錄檔導致的 FILE_NOT_FOUND / ACCESS_DENIED",
+      "excerpt": "從本機帳戶切換到 Azure AD 帳戶後出現畫面閃爍、Excel 執行異常等案例。本文說明以原帳戶權限安裝的程式在新 AD 帳戶下執行時，因按帳戶劃分的目錄與登錄檔依賴而產生 ERROR_FILE_NOT_FOUND(2)、ERROR_ACCESS_DENIED(5) 的原理，以及帳戶遷移為何棘手。"
     }
   },
   "bluetooth-battery-disconnect-guide": {
@@ -67,6 +83,10 @@
     "ja": {
       "title": "Bluetooth切断の隠れた原因：バッテリー電源ポリシー追跡ガイド",
       "excerpt": "在宅勤務中にBluetoothが頻繁に切断される原因をWindowsの電源ポリシーとバッテリー放電速度から探り、PowerShellで診断する方法を詳しく解説します。"
+    },
+    "zh-Hant": {
+      "title": "藍芽斷連的隱藏原因：電池電源策略追蹤指南",
+      "excerpt": "從Windows電源策略和電池放電速度中找出遠端辦公時藍芽頻繁斷連的根本原因，並介紹如何使用PowerShell進行診斷。"
     }
   },
   "chrome-major-version-impact-analysis-150-pairs": {
@@ -81,6 +101,10 @@
     "ja": {
       "title": "Chrome メジャーバージョン別 PC 影響分析 — 45 PC × 9 メジャー = 150（PC × メジャー）ペア単位の影響度測定",
       "excerpt": "ある企業の chrome.exe 45 PC × 12,660 sprocess docs × 185 日のデータを、（PC × メジャー）ペアを単一のデータ単位に統一して事故・資源影響を再構成しました。企業合算・日付合算の算出を廃し、メジャー導入直後 14 日（post-14d）の Core 4 事故カウント、pre/post Δ 散布図、OS × メジャーのマトリクスまで整理した v6.3 ダッシュボード設計レポートです。"
+    },
+    "zh-Hant": {
+      "title": "Chrome 各主版本對 PC 的影響分析 —— 以 45 臺 PC × 9 個主版本 = 150 組（PC × 主版本）為單位測量影響度",
+      "excerpt": "將（PC × 主版本）組合統一為單一資料單位，對某公司 chrome.exe 的 45 臺 PC、12,660 條 sprocess 文件、185 天資料重新構建了事故與資源影響。這是一份 v6.3 儀表板設計報告，廢棄了公司彙整與日期彙整口徑，整理了主版本引入後 14 天（post-14d）的 Core 4 事故計數、pre/post Δ 散點圖，以及 OS × 主版本矩陣。"
     }
   },
   "docker-login-password-stdin-trailing-space": {
@@ -95,6 +119,10 @@
     "ja": {
       "title": "Docker Desktop 更新後にビルドが 401 で落ちた cmd echo の罠 — --password-stdin のパイプ前の空白",
       "excerpt": "以前は問題なくビルドできていた makepackage.bat の docker login が、ある日から 401 Unauthorized で失敗するようになりました。コードは変わっておらず、犯人は cmd の echo がパスワード末尾に付けて送っていた trailing space。旧 Docker はトリムして通していた入力が、新バージョンではパスワードの一部として扱われるようになった小さな互換性変化です。"
+    },
+    "zh-Hant": {
+      "title": "Docker Desktop 更新後構建因 401 失敗的 cmd echo 陷阱 —— --password-stdin 管道前的空格",
+      "excerpt": "此前一直正常構建的 makepackage.bat，其 docker login 某天開始以 401 Unauthorized 失敗。程式碼並無改動，真兇是 cmd 的 echo 在密碼末尾附加的 trailing space —— 舊版 Docker 會將其裁剪從而透過，新版本卻將其視為密碼的一部分，這是一處不起眼卻影響重大的相容性變化。"
     }
   },
   "driver-verifier-zwclose-apc-level-bsod": {
@@ -109,6 +137,10 @@
     "ja": {
       "title": "Driver Verifier が暴いたカーネル BSOD — ロックを保持したまま ZwClose を呼んではいけない理由（0xC4 IrqlZwPassive）",
       "excerpt": "Driver Verifier（/standard /driver）有効状態でのドライバアンロード時に 0xC4 DRIVER_VERIFIER_DETECTED_VIOLATION の BSOD が発生した事例。ZwClose は PASSIVE_LEVEL 専用 API であるにもかかわらず、fast mutex を保持した APC_LEVEL で呼ばれていた構造的欠陥を WinDbg で究明し、ロックの外でハンドルを閉じるようクリーンアップループを再設計した記録。"
+    },
+    "zh-Hant": {
+      "title": "Driver Verifier 暴露的核心 BSOD —— 為什麼不能持鎖呼叫 ZwClose（0xC4 IrqlZwPassive）",
+      "excerpt": "在啟用 Driver Verifier（/standard /driver）的狀態下解除安裝驅動時發生 0xC4 DRIVER_VERIFIER_DETECTED_VIOLATION 藍屏的案例。透過 WinDbg 查明結構性缺陷：ZwClose 是僅限 PASSIVE_LEVEL 的 API，卻在持有 fast mutex 的 APC_LEVEL 下被呼叫。重新設計清理迴圈，使控制代碼在鎖外關閉。"
     }
   },
   "dxgmms2-cpu-mirage-driver": {
@@ -123,6 +155,10 @@
     "ja": {
       "title": "dxgmms2.sys の CPU 占有に隠れた原因 — リモートコントロール用仮想ディスプレイ（Mirage Driver）の完全分析",
       "excerpt": "Intel 内蔵グラフィックス + Windows 10 旧バージョン環境で繰り返された dxgmms2.sys の異常な CPU 占有。症状の出た端末の共通点を追跡した結果、リモートコントロールソフトが残した仮想ディスプレイドライバ（DemoForge Mirage Driver）と WDDM の競合が原因でした。dxgmms2.sys の役割、Mirage Driver のシステムへの影響、ブラックスクリーン・セキュリティリスク、インストール時期の追跡と安全な削除まで、現場の分析そのままにまとめます。"
+    },
+    "zh-Hant": {
+      "title": "dxgmms2.sys CPU 佔用的隱藏原因 —— 遠端控制虛擬顯示器（Mirage Driver）完整分析",
+      "excerpt": "在 Intel 核顯 + Windows 10 舊版本環境中反覆出現的 dxgmms2.sys 異常 CPU 佔用。追蹤問題裝置的共同點後發現，原因是遠端控制程式遺留的虛擬顯示驅動（DemoForge Mirage Driver）與 WDDM 的爭用。本文原樣整理 dxgmms2.sys 的作用、Mirage Driver 的系統影響、黑屏與安全風險、安裝時點追溯以及安全解除安裝方法。"
     }
   },
   "fastapi-websocket-close-before-accept-1006": {
@@ -137,6 +173,10 @@
     "ja": {
       "title": "FastAPI WebSocket の認証失敗で 1006/1011 の無限リトライ — close-before-accept の罠と 1008 の正しい送信",
       "excerpt": "/v3/ws/node/stats でトークン期限切れが起きると、rest-api が `AttributeError: 'WebSocket' object has no attribute 'method'` で二次的に破綻します。原因は (1) WS ルーターが HTTPException しか catch せず AppException を捕まえられない、(2) 共通例外ハンドラが第 1 引数を Request と想定している、(3) accept 前の close 呼び出しが HTTP 403 に落ちて close frame が届かない、の 3 点。これらの罠とその修正パターンをまとめます。"
+    },
+    "zh-Hant": {
+      "title": "FastAPI WebSocket 認證失敗導致 1006/1011 無限重試 —— close-before-accept 陷阱與 1008 的正確傳送",
+      "excerpt": "在 /v3/ws/node/stats 上發生 token 過期時，rest-api 會以 `AttributeError: 'WebSocket' object has no attribute 'method'` 二次爆炸。原因有三：(1) WS 路由只捕獲 HTTPException 而漏掉 AppException；(2) 通用異常處理器假定第一個引數為 Request；(3) 在 accept 之前呼叫 close 會退化為 HTTP 403，導致 close frame 無法送達。本文整理這三個陷阱及其修復模式。"
     }
   },
   "git-flow-jira-branch-strategy": {
@@ -151,6 +191,10 @@
     "ja": {
       "title": "Git Flow + Jira 連携ブランチ戦略 — イシューキーでコミット・ブランチ・PR を自動追跡する",
       "excerpt": "チーム協業のための Git Flow ベースのブランチ戦略と Jira 連携方法をまとめます。main/develop/feature/hotfix/release の構成、イシューキー（OR-xxx）を含む命名規約、Jira でのブランチ・PR 作成から release/main への適用・タグ付けまでの全体フローを段階的に扱います。"
+    },
+    "zh-Hant": {
+      "title": "Git Flow + Jira 聯動分支策略 —— 透過 issue key 自動追蹤提交、分支與 PR",
+      "excerpt": "整理面向團隊協作的 Git Flow 分支策略與 Jira 聯動方法。逐步介紹 main/develop/feature/hotfix/release 結構、包含 issue key（OR-xxx）的命名約定，以及從在 Jira 中建立分支與 PR 到應用至 release/main 並打標籤的完整流程。"
     }
   },
   "handle-leak-detection-fmservice64": {
@@ -165,6 +209,10 @@
     "ja": {
       "title": "ハンドルリークの実測分析 — 指紋認証セキュリティ SW（FMService64）の 1,671 万ハンドルとメモリ過多プロセスの検出",
       "excerpt": "エージェントが 1 時間単位で集計した sprocess 指標から、メモリ 3GB・ハンドル 1,671 万という異常プロセス 2 件を発見し、LiveAgent・タスクマネージャー・wmic で相互検証して指紋認証セキュリティ SW のハンドルリークを究明した実測レポート。"
+    },
+    "zh-Hant": {
+      "title": "控制代碼洩漏實測分析 —— 指紋識別安全軟體（FMService64）的 1,671 萬控制代碼與記憶體過量處理程序偵測",
+      "excerpt": "代理按 1 小時彙整的 sprocess 指標中發現記憶體 3GB、控制代碼 1,671 萬的兩個異常處理程序，透過 LiveAgent、工作管理員與 wmic 交叉驗證，查明為指紋識別安全軟體的控制代碼洩漏的實測報告。"
     }
   },
   "it-incident-report-202505": {
@@ -179,6 +227,10 @@
     "ja": {
       "title": "企業 PC 45 台の IT 障害総合分析 — CPU 占有・強制終了・ブルースクリーンの実際の原因（2025 年 5 月）",
       "excerpt": "ある顧客の PC 45 台を 9 日間常時モニタリングし、CPU の周期的占有 289 件、異常終了 147 件、強制終了 140 件、ファイルシステム 22 件、ブルースクリーン 3 件を収集・分析しました。OS ビルド・機種別の発生率、症状別の発生／原因 Top10、ウイルス対策ソフト（ccSvcHst）・OneDrive による SharePoint の強制終了・.NET ランタイムのクラッシュ・ネットワークドライバの BSOD まで、定量データで提示します。"
+    },
+    "zh-Hant": {
+      "title": "45 臺企業 PC 的 IT 故障綜合分析 —— CPU 佔用、強制終止與藍屏的真實原因（2025 年 5 月）",
+      "excerpt": "對某客戶 45 臺 PC 進行 9 天常態監控，擷取並分析了 CPU 週期性佔用 289 起、異常終止 147 起、強制終止 140 起、檔案系統 22 起、藍屏 3 起。文中以定量資料呈現按 OS 構建版本與機型的發生率、各症狀的發生／原因 Top10，以及防毒軟體（ccSvcHst）、OneDrive 引發的 SharePoint 強制終止、.NET 執行時當機與網路驅動藍屏等具體案例。"
     }
   },
   "kernel-driver-puid-windows-startkey": {
@@ -193,6 +245,10 @@
     "ja": {
       "title": "PID 再利用に打ち勝つプロセス固有番号 — カーネルドライバの PUID を Windows StartKey へ移行",
       "excerpt": "KillProcess 検知ログで見つけた TargetProcessStartKey を手がかりに、パス・起動 ID・PID の組み合わせによる 32 ビットハッシュで生成していた PUID を、Windows がプロセスごとに付与する 64 ビットの StartKey に置き換え、短命プロセスの識別失敗を解決したカーネルドライバ実装の記録。"
+    },
+    "zh-Hant": {
+      "title": "戰勝 PID 重複使用的處理程序唯一編號 —— 將核心驅動的 PUID 切換為 Windows StartKey",
+      "excerpt": "以 KillProcess 偵測日誌中發現的 TargetProcessStartKey 為線索，將原本由路徑、啟動 ID 與 PID 組合成 32 位雜湊的 PUID，改為 Windows 為每個處理程序分配的 64 位 StartKey，從而解決短生命週期處理程序識別失敗問題的核心驅動實現記錄。"
     }
   },
   "kernel-handle-leak-seh-finally-process-exit-callback": {
@@ -207,6 +263,10 @@
     "ja": {
       "title": "カーネルドライバのハンドルリーク追跡 — プロセス終了コールバックで __finally が実行されない理由",
       "excerpt": "WinDbg の !htrace で捕捉された ObHn プロセスハンドルリークを追跡した記録。プロセス終了コールバック（ProcessNotifyCallbackRoutineEx）内で ZwOpenProcess により開いたハンドルが、SEH __finally の未実行によって閉じられない根本原因をカーネル SEH・IRQL・オブジェクト寿命の観点から分析し、WorkItem による遅延実行で解決するまでの過程。"
+    },
+    "zh-Hant": {
+      "title": "核心驅動控制代碼洩漏追蹤 —— 處理程序退出回撥中 __finally 不執行的原因",
+      "excerpt": "追蹤 WinDbg !htrace 捕獲的 ObHn 處理程序控制代碼洩漏。從核心 SEH、IRQL 與物件生命週期的角度分析：在處理程序退出回撥（ProcessNotifyCallbackRoutineEx）中用 ZwOpenProcess 開啟的控制代碼，因 SEH __finally 未執行而未被關閉的根本原因，以及透過 WorkItem 延遲執行加以解決的全過程。"
     }
   },
   "kernel-message-commandline-4kb-cap-message-drop": {
@@ -221,6 +281,10 @@
     "ja": {
       "title": "長いコマンドラインがプロセスイベントを丸ごと飲み込む — カーネルメッセージ 4KB 上限で 12KB ドロップを防ぐ",
       "excerpt": "コマンドラインが長いプロセスのカーネルメッセージが MAX_FILTER_MESSAGE_SIZE（12KB）を超えて丸ごとドロップされていた問題を、追加のメモリ確保なしに UNICODE_STRING view でコマンドラインのみ 4KB に切り詰めて解決したカーネルドライバ実装の記録。"
+    },
+    "zh-Hant": {
+      "title": "過長的指令列吞掉整個處理程序事件 —— 用 4KB 核心訊息上限阻止 12KB 丟棄",
+      "excerpt": "指令列過長的處理程序，其核心訊息會超過 MAX_FILTER_MESSAGE_SIZE（12KB）而被整條丟棄。本文記錄了在不額外分配記憶體的前提下，透過 UNICODE_STRING view 僅將指令列截斷至 4KB 來解決該問題的核心驅動實現。"
     }
   },
   "laptop-hdmi-cpu-optimus": {
@@ -235,6 +299,10 @@
     "ja": {
       "title": "会議室で HDMI 接続するとノート PC の CPU が過負荷になり Wi-Fi が切れる — Optimus（iGPU/dGPU）切替とバッテリー電力制限",
       "excerpt": "電源に繋がずに会議室の HDMI へ接続すると、ノート PC がもたつき Wi-Fi が切れる現象。RTX 4060 + Intel iGPU を使う高性能ノート PC では HDMI ポートが dGPU 直結のため、バッテリーモードの電力制限と噛み合って CPU 使用率が跳ね上がります。Optimus の構造、バッテリー性能制限（CPU −40%）、HDMI と Wi-Fi の干渉まで原因をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "會議室連線 HDMI 時筆記型電腦 CPU 過載與 Wi-Fi 掉線 —— Optimus（iGPU/dGPU）切換與電池供電功耗限制",
+      "excerpt": "不接電源連線會議室 HDMI 時，筆記型電腦卡頓且 Wi-Fi 掉線的現象。在使用 RTX 4060 + Intel 核顯的高效能筆記型電腦上，HDMI 埠直連獨顯，與電池模式的功耗限制疊加導致 CPU 佔用飆升。本文梳理 Optimus 架構、電池效能限制（CPU −40%）以及 HDMI 與 Wi-Fi 干擾等成因。"
     }
   },
   "mirage-driver-fleet-survey": {
@@ -249,6 +317,10 @@
     "ja": {
       "title": "44 台中 28 台で見つかった Mirage Driver — リモートコントロールの残骸が dxgmms2.sys の負荷を生む現況調査",
       "excerpt": "ある顧客環境の 44 台を WMI VideoCard 基準で調査した結果、28 台で Mirage Driver（DemoForge、XPDM ベースの仮想ディスプレイ）が Degraded 状態で見つかりました。旧バージョンの TeamViewer・AnyDesk が残した残骸が、WDDM 環境で dxgmms2.sys の不要なポーリング・診断負荷を引き起こします。機種・GPU・OS の分布とあわせてまとめます。"
+    },
+    "zh-Hant": {
+      "title": "44 臺中 28 臺發現 Mirage Driver —— 遠端控制殘留導致 dxgmms2.sys 負載的現狀調查",
+      "excerpt": "以 WMI VideoCard 為基準對某客戶環境的 44 臺裝置進行調查，結果在 28 臺上發現處於 Degraded 狀態的 Mirage Driver（DemoForge，基於 XPDM 的虛擬顯示器）。舊版 TeamViewer、AnyDesk 遺留的殘留物會在 WDDM 環境中引發 dxgmms2.sys 不必要的輪詢與診斷負載。文中一併整理機型、GPU 與 OS 的分佈情況。"
     }
   },
   "mongodb-single-node-replica-set-transactions": {
@@ -263,6 +335,10 @@
     "ja": {
       "title": "MongoDB の single-node replica set 移行 — トランザクション有効化と無停止マイグレーション",
       "excerpt": "MongoDB は standalone モードではマルチドキュメントトランザクションを使えません。稼働中の単一ノードインスタンスを、新たにクラスタを立てることなく single-node replica set へ移行すればトランザクションが使えるようになります。インストーラの冪等性、keyFile internal auth、PyMongo の自動発見のための rs.initiate host 選択、運用データを保全するマイグレーションまで実測ベースでまとめます。"
+    },
+    "zh-Hant": {
+      "title": "MongoDB 遷移至 single-node replica set —— 啟用事務與不停機遷移",
+      "excerpt": "MongoDB 在 standalone 模式下無法使用多文件事務。將執行中的單節點例項轉換為 single-node replica set，無需新建叢集即可使用事務。本文以實測為準，整理安裝器冪等性、keyFile 內部認證、為 PyMongo 自動發現而選擇 rs.initiate host，以及保留生產資料的遷移過程。"
     }
   },
   "monthly-review-202605": {
@@ -277,6 +353,10 @@
     "ja": {
       "title": "プロセス影響度ウィジェットの 4 リポジトリ同時実装、MongoDB トランザクション基盤への移行、ファイルイベント 4 千万分の 1 削減 throttle — 月次レビュー（2026-05）",
       "excerpt": "サーバーバックエンド担当がプロセス影響度ウィジェットのサーバー（rest-api + service + migrations + package）・MongoDB single-node replica set 移行・KISA セキュアコーディング 20 件の Phase 1〜3・fail2ban 統合をまとめ、分析サービス担当がマネージャー RBAC 権限体系（エンドポイント・ウィジェット・機能 ACL の 3 軸）と Baseline 日常分類サービス Sprint 1+1.5（5 条件ルール + LightGBM-ready）を同時に進行。マネージャー・エージェント担当が c3→c4 分離の名残である p18 Agent UI をパッケージから切り出し、broker の OpenSSL 残存経路と MSI ノート PC の BSOD 2 件を windbg で追跡。カーネルドライバ担当が 17 兆回の累計ファイルイベントを 4 千万分の 1 に削減する時間ベース LRU throttle を本格適用した一か月。"
+    },
+    "zh-Hant": {
+      "title": "處理程序影響度元件四倉庫並行實現、遷移至 MongoDB 事務基礎設施、檔案事件降低 4 千萬倍的 throttle —— 月報（2026-05）",
+      "excerpt": "服務端後端組整合了處理程序影響度元件服務端（rest-api + service + migrations + package）、MongoDB single-node replica set 遷移、KISA 安全編碼 20 項 Phase 1~3 以及 fail2ban 整合；分析服務組同時推進管理器 RBAC 權限體系（端點、元件、功能 ACL 三軸）與 Baseline 日常分類服務 Sprint 1+1.5（5 條件規則 + LightGBM-ready）；管理器與代理組從安裝包中剝離了 c3→c4 拆分遺留的 p18 Agent UI，並用 windbg 追蹤了 broker OpenSSL 殘留路徑與 MSI 筆記型電腦藍屏兩個案例；核心驅動組正式應用了將 17 萬億次累計檔案事件降低 4 千萬倍的時間基 LRU throttle。"
     }
   },
   "mosquitto-openssl-0a000123-abrupt-close": {
@@ -291,6 +371,10 @@
     "ja": {
       "title": "Mosquitto で無関係なノードが切れる — OpenSSL 3.0.x record layer バグ（0A000123）と abrupt close による回避",
       "excerpt": "ウィジェットを 1 つ閉じただけなのに、無関係な別のノードがマネージャーのグリッドから消えます。追跡すると broker のログに OpenSSL エラー 0A000123 が出ており、切断されたノードのタイムスタンプと 1 対 1 で一致します。Chrome 148 のアップデートが露呈させた OpenSSL 3.0.x record layer のバグを分析し、クライアント側の abrupt close で即座に回避する方法をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "Mosquitto 上無關節點掉線 —— OpenSSL 3.0.x record layer 缺陷（0A000123）與 abrupt close 規避",
+      "excerpt": "只是關閉了一個元件，管理器網格中另一個毫不相干的節點卻消失了。追蹤後發現 broker 日誌出現 OpenSSL 錯誤 0A000123，且與掉線節點的時間戳一一對應。本文分析 Chrome 148 更新所暴露的 OpenSSL 3.0.x record layer 缺陷，並整理透過客戶端 abrupt close 立即規避的方法。"
     }
   },
   "mosquitto-permission-pid-file": {
@@ -305,6 +389,10 @@
     "ja": {
       "title": "Mosquitto 2.0 の「Unable to write pid file」の原因 — 権限降格と systemd のディレクトリ所有権の衝突",
       "excerpt": "Mosquitto 2.0 は設定を読み込むとすぐに非特権ユーザーへ権限を下げます。config で user を明示的に指定しているのに起動時に「Unable to write pid file」エラーが出る場合、インストール時に自動生成された systemd ユニットが /run/mosquitto・/var/log/mosquitto の所有権を mosquitto ユーザーへ移しているためです。原因と解決をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "Mosquitto 2.0「Unable to write pid file」的原因 —— 權限降級與 systemd 目錄屬主衝突",
+      "excerpt": "Mosquitto 2.0 一讀取配置就會降權為非特權使用者。如果你已在 config 中顯式指定 user，啟動時仍出現「Unable to write pid file」錯誤，那是因為安裝時自動生成的 systemd 單元把 /run/mosquitto、/var/log/mosquitto 的屬主交給了 mosquitto 使用者。本文整理原因與解決方法。"
     }
   },
   "ms-signature-filtering-se-signing-level": {
@@ -319,6 +407,10 @@
     "ja": {
       "title": "EPROCESS の SignatureLevel はなぜ 0 なのか — Medium IL プロセスにおける MS 署名判別の限界と Authenticode による回避",
       "excerpt": "カーネルドライバで Microsoft 署名プロセスをフィルタリングしようと SignatureLevel を読むと、code.exe・Teams.exe のような MS 署名アプリでさえ 0 が返ります。Windows 11 26100 で新規プロセス 86 個を実測して確認した SE_SIGNING_LEVEL と Integrity Level の相関、LoadImage コールバック・PsGetProcessSignatureLevel の限界、そして PE Authenticode から署名者 CN を直接抽出する 2 段階の代替案をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "EPROCESS SignatureLevel 為何為 0 —— Medium IL 處理程序的 MS 簽名判定侷限與 Authenticode 迂迴方案",
+      "excerpt": "在核心驅動中讀取 SignatureLevel 以過濾微軟簽名處理程序時，連 code.exe、Teams.exe 這類 MS 簽名應用也返回 0。本文基於在 Windows 11 26100 上對 86 個新建處理程序的實測，整理 SE_SIGNING_LEVEL 與 Integrity Level 的相關性、LoadImage 回撥與 PsGetProcessSignatureLevel 的侷限，以及直接從 PE Authenticode 提取簽名者 CN 的兩階段替代方案。"
     }
   },
   "msi-laptop-bsod-analysis": {
@@ -333,6 +425,10 @@
     "ja": {
       "title": "ノート PC のブルースクリーン 2 件の真の原因 — Intel イーサネットの D3 遷移（0x9F）と WSL2 メモリ（0x7E）の windbg 分析",
       "excerpt": "同じノート PC で 4 時間 47 分の間隔で発生した 2 種類のブルースクリーンを windbg で最後まで追跡しました。1 つは Intel NIC ドライバ（e1dnexpress.sys）の D3 省電力遷移の失敗（DRIVER_POWER_STATE_FAILURE 0x9F）、もう 1 つは Windows 11 24H2 の WSL2 メモリバッキング（vmmemWSL）のカーネルアサーション（0x7E）でした。!irp・lmvm の出力と原因判定の過程をそのまま公開します。"
+    },
+    "zh-Hant": {
+      "title": "兩次筆記型電腦藍屏的真正原因 —— Intel 乙太網 D3 轉換（0x9F）與 WSL2 記憶體（0x7E）的 windbg 分析",
+      "excerpt": "對同一檯筆記型電腦上相隔 4 小時 47 分發生的兩類藍屏，用 windbg 追蹤到底。其一是 Intel 網絡卡驅動（e1dnexpress.sys）的 D3 節能轉換失敗（DRIVER_POWER_STATE_FAILURE 0x9F），其二是 Windows 11 24H2 的 WSL2 記憶體後端（vmmemWSL）核心斷言（0x7E）。本文原樣公開 !irp、lmvm 輸出與判定過程。"
     }
   },
   "ohlc-candle-continuity-open-init": {
@@ -347,6 +443,10 @@
     "ja": {
       "title": "負荷指標ローソク足（OHLC）が連続しない理由 — 始値を直前の終値に繋ぐバケット切替の修正",
       "excerpt": "ノード負荷を OHLC ローソク足で可視化する中で、足と足の始値が繋がらず跳ねる不具合を発見した記録。5 分バケット切替時に open を新バケットの最初の実測値としていたのを直前バケットの終値に繋ぐよう変更し、high/low の初期化基準も新バケットの open に修正した。"
+    },
+    "zh-Hant": {
+      "title": "負載指標 K 線（OHLC）不連續的原因 —— 修正分桶切換使開盤價承接前一收盤價",
+      "excerpt": "在將節點負載視覺化為 OHLC K 線時，發現相鄰 K 線的開盤價不連續而出現跳變。5 分鐘分桶切換時，open 取的是新桶的首個取樣值；改為承接前一桶的收盤價，並將 high/low 的初始化基準修正為新桶的 open。"
     }
   },
   "pc-performance-report-1": {
@@ -361,6 +461,10 @@
     "ja": {
       "title": "顧客PC性能低下事例分析レポート",
       "excerpt": "2025年10月に顧客の24台のPCで発見された198件の性能低下症状を分析したレポートです。ファイルシステムの遅延、異常なプロセス終了、CPU過負荷、BSODなどの事例を取り上げています。"
+    },
+    "zh-Hant": {
+      "title": "客戶PC效能下降案例分析報告",
+      "excerpt": "本報告對2025年10月客戶24臺PC中發現的198起效能下降症狀進行了分析，涵蓋檔案系統延遲、異常處理程序終止、CPU過度佔用及藍屏（BSOD）等典型案例。"
     }
   },
   "pc-performance-report-2": {
@@ -375,6 +479,10 @@
     "ja": {
       "title": "顧客PC性能分析レポート 2",
       "excerpt": "2025年12月、顧客の17ノードを対象とした性能分析レポートです。CPU・メモリ・ディスク・ハンドルのメトリクスを総合的に分析し、メモリを過剰消費するプログラムを特定します。"
+    },
+    "zh-Hant": {
+      "title": "客戶PC效能分析報告 2",
+      "excerpt": "這是2025年12月針對客戶17個節點的效能分析報告，綜合分析了CPU、記憶體、磁碟和控制代碼指標，並識別出記憶體佔用過高的程式。"
     }
   },
   "pc-slowdown-diagnosis-guide": {
@@ -389,6 +497,10 @@
     "ja": {
       "title": "PC のもたつき（遅延）現場分析ガイド — 原因プロセスと原因ドライバを切り分ける",
       "excerpt": "特定の時間帯に繰り返される PC の遅さを現場で即興判断せず、1 日分のデータをすべて収集して事後分析する体系的な方法をまとめました。CPU・メモリ・ディスク I/O・GPU・ネットワーク・カーネル・ファイルシステムまで、疑わしい原因の全体チェックリストと識別ツールを提示します。"
+    },
+    "zh-Hant": {
+      "title": "PC 卡頓（變慢）現場分析指南 —— 區分元兇處理程序與元兇驅動",
+      "excerpt": "針對特定時段反覆出現的 PC 變慢，整理了不在現場即興判斷、而是收集全天資料後進行事後分析的系統性方法。提供涵蓋 CPU、記憶體、磁碟 I/O、GPU、網路、核心、檔案系統的完整可疑原因清單與識別工具。"
     }
   },
   "process-cpu-accuracy-kernel-timestamp-puid": {
@@ -403,6 +515,10 @@
     "ja": {
       "title": "短命プロセスの CPU 測定精度改善 — カーネル・エージェント間の時刻同期と PID→PUID 移行",
       "excerpt": "1 時間周期の sprocess 常時送信において、寿命の短いプロセスの CPU 値が 0 として捨てられたり過大計上されたりしていた問題を、カーネルがプロセス時間とシステム時間を同一時点でまとめて読み取り送信し、識別基準を PID から PUID に変更することで解決したカーネルドライバ・エージェントのトラブルシューティング記録。"
+    },
+    "zh-Hant": {
+      "title": "短生命週期處理程序 CPU 測量精度改進 —— 核心與代理時鐘同步及 PID→PUID 切換",
+      "excerpt": "在 1 小時週期的 sprocess 常態傳輸中，短生命週期處理程序的 CPU 值會被當作 0 丟棄或被過度計算。本文記錄了透過讓核心在同一時點同時讀取併傳送處理程序時間與系統時間，並將識別基準由 PID 改為 PUID 來解決該問題的核心驅動與代理排障過程。"
     }
   },
   "process-impact-analysis-ahnlab-77-nodes": {
@@ -417,6 +533,10 @@
     "ja": {
       "title": "新規プログラム導入の影響度分析 — AhnLab の 980 プロセスが社内 PC 77 台に与えた資源・症状影響の測定",
       "excerpt": "ある顧客から「新規プログラム導入前後のリソース使用比較」の依頼がありました。既存の監視ソリューションがシステム全体の負荷しか見られないのに対し、Orange Platform はプロセス単位の収集データを活用して、社内 PC 77 台で AhnLab 製品群の 980 SUID が実際にどれだけ資源を使い、どんな症状を引き起こしたかを定量測定しました。3 階層（企業 → プロセス → パッチ）の UI、MongoDB 集計クエリ、実測値をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "新程式匯入影響度分析 —— 測量 AhnLab 的 980 個處理程序對 77 臺公司 PC 的資源與症狀影響",
+      "excerpt": "某客戶提出「新程式匯入前後資源使用對比」的需求。與既有監控方案只能看到系統整體負載不同，Orange Platform 利用處理程序級擷取資料，定量測量了 AhnLab 產品族的 980 個 SUID 在 77 臺公司 PC 上實際消耗了多少資源、引發了哪些症狀。本文整理三層（公司 → 處理程序 → 修補程式）UI、MongoDB 聚合查詢與實測數值。"
     }
   },
   "quarterly-review-2026-q2": {
@@ -431,6 +551,10 @@
     "ja": {
       "title": "DB Migration 体系・サーバー監視 SNMP 5 領域・マネージャー状態パネル・カーネルドライバのデッドロック — 四半期レビュー（2026 Q2）",
       "excerpt": "サーバーバックエンド担当がサーバー DB Migration の v0000 baseline 体系と Python 環境 uv + 3.13 の閉域網オフラインインストールを敷き、分析サービス担当がサーバー監視 SNMP 5 領域 + カテゴリアコーディオンと nginx リバースプロキシ・HTTP/2 でサーバー性能を引き上げ、マネージャー・エージェント担当がマネージャー状態パネルに Core Web Vitals ベースの現場診断ツールを内蔵し Z-score ベースの症状ウィジェット共通ステータスラベル基準を確立。カーネルドライバ担当が orange.sys Driver Unload デッドロックの真の原因（PreSetInfo の ADS read）を突き止めて PostCreate へ移し、MS 署名プロセス SL キャプチャ基盤を敷いた。"
+    },
+    "zh-Hant": {
+      "title": "DB Migration 體系、伺服器監控 SNMP 五大領域、管理器狀態面板、核心驅動死鎖 —— 季報（2026 Q2）",
+      "excerpt": "服務端後端組鋪設了 DB Migration v0000 baseline 體系與 Python 環境 uv + 3.13 隔離網離線安裝；分析服務組透過伺服器監控 SNMP 五大領域 + 分類摺疊面板，以及 nginx 反向代理、HTTP/2 提升了伺服器效能；管理器與代理組在管理器狀態面板中內建了基於 Core Web Vitals 的現場診斷工具，並確立了基於 Z-score 的症狀元件通用狀態標籤基準；核心驅動組找到了 orange.sys Driver Unload 死鎖的真正原因（PreSetInfo 中的 ADS read）並將其移至 PostCreate，同時鋪設了 MS 簽名處理程序 SL 捕獲基礎設施。"
     }
   },
   "react-panel-flicker-uselayouteffect-resizeobserver": {
@@ -445,6 +569,10 @@
     "ja": {
       "title": "React ウィジェット初回表示時にパネルがちらつく理由 — ResizeObserver は paint 後に実行される",
       "excerpt": "設定ウィジェットの初回表示時に左タブナビが一度ちらつく問題をフレーム単位で追跡した記録。パネル幅を ResizeObserver で実測していたが、そのコールバックは paint 後に呼ばれるため、誤った幅で描画されたフレームと key 変更による強制リマウントが重なってちらつきが発生していた。useLayoutEffect による同期実測で解決。"
+    },
+    "zh-Hant": {
+      "title": "React 元件首次進入時面板閃爍的原因 —— ResizeObserver 在 paint 之後執行",
+      "excerpt": "逐幀追蹤設定元件首次進入時左側標籤導航閃爍一次的問題。面板寬度透過 ResizeObserver 實測，但該回撥在 paint 之後呼叫，導致以錯誤寬度繪製的幀與 key 變更強制重掛載疊加而產生閃爍。最終透過 useLayoutEffect 同步實測解決。"
     }
   },
   "resizeobserver-loop-limit-setstate-guard": {
@@ -459,6 +587,10 @@
     "ja": {
       "title": "ResizeObserver loop limit exceeded — 多ウィジェットダッシュボードで setState ガードによって断ち切る方法",
       "excerpt": "10 個以上のウィジェットがそれぞれ ResizeObserver を持つダッシュボードで「ResizeObserver loop limit exceeded」のスクリプトエラーが発生します。原因は、サイズが変わっていないのに毎回 setState を呼ぶ 4 つのウィジェットが、同一フレーム内で他ウィジェットの ResizeObserver を連鎖的に発火させていたこと。同値ガードとオブジェクト参照比較ガードのパターンをまとめます。"
+    },
+    "zh-Hant": {
+      "title": "ResizeObserver loop limit exceeded —— 在多元件儀表板中用 setState 守衛切斷迴圈",
+      "excerpt": "在 10 個以上元件各自持有 ResizeObserver 的儀表板上，會出現「ResizeObserver loop limit exceeded」指令碼錯誤。原因是四個元件即便尺寸未變也每次都呼叫 setState，在同一幀內連鎖觸發了其他元件的 ResizeObserver。本文整理同值守衛與物件引用比較守衛兩種模式。"
     }
   },
   "sep-cpu-overuse-report": {
@@ -473,6 +605,10 @@
     "ja": {
       "title": "ウイルス対策ソフト（SEP）の CPU 過剰占有の集中分析 — 41 台中 17 台（41.5%）で反復、モジュール別分布と対応推奨",
       "excerpt": "Orange The Client を導入した端末 41 台のうち 17 台（41.5%）で、Symantec Endpoint Protection 関連モジュールが CPU 1 コア以上を繰り返しフル占有していました。DSCli.dll・ccLib.dll・libcurl-openssl.dll・sysfer.dll・Teefer.sys などモジュール別の検知分布と各モジュールの役割、そしてバージョンアップ・ポリシー最適化の推奨をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "防毒軟體（SEP）CPU 過度佔用專項分析 —— 41 臺中 17 臺（41.5%）反覆出現，模組分佈與應對建議",
+      "excerpt": "在安裝 Orange The Client 的 41 臺端點中，有 17 臺（41.5%）出現 Symantec Endpoint Protection 相關模組反覆佔滿 1 個以上 CPU 核心的情況。本文整理 DSCli.dll、ccLib.dll、libcurl-openssl.dll、sysfer.dll、Teefer.sys 等各模組的偵測分佈與作用，以及版本升級與策略最佳化建議。"
     }
   },
   "sep-version-upgrade-cpu": {
@@ -487,6 +623,10 @@
     "ja": {
       "title": "ウイルス対策ソフト（Symantec Endpoint Protection）のバージョンアップでエンドポイント負荷が 43% 減少 — 49 台の実測比較",
       "excerpt": "企業 PC の慢性的な CPU 占有の原因として指摘されてきた SEP（Symantec Endpoint Protection）を、旧バージョンと新バージョンが混在する 49 台の環境で 2 週間実測比較しました。ccSvcHst.exe の CPU は 2.29% → 0.65%（−71.5%）に下がり、sysfer.dll が OneDrive・Excel・Explorer などに注入されて引き起こしていた副次的な負荷も減って、SEP 関連の全体影響が 43% 減少しました。バージョン別のモジュール構成と DLL 注入分布を表で示します。"
+    },
+    "zh-Hant": {
+      "title": "升級防毒軟體（Symantec Endpoint Protection）使端點負載下降 43% —— 49 臺裝置實測對比",
+      "excerpt": "針對長期被視為企業 PC 頑固 CPU 佔用元兇的 SEP（Symantec Endpoint Protection），在新舊版本並存的 49 臺裝置環境中進行了為期兩週的實測對比。ccSvcHst.exe 的 CPU 從 2.29% 降至 0.65%（−71.5%），sysfer.dll 注入 OneDrive、Excel、Explorer 等所引發的附帶負載也隨之減少，SEP 相關總體影響下降 43%。文中以表格給出各版本的模組結構與 DLL 注入分佈。"
     }
   },
   "suid-hash-collision-32bit-xxh32-process-identity": {
@@ -501,6 +641,10 @@
     "ja": {
       "title": "同じ SUID なのに lsass・svchost・Defender が一塊に — 32 ビットハッシュ衝突の全数分析",
       "excerpt": "運用中の sprocess コレクション 230 万ドキュメントを全数分析し、異なるプロセスが同じプロセス識別子（SUID）にまとめられる現象を確認。その根本原因が XXH32 の 32 ビット出力幅不足によるハッシュ衝突であることを、コード確認と再測定によって確定させたデータ分析の記録。"
+    },
+    "zh-Hant": {
+      "title": "同一個 SUID 卻混入 lsass、svchost 與 Defender —— 32 位雜湊衝突全量分析",
+      "excerpt": "對生產環境 sprocess 集合的 230 萬條文件進行全量分析，確認不同處理程序被歸併到同一處理程序識別符號（SUID）的現象，並透過程式碼核查與重新測量，確定其根本原因是 XXH32 的 32 位輸出寬度不足所導致的雜湊衝突。"
     }
   },
   "system-cpu-detection-pid4": {
@@ -515,6 +659,10 @@
     "ja": {
       "title": "System（PID 4）の CPU 占有はどう検知するか — カーネルスレッド・ドライバ負荷の識別方法",
       "excerpt": "CPU を消費している主体が通常のプロセスではなくカーネル（System, PID 4）である場合に、その負荷をどう検知するかをまとめます。System は PID 4 に固定された特別なプロセスのため検知ロジックは通常プロセスと似ていますが、スレッドやロード済みモジュールを読むにはカーネルが提供する専用 API と高い権限が必要です。実際の検証方法と現場での検知事例も扱います。"
+    },
+    "zh-Hant": {
+      "title": "如何偵測 System（PID 4）的 CPU 佔用 —— 核心執行緒與驅動負載的識別方法",
+      "excerpt": "當佔用 CPU 的主體不是普通處理程序而是核心（System，PID 4）時，該如何偵測其負載。System 是固定為 PID 4 的特殊處理程序，偵測邏輯與普通處理程序相似，但要讀取其執行緒與已載入模組，則需要核心提供的專用 API 與高權限。文中還包含實際驗證方法與現場偵測案例。"
     }
   },
   "system-performance-disk-network-io-metrics": {
@@ -529,6 +677,10 @@
     "ja": {
       "title": "システム性能情報にディスク・ネットワーク送受信指標を追加 — プロセス合算の近似から OS 直接 API 収集へ",
       "excerpt": "一つにまとめられていたシステム I/O をディスク（物理）と有線・無線ネットワークの読み書き 6 指標に分離し、プロセスごとの値の合算で近似していたシステム全体の指標を GetIfTable2・IOCTL_DISK_PERFORMANCE といった OS 直接 API に置き換えて精度を高めたエージェント実装の記録。"
+    },
+    "zh-Hant": {
+      "title": "系統效能資訊新增磁碟與網路收發指標 —— 從處理程序彙整近似改為 OS 直接 API 擷取",
+      "excerpt": "將原本合為一體的系統 I/O 拆分為磁碟（物理）與有線／無線網路的讀寫共 6 項指標，並把此前透過各處理程序數值彙整近似得出的系統整體指標，改為使用 GetIfTable2、IOCTL_DISK_PERFORMANCE 等 OS 直接 API 擷取以提升精度的代理實現記錄。"
     }
   },
   "unattended-update-hang-tty-stdin-migration-prompt": {
@@ -543,6 +695,10 @@
     "ja": {
       "title": "無人アップデートスクリプトが DB マイグレーションで無限待機する理由 — 飲み込まれた stdin プロンプトの追跡",
       "excerpt": "無人アップデートスクリプトが DB migration 段階で停止する問題を追跡した記録。must_task が stdout のみリダイレクトし stdin は運用者の TTY に繋いだままだったため、migration の入力プロンプトが画面に出ないまま入力を待ち続けて無限待機していた。無人実行側が stdin を /dev/null で遮断する層分離で解決。"
+    },
+    "zh-Hant": {
+      "title": "無人值守更新指令碼在資料庫遷移處無限等待的原因 —— 追蹤被吞掉的 stdin 提示",
+      "excerpt": "追蹤無人值守更新指令碼在 DB migration 階段卡住的問題。must_task 只重定向了 stdout，而 stdin 仍連著維運人員的 TTY，導致 migration 的輸入提示在螢幕上不可見卻仍在等待輸入而無限掛起。透過讓無人值守執行器用 /dev/null 遮蔽 stdin 的分層處理解決。"
     }
   },
   "usb-malware-driver-forensic": {
@@ -557,6 +713,10 @@
     "ja": {
       "title": "USB から持ち込まれた「統合ドライバ」インストーラが悪性と判定された事例 — フォレンジックタイムラインの完全追跡",
       "excerpt": "やけに綺麗なデスクトップとごみ箱、USB 接続直後の再起動という異常な兆候から出発し、ドキュメントフォルダで実行された「統合ドライバ」インストーラ（EasyDrv7）を収集・分析しました。VirusTotal の 72 エンジン中 8 つが検知 — 外部コマンドで追加のマルウェアをダウンロードするドロッパーでした。インストールイベントのタイムラインと UserAssist レジストリからの実行履歴の復元過程を、そのままにまとめます。"
+    },
+    "zh-Hant": {
+      "title": "經 USB 傳入的「萬能驅動」安裝檔案被判定為惡意的案例 —— 取證時間線完整追蹤",
+      "excerpt": "從異常跡象——過於乾淨的桌面與回收站、USB 連線後隨即重啟——出發，擷取並分析了在文件資料夾中執行的「萬能驅動」安裝檔案（EasyDrv7）。VirusTotal 的 72 個引擎中有 8 個檢出：這是一個透過外部指令進一步下載惡意程式碼的 dropper。文中原樣整理安裝事件時間線與 UserAssist 登錄檔執行記錄的還原過程。"
     }
   },
   "vm-node-identity-self-fork-ticket-rotation": {
@@ -571,6 +731,10 @@
     "ja": {
       "title": "VM ノードが再起動のたびに自分自身と分裂する理由 — 終了 POST でのチケットローテーション抑制",
       "excerpt": "ハードウェアアンカーを持たない VM ノードが正常終了後の再起動で新しいドキュメントに分裂（ノード重複）していた欠陥を追跡した記録。エージェントは online のときだけ新しい ticket/guid を保存するのに、終了（offline）の POST でサーバー側がローテーションしていたため desync が残っていた。サーバーが online のときだけローテーションするようゲーティングして根本から遮断した。"
+    },
+    "zh-Hant": {
+      "title": "VM 節點每次重啟都與自身分裂的原因 —— 抑制關機 POST 中的票據輪換",
+      "excerpt": "追蹤沒有硬體錨點的 VM 節點在正常關機後重啟時分裂為新文件（重複節點）的缺陷。代理僅在 online 時才儲存新的 ticket/guid，而伺服器在關機（offline）的 POST 中執行了輪換，留下了不同步狀態。透過讓伺服器僅在 online 時輪換，從根源上杜絕了該問題。"
     }
   },
   "websocket-wasclean-trap-reconnect": {
@@ -585,6 +749,10 @@
     "ja": {
       "title": "wasClean の罠 — WebSocket の夜間消失と close code 別の再接続・ログアウトポリシー",
       "excerpt": "夜間に WebSocket が 1 本だけ静かに消えます。サーバーログにエラーはなく、クライアントのエラーログにも痕跡がありません。原因はクライアントの onclose ハンドラが wasClean === true なら無条件で正常終了と見なしていること。サーバーが WS_1011 で閉じても、ハンドシェイクさえ正常なら wasClean=true が返ります。close code 別の再接続・ログアウトポリシーとインスタンスガードのパターンをまとめます。"
+    },
+    "zh-Hant": {
+      "title": "wasClean 的陷阱 —— WebSocket 夜間失聯與按 close code 劃分的重連、登出策略",
+      "excerpt": "夜間，某一條 WebSocket 悄然消失。服務端日誌沒有錯誤，客戶端錯誤日誌也沒有痕跡。原因在於客戶端的 onclose 處理器只要 wasClean === true 就一律視為正常關閉。即便服務端以 WS_1011 關閉，只要握手正常，wasClean 依然為 true。本文整理按 close code 劃分的重連／登出策略與例項守衛模式。"
     }
   },
   "webview2-virtual-host-icon-mapping": {
@@ -599,6 +767,10 @@
     "ja": {
       "title": "WebView2 の仮想ホストで https 化した後にローカルアイコンが壊れる問題 — 2 つ目の仮想ホストマッピングで解決",
       "excerpt": "file:// から https://*.local の仮想ホストへ移行した後、<img src> のローカル絶対パス（IconPath）が mixed content として遮断され、すべてのプロセス・ファイルアイコンが壊れて見えていたバグを、アイコンフォルダを別の 2 つ目の仮想ホストにマッピングして解決した事例。"
+    },
+    "zh-Hant": {
+      "title": "切換到 WebView2 https 虛擬主機後本機圖示損壞 —— 透過第二個虛擬主機對映解決",
+      "excerpt": "從 file:// 遷移到 https://*.local 虛擬主機後，<img src> 中的本機絕對路徑（IconPath）被判定為混合內容而遭攔截，導致所有處理程序與檔案圖示顯示異常。透過將圖示資料夾對映到另一個獨立的虛擬主機解決了該問題。"
     }
   },
   "weekly-review-2026-w22": {
@@ -613,6 +785,10 @@
     "ja": {
       "title": "ブローカーの OpenSSL 3.0.x 残存経路の回避、プロセス影響度ウィジェットの 4 リポジトリ同時整理、ファイルイベント 4 千万分の 1 削減 throttle — 週次レビュー（2026-05-25 ~ 2026-06-01）",
       "excerpt": "マネージャー・エージェント担当が Chrome 148 + OpenSSL 3.0.x 残存経路の nodeInfo 回帰を abrupt close 回避で解決し、サーバーバックエンド担当がプロセス影響度ウィジェットのサーバー実装（rest-api + service + migrations + package の 4 リポジトリ）・MongoDB single-node replica set 移行・KISA セキュアコーディング 20 件を完了。分析サービス担当が Baseline 日常分類サービス Sprint 1+1.5（5 条件ルール + LightGBM-ready スキーマ）を進め、カーネルドライバ担当が 17 兆回の累計ファイルイベントを 4 千万分の 1 に削減する時間ベース LRU throttle を適用した一週間。"
+    },
+    "zh-Hant": {
+      "title": "規避 broker OpenSSL 3.0.x 殘留路徑、處理程序影響度元件四倉庫並行整理、檔案事件降低 4 千萬倍的 throttle —— 週報（2026-05-25 ~ 2026-06-01）",
+      "excerpt": "管理器與代理組透過 abrupt close 規避解決了 Chrome 148 + OpenSSL 3.0.x 殘留路徑上的 nodeInfo 迴歸；服務端後端組完成處理程序影響度元件服務端實現（rest-api + service + migrations + package 四倉庫）、MongoDB single-node replica set 遷移與 KISA 安全編碼 20 項收尾；分析服務組推進 Baseline 日常分類服務 Sprint 1+1.5（5 條件規則 + LightGBM-ready 模式）；核心驅動組應用了將 17 萬億次累計檔案事件降低 4 千萬倍的時間基 LRU throttle。"
     }
   },
   "weekly-review-2026-w24": {
@@ -627,6 +803,10 @@
     "ja": {
       "title": "sprocess 1 時間単位集計 + Rotate 共通エントリポイント、MQTT subscriber-driven publish による 31k SUID 急増の遮断、Manager Web デザインシステムの確立 — 週次レビュー（2026-06-01 ~ 2026-06-08）",
       "excerpt": "マネージャー・エージェント担当が sprocess の 1 時間単位集計体系を Rotate 共通エントリポイントで完成させ、stall 回帰を #if 0 隔離で捕捉。サーバーバックエンド担当がプロセス影響度ウィジェットのサーバーを 4 リポジトリ同時に整理し、subscriber-driven publish で 31k SUID・毎時 224k msg の急増を遮断。分析サービス担当が Baseline 日常分類サービス Sprint 2（Override CRUD + verdict_history）とウィジェット ACL 空配列セマンティクスの統一でセキュリティ事故経路を塞ぎ、カーネルドライバ担当が orange.sys Y_PROCESS_MESSAGE Integrity Level の end-to-end パイプラインと MS 署名自動化ビルドサーバー内蔵の非同期 Job パターンを敷いた一週間。フロントエンド担当が Manager Web デザインシステム（DESIGN_SYSTEM.md）を確立。"
+    },
+    "zh-Hant": {
+      "title": "sprocess 小時級聚合 + Rotate 統一入口、以 MQTT subscriber-driven publish 阻斷 31k SUID 暴漲、確立 Manager Web 設計系統 —— 週報（2026-06-01 ~ 2026-06-08）",
+      "excerpt": "管理器與代理組以 Rotate 統一入口完成 sprocess 小時級聚合體系，並用 #if 0 隔離定位 stall 迴歸；服務端後端組同時整理四個倉庫的處理程序影響度元件服務端，並以 subscriber-driven publish 阻斷 31k SUID 每小時 224k msg 的暴漲；分析服務組推進 Baseline 日常分類服務 Sprint 2（Override CRUD + verdict_history），並透過統一元件 ACL 空陣列語義堵住安全事故路徑；核心驅動組鋪設了 orange.sys Y_PROCESS_MESSAGE Integrity Level 端到端流水線與 MS 簽名自動化構建伺服器內建非同步 Job 模式。前端組確立了 Manager Web 設計系統（DESIGN_SYSTEM.md）。"
     }
   },
   "win32-process-kill-detection-etw": {
@@ -641,6 +821,10 @@
     "ja": {
       "title": "どのプロセスが自分のプログラムを殺したのか — ETW Kernel-Audit-API で強制終了を追跡する",
       "excerpt": "プログラムが突然終了したときに「誰が殺したのか」を突き止める方法。Windows の Microsoft-Windows-Kernel-Audit-API-Calls プロバイダが出力する TerminateProcess（Event 2）を ETW リアルタイムセッションで購読し、加害側（原因）と被害側（対象）のプロセスを紐づけて識別する実装をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "是哪個處理程序殺了我的程式 —— 用 ETW Kernel-Audit-API 追蹤強制終止",
+      "excerpt": "介紹在程式突然退出時查明「是誰殺的」的方法。透過即時 ETW 會話訂閱 Windows 的 Microsoft-Windows-Kernel-Audit-API-Calls 提供程式發出的 TerminateProcess（Event 2），配對識別加害方（原因）與受害方（目標）處理程序的實現。"
     }
   },
   "windows-batch-github-api-python-bundle-robustness": {
@@ -655,6 +839,10 @@
     "ja": {
       "title": "ビルドが GitHub API の不安定さで無限待機する問題 — バッチスクリプトの Python バンドル段階を堅牢化",
       "excerpt": "makepackage.bat の Python standalone バンドル段階が、GitHub API・ネットワークの不安定時に無限待機したり空の URL を curl に渡してビルドを中断させていた問題を修正した記録。cmd の for /f パースを取り除き PowerShell の単一ブロックに統合して、タイムアウト・リトライ・フォールバック URL・サイズ検証を備えた。"
+    },
+    "zh-Hant": {
+      "title": "構建因 GitHub API 不穩定而無限等待 —— 批處理指令碼 Python 打包步驟的健壯性改造",
+      "excerpt": "修復 makepackage.bat 中 Python standalone 打包步驟在 GitHub API／網路不穩定時無限等待，或將空 URL 傳給 curl 導致構建中斷的問題。移除 cmd for /f 解析，整合為單個 PowerShell 塊，並加入超時、重試、回退 URL 與大小校驗。"
     }
   },
   "windows-domain-name-dsrole-domainnameflat-workgroup": {
@@ -669,6 +857,10 @@
     "ja": {
       "title": "ワークグループ PC のドメイン名が空文字列になる理由 — DsRole の DomainNameFlat を捨ててサービス依存 API で再取得していた欠陥",
       "excerpt": "エージェントが認証のたびにドメイン名を再取得する中で、ワークグループ PC では値が空文字列として収集されうる経路を逆追跡した記録。DsRoleGetPrimaryDomainInformation が既に返した DomainNameFlat を捨て、LanmanWorkstation サービスに依存する NetWkstaGetInfo のフォールバックで同じ値を取り直していた構造的問題を Windows API の実測で究明した。"
+    },
+    "zh-Hant": {
+      "title": "工作組 PC 域名為空字串的原因 —— 丟棄 DsRole 的 DomainNameFlat 轉而呼叫依賴服務的 API",
+      "excerpt": "代理在每次認證時都會重新查詢域名，本文回溯了工作組 PC 上該值可能被擷取為空字串的路徑。透過 Windows API 實測查明結構性問題：DsRoleGetPrimaryDomainInformation 已返回的 DomainNameFlat 被丟棄，轉而透過依賴 LanmanWorkstation 服務的 NetWkstaGetInfo 回退路徑重新查詢同一個值。"
     }
   },
   "windows-driver-self-wait-fltsendmessage-blocking": {
@@ -683,6 +875,10 @@
     "ja": {
       "title": "エージェント startup 時にプロセスごとに正確に 3 秒ずつ止まる self-wait 回帰 — FltSendMessage ブロック事例の分析",
       "excerpt": "既存の実行中プロセスを一括登録する段階で、自分自身を待つ self-wait が毎回 3 秒のフルタイムアウトを起こし、ofilter ミニフィルターのイベントポートを分単位で塞いでいた回帰をコードパス単位で追い、即効・根本の 2 段階の修正案をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "代理啟動時每個處理程序恰好停頓 3 秒的 self-wait 迴歸 —— FltSendMessage 阻塞案例分析",
+      "excerpt": "在批次註冊既有執行處理程序的階段，等待自身的 self-wait 每次都觸發完整的 3 秒超時，使 ofilter 微過濾器的事件埠被阻塞長達數分鐘。本文按程式碼路徑逐一梳理該回歸，並整理了速效與根治兩級修復方案。"
     }
   },
   "windows-kernel-driver-ms-signing": {
@@ -697,6 +893,10 @@
     "ja": {
       "title": "Windows カーネルドライバの MS 署名（Attestation）取得 — ビルドから Partner Center 提出まで",
       "excerpt": "Windows 10/11 でカーネルドライバを正規にロードするには Microsoft の署名が必要です。INF の DriverVer・バージョンリソースの修正、Release ビルド時のカタログ（.cat）SHA-256 ダイジェスト検証、.cab の生成、Partner Center（Hardware）への提出までの手順をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "為 Windows 核心驅動獲取 MS 簽名（Attestation）—— 從構建到 Partner Center 提交",
+      "excerpt": "在 Windows 10/11 上正常載入核心驅動需要微軟的簽名。本文整理 INF DriverVer 與版本資源的修改、Release 構建時目錄檔案（.cat）SHA-256 摘要校驗、.cab 生成，直至 Partner Center（Hardware）提交的完整流程。"
     }
   },
   "windows-kernel-freeze-nmi-memory-dump": {
@@ -711,6 +911,10 @@
     "ja": {
       "title": "Windows カーネル freeze の事後分析 — NMI キーボードトリガーによるメモリダンプの強制取得",
       "excerpt": "BSOD なしに画面がそのまま固まったシステムで、カーネルリモートデバッグの Break のように強制 BugCheck を発生させて MEMORY.DMP を取得する CrashOnCtrlScroll レジストリ設定と、WinDbg での解析手順をまとめます。"
+    },
+    "zh-Hant": {
+      "title": "Windows 核心 freeze 事後分析 —— 透過 NMI 鍵盤觸發強制收集記憶體傾印",
+      "excerpt": "整理在沒有 BSOD、畫面原樣卡死的系統上，如同核心遠端除錯的 Break 一樣強制觸發 BugCheck 以收集 MEMORY.DMP 的 CrashOnCtrlScroll 登錄檔設定與 WinDbg 分析流程。"
     }
   },
   "windows-kernel-zombie-process-detection": {
@@ -725,6 +929,10 @@
     "ja": {
       "title": "Windows カーネルのゾンビプロセス検知 — EPROCESS 残存の判定と PID 再利用の安全性",
       "excerpt": "プロセスが終了した後でも、誰かが OpenProcess ハンドルを閉じなければカーネルの EPROCESS 構造体はそのまま残ります。エージェントで終了 1 分後に PsLookupProcessByProcessId で PEPROCESS を再取得してゾンビかどうかを判定する方法と、ゾンビ状態のとき PID 再利用が遮断される Windows 内部のルールをまとめます。"
+    },
+    "zh-Hant": {
+      "title": "Windows 核心殭屍處理程序偵測 —— EPROCESS 殘留判定與 PID 重複使用安全性",
+      "excerpt": "處理程序退出後，只要有人未關閉 OpenProcess 控制代碼，核心的 EPROCESS 結構體就會保留。本文整理代理在退出 1 分鐘後透過 PsLookupProcessByProcessId 重新查詢 PEPROCESS 以判定殭屍狀態的方法，以及殭屍狀態下 PID 重複使用被阻止的 Windows 內部規則。"
     }
   },
   "windows-status-cannot-delete-detection": {
@@ -739,6 +947,10 @@
     "ja": {
       "title": "実行中 EXE の削除失敗（STATUS_CANNOT_DELETE）をミニフィルターで検知する — Deleter・Runner・Launcher の三者識別",
       "excerpt": "エクスプローラーで実行中の a.exe を cmd del で削除しようとして「アクセスが拒否されました」となるケースを、ofilter ミニフィルターと yagent21 がどのように捕捉するか、MmFlushImageSection の失敗経路と三者識別ルールのマッピングまでまとめます。"
+    },
+    "zh-Hant": {
+      "title": "用微過濾器偵測執行中 EXE 刪除失敗（STATUS_CANNOT_DELETE）—— Deleter、Runner、Launcher 三方識別",
+      "excerpt": "整理 ofilter 微過濾器與 yagent21 如何捕獲「在資源管理器中執行 a.exe 時用 cmd del 刪除會提示拒絕存取」的情境，涵蓋 MmFlushImageSection 失敗路徑以及三方識別規則的對映。"
     }
   },
   "wmiprvse-high-cpu-guide": {
@@ -753,6 +965,10 @@
     "ja": {
       "title": "WMIPrvSE.exe 高CPU使用率の原因追跡ガイド",
       "excerpt": "Windows WMI Provider Host（WMIPrvSE.exe）がCPUを高負荷で使用する場合の原因分析と解決方法を、PowerShellコマンドとともに詳しく解説します。"
+    },
+    "zh-Hant": {
+      "title": "WMIPrvSE.exe 高CPU佔用原因追蹤指南",
+      "excerpt": "詳細介紹Windows WMI Provider Host（WMIPrvSE.exe）佔用高CPU時的原因分析與解決方法，並附帶PowerShell診斷指令說明。"
     }
   }
 }

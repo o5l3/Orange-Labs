@@ -3,39 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-
-interface BlogPost {
-  category: string;
-  categoryColor: string;
-  subject: string;
-  content: string;
-  readMinutes: string;
-  createdAt: string;
-  md: string;
-}
-
-interface BlogData {
-  language: string;
-  posts: BlogPost[];
-}
-
-const localeMap: Record<string, string> = {
-  ko: 'ko-KR',
-  en: 'en-US',
-  zh: 'zh-CN',
-  ja: 'ja-JP',
-};
-
-const formatDate = (dateStr: string, lang: string): string => {
-  const date = new Date(dateStr.replace(/\./g, '-'));
-  return new Intl.DateTimeFormat(localeMap[lang] ?? 'en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(date);
-};
-
-const getSlugFromMd = (md: string): string => (md.split('/').at(-1) ?? '').replace(/\.md$/, '');
+import { formatDate, getSlugFromMd, pickPosts, type BlogData, type BlogPost } from './blogLocale';
 
 const stripFrontMatter = (md: string): string => md.replace(/^---[\s\S]*?---\n/, '');
 
@@ -47,7 +15,7 @@ interface PostCardProps {
 
 function PostCard({ post, label, onClick }: PostCardProps) {
   const { i18n } = useTranslation();
-  const lang = i18n.language.split('-')[0];
+  const lang = i18n.language;
   return (
     <div
       className="p-5 rounded-2xl cursor-pointer transition-all flex flex-col gap-2"
@@ -84,7 +52,7 @@ export default function TechBlogContent() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const lang = i18n.language.split('-')[0];
+  const lang = i18n.language;
 
   // null = 로딩 중, '' = 에러/없음, string = 정상
   const [mdContent, setMdContent] = useState<string | null>(null);
@@ -112,16 +80,7 @@ export default function TechBlogContent() {
   useEffect(() => {
     fetch('/tech_blog/tech_blog.json')
       .then((res) => res.json())
-      .then((data: BlogData[]) => {
-        const matched =
-          data.find((d) => d.language === lang) ?? data.find((d) => d.language === 'en');
-        if (!matched) return;
-        const parseDate = (s: string) => new Date(s.replace(/\./g, '-'));
-        const sorted = [...matched.posts].sort(
-          (a, b) => parseDate(b.createdAt).getTime() - parseDate(a.createdAt).getTime(),
-        );
-        setPosts(sorted);
-      });
+      .then((data: BlogData[]) => setPosts(pickPosts(data, lang)));
   }, [lang]);
 
   const currentIndex = posts.findIndex((p) => getSlugFromMd(p.md) === slug);

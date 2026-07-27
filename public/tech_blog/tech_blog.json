@@ -1473,6 +1473,497 @@
     ]
   },
   {
+    "language": "zh-Hant",
+    "posts": [
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "React 元件首次進入時面板閃爍的原因 —— ResizeObserver 在 paint 之後執行",
+        "content": "逐幀追蹤設定元件首次進入時左側標籤導航閃爍一次的問題。面板寬度透過 ResizeObserver 實測，但該回撥在 paint 之後呼叫，導致以錯誤寬度繪製的幀與 key 變更強制重掛載疊加而產生閃爍。最終透過 useLayoutEffect 同步實測解決。",
+        "readMinutes": "2",
+        "createdAt": "2026.07.27",
+        "md": "/tech_blog/md/react-panel-flicker-uselayouteffect-resizeobserver.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "負載指標 K 線（OHLC）不連續的原因 —— 修正分桶切換使開盤價承接前一收盤價",
+        "content": "在將節點負載視覺化為 OHLC K 線時，發現相鄰 K 線的開盤價不連續而出現跳變。5 分鐘分桶切換時，open 取的是新桶的首個取樣值；改為承接前一桶的收盤價，並將 high/low 的初始化基準修正為新桶的 open。",
+        "readMinutes": "1",
+        "createdAt": "2026.07.23",
+        "md": "/tech_blog/md/ohlc-candle-continuity-open-init.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "無人值守更新指令碼在資料庫遷移處無限等待的原因 —— 追蹤被吞掉的 stdin 提示",
+        "content": "追蹤無人值守更新指令碼在 DB migration 階段卡住的問題。must_task 只重定向了 stdout，而 stdin 仍連著維運人員的 TTY，導致 migration 的輸入提示在螢幕上不可見卻仍在等待輸入而無限掛起。透過讓無人值守執行器用 /dev/null 遮蔽 stdin 的分層處理解決。",
+        "readMinutes": "2",
+        "createdAt": "2026.07.23",
+        "md": "/tech_blog/md/unattended-update-hang-tty-stdin-migration-prompt.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "構建因 GitHub API 不穩定而無限等待 —— 批處理指令碼 Python 打包步驟的健壯性改造",
+        "content": "修復 makepackage.bat 中 Python standalone 打包步驟在 GitHub API／網路不穩定時無限等待，或將空 URL 傳給 curl 導致構建中斷的問題。移除 cmd for /f 解析，整合為單個 PowerShell 塊，並加入超時、重試、回退 URL 與大小校驗。",
+        "readMinutes": "1",
+        "createdAt": "2026.07.23",
+        "md": "/tech_blog/md/windows-batch-github-api-python-bundle-robustness.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Driver Verifier 暴露的核心 BSOD —— 為什麼不能持鎖呼叫 ZwClose（0xC4 IrqlZwPassive）",
+        "content": "在啟用 Driver Verifier（/standard /driver）的狀態下解除安裝驅動時發生 0xC4 DRIVER_VERIFIER_DETECTED_VIOLATION 藍屏的案例。透過 WinDbg 查明結構性缺陷：ZwClose 是僅限 PASSIVE_LEVEL 的 API，卻在持有 fast mutex 的 APC_LEVEL 下被呼叫。重新設計清理迴圈，使控制代碼在鎖外關閉。",
+        "readMinutes": "4",
+        "createdAt": "2026.07.22",
+        "md": "/tech_blog/md/driver-verifier-zwclose-apc-level-bsod.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "工作組 PC 域名為空字串的原因 —— 丟棄 DsRole 的 DomainNameFlat 轉而呼叫依賴服務的 API",
+        "content": "代理在每次認證時都會重新查詢域名，本文回溯了工作組 PC 上該值可能被擷取為空字串的路徑。透過 Windows API 實測查明結構性問題：DsRoleGetPrimaryDomainInformation 已返回的 DomainNameFlat 被丟棄，轉而透過依賴 LanmanWorkstation 服務的 NetWkstaGetInfo 回退路徑重新查詢同一個值。",
+        "readMinutes": "3",
+        "createdAt": "2026.07.22",
+        "md": "/tech_blog/md/windows-domain-name-dsrole-domainnameflat-workgroup.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "AG Grid 中 IP 與版本號排序顛倒的原因 —— 因缺少 comparator 導致字典序排序的全域修復",
+        "content": "從懷疑 x.x.x.x 格式的版本列被當作字串排序出發，查明瞭結構性問題：程式碼庫中沒有任何 AG Grid comparator，所有可排序列都依賴預設的字典序比較。透過按八位組、按段的數值比較器，全域修正了 IP 排序錯誤（192.168.1.100 排在 192.168.1.20 之前）與版本排序錯誤。",
+        "readMinutes": "4",
+        "createdAt": "2026.07.21",
+        "md": "/tech_blog/md/ag-grid-comparator-version-ip-natural-sort.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "VM 節點每次重啟都與自身分裂的原因 —— 抑制關機 POST 中的票據輪換",
+        "content": "追蹤沒有硬體錨點的 VM 節點在正常關機後重啟時分裂為新文件（重複節點）的缺陷。代理僅在 online 時才儲存新的 ticket/guid，而伺服器在關機（offline）的 POST 中執行了輪換，留下了不同步狀態。透過讓伺服器僅在 online 時輪換，從根源上杜絕了該問題。",
+        "readMinutes": "2",
+        "createdAt": "2026.07.21",
+        "md": "/tech_blog/md/vm-node-identity-self-fork-ticket-rotation.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "同一個 SUID 卻混入 lsass、svchost 與 Defender —— 32 位雜湊衝突全量分析",
+        "content": "對生產環境 sprocess 集合的 230 萬條文件進行全量分析，確認不同處理程序被歸併到同一處理程序識別符號（SUID）的現象，並透過程式碼核查與重新測量，確定其根本原因是 XXH32 的 32 位輸出寬度不足所導致的雜湊衝突。",
+        "readMinutes": "8",
+        "createdAt": "2026.07.12",
+        "md": "/tech_blog/md/suid-hash-collision-32bit-xxh32-process-identity.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "核心驅動控制代碼洩漏追蹤 —— 處理程序退出回撥中 __finally 不執行的原因",
+        "content": "追蹤 WinDbg !htrace 捕獲的 ObHn 處理程序控制代碼洩漏。從核心 SEH、IRQL 與物件生命週期的角度分析：在處理程序退出回撥（ProcessNotifyCallbackRoutineEx）中用 ZwOpenProcess 開啟的控制代碼，因 SEH __finally 未執行而未被關閉的根本原因，以及透過 WorkItem 延遲執行加以解決的全過程。",
+        "readMinutes": "13",
+        "createdAt": "2026.07.08",
+        "md": "/tech_blog/md/kernel-handle-leak-seh-finally-process-exit-callback.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "過長的指令列吞掉整個處理程序事件 —— 用 4KB 核心訊息上限阻止 12KB 丟棄",
+        "content": "指令列過長的處理程序，其核心訊息會超過 MAX_FILTER_MESSAGE_SIZE（12KB）而被整條丟棄。本文記錄了在不額外分配記憶體的前提下，透過 UNICODE_STRING view 僅將指令列截斷至 4KB 來解決該問題的核心驅動實現。",
+        "readMinutes": "3",
+        "createdAt": "2026.07.08",
+        "md": "/tech_blog/md/kernel-message-commandline-4kb-cap-message-drop.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "短生命週期處理程序 CPU 測量精度改進 —— 核心與代理時鐘同步及 PID→PUID 切換",
+        "content": "在 1 小時週期的 sprocess 常態傳輸中，短生命週期處理程序的 CPU 值會被當作 0 丟棄或被過度計算。本文記錄了透過讓核心在同一時點同時讀取併傳送處理程序時間與系統時間，並將識別基準由 PID 改為 PUID 來解決該問題的核心驅動與代理排障過程。",
+        "readMinutes": "3",
+        "createdAt": "2026.07.05",
+        "md": "/tech_blog/md/process-cpu-accuracy-kernel-timestamp-puid.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "戰勝 PID 重複使用的處理程序唯一編號 —— 將核心驅動的 PUID 切換為 Windows StartKey",
+        "content": "以 KillProcess 偵測日誌中發現的 TargetProcessStartKey 為線索，將原本由路徑、啟動 ID 與 PID 組合成 32 位雜湊的 PUID，改為 Windows 為每個處理程序分配的 64 位 StartKey，從而解決短生命週期處理程序識別失敗問題的核心驅動實現記錄。",
+        "readMinutes": "3",
+        "createdAt": "2026.07.02",
+        "md": "/tech_blog/md/kernel-driver-puid-windows-startkey.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "系統效能資訊新增磁碟與網路收發指標 —— 從處理程序彙整近似改為 OS 直接 API 擷取",
+        "content": "將原本合為一體的系統 I/O 拆分為磁碟（物理）與有線／無線網路的讀寫共 6 項指標，並把此前透過各處理程序數值彙整近似得出的系統整體指標，改為使用 GetIfTable2、IOCTL_DISK_PERFORMANCE 等 OS 直接 API 擷取以提升精度的代理實現記錄。",
+        "readMinutes": "2",
+        "createdAt": "2026.07.01",
+        "md": "/tech_blog/md/system-performance-disk-network-io-metrics.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "控制代碼洩漏實測分析 —— 指紋識別安全軟體（FMService64）的 1,671 萬控制代碼與記憶體過量處理程序偵測",
+        "content": "代理按 1 小時彙整的 sprocess 指標中發現記憶體 3GB、控制代碼 1,671 萬的兩個異常處理程序，透過 LiveAgent、工作管理員與 wmic 交叉驗證，查明為指紋識別安全軟體的控制代碼洩漏的實測報告。",
+        "readMinutes": "3",
+        "createdAt": "2026.06.27",
+        "md": "/tech_blog/md/handle-leak-detection-fmservice64.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "隔離網 Ubuntu 伺服器的系統包版本鎖定 + 離線安全升級（.deb closure 包 + lock.json）",
+        "content": "介紹在無網際網路的執行環境中，為安全地為 nginx、redis、mongodb、mosquitto 應用 CVE 修補程式而設計的 system-packages.lock.json，以及基於 ubuntu:24.04 容器的依賴閉包打包方案。構建時間從 6.6 分鐘縮短至 49 秒。",
+        "readMinutes": "3",
+        "createdAt": "2026.06.12",
+        "md": "/tech_blog/md/airgapped-offline-system-package-lock-upgrade.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "切換到 WebView2 https 虛擬主機後本機圖示損壞 —— 透過第二個虛擬主機對映解決",
+        "content": "從 file:// 遷移到 https://*.local 虛擬主機後，<img src> 中的本機絕對路徑（IconPath）被判定為混合內容而遭攔截，導致所有處理程序與檔案圖示顯示異常。透過將圖示資料夾對映到另一個獨立的虛擬主機解決了該問題。",
+        "readMinutes": "1",
+        "createdAt": "2026.06.12",
+        "md": "/tech_blog/md/webview2-virtual-host-icon-mapping.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Docker Desktop 更新後構建因 401 失敗的 cmd echo 陷阱 —— --password-stdin 管道前的空格",
+        "content": "此前一直正常構建的 makepackage.bat，其 docker login 某天開始以 401 Unauthorized 失敗。程式碼並無改動，真兇是 cmd 的 echo 在密碼末尾附加的 trailing space —— 舊版 Docker 會將其裁剪從而透過，新版本卻將其視為密碼的一部分，這是一處不起眼卻影響重大的相容性變化。",
+        "readMinutes": "1",
+        "createdAt": "2026.06.11",
+        "md": "/tech_blog/md/docker-login-password-stdin-trailing-space.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Windows 核心 freeze 事後分析 —— 透過 NMI 鍵盤觸發強制收集記憶體傾印",
+        "content": "整理在沒有 BSOD、畫面原樣卡死的系統上，如同核心遠端除錯的 Break 一樣強制觸發 BugCheck 以收集 MEMORY.DMP 的 CrashOnCtrlScroll 登錄檔設定與 WinDbg 分析流程。",
+        "readMinutes": "4",
+        "createdAt": "2026.06.11",
+        "md": "/tech_blog/md/windows-kernel-freeze-nmi-memory-dump.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "用微過濾器偵測執行中 EXE 刪除失敗（STATUS_CANNOT_DELETE）—— Deleter、Runner、Launcher 三方識別",
+        "content": "整理 ofilter 微過濾器與 yagent21 如何捕獲「在資源管理器中執行 a.exe 時用 cmd del 刪除會提示拒絕存取」的情境，涵蓋 MmFlushImageSection 失敗路徑以及三方識別規則的對映。",
+        "readMinutes": "4",
+        "createdAt": "2026.06.11",
+        "md": "/tech_blog/md/windows-status-cannot-delete-detection.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "Chrome 各主版本對 PC 的影響分析 —— 以 45 臺 PC × 9 個主版本 = 150 組（PC × 主版本）為單位測量影響度",
+        "content": "將（PC × 主版本）組合統一為單一資料單位，對某公司 chrome.exe 的 45 臺 PC、12,660 條 sprocess 文件、185 天資料重新構建了事故與資源影響。這是一份 v6.3 儀表板設計報告，廢棄了公司彙整與日期彙整口徑，整理了主版本引入後 14 天（post-14d）的 Core 4 事故計數、pre/post Δ 散點圖，以及 OS × 主版本矩陣。",
+        "readMinutes": "10",
+        "createdAt": "2026.06.10",
+        "md": "/tech_blog/md/chrome-major-version-impact-analysis-150-pairs.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "代理啟動時每個處理程序恰好停頓 3 秒的 self-wait 迴歸 —— FltSendMessage 阻塞案例分析",
+        "content": "在批次註冊既有執行處理程序的階段，等待自身的 self-wait 每次都觸發完整的 3 秒超時，使 ofilter 微過濾器的事件埠被阻塞長達數分鐘。本文按程式碼路徑逐一梳理該回歸，並整理了速效與根治兩級修復方案。",
+        "readMinutes": "8",
+        "createdAt": "2026.06.10",
+        "md": "/tech_blog/md/windows-driver-self-wait-fltsendmessage-blocking.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "sprocess 小時級聚合 + Rotate 統一入口、以 MQTT subscriber-driven publish 阻斷 31k SUID 暴漲、確立 Manager Web 設計系統 —— 週報（2026-06-01 ~ 2026-06-08）",
+        "content": "管理器與代理組以 Rotate 統一入口完成 sprocess 小時級聚合體系，並用 #if 0 隔離定位 stall 迴歸；服務端後端組同時整理四個倉庫的處理程序影響度元件服務端，並以 subscriber-driven publish 阻斷 31k SUID 每小時 224k msg 的暴漲；分析服務組推進 Baseline 日常分類服務 Sprint 2（Override CRUD + verdict_history），並透過統一元件 ACL 空陣列語義堵住安全事故路徑；核心驅動組鋪設了 orange.sys Y_PROCESS_MESSAGE Integrity Level 端到端流水線與 MS 簽名自動化構建伺服器內建非同步 Job 模式。前端組確立了 Manager Web 設計系統（DESIGN_SYSTEM.md）。",
+        "readMinutes": "34",
+        "createdAt": "2026.06.08",
+        "md": "/tech_blog/md/weekly-review-2026-w24.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Windows 核心殭屍處理程序偵測 —— EPROCESS 殘留判定與 PID 重複使用安全性",
+        "content": "處理程序退出後，只要有人未關閉 OpenProcess 控制代碼，核心的 EPROCESS 結構體就會保留。本文整理代理在退出 1 分鐘後透過 PsLookupProcessByProcessId 重新查詢 PEPROCESS 以判定殭屍狀態的方法，以及殭屍狀態下 PID 重複使用被阻止的 Windows 內部規則。",
+        "readMinutes": "3",
+        "createdAt": "2026.06.06",
+        "md": "/tech_blog/md/windows-kernel-zombie-process-detection.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "新程式匯入影響度分析 —— 測量 AhnLab 的 980 個處理程序對 77 臺公司 PC 的資源與症狀影響",
+        "content": "某客戶提出「新程式匯入前後資源使用對比」的需求。與既有監控方案只能看到系統整體負載不同，Orange Platform 利用處理程序級擷取資料，定量測量了 AhnLab 產品族的 980 個 SUID 在 77 臺公司 PC 上實際消耗了多少資源、引發了哪些症狀。本文整理三層（公司 → 處理程序 → 修補程式）UI、MongoDB 聚合查詢與實測數值。",
+        "readMinutes": "6",
+        "createdAt": "2026.06.04",
+        "md": "/tech_blog/md/process-impact-analysis-ahnlab-77-nodes.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "處理程序影響度元件四倉庫並行實現、遷移至 MongoDB 事務基礎設施、檔案事件降低 4 千萬倍的 throttle —— 月報（2026-05）",
+        "content": "服務端後端組整合了處理程序影響度元件服務端（rest-api + service + migrations + package）、MongoDB single-node replica set 遷移、KISA 安全編碼 20 項 Phase 1~3 以及 fail2ban 整合；分析服務組同時推進管理器 RBAC 權限體系（端點、元件、功能 ACL 三軸）與 Baseline 日常分類服務 Sprint 1+1.5（5 條件規則 + LightGBM-ready）；管理器與代理組從安裝包中剝離了 c3→c4 拆分遺留的 p18 Agent UI，並用 windbg 追蹤了 broker OpenSSL 殘留路徑與 MSI 筆記型電腦藍屏兩個案例；核心驅動組正式應用了將 17 萬億次累計檔案事件降低 4 千萬倍的時間基 LRU throttle。",
+        "readMinutes": "24",
+        "createdAt": "2026.06.01",
+        "md": "/tech_blog/md/monthly-review-202605.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "規避 broker OpenSSL 3.0.x 殘留路徑、處理程序影響度元件四倉庫並行整理、檔案事件降低 4 千萬倍的 throttle —— 週報（2026-05-25 ~ 2026-06-01）",
+        "content": "管理器與代理組透過 abrupt close 規避解決了 Chrome 148 + OpenSSL 3.0.x 殘留路徑上的 nodeInfo 迴歸；服務端後端組完成處理程序影響度元件服務端實現（rest-api + service + migrations + package 四倉庫）、MongoDB single-node replica set 遷移與 KISA 安全編碼 20 項收尾；分析服務組推進 Baseline 日常分類服務 Sprint 1+1.5（5 條件規則 + LightGBM-ready 模式）；核心驅動組應用了將 17 萬億次累計檔案事件降低 4 千萬倍的時間基 LRU throttle。",
+        "readMinutes": "19",
+        "createdAt": "2026.06.01",
+        "md": "/tech_blog/md/weekly-review-2026-w22.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MongoDB 遷移至 single-node replica set —— 啟用事務與不停機遷移",
+        "content": "MongoDB 在 standalone 模式下無法使用多文件事務。將執行中的單節點例項轉換為 single-node replica set，無需新建叢集即可使用事務。本文以實測為準，整理安裝器冪等性、keyFile 內部認證、為 PyMongo 自動發現而選擇 rs.initiate host，以及保留生產資料的遷移過程。",
+        "readMinutes": "6",
+        "createdAt": "2026.05.27",
+        "md": "/tech_blog/md/mongodb-single-node-replica-set-transactions.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "一年間解決的問題 —— BSOD 分析器、DB Migration 體系、管理器 RBAC、核心驅動死鎖、管理器診斷工具 —— 年報（2025-05-26 ~ 2026-05-26）",
+        "content": "服務端後端組以 DB Migration v0000 baseline 體系、Python 環境 uv + 3.13 隔離網離線安裝、Mosquitto/Nginx/MongoDB 配置強化、fail2ban 與 KISA 安全驗證，對服務端架構進行了全面整備；分析服務組以伺服器監控 SNMP 五大領域、nginx 反向代理 + HTTP/2、管理器 RBAC 權限體系完善了維運基礎設施；管理器與代理組構建了 BSOD 分析器、管理器狀態面板現場診斷工具、基於 Z-score 的症狀元件通用基準與 5 類 Git/Jira 自動化評審例程；核心驅動組透過 orange.sys Driver Unload 死鎖的根本解決、MS 簽名處理程序 SL 捕獲基礎設施、檔案刪除與錯誤症狀化三軸提升了核心穩定性；規則與資料分析組以客戶資料 49 天實測及規則、分析模型的深化，奠定了偵測精度的基礎。",
+        "readMinutes": "20",
+        "createdAt": "2026.05.26",
+        "md": "/tech_blog/md/annual-review-2025-2026.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "FastAPI WebSocket 認證失敗導致 1006/1011 無限重試 —— close-before-accept 陷阱與 1008 的正確傳送",
+        "content": "在 /v3/ws/node/stats 上發生 token 過期時，rest-api 會以 `AttributeError: 'WebSocket' object has no attribute 'method'` 二次爆炸。原因有三：(1) WS 路由只捕獲 HTTPException 而漏掉 AppException；(2) 通用異常處理器假定第一個引數為 Request；(3) 在 accept 之前呼叫 close 會退化為 HTTP 403，導致 close frame 無法送達。本文整理這三個陷阱及其修復模式。",
+        "readMinutes": "8",
+        "createdAt": "2026.05.26",
+        "md": "/tech_blog/md/fastapi-websocket-close-before-accept-1006.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "DB Migration 體系、伺服器監控 SNMP 五大領域、管理器狀態面板、核心驅動死鎖 —— 季報（2026 Q2）",
+        "content": "服務端後端組鋪設了 DB Migration v0000 baseline 體系與 Python 環境 uv + 3.13 隔離網離線安裝；分析服務組透過伺服器監控 SNMP 五大領域 + 分類摺疊面板，以及 nginx 反向代理、HTTP/2 提升了伺服器效能；管理器與代理組在管理器狀態面板中內建了基於 Core Web Vitals 的現場診斷工具，並確立了基於 Z-score 的症狀元件通用狀態標籤基準；核心驅動組找到了 orange.sys Driver Unload 死鎖的真正原因（PreSetInfo 中的 ADS read）並將其移至 PostCreate，同時鋪設了 MS 簽名處理程序 SL 捕獲基礎設施。",
+        "readMinutes": "13",
+        "createdAt": "2026.05.26",
+        "md": "/tech_blog/md/quarterly-review-2026-q2.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "wasClean 的陷阱 —— WebSocket 夜間失聯與按 close code 劃分的重連、登出策略",
+        "content": "夜間，某一條 WebSocket 悄然消失。服務端日誌沒有錯誤，客戶端錯誤日誌也沒有痕跡。原因在於客戶端的 onclose 處理器只要 wasClean === true 就一律視為正常關閉。即便服務端以 WS_1011 關閉，只要握手正常，wasClean 依然為 true。本文整理按 close code 劃分的重連／登出策略與例項守衛模式。",
+        "readMinutes": "5",
+        "createdAt": "2026.05.26",
+        "md": "/tech_blog/md/websocket-wasclean-trap-reconnect.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Mosquitto 上無關節點掉線 —— OpenSSL 3.0.x record layer 缺陷（0A000123）與 abrupt close 規避",
+        "content": "只是關閉了一個元件，管理器網格中另一個毫不相干的節點卻消失了。追蹤後發現 broker 日誌出現 OpenSSL 錯誤 0A000123，且與掉線節點的時間戳一一對應。本文分析 Chrome 148 更新所暴露的 OpenSSL 3.0.x record layer 缺陷，並整理透過客戶端 abrupt close 立即規避的方法。",
+        "readMinutes": "5",
+        "createdAt": "2026.05.25",
+        "md": "/tech_blog/md/mosquitto-openssl-0a000123-abrupt-close.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "ResizeObserver loop limit exceeded —— 在多元件儀表板中用 setState 守衛切斷迴圈",
+        "content": "在 10 個以上元件各自持有 ResizeObserver 的儀表板上，會出現「ResizeObserver loop limit exceeded」指令碼錯誤。原因是四個元件即便尺寸未變也每次都呼叫 setState，在同一幀內連鎖觸發了其他元件的 ResizeObserver。本文整理同值守衛與物件引用比較守衛兩種模式。",
+        "readMinutes": "4",
+        "createdAt": "2026.05.25",
+        "md": "/tech_blog/md/resizeobserver-loop-limit-setstate-guard.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "EPROCESS SignatureLevel 為何為 0 —— Medium IL 處理程序的 MS 簽名判定侷限與 Authenticode 迂迴方案",
+        "content": "在核心驅動中讀取 SignatureLevel 以過濾微軟簽名處理程序時，連 code.exe、Teams.exe 這類 MS 簽名應用也返回 0。本文基於在 Windows 11 26100 上對 86 個新建處理程序的實測，整理 SE_SIGNING_LEVEL 與 Integrity Level 的相關性、LoadImage 回撥與 PsGetProcessSignatureLevel 的侷限，以及直接從 PE Authenticode 提取簽名者 CN 的兩階段替代方案。",
+        "readMinutes": "3",
+        "createdAt": "2026.05.20",
+        "md": "/tech_blog/md/ms-signature-filtering-se-signing-level.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "兩次筆記型電腦藍屏的真正原因 —— Intel 乙太網 D3 轉換（0x9F）與 WSL2 記憶體（0x7E）的 windbg 分析",
+        "content": "對同一檯筆記型電腦上相隔 4 小時 47 分發生的兩類藍屏，用 windbg 追蹤到底。其一是 Intel 網絡卡驅動（e1dnexpress.sys）的 D3 節能轉換失敗（DRIVER_POWER_STATE_FAILURE 0x9F），其二是 Windows 11 24H2 的 WSL2 記憶體後端（vmmemWSL）核心斷言（0x7E）。本文原樣公開 !irp、lmvm 輸出與判定過程。",
+        "readMinutes": "3",
+        "createdAt": "2026.04.29",
+        "md": "/tech_blog/md/msi-laptop-bsod-analysis.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Mosquitto 2.0「Unable to write pid file」的原因 —— 權限降級與 systemd 目錄屬主衝突",
+        "content": "Mosquitto 2.0 一讀取配置就會降權為非特權使用者。如果你已在 config 中顯式指定 user，啟動時仍出現「Unable to write pid file」錯誤，那是因為安裝時自動生成的 systemd 單元把 /run/mosquitto、/var/log/mosquitto 的屬主交給了 mosquitto 使用者。本文整理原因與解決方法。",
+        "readMinutes": "2",
+        "createdAt": "2026.04.20",
+        "md": "/tech_blog/md/mosquitto-permission-pid-file.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "遷移至 Azure AD 後既有程式故障 —— 帳戶繫結的檔案與登錄檔導致的 FILE_NOT_FOUND / ACCESS_DENIED",
+        "content": "從本機帳戶切換到 Azure AD 帳戶後出現畫面閃爍、Excel 執行異常等案例。本文說明以原帳戶權限安裝的程式在新 AD 帳戶下執行時，因按帳戶劃分的目錄與登錄檔依賴而產生 ERROR_FILE_NOT_FOUND(2)、ERROR_ACCESS_DENIED(5) 的原理，以及帳戶遷移為何棘手。",
+        "readMinutes": "2",
+        "createdAt": "2026.04.17",
+        "md": "/tech_blog/md/azure-ad-migration-app-failure.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "是哪個處理程序殺了我的程式 —— 用 ETW Kernel-Audit-API 追蹤強制終止",
+        "content": "介紹在程式突然退出時查明「是誰殺的」的方法。透過即時 ETW 會話訂閱 Windows 的 Microsoft-Windows-Kernel-Audit-API-Calls 提供程式發出的 TerminateProcess（Event 2），配對識別加害方（原因）與受害方（目標）處理程序的實現。",
+        "readMinutes": "2",
+        "createdAt": "2026.04.17",
+        "md": "/tech_blog/md/win32-process-kill-detection-etw.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "PC 卡頓（變慢）現場分析指南 —— 區分元兇處理程序與元兇驅動",
+        "content": "針對特定時段反覆出現的 PC 變慢，整理了不在現場即興判斷、而是收集全天資料後進行事後分析的系統性方法。提供涵蓋 CPU、記憶體、磁碟 I/O、GPU、網路、核心、檔案系統的完整可疑原因清單與識別工具。",
+        "readMinutes": "2",
+        "createdAt": "2026.03.30",
+        "md": "/tech_blog/md/pc-slowdown-diagnosis-guide.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "藍芽斷連的隱藏原因：電池電源策略追蹤指南",
+        "content": "從Windows電源策略和電池放電速度中找出遠端辦公時藍芽頻繁斷連的根本原因，並介紹如何使用PowerShell進行診斷。",
+        "readMinutes": "11",
+        "createdAt": "2026.03.25",
+        "md": "/tech_blog/md/bluetooth-battery-disconnect-guide.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "為 Windows 核心驅動獲取 MS 簽名（Attestation）—— 從構建到 Partner Center 提交",
+        "content": "在 Windows 10/11 上正常載入核心驅動需要微軟的簽名。本文整理 INF DriverVer 與版本資源的修改、Release 構建時目錄檔案（.cat）SHA-256 摘要校驗、.cab 生成，直至 Partner Center（Hardware）提交的完整流程。",
+        "readMinutes": "2",
+        "createdAt": "2026.03.25",
+        "md": "/tech_blog/md/windows-kernel-driver-ms-signing.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Git Flow + Jira 聯動分支策略 —— 透過 issue key 自動追蹤提交、分支與 PR",
+        "content": "整理面向團隊協作的 Git Flow 分支策略與 Jira 聯動方法。逐步介紹 main/develop/feature/hotfix/release 結構、包含 issue key（OR-xxx）的命名約定，以及從在 Jira 中建立分支與 PR 到應用至 release/main 並打標籤的完整流程。",
+        "readMinutes": "1",
+        "createdAt": "2026.02.26",
+        "md": "/tech_blog/md/git-flow-jira-branch-strategy.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "WMIPrvSE.exe 高CPU佔用原因追蹤指南",
+        "content": "詳細介紹Windows WMI Provider Host（WMIPrvSE.exe）佔用高CPU時的原因分析與解決方法，並附帶PowerShell診斷指令說明。",
+        "readMinutes": "2",
+        "createdAt": "2026.01.24",
+        "md": "/tech_blog/md/wmiprvse-high-cpu-guide.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "客戶PC效能分析報告 2",
+        "content": "這是2025年12月針對客戶17個節點的效能分析報告，綜合分析了CPU、記憶體、磁碟和控制代碼指標，並識別出記憶體佔用過高的程式。",
+        "readMinutes": "1",
+        "createdAt": "2026.01.08",
+        "md": "/tech_blog/md/pc-performance-report-2.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "客戶PC效能下降案例分析報告",
+        "content": "本報告對2025年10月客戶24臺PC中發現的198起效能下降症狀進行了分析，涵蓋檔案系統延遲、異常處理程序終止、CPU過度佔用及藍屏（BSOD）等典型案例。",
+        "readMinutes": "1",
+        "createdAt": "2025.11.17",
+        "md": "/tech_blog/md/pc-performance-report-1.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "會議室連線 HDMI 時筆記型電腦 CPU 過載與 Wi-Fi 掉線 —— Optimus（iGPU/dGPU）切換與電池供電功耗限制",
+        "content": "不接電源連線會議室 HDMI 時，筆記型電腦卡頓且 Wi-Fi 掉線的現象。在使用 RTX 4060 + Intel 核顯的高效能筆記型電腦上，HDMI 埠直連獨顯，與電池模式的功耗限制疊加導致 CPU 佔用飆升。本文梳理 Optimus 架構、電池效能限制（CPU −40%）以及 HDMI 與 Wi-Fi 干擾等成因。",
+        "readMinutes": "2",
+        "createdAt": "2025.08.29",
+        "md": "/tech_blog/md/laptop-hdmi-cpu-optimus.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "升級防毒軟體（Symantec Endpoint Protection）使端點負載下降 43% —— 49 臺裝置實測對比",
+        "content": "針對長期被視為企業 PC 頑固 CPU 佔用元兇的 SEP（Symantec Endpoint Protection），在新舊版本並存的 49 臺裝置環境中進行了為期兩週的實測對比。ccSvcHst.exe 的 CPU 從 2.29% 降至 0.65%（−71.5%），sysfer.dll 注入 OneDrive、Excel、Explorer 等所引發的附帶負載也隨之減少，SEP 相關總體影響下降 43%。文中以表格給出各版本的模組結構與 DLL 注入分佈。",
+        "readMinutes": "3",
+        "createdAt": "2025.07.11",
+        "md": "/tech_blog/md/sep-version-upgrade-cpu.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "dxgmms2.sys CPU 佔用的隱藏原因 —— 遠端控制虛擬顯示器（Mirage Driver）完整分析",
+        "content": "在 Intel 核顯 + Windows 10 舊版本環境中反覆出現的 dxgmms2.sys 異常 CPU 佔用。追蹤問題裝置的共同點後發現，原因是遠端控制程式遺留的虛擬顯示驅動（DemoForge Mirage Driver）與 WDDM 的爭用。本文原樣整理 dxgmms2.sys 的作用、Mirage Driver 的系統影響、黑屏與安全風險、安裝時點追溯以及安全解除安裝方法。",
+        "readMinutes": "4",
+        "createdAt": "2025.06.30",
+        "md": "/tech_blog/md/dxgmms2-cpu-mirage-driver.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "如何偵測 System（PID 4）的 CPU 佔用 —— 核心執行緒與驅動負載的識別方法",
+        "content": "當佔用 CPU 的主體不是普通處理程序而是核心（System，PID 4）時，該如何偵測其負載。System 是固定為 PID 4 的特殊處理程序，偵測邏輯與普通處理程序相似，但要讀取其執行緒與已載入模組，則需要核心提供的專用 API 與高權限。文中還包含實際驗證方法與現場偵測案例。",
+        "readMinutes": "1",
+        "createdAt": "2025.06.30",
+        "md": "/tech_blog/md/system-cpu-detection-pid4.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "44 臺中 28 臺發現 Mirage Driver —— 遠端控制殘留導致 dxgmms2.sys 負載的現狀調查",
+        "content": "以 WMI VideoCard 為基準對某客戶環境的 44 臺裝置進行調查，結果在 28 臺上發現處於 Degraded 狀態的 Mirage Driver（DemoForge，基於 XPDM 的虛擬顯示器）。舊版 TeamViewer、AnyDesk 遺留的殘留物會在 WDDM 環境中引發 dxgmms2.sys 不必要的輪詢與診斷負載。文中一併整理機型、GPU 與 OS 的分佈情況。",
+        "readMinutes": "2",
+        "createdAt": "2025.06.03",
+        "md": "/tech_blog/md/mirage-driver-fleet-survey.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "45 臺企業 PC 的 IT 故障綜合分析 —— CPU 佔用、強制終止與藍屏的真實原因（2025 年 5 月）",
+        "content": "對某客戶 45 臺 PC 進行 9 天常態監控，擷取並分析了 CPU 週期性佔用 289 起、異常終止 147 起、強制終止 140 起、檔案系統 22 起、藍屏 3 起。文中以定量資料呈現按 OS 構建版本與機型的發生率、各症狀的發生／原因 Top10，以及防毒軟體（ccSvcHst）、OneDrive 引發的 SharePoint 強制終止、.NET 執行時當機與網路驅動藍屏等具體案例。",
+        "readMinutes": "4",
+        "createdAt": "2025.05.23",
+        "md": "/tech_blog/md/it-incident-report-202505.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "防毒軟體（SEP）CPU 過度佔用專項分析 —— 41 臺中 17 臺（41.5%）反覆出現，模組分佈與應對建議",
+        "content": "在安裝 Orange The Client 的 41 臺端點中，有 17 臺（41.5%）出現 Symantec Endpoint Protection 相關模組反覆佔滿 1 個以上 CPU 核心的情況。本文整理 DSCli.dll、ccLib.dll、libcurl-openssl.dll、sysfer.dll、Teefer.sys 等各模組的偵測分佈與作用，以及版本升級與策略最佳化建議。",
+        "readMinutes": "2",
+        "createdAt": "2025.05.20",
+        "md": "/tech_blog/md/sep-cpu-overuse-report.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "經 USB 傳入的「萬能驅動」安裝檔案被判定為惡意的案例 —— 取證時間線完整追蹤",
+        "content": "從異常跡象——過於乾淨的桌面與回收站、USB 連線後隨即重啟——出發，擷取並分析了在文件資料夾中執行的「萬能驅動」安裝檔案（EasyDrv7）。VirusTotal 的 72 個引擎中有 8 個檢出：這是一個透過外部指令進一步下載惡意程式碼的 dropper。文中原樣整理安裝事件時間線與 UserAssist 登錄檔執行記錄的還原過程。",
+        "readMinutes": "3",
+        "createdAt": "2025.04.29",
+        "md": "/tech_blog/md/usb-malware-driver-forensic.md"
+      }
+    ]
+  },
+  {
     "language": "ja",
     "posts": [
       {
