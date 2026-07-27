@@ -24,7 +24,11 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = path.join(ROOT, 'public', 'tech_blog');
 const MD_DIR = path.join(OUT_DIR, 'md');
 
-const LANGUAGES = ['ko', 'en', 'zh', 'ja'];
+/**
+ * 'zh'는 간체다. 페이지가 언어 코드를 완전 일치 → 앞부분 일치 → en 순으로 찾으므로
+ * zh-Hans는 'zh'로, zh-Hant는 전용 항목으로 떨어진다.
+ */
+const LANGUAGES = ['ko', 'en', 'zh', 'zh-Hant', 'ja'];
 
 /** blogs의 category → 홈페이지 카드에 표시할 라벨과 색상 */
 const CATEGORIES = {

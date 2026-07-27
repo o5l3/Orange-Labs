@@ -1,37 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
-interface BlogPost {
-  category: string;
-  categoryColor: string;
-  subject: string;
-  content: string;
-  readMinutes: string;
-  createdAt: string;
-  md: string;
-}
-
-interface BlogData {
-  language: string;
-  posts: BlogPost[];
-}
-
-const localeMap: Record<string, string> = {
-  ko: 'ko-KR',
-  en: 'en-US',
-  zh: 'zh-CN',
-  ja: 'ja-JP',
-};
-
-const formatDate = (dateStr: string, lang: string): string => {
-  const date = new Date(dateStr.replace(/\./g, '-'));
-  return new Intl.DateTimeFormat(localeMap[lang] ?? 'en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(date);
-};
+import { formatDate, pickPosts, type BlogData, type BlogPost } from './blogLocale';
 
 export default function TechBlog() {
   const { t, i18n } = useTranslation();
@@ -41,18 +11,7 @@ export default function TechBlog() {
   useEffect(() => {
     fetch('/tech_blog/tech_blog.json')
       .then((res) => res.json())
-      .then((data: BlogData[]) => {
-        const lang = i18n.language.split('-')[0];
-        const matched =
-          data.find((d) => d.language === lang) ?? data.find((d) => d.language === 'en');
-        if (!matched) return;
-
-        const parseDate = (s: string) => new Date(s.replace(/\./g, '-'));
-        const sorted = [...matched.posts].sort(
-          (a, b) => parseDate(b.createdAt).getTime() - parseDate(a.createdAt).getTime(),
-        );
-        setPosts(sorted);
-      });
+      .then((data: BlogData[]) => setPosts(pickPosts(data, i18n.language)));
   }, [i18n.language]);
 
   return (
@@ -114,7 +73,7 @@ export default function TechBlog() {
             </p>
             <div className="flex items-center justify-between">
               <span className="text-xs" style={{ color: 'var(--fg-dimmer)' }}>
-                {formatDate(post.createdAt, i18n.language.split('-')[0])}
+                {formatDate(post.createdAt, i18n.language)}
               </span>
               <span
                 className="text-xs font-medium flex items-center gap-1"
