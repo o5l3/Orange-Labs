@@ -1,0 +1,181 @@
+{
+  "_comment": "blogs 저장소(_posts)의 내부용 원문을 공개 기술 블로그로 옮길 때 적용하는 정제 규칙. sync-blog.mjs가 읽는다. 적용 순서: redactions(문장 단위 치환) → dropCodeBlocks → identityMap(계정명 → 파트 라벨) → tagBlocklist. 마지막에 forbiddenPatterns로 잔류 여부를 재검사하고, 하나라도 남으면 동기화를 실패시킨다.",
+
+  "identityMap": {
+    "smahn9123": "서버 백엔드 파트",
+    "kim-tigerj": "매니저·에이전트 파트",
+    "SungWoo824": "분석 서비스 파트",
+    "wychoi-orangelabs": "커널 드라이버 파트",
+    "kimyh-orange": "룰·데이터 분석 파트",
+    "hja-orange": "프론트엔드 파트",
+    "hja": "프론트엔드 파트"
+  },
+
+  "_dropCodeBlocksComment": "첫 줄이 이 정규식과 맞는 fenced code block은 통째로 제거한다. 개인별 커밋/라인 수 통계표가 여기 해당한다. 팀 합산 수치는 표 앞 문단에 이미 산문으로 있어 유실되지 않는다.",
+  "dropCodeBlocks": ["^멤버\\s+커밋"],
+
+  "_headerRuleComment": "'## <계정명> — <주제>' 형태의 개인 섹션 헤더에서 계정명을 떼어내고 주제만 남긴다. identityMap의 키가 대상.",
+  "stripIdentityFromHeadings": true,
+
+  "_tagBlocklistComment": "frontmatter tags에서 제거할 항목. 계정명 태그가 대상.",
+  "tagBlocklist": [
+    "smahn9123",
+    "kim-tigerj",
+    "SungWoo824",
+    "wychoi-orangelabs",
+    "kimyh-orange",
+    "hja-orange",
+    "hja"
+  ],
+
+  "_authorComment": "공개본의 author는 개인 계정 대신 조직명으로 통일한다. 기존에 발행된 4개 글도 'Orange Labs'로 되어 있어 같은 규칙이다.",
+  "authorOverride": "Orange Labs",
+
+  "_redactionsComment": "기계적 치환으로는 자연스럽게 처리되지 않는 문장. 입사일·재직 상태·경력·개인별 실적 평가·고객사 실명이 대상이다. replace가 빈 문자열이면 해당 문장을 삭제한다.",
+  "redactions": [
+    {
+      "_why": "입사일 + 신규 입사자 지칭",
+      "find": "OJT 단계의 신입(`hja`, 입사 2026-05-21)은 manager-web 트레이닝 계획 단계라 활동 통계에는 포함하지 않았다.",
+      "replace": "트레이닝 계획 단계였던 manager-web 파트의 활동은 통계에 포함하지 않았다."
+    },
+    {
+      "_why": "입사일 + 신규 입사자 지칭 (백틱 없는 판본)",
+      "find": "OJT 단계의 신입(hja, 입사 2026-05-21)은 manager-web 트레이닝 계획 단계라 활동 통계에는 포함하지 않았다.",
+      "replace": "트레이닝 계획 단계였던 manager-web 파트의 활동은 통계에 포함하지 않았다."
+    },
+    {
+      "_why": "개인별 커밋 수 해명 + 입사 첫 주차 근태(출근 11일)",
+      "find": "`kimyh-orange`는 룰·고객사 분석이 본업이라 커밋 카운트로는 잡히지 않는다 — 분석 산출물은 아래 별도 섹션에 정리한다. `hja-orange`는 2026-05-21 입사 첫 주차라 출근 11일에 PR 두 건을 머지 직전까지 끌어올린 페이스로 보면 된다.",
+      "replace": "룰·데이터 분석 파트의 산출물은 코드가 아니라 커밋 수로 잡히지 않으므로, 아래 별도 섹션에 따로 정리한다."
+    },
+    {
+      "_why": "개인별 커밋 0건 평가",
+      "find": "이번 주 커밋이 없는 `kimyh-orange`는 룰·고객사 분석이 본업이라 커밋 0건이 정상이며, 아래 별도 섹션으로 분석 산출물을 정리한다.",
+      "replace": "룰·데이터 분석 파트는 산출물이 코드가 아니라 커밋 수로 잡히지 않으므로, 아래 별도 섹션으로 따로 정리한다."
+    },
+    {
+      "_why": "개인별 활동량 평가",
+      "find": "이번 주 활동이 적은 `kimyh-orange`는 룰·데이터 분석이 본업이라 GitHub 카운트 1건이 정상이며, 아래 별도 섹션에서 매니저 위젯 포팅과 분석 결정을 정리한다.",
+      "replace": "룰·데이터 분석 파트는 산출물이 코드가 아니라 GitHub 카운트로 잡히지 않으므로, 아래 별도 섹션에서 매니저 위젯 포팅과 분석 결정을 정리한다."
+    },
+    {
+      "_why": "개인별 커밋 수 해명",
+      "find": "이번 주 GitHub 커밋 0건. 룰 분석·고객사 데이터 분석가 R&R에서는 분석 산출물이 코드가 아니므로 커밋 수로 활동을 보면 안 된다.",
+      "replace": "룰·데이터 분석 R&R에서는 분석 산출물이 코드가 아니므로 커밋 수로 활동을 볼 수 없다."
+    },
+    {
+      "_why": "입사 주차 기준 섹션 제목",
+      "find": "## hja-orange — 입사 1주차에 manager-web 위젯·CI 정면 진입",
+      "replace": "## manager-web 위젯·CI 정면 진입"
+    },
+    {
+      "_why": "입사 주차 기준 섹션 제목",
+      "find": "## hja-orange — 입사 1주차 manager-web 정면 진입",
+      "replace": "## manager-web 정면 진입"
+    },
+    {
+      "_why": "입사일 + 근태(출근 일수)",
+      "find": "2026-05-21 입사. 5월 11일치 출근 만에 manager-web의 위젯·CI·빌드 영역에 정면으로 손댔다.",
+      "replace": "이 기간 manager-web의 위젯·CI·빌드 영역에 정면으로 손댔다."
+    },
+    {
+      "_why": "입사일 + 개인 경력 사항",
+      "find": "`hja-orange`는 2026-05-21 입사로 한 주 만에 manager-web 위젯·CI에 손댔다. React 19 + TypeScript · 실시간 WebSocket · npm 라이브러리 배포 경험이 그대로 산출물에 반영되는 페이스.",
+      "replace": "이번 주 manager-web 위젯·CI에 손댔다. React 19 + TypeScript · 실시간 WebSocket · npm 라이브러리 배포가 맞물린 작업이다."
+    },
+    {
+      "_why": "입사 주차 기준 실적 평가",
+      "find": "입사 1주차 작업이라기엔 코드 정리 폭도 넓다(",
+      "replace": "코드 정리 폭도 넓다("
+    },
+    {
+      "_why": "입사 주차 기준 실적 평가",
+      "find": "신입 1주차 작업으로는 manager-web의 빌드·CI 영역에 깊이 손댄 의미가 크다.",
+      "replace": "manager-web의 빌드·CI 영역에 깊이 손댄 작업이다."
+    },
+    {
+      "_why": "개인 경력 연차 + 온보딩 속도 평가",
+      "find": "OJT 계획(OR-1346)이 따로 있을 정도로 신중하게 받아들여진 R&R인데도 첫 주에 즉시 PR을 머지 가능 수준으로 끌고 가는 페이스. React/TS·실시간 WebSocket 4년 경력 기반이 그대로 보인다.",
+      "replace": "OJT 계획(OR-1346)이 따로 잡혀 있던 R&R인데도 첫 주부터 PR이 머지 가능 수준까지 올라왔다."
+    },
+    {
+      "_why": "신규 입사자 지칭 + 개인 실적 나열",
+      "find": "- **분석 가설 정렬 + 신입 첫 주차**: kimyh-orange가 영업 카운터파트를 '기능 매칭이 아니라 통증 매칭'으로 재정렬, hja-orange가 입사 11일 만에 manager-web 조직관리 위젯 전반 개편(DnD 3단계 + AG Grid 색상 일관화)과 FontAwesome Pro 제거(빌드·CI 영역)를 머지 직전까지 끌어올렸다.",
+      "replace": "- **분석 가설 정렬 + manager-web 착수**: 영업 카운터파트를 '기능 매칭이 아니라 통증 매칭'으로 재정렬했고, manager-web 조직관리 위젯 전반 개편(DnD 3단계 + AG Grid 색상 일관화)과 FontAwesome Pro 제거(빌드·CI 영역)를 머지 직전까지 끌어올렸다."
+    },
+    {
+      "_why": "신규 입사자 지칭",
+      "find": "신입의 manager-web 정면 진입",
+      "replace": "manager-web 정면 진입"
+    },
+    {
+      "_why": "입사 주차 지칭 + 개인별 커밋/라인 수",
+      "find": "입사 2주차(2026-05-21 입사)의 신입 개발자가 26커밋 +8,055/−4,131라는 규모로 한 주를 달렸다. 디자인 시스템 가이드라인을 직접 작성하고, 그 가이드라인을 다섯 위젯에 동시 적용하면서 dead code도 같이 비웠다.",
+      "replace": "디자인 시스템 가이드라인을 새로 작성하고, 그 가이드라인을 다섯 위젯에 동시 적용하면서 dead code도 같이 비운 한 주다."
+    },
+    {
+      "_why": "입사 주차 지칭 (excerpt)",
+      "find": "입사 2주차 신입 hja-orange가 Manager Web 디자인 시스템(DESIGN_SYSTEM.md)을 정립.",
+      "replace": "프론트엔드 파트가 Manager Web 디자인 시스템(DESIGN_SYSTEM.md)을 정립."
+    },
+    {
+      "_why": "개인별 커밋 수 비교 문단 전체",
+      "find": "이번 주 6명 합산 117커밋. 코드량으로는 SungWoo824 37커밋(Baseline Sprint 2 + 위젯 ACL 시맨틱 통일)과 smahn9123 34커밋(프로세스 영향도 위젯 서버 4-레포 + MQTT $SYS 4 토픽 + fail2ban HTTP jail + Rule 서브모듈 분리 + sprocess hour schema)이 양대 축이고, hja-orange 26커밋(디자인 시스템 정립 + 위젯 5종 개편 + dead code 정리)도 그에 못지않은 규모로 따라붙는다. wychoi-orangelabs는 7커밋이지만 Y_PROCESS_MESSAGE IL 파이프라인·MS 서명 자동화·BinSnap·Rule 최신화 자동화로 커널 드라이버·코드사인 인프라를 동시에 짚었다. kim-tigerj는 sprocess hourly의 stall 회귀를 28시간 #if 0 격리로 잡아내고 Agent Server 시나리오 통합으로 외부 단말 자가 복구 경로를 복원했다. kimyh-orange의 1커밋은 mockup_v6 위젯 포팅으로, 분석 R&R 본업과 함께 폐기 결정 정리가 더 큰 산출이었다.",
+      "replace": "이번 주 팀 합산 117커밋. 코드량으로는 Baseline Sprint 2 + 위젯 ACL 시맨틱 통일과, 프로세스 영향도 위젯 서버 4-레포 + MQTT $SYS 4 토픽 + fail2ban HTTP jail + Rule 서브모듈 분리 + sprocess hour schema가 양대 축이고, 디자인 시스템 정립 + 위젯 5종 개편 + dead code 정리도 그에 못지않은 규모로 따라붙는다. 커널 드라이버 파트는 Y_PROCESS_MESSAGE IL 파이프라인·MS 서명 자동화·BinSnap·Rule 최신화 자동화로 커널 드라이버·코드사인 인프라를 동시에 짚었고, 매니저·에이전트 파트는 sprocess hourly의 stall 회귀를 28시간 #if 0 격리로 잡아내고 Agent Server 시나리오 통합으로 외부 단말 자가 복구 경로를 복원했다. 룰·데이터 분석 파트는 mockup_v6 위젯 포팅과 함께 폐기 결정 정리가 더 큰 산출이었다."
+    },
+    {
+      "_why": "고객사 실명 → 익명화 (원문 다른 곳의 '한 고객사' 표기와 통일)",
+      "find": "현대해상에서",
+      "replace": "한 보험사 고객사에서"
+    },
+    {
+      "_why": "고객사 실명 → 익명화 (원문 다른 곳의 '한 국립대 고객사' 표기와 통일)",
+      "find": "순천대 고객사",
+      "replace": "한 국립대 고객사"
+    },
+    {
+      "_why": "고객사 실명 → 익명화",
+      "find": "순천대가",
+      "replace": "한 국립대 고객사가"
+    },
+    {
+      "_why": "내부 운영 도메인",
+      "find": "`o5l3.com` MongoDB",
+      "replace": "운영 MongoDB"
+    },
+    {
+      "_why": "내부 운영 도메인",
+      "find": "o5l3.com MongoDB",
+      "replace": "운영 MongoDB"
+    }
+  ],
+
+  "_particleFixesComment": "계정명이 파트 라벨로 바뀌면서 앞말의 받침이 달라져 어긋난 조사를 바로잡는다. 예: 'smahn9123이' → '서버 백엔드 파트이' → '서버 백엔드 파트가'. identityMap의 라벨을 바꾸면 이 목록도 함께 손봐야 한다.",
+  "particleFixes": [
+    { "find": "파트이 ", "replace": "파트가 " },
+    { "find": "파트은 ", "replace": "파트는 " },
+    { "find": "파트을 ", "replace": "파트를 " },
+    { "find": "파트과 ", "replace": "파트와 " },
+    { "find": "파트으로 ", "replace": "파트로 " }
+  ],
+
+  "_forbiddenPatternsComment": "정제 결과에 아래 패턴이 하나라도 남아 있으면 sync-blog.mjs가 에러로 중단한다. 주간 자동 발행으로 새 표현이 들어왔을 때 조용히 새어 나가는 대신 눈에 띄게 실패하도록 두는 안전장치.",
+  "forbiddenPatterns": [
+    "smahn9123",
+    "kim-tigerj",
+    "SungWoo824",
+    "wychoi-orangelabs",
+    "kimyh-orange",
+    "hja-orange",
+    "\\bhja\\b",
+    "입사",
+    "신입",
+    "퇴사",
+    "연봉",
+    "현대해상",
+    "순천대",
+    "o5l3\\.com",
+    "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+    "[A-Za-z]:\\\\Users\\\\[A-Za-z0-9._-]+"
+  ]
+}

@@ -1,0 +1,758 @@
+{
+  "ag-grid-comparator-version-ip-natural-sort": {
+    "en": {
+      "title": "Why IPs and Versions Sort Backwards in AG Grid — A Codebase-Wide Fix for Missing Comparators",
+      "excerpt": "Starting from a suspicion that a version column in x.x.x.x form was sorting as a string, we found the structural problem: the codebase had no AG Grid comparators at all, so every sortable column fell back to default lexicographic comparison. IP mis-sorting (192.168.1.100 ahead of 192.168.1.20) and version mis-sorting were corrected globally with octet- and segment-aware numeric comparators."
+    },
+    "zh": {
+      "title": "AG Grid 中 IP 与版本号排序颠倒的原因 —— 因缺少 comparator 导致字典序排序的全局修复",
+      "excerpt": "从怀疑 x.x.x.x 格式的版本列被当作字符串排序出发，查明了结构性问题：代码库中没有任何 AG Grid comparator，所有可排序列都依赖默认的字典序比较。通过按八位组、按段的数值比较器，全局修正了 IP 排序错误（192.168.1.100 排在 192.168.1.20 之前）与版本排序错误。"
+    },
+    "ja": {
+      "title": "AG Grid で IP・バージョンが逆順に並ぶ理由 — comparator 不在による辞書順ソートの全体修正",
+      "excerpt": "グリッドのバージョン列が x.x.x.x 形式なのに文字列としてソートされているという疑いから出発し、コードベースに AG Grid の comparator が一つも存在せず、すべてのソート列がデフォルトの辞書順比較に依存していた構造的問題を突き止めた記録。192.168.1.100 が 192.168.1.20 より前に来る IP の誤ソートとバージョンの誤ソートを、オクテット・セグメント単位の数値比較器で全体的に是正した。"
+    }
+  },
+  "airgapped-offline-system-package-lock-upgrade": {
+    "en": {
+      "title": "Version-Locking System Packages on Air-Gapped Ubuntu Servers + Offline Security Upgrades (.deb Closure Bundle + lock.json)",
+      "excerpt": "How we designed system-packages.lock.json and an ubuntu:24.04 container-based dependency closure bundle to safely apply CVE patches to nginx, redis, mongodb, and mosquitto in environments with no internet access. Build time dropped from 6.6 minutes to 49 seconds."
+    },
+    "zh": {
+      "title": "隔离网 Ubuntu 服务器的系统包版本锁定 + 离线安全升级（.deb closure 包 + lock.json）",
+      "excerpt": "介绍在无互联网的运行环境中，为安全地为 nginx、redis、mongodb、mosquitto 应用 CVE 补丁而设计的 system-packages.lock.json，以及基于 ubuntu:24.04 容器的依赖闭包打包方案。构建时间从 6.6 分钟缩短至 49 秒。"
+    },
+    "ja": {
+      "title": "閉域網 Ubuntu サーバーのシステムパッケージ版数ロック + オフラインセキュリティアップグレード（.deb closure バンドル + lock.json）",
+      "excerpt": "インターネットのない運用環境で nginx・redis・mongodb・mosquitto の CVE パッチを安全に適用するための system-packages.lock.json と、ubuntu:24.04 コンテナベースの依存 closure バンドル設計をまとめます。ビルド時間は 6.6 分から 49 秒に短縮しました。"
+    }
+  },
+  "annual-review-2025-2026": {
+    "en": {
+      "title": "A Year of Problems Solved — BSOD Analyzer, DB Migration Framework, Manager RBAC, Kernel Driver Deadlock, and Manager Diagnostics — Annual Review (2025-05-26 – 2026-05-26)",
+      "excerpt": "The server backend group overhauled the server architecture with a v0000 baseline DB migration framework, offline air-gapped installation of Python via uv + 3.13, hardened Mosquitto/Nginx/MongoDB configuration, fail2ban, and KISA security validation. The analytics service group completed the operations infrastructure with five SNMP monitoring domains, an nginx reverse proxy with HTTP/2, and the manager RBAC model. The manager/agent group delivered a BSOD analyzer, in-console field diagnostics in the manager status panel, a shared Z-score baseline for symptom widgets, and five Git/Jira automation review routines. The kernel driver group raised kernel stability along three axes — root-cause resolution of the orange.sys Driver Unload deadlock, MS signing-process SL capture infrastructure, and file deletion and error symptomization. The rules and data analytics group laid the groundwork for detection accuracy with 49 days of measured client data and refined rule and analysis models."
+    },
+    "zh": {
+      "title": "一年间解决的问题 —— BSOD 分析器、DB Migration 体系、管理器 RBAC、内核驱动死锁、管理器诊断工具 —— 年报（2025-05-26 ~ 2026-05-26）",
+      "excerpt": "服务端后端组以 DB Migration v0000 baseline 体系、Python 环境 uv + 3.13 隔离网离线安装、Mosquitto/Nginx/MongoDB 配置强化、fail2ban 与 KISA 安全验证，对服务端架构进行了全面整备；分析服务组以服务器监控 SNMP 五大领域、nginx 反向代理 + HTTP/2、管理器 RBAC 权限体系完善了运维基础设施；管理器与代理组构建了 BSOD 分析器、管理器状态面板现场诊断工具、基于 Z-score 的症状组件通用基准与 5 类 Git/Jira 自动化评审例程；内核驱动组通过 orange.sys Driver Unload 死锁的根本解决、MS 签名进程 SL 捕获基础设施、文件删除与错误症状化三轴提升了内核稳定性；规则与数据分析组以客户数据 49 天实测及规则、分析模型的深化，奠定了检测精度的基础。"
+    },
+    "ja": {
+      "title": "1 年間に解いた問題たち — BSOD 分析器・DB Migration 体系・マネージャー RBAC・カーネルドライバのデッドロック・マネージャー診断ツール — 年次レビュー（2025-05-26 ~ 2026-05-26）",
+      "excerpt": "サーバーバックエンド担当がサーバー DB Migration の v0000 baseline 体系・Python 環境 uv + 3.13 の閉域網オフラインインストール・Mosquitto/Nginx/MongoDB 設定強化・fail2ban・KISA セキュリティ検証でサーバーアーキテクチャを大整備。分析サービス担当がサーバー監視 SNMP 5 領域・nginx リバースプロキシ + HTTP/2・マネージャー RBAC 権限体系で運用基盤を完成。マネージャー・エージェント担当が BSOD 分析器、マネージャー状態パネルの現場診断ツール、Z-score ベースの症状ウィジェット共通基準、Git/Jira 自動化 5 種のレビュールーチンを敷設。カーネルドライバ担当が orange.sys Driver Unload デッドロックの根本解消・MS 署名プロセス SL キャプチャ基盤・ファイル削除・エラー症状化の 3 軸でカーネル安定性を引き上げ、ルール・データ分析担当が顧客データ 49 日の実測とルール・分析モデルの高度化で検知精度の土台を築いた 1 年。"
+    }
+  },
+  "azure-ad-migration-app-failure": {
+    "en": {
+      "title": "Existing Applications Break After an Azure AD Migration — FILE_NOT_FOUND / ACCESS_DENIED From Account-Bound Files and Registry Keys",
+      "excerpt": "Cases of screen flicker and Excel misbehavior after switching from a local account to an Azure AD account. We explain why running software installed under the previous account's privileges from a new AD account produces ERROR_FILE_NOT_FOUND (2) and ERROR_ACCESS_DENIED (5) due to per-account directory and registry dependencies — and why account migration is so awkward."
+    },
+    "zh": {
+      "title": "迁移至 Azure AD 后既有程序故障 —— 账户绑定的文件与注册表导致的 FILE_NOT_FOUND / ACCESS_DENIED",
+      "excerpt": "从本地账户切换到 Azure AD 账户后出现画面闪烁、Excel 运行异常等案例。本文说明以原账户权限安装的程序在新 AD 账户下运行时，因按账户划分的目录与注册表依赖而产生 ERROR_FILE_NOT_FOUND(2)、ERROR_ACCESS_DENIED(5) 的原理，以及账户迁移为何棘手。"
+    },
+    "ja": {
+      "title": "Azure AD 移行後に既存プログラムが動かなくなる — アカウント依存のファイル・レジストリが生む FILE_NOT_FOUND / ACCESS_DENIED",
+      "excerpt": "ローカルアカウントから Azure AD アカウントへ切り替えた後、画面のちらつきや Excel の動作不良などが発生する事例。既存アカウントの権限でインストールされたプログラムを新しい AD アカウントで実行すると、アカウントごとのディレクトリ・レジストリ依存によって ERROR_FILE_NOT_FOUND(2)・ERROR_ACCESS_DENIED(5) が出る仕組みと、アカウント移行が難しい理由をまとめます。"
+    }
+  },
+  "bluetooth-battery-disconnect-guide": {
+    "en": {
+      "title": "Hidden Causes of Bluetooth Disconnection: A Guide to Tracing Battery Power Policies",
+      "excerpt": "Discover why Bluetooth keeps disconnecting during remote work by investigating Windows power policies and battery drain rates, with step-by-step PowerShell diagnostics."
+    },
+    "zh": {
+      "title": "蓝牙断连的隐藏原因：电池电源策略追踪指南",
+      "excerpt": "从Windows电源策略和电池放电速度中找出远程办公时蓝牙频繁断连的根本原因，并介绍如何使用PowerShell进行诊断。"
+    },
+    "ja": {
+      "title": "Bluetooth切断の隠れた原因：バッテリー電源ポリシー追跡ガイド",
+      "excerpt": "在宅勤務中にBluetoothが頻繁に切断される原因をWindowsの電源ポリシーとバッテリー放電速度から探り、PowerShellで診断する方法を詳しく解説します。"
+    }
+  },
+  "chrome-major-version-impact-analysis-150-pairs": {
+    "en": {
+      "title": "Per-Chrome-Major PC Impact Analysis — Measuring Impact Across 150 (PC × Major) Pairs From 45 PCs and 9 Majors",
+      "excerpt": "We reconstructed incident and resource impact for chrome.exe across 45 PCs, 12,660 sprocess docs, and 185 days by unifying the (PC × major) pair as the single unit of data. A v6.3 dashboard design report that discards company-wide and date-wide aggregates in favor of post-14d Core 4 incident counts after each major rollout, pre/post Δ scatter plots, and an OS × major matrix."
+    },
+    "zh": {
+      "title": "Chrome 各主版本对 PC 的影响分析 —— 以 45 台 PC × 9 个主版本 = 150 组（PC × 主版本）为单位测量影响度",
+      "excerpt": "将（PC × 主版本）组合统一为单一数据单位，对某公司 chrome.exe 的 45 台 PC、12,660 条 sprocess 文档、185 天数据重新构建了事故与资源影响。这是一份 v6.3 仪表盘设计报告，废弃了公司汇总与日期汇总口径，整理了主版本引入后 14 天（post-14d）的 Core 4 事故计数、pre/post Δ 散点图，以及 OS × 主版本矩阵。"
+    },
+    "ja": {
+      "title": "Chrome メジャーバージョン別 PC 影響分析 — 45 PC × 9 メジャー = 150（PC × メジャー）ペア単位の影響度測定",
+      "excerpt": "ある企業の chrome.exe 45 PC × 12,660 sprocess docs × 185 日のデータを、（PC × メジャー）ペアを単一のデータ単位に統一して事故・資源影響を再構成しました。企業合算・日付合算の算出を廃し、メジャー導入直後 14 日（post-14d）の Core 4 事故カウント、pre/post Δ 散布図、OS × メジャーのマトリクスまで整理した v6.3 ダッシュボード設計レポートです。"
+    }
+  },
+  "docker-login-password-stdin-trailing-space": {
+    "en": {
+      "title": "The cmd echo Trap That Killed Builds With 401 After a Docker Desktop Update — A Space Before the --password-stdin Pipe",
+      "excerpt": "docker login in makepackage.bat, which had built fine for months, suddenly started failing with 401 Unauthorized. The code hadn't changed; the culprit was a trailing space that cmd's echo appended to the password. Older Docker trimmed it, but a newer version began treating it as part of the password — a small compatibility shift with large consequences."
+    },
+    "zh": {
+      "title": "Docker Desktop 更新后构建因 401 失败的 cmd echo 陷阱 —— --password-stdin 管道前的空格",
+      "excerpt": "此前一直正常构建的 makepackage.bat，其 docker login 某天开始以 401 Unauthorized 失败。代码并无改动，真凶是 cmd 的 echo 在密码末尾附加的 trailing space —— 旧版 Docker 会将其裁剪从而通过，新版本却将其视为密码的一部分，这是一处不起眼却影响重大的兼容性变化。"
+    },
+    "ja": {
+      "title": "Docker Desktop 更新後にビルドが 401 で落ちた cmd echo の罠 — --password-stdin のパイプ前の空白",
+      "excerpt": "以前は問題なくビルドできていた makepackage.bat の docker login が、ある日から 401 Unauthorized で失敗するようになりました。コードは変わっておらず、犯人は cmd の echo がパスワード末尾に付けて送っていた trailing space。旧 Docker はトリムして通していた入力が、新バージョンではパスワードの一部として扱われるようになった小さな互換性変化です。"
+    }
+  },
+  "driver-verifier-zwclose-apc-level-bsod": {
+    "en": {
+      "title": "A Kernel BSOD Exposed by Driver Verifier — Why You Must Not Call ZwClose While Holding a Lock (0xC4 IrqlZwPassive)",
+      "excerpt": "A case of 0xC4 DRIVER_VERIFIER_DETECTED_VIOLATION on driver unload with Driver Verifier (/standard /driver) enabled. WinDbg pinned it on a structural defect: ZwClose is a PASSIVE_LEVEL-only API but was being called at APC_LEVEL while a fast mutex was held. The cleanup loop was redesigned to close handles outside the lock."
+    },
+    "zh": {
+      "title": "Driver Verifier 暴露的内核 BSOD —— 为什么不能持锁调用 ZwClose（0xC4 IrqlZwPassive）",
+      "excerpt": "在启用 Driver Verifier（/standard /driver）的状态下卸载驱动时发生 0xC4 DRIVER_VERIFIER_DETECTED_VIOLATION 蓝屏的案例。通过 WinDbg 查明结构性缺陷：ZwClose 是仅限 PASSIVE_LEVEL 的 API，却在持有 fast mutex 的 APC_LEVEL 下被调用。重新设计清理循环，使句柄在锁外关闭。"
+    },
+    "ja": {
+      "title": "Driver Verifier が暴いたカーネル BSOD — ロックを保持したまま ZwClose を呼んではいけない理由（0xC4 IrqlZwPassive）",
+      "excerpt": "Driver Verifier（/standard /driver）有効状態でのドライバアンロード時に 0xC4 DRIVER_VERIFIER_DETECTED_VIOLATION の BSOD が発生した事例。ZwClose は PASSIVE_LEVEL 専用 API であるにもかかわらず、fast mutex を保持した APC_LEVEL で呼ばれていた構造的欠陥を WinDbg で究明し、ロックの外でハンドルを閉じるようクリーンアップループを再設計した記録。"
+    }
+  },
+  "dxgmms2-cpu-mirage-driver": {
+    "en": {
+      "title": "The Hidden Cause of dxgmms2.sys CPU Usage — A Full Analysis of a Remote-Control Virtual Display (Mirage Driver)",
+      "excerpt": "Recurring abnormal dxgmms2.sys CPU usage on older Windows 10 machines with Intel integrated graphics. Tracing what the affected machines had in common led to WDDM contention with a virtual display driver (DemoForge Mirage Driver) left behind by remote-control software. We cover the role of dxgmms2.sys, the Mirage Driver's system impact, black-screen and security risks, tracing the installation date, and safe removal — exactly as analyzed in the field."
+    },
+    "zh": {
+      "title": "dxgmms2.sys CPU 占用的隐藏原因 —— 远程控制虚拟显示器（Mirage Driver）完整分析",
+      "excerpt": "在 Intel 核显 + Windows 10 旧版本环境中反复出现的 dxgmms2.sys 异常 CPU 占用。追踪问题设备的共同点后发现，原因是远程控制程序遗留的虚拟显示驱动（DemoForge Mirage Driver）与 WDDM 的争用。本文原样整理 dxgmms2.sys 的作用、Mirage Driver 的系统影响、黑屏与安全风险、安装时点追溯以及安全卸载方法。"
+    },
+    "ja": {
+      "title": "dxgmms2.sys の CPU 占有に隠れた原因 — リモートコントロール用仮想ディスプレイ（Mirage Driver）の完全分析",
+      "excerpt": "Intel 内蔵グラフィックス + Windows 10 旧バージョン環境で繰り返された dxgmms2.sys の異常な CPU 占有。症状の出た端末の共通点を追跡した結果、リモートコントロールソフトが残した仮想ディスプレイドライバ（DemoForge Mirage Driver）と WDDM の競合が原因でした。dxgmms2.sys の役割、Mirage Driver のシステムへの影響、ブラックスクリーン・セキュリティリスク、インストール時期の追跡と安全な削除まで、現場の分析そのままにまとめます。"
+    }
+  },
+  "fastapi-websocket-close-before-accept-1006": {
+    "en": {
+      "title": "Infinite 1006/1011 Reconnect Loops on FastAPI WebSocket Auth Failure — The Close-Before-Accept Trap and Sending 1008 Properly",
+      "excerpt": "When a token expires on /v3/ws/node/stats, rest-api blows up a second time with `AttributeError: 'WebSocket' object has no attribute 'method'`. Three causes: (1) the WS router catches only HTTPException and misses AppException, (2) the shared exception handler assumes its first argument is a Request, and (3) calling close before accept degrades to HTTP 403 so the close frame is never delivered. We cover all three traps and the fix pattern for each."
+    },
+    "zh": {
+      "title": "FastAPI WebSocket 认证失败导致 1006/1011 无限重试 —— close-before-accept 陷阱与 1008 的正确发送",
+      "excerpt": "在 /v3/ws/node/stats 上发生 token 过期时，rest-api 会以 `AttributeError: 'WebSocket' object has no attribute 'method'` 二次爆炸。原因有三：(1) WS 路由只捕获 HTTPException 而漏掉 AppException；(2) 通用异常处理器假定第一个参数为 Request；(3) 在 accept 之前调用 close 会退化为 HTTP 403，导致 close frame 无法送达。本文整理这三个陷阱及其修复模式。"
+    },
+    "ja": {
+      "title": "FastAPI WebSocket の認証失敗で 1006/1011 の無限リトライ — close-before-accept の罠と 1008 の正しい送信",
+      "excerpt": "/v3/ws/node/stats でトークン期限切れが起きると、rest-api が `AttributeError: 'WebSocket' object has no attribute 'method'` で二次的に破綻します。原因は (1) WS ルーターが HTTPException しか catch せず AppException を捕まえられない、(2) 共通例外ハンドラが第 1 引数を Request と想定している、(3) accept 前の close 呼び出しが HTTP 403 に落ちて close frame が届かない、の 3 点。これらの罠とその修正パターンをまとめます。"
+    }
+  },
+  "git-flow-jira-branch-strategy": {
+    "en": {
+      "title": "A Git Flow + Jira Branch Strategy — Automatically Tracking Commits, Branches, and PRs by Issue Key",
+      "excerpt": "A Git Flow–based branching strategy for team collaboration, together with Jira integration. Covers the main/develop/feature/hotfix/release structure, naming conventions that embed the issue key (OR-xxx), and the full flow step by step — from creating branches and PRs in Jira through applying to release/main and tagging."
+    },
+    "zh": {
+      "title": "Git Flow + Jira 联动分支策略 —— 通过 issue key 自动追踪提交、分支与 PR",
+      "excerpt": "整理面向团队协作的 Git Flow 分支策略与 Jira 联动方法。逐步介绍 main/develop/feature/hotfix/release 结构、包含 issue key（OR-xxx）的命名约定，以及从在 Jira 中创建分支与 PR 到应用至 release/main 并打标签的完整流程。"
+    },
+    "ja": {
+      "title": "Git Flow + Jira 連携ブランチ戦略 — イシューキーでコミット・ブランチ・PR を自動追跡する",
+      "excerpt": "チーム協業のための Git Flow ベースのブランチ戦略と Jira 連携方法をまとめます。main/develop/feature/hotfix/release の構成、イシューキー（OR-xxx）を含む命名規約、Jira でのブランチ・PR 作成から release/main への適用・タグ付けまでの全体フローを段階的に扱います。"
+    }
+  },
+  "handle-leak-detection-fmservice64": {
+    "en": {
+      "title": "Measuring a Handle Leak in the Field — 16.71 Million Handles in Fingerprint Security Software (FMService64) and Detecting Memory-Heavy Processes",
+      "excerpt": "A field report: hourly sprocess metrics aggregated by the agent surfaced two anomalous processes at 3GB of memory and 16.71 million handles. Cross-verification with LiveAgent, Task Manager, and wmic identified a handle leak in fingerprint recognition security software."
+    },
+    "zh": {
+      "title": "句柄泄漏实测分析 —— 指纹识别安全软件（FMService64）的 1,671 万句柄与内存过量进程检测",
+      "excerpt": "代理按 1 小时汇总的 sprocess 指标中发现内存 3GB、句柄 1,671 万的两个异常进程，通过 LiveAgent、任务管理器与 wmic 交叉验证，查明为指纹识别安全软件的句柄泄漏的实测报告。"
+    },
+    "ja": {
+      "title": "ハンドルリークの実測分析 — 指紋認証セキュリティ SW（FMService64）の 1,671 万ハンドルとメモリ過多プロセスの検出",
+      "excerpt": "エージェントが 1 時間単位で集計した sprocess 指標から、メモリ 3GB・ハンドル 1,671 万という異常プロセス 2 件を発見し、LiveAgent・タスクマネージャー・wmic で相互検証して指紋認証セキュリティ SW のハンドルリークを究明した実測レポート。"
+    }
+  },
+  "it-incident-report-202505": {
+    "en": {
+      "title": "A Comprehensive IT Incident Analysis Across 45 Corporate PCs — The Real Causes of CPU Usage, Forced Termination, and Blue Screens (May 2025)",
+      "excerpt": "Nine days of continuous monitoring across 45 client PCs collected and analyzed 289 periodic CPU usage events, 147 abnormal terminations, 140 forced terminations, 22 file system events, and 3 blue screens. We present quantitative data on incidence by OS build and model, the top 10 occurrences and causes per symptom, and specific cases — antivirus (ccSvcHst), OneDrive's SharePoint forced terminations, .NET runtime crashes, and a network driver BSOD."
+    },
+    "zh": {
+      "title": "45 台企业 PC 的 IT 故障综合分析 —— CPU 占用、强制终止与蓝屏的真实原因（2025 年 5 月）",
+      "excerpt": "对某客户 45 台 PC 进行 9 天常态监控，采集并分析了 CPU 周期性占用 289 起、异常终止 147 起、强制终止 140 起、文件系统 22 起、蓝屏 3 起。文中以定量数据呈现按 OS 构建版本与机型的发生率、各症状的发生／原因 Top10，以及杀毒软件（ccSvcHst）、OneDrive 引发的 SharePoint 强制终止、.NET 运行时崩溃与网络驱动蓝屏等具体案例。"
+    },
+    "ja": {
+      "title": "企業 PC 45 台の IT 障害総合分析 — CPU 占有・強制終了・ブルースクリーンの実際の原因（2025 年 5 月）",
+      "excerpt": "ある顧客の PC 45 台を 9 日間常時モニタリングし、CPU の周期的占有 289 件、異常終了 147 件、強制終了 140 件、ファイルシステム 22 件、ブルースクリーン 3 件を収集・分析しました。OS ビルド・機種別の発生率、症状別の発生／原因 Top10、ウイルス対策ソフト（ccSvcHst）・OneDrive による SharePoint の強制終了・.NET ランタイムのクラッシュ・ネットワークドライバの BSOD まで、定量データで提示します。"
+    }
+  },
+  "kernel-driver-puid-windows-startkey": {
+    "en": {
+      "title": "A Process Identifier That Beats PID Reuse — Moving the Kernel Driver's PUID to the Windows StartKey",
+      "excerpt": "Using TargetProcessStartKey, discovered in KillProcess detection logs, as the lead: a kernel driver implementation note on replacing a PUID built from a 32-bit hash of path, boot ID, and PID with the 64-bit StartKey that Windows assigns to every process — resolving identification failures for short-lived processes."
+    },
+    "zh": {
+      "title": "战胜 PID 复用的进程唯一编号 —— 将内核驱动的 PUID 切换为 Windows StartKey",
+      "excerpt": "以 KillProcess 检测日志中发现的 TargetProcessStartKey 为线索，将原本由路径、启动 ID 与 PID 组合成 32 位哈希的 PUID，改为 Windows 为每个进程分配的 64 位 StartKey，从而解决短生命周期进程识别失败问题的内核驱动实现记录。"
+    },
+    "ja": {
+      "title": "PID 再利用に打ち勝つプロセス固有番号 — カーネルドライバの PUID を Windows StartKey へ移行",
+      "excerpt": "KillProcess 検知ログで見つけた TargetProcessStartKey を手がかりに、パス・起動 ID・PID の組み合わせによる 32 ビットハッシュで生成していた PUID を、Windows がプロセスごとに付与する 64 ビットの StartKey に置き換え、短命プロセスの識別失敗を解決したカーネルドライバ実装の記録。"
+    }
+  },
+  "kernel-handle-leak-seh-finally-process-exit-callback": {
+    "en": {
+      "title": "Tracking a Kernel Driver Handle Leak — Why __finally Doesn't Run in a Process Exit Callback",
+      "excerpt": "Tracing an ObHn process handle leak caught by WinDbg's !htrace. We analyze — through the lens of kernel SEH, IRQL, and object lifetime — why a handle opened with ZwOpenProcess inside the process exit callback (ProcessNotifyCallbackRoutineEx) was never closed because the SEH __finally block did not execute, and how deferring the work to a WorkItem resolved it."
+    },
+    "zh": {
+      "title": "内核驱动句柄泄漏追踪 —— 进程退出回调中 __finally 不执行的原因",
+      "excerpt": "追踪 WinDbg !htrace 捕获的 ObHn 进程句柄泄漏。从内核 SEH、IRQL 与对象生命周期的角度分析：在进程退出回调（ProcessNotifyCallbackRoutineEx）中用 ZwOpenProcess 打开的句柄，因 SEH __finally 未执行而未被关闭的根本原因，以及通过 WorkItem 延迟执行加以解决的全过程。"
+    },
+    "ja": {
+      "title": "カーネルドライバのハンドルリーク追跡 — プロセス終了コールバックで __finally が実行されない理由",
+      "excerpt": "WinDbg の !htrace で捕捉された ObHn プロセスハンドルリークを追跡した記録。プロセス終了コールバック（ProcessNotifyCallbackRoutineEx）内で ZwOpenProcess により開いたハンドルが、SEH __finally の未実行によって閉じられない根本原因をカーネル SEH・IRQL・オブジェクト寿命の観点から分析し、WorkItem による遅延実行で解決するまでの過程。"
+    }
+  },
+  "kernel-message-commandline-4kb-cap-message-drop": {
+    "en": {
+      "title": "A Long Command Line Swallows the Whole Process Event — Capping Kernel Messages at 4KB to Stop 12KB Drops",
+      "excerpt": "A kernel driver implementation note on fixing kernel messages for processes with long command lines that exceeded MAX_FILTER_MESSAGE_SIZE (12KB) and were dropped entirely — solved by truncating only the command line to 4KB through a UNICODE_STRING view, with no additional memory allocation."
+    },
+    "zh": {
+      "title": "过长的命令行吞掉整个进程事件 —— 用 4KB 内核消息上限阻止 12KB 丢弃",
+      "excerpt": "命令行过长的进程，其内核消息会超过 MAX_FILTER_MESSAGE_SIZE（12KB）而被整条丢弃。本文记录了在不额外分配内存的前提下，通过 UNICODE_STRING view 仅将命令行截断至 4KB 来解决该问题的内核驱动实现。"
+    },
+    "ja": {
+      "title": "長いコマンドラインがプロセスイベントを丸ごと飲み込む — カーネルメッセージ 4KB 上限で 12KB ドロップを防ぐ",
+      "excerpt": "コマンドラインが長いプロセスのカーネルメッセージが MAX_FILTER_MESSAGE_SIZE（12KB）を超えて丸ごとドロップされていた問題を、追加のメモリ確保なしに UNICODE_STRING view でコマンドラインのみ 4KB に切り詰めて解決したカーネルドライバ実装の記録。"
+    }
+  },
+  "laptop-hdmi-cpu-optimus": {
+    "en": {
+      "title": "Laptop CPU Overload and Wi-Fi Drops on Meeting-Room HDMI — Optimus (iGPU/dGPU) Switching and Battery Power Limits",
+      "excerpt": "Plug into a meeting-room HDMI without AC power and the laptop stutters while Wi-Fi drops. On high-performance laptops with an RTX 4060 plus Intel iGPU, the HDMI port is wired directly to the dGPU, so it collides with battery-mode power limits and CPU usage spikes. We cover the Optimus architecture, battery performance limiting (CPU −40%), and HDMI–Wi-Fi interference."
+    },
+    "zh": {
+      "title": "会议室连接 HDMI 时笔记本 CPU 过载与 Wi-Fi 掉线 —— Optimus（iGPU/dGPU）切换与电池供电功耗限制",
+      "excerpt": "不接电源连接会议室 HDMI 时，笔记本卡顿且 Wi-Fi 掉线的现象。在使用 RTX 4060 + Intel 核显的高性能笔记本上，HDMI 端口直连独显，与电池模式的功耗限制叠加导致 CPU 占用飙升。本文梳理 Optimus 架构、电池性能限制（CPU −40%）以及 HDMI 与 Wi-Fi 干扰等成因。"
+    },
+    "ja": {
+      "title": "会議室で HDMI 接続するとノート PC の CPU が過負荷になり Wi-Fi が切れる — Optimus（iGPU/dGPU）切替とバッテリー電力制限",
+      "excerpt": "電源に繋がずに会議室の HDMI へ接続すると、ノート PC がもたつき Wi-Fi が切れる現象。RTX 4060 + Intel iGPU を使う高性能ノート PC では HDMI ポートが dGPU 直結のため、バッテリーモードの電力制限と噛み合って CPU 使用率が跳ね上がります。Optimus の構造、バッテリー性能制限（CPU −40%）、HDMI と Wi-Fi の干渉まで原因をまとめます。"
+    }
+  },
+  "mirage-driver-fleet-survey": {
+    "en": {
+      "title": "Mirage Driver Found on 28 of 44 Machines — A Fleet Survey of How Remote-Control Leftovers Create dxgmms2.sys Load",
+      "excerpt": "A WMI VideoCard–based survey of 44 machines in one client environment found the Mirage Driver (DemoForge, an XPDM-based virtual display) in a Degraded state on 28 of them. Leftovers from older TeamViewer and AnyDesk installations trigger unnecessary polling and diagnostic load in dxgmms2.sys under WDDM. Presented alongside the distribution by model, GPU, and OS."
+    },
+    "zh": {
+      "title": "44 台中 28 台发现 Mirage Driver —— 远程控制残留导致 dxgmms2.sys 负载的现状调查",
+      "excerpt": "以 WMI VideoCard 为基准对某客户环境的 44 台设备进行调查，结果在 28 台上发现处于 Degraded 状态的 Mirage Driver（DemoForge，基于 XPDM 的虚拟显示器）。旧版 TeamViewer、AnyDesk 遗留的残留物会在 WDDM 环境中引发 dxgmms2.sys 不必要的轮询与诊断负载。文中一并整理机型、GPU 与 OS 的分布情况。"
+    },
+    "ja": {
+      "title": "44 台中 28 台で見つかった Mirage Driver — リモートコントロールの残骸が dxgmms2.sys の負荷を生む現況調査",
+      "excerpt": "ある顧客環境の 44 台を WMI VideoCard 基準で調査した結果、28 台で Mirage Driver（DemoForge、XPDM ベースの仮想ディスプレイ）が Degraded 状態で見つかりました。旧バージョンの TeamViewer・AnyDesk が残した残骸が、WDDM 環境で dxgmms2.sys の不要なポーリング・診断負荷を引き起こします。機種・GPU・OS の分布とあわせてまとめます。"
+    }
+  },
+  "mongodb-single-node-replica-set-transactions": {
+    "en": {
+      "title": "Migrating MongoDB to a Single-Node Replica Set — Enabling Transactions With Zero Downtime",
+      "excerpt": "MongoDB cannot use multi-document transactions in standalone mode. Converting a live single-node instance to a single-node replica set enables them without standing up a new cluster. We cover installer idempotency, keyFile internal auth, choosing the rs.initiate host so PyMongo can auto-discover it, and a migration that preserves production data — all backed by real measurements."
+    },
+    "zh": {
+      "title": "MongoDB 迁移至 single-node replica set —— 启用事务与不停机迁移",
+      "excerpt": "MongoDB 在 standalone 模式下无法使用多文档事务。将运行中的单节点实例转换为 single-node replica set，无需新建集群即可使用事务。本文以实测为准，整理安装器幂等性、keyFile 内部认证、为 PyMongo 自动发现而选择 rs.initiate host，以及保留生产数据的迁移过程。"
+    },
+    "ja": {
+      "title": "MongoDB の single-node replica set 移行 — トランザクション有効化と無停止マイグレーション",
+      "excerpt": "MongoDB は standalone モードではマルチドキュメントトランザクションを使えません。稼働中の単一ノードインスタンスを、新たにクラスタを立てることなく single-node replica set へ移行すればトランザクションが使えるようになります。インストーラの冪等性、keyFile internal auth、PyMongo の自動発見のための rs.initiate host 選択、運用データを保全するマイグレーションまで実測ベースでまとめます。"
+    }
+  },
+  "monthly-review-202605": {
+    "en": {
+      "title": "Four-Repo Implementation of the Process-Impact Widget, Migration to MongoDB Transaction Infrastructure, and a 40-Million-Fold File Event Throttle — Monthly Review (2026-05)",
+      "excerpt": "The server backend group bundled the process-impact widget server (rest-api + service + migrations + package), the MongoDB single-node replica set migration, KISA secure-coding Phases 1–3 across 20 findings, and fail2ban integration. The analytics service group advanced the manager RBAC model (endpoint, widget, and feature ACL axes) alongside Baseline classification Sprint 1+1.5 (five-condition rules + LightGBM-ready). The manager/agent group excised the p18 Agent UI left over from the c3→c4 split and traced a broker OpenSSL residual path and two MSI laptop BSODs in WinDbg. The kernel driver group rolled out a time-based LRU throttle cutting 17 trillion cumulative file events by a factor of 40 million."
+    },
+    "zh": {
+      "title": "进程影响度组件四仓库并行实现、迁移至 MongoDB 事务基础设施、文件事件降低 4 千万倍的 throttle —— 月报（2026-05）",
+      "excerpt": "服务端后端组整合了进程影响度组件服务端（rest-api + service + migrations + package）、MongoDB single-node replica set 迁移、KISA 安全编码 20 项 Phase 1~3 以及 fail2ban 集成；分析服务组同时推进管理器 RBAC 权限体系（端点、组件、功能 ACL 三轴）与 Baseline 日常分类服务 Sprint 1+1.5（5 条件规则 + LightGBM-ready）；管理器与代理组从安装包中剥离了 c3→c4 拆分遗留的 p18 Agent UI，并用 windbg 追踪了 broker OpenSSL 残留路径与 MSI 笔记本蓝屏两个案例；内核驱动组正式应用了将 17 万亿次累计文件事件降低 4 千万倍的时间基 LRU throttle。"
+    },
+    "ja": {
+      "title": "プロセス影響度ウィジェットの 4 リポジトリ同時実装、MongoDB トランザクション基盤への移行、ファイルイベント 4 千万分の 1 削減 throttle — 月次レビュー（2026-05）",
+      "excerpt": "サーバーバックエンド担当がプロセス影響度ウィジェットのサーバー（rest-api + service + migrations + package）・MongoDB single-node replica set 移行・KISA セキュアコーディング 20 件の Phase 1〜3・fail2ban 統合をまとめ、分析サービス担当がマネージャー RBAC 権限体系（エンドポイント・ウィジェット・機能 ACL の 3 軸）と Baseline 日常分類サービス Sprint 1+1.5（5 条件ルール + LightGBM-ready）を同時に進行。マネージャー・エージェント担当が c3→c4 分離の名残である p18 Agent UI をパッケージから切り出し、broker の OpenSSL 残存経路と MSI ノート PC の BSOD 2 件を windbg で追跡。カーネルドライバ担当が 17 兆回の累計ファイルイベントを 4 千万分の 1 に削減する時間ベース LRU throttle を本格適用した一か月。"
+    }
+  },
+  "mosquitto-openssl-0a000123-abrupt-close": {
+    "en": {
+      "title": "Unrelated Nodes Drop Off Mosquitto — An OpenSSL 3.0.x Record Layer Bug (0A000123) and the Abrupt-Close Workaround",
+      "excerpt": "You close one widget and an entirely unrelated node vanishes from the manager grid. Tracing it, the broker log shows OpenSSL error 0A000123, matching the dropped node's timestamp one-to-one. We analyze the OpenSSL 3.0.x record layer bug that the Chrome 148 update exposed, and how a client-side abrupt close works around it immediately."
+    },
+    "zh": {
+      "title": "Mosquitto 上无关节点掉线 —— OpenSSL 3.0.x record layer 缺陷（0A000123）与 abrupt close 规避",
+      "excerpt": "只是关闭了一个组件，管理器网格中另一个毫不相干的节点却消失了。追踪后发现 broker 日志出现 OpenSSL 错误 0A000123，且与掉线节点的时间戳一一对应。本文分析 Chrome 148 更新所暴露的 OpenSSL 3.0.x record layer 缺陷，并整理通过客户端 abrupt close 立即规避的方法。"
+    },
+    "ja": {
+      "title": "Mosquitto で無関係なノードが切れる — OpenSSL 3.0.x record layer バグ（0A000123）と abrupt close による回避",
+      "excerpt": "ウィジェットを 1 つ閉じただけなのに、無関係な別のノードがマネージャーのグリッドから消えます。追跡すると broker のログに OpenSSL エラー 0A000123 が出ており、切断されたノードのタイムスタンプと 1 対 1 で一致します。Chrome 148 のアップデートが露呈させた OpenSSL 3.0.x record layer のバグを分析し、クライアント側の abrupt close で即座に回避する方法をまとめます。"
+    }
+  },
+  "mosquitto-permission-pid-file": {
+    "en": {
+      "title": "Why Mosquitto 2.0 Says 'Unable to Write pid File' — Privilege Drop vs. systemd Directory Ownership",
+      "excerpt": "Mosquitto 2.0 drops to an unprivileged user as soon as it reads its configuration. If you get 'Unable to write pid file' at startup even though you set user explicitly in the config, it's because the systemd unit generated during installation hands ownership of /run/mosquitto and /var/log/mosquitto to the mosquitto user. We cover the cause and the fix."
+    },
+    "zh": {
+      "title": "Mosquitto 2.0「Unable to write pid file」的原因 —— 权限降级与 systemd 目录属主冲突",
+      "excerpt": "Mosquitto 2.0 一读取配置就会降权为非特权用户。如果你已在 config 中显式指定 user，启动时仍出现「Unable to write pid file」错误，那是因为安装时自动生成的 systemd 单元把 /run/mosquitto、/var/log/mosquitto 的属主交给了 mosquitto 用户。本文整理原因与解决方法。"
+    },
+    "ja": {
+      "title": "Mosquitto 2.0 の「Unable to write pid file」の原因 — 権限降格と systemd のディレクトリ所有権の衝突",
+      "excerpt": "Mosquitto 2.0 は設定を読み込むとすぐに非特権ユーザーへ権限を下げます。config で user を明示的に指定しているのに起動時に「Unable to write pid file」エラーが出る場合、インストール時に自動生成された systemd ユニットが /run/mosquitto・/var/log/mosquitto の所有権を mosquitto ユーザーへ移しているためです。原因と解決をまとめます。"
+    }
+  },
+  "ms-signature-filtering-se-signing-level": {
+    "en": {
+      "title": "Why EPROCESS SignatureLevel Is Zero — The Limits of MS Signature Detection for Medium-IL Processes, and an Authenticode Workaround",
+      "excerpt": "Read SignatureLevel from a kernel driver to filter Microsoft-signed processes and even MS-signed apps like code.exe and Teams.exe come back as 0. Based on measurements across 86 new processes on Windows 11 26100, we cover the correlation between SE_SIGNING_LEVEL and Integrity Level, the limits of the LoadImage callback and PsGetProcessSignatureLevel, and a two-stage alternative that extracts the signer CN directly from the PE Authenticode data."
+    },
+    "zh": {
+      "title": "EPROCESS SignatureLevel 为何为 0 —— Medium IL 进程的 MS 签名判定局限与 Authenticode 迂回方案",
+      "excerpt": "在内核驱动中读取 SignatureLevel 以过滤微软签名进程时，连 code.exe、Teams.exe 这类 MS 签名应用也返回 0。本文基于在 Windows 11 26100 上对 86 个新建进程的实测，整理 SE_SIGNING_LEVEL 与 Integrity Level 的相关性、LoadImage 回调与 PsGetProcessSignatureLevel 的局限，以及直接从 PE Authenticode 提取签名者 CN 的两阶段替代方案。"
+    },
+    "ja": {
+      "title": "EPROCESS の SignatureLevel はなぜ 0 なのか — Medium IL プロセスにおける MS 署名判別の限界と Authenticode による回避",
+      "excerpt": "カーネルドライバで Microsoft 署名プロセスをフィルタリングしようと SignatureLevel を読むと、code.exe・Teams.exe のような MS 署名アプリでさえ 0 が返ります。Windows 11 26100 で新規プロセス 86 個を実測して確認した SE_SIGNING_LEVEL と Integrity Level の相関、LoadImage コールバック・PsGetProcessSignatureLevel の限界、そして PE Authenticode から署名者 CN を直接抽出する 2 段階の代替案をまとめます。"
+    }
+  },
+  "msi-laptop-bsod-analysis": {
+    "en": {
+      "title": "The Real Causes of Two Laptop Blue Screens — Intel Ethernet D3 Transition (0x9F) and WSL2 Memory (0x7E) in WinDbg",
+      "excerpt": "We traced two different blue screens that hit the same laptop 4 hours and 47 minutes apart all the way down in WinDbg. One was a failed D3 power transition in the Intel NIC driver (e1dnexpress.sys) — DRIVER_POWER_STATE_FAILURE 0x9F; the other was a kernel assertion in Windows 11 24H2's WSL2 memory backing (vmmemWSL) — 0x7E. We publish the !irp and lmvm output and the reasoning behind each verdict as-is."
+    },
+    "zh": {
+      "title": "两次笔记本蓝屏的真正原因 —— Intel 以太网 D3 转换（0x9F）与 WSL2 内存（0x7E）的 windbg 分析",
+      "excerpt": "对同一台笔记本上相隔 4 小时 47 分发生的两类蓝屏，用 windbg 追踪到底。其一是 Intel 网卡驱动（e1dnexpress.sys）的 D3 节能转换失败（DRIVER_POWER_STATE_FAILURE 0x9F），其二是 Windows 11 24H2 的 WSL2 内存后端（vmmemWSL）内核断言（0x7E）。本文原样公开 !irp、lmvm 输出与判定过程。"
+    },
+    "ja": {
+      "title": "ノート PC のブルースクリーン 2 件の真の原因 — Intel イーサネットの D3 遷移（0x9F）と WSL2 メモリ（0x7E）の windbg 分析",
+      "excerpt": "同じノート PC で 4 時間 47 分の間隔で発生した 2 種類のブルースクリーンを windbg で最後まで追跡しました。1 つは Intel NIC ドライバ（e1dnexpress.sys）の D3 省電力遷移の失敗（DRIVER_POWER_STATE_FAILURE 0x9F）、もう 1 つは Windows 11 24H2 の WSL2 メモリバッキング（vmmemWSL）のカーネルアサーション（0x7E）でした。!irp・lmvm の出力と原因判定の過程をそのまま公開します。"
+    }
+  },
+  "ohlc-candle-continuity-open-init": {
+    "en": {
+      "title": "Why Load-Metric OHLC Candles Don't Connect — Fixing Bucket Rollover to Carry the Previous Close",
+      "excerpt": "While visualizing node load as OHLC candles, we found the open of each candle jumping instead of continuing from the previous one. On a 5-minute bucket rollover, open was being set to the new bucket's first sample; we changed it to carry the previous bucket's close and corrected high/low initialization to seed from the new open."
+    },
+    "zh": {
+      "title": "负载指标 K 线（OHLC）不连续的原因 —— 修正分桶切换使开盘价承接前一收盘价",
+      "excerpt": "在将节点负载可视化为 OHLC K 线时，发现相邻 K 线的开盘价不连续而出现跳变。5 分钟分桶切换时，open 取的是新桶的首个采样值；改为承接前一桶的收盘价，并将 high/low 的初始化基准修正为新桶的 open。"
+    },
+    "ja": {
+      "title": "負荷指標ローソク足（OHLC）が連続しない理由 — 始値を直前の終値に繋ぐバケット切替の修正",
+      "excerpt": "ノード負荷を OHLC ローソク足で可視化する中で、足と足の始値が繋がらず跳ねる不具合を発見した記録。5 分バケット切替時に open を新バケットの最初の実測値としていたのを直前バケットの終値に繋ぐよう変更し、high/low の初期化基準も新バケットの open に修正した。"
+    }
+  },
+  "pc-performance-report-1": {
+    "en": {
+      "title": "Client PC Performance Degradation Case Analysis Report",
+      "excerpt": "A report analyzing 198 performance degradation symptoms found across 24 client PCs in October 2025, covering cases such as file system delays, abnormal process terminations, excessive CPU usage, and BSOD."
+    },
+    "zh": {
+      "title": "客户PC性能下降案例分析报告",
+      "excerpt": "本报告对2025年10月客户24台PC中发现的198起性能下降症状进行了分析，涵盖文件系统延迟、异常进程终止、CPU过度占用及蓝屏（BSOD）等典型案例。"
+    },
+    "ja": {
+      "title": "顧客PC性能低下事例分析レポート",
+      "excerpt": "2025年10月に顧客の24台のPCで発見された198件の性能低下症状を分析したレポートです。ファイルシステムの遅延、異常なプロセス終了、CPU過負荷、BSODなどの事例を取り上げています。"
+    }
+  },
+  "pc-performance-report-2": {
+    "en": {
+      "title": "Client PC Performance Analysis Report 2",
+      "excerpt": "A performance analysis report covering 17 client nodes in December 2025. Provides a comprehensive review of CPU, memory, disk, and handle metrics, and identifies programs with excessive memory consumption."
+    },
+    "zh": {
+      "title": "客户PC性能分析报告 2",
+      "excerpt": "这是2025年12月针对客户17个节点的性能分析报告，综合分析了CPU、内存、磁盘和句柄指标，并识别出内存占用过高的程序。"
+    },
+    "ja": {
+      "title": "顧客PC性能分析レポート 2",
+      "excerpt": "2025年12月、顧客の17ノードを対象とした性能分析レポートです。CPU・メモリ・ディスク・ハンドルのメトリクスを総合的に分析し、メモリを過剰消費するプログラムを特定します。"
+    }
+  },
+  "pc-slowdown-diagnosis-guide": {
+    "en": {
+      "title": "A Field Guide to Diagnosing PC Slowdowns — Telling a Culprit Process From a Culprit Driver",
+      "excerpt": "A systematic method for recurring, time-of-day PC slowdowns: instead of guessing on the spot, collect a full day of data and analyze it after the fact. Includes a complete checklist of suspects — CPU, memory, disk I/O, GPU, network, kernel, and file system — along with the tools to identify each."
+    },
+    "zh": {
+      "title": "PC 卡顿（变慢）现场分析指南 —— 区分元凶进程与元凶驱动",
+      "excerpt": "针对特定时段反复出现的 PC 变慢，整理了不在现场即兴判断、而是收集全天数据后进行事后分析的系统性方法。提供涵盖 CPU、内存、磁盘 I/O、GPU、网络、内核、文件系统的完整可疑原因清单与识别工具。"
+    },
+    "ja": {
+      "title": "PC のもたつき（遅延）現場分析ガイド — 原因プロセスと原因ドライバを切り分ける",
+      "excerpt": "特定の時間帯に繰り返される PC の遅さを現場で即興判断せず、1 日分のデータをすべて収集して事後分析する体系的な方法をまとめました。CPU・メモリ・ディスク I/O・GPU・ネットワーク・カーネル・ファイルシステムまで、疑わしい原因の全体チェックリストと識別ツールを提示します。"
+    }
+  },
+  "process-cpu-accuracy-kernel-timestamp-puid": {
+    "en": {
+      "title": "Improving CPU Measurement Accuracy for Short-Lived Processes — Kernel/Agent Clock Sync and the PID→PUID Switch",
+      "excerpt": "A kernel driver and agent troubleshooting note on hourly continuous sprocess transmission, where CPU values for short-lived processes were discarded as zero or over-counted. Fixed by having the kernel read and send process and system time at the same instant, and by switching the identity key from PID to PUID."
+    },
+    "zh": {
+      "title": "短生命周期进程 CPU 测量精度改进 —— 内核与代理时钟同步及 PID→PUID 切换",
+      "excerpt": "在 1 小时周期的 sprocess 常态传输中，短生命周期进程的 CPU 值会被当作 0 丢弃或被过度计算。本文记录了通过让内核在同一时点同时读取并发送进程时间与系统时间，并将识别基准由 PID 改为 PUID 来解决该问题的内核驱动与代理排障过程。"
+    },
+    "ja": {
+      "title": "短命プロセスの CPU 測定精度改善 — カーネル・エージェント間の時刻同期と PID→PUID 移行",
+      "excerpt": "1 時間周期の sprocess 常時送信において、寿命の短いプロセスの CPU 値が 0 として捨てられたり過大計上されたりしていた問題を、カーネルがプロセス時間とシステム時間を同一時点でまとめて読み取り送信し、識別基準を PID から PUID に変更することで解決したカーネルドライバ・エージェントのトラブルシューティング記録。"
+    }
+  },
+  "process-impact-analysis-ahnlab-77-nodes": {
+    "en": {
+      "title": "Impact Analysis of a New Software Rollout — Measuring How 980 AhnLab Processes Affected Resources and Symptoms Across 77 Company PCs",
+      "excerpt": "A client asked for a before/after resource comparison for a new software rollout. Unlike existing monitoring solutions that only see total system load, Orange Platform used per-process collection data to quantify exactly how much resource 980 AhnLab SUIDs consumed across 77 company PCs and what symptoms they caused. Covers the three-level (company → process → patch) UI, the MongoDB aggregation queries, and the measured results."
+    },
+    "zh": {
+      "title": "新程序导入影响度分析 —— 测量 AhnLab 的 980 个进程对 77 台公司 PC 的资源与症状影响",
+      "excerpt": "某客户提出「新程序导入前后资源使用对比」的需求。与既有监控方案只能看到系统整体负载不同，Orange Platform 利用进程级采集数据，定量测量了 AhnLab 产品族的 980 个 SUID 在 77 台公司 PC 上实际消耗了多少资源、引发了哪些症状。本文整理三层（公司 → 进程 → 补丁）UI、MongoDB 聚合查询与实测数值。"
+    },
+    "ja": {
+      "title": "新規プログラム導入の影響度分析 — AhnLab の 980 プロセスが社内 PC 77 台に与えた資源・症状影響の測定",
+      "excerpt": "ある顧客から「新規プログラム導入前後のリソース使用比較」の依頼がありました。既存の監視ソリューションがシステム全体の負荷しか見られないのに対し、Orange Platform はプロセス単位の収集データを活用して、社内 PC 77 台で AhnLab 製品群の 980 SUID が実際にどれだけ資源を使い、どんな症状を引き起こしたかを定量測定しました。3 階層（企業 → プロセス → パッチ）の UI、MongoDB 集計クエリ、実測値をまとめます。"
+    }
+  },
+  "quarterly-review-2026-q2": {
+    "en": {
+      "title": "DB Migration Framework, Five SNMP Monitoring Domains, the Manager Status Panel, and a Kernel Driver Deadlock — Quarterly Review (2026 Q2)",
+      "excerpt": "The server backend group laid down the v0000 baseline DB migration framework and offline air-gapped installation of Python via uv + 3.13. The analytics service group raised server performance with five SNMP monitoring domains plus category accordions, an nginx reverse proxy, and HTTP/2. The manager/agent group embedded Core Web Vitals–based field diagnostics into the manager status panel and established a shared Z-score status-label baseline for symptom widgets. The kernel driver group found the real cause of the orange.sys Driver Unload deadlock (an ADS read in PreSetInfo), moved it to PostCreate, and built the MS signing-process SL capture infrastructure."
+    },
+    "zh": {
+      "title": "DB Migration 体系、服务器监控 SNMP 五大领域、管理器状态面板、内核驱动死锁 —— 季报（2026 Q2）",
+      "excerpt": "服务端后端组铺设了 DB Migration v0000 baseline 体系与 Python 环境 uv + 3.13 隔离网离线安装；分析服务组通过服务器监控 SNMP 五大领域 + 分类折叠面板，以及 nginx 反向代理、HTTP/2 提升了服务器性能；管理器与代理组在管理器状态面板中内置了基于 Core Web Vitals 的现场诊断工具，并确立了基于 Z-score 的症状组件通用状态标签基准；内核驱动组找到了 orange.sys Driver Unload 死锁的真正原因（PreSetInfo 中的 ADS read）并将其移至 PostCreate，同时铺设了 MS 签名进程 SL 捕获基础设施。"
+    },
+    "ja": {
+      "title": "DB Migration 体系・サーバー監視 SNMP 5 領域・マネージャー状態パネル・カーネルドライバのデッドロック — 四半期レビュー（2026 Q2）",
+      "excerpt": "サーバーバックエンド担当がサーバー DB Migration の v0000 baseline 体系と Python 環境 uv + 3.13 の閉域網オフラインインストールを敷き、分析サービス担当がサーバー監視 SNMP 5 領域 + カテゴリアコーディオンと nginx リバースプロキシ・HTTP/2 でサーバー性能を引き上げ、マネージャー・エージェント担当がマネージャー状態パネルに Core Web Vitals ベースの現場診断ツールを内蔵し Z-score ベースの症状ウィジェット共通ステータスラベル基準を確立。カーネルドライバ担当が orange.sys Driver Unload デッドロックの真の原因（PreSetInfo の ADS read）を突き止めて PostCreate へ移し、MS 署名プロセス SL キャプチャ基盤を敷いた。"
+    }
+  },
+  "react-panel-flicker-uselayouteffect-resizeobserver": {
+    "en": {
+      "title": "Why a React Widget Panel Flickers on First Load — ResizeObserver Runs After Paint",
+      "excerpt": "A frame-by-frame trace of a one-off flicker in the left tab navigation when the settings widget first opens. Panel width was measured with ResizeObserver, but that callback fires after paint — so a frame drawn at the wrong width combined with a key-change remount produced the flicker. Fixed by measuring synchronously in useLayoutEffect."
+    },
+    "zh": {
+      "title": "React 组件首次进入时面板闪烁的原因 —— ResizeObserver 在 paint 之后执行",
+      "excerpt": "逐帧追踪设置组件首次进入时左侧标签导航闪烁一次的问题。面板宽度通过 ResizeObserver 实测，但该回调在 paint 之后调用，导致以错误宽度绘制的帧与 key 变更强制重挂载叠加而产生闪烁。最终通过 useLayoutEffect 同步实测解决。"
+    },
+    "ja": {
+      "title": "React ウィジェット初回表示時にパネルがちらつく理由 — ResizeObserver は paint 後に実行される",
+      "excerpt": "設定ウィジェットの初回表示時に左タブナビが一度ちらつく問題をフレーム単位で追跡した記録。パネル幅を ResizeObserver で実測していたが、そのコールバックは paint 後に呼ばれるため、誤った幅で描画されたフレームと key 変更による強制リマウントが重なってちらつきが発生していた。useLayoutEffect による同期実測で解決。"
+    }
+  },
+  "resizeobserver-loop-limit-setstate-guard": {
+    "en": {
+      "title": "ResizeObserver Loop Limit Exceeded — Breaking the Cycle With setState Guards in a Multi-Widget Dashboard",
+      "excerpt": "On a dashboard where ten or more widgets each own a ResizeObserver, a 'ResizeObserver loop limit exceeded' script error appears. The cause: four widgets call setState on every callback even when the size hasn't changed, chain-triggering other widgets' observers within the same frame. We cover the equal-value guard and object-reference comparison guard patterns."
+    },
+    "zh": {
+      "title": "ResizeObserver loop limit exceeded —— 在多组件仪表盘中用 setState 守卫切断循环",
+      "excerpt": "在 10 个以上组件各自持有 ResizeObserver 的仪表盘上，会出现「ResizeObserver loop limit exceeded」脚本错误。原因是四个组件即便尺寸未变也每次都调用 setState，在同一帧内连锁触发了其他组件的 ResizeObserver。本文整理同值守卫与对象引用比较守卫两种模式。"
+    },
+    "ja": {
+      "title": "ResizeObserver loop limit exceeded — 多ウィジェットダッシュボードで setState ガードによって断ち切る方法",
+      "excerpt": "10 個以上のウィジェットがそれぞれ ResizeObserver を持つダッシュボードで「ResizeObserver loop limit exceeded」のスクリプトエラーが発生します。原因は、サイズが変わっていないのに毎回 setState を呼ぶ 4 つのウィジェットが、同一フレーム内で他ウィジェットの ResizeObserver を連鎖的に発火させていたこと。同値ガードとオブジェクト参照比較ガードのパターンをまとめます。"
+    }
+  },
+  "sep-cpu-overuse-report": {
+    "en": {
+      "title": "A Focused Analysis of Antivirus (SEP) CPU Overuse — Recurring on 17 of 41 Machines (41.5%), With Module Distribution and Recommendations",
+      "excerpt": "On 17 of 41 endpoints running Orange The Client (41.5%), Symantec Endpoint Protection modules repeatedly saturated a full CPU core. We cover the detection distribution across modules — DSCli.dll, ccLib.dll, libcurl-openssl.dll, sysfer.dll, Teefer.sys and others — what each module does, and our recommendations for version upgrades and policy tuning."
+    },
+    "zh": {
+      "title": "杀毒软件（SEP）CPU 过度占用专项分析 —— 41 台中 17 台（41.5%）反复出现，模块分布与应对建议",
+      "excerpt": "在安装 Orange The Client 的 41 台终端中，有 17 台（41.5%）出现 Symantec Endpoint Protection 相关模块反复占满 1 个以上 CPU 核心的情况。本文整理 DSCli.dll、ccLib.dll、libcurl-openssl.dll、sysfer.dll、Teefer.sys 等各模块的检测分布与作用，以及版本升级与策略优化建议。"
+    },
+    "ja": {
+      "title": "ウイルス対策ソフト（SEP）の CPU 過剰占有の集中分析 — 41 台中 17 台（41.5%）で反復、モジュール別分布と対応推奨",
+      "excerpt": "Orange The Client を導入した端末 41 台のうち 17 台（41.5%）で、Symantec Endpoint Protection 関連モジュールが CPU 1 コア以上を繰り返しフル占有していました。DSCli.dll・ccLib.dll・libcurl-openssl.dll・sysfer.dll・Teefer.sys などモジュール別の検知分布と各モジュールの役割、そしてバージョンアップ・ポリシー最適化の推奨をまとめます。"
+    }
+  },
+  "sep-version-upgrade-cpu": {
+    "en": {
+      "title": "A 43% Drop in Endpoint Load From Upgrading Antivirus (Symantec Endpoint Protection) — A Measured Comparison Across 49 Machines",
+      "excerpt": "SEP (Symantec Endpoint Protection), long blamed for chronic CPU usage on corporate PCs, measured over two weeks across 49 machines where old and new versions coexisted. ccSvcHst.exe CPU fell from 2.29% to 0.65% (−71.5%), and the collateral load caused by sysfer.dll injecting into OneDrive, Excel, Explorer, and others fell too — a 43% reduction in total SEP-related impact. Includes tables of module structure and DLL injection distribution by version."
+    },
+    "zh": {
+      "title": "升级杀毒软件（Symantec Endpoint Protection）使终端负载下降 43% —— 49 台设备实测对比",
+      "excerpt": "针对长期被视为企业 PC 顽固 CPU 占用元凶的 SEP（Symantec Endpoint Protection），在新旧版本并存的 49 台设备环境中进行了为期两周的实测对比。ccSvcHst.exe 的 CPU 从 2.29% 降至 0.65%（−71.5%），sysfer.dll 注入 OneDrive、Excel、Explorer 等所引发的附带负载也随之减少，SEP 相关总体影响下降 43%。文中以表格给出各版本的模块结构与 DLL 注入分布。"
+    },
+    "ja": {
+      "title": "ウイルス対策ソフト（Symantec Endpoint Protection）のバージョンアップでエンドポイント負荷が 43% 減少 — 49 台の実測比較",
+      "excerpt": "企業 PC の慢性的な CPU 占有の原因として指摘されてきた SEP（Symantec Endpoint Protection）を、旧バージョンと新バージョンが混在する 49 台の環境で 2 週間実測比較しました。ccSvcHst.exe の CPU は 2.29% → 0.65%（−71.5%）に下がり、sysfer.dll が OneDrive・Excel・Explorer などに注入されて引き起こしていた副次的な負荷も減って、SEP 関連の全体影響が 43% 減少しました。バージョン別のモジュール構成と DLL 注入分布を表で示します。"
+    }
+  },
+  "suid-hash-collision-32bit-xxh32-process-identity": {
+    "en": {
+      "title": "Same SUID for lsass, svchost, and Defender — An Exhaustive Analysis of 32-bit Hash Collisions",
+      "excerpt": "A data analysis of all 2.3 million documents in the production sprocess collection, confirming that distinct processes were being grouped under the same process identifier (SUID) and establishing — through code review and re-measurement — that the root cause was hash collision from XXH32's insufficient 32-bit output width."
+    },
+    "zh": {
+      "title": "同一个 SUID 却混入 lsass、svchost 与 Defender —— 32 位哈希冲突全量分析",
+      "excerpt": "对生产环境 sprocess 集合的 230 万条文档进行全量分析，确认不同进程被归并到同一进程标识符（SUID）的现象，并通过代码核查与重新测量，确定其根本原因是 XXH32 的 32 位输出宽度不足所导致的哈希冲突。"
+    },
+    "ja": {
+      "title": "同じ SUID なのに lsass・svchost・Defender が一塊に — 32 ビットハッシュ衝突の全数分析",
+      "excerpt": "運用中の sprocess コレクション 230 万ドキュメントを全数分析し、異なるプロセスが同じプロセス識別子（SUID）にまとめられる現象を確認。その根本原因が XXH32 の 32 ビット出力幅不足によるハッシュ衝突であることを、コード確認と再測定によって確定させたデータ分析の記録。"
+    }
+  },
+  "system-cpu-detection-pid4": {
+    "en": {
+      "title": "How Do You Detect System (PID 4) CPU Usage? — Identifying Kernel Thread and Driver Load",
+      "excerpt": "What to do when the thing eating CPU isn't an ordinary process but the kernel itself (System, PID 4). System is a special process pinned to PID 4, so the detection logic resembles that for normal processes — but reading its threads and loaded modules requires dedicated kernel APIs and elevated privileges. Includes verification methods and real field detection cases."
+    },
+    "zh": {
+      "title": "如何检测 System（PID 4）的 CPU 占用 —— 内核线程与驱动负载的识别方法",
+      "excerpt": "当占用 CPU 的主体不是普通进程而是内核（System，PID 4）时，该如何检测其负载。System 是固定为 PID 4 的特殊进程，检测逻辑与普通进程相似，但要读取其线程与已加载模块，则需要内核提供的专用 API 与高权限。文中还包含实际验证方法与现场检测案例。"
+    },
+    "ja": {
+      "title": "System（PID 4）の CPU 占有はどう検知するか — カーネルスレッド・ドライバ負荷の識別方法",
+      "excerpt": "CPU を消費している主体が通常のプロセスではなくカーネル（System, PID 4）である場合に、その負荷をどう検知するかをまとめます。System は PID 4 に固定された特別なプロセスのため検知ロジックは通常プロセスと似ていますが、スレッドやロード済みモジュールを読むにはカーネルが提供する専用 API と高い権限が必要です。実際の検証方法と現場での検知事例も扱います。"
+    }
+  },
+  "system-performance-disk-network-io-metrics": {
+    "en": {
+      "title": "Adding Disk and Network I/O to System Performance Metrics — From Summed Process Approximations to Direct OS APIs",
+      "excerpt": "An agent implementation note on splitting a single lumped system I/O metric into six read/write metrics across physical disk and wired/wireless network, and improving accuracy by replacing per-process summation approximations with direct OS APIs such as GetIfTable2 and IOCTL_DISK_PERFORMANCE."
+    },
+    "zh": {
+      "title": "系统性能信息新增磁盘与网络收发指标 —— 从进程汇总近似改为 OS 直接 API 采集",
+      "excerpt": "将原本合为一体的系统 I/O 拆分为磁盘（物理）与有线／无线网络的读写共 6 项指标，并把此前通过各进程数值汇总近似得出的系统整体指标，改为使用 GetIfTable2、IOCTL_DISK_PERFORMANCE 等 OS 直接 API 采集以提升精度的代理实现记录。"
+    },
+    "ja": {
+      "title": "システム性能情報にディスク・ネットワーク送受信指標を追加 — プロセス合算の近似から OS 直接 API 収集へ",
+      "excerpt": "一つにまとめられていたシステム I/O をディスク（物理）と有線・無線ネットワークの読み書き 6 指標に分離し、プロセスごとの値の合算で近似していたシステム全体の指標を GetIfTable2・IOCTL_DISK_PERFORMANCE といった OS 直接 API に置き換えて精度を高めたエージェント実装の記録。"
+    }
+  },
+  "unattended-update-hang-tty-stdin-migration-prompt": {
+    "en": {
+      "title": "Why an Unattended Update Script Hangs on DB Migration — Tracing a Swallowed stdin Prompt",
+      "excerpt": "A trace of an unattended update script stalling at the DB migration step. must_task redirected only stdout while leaving stdin attached to the operator's TTY, so the migration's input prompt waited for input that was never visible on screen. Resolved by separating the layers so the unattended runner blocks stdin with /dev/null."
+    },
+    "zh": {
+      "title": "无人值守更新脚本在数据库迁移处无限等待的原因 —— 追踪被吞掉的 stdin 提示",
+      "excerpt": "追踪无人值守更新脚本在 DB migration 阶段卡住的问题。must_task 只重定向了 stdout，而 stdin 仍连着运维人员的 TTY，导致 migration 的输入提示在屏幕上不可见却仍在等待输入而无限挂起。通过让无人值守执行器用 /dev/null 屏蔽 stdin 的分层处理解决。"
+    },
+    "ja": {
+      "title": "無人アップデートスクリプトが DB マイグレーションで無限待機する理由 — 飲み込まれた stdin プロンプトの追跡",
+      "excerpt": "無人アップデートスクリプトが DB migration 段階で停止する問題を追跡した記録。must_task が stdout のみリダイレクトし stdin は運用者の TTY に繋いだままだったため、migration の入力プロンプトが画面に出ないまま入力を待ち続けて無限待機していた。無人実行側が stdin を /dev/null で遮断する層分離で解決。"
+    }
+  },
+  "usb-malware-driver-forensic": {
+    "en": {
+      "title": "An 'All-in-One Driver' Installer Brought In by USB and Flagged as Malicious — A Full Forensic Timeline",
+      "excerpt": "Starting from suspicious signs — a suspiciously clean desktop and recycle bin, and a reboot immediately after a USB connection — we collected and analyzed an 'all-in-one driver' installer (EasyDrv7) that had been run from the Documents folder. Eight of 72 VirusTotal engines flagged it: a dropper that downloads additional malware on external command. We lay out the installation event timeline and the recovery of execution history from the UserAssist registry key exactly as performed."
+    },
+    "zh": {
+      "title": "经 USB 传入的「万能驱动」安装文件被判定为恶意的案例 —— 取证时间线完整追踪",
+      "excerpt": "从异常迹象——过于干净的桌面与回收站、USB 连接后随即重启——出发，采集并分析了在文档文件夹中运行的「万能驱动」安装文件（EasyDrv7）。VirusTotal 的 72 个引擎中有 8 个检出：这是一个通过外部命令进一步下载恶意代码的 dropper。文中原样整理安装事件时间线与 UserAssist 注册表执行记录的还原过程。"
+    },
+    "ja": {
+      "title": "USB から持ち込まれた「統合ドライバ」インストーラが悪性と判定された事例 — フォレンジックタイムラインの完全追跡",
+      "excerpt": "やけに綺麗なデスクトップとごみ箱、USB 接続直後の再起動という異常な兆候から出発し、ドキュメントフォルダで実行された「統合ドライバ」インストーラ（EasyDrv7）を収集・分析しました。VirusTotal の 72 エンジン中 8 つが検知 — 外部コマンドで追加のマルウェアをダウンロードするドロッパーでした。インストールイベントのタイムラインと UserAssist レジストリからの実行履歴の復元過程を、そのままにまとめます。"
+    }
+  },
+  "vm-node-identity-self-fork-ticket-rotation": {
+    "en": {
+      "title": "Why a VM Node Forks From Itself on Every Restart — Suppressing Ticket Rotation on the Shutdown POST",
+      "excerpt": "Tracing a defect where VM nodes without a hardware anchor split into a new document (a duplicate node) after a clean shutdown and restart. The agent only persists a new ticket/guid while online, but the server rotated it on the shutdown (offline) POST, leaving a desync. Gating rotation to online-only on the server eliminated the problem at the source."
+    },
+    "zh": {
+      "title": "VM 节点每次重启都与自身分裂的原因 —— 抑制关机 POST 中的票据轮换",
+      "excerpt": "追踪没有硬件锚点的 VM 节点在正常关机后重启时分裂为新文档（重复节点）的缺陷。代理仅在 online 时才保存新的 ticket/guid，而服务器在关机（offline）的 POST 中执行了轮换，留下了不同步状态。通过让服务器仅在 online 时轮换，从根源上杜绝了该问题。"
+    },
+    "ja": {
+      "title": "VM ノードが再起動のたびに自分自身と分裂する理由 — 終了 POST でのチケットローテーション抑制",
+      "excerpt": "ハードウェアアンカーを持たない VM ノードが正常終了後の再起動で新しいドキュメントに分裂（ノード重複）していた欠陥を追跡した記録。エージェントは online のときだけ新しい ticket/guid を保存するのに、終了（offline）の POST でサーバー側がローテーションしていたため desync が残っていた。サーバーが online のときだけローテーションするようゲーティングして根本から遮断した。"
+    }
+  },
+  "websocket-wasclean-trap-reconnect": {
+    "en": {
+      "title": "The wasClean Trap — Overnight WebSocket Loss and Per-Close-Code Reconnect and Logout Policy",
+      "excerpt": "Overnight, a single WebSocket quietly disappears. There is no error in the server log and no trace in the client error log either. The cause: the client's onclose handler assumes any wasClean === true means a normal shutdown. Even when the server closes with WS_1011, wasClean comes back true as long as the handshake was clean. We lay out reconnect and logout policy by close code, plus an instance guard pattern."
+    },
+    "zh": {
+      "title": "wasClean 的陷阱 —— WebSocket 夜间失联与按 close code 划分的重连、登出策略",
+      "excerpt": "夜间，某一条 WebSocket 悄然消失。服务端日志没有错误，客户端错误日志也没有痕迹。原因在于客户端的 onclose 处理器只要 wasClean === true 就一律视为正常关闭。即便服务端以 WS_1011 关闭，只要握手正常，wasClean 依然为 true。本文整理按 close code 划分的重连／登出策略与实例守卫模式。"
+    },
+    "ja": {
+      "title": "wasClean の罠 — WebSocket の夜間消失と close code 別の再接続・ログアウトポリシー",
+      "excerpt": "夜間に WebSocket が 1 本だけ静かに消えます。サーバーログにエラーはなく、クライアントのエラーログにも痕跡がありません。原因はクライアントの onclose ハンドラが wasClean === true なら無条件で正常終了と見なしていること。サーバーが WS_1011 で閉じても、ハンドシェイクさえ正常なら wasClean=true が返ります。close code 別の再接続・ログアウトポリシーとインスタンスガードのパターンをまとめます。"
+    }
+  },
+  "webview2-virtual-host-icon-mapping": {
+    "en": {
+      "title": "Local Icons Break After Switching to an https WebView2 Virtual Host — Fixed With a Second Virtual Host Mapping",
+      "excerpt": "After migrating from file:// to an https://*.local virtual host, local absolute paths (IconPath) in <img src> were blocked as mixed content, breaking every process and file icon. We fixed it by mapping the icon folder to a separate second virtual host."
+    },
+    "zh": {
+      "title": "切换到 WebView2 https 虚拟主机后本地图标损坏 —— 通过第二个虚拟主机映射解决",
+      "excerpt": "从 file:// 迁移到 https://*.local 虚拟主机后，<img src> 中的本地绝对路径（IconPath）被判定为混合内容而遭拦截，导致所有进程与文件图标显示异常。通过将图标文件夹映射到另一个独立的虚拟主机解决了该问题。"
+    },
+    "ja": {
+      "title": "WebView2 の仮想ホストで https 化した後にローカルアイコンが壊れる問題 — 2 つ目の仮想ホストマッピングで解決",
+      "excerpt": "file:// から https://*.local の仮想ホストへ移行した後、<img src> のローカル絶対パス（IconPath）が mixed content として遮断され、すべてのプロセス・ファイルアイコンが壊れて見えていたバグを、アイコンフォルダを別の 2 つ目の仮想ホストにマッピングして解決した事例。"
+    }
+  },
+  "weekly-review-2026-w22": {
+    "en": {
+      "title": "Working Around the Broker's OpenSSL 3.0.x Residual Path, Cleaning Up the Process-Impact Widget Across Four Repos, and a 40-Million-Fold File Event Throttle — Weekly Review (2026-05-25 – 2026-06-01)",
+      "excerpt": "The manager/agent group resolved a nodeInfo regression on the Chrome 148 + OpenSSL 3.0.x residual path via an abrupt-close workaround; the server backend group implemented the process-impact widget server (rest-api + service + migrations + package, four repos), migrated to a MongoDB single-node replica set, and closed out 20 KISA secure-coding findings; the analytics service group advanced Baseline classification Sprint 1+1.5 (five-condition rules + LightGBM-ready schema); and the kernel driver group applied a time-based LRU throttle cutting 17 trillion cumulative file events by a factor of 40 million."
+    },
+    "zh": {
+      "title": "规避 broker OpenSSL 3.0.x 残留路径、进程影响度组件四仓库并行整理、文件事件降低 4 千万倍的 throttle —— 周报（2026-05-25 ~ 2026-06-01）",
+      "excerpt": "管理器与代理组通过 abrupt close 规避解决了 Chrome 148 + OpenSSL 3.0.x 残留路径上的 nodeInfo 回归；服务端后端组完成进程影响度组件服务端实现（rest-api + service + migrations + package 四仓库）、MongoDB single-node replica set 迁移与 KISA 安全编码 20 项收尾；分析服务组推进 Baseline 日常分类服务 Sprint 1+1.5（5 条件规则 + LightGBM-ready 模式）；内核驱动组应用了将 17 万亿次累计文件事件降低 4 千万倍的时间基 LRU throttle。"
+    },
+    "ja": {
+      "title": "ブローカーの OpenSSL 3.0.x 残存経路の回避、プロセス影響度ウィジェットの 4 リポジトリ同時整理、ファイルイベント 4 千万分の 1 削減 throttle — 週次レビュー（2026-05-25 ~ 2026-06-01）",
+      "excerpt": "マネージャー・エージェント担当が Chrome 148 + OpenSSL 3.0.x 残存経路の nodeInfo 回帰を abrupt close 回避で解決し、サーバーバックエンド担当がプロセス影響度ウィジェットのサーバー実装（rest-api + service + migrations + package の 4 リポジトリ）・MongoDB single-node replica set 移行・KISA セキュアコーディング 20 件を完了。分析サービス担当が Baseline 日常分類サービス Sprint 1+1.5（5 条件ルール + LightGBM-ready スキーマ）を進め、カーネルドライバ担当が 17 兆回の累計ファイルイベントを 4 千万分の 1 に削減する時間ベース LRU throttle を適用した一週間。"
+    }
+  },
+  "weekly-review-2026-w24": {
+    "en": {
+      "title": "Hourly sprocess Aggregation With a Shared Rotate Entry Point, Blocking a 31k-SUID Surge With MQTT Subscriber-Driven Publish, and Establishing the Manager Web Design System — Weekly Review (2026-06-01 – 2026-06-08)",
+      "excerpt": "The manager/agent group completed hourly sprocess aggregation behind a shared Rotate entry point and isolated a stall regression with #if 0; the server backend group cleaned up the process-impact widget server across four repos and stopped a 224k msg/hour surge from 31k SUIDs with subscriber-driven publish; the analytics service group shipped Baseline classification Sprint 2 (Override CRUD + verdict_history) and closed a security incident path by unifying widget ACL empty-array semantics; the kernel driver group laid down the orange.sys Y_PROCESS_MESSAGE Integrity Level end-to-end pipeline and an async job pattern embedded in the MS code-signing build server. The frontend group established the Manager Web design system (DESIGN_SYSTEM.md)."
+    },
+    "zh": {
+      "title": "sprocess 小时级聚合 + Rotate 统一入口、以 MQTT subscriber-driven publish 阻断 31k SUID 暴涨、确立 Manager Web 设计系统 —— 周报（2026-06-01 ~ 2026-06-08）",
+      "excerpt": "管理器与代理组以 Rotate 统一入口完成 sprocess 小时级聚合体系，并用 #if 0 隔离定位 stall 回归；服务端后端组同时整理四个仓库的进程影响度组件服务端，并以 subscriber-driven publish 阻断 31k SUID 每小时 224k msg 的暴涨；分析服务组推进 Baseline 日常分类服务 Sprint 2（Override CRUD + verdict_history），并通过统一组件 ACL 空数组语义堵住安全事故路径；内核驱动组铺设了 orange.sys Y_PROCESS_MESSAGE Integrity Level 端到端流水线与 MS 签名自动化构建服务器内置异步 Job 模式。前端组确立了 Manager Web 设计系统（DESIGN_SYSTEM.md）。"
+    },
+    "ja": {
+      "title": "sprocess 1 時間単位集計 + Rotate 共通エントリポイント、MQTT subscriber-driven publish による 31k SUID 急増の遮断、Manager Web デザインシステムの確立 — 週次レビュー（2026-06-01 ~ 2026-06-08）",
+      "excerpt": "マネージャー・エージェント担当が sprocess の 1 時間単位集計体系を Rotate 共通エントリポイントで完成させ、stall 回帰を #if 0 隔離で捕捉。サーバーバックエンド担当がプロセス影響度ウィジェットのサーバーを 4 リポジトリ同時に整理し、subscriber-driven publish で 31k SUID・毎時 224k msg の急増を遮断。分析サービス担当が Baseline 日常分類サービス Sprint 2（Override CRUD + verdict_history）とウィジェット ACL 空配列セマンティクスの統一でセキュリティ事故経路を塞ぎ、カーネルドライバ担当が orange.sys Y_PROCESS_MESSAGE Integrity Level の end-to-end パイプラインと MS 署名自動化ビルドサーバー内蔵の非同期 Job パターンを敷いた一週間。フロントエンド担当が Manager Web デザインシステム（DESIGN_SYSTEM.md）を確立。"
+    }
+  },
+  "win32-process-kill-detection-etw": {
+    "en": {
+      "title": "Which Process Killed Mine? — Tracing Forced Termination With ETW Kernel-Audit-API",
+      "excerpt": "How to find out who killed a program that suddenly exits. We cover an implementation that subscribes to TerminateProcess (Event 2) from the Windows Microsoft-Windows-Kernel-Audit-API-Calls provider over a real-time ETW session, pairing the perpetrator with the victim process."
+    },
+    "zh": {
+      "title": "是哪个进程杀了我的程序 —— 用 ETW Kernel-Audit-API 追踪强制终止",
+      "excerpt": "介绍在程序突然退出时查明「是谁杀的」的方法。通过实时 ETW 会话订阅 Windows 的 Microsoft-Windows-Kernel-Audit-API-Calls 提供程序发出的 TerminateProcess（Event 2），配对识别加害方（原因）与受害方（目标）进程的实现。"
+    },
+    "ja": {
+      "title": "どのプロセスが自分のプログラムを殺したのか — ETW Kernel-Audit-API で強制終了を追跡する",
+      "excerpt": "プログラムが突然終了したときに「誰が殺したのか」を突き止める方法。Windows の Microsoft-Windows-Kernel-Audit-API-Calls プロバイダが出力する TerminateProcess（Event 2）を ETW リアルタイムセッションで購読し、加害側（原因）と被害側（対象）のプロセスを紐づけて識別する実装をまとめます。"
+    }
+  },
+  "windows-batch-github-api-python-bundle-robustness": {
+    "en": {
+      "title": "Builds Hanging on GitHub API Instability — Hardening the Python Bundle Step in a Batch Script",
+      "excerpt": "Fixing the Python standalone bundling step in makepackage.bat, which would hang indefinitely or pass an empty URL to curl and abort the build whenever the GitHub API or network was flaky. We dropped the cmd for /f parsing in favor of a single PowerShell block with timeouts, retries, a fallback URL, and size validation."
+    },
+    "zh": {
+      "title": "构建因 GitHub API 不稳定而无限等待 —— 批处理脚本 Python 打包步骤的健壮性改造",
+      "excerpt": "修复 makepackage.bat 中 Python standalone 打包步骤在 GitHub API／网络不稳定时无限等待，或将空 URL 传给 curl 导致构建中断的问题。移除 cmd for /f 解析，整合为单个 PowerShell 块，并加入超时、重试、回退 URL 与大小校验。"
+    },
+    "ja": {
+      "title": "ビルドが GitHub API の不安定さで無限待機する問題 — バッチスクリプトの Python バンドル段階を堅牢化",
+      "excerpt": "makepackage.bat の Python standalone バンドル段階が、GitHub API・ネットワークの不安定時に無限待機したり空の URL を curl に渡してビルドを中断させていた問題を修正した記録。cmd の for /f パースを取り除き PowerShell の単一ブロックに統合して、タイムアウト・リトライ・フォールバック URL・サイズ検証を備えた。"
+    }
+  },
+  "windows-domain-name-dsrole-domainnameflat-workgroup": {
+    "en": {
+      "title": "Why a Workgroup PC Reports an Empty Domain Name — Discarding DsRole's DomainNameFlat for a Service-Dependent API",
+      "excerpt": "Tracing how the agent, which re-queries the domain name on every authentication, could collect an empty string on workgroup PCs. Measurements against the Windows API exposed the structural problem: the DomainNameFlat already returned by DsRoleGetPrimaryDomainInformation was discarded in favor of a NetWkstaGetInfo fallback that depends on the LanmanWorkstation service."
+    },
+    "zh": {
+      "title": "工作组 PC 域名为空字符串的原因 —— 丢弃 DsRole 的 DomainNameFlat 转而调用依赖服务的 API",
+      "excerpt": "代理在每次认证时都会重新查询域名，本文回溯了工作组 PC 上该值可能被采集为空字符串的路径。通过 Windows API 实测查明结构性问题：DsRoleGetPrimaryDomainInformation 已返回的 DomainNameFlat 被丢弃，转而通过依赖 LanmanWorkstation 服务的 NetWkstaGetInfo 回退路径重新查询同一个值。"
+    },
+    "ja": {
+      "title": "ワークグループ PC のドメイン名が空文字列になる理由 — DsRole の DomainNameFlat を捨ててサービス依存 API で再取得していた欠陥",
+      "excerpt": "エージェントが認証のたびにドメイン名を再取得する中で、ワークグループ PC では値が空文字列として収集されうる経路を逆追跡した記録。DsRoleGetPrimaryDomainInformation が既に返した DomainNameFlat を捨て、LanmanWorkstation サービスに依存する NetWkstaGetInfo のフォールバックで同じ値を取り直していた構造的問題を Windows API の実測で究明した。"
+    }
+  },
+  "windows-driver-self-wait-fltsendmessage-blocking": {
+    "en": {
+      "title": "A Self-Wait Regression Stalling Exactly 3 Seconds Per Process at Agent Startup — Analyzing an FltSendMessage Block",
+      "excerpt": "During the bulk registration of already-running processes, a self-wait hit the full 3-second timeout every time, blocking the ofilter minifilter's event port for minutes on end. We walk the regression down to the code path and lay out both an immediate and a root-cause fix."
+    },
+    "zh": {
+      "title": "代理启动时每个进程恰好停顿 3 秒的 self-wait 回归 —— FltSendMessage 阻塞案例分析",
+      "excerpt": "在批量注册既有运行进程的阶段，等待自身的 self-wait 每次都触发完整的 3 秒超时，使 ofilter 微过滤器的事件端口被阻塞长达数分钟。本文按代码路径逐一梳理该回归，并整理了速效与根治两级修复方案。"
+    },
+    "ja": {
+      "title": "エージェント startup 時にプロセスごとに正確に 3 秒ずつ止まる self-wait 回帰 — FltSendMessage ブロック事例の分析",
+      "excerpt": "既存の実行中プロセスを一括登録する段階で、自分自身を待つ self-wait が毎回 3 秒のフルタイムアウトを起こし、ofilter ミニフィルターのイベントポートを分単位で塞いでいた回帰をコードパス単位で追い、即効・根本の 2 段階の修正案をまとめます。"
+    }
+  },
+  "windows-kernel-driver-ms-signing": {
+    "en": {
+      "title": "Getting a Windows Kernel Driver MS-Signed (Attestation) — From Build to Partner Center Submission",
+      "excerpt": "Loading a kernel driver normally on Windows 10/11 requires a Microsoft signature. We walk through editing the INF DriverVer and version resource, validating the catalog (.cat) SHA-256 digest on a Release build, generating the .cab, and submitting through Partner Center (Hardware)."
+    },
+    "zh": {
+      "title": "为 Windows 内核驱动获取 MS 签名（Attestation）—— 从构建到 Partner Center 提交",
+      "excerpt": "在 Windows 10/11 上正常加载内核驱动需要微软的签名。本文整理 INF DriverVer 与版本资源的修改、Release 构建时目录文件（.cat）SHA-256 摘要校验、.cab 生成，直至 Partner Center（Hardware）提交的完整流程。"
+    },
+    "ja": {
+      "title": "Windows カーネルドライバの MS 署名（Attestation）取得 — ビルドから Partner Center 提出まで",
+      "excerpt": "Windows 10/11 でカーネルドライバを正規にロードするには Microsoft の署名が必要です。INF の DriverVer・バージョンリソースの修正、Release ビルド時のカタログ（.cat）SHA-256 ダイジェスト検証、.cab の生成、Partner Center（Hardware）への提出までの手順をまとめます。"
+    }
+  },
+  "windows-kernel-freeze-nmi-memory-dump": {
+    "en": {
+      "title": "Post-Mortem of a Windows Kernel Freeze — Forcing a Memory Dump With an NMI Keyboard Trigger",
+      "excerpt": "How to force a BugCheck — much like a Break in kernel remote debugging — on a system frozen with the screen intact but no BSOD, in order to capture MEMORY.DMP. Covers the CrashOnCtrlScroll registry setting and the WinDbg analysis procedure."
+    },
+    "zh": {
+      "title": "Windows 内核 freeze 事后分析 —— 通过 NMI 键盘触发强制收集内存转储",
+      "excerpt": "整理在没有 BSOD、画面原样卡死的系统上，如同内核远程调试的 Break 一样强制触发 BugCheck 以收集 MEMORY.DMP 的 CrashOnCtrlScroll 注册表设置与 WinDbg 分析流程。"
+    },
+    "ja": {
+      "title": "Windows カーネル freeze の事後分析 — NMI キーボードトリガーによるメモリダンプの強制取得",
+      "excerpt": "BSOD なしに画面がそのまま固まったシステムで、カーネルリモートデバッグの Break のように強制 BugCheck を発生させて MEMORY.DMP を取得する CrashOnCtrlScroll レジストリ設定と、WinDbg での解析手順をまとめます。"
+    }
+  },
+  "windows-kernel-zombie-process-detection": {
+    "en": {
+      "title": "Detecting Zombie Processes in the Windows Kernel — Judging EPROCESS Survival and PID Reuse Safety",
+      "excerpt": "If anyone leaves an OpenProcess handle open after a process exits, the kernel's EPROCESS structure stays alive. We cover how the agent re-queries PEPROCESS with PsLookupProcessByProcessId one minute after exit to determine zombie status, and the internal Windows rule that blocks PID reuse while a process is a zombie."
+    },
+    "zh": {
+      "title": "Windows 内核僵尸进程检测 —— EPROCESS 残留判定与 PID 复用安全性",
+      "excerpt": "进程退出后，只要有人未关闭 OpenProcess 句柄，内核的 EPROCESS 结构体就会保留。本文整理代理在退出 1 分钟后通过 PsLookupProcessByProcessId 重新查询 PEPROCESS 以判定僵尸状态的方法，以及僵尸状态下 PID 复用被阻止的 Windows 内部规则。"
+    },
+    "ja": {
+      "title": "Windows カーネルのゾンビプロセス検知 — EPROCESS 残存の判定と PID 再利用の安全性",
+      "excerpt": "プロセスが終了した後でも、誰かが OpenProcess ハンドルを閉じなければカーネルの EPROCESS 構造体はそのまま残ります。エージェントで終了 1 分後に PsLookupProcessByProcessId で PEPROCESS を再取得してゾンビかどうかを判定する方法と、ゾンビ状態のとき PID 再利用が遮断される Windows 内部のルールをまとめます。"
+    }
+  },
+  "windows-status-cannot-delete-detection": {
+    "en": {
+      "title": "Detecting Failed Deletion of a Running EXE (STATUS_CANNOT_DELETE) With a Minifilter — Identifying Deleter, Runner, and Launcher",
+      "excerpt": "How the ofilter minifilter and yagent21 catch the case where deleting a running a.exe via cmd del returns \\\"Access is denied\\\" while Explorer holds it — covering the MmFlushImageSection failure path and the mapping to three-party identification rules."
+    },
+    "zh": {
+      "title": "用微过滤器检测运行中 EXE 删除失败（STATUS_CANNOT_DELETE）—— Deleter、Runner、Launcher 三方识别",
+      "excerpt": "整理 ofilter 微过滤器与 yagent21 如何捕获「在资源管理器中运行 a.exe 时用 cmd del 删除会提示拒绝访问」的场景，涵盖 MmFlushImageSection 失败路径以及三方识别规则的映射。"
+    },
+    "ja": {
+      "title": "実行中 EXE の削除失敗（STATUS_CANNOT_DELETE）をミニフィルターで検知する — Deleter・Runner・Launcher の三者識別",
+      "excerpt": "エクスプローラーで実行中の a.exe を cmd del で削除しようとして「アクセスが拒否されました」となるケースを、ofilter ミニフィルターと yagent21 がどのように捕捉するか、MmFlushImageSection の失敗経路と三者識別ルールのマッピングまでまとめます。"
+    }
+  },
+  "wmiprvse-high-cpu-guide": {
+    "en": {
+      "title": "Tracing the Root Cause of High CPU Usage by WMIPrvSE.exe",
+      "excerpt": "A detailed guide on analyzing and resolving high CPU usage caused by Windows WMI Provider Host (WMIPrvSE.exe), complete with PowerShell commands for diagnosis."
+    },
+    "zh": {
+      "title": "WMIPrvSE.exe 高CPU占用原因追踪指南",
+      "excerpt": "详细介绍Windows WMI Provider Host（WMIPrvSE.exe）占用高CPU时的原因分析与解决方法，并附带PowerShell诊断命令说明。"
+    },
+    "ja": {
+      "title": "WMIPrvSE.exe 高CPU使用率の原因追跡ガイド",
+      "excerpt": "Windows WMI Provider Host（WMIPrvSE.exe）がCPUを高負荷で使用する場合の原因分析と解決方法を、PowerShellコマンドとともに詳しく解説します。"
+    }
+  }
+}
