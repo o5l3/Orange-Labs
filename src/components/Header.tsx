@@ -40,6 +40,7 @@ export default function Header() {
           items: [
             { label: t('nav.userManual'), path: '/resources/user-manual' },
             { label: t('nav.demoVideos'), path: '/resources/demo-videos' },
+            { label: t('nav.patchNotes'), path: '/resources/patch-notes' },
           ],
         },
         {
