@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# 로컬 환경변수 (자격증명) — 저장소에 올리지 않는다
+.env
+.env.*
+!.env.example
