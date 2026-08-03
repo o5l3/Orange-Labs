@@ -21,13 +21,8 @@ export default function Careers() {
       type: t('careers.fulltime'),
       link: 'https://www.wanted.co.kr/wd/277479',
     },
-    {
-      title: t('careers.jobs.frontend_dashboard'),
-      dept: t('careers.jobs.engineering'),
-      location: 'Seoul',
-      type: t('careers.fulltime'),
-      link: 'https://www.wanted.co.kr/wd/274779',
-    },
+    // 프론트엔드 개발자(실시간 대시보드 / 데이터 시각화) — 지원 마감으로 내림.
+    // 다시 열 때는 careers.jobs.frontend_dashboard 키가 그대로 있으니 항목만 되살리면 된다.
   ];
 
   const perks = [
