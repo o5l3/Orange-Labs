@@ -11,7 +11,7 @@
     "docs": "문서",
     "userManual": "사용자 매뉴얼",
     "demoVideos": "제품 영상",
-    "releaseNotes": "오렌지 릴리즈노트",
+    "releaseNotes": "릴리즈 노트",
     "learn": "학습",
     "techBlog": "기술 블로그",
     "about": "오렌지랩스 소개",
@@ -803,11 +803,11 @@
     "v10_desc": "위젯들을 관리자가 보기 편한 형태로 배치할 수 있습니다. 위젯들을 배치할 탭을 추가하거나 삭제할 수 있으며, 위젯 목록에서 위젯을 드래그하여 원하는 위치로 배치할 수 있습니다."
   },
   "releaseNotes": {
-    "badge": "릴리즈노트",
-    "title": "오렌지 릴리즈노트",
+    "badge": "릴리즈 노트",
+    "title": "릴리즈 노트",
     "desc": "Orange The Client의 버전별 변경 사항을 정리합니다. 각 릴리즈의 전체 내용은 화면 예시와 함께 PDF에서 확인할 수 있습니다.",
     "latest": "최신",
-    "download_btn": "릴리즈노트 PDF 내려받기",
+    "download_btn": "릴리즈 노트 PDF 내려받기",
     "summary_title": "이번에 바뀐 것 · 한눈에",
     "readMore": "자세히 보기",
     "back": "목록으로 돌아가기",

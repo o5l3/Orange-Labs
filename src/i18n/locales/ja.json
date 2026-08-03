@@ -11,7 +11,7 @@
     "docs": "ドキュメント",
     "userManual": "ユーザーマニュアル",
     "demoVideos": "製品動画",
-    "releaseNotes": "オレンジリリースノート",
+    "releaseNotes": "リリースノート",
     "learn": "学ぶ",
     "techBlog": "技術ブログ",
     "about": "OrangeLabs について",
@@ -783,7 +783,7 @@
   },
   "releaseNotes": {
     "badge": "リリースノート",
-    "title": "オレンジリリースノート",
+    "title": "リリースノート",
     "desc": "Orange The Client のバージョンごとの変更点をまとめます。各リリースの全内容は、画面例とあわせて PDF で確認できます。",
     "latest": "最新",
     "download_btn": "リリースノート PDF をダウンロード",

@@ -11,7 +11,7 @@
     "docs": "DOCS",
     "userManual": "User Manual",
     "demoVideos": "Product Videos",
-    "releaseNotes": "Orange Release Notes",
+    "releaseNotes": "Release Notes",
     "learn": "LEARN",
     "techBlog": "Tech Blog",
     "about": "About OrangeLabs",
@@ -784,7 +784,7 @@
   },
   "releaseNotes": {
     "badge": "RELEASE NOTES",
-    "title": "Orange Release Notes",
+    "title": "Release Notes",
     "desc": "Release-by-release changes to Orange The Client. The full contents of each release, along with screenshots, are available in the PDF.",
     "latest": "Latest",
     "download_btn": "Download release notes PDF",
