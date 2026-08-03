@@ -165,36 +165,6 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 text-center" style={{ backgroundColor: 'var(--bg-deep)' }}>
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
-            {t('careers.noRole_title')}
-          </h2>
-          <p className="mb-8" style={{ color: 'var(--fg-muted)' }}>
-            {t('careers.noRole_desc')}
-          </p>
-          {/*<button*/}
-          {/*  className="px-6 py-3 rounded-full font-semibold transition-all"*/}
-          {/*  style={{ backgroundColor: 'var(--accent)', color: '#fff' }}*/}
-          {/*  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-strong)')}*/}
-          {/*  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent)')}*/}
-          {/*  onClick={() => navigate('/company/contact')}*/}
-          {/*>*/}
-          {/*  {t('careers.contact')}*/}
-          {/*</button>*/}
-          <div className="flex justify-center items-center">
-            <a href="mailto:kim.tigerj@orangesys.co.kr?subject=이력서&body=이력서">
-              <div
-                className="px-6 py-3 rounded-full font-semibold transition-all"
-                style={{ backgroundColor: 'var(--accent)', color: '#fff' }}
-              >
-                {t('careers.contact')}
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
