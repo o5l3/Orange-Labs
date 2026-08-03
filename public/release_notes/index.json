@@ -1,0 +1,241 @@
+[
+  {
+    "version": "OR.1.6.242.0724",
+    "slug": "1.6.242.0724",
+    "date": "2026-07-24",
+    "pdf": "/release_notes/1.6.242.0724/release-notes.pdf",
+    "items": [
+      {
+        "key": "process",
+        "kind": "new"
+      },
+      {
+        "key": "loadSummary",
+        "kind": "new"
+      },
+      {
+        "key": "routine",
+        "kind": "new"
+      },
+      {
+        "key": "network",
+        "kind": "new"
+      },
+      {
+        "key": "fileBox",
+        "kind": "new"
+      },
+      {
+        "key": "command",
+        "kind": "improved"
+      },
+      {
+        "key": "loadChart",
+        "kind": "improved"
+      }
+    ],
+    "i18n": {
+      "ko": {
+        "excerpt": "신규 위젯 5종(프로세스 · 부하 요약 · 일상 증상 감지 · 네트워크 · 파일함)이 추가되고, 1:N 명령 화면이 전면 개편됐습니다. 새 위젯은 매니저 대시보드의 ‘위젯 추가’에서 바로 올려 사용합니다.",
+        "items": {
+          "process": {
+            "title": "프로세스 — 전사 자원 사용 현황·확산 예측",
+            "sub": "대시보드 위젯 · 전사",
+            "desc": "파일 내용 해시로 식별한 프로세스 한 버전(SUID)을 골라, 회사 전체 기준(baseline) 대비 자원 사용량과 노드 확산을 최초 실행 관측일 기준 타임라인으로 비교합니다. 부하지수 순 실행 목록·노드 목록·상세 타임라인과 함께, 이 프로그램을 쓰는 PC가 앞으로 7일 안에 전사 부하 상위 10% 구간에 들지 매시 예측하고 적중률로 검증하는 확산 예측을 제공합니다."
+          },
+          "loadSummary": {
+            "title": "부하 요약",
+            "sub": "대시보드 위젯 · 일일 요약",
+            "desc": "오늘 전체 노드 부하의 고점이 언제·얼마였고, 어느 프로세스 때문이었으며 몇 대에 영향을 줬는지 문장으로 풀어 줍니다. 직전 1시간·어제 같은 시간과 대조해 평소보다 높은지 판단하고, 접속 노드 수가 늘어난 효과인지 실제 사용량이 늘어난 것인지 변화를 분해합니다."
+          },
+          "routine": {
+            "title": "일상 증상 감지 — 일상 분류 검증·설정",
+            "sub": "대시보드 위젯 · 설정",
+            "desc": "서버의 baseline 서비스가 각 증상을 ‘일상’으로 볼지 판정한 결과를 표로 검토하고, 판정이 오락가락하는 항목을 우선 정렬해 전역 강제 지정으로 바로잡습니다. 반복되는 일상 증상을 자동으로 걸러 두면 중요한 증상에 집중할 수 있습니다. 민감도는 느슨/보통/엄격 프리셋으로 서버에서 바로 조절합니다(재배포 불필요)."
+          },
+          "network": {
+            "title": "네트워크 — 사무실 구역 자동 인식",
+            "sub": "대시보드 위젯 · 운영자 도구",
+            "desc": "각 PC가 어느 사무실 네트워크에 있는지 공유기 MAC·출구 IP·IP 대역·도메인 같은 신호로 비슷한 PC를 묶어 자동으로 찾아냅니다. 여러 사무실이 같은 내부 IP 대역을 써서 자동 구분이 어려운 PC는 ‘불확실’에 모아 검토를 요청하고, 사람이 지정(pin)한 배정은 에이전트 보고값이 덮어쓰지 못하게 보호합니다."
+          },
+          "fileBox": {
+            "title": "파일함",
+            "sub": "설정 탭",
+            "desc": "파일을 폴더로 정리하고 버전별로 관리하는 파일함이 설정에 추가됐습니다. 증상 리포트 등에서 참조하는 문서를 한곳에서 보관·교체할 수 있고, 파일함을 통해 파일을 배포할 수도 있습니다."
+          },
+          "command": {
+            "title": "1:N 명령 화면 전면 개편",
+            "sub": "위젯 재설계",
+            "desc": "여러 노드에 명령을 한 번에 보내고 결과를 실시간으로 확인하는 화면을 새로 설계했습니다. 명령 타입(WMI · 명령 프롬프트 · PowerShell · SQL · 각종 조회) 선택, 조직도·가상 그룹 대상 지정과 동적 대상·예약 전송·실패 시 재시도, 노드별 상태 그리드와 값별 집계 차트, PDF·Excel 내보내기, 실패 노드만 재전송까지 지원합니다. 기존 화면은 ‘(구)명령관리’로 남겨 두어 이전 방식도 계속 쓸 수 있습니다."
+          },
+          "loadChart": {
+            "title": "노드 부하 요약 차트 — 10지표 확장",
+            "sub": "위젯 개선",
+            "desc": "오늘 시간대별 부하 추이 차트가 CPU·메모리·I/O·핸들 4종에서 디스크·유선·Wi-Fi(각 읽기/쓰기) 6종을 더해 10종 오버레이로 확장됐습니다. 실시간 MQTT 갱신과 피크 마커를 제공하며, 에이전트가 디스크·인터페이스별 읽기·쓰기 처리량을 새로 수집합니다."
+          }
+        }
+      },
+      "en": {
+        "excerpt": "Five new widgets (Process, Load Summary, Routine Symptom Detection, Network, and File Box) were added, and the 1:N command screen was completely redesigned. New widgets can be placed directly from 'Add widget' on the manager dashboard.",
+        "items": {
+          "process": {
+            "title": "Process — Company-Wide Resource Usage and Spread Forecast",
+            "sub": "Dashboard widget · Company-wide",
+            "desc": "Pick a single process version (SUID), identified by a hash of the file contents, and compare its resource usage and node spread against the company-wide baseline on a timeline anchored to the first observed execution. Alongside an execution list sorted by load index, a node list, and a detailed timeline, a spread forecast predicts hourly whether PCs running the program will enter the top 10% of company-wide load within the next seven days — and scores its own hit rate."
+          },
+          "loadSummary": {
+            "title": "Load Summary",
+            "sub": "Dashboard widget · Daily summary",
+            "desc": "Explains in plain sentences when today's peak node load occurred, how high it was, which process caused it, and how many machines it affected. It compares against the previous hour and the same hour yesterday to judge whether load is above normal, and decomposes the change to separate more connected nodes from genuinely higher usage."
+          },
+          "routine": {
+            "title": "Routine Symptom Detection — Classification Review and Settings",
+            "sub": "Dashboard widget · Settings",
+            "desc": "Review, in a table, how the server's baseline service judged each symptom as routine or not, with unstable verdicts sorted first so you can correct them with a global override. Filtering out recurring routine symptoms automatically lets administrators focus on the ones that matter. Sensitivity is adjusted directly on the server via loose/normal/strict presets — no redeployment required."
+          },
+          "network": {
+            "title": "Network — Automatic Office Zone Detection",
+            "sub": "Dashboard widget · Operator tools",
+            "desc": "Automatically works out which office network each PC sits on by grouping similar machines using signals such as router MAC, egress IP, IP range, and domain. PCs that are hard to classify — for instance when several offices share the same internal IP range — are collected under 'Uncertain' for review, and assignments pinned by a person are protected from being overwritten by agent-reported values."
+          },
+          "fileBox": {
+            "title": "File Box",
+            "sub": "Settings tab",
+            "desc": "A file box that organizes files into folders and manages them by version has been added to Settings. Documents referenced from symptom reports and elsewhere can be stored and replaced in one place, and files can also be distributed through the file box."
+          },
+          "command": {
+            "title": "1:N Command Screen Fully Redesigned",
+            "sub": "Widget redesign",
+            "desc": "The screen for sending a command to many nodes at once and watching results in real time has been redesigned. It supports command type selection (WMI, Command Prompt, PowerShell, SQL, and various queries), targeting by org chart or virtual group with dynamic targets, scheduled sending and retry on failure, a per-node status grid with aggregation charts by value, PDF and Excel export, and resending to failed nodes only. The previous screen remains available as 'Command Management (legacy)'."
+          },
+          "loadChart": {
+            "title": "Node Load Summary Chart — Expanded to 10 Metrics",
+            "sub": "Widget improvement",
+            "desc": "Today's hourly load trend chart has grown from four metrics (CPU, memory, I/O, handles) to a ten-metric overlay by adding disk, wired, and Wi-Fi read/write. It offers real-time MQTT updates and peak markers, and the agent now collects read/write throughput per disk and per interface."
+          }
+        }
+      },
+      "ja": {
+        "excerpt": "新規ウィジェット 5 種（プロセス・負荷サマリー・日常症状検知・ネットワーク・ファイルボックス）が追加され、1:N コマンド画面が全面的に刷新されました。新しいウィジェットはマネージャーダッシュボードの「ウィジェット追加」からそのまま配置して使えます。",
+        "items": {
+          "process": {
+            "title": "プロセス — 全社の資源使用状況・拡散予測",
+            "sub": "ダッシュボードウィジェット · 全社",
+            "desc": "ファイル内容のハッシュで識別したプロセスの 1 バージョン（SUID）を選び、全社基準（baseline）に対する資源使用量とノード拡散を、初回実行の観測日を起点としたタイムラインで比較します。負荷指数順の実行一覧・ノード一覧・詳細タイムラインに加え、このプログラムを使う PC が今後 7 日以内に全社負荷の上位 10% に入るかを毎時予測し、的中率で検証する拡散予測を提供します。"
+          },
+          "loadSummary": {
+            "title": "負荷サマリー",
+            "sub": "ダッシュボードウィジェット · 日次サマリー",
+            "desc": "本日の全ノード負荷のピークがいつ・どれくらいで、どのプロセスが原因で、何台に影響したかを文章で説明します。直前 1 時間・昨日の同時刻と対比して平常より高いかを判断し、接続ノード数が増えた効果なのか実際の使用量が増えたのかを分解して示します。"
+          },
+          "routine": {
+            "title": "日常症状検知 — 日常分類の検証・設定",
+            "sub": "ダッシュボードウィジェット · 設定",
+            "desc": "サーバーの baseline サービスが各症状を「日常」と見なすかどうかを判定した結果を表で検証し、判定が揺れている項目を優先的に並べて全体強制指定で修正します。繰り返し現れる日常症状を自動的に振り分けておけば、重要な症状に集中できます。感度はゆるめ／標準／厳しめのプリセットでサーバー上から直接調整できます（再配布不要）。"
+          },
+          "network": {
+            "title": "ネットワーク — オフィスゾーンの自動認識",
+            "sub": "ダッシュボードウィジェット · 運用者ツール",
+            "desc": "各 PC がどのオフィスネットワークにあるかを、ルーターの MAC・出口 IP・IP レンジ・ドメインといった信号で似た PC をまとめて自動的に判別します。複数のオフィスが同じ内部 IP レンジを使うなどして自動判別が難しい PC は「不確実」に集めて確認を促し、人が指定（pin）した割り当てはエージェントの報告値で上書きされないよう保護します。"
+          },
+          "fileBox": {
+            "title": "ファイルボックス",
+            "sub": "設定タブ",
+            "desc": "ファイルをフォルダで整理しバージョンごとに管理するファイルボックスが設定に追加されました。症状レポートなどから参照する文書を一か所で保管・差し替えでき、ファイルボックスを通じてファイルを配布することもできます。"
+          },
+          "command": {
+            "title": "1:N コマンド画面の全面刷新",
+            "sub": "ウィジェット再設計",
+            "desc": "複数のノードへ一度にコマンドを送り、結果をリアルタイムで確認する画面を新しく設計しました。コマンドタイプ（WMI・コマンドプロンプト・PowerShell・SQL・各種照会）の選択、組織図・仮想グループからの対象指定と動的対象・予約送信・失敗時のリトライ、ノード別ステータスグリッドと値ごとの集計チャート、PDF・Excel エクスポート、失敗ノードのみ再送信まで対応します。従来の画面は「(旧) コマンド管理」として残るため、これまでの方法も引き続き利用できます。"
+          },
+          "loadChart": {
+            "title": "ノード負荷サマリーチャート — 10 指標へ拡張",
+            "sub": "ウィジェット改善",
+            "desc": "本日の時間帯別負荷推移チャートが、CPU・メモリ・I/O・ハンドルの 4 種から、ディスク・有線・Wi-Fi（各読み書き）の 6 種を加えた 10 種のオーバーレイに拡張されました。リアルタイムの MQTT 更新とピークマーカーを備え、エージェントがディスク別・インターフェース別の読み書きスループットを新たに収集します。"
+          }
+        }
+      },
+      "zh": {
+        "excerpt": "新增 5 个组件（进程、负载摘要、日常症状检测、网络、文件柜），并全面改版了 1:N 命令界面。新组件可从管理器仪表盘的「添加组件」直接放置使用。",
+        "items": {
+          "process": {
+            "title": "进程 —— 全公司资源使用现状与扩散预测",
+            "sub": "仪表盘组件 · 全公司",
+            "desc": "选择一个以文件内容哈希识别的进程版本（SUID），以首次运行观测日为起点的时间线，将其资源使用量与节点扩散情况同全公司基准（baseline）进行对比。除按负载指数排序的运行列表、节点列表与详细时间线外，还提供扩散预测：每小时预测使用该程序的 PC 是否会在未来 7 天内进入全公司负载前 10%，并以命中率进行验证。"
+          },
+          "loadSummary": {
+            "title": "负载摘要",
+            "sub": "仪表盘组件 · 每日摘要",
+            "desc": "用文字说明今天全部节点负载的峰值出现在何时、有多高、由哪个进程引起、影响了多少台设备。通过与前 1 小时及昨日同一时段对比来判断是否高于平常，并将变化拆解为「接入节点数增加」还是「实际使用量上升」。"
+          },
+          "routine": {
+            "title": "日常症状检测 —— 日常分类的检验与设置",
+            "sub": "仪表盘组件 · 设置",
+            "desc": "以表格形式检验服务端 baseline 服务对各症状是否判定为「日常」的结果，并将判定反复摇摆的条目优先排序，通过全局强制指定加以纠正。自动筛除反复出现的日常症状后，管理员即可专注于重要症状。灵敏度可通过宽松／普通／严格预设直接在服务端调整（无需重新部署）。"
+          },
+          "network": {
+            "title": "网络 —— 办公区域自动识别",
+            "sub": "仪表盘组件 · 运维工具",
+            "desc": "通过路由器 MAC、出口 IP、IP 网段、域名等信号将相似的 PC 归组，自动判别每台 PC 位于哪个办公网络。对于多个办公室共用同一内网网段等难以自动区分的 PC，会归入「不确定」以待人工确认；由人工指定（pin）的归属则受到保护，不会被代理上报的值覆盖。"
+          },
+          "fileBox": {
+            "title": "文件柜",
+            "sub": "设置标签页",
+            "desc": "设置中新增了以文件夹整理文件并按版本管理的文件柜。可在同一处保管与替换症状报告等所引用的文档，也可通过文件柜分发文件。"
+          },
+          "command": {
+            "title": "1:N 命令界面全面改版",
+            "sub": "组件重新设计",
+            "desc": "重新设计了一次性向多个节点下发命令并实时查看结果的界面。支持命令类型选择（WMI、命令提示符、PowerShell、SQL 及各类查询）、从组织架构与虚拟组指定对象并支持动态对象、预约下发与失败重试、按节点的状态网格与按取值的汇总图表、PDF 与 Excel 导出，以及仅对失败节点重新下发。原有界面保留为「(旧) 命令管理」，此前的使用方式仍可继续沿用。"
+          },
+          "loadChart": {
+            "title": "节点负载摘要图表 —— 扩展至 10 项指标",
+            "sub": "组件改进",
+            "desc": "今日分时段负载趋势图从 CPU、内存、I/O、句柄 4 项，增加磁盘、有线、Wi-Fi（各读／写）6 项，扩展为 10 项叠加显示。提供实时 MQTT 刷新与峰值标记，代理端新增采集按磁盘、按网络接口的读写吞吐量。"
+          }
+        }
+      },
+      "zh-Hant": {
+        "excerpt": "新增 5 個元件（處理程序、負載摘要、日常症狀偵測、網路、檔案櫃），並全面改版 1:N 命令介面。新元件可從管理器儀表板的「新增元件」直接放置使用。",
+        "items": {
+          "process": {
+            "title": "處理程序 —— 全公司資源使用現況與擴散預測",
+            "sub": "儀表板元件 · 全公司",
+            "desc": "選擇一個以檔案內容雜湊識別的處理程序版本（SUID），以首次執行觀測日為起點的時間軸，將其資源使用量與節點擴散情形同全公司基準（baseline）進行比較。除了依負載指數排序的執行清單、節點清單與詳細時間軸之外，還提供擴散預測：每小時預測使用該程式的 PC 是否會在未來 7 天內進入全公司負載前 10%，並以命中率加以驗證。"
+          },
+          "loadSummary": {
+            "title": "負載摘要",
+            "sub": "儀表板元件 · 每日摘要",
+            "desc": "以文字說明今天所有節點負載的高峰出現在何時、有多高、由哪個處理程序造成、影響了多少台裝置。透過與前 1 小時及昨日同一時段對比判斷是否高於平常，並將變化拆解為「連線節點數增加」或「實際使用量上升」。"
+          },
+          "routine": {
+            "title": "日常症狀偵測 —— 日常分類的檢驗與設定",
+            "sub": "儀表板元件 · 設定",
+            "desc": "以表格檢驗伺服器 baseline 服務對各症狀是否判定為「日常」的結果，並將判定反覆擺盪的項目優先排序，透過全域強制指定加以修正。自動篩除反覆出現的日常症狀後，管理者即可專注於重要症狀。靈敏度可透過寬鬆／普通／嚴格預設直接在伺服器端調整（無需重新部署）。"
+          },
+          "network": {
+            "title": "網路 —— 辦公區域自動辨識",
+            "sub": "儀表板元件 · 維運工具",
+            "desc": "透過路由器 MAC、出口 IP、IP 網段、網域等訊號將相似的 PC 歸群，自動判別每台 PC 位於哪個辦公網路。對於多個辦公室共用同一內網網段等難以自動區分的 PC，會歸入「不確定」以待人工確認；由人工指定（pin）的歸屬則受到保護，不會被代理程式回報的值覆寫。"
+          },
+          "fileBox": {
+            "title": "檔案櫃",
+            "sub": "設定分頁",
+            "desc": "設定中新增了以資料夾整理檔案並依版本管理的檔案櫃。可在同一處保管與替換症狀報告等所引用的文件，也可透過檔案櫃派送檔案。"
+          },
+          "command": {
+            "title": "1:N 命令介面全面改版",
+            "sub": "元件重新設計",
+            "desc": "重新設計了一次向多個節點下達命令並即時查看結果的介面。支援命令類型選擇（WMI、命令提示字元、PowerShell、SQL 及各類查詢）、從組織圖與虛擬群組指定對象並支援動態對象、預約傳送與失敗重試、依節點的狀態格線與依取值的彙總圖表、PDF 與 Excel 匯出，以及僅對失敗節點重新傳送。原有介面保留為「(舊) 命令管理」，先前的使用方式仍可繼續沿用。"
+          },
+          "loadChart": {
+            "title": "節點負載摘要圖表 —— 擴充至 10 項指標",
+            "sub": "元件改進",
+            "desc": "今日分時段負載趨勢圖從 CPU、記憶體、I/O、控制代碼 4 項，加入磁碟、有線、Wi-Fi（各讀／寫）6 項，擴充為 10 項疊加顯示。提供即時 MQTT 更新與尖峰標記，代理程式新增蒐集依磁碟、依網路介面的讀寫吞吐量。"
+          }
+        }
+      }
+    },
+    "body": "/release_notes/1.6.242.0724/ko.md"
+  }
+]

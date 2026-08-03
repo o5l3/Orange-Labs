@@ -1,3 +1,7 @@
+import { parseDate } from '../../i18n/date';
+
+export { formatDate } from '../../i18n/date';
+
 export interface BlogPost {
   category: string;
   categoryColor: string;
@@ -11,26 +15,6 @@ export interface BlogPost {
 export interface BlogData {
   language: string;
   posts: BlogPost[];
-}
-
-const localeMap: Record<string, string> = {
-  ko: 'ko-KR',
-  en: 'en-US',
-  'zh-Hant': 'zh-TW',
-  zh: 'zh-CN',
-  ja: 'ja-JP',
-};
-
-/** tech_blog.json은 날짜를 2026.07.24 형태로 담고 있다. */
-const parseDate = (s: string) => new Date(s.replace(/\./g, '-'));
-
-export function formatDate(dateStr: string, language: string): string {
-  const locale = localeMap[language] ?? localeMap[language.split('-')[0]] ?? 'en-US';
-  return new Intl.DateTimeFormat(locale, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(parseDate(dateStr));
 }
 
 /**

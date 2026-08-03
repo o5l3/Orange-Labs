@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "sync-blog": "node scripts/sync-blog.mjs",
     "sync-blog:check": "node scripts/sync-blog.mjs --check",
+    "sync-release-notes": "node scripts/sync-release-notes.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

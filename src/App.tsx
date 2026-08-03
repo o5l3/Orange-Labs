@@ -6,7 +6,8 @@ import Home from './pages/Home';
 import OrangeTheClient from './pages/Products/OrangeTheClient';
 import UserManual from './pages/Resources/UserManual';
 import DemoVideos from './pages/Resources/DemoVideos';
-import PatchNotes from './pages/Resources/PatchNotes';
+import ReleaseNotes from './pages/Resources/ReleaseNotes';
+import ReleaseNoteContent from './pages/Resources/ReleaseNoteContent';
 import TechBlog from './pages/Resources/TechBlog';
 import TechBlogContent from './pages/Resources/TechBlogContent';
 import About from './pages/Company/About';
@@ -52,7 +53,8 @@ export default function App() {
           <Route path="/products/orange-the-client" element={<OrangeTheClient />} />
           <Route path="/resources/user-manual" element={<UserManual />} />
           <Route path="/resources/demo-videos" element={<DemoVideos />} />
-          <Route path="/resources/patch-notes" element={<PatchNotes />} />
+          <Route path="/resources/release-notes" element={<ReleaseNotes />} />
+          <Route path="/resources/release-notes/:slug" element={<ReleaseNoteContent />} />
           <Route path="/resources/tech-blog" element={<TechBlog />} />
           <Route path="/resources/tech-blog/:slug" element={<TechBlogContent />} />
           <Route path="/company/about" element={<About />} />
