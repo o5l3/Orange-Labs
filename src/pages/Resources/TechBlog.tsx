@@ -1,18 +1,34 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { formatDate, pickPosts, type BlogData, type BlogPost } from './blogLocale';
+
+const ALL = '__all__';
 
 export default function TechBlog() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [category, setCategory] = useState<string>(ALL);
 
   useEffect(() => {
     fetch('/tech_blog/tech_blog.json')
       .then((res) => res.json())
       .then((data: BlogData[]) => setPosts(pickPosts(data, i18n.language)));
   }, [i18n.language]);
+
+  /** 카테고리 목록은 글 수가 많은 순으로. 라벨·색은 tech_blog.json이 들고 있다. */
+  const categories = useMemo(() => {
+    const seen = new Map<string, { name: string; color: string; count: number }>();
+    for (const p of posts) {
+      const entry = seen.get(p.category);
+      if (entry) entry.count += 1;
+      else seen.set(p.category, { name: p.category, color: p.categoryColor, count: 1 });
+    }
+    return [...seen.values()].sort((a, b) => b.count - a.count);
+  }, [posts]);
+
+  const visible = category === ALL ? posts : posts.filter((p) => p.category === category);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-24">
@@ -35,8 +51,32 @@ export default function TechBlog() {
         </p>
       </div>
 
+      {/* ── 카테고리 필터 ── */}
+      <div className="flex flex-wrap justify-center gap-2 mb-10">
+        {[{ name: ALL, color: 'var(--accent)', count: posts.length }, ...categories].map((c) => {
+          const active = category === c.name;
+          return (
+            <button
+              key={c.name}
+              className="px-4 py-1.5 text-sm font-medium rounded-full transition-all cursor-pointer"
+              style={{
+                backgroundColor: active ? `${c.color}22` : 'var(--surface)',
+                color: active ? c.color : 'var(--fg-muted)',
+                border: `1px solid ${active ? c.color : 'var(--border)'}`,
+              }}
+              onClick={() => setCategory(c.name)}
+            >
+              {c.name === ALL ? t('blog.allCategories') : c.name}
+              <span className="ml-1.5 text-xs" style={{ color: 'var(--fg-dimmer)' }}>
+                {c.count}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post) => (
+        {visible.map((post) => (
           <article
             key={`${post.subject}-${post.createdAt}`}
             className="p-6 rounded-2xl cursor-pointer transition-all flex flex-col"

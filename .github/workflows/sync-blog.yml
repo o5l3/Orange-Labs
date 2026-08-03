@@ -1,0 +1,94 @@
+name: Sync tech blog from blogs repo
+
+# o5l3/blogs는 매주 월요일에 주간 자동 발행된다. 그 뒤에 한 번 훑어
+# 새 글을 홈페이지 기술 블로그로 가져온다.
+#
+# 사전 준비
+#   - blogs 저장소가 비공개면 읽기 권한이 있는 PAT를 BLOGS_READ_TOKEN 시크릿으로 등록.
+#     공개 저장소면 등록하지 않아도 기본 토큰으로 체크아웃된다.
+#
+# 정제 게이트: scripts/sync-blog.mjs는 개인정보 패턴이 남아 있으면 종료 코드 1로 죽는다.
+# 주간 발행에 새 표현이 들어와 규칙을 비켜가면 커밋 없이 이 워크플로가 실패한다.
+
+on:
+  schedule:
+    # 월요일 09:00 UTC = 18:00 KST
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-blog
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write # 아래 mirror 워크플로를 이어서 돌리기 위해 필요
+
+jobs:
+  sync:
+    if: github.repository == 'o5l3/Orange-Labs'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Orange-Labs
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Checkout blogs
+        uses: actions/checkout@v4
+        with:
+          repository: o5l3/blogs
+          ref: main
+          path: blogs
+          token: ${{ secrets.BLOGS_READ_TOKEN || github.token }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # sync-blog.mjs는 Node 내장 모듈만 쓰므로 의존성 설치가 필요 없다.
+      - name: Sync
+        id: sync
+        run: |
+          set -o pipefail
+          node scripts/sync-blog.mjs --posts blogs/_posts | tee sync.log
+          {
+            echo '### 기술 블로그 동기화'
+            echo '```'
+            cat sync.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Detect changes
+        id: diff
+        run: |
+          if git diff --quiet -- public/tech_blog; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo '변경 없음 — 커밋하지 않습니다.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- public/tech_blog >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/tech_blog
+          COUNT=$(ls public/tech_blog/md/*.md | wc -l | tr -d ' ')
+          git commit -m "기술 블로그 자동 동기화 — 총 ${COUNT}건
+
+          o5l3/blogs의 주간 발행분을 가져왔습니다. scripts/blog-sanitize.json의
+          정제 규칙을 통과한 내용만 담겨 있습니다."
+          git push origin main
+
+      # GITHUB_TOKEN으로 push하면 다른 워크플로가 자동으로 트리거되지 않는다.
+      # 배포 저장소로 내보내는 mirror 워크플로를 직접 깨워 준다.
+      - name: Trigger deploy mirror
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run mirror.yml --ref main

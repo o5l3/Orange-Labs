@@ -11,7 +11,7 @@
     "docs": "DOCS",
     "userManual": "User Manual",
     "demoVideos": "Product Videos",
-    "patchNotes": "Orange Patch Notes",
+    "releaseNotes": "Orange Release Notes",
     "learn": "LEARN",
     "techBlog": "Tech Blog",
     "about": "About OrangeLabs",
@@ -263,7 +263,8 @@
     "back": "Back to list",
     "prevPost": "Previous Post",
     "nextPost": "Next Post",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "allCategories": "All"
   },
   "about": {
     "badge": "COMPANY",
@@ -781,37 +782,18 @@
     "v10_title": "Orange The Client Manager - Widget Layout Editor",
     "v10_desc": "Widgets can be arranged in a layout that is most convenient for the administrator. Tabs for placing widgets can be added or removed, and widgets can be dragged from the widget list and dropped into any desired position."
   },
-  "patchNotes": {
-    "badge": "PATCH NOTES",
-    "title": "Orange Patch Notes",
+  "releaseNotes": {
+    "badge": "RELEASE NOTES",
+    "title": "Orange Release Notes",
     "desc": "Release-by-release changes to Orange The Client. The full contents of each release, along with screenshots, are available in the PDF.",
     "latest": "Latest",
-    "download_btn": "Download patch notes PDF",
+    "download_btn": "Download release notes PDF",
     "summary_title": "What changed · At a glance",
+    "readMore": "Read more",
+    "back": "Back to list",
+    "loading": "Loading...",
     "tag_new": "NEW",
     "tag_improved": "IMPROVED",
-    "pdf_note": "Screenshots and item-by-item detail are included in each release's patch notes PDF.",
-    "r_1_6_242_0724_desc": "Five new widgets (Process, Load Summary, Routine Symptom Detection, Network, and File Box) were added, and the 1:N command screen was completely redesigned. New widgets can be placed directly from 'Add widget' on the manager dashboard.",
-    "r_1_6_242_0724_process_title": "Process — Company-Wide Resource Usage and Spread Forecast",
-    "r_1_6_242_0724_process_sub": "Dashboard widget · Company-wide",
-    "r_1_6_242_0724_process_desc": "Pick a single process version (SUID), identified by a hash of the file contents, and compare its resource usage and node spread against the company-wide baseline on a timeline anchored to the first observed execution. Alongside an execution list sorted by load index, a node list, and a detailed timeline, a spread forecast predicts hourly whether PCs running the program will enter the top 10% of company-wide load within the next seven days — and scores its own hit rate.",
-    "r_1_6_242_0724_loadSummary_title": "Load Summary",
-    "r_1_6_242_0724_loadSummary_sub": "Dashboard widget · Daily summary",
-    "r_1_6_242_0724_loadSummary_desc": "Explains in plain sentences when today's peak node load occurred, how high it was, which process caused it, and how many machines it affected. It compares against the previous hour and the same hour yesterday to judge whether load is above normal, and decomposes the change to separate more connected nodes from genuinely higher usage.",
-    "r_1_6_242_0724_routine_title": "Routine Symptom Detection — Classification Review and Settings",
-    "r_1_6_242_0724_routine_sub": "Dashboard widget · Settings",
-    "r_1_6_242_0724_routine_desc": "Review, in a table, how the server's baseline service judged each symptom as routine or not, with unstable verdicts sorted first so you can correct them with a global override. Filtering out recurring routine symptoms automatically lets administrators focus on the ones that matter. Sensitivity is adjusted directly on the server via loose/normal/strict presets — no redeployment required.",
-    "r_1_6_242_0724_network_title": "Network — Automatic Office Zone Detection",
-    "r_1_6_242_0724_network_sub": "Dashboard widget · Operator tools",
-    "r_1_6_242_0724_network_desc": "Automatically works out which office network each PC sits on by grouping similar machines using signals such as router MAC, egress IP, IP range, and domain. PCs that are hard to classify — for instance when several offices share the same internal IP range — are collected under 'Uncertain' for review, and assignments pinned by a person are protected from being overwritten by agent-reported values.",
-    "r_1_6_242_0724_fileBox_title": "File Box",
-    "r_1_6_242_0724_fileBox_sub": "Settings tab",
-    "r_1_6_242_0724_fileBox_desc": "A file box that organizes files into folders and manages them by version has been added to Settings. Documents referenced from symptom reports and elsewhere can be stored and replaced in one place, and files can also be distributed through the file box.",
-    "r_1_6_242_0724_command_title": "1:N Command Screen Fully Redesigned",
-    "r_1_6_242_0724_command_sub": "Widget redesign",
-    "r_1_6_242_0724_command_desc": "The screen for sending a command to many nodes at once and watching results in real time has been redesigned. It supports command type selection (WMI, Command Prompt, PowerShell, SQL, and various queries), targeting by org chart or virtual group with dynamic targets, scheduled sending and retry on failure, a per-node status grid with aggregation charts by value, PDF and Excel export, and resending to failed nodes only. The previous screen remains available as 'Command Management (legacy)'.",
-    "r_1_6_242_0724_loadChart_title": "Node Load Summary Chart — Expanded to 10 Metrics",
-    "r_1_6_242_0724_loadChart_sub": "Widget improvement",
-    "r_1_6_242_0724_loadChart_desc": "Today's hourly load trend chart has grown from four metrics (CPU, memory, I/O, handles) to a ten-metric overlay by adding disk, wired, and Wi-Fi read/write. It offers real-time MQTT updates and peak markers, and the agent now collects read/write throughput per disk and per interface."
+    "tag_fixed": "FIXED"
   }
 }
