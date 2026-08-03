@@ -11,7 +11,7 @@
     "docs": "文档",
     "userManual": "用户手册",
     "demoVideos": "产品视频",
-    "releaseNotes": "Orange 版本说明",
+    "releaseNotes": "版本说明",
     "learn": "学习",
     "techBlog": "技术博客",
     "about": "关于 OrangeLabs",
@@ -784,7 +784,7 @@
   },
   "releaseNotes": {
     "badge": "版本说明",
-    "title": "Orange 版本说明",
+    "title": "版本说明",
     "desc": "整理 Orange The Client 各版本的变更内容。每个版本的完整内容与界面示例可在 PDF 中查看。",
     "latest": "最新",
     "download_btn": "下载版本说明 PDF",
