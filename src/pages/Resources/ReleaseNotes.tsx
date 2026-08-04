@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { formatDate } from '../../i18n/date';
-import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNotes';
+import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNoteData';
 
 export default function ReleaseNotes() {
   const { t, i18n } = useTranslation();

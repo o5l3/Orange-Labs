@@ -5,7 +5,7 @@ import Markdown from '../../components/Markdown';
 import Seo from '../../components/Seo';
 import { SITE_NAME, SITE_URL, absoluteUrl } from '../../seo/site';
 import { formatDate } from '../../i18n/date';
-import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNotes';
+import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNoteData';
 
 export default function ReleaseNoteContent() {
   const { slug } = useParams<{ slug: string }>();
