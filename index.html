@@ -1,15 +1,68 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f97316" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
     />
-    <title>OrangeLabs</title>
+
+    <!--
+      seo:start ~ seo:end 사이는 빌드 후 scripts/generate-seo.mjs 가 경로별로 교체한다.
+      여기 있는 값은 사전 렌더링되지 않은 경로의 기본값이며,
+      런타임에는 src/components/Seo.tsx 가 이 태그들을 제거하고 직접 관리한다.
+    -->
+    <!-- seo:start -->
+    <title data-seo-static>오렌지랩스 OrangeLabs | 엔드포인트 성능·장애관리 솔루션</title>
+    <meta
+      data-seo-static
+      name="description"
+      content="오렌지랩스(OrangeLabs)는 실시간 성능 장애 예측으로 IT를 편하게 만듭니다. GS 1등급 인증을 받은 엔드포인트 성능·장애관리 솔루션 Orange The Client를 만나보세요."
+    />
+    <link data-seo-static rel="canonical" href="https://www.orangelabs.xyz/" />
+    <meta data-seo-static name="robots" content="index, follow, max-image-preview:large" />
+    <meta data-seo-static property="og:site_name" content="OrangeLabs" />
+    <meta data-seo-static property="og:type" content="website" />
+    <meta
+      data-seo-static
+      property="og:title"
+      content="오렌지랩스 OrangeLabs | 엔드포인트 성능·장애관리 솔루션"
+    />
+    <meta
+      data-seo-static
+      property="og:description"
+      content="오렌지랩스(OrangeLabs)는 실시간 성능 장애 예측으로 IT를 편하게 만듭니다. GS 1등급 인증을 받은 엔드포인트 성능·장애관리 솔루션 Orange The Client를 만나보세요."
+    />
+    <meta data-seo-static property="og:url" content="https://www.orangelabs.xyz/" />
+    <meta
+      data-seo-static
+      property="og:image"
+      content="https://www.orangelabs.xyz/images/orangebox.png"
+    />
+    <meta data-seo-static property="og:image:width" content="720" />
+    <meta data-seo-static property="og:image:height" content="720" />
+    <meta data-seo-static property="og:locale" content="ko_KR" />
+    <meta data-seo-static name="twitter:card" content="summary_large_image" />
+    <meta
+      data-seo-static
+      name="twitter:title"
+      content="오렌지랩스 OrangeLabs | 엔드포인트 성능·장애관리 솔루션"
+    />
+    <meta
+      data-seo-static
+      name="twitter:description"
+      content="오렌지랩스(OrangeLabs)는 실시간 성능 장애 예측으로 IT를 편하게 만듭니다. GS 1등급 인증을 받은 엔드포인트 성능·장애관리 솔루션 Orange The Client를 만나보세요."
+    />
+    <meta
+      data-seo-static
+      name="twitter:image"
+      content="https://www.orangelabs.xyz/images/orangebox.png"
+    />
+    <!-- seo:end -->
   </head>
   <body>
     <div id="root"></div>

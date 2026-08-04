@@ -32,5 +32,12 @@ export function pickPosts(data: BlogData[], language: string): BlogPost[] {
   );
 }
 
+/** '2026.07.24' → '2026-07-24' (schema.org datePublished / sitemap lastmod용) */
+export function toIsoDate(dateStr: string): string {
+  const [y, m, d] = dateStr.split('.');
+  if (!y || !m || !d) return dateStr;
+  return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
+}
+
 export const getSlugFromMd = (md: string): string =>
   (md.split('/').at(-1) ?? '').replace(/\.md$/, '');

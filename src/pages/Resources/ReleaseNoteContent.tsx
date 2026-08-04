@@ -2,6 +2,8 @@ import { useState, useEffect, startTransition } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Markdown from '../../components/Markdown';
+import Seo from '../../components/Seo';
+import { SITE_NAME, SITE_URL, absoluteUrl } from '../../seo/site';
 import { formatDate } from '../../i18n/date';
 import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNotes';
 
@@ -41,9 +43,39 @@ export default function ReleaseNoteContent() {
   }, [release]);
 
   const text = release ? pickText(release, i18n.language) : null;
+  const notePath = `/resources/release-notes/${slug}`;
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+      {release && text && (
+        <Seo
+          title={`${release.version} ${t('releaseNotes.title')}`}
+          description={text.excerpt}
+          path={notePath}
+          type="article"
+          article={{ publishedTime: release.date }}
+          jsonLd={{
+            '@context': 'https://schema.org',
+            '@type': 'TechArticle',
+            headline: `${release.version} ${t('releaseNotes.title')}`,
+            description: text.excerpt,
+            datePublished: release.date,
+            inLanguage: i18n.language,
+            mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl(notePath) },
+            about: { '@type': 'SoftwareApplication', name: 'Orange The Client' },
+            publisher: {
+              '@type': 'Organization',
+              name: SITE_NAME,
+              url: `${SITE_URL}/`,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${SITE_URL}/images/orangelabs_mark_logo.png`,
+              },
+            },
+          }}
+        />
+      )}
+
       {/* 뒤로 가기 */}
       <button
         className="flex items-center gap-1 text-sm font-semibold mb-10 px-3 py-1.5 rounded-lg transition-all cursor-pointer"

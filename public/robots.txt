@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# 네이버 · 다음 검색 로봇 (국문 브랜드 검색 대응)
+User-agent: Yeti
+Allow: /
+
+User-agent: Daum
+Allow: /
+
+Sitemap: https://www.orangelabs.xyz/sitemap.xml

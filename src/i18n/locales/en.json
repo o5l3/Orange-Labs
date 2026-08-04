@@ -762,5 +762,67 @@
     "tag_new": "NEW",
     "tag_improved": "IMPROVED",
     "tag_fixed": "FIXED"
+  },
+  "seo": {
+    "home": {
+      "title": "OrangeLabs | Endpoint Performance & Failure Management",
+      "description": "OrangeLabs makes IT easy with real-time performance and failure prediction. Meet Orange The Client, a GS Grade 1 certified endpoint performance and failure management solution."
+    },
+    "otc": {
+      "title": "Orange The Client — Endpoint Performance & Failure Management",
+      "description": "The next-generation endpoint performance and failure management solution. From real-time detection to root-cause analysis, it makes IT operations simpler and safer."
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "Simple, transparent pricing for Orange The Client, from Starter to Enterprise. Start a 14-day free trial with no credit card required."
+    },
+    "userManual": {
+      "title": "Orange The Client User Manual",
+      "description": "A quick guide for administrators covering the full Orange The Client ver 1.6 workflow — server environment, the Manager console, and agent deployment."
+    },
+    "demoVideos": {
+      "title": "Product Videos",
+      "description": "See Orange The Client in action — dashboard, nodes, Live CMD, symptom analysis, and more."
+    },
+    "releaseNotes": {
+      "title": "Release Notes",
+      "description": "Release-by-release changes and new features in Orange The Client. Full details for each release are available in the release note PDFs."
+    },
+    "techBlog": {
+      "title": "Tech Blog",
+      "description": "Engineering insights, debugging stories, and product updates from the OrangeLabs team."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "OrangeLabs builds endpoint performance and failure management systems designed for enterprise IT administrators — solving the problems security products left behind."
+    },
+    "careers": {
+      "title": "Careers",
+      "description": "Join a team of builders, developers, and relentless problem solvers transforming how enterprises work. See our open roles."
+    },
+    "partners": {
+      "title": "Partners",
+      "description": "Meet the partners we work with to deliver seamless integrations and enterprise-grade solutions. Partnership inquiries are welcome."
+    },
+    "support": {
+      "title": "Support",
+      "description": "Documentation, support tickets, onboarding, and FAQs — help for Orange The Client from deployment through daily operations."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with OrangeLabs about product adoption, technical support, or partnerships. We respond within one business day."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "How OrangeLabs collects, uses, and retains personal information, and the rights available to users."
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "description": "The terms governing use of OrangeLabs services, including the rights and obligations of users and the company."
+    },
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "The page you requested does not exist or has been moved."
+    }
   }
 }
