@@ -762,5 +762,67 @@
     "tag_new": "新增",
     "tag_improved": "改進",
     "tag_fixed": "修復"
+  },
+  "seo": {
+    "home": {
+      "title": "OrangeLabs | 終端效能與故障管理解決方案",
+      "description": "橙實驗室透過即時效能故障預測讓 IT 維運更輕鬆。了解通過 GS 一級認證的終端效能與故障管理解決方案 Orange The Client。"
+    },
+    "otc": {
+      "title": "Orange The Client — 終端效能與故障管理解決方案",
+      "description": "新一代終端效能與故障管理解決方案。從即時偵測到原因分析，全面提升資訊系統維運的便利性與安全性。"
+    },
+    "pricing": {
+      "title": "價格方案",
+      "description": "從入門版到企業版，Orange The Client 提供簡單透明的價格方案。無需信用卡即可開始 14 天免費試用。"
+    },
+    "userManual": {
+      "title": "Orange The Client 使用者手冊",
+      "description": "面向管理員的 Orange The Client ver 1.6 快速指南，涵蓋伺服器運行環境、管理主控台使用方式以及代理程式安裝的完整維運流程。"
+    },
+    "demoVideos": {
+      "title": "產品影片",
+      "description": "透過影片了解 Orange The Client 的主要功能，包含儀表板、節點、Live CMD 與症狀分析等。"
+    },
+    "releaseNotes": {
+      "title": "版本發布說明",
+      "description": "整理 Orange The Client 各版本的變更內容與新增功能。每次發布的詳細說明可在發布說明 PDF 中查看。"
+    },
+    "techBlog": {
+      "title": "技術部落格",
+      "description": "分享橙實驗室工程團隊的問題排查紀錄、產品更新與產業觀察。"
+    },
+    "about": {
+      "title": "公司介紹",
+      "description": "橙實驗室開發符合大型企業 IT 管理員需求的終端效能與故障管理系統，解決資安產品未能解決的問題。"
+    },
+    "careers": {
+      "title": "人才招募",
+      "description": "加入變革企業辦公環境的團隊。查看橙實驗室的招募職缺與工作環境。"
+    },
+    "partners": {
+      "title": "合作夥伴",
+      "description": "介紹與橙實驗室攜手合作的夥伴企業。合作洽談亦可由此開始。"
+    },
+    "support": {
+      "title": "支援",
+      "description": "文件、諮詢、導入引導與常見問題，從部署到日常維運全程支援 Orange The Client 的使用。"
+    },
+    "contact": {
+      "title": "聯絡我們",
+      "description": "關於產品導入、技術支援與合作等事宜，歡迎聯絡橙實驗室。我們將在工作日內盡快回覆。"
+    },
+    "privacy": {
+      "title": "隱私權政策",
+      "description": "說明橙實驗室蒐集的個人資料項目、使用目的、保存期限以及使用者享有的權利。"
+    },
+    "terms": {
+      "title": "服務條款",
+      "description": "說明使用橙實驗室服務的條件，以及使用者與公司的權利和義務。"
+    },
+    "notFound": {
+      "title": "找不到頁面",
+      "description": "您要求的頁面不存在或已被移動。"
+    }
   }
 }

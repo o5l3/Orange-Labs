@@ -1,0 +1,36 @@
+[
+  { "path": "/", "key": "home", "changefreq": "weekly", "priority": 1.0 },
+  {
+    "path": "/products/orange-the-client",
+    "key": "otc",
+    "changefreq": "monthly",
+    "priority": 0.9
+  },
+  { "path": "/pricing", "key": "pricing", "changefreq": "monthly", "priority": 0.8 },
+  {
+    "path": "/resources/user-manual",
+    "key": "userManual",
+    "changefreq": "monthly",
+    "priority": 0.7
+  },
+  {
+    "path": "/resources/demo-videos",
+    "key": "demoVideos",
+    "changefreq": "monthly",
+    "priority": 0.7
+  },
+  {
+    "path": "/resources/release-notes",
+    "key": "releaseNotes",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  { "path": "/resources/tech-blog", "key": "techBlog", "changefreq": "weekly", "priority": 0.8 },
+  { "path": "/company/about", "key": "about", "changefreq": "monthly", "priority": 0.7 },
+  { "path": "/company/careers", "key": "careers", "changefreq": "weekly", "priority": 0.6 },
+  { "path": "/company/partners", "key": "partners", "changefreq": "monthly", "priority": 0.5 },
+  { "path": "/company/support", "key": "support", "changefreq": "monthly", "priority": 0.6 },
+  { "path": "/company/contact", "key": "contact", "changefreq": "monthly", "priority": 0.6 },
+  { "path": "/privacy", "key": "privacy", "changefreq": "yearly", "priority": 0.3 },
+  { "path": "/terms", "key": "terms", "changefreq": "yearly", "priority": 0.3 }
+]

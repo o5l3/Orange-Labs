@@ -782,5 +782,67 @@
     "tag_new": "신규",
     "tag_improved": "개선",
     "tag_fixed": "수정"
+  },
+  "seo": {
+    "home": {
+      "title": "오렌지랩스 OrangeLabs | 엔드포인트 성능·장애관리 솔루션",
+      "description": "오렌지랩스(OrangeLabs)는 실시간 성능 장애 예측으로 IT를 편하게 만듭니다. GS 1등급 인증을 받은 엔드포인트 성능·장애관리 솔루션 Orange The Client를 만나보세요."
+    },
+    "otc": {
+      "title": "Orange The Client — 엔드포인트 성능·장애관리 솔루션",
+      "description": "차세대 엔드포인트 성능·장애관리 솔루션. 실시간 탐지부터 원인 분석까지, 전산관리의 편의성과 안전성을 높입니다."
+    },
+    "pricing": {
+      "title": "요금제",
+      "description": "스타터부터 엔터프라이즈까지, 단순하고 투명한 Orange The Client 요금제. 14일 무료 체험을 신용카드 없이 시작하세요."
+    },
+    "userManual": {
+      "title": "Orange The Client 사용자 매뉴얼",
+      "description": "서버 운영 환경, 매니저 사용법, 에이전트 설치까지 Orange The Client ver 1.6의 전체 운영 흐름을 안내하는 관리자용 퀵 가이드입니다."
+    },
+    "demoVideos": {
+      "title": "제품 영상",
+      "description": "대시보드, 노드, Live CMD, 증상 분석 등 Orange The Client의 주요 기능을 영상으로 확인하세요."
+    },
+    "releaseNotes": {
+      "title": "릴리즈 노트",
+      "description": "Orange The Client의 버전별 변경 사항과 신규 기능을 정리합니다. 각 릴리스의 상세 내용은 릴리즈 노트 PDF에서 확인할 수 있습니다."
+    },
+    "techBlog": {
+      "title": "기술 블로그",
+      "description": "오렌지랩스 엔지니어링 팀의 문제 해결 기록, 제품 업데이트, 업계 관점을 공유합니다."
+    },
+    "about": {
+      "title": "회사 소개",
+      "description": "오렌지랩스(OrangeLabs)는 대기업 IT 관리자 눈높이에 맞는 엔드포인트 성능·장애 관리 시스템을 개발합니다. 보안 제품이 해결하지 못한 문제를 해결합니다."
+    },
+    "careers": {
+      "title": "채용",
+      "description": "기업의 업무 환경을 혁신하는 팀에 합류하세요. 오렌지랩스의 채용 공고와 근무 환경을 확인할 수 있습니다."
+    },
+    "partners": {
+      "title": "파트너",
+      "description": "오렌지랩스와 함께하는 파트너사를 소개합니다. 파트너십 문의도 이곳에서 시작하세요."
+    },
+    "support": {
+      "title": "지원",
+      "description": "문서, 지원 문의, 온보딩과 자주 묻는 질문까지. 도입부터 운영까지 Orange The Client 사용을 돕습니다."
+    },
+    "contact": {
+      "title": "문의하기",
+      "description": "제품 도입, 기술 지원, 파트너십 등 오렌지랩스에 대한 문의를 남겨주세요. 영업일 기준으로 빠르게 답변드립니다."
+    },
+    "privacy": {
+      "title": "개인정보처리방침",
+      "description": "오렌지랩스가 수집하는 개인정보의 항목, 이용 목적, 보관 기간과 이용자의 권리를 안내합니다."
+    },
+    "terms": {
+      "title": "이용약관",
+      "description": "오렌지랩스 서비스 이용에 관한 조건과 이용자 및 회사의 권리·의무를 안내합니다."
+    },
+    "notFound": {
+      "title": "페이지를 찾을 수 없습니다",
+      "description": "요청하신 페이지가 존재하지 않거나 이동되었습니다."
+    }
   }
 }
