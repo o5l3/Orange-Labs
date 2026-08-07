@@ -1,0 +1,295 @@
+{
+  "version": "OR.1.6.242.0806",
+  "slug": "1.6.242.0806",
+  "date": "2026-08-06",
+  "pdf": "release-notes.pdf",
+  "items": [
+    { "key": "remoteControl", "kind": "new" },
+    { "key": "aiAssistant", "kind": "new" },
+    { "key": "assetInventory", "kind": "new" },
+    { "key": "serverHealth", "kind": "new" },
+    { "key": "agentUpdate", "kind": "new" },
+    { "key": "loadScore", "kind": "improved" },
+    { "key": "commandRetry", "kind": "improved" },
+    { "key": "detectIngest", "kind": "improved" },
+    { "key": "scaleStability", "kind": "improved" },
+    { "key": "firewallRule", "kind": "improved" }
+  ],
+  "i18n": {
+    "ko": {
+      "excerpt": "원격 화면 제어와 AI 진단 도우미 「정팀장」이 새로 들어갔고, PC 자산 현황을 대수 제한 없이 한 번에 조회할 수 있게 됐습니다. 서버 상태를 근거와 함께 판정하고, PC 목록에서 바로 에이전트를 업데이트합니다.",
+      "items": {
+        "remoteControl": {
+          "title": "원격 화면 제어 (베타)",
+          "sub": "노드 상세 · 베타",
+          "desc": "전화로 설명해서는 해결되지 않는 문제를 화면을 직접 보며 처리합니다. 매니저에서 연결을 요청하면 화면이 그대로 전송되고 마우스·키보드 조작도 됩니다. 공유기 뒤에 있어 직접 연결이 안 되는 PC는 서버를 거쳐 보이며, 연결되어 있는 동안 상대 PC 사용자에게 원격 제어 중임이 계속 표시됩니다."
+        },
+        "aiAssistant": {
+          "title": "정팀장 — AI 진단 도우미 (베타)",
+          "sub": "대시보드 위젯 · 베타",
+          "desc": "어느 PC가 왜 느린지 알아보려고 화면을 여러 개 열어 가며 짚을 필요가 없습니다. 평소 쓰는 말로 물어보면 PC 상태·프로세스·수집 자료를 스스로 살펴 답하고, 무엇을 근거로 판단했는지 함께 보여줍니다. PC가 꺼져 있어도 서버에 쌓인 자료로 진단합니다."
+        },
+        "assetInventory": {
+          "title": "PC 자산 현황 조회",
+          "sub": "노드 관리 위젯",
+          "desc": "전체 PC의 하드웨어·설치 프로그램 현황이 한 번에 올라옵니다. 전에는 300대까지만 보였는데 이제 대수 제한이 없습니다. 조직도·IP 대역·OS·제조사 등으로 묶은 그룹 카드에서 시작해, GPU·메모리 같은 요구 사양을 걸면 충족한 그룹을 앞세워 보여줍니다."
+        },
+        "serverHealth": {
+          "title": "서버 상태 진단",
+          "sub": "서버 모니터 위젯",
+          "desc": "서버 상태 화면 위쪽에 「정상 · 주의 · 점검 필요」 판정과 그렇게 본 근거가 함께 뜹니다. 저장 공간이 얼마나 빠르게 늘고 있는지, 이대로면 언제 차는지, 지금 오래 걸리는 작업이 무엇인지를 같은 화면에서 봅니다. 전에는 구성요소가 연결만 되어 있으면 「정상」이었습니다."
+        },
+        "agentUpdate": {
+          "title": "PC 목록에서 바로 에이전트 업데이트",
+          "sub": "노드 목록 · 액션",
+          "desc": "PC를 하나 또는 여러 대 골라 「Agent 업데이트」를 실행하면, 각 PC가 최신 버전과 자기 버전을 비교해 다를 때만 내려받아 갱신합니다. 불안정으로 표시된 빌드는 건너뛰고, 여러 대에 한꺼번에 실행해도 다운로드가 몰리지 않도록 시차를 둡니다."
+        },
+        "loadScore": {
+          "title": "부하 지수 산정 방식 개편",
+          "sub": "값이 달라 보일 수 있음",
+          "desc": "프로그램이 반복해서 켜졌다 꺼지는 부담을 실제 측정값으로 환산해 점수에 반영합니다. 잠깐 떴다 사라지는 창이 많은 PC의 점수가 실제보다 높게 나오던 것이 바로잡혔습니다. 순위가 예전과 달라 보일 수 있는데, 산정 기준이 정정된 결과입니다."
+        },
+        "commandRetry": {
+          "title": "명령이 끝나지 않거나 「응답 없음」으로 보이던 문제",
+          "sub": "명령 관리",
+          "desc": "다시 보내도 결과가 같은 실패(시간 초과·권한 없음 등)는 재시도를 멈추고 끝난 것으로 처리합니다. 전에는 최대 7일 동안 15분마다 다시 보냈고, 다시 보낼 때마다 그 PC가 1분씩 다른 명령을 받지 못했습니다. 에이전트를 재시작한 PC에서 실제로는 실행됐는데 「응답 없음」만 뜨던 것도 함께 고쳤습니다."
+        },
+        "detectIngest": {
+          "title": "증상이 몰릴 때 조용히 빠지던 문제",
+          "sub": "값이 달라 보일 수 있음",
+          "desc": "증상을 받아 적는 방식을 바꿔, 한꺼번에 쏟아지는 순간에도 빠뜨리지 않고 기록합니다. 전에는 처리 속도를 넘어선 분량이 아무 표시 없이 사라졌고, 사라졌다는 것조차 알 수 없었습니다. 증상이 많이 잡히는 시간대의 집계 숫자가 예전보다 커질 수 있습니다."
+        },
+        "scaleStability": {
+          "title": "PC가 많을 때 실시간 화면이 끊기던 문제",
+          "sub": "대규모 환경",
+          "desc": "PC를 많이 연결한 환경에서 실시간 화면이 8분 간격으로 끊기고 새로 켠 PC가 목록에 붙지 않던 문제를 해소했습니다. 서버가 동시에 감당하는 연결 수를 크게 늘렸습니다. 1,000대 규모에서 재현되던 증상입니다."
+        },
+        "firewallRule": {
+          "title": "연결 차단 원인 구분",
+          "sub": "탐지 룰",
+          "desc": "프로그램이 서버에 연결하지 못했을 때, 전에는 「접근이 거부됨」으로 묶여 보이던 것을 내 PC의 방화벽이 막은 경우 「로컬 방화벽 차단」으로 따로 구분해 보여줍니다. 서버나 네트워크 문제가 아니라는 것을 바로 알 수 있습니다."
+        }
+      }
+    },
+    "en": {
+      "excerpt": "Remote screen control and the AI diagnostic assistant \"Team Lead Jung\" are new in this release, and PC asset inventory now loads for every machine at once with no cap. Server health is judged with the evidence shown, and agents can be updated straight from the PC list.",
+      "items": {
+        "remoteControl": {
+          "title": "Remote Screen Control (Beta)",
+          "sub": "Node detail · Beta",
+          "desc": "Handle problems you cannot solve over the phone by looking at the screen yourself. Request a connection from the manager and the screen is streamed as-is, with mouse and keyboard control. PCs behind a router that cannot connect directly are relayed through the server, and the user of the remote PC sees a persistent notice for the whole session."
+        },
+        "aiAssistant": {
+          "title": "Team Lead Jung — AI Diagnostic Assistant (Beta)",
+          "sub": "Dashboard widget · Beta",
+          "desc": "No more opening several screens to work out why a PC is slow. Ask in plain language and it inspects PC status, processes, and collected data on its own, then answers and shows the evidence behind its judgement. It can diagnose from server-side data even when the PC is powered off."
+        },
+        "assetInventory": {
+          "title": "PC Asset Inventory",
+          "sub": "Node management widget",
+          "desc": "Hardware and installed-software details for every PC load in one pass. Previously only 300 machines were shown; that cap is gone. Start from group cards built by org chart, IP range, OS, or manufacturer, and apply requirements such as GPU or memory to surface the groups that meet them."
+        },
+        "serverHealth": {
+          "title": "Server Health Diagnosis",
+          "sub": "Server monitor widget",
+          "desc": "A Normal / Caution / Needs attention verdict now appears at the top of the server status screen together with the reasons behind it. How fast storage is filling, when it will run out at that rate, and which jobs are currently running long are all on the same screen. Previously anything that was merely connected counted as Normal."
+        },
+        "agentUpdate": {
+          "title": "Update Agents Straight from the PC List",
+          "sub": "Node list · Actions",
+          "desc": "Select one or many PCs and run Agent Update; each PC compares its own version against the latest and downloads only when they differ. Builds marked unstable are skipped, and mass runs are staggered so downloads do not all land at once."
+        },
+        "loadScore": {
+          "title": "Load Index Scoring Reworked",
+          "sub": "Values may look different",
+          "desc": "The cost of a program repeatedly starting and stopping is now converted from actual measurements into the score. PCs with many short-lived windows no longer score higher than they should. Rankings may look different from before — this is the scoring basis being corrected, not a fault."
+        },
+        "commandRetry": {
+          "title": "Commands Stuck In Progress or Showing \"No Response\"",
+          "sub": "Command management",
+          "desc": "Failures that would repeat identically (timeouts, permission denied) now stop retrying and are marked finished. Previously they were resent every 15 minutes for up to seven days, and each resend blocked that PC from taking other commands for a minute. Commands that had actually run on a restarted agent but showed only \"No response\" are fixed as well."
+        },
+        "detectIngest": {
+          "title": "Symptoms Silently Dropped Under Load",
+          "sub": "Values may look different",
+          "desc": "The way symptoms are recorded has changed so nothing is lost when they arrive in bursts. Previously anything beyond processing capacity disappeared with no indication that it had. Counts for busy periods may therefore be higher than before."
+        },
+        "scaleStability": {
+          "title": "Live View Dropping in Large Fleets",
+          "sub": "Large deployments",
+          "desc": "Fixed the live view dropping every eight minutes and newly powered-on PCs failing to appear in environments with many connected machines. The number of simultaneous connections the server sustains has been raised substantially. The symptom reproduced at around 1,000 machines."
+        },
+        "firewallRule": {
+          "title": "Connection Blocks Told Apart by Cause",
+          "sub": "Detection rule",
+          "desc": "When a program cannot reach a server, cases where the PC's own firewall blocked it are now reported as Local firewall block instead of being lumped under Access denied. You can tell immediately that it is not a server or network problem."
+        }
+      }
+    },
+    "ja": {
+      "excerpt": "リモート画面制御と AI 診断アシスタント「チョン課長」が新しく加わり、PC の資産状況を台数制限なく一度に照会できるようになりました。サーバーの状態を根拠とともに判定し、PC 一覧から直接エージェントを更新します。",
+      "items": {
+        "remoteControl": {
+          "title": "リモート画面制御 (ベータ)",
+          "sub": "ノード詳細 · ベータ",
+          "desc": "電話での説明では解決しない問題を、画面を直接見ながら対応します。マネージャーから接続を要求すると画面がそのまま転送され、マウス・キーボード操作もできます。ルーターの内側にあって直接つながらない PC はサーバー経由で表示され、接続中は相手の PC 利用者にリモート制御中である旨が表示され続けます。"
+        },
+        "aiAssistant": {
+          "title": "チョン課長 — AI 診断アシスタント (ベータ)",
+          "sub": "ダッシュボードウィジェット · ベータ",
+          "desc": "どの PC がなぜ遅いのかを調べるために画面をいくつも開く必要がなくなりました。普段の言葉で尋ねると、PC の状態・プロセス・収集データを自ら調べて回答し、何を根拠に判断したかも示します。PC の電源が入っていなくても、サーバーに蓄積されたデータで診断します。"
+        },
+        "assetInventory": {
+          "title": "PC 資産状況の照会",
+          "sub": "ノード管理ウィジェット",
+          "desc": "全 PC のハードウェア・インストール済みソフトの状況が一度に読み込まれます。以前は 300 台までしか表示されませんでしたが、その制限がなくなりました。組織図・IP 帯・OS・メーカーなどでまとめたグループカードから始め、GPU やメモリなどの要件を指定すると条件を満たすグループが先に表示されます。"
+        },
+        "serverHealth": {
+          "title": "サーバー状態の診断",
+          "sub": "サーバーモニターウィジェット",
+          "desc": "サーバー状態画面の上部に「正常 · 注意 · 要点検」の判定と、その根拠が合わせて表示されます。ストレージがどれだけ速く増えているか、このままだといつ一杯になるか、いま時間のかかっている処理は何かを同じ画面で確認できます。以前は構成要素が接続されてさえいれば「正常」でした。"
+        },
+        "agentUpdate": {
+          "title": "PC 一覧から直接エージェントを更新",
+          "sub": "ノード一覧 · アクション",
+          "desc": "PC を 1 台または複数選んで「Agent 更新」を実行すると、各 PC が最新版と自身の版を比べ、異なる場合のみダウンロードして更新します。不安定と表示されたビルドは飛ばし、多数に一斉実行してもダウンロードが集中しないよう時間差を設けます。"
+        },
+        "loadScore": {
+          "title": "負荷指数の算定方式を刷新",
+          "sub": "値が以前と異なって見える場合があります",
+          "desc": "プログラムが繰り返し起動・終了する負担を、実測値に換算してスコアへ反映します。短時間で消えるウィンドウが多い PC のスコアが実際より高く出ていた点が是正されました。順位が以前と異なって見えることがありますが、算定基準が正されたためです。"
+        },
+        "commandRetry": {
+          "title": "命令が終わらない・「応答なし」と表示される問題",
+          "sub": "命令管理",
+          "desc": "再送しても結果が同じ失敗 (タイムアウト・権限なしなど) は再試行を止め、終了として扱います。以前は最大 7 日間 15 分ごとに再送し、そのたびにその PC が 1 分間ほかの命令を受け取れませんでした。エージェントを再起動した PC で実際には実行済みなのに「応答なし」だけが表示されていた問題も併せて修正しました。"
+        },
+        "detectIngest": {
+          "title": "症状が集中したときに静かに欠落していた問題",
+          "sub": "値が以前と異なって見える場合があります",
+          "desc": "症状を記録する方式を変更し、一度に集中する場面でも取りこぼさず記録します。以前は処理能力を超えた分が何の表示もなく消え、消えたこと自体わかりませんでした。症状が多く検出される時間帯の集計値が以前より大きくなる場合があります。"
+        },
+        "scaleStability": {
+          "title": "PC が多いときにリアルタイム画面が途切れる問題",
+          "sub": "大規模環境",
+          "desc": "PC を多数接続した環境でリアルタイム画面が 8 分間隔で途切れ、新たに起動した PC が一覧に現れない問題を解消しました。サーバーが同時に処理できる接続数を大幅に増やしています。1,000 台規模で再現していた症状です。"
+        },
+        "firewallRule": {
+          "title": "接続遮断の原因を区別",
+          "sub": "検知ルール",
+          "desc": "プログラムがサーバーに接続できなかったとき、自分の PC のファイアウォールが遮断した場合は「アクセス拒否」にまとめず「ローカルファイアウォール遮断」として区別して表示します。サーバーやネットワークの問題ではないことがすぐにわかります。"
+        }
+      }
+    },
+    "zh": {
+      "excerpt": "本次新增了远程画面控制和 AI 诊断助手「郑组长」，并且可以一次性查询全部 PC 的资产状况，不再有台数上限。服务器状态会连同判定依据一起显示，也可以直接从 PC 列表更新代理程序。",
+      "items": {
+        "remoteControl": {
+          "title": "远程画面控制（测试版）",
+          "sub": "节点详情 · 测试版",
+          "desc": "对于电话说明无法解决的问题，可以直接查看画面处理。从管理端发起连接请求后，画面会原样传输，并可进行鼠标和键盘操作。位于路由器后方、无法直连的 PC 会经由服务器显示；连接期间，对方 PC 的使用者会持续看到正在被远程控制的提示。"
+        },
+        "aiAssistant": {
+          "title": "郑组长 — AI 诊断助手（测试版）",
+          "sub": "仪表板小组件 · 测试版",
+          "desc": "不必再为查明某台 PC 为何变慢而逐个打开多个画面。用日常语言提问，它会自行查看 PC 状态、进程和采集数据后作答，并展示判断依据。即使 PC 处于关机状态，也能依据服务器上已有的数据进行诊断。"
+        },
+        "assetInventory": {
+          "title": "PC 资产状况查询",
+          "sub": "节点管理小组件",
+          "desc": "全部 PC 的硬件与已安装软件信息可一次性载入。此前最多只显示 300 台，现已取消该上限。可从按组织架构、IP 段、操作系统或厂商归类的分组卡片开始，设置 GPU、内存等需求条件后，满足条件的分组会优先显示。"
+        },
+        "serverHealth": {
+          "title": "服务器状态诊断",
+          "sub": "服务器监控小组件",
+          "desc": "服务器状态画面上方会显示「正常 · 注意 · 需检查」的判定及其依据。存储增长的速度、按此速度何时会写满、当前耗时较长的作业是什么，都可在同一画面查看。此前只要组件处于连接状态就会判定为「正常」。"
+        },
+        "agentUpdate": {
+          "title": "直接从 PC 列表更新代理程序",
+          "sub": "节点列表 · 操作",
+          "desc": "选择一台或多台 PC 执行「Agent 更新」，各 PC 会将自身版本与最新版本比对，仅在不同时下载更新。标记为不稳定的版本会被跳过；批量执行时会错开时间，避免下载集中。"
+        },
+        "loadScore": {
+          "title": "负载指数计算方式改版",
+          "sub": "数值可能与此前不同",
+          "desc": "程序反复启动与关闭所带来的开销，现按实测值折算计入分数。此前短暂出现又消失的窗口较多的 PC，分数会高于实际情况，该问题已得到纠正。排名可能与以往不同，这是计算基准被修正的结果。"
+        },
+        "commandRetry": {
+          "title": "命令迟迟不结束或显示「无响应」的问题",
+          "sub": "命令管理",
+          "desc": "重发后结果相同的失败（超时、无权限等）将停止重试并标记为已结束。此前最长会在 7 天内每 15 分钟重发一次，且每次重发都会让该 PC 有 1 分钟无法接收其他命令。对于重启代理后实际已执行、却只显示「无响应」的情况也一并修复。"
+        },
+        "detectIngest": {
+          "title": "症状集中时被静默丢弃的问题",
+          "sub": "数值可能与此前不同",
+          "desc": "调整了症状的记录方式，即使短时间内大量涌入也不会遗漏。此前超出处理能力的部分会无提示地消失，甚至无法察觉发生过丢失。因此症状较多时段的统计数值可能比以往更大。"
+        },
+        "scaleStability": {
+          "title": "PC 数量较多时实时画面中断的问题",
+          "sub": "大规模环境",
+          "desc": "解决了在连接大量 PC 的环境中实时画面每 8 分钟中断、新开机的 PC 无法出现在列表中的问题。服务器可同时承载的连接数已大幅提升。该现象在约 1,000 台规模时可复现。"
+        },
+        "firewallRule": {
+          "title": "区分连接被阻断的原因",
+          "sub": "检测规则",
+          "desc": "当程序无法连接服务器时，若是本机防火墙拦截，将不再归入「访问被拒绝」，而是单独标记为「本地防火墙阻断」。可以立即判断这并非服务器或网络的问题。"
+        }
+      }
+    },
+    "zh-Hant": {
+      "excerpt": "本次新增了遠端畫面控制與 AI 診斷助手「鄭組長」，並且可一次查詢全部 PC 的資產狀況，不再有台數上限。伺服器狀態會連同判定依據一起顯示，也可直接從 PC 清單更新代理程式。",
+      "items": {
+        "remoteControl": {
+          "title": "遠端畫面控制（測試版）",
+          "sub": "節點詳情 · 測試版",
+          "desc": "對於電話說明無法解決的問題，可直接查看畫面處理。從管理端發起連線要求後，畫面會原樣傳輸，並可進行滑鼠與鍵盤操作。位於路由器後方、無法直連的 PC 會經由伺服器顯示；連線期間，對方 PC 的使用者會持續看到正在被遠端控制的提示。"
+        },
+        "aiAssistant": {
+          "title": "鄭組長 — AI 診斷助手（測試版）",
+          "sub": "儀表板小工具 · 測試版",
+          "desc": "不必再為查明某台 PC 為何變慢而逐一開啟多個畫面。用日常語言提問，它會自行查看 PC 狀態、程序與蒐集資料後作答，並展示判斷依據。即使 PC 已關機，也能依據伺服器上既有的資料進行診斷。"
+        },
+        "assetInventory": {
+          "title": "PC 資產狀況查詢",
+          "sub": "節點管理小工具",
+          "desc": "全部 PC 的硬體與已安裝軟體資訊可一次載入。先前最多只顯示 300 台，現已取消該上限。可從依組織架構、IP 網段、作業系統或製造商歸類的分組卡片開始，設定 GPU、記憶體等需求條件後，符合條件的分組會優先顯示。"
+        },
+        "serverHealth": {
+          "title": "伺服器狀態診斷",
+          "sub": "伺服器監控小工具",
+          "desc": "伺服器狀態畫面上方會顯示「正常 · 注意 · 需檢查」的判定及其依據。儲存空間增長的速度、依此速度何時會寫滿、目前耗時較長的作業為何，都可在同一畫面查看。先前只要元件處於連線狀態就會判定為「正常」。"
+        },
+        "agentUpdate": {
+          "title": "直接從 PC 清單更新代理程式",
+          "sub": "節點清單 · 操作",
+          "desc": "選擇一台或多台 PC 執行「Agent 更新」，各 PC 會將自身版本與最新版本比對，僅在不同時下載更新。標記為不穩定的版本會被略過；批次執行時會錯開時間，避免下載集中。"
+        },
+        "loadScore": {
+          "title": "負載指數計算方式改版",
+          "sub": "數值可能與先前不同",
+          "desc": "程式反覆啟動與關閉所帶來的負擔，現依實測值換算計入分數。先前短暫出現又消失的視窗較多的 PC，分數會高於實際情況，該問題已獲修正。排名可能與以往不同，這是計算基準被修正的結果。"
+        },
+        "commandRetry": {
+          "title": "命令遲遲未結束或顯示「無回應」的問題",
+          "sub": "命令管理",
+          "desc": "重送後結果相同的失敗（逾時、無權限等）將停止重試並標記為已結束。先前最長會在 7 天內每 15 分鐘重送一次，且每次重送都會讓該 PC 有 1 分鐘無法接收其他命令。對於重新啟動代理後實際已執行、卻只顯示「無回應」的情況也一併修正。"
+        },
+        "detectIngest": {
+          "title": "症狀集中時被靜默丟棄的問題",
+          "sub": "數值可能與先前不同",
+          "desc": "調整了症狀的記錄方式，即使短時間內大量湧入也不會遺漏。先前超出處理能力的部分會無提示地消失，甚至無法察覺發生過遺失。因此症狀較多時段的統計數值可能比以往更大。"
+        },
+        "scaleStability": {
+          "title": "PC 數量較多時即時畫面中斷的問題",
+          "sub": "大規模環境",
+          "desc": "解決了在連接大量 PC 的環境中即時畫面每 8 分鐘中斷、新開機的 PC 無法出現在清單中的問題。伺服器可同時承載的連線數已大幅提升。該現象在約 1,000 台規模時可重現。"
+        },
+        "firewallRule": {
+          "title": "區分連線被阻斷的原因",
+          "sub": "偵測規則",
+          "desc": "當程式無法連線伺服器時，若是本機防火牆攔截，將不再歸入「存取被拒絕」，而是單獨標記為「本機防火牆阻斷」。可立即判斷這並非伺服器或網路的問題。"
+        }
+      }
+    }
+  }
+}
