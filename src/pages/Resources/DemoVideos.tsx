@@ -1,6 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
+// 회사 소개영상을 맨 앞에, 나머지는 Manager 기능 소개 순서 그대로.
 const videos = [
+  {
+    id: 'VnFi8CJg4k0',
+    titleKey: 'demoVideos.intro_title',
+    descKey: 'demoVideos.intro_desc',
+  },
   {
     id: '_75DoslS53E',
     titleKey: 'demoVideos.v1_title',

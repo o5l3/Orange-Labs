@@ -727,7 +727,9 @@
     "cmp_item_10": "进程、线程级别的实时分析功能"
   },
   "demoVideos": {
-    "pageDesc": "通过视频了解 Orange The Client 的主要功能。",
+    "pageDesc": "通过视频了解 OrangeLabs 以及 Orange The Client 的主要功能。",
+    "intro_title": "OrangeLabs 公司介绍",
+    "intro_desc": "介绍 OrangeLabs 是一家怎样的公司，以及 Orange The Client 解决哪些问题的视频。",
     "v1_title": "Orange The Client Manager - 仪表板",
     "v1_desc": "这是访问 Orange The Client Manager 时首先看到的仪表板界面。\n界面中排列着包含各种信息的小部件，通过接收实时数据提供动态画面。\n小部件的设计使您能够一目了然地掌握整体信息。",
     "v2_title": "Orange The Client Manager - 节点",
