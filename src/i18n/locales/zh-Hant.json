@@ -727,7 +727,9 @@
     "cmp_item_10": "處理程序、執行緒級別的即時分析功能"
   },
   "demoVideos": {
-    "pageDesc": "透過影片了解 Orange The Client 的主要功能。",
+    "pageDesc": "透過影片了解 OrangeLabs 以及 Orange The Client 的主要功能。",
+    "intro_title": "OrangeLabs 公司介紹",
+    "intro_desc": "介紹 OrangeLabs 是一家什麼樣的公司，以及 Orange The Client 解決哪些問題的影片。",
     "v1_title": "Orange The Client Manager - 儀表板",
     "v1_desc": "這是存取 Orange The Client Manager 時首先看到的儀表板介面。\n介面中排列著包含各種資訊的小工具，透過接收即時資料提供動態畫面。\n小工具的設計使您能夠一目瞭然地掌握整體資訊。",
     "v2_title": "Orange The Client Manager - 節點",

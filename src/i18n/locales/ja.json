@@ -726,7 +726,9 @@
     "cmp_item_10": "プロセス・スレッド単位のリアルタイム分析"
   },
   "demoVideos": {
-    "pageDesc": "Orange The Clientの主要機能を動画でご確認ください。",
+    "pageDesc": "OrangeLabs の紹介と Orange The Client の主な機能を動画でご確認ください。",
+    "intro_title": "OrangeLabs 会社紹介",
+    "intro_desc": "OrangeLabs がどのような会社で、Orange The Client がどんな課題を解決するのかを紹介する動画です。",
     "v1_title": "Orange The Client Manager - ダッシュボード",
     "v1_desc": "Orange The Client Managerにアクセスすると最初に表示されるダッシュボード画面です。\nさまざまな情報を含むウィジェットが配置されており、リアルタイムデータを受信して動的な画面を提供します。\n全体的な情報を一目で把握できるようにウィジェットが構成されています。",
     "v2_title": "Orange The Client Manager - ノード",

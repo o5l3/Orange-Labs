@@ -727,7 +727,9 @@
     "cmp_item_10": "Real-time process/thread level analysis"
   },
   "demoVideos": {
-    "pageDesc": "Watch key features of Orange The Client in action.",
+    "pageDesc": "Get to know OrangeLabs and see the key features of Orange The Client in action.",
+    "intro_title": "About OrangeLabs",
+    "intro_desc": "An introduction to who OrangeLabs is and the problems Orange The Client solves.",
     "v1_title": "Orange The Client Manager - Dashboard",
     "v1_desc": "The dashboard is the first screen you see when you access the Orange The Client Manager.\nWidgets containing various information are arranged on the screen, providing a dynamic view by receiving real-time data.\nThe widgets are designed to give you an at-a-glance overview of all key information.",
     "v2_title": "Orange The Client Manager - Nodes",

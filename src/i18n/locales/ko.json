@@ -747,7 +747,9 @@
     "cmp_item_10": "프로세스, 쓰레드 단위 실시간 분석 기능"
   },
   "demoVideos": {
-    "pageDesc": "Orange The Client의 주요 기능을 영상으로 확인하세요.",
+    "pageDesc": "오렌지랩스 소개와 Orange The Client의 주요 기능을 영상으로 확인하세요.",
+    "intro_title": "오렌지랩스 회사 소개",
+    "intro_desc": "오렌지랩스가 어떤 회사이고 Orange The Client가 어떤 문제를 푸는지 소개하는 영상입니다.",
     "v1_title": "Orange The Client Manager - 대시보드",
     "v1_desc": "Orange The Client Manager에 접속하면 첫번째로 보게 되는 대시보드 화면입니다.\n여러 정보들을 담고 있는 위젯들이 배치되어 있으며, 실시간 데이터를 수신하여 동적인 화면을 제공합니다.\n전체적인 정보를 한눈에 파악할 수 있도록 위젯들이 구성되어 있습니다.",
     "v2_title": "Orange The Client Manager - 노드",
