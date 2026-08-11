@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import CircuitBackground from '../components/CircuitBackground';
+import Seo from '../components/Seo';
 
 // Individual logo card
 function LogoCard({ name, logo }: { name: string; logo: string }) {
@@ -226,6 +227,7 @@ export default function Home() {
 
   return (
     <div>
+      <Seo title={t('home.seo_title')} description={t('home.seo_desc')} />
       {/* Hero Section */}
       <section
         className="relative overflow-hidden"

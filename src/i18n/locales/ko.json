@@ -106,7 +106,9 @@
     "cta_title": "IT 관리의 편의성과 안전성을 높이세요",
     "cta_desc": "Orange The Client의 라이브 데모를 통해 진정한 엔드포인트 가시성을 확인하세요.",
     "contactSales": "데모 요청",
-    "viewPricing": "제품 소개서 다운로드"
+    "viewPricing": "제품 소개서 다운로드",
+    "seo_title": "AI 기반 엔드포인트 성능·장애 관리",
+    "seo_desc": "Orange The Client는 커널 레벨 이벤트 수집으로 기업 PC의 성능 저하와 장애를 실시간 탐지하고, AI로 근본 원인을 분석하는 엔드포인트 관리 솔루션입니다."
   },
   "solution": {
     "solutions": "솔루션",

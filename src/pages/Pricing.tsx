@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Seo from '../components/Seo';
 
 export default function Pricing() {
   const navigate = useNavigate();
@@ -76,6 +77,7 @@ export default function Pricing() {
 
   return (
     <div>
+      <Seo title={t('pricing.title')} description={t('pricing.desc')} />
       <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">

@@ -106,7 +106,9 @@
     "cta_title": "Raise the ease and safety of IT management",
     "cta_desc": "See real endpoint visibility with an Orange The Client live demo.",
     "contactSales": "Request demo",
-    "viewPricing": "Download brochure"
+    "viewPricing": "Download brochure",
+    "seo_title": "AI-Powered Endpoint Performance and Incident Management",
+    "seo_desc": "Orange The Client detects performance degradation and failures on corporate PCs in real time through kernel-level event collection, and analyzes root causes with AI."
   },
   "solution": {
     "solutions": "SOLUTIONS",

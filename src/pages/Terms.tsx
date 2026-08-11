@@ -1,6 +1,9 @@
+import Seo from '../components/Seo';
+
 export default function Terms() {
   return (
     <div style={{ backgroundColor: 'var(--bg)', color: 'var(--fg)' }}>
+      <Seo title="서비스 이용약관" description="오렌지랩스 홈페이지 및 서비스 이용에 관한 약관입니다." />
       <section className="py-20 px-4 sm:px-6" style={{ borderBottom: '1px solid var(--surface-3)' }}>
         <div className="max-w-3xl mx-auto">
           <div

@@ -106,7 +106,9 @@
     "cta_title": "提升 IT 运维的便利与安全",
     "cta_desc": "通过 Orange The Client 的实时演示，体验真正的终端可视性。",
     "contactSales": "申请演示",
-    "viewPricing": "下载产品手册"
+    "viewPricing": "下载产品手册",
+    "seo_title": "基于 AI 的终端性能与故障管理",
+    "seo_desc": "Orange The Client 通过内核级事件采集实时检测企业 PC 的性能下降与故障，并利用 AI 分析根本原因的终端管理解决方案。"
   },
   "solution": {
     "solutions": "解决方案",

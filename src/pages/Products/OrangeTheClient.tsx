@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import Seo from '../../components/Seo';
 
 const axisIcon1 = (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -270,6 +271,7 @@ export default function OrangeTheClient() {
 
   return (
     <div style={{ backgroundColor: 'var(--bg-deep)' }}>
+      <Seo title={t('otc.hero_title')} description={t('otc.hero_desc')} />
       {/* ── 라이트박스 오버레이 ── */}
       {lbOpen && (
         <div

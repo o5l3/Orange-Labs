@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Markdown from '../../components/Markdown';
 import { formatDate, getSlugFromMd, pickPosts, type BlogData, type BlogPost } from './blogLocale';
+import Seo from '../../components/Seo';
 
 const stripFrontMatter = (md: string): string => md.replace(/^---[\s\S]*?---\n/, '');
 
@@ -90,6 +91,10 @@ export default function TechBlogContent() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+      <Seo
+        title={currentPost?.subject ?? t('blog.title')}
+        description={currentPost?.content ?? t('blog.desc')}
+      />
       {/* 뒤로 가기 버튼 */}
       <button
         className="flex items-center gap-1 text-sm font-semibold mb-10 px-3 py-1.5 rounded-lg transition-all cursor-pointer"

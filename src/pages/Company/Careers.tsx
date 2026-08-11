@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import Seo from '../../components/Seo';
 
 const deptColors: Record<string, string> = {
   Engineering: '#3b82f6',
@@ -36,6 +37,7 @@ export default function Careers() {
 
   return (
     <div>
+      <Seo title={t('nav.careers')} description={t('careers.desc')} />
       {/* Hero */}
       <section
         className="py-24 px-4 sm:px-6"

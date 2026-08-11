@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/gen-sitemap.mjs && tsc -b && vite build",
     "lint": "eslint .",
     "sync-blog": "node scripts/sync-blog.mjs",
     "sync-blog:check": "node scripts/sync-blog.mjs --check",
     "sync-release-notes": "node scripts/sync-release-notes.mjs",
+    "gen-sitemap": "node scripts/gen-sitemap.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

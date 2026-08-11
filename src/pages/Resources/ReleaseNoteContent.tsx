@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Markdown from '../../components/Markdown';
 import { formatDate } from '../../i18n/date';
 import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNotes';
+import Seo from '../../components/Seo';
 
 export default function ReleaseNoteContent() {
   const { slug } = useParams<{ slug: string }>();
@@ -44,6 +45,10 @@ export default function ReleaseNoteContent() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+      <Seo
+        title={release ? `${release.version} ${t('releaseNotes.title')}` : t('releaseNotes.title')}
+        description={text?.excerpt ?? t('releaseNotes.desc')}
+      />
       {/* 뒤로 가기 */}
       <button
         className="flex items-center gap-1 text-sm font-semibold mb-10 px-3 py-1.5 rounded-lg transition-all cursor-pointer"
