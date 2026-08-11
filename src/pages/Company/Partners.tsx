@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import Seo from '../../components/Seo';
 
 const partners = [
   { name: '한일네트웍스', logo: '/images/partners/hanil_logo.png' },
@@ -84,7 +83,6 @@ export default function Partners() {
 
   return (
     <div>
-      <Seo title={t('partners.title')} description={t('partners.desc')} />
       {/* Hero */}
       <section
         className="py-24 px-4 sm:px-6"

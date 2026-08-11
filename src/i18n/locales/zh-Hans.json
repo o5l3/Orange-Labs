@@ -106,9 +106,7 @@
     "cta_title": "提升 IT 运维的便利与安全",
     "cta_desc": "通过 Orange The Client 的实时演示，体验真正的终端可视性。",
     "contactSales": "申请演示",
-    "viewPricing": "下载产品手册",
-    "seo_title": "基于 AI 的终端性能与故障管理",
-    "seo_desc": "Orange The Client 通过内核级事件采集实时检测企业 PC 的性能下降与故障，并利用 AI 分析根本原因的终端管理解决方案。"
+    "viewPricing": "下载产品手册"
   },
   "solution": {
     "solutions": "解决方案",
@@ -764,5 +762,67 @@
     "tag_new": "新增",
     "tag_improved": "改进",
     "tag_fixed": "修复"
+  },
+  "seo": {
+    "home": {
+      "title": "OrangeLabs | 终端性能与故障管理解决方案",
+      "description": "橙实验室通过实时性能故障预测让 IT 运维更轻松。了解通过 GS 一级认证的终端性能与故障管理解决方案 Orange The Client。"
+    },
+    "otc": {
+      "title": "Orange The Client — 终端性能与故障管理解决方案",
+      "description": "新一代终端性能与故障管理解决方案。从实时检测到原因分析，全面提升信息系统运维的便利性与安全性。"
+    },
+    "pricing": {
+      "title": "价格方案",
+      "description": "从入门版到企业版，Orange The Client 提供简单透明的价格方案。无需信用卡即可开始 14 天免费试用。"
+    },
+    "userManual": {
+      "title": "Orange The Client 用户手册",
+      "description": "面向管理员的 Orange The Client ver 1.6 快速指南，涵盖服务器运行环境、管理控制台使用方法以及代理安装的完整运维流程。"
+    },
+    "demoVideos": {
+      "title": "产品视频",
+      "description": "通过视频了解 Orange The Client 的主要功能，包括仪表板、节点、Live CMD 与症状分析等。"
+    },
+    "releaseNotes": {
+      "title": "版本发布说明",
+      "description": "整理 Orange The Client 各版本的变更内容与新增功能。每次发布的详细说明可在发布说明 PDF 中查看。"
+    },
+    "techBlog": {
+      "title": "技术博客",
+      "description": "分享橙实验室工程团队的问题排查记录、产品更新与行业观察。"
+    },
+    "about": {
+      "title": "公司介绍",
+      "description": "橙实验室开发符合大型企业 IT 管理员需求的终端性能与故障管理系统，解决安全产品未能解决的问题。"
+    },
+    "careers": {
+      "title": "招聘",
+      "description": "加入变革企业办公环境的团队。查看橙实验室的招聘职位与工作环境。"
+    },
+    "partners": {
+      "title": "合作伙伴",
+      "description": "介绍与橙实验室携手合作的伙伴企业。合作洽谈亦可由此开始。"
+    },
+    "support": {
+      "title": "支持",
+      "description": "文档、咨询、上线引导与常见问题，从部署到日常运维全程支持 Orange The Client 的使用。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "description": "关于产品导入、技术支持与合作等事宜，欢迎联系橙实验室。我们将在工作日内尽快回复。"
+    },
+    "privacy": {
+      "title": "隐私政策",
+      "description": "说明橙实验室收集的个人信息项目、使用目的、保存期限以及用户享有的权利。"
+    },
+    "terms": {
+      "title": "服务条款",
+      "description": "说明使用橙实验室服务的条件，以及用户与公司的权利和义务。"
+    },
+    "notFound": {
+      "title": "找不到页面",
+      "description": "您请求的页面不存在或已被移动。"
+    }
   }
 }

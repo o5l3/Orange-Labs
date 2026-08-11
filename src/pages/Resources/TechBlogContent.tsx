@@ -2,8 +2,16 @@ import { useState, useEffect, startTransition } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Markdown from '../../components/Markdown';
-import { formatDate, getSlugFromMd, pickPosts, type BlogData, type BlogPost } from './blogLocale';
 import Seo from '../../components/Seo';
+import { SITE_NAME, SITE_URL, absoluteUrl } from '../../seo/site';
+import {
+  formatDate,
+  getSlugFromMd,
+  pickPosts,
+  toIsoDate,
+  type BlogData,
+  type BlogPost,
+} from './blogLocale';
 
 const stripFrontMatter = (md: string): string => md.replace(/^---[\s\S]*?---\n/, '');
 
@@ -89,12 +97,43 @@ export default function TechBlogContent() {
   const olderPost =
     currentIndex >= 0 && currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
 
+  const postPath = `/resources/tech-blog/${slug}`;
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
-      <Seo
-        title={currentPost?.subject ?? t('blog.title')}
-        description={currentPost?.content ?? t('blog.desc')}
-      />
+      {currentPost && (
+        <Seo
+          title={currentPost.subject}
+          description={currentPost.content}
+          path={postPath}
+          type="article"
+          article={{
+            publishedTime: toIsoDate(currentPost.createdAt),
+            section: currentPost.category,
+          }}
+          jsonLd={{
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: currentPost.subject,
+            description: currentPost.content,
+            datePublished: toIsoDate(currentPost.createdAt),
+            articleSection: currentPost.category,
+            inLanguage: lang,
+            mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl(postPath) },
+            author: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
+            publisher: {
+              '@type': 'Organization',
+              name: SITE_NAME,
+              url: `${SITE_URL}/`,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${SITE_URL}/images/orangelabs_mark_logo.png`,
+              },
+            },
+          }}
+        />
+      )}
+
       {/* 뒤로 가기 버튼 */}
       <button
         className="flex items-center gap-1 text-sm font-semibold mb-10 px-3 py-1.5 rounded-lg transition-all cursor-pointer"

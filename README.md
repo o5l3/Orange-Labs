@@ -173,6 +173,36 @@ npm run preview
 
 ---
 
+## SEO
+
+기준 도메인은 `https://www.orangelabs.xyz` 입니다. 다른 도메인으로 배포하려면 `VITE_SITE_URL` 환경변수를 설정하세요 (빌드 시점에 canonical · sitemap · OG URL에 모두 반영됩니다).
+
+### 구성
+
+| 파일 | 역할 |
+|------|------|
+| `src/seo/site.ts` | 도메인 · 브랜드명 · OG 이미지 등 전역 상수 |
+| `src/seo/routes.json` | 정적 라우트별 sitemap 우선순위 및 로케일 키 매핑 |
+| `src/seo/organization.ts` | Organization · WebSite 구조화 데이터 |
+| `src/components/Seo.tsx` | 페이지 단위 메타태그 (React 19 네이티브 메타데이터) |
+| `src/components/RouteSeo.tsx` | 경로 → 메타데이터 자동 매핑. `Layout`에 한 번만 연결 |
+| `scripts/generate-seo.mjs` | 빌드 후 sitemap.xml 생성 + 경로별 HTML 사전 렌더링 |
+| `public/robots.txt` | 크롤러 정책 (Yeti · Daum 포함) |
+
+문구는 각 로케일 파일의 `seo` 섹션(`src/i18n/locales/*.json`)에 있습니다. 페이지를 추가할 때는 `routes.json`에 경로를 넣고 5개 로케일에 `seo.<key>.title` / `.description`을 추가하면 됩니다. 기술 블로그 글과 릴리즈 노트 상세는 각각의 데이터를 쓰므로 `TechBlogContent.tsx` · `ReleaseNoteContent.tsx`가 직접 처리합니다.
+
+### 사전 렌더링
+
+SPA는 JS를 실행하지 않는 크롤러(네이버 Yeti 등)와 공유 미리보기 봇(카카오톡 · 슬랙)에게 빈 페이지로 보입니다. 이를 막기 위해 `npm run build`가 경로별 `index.html`을 만들어 메타태그와 최소 본문을 미리 박아 둡니다. Vercel은 rewrites보다 파일 시스템을 먼저 확인하므로 해당 파일이 그대로 응답됩니다.
+
+### 배포 후 할 일
+
+1. [Google Search Console](https://search.google.com/search-console)에 도메인 등록 후 `sitemap.xml` 제출
+2. [네이버 서치어드바이저](https://searchadvisor.naver.com)에 사이트 등록 후 sitemap 제출 (국문 브랜드 검색 대응)
+3. 1200×630 전용 OG 이미지를 만들어 `src/seo/site.ts`의 `DEFAULT_OG_IMAGE` 교체
+
+---
+
 ## 환경 요구사항
 
 | 항목 | 버전 |

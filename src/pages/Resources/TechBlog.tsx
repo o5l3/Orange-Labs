@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { formatDate, pickPosts, type BlogData, type BlogPost } from './blogLocale';
-import Seo from '../../components/Seo';
 
 const ALL = '__all__';
 
@@ -33,7 +32,6 @@ export default function TechBlog() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-24">
-      <Seo title={t('blog.title')} description={t('blog.desc')} />
       <div className="text-center mb-16">
         <div
           className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"

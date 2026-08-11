@@ -1,12 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import Seo from '../../components/Seo';
 
 export default function ContactUs() {
   const { t } = useTranslation();
 
   return (
     <div>
-      <Seo title={t('contact.title')} description={t('contact.desc')} />
       <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-5xl mx-auto">
           <div

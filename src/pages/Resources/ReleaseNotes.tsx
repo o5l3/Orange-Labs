@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { formatDate } from '../../i18n/date';
-import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNotes';
-import Seo from '../../components/Seo';
+import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNoteData';
 
 export default function ReleaseNotes() {
   const { t, i18n } = useTranslation();
@@ -21,7 +20,6 @@ export default function ReleaseNotes() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-24">
-      <Seo title={t('releaseNotes.title')} description={t('releaseNotes.desc')} />
       {/* ── Hero ── */}
       <div
         className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-6 tracking-wider"

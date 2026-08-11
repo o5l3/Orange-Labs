@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import Seo from '../../components/Seo';
 
 export default function UserManual() {
   const { t } = useTranslation();
@@ -50,7 +49,6 @@ export default function UserManual() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-24">
-      <Seo title={t('userManual.title')} description={t('userManual.desc')} />
 
       {/* ── Hero ── */}
       <div

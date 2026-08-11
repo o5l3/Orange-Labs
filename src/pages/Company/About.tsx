@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import Seo from '../../components/Seo';
 
 export default function About() {
   const { t } = useTranslation();
@@ -194,7 +193,6 @@ export default function About() {
 
   return (
     <div style={{ backgroundColor: 'var(--bg)', color: 'var(--fg)' }}>
-      <Seo title={t('nav.about')} description={t('about.hero_desc')} />
       {/* ── Hero ── */}
       <section
         className="relative py-32 px-4 sm:px-6 overflow-hidden"

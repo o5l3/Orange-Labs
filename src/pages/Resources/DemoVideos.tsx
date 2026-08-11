@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import Seo from '../../components/Seo';
 
 const videos = [
   {
@@ -59,7 +58,6 @@ export default function DemoVideos() {
 
   return (
     <div>
-      <Seo title={t('nav.demoVideos')} description={t('demoVideos.pageDesc')} />
       {/* ── 히어로 ── */}
       <section className="py-24 px-4 sm:px-6" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-5xl mx-auto text-center">

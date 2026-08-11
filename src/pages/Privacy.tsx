@@ -1,9 +1,6 @@
-import Seo from '../components/Seo';
-
 export default function Privacy() {
   return (
     <div style={{ backgroundColor: 'var(--bg)', color: 'var(--fg)' }}>
-      <Seo title="개인정보처리방침" description="오렌지랩스가 수집하는 개인정보 항목과 이용 목적, 보유 기간, 이용자의 권리를 안내합니다." />
       <section className="py-20 px-4 sm:px-6" style={{ borderBottom: '1px solid var(--surface-3)' }}>
         <div className="max-w-3xl mx-auto">
           <div
