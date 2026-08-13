@@ -2,7 +2,9 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-# 네이버 · 다음 검색 로봇 (국문 브랜드 검색 대응)
+# Naver (Yeti) and Daum crawlers.
+# Kept ASCII-only: some crawlers parse robots.txt strictly and a
+# non-ASCII comment has been known to make them skip the file.
 User-agent: Yeti
 Allow: /
 

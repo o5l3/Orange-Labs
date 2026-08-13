@@ -788,7 +788,7 @@
   "seo": {
     "home": {
       "title": "오렌지랩스 OrangeLabs | 엔드포인트 성능·장애관리 솔루션",
-      "description": "오렌지랩스(OrangeLabs)는 실시간 성능 장애 예측으로 IT를 편하게 만듭니다. GS 1등급 인증을 받은 엔드포인트 성능·장애관리 솔루션 Orange The Client를 만나보세요."
+      "description": "오렌지랩스는 실시간 성능·장애 예측으로 IT를 편하게 만듭니다. GS 1등급 엔드포인트 관리 솔루션 Orange The Client."
     },
     "otc": {
       "title": "Orange The Client — 엔드포인트 성능·장애관리 솔루션",
@@ -800,7 +800,7 @@
     },
     "userManual": {
       "title": "Orange The Client 사용자 매뉴얼",
-      "description": "서버 운영 환경, 매니저 사용법, 에이전트 설치까지 Orange The Client ver 1.6의 전체 운영 흐름을 안내하는 관리자용 퀵 가이드입니다."
+      "description": "Orange The Client ver 1.6의 매니저 사용법과 에이전트 설치를 안내하는 관리자용 퀵 가이드."
     },
     "demoVideos": {
       "title": "제품 영상",
@@ -808,7 +808,7 @@
     },
     "releaseNotes": {
       "title": "릴리즈 노트",
-      "description": "Orange The Client의 버전별 변경 사항과 신규 기능을 정리합니다. 각 릴리스의 상세 내용은 릴리즈 노트 PDF에서 확인할 수 있습니다."
+      "description": "Orange The Client의 버전별 변경 사항과 신규 기능. 상세 내용은 릴리즈 노트 PDF에서 확인하세요."
     },
     "techBlog": {
       "title": "기술 블로그",
@@ -816,7 +816,7 @@
     },
     "about": {
       "title": "회사 소개",
-      "description": "오렌지랩스(OrangeLabs)는 대기업 IT 관리자 눈높이에 맞는 엔드포인트 성능·장애 관리 시스템을 개발합니다. 보안 제품이 해결하지 못한 문제를 해결합니다."
+      "description": "오렌지랩스는 대기업 IT 관리자 눈높이의 엔드포인트 성능·장애 관리 시스템을 개발합니다."
     },
     "careers": {
       "title": "채용",
