@@ -268,14 +268,18 @@ for (const post of posts) {
   });
 }
 
-// ------------------------------------------------- Search Console 소유권 확인
+// ---------------------------------------------------- 검색엔진 소유권 확인
 
-// URL 접두어 속성은 이 meta 태그 하나로 소유권을 확인한다. Google은 JS를 실행하지
-// 않고 원본 HTML만 읽으므로, 태그가 index.html에서 빠지거나 seo:start ~ seo:end
-// 안으로 들어가(경로별 교체 대상이 되어) 사라지면 인증이 조용히 풀린다.
-// data-seo-static이 붙어도 main.tsx가 런타임에 걷어내므로 붙이면 안 된다.
+// 검색엔진은 meta 태그 하나로 사이트 소유권을 확인한다. Google·네이버 모두 JS를
+// 실행하지 않고 원본 HTML만 읽으므로, 태그가 index.html에서 빠지거나
+// seo:start ~ seo:end 안으로 들어가(경로별 교체 대상이 되어) 사라지면 인증이
+// 조용히 풀린다. data-seo-static이 붙어도 main.tsx가 런타임에 걷어내므로
+// 붙이면 안 된다.
 // 생성된 모든 HTML에 남아 있는지 확인하고, 하나라도 빠지면 빌드를 세운다.
-const VERIFICATION_META = 'name="google-site-verification"';
+const VERIFICATION_METAS = [
+  { label: 'Google Search Console', attr: 'name="google-site-verification"' },
+  { label: '네이버 서치어드바이저', attr: 'name="naver-site-verification"' },
+];
 
 function collectHtml(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
@@ -285,23 +289,28 @@ function collectHtml(dir) {
   });
 }
 
-const htmlFiles = collectHtml(dist);
-const missingVerification = htmlFiles.filter(
-  (f) => !fs.readFileSync(f, 'utf8').includes(VERIFICATION_META),
-);
+const htmlFiles = collectHtml(dist).map((f) => ({ f, html: fs.readFileSync(f, 'utf8') }));
 
-if (missingVerification.length) {
-  console.error(
-    `[seo] Search Console 확인 메타 태그가 없는 HTML ${missingVerification.length}개:\n` +
-      missingVerification.map((f) => `  - ${path.relative(dist, f)}`).join('\n') +
-      '\nindex.html의 seo:start ~ seo:end 바깥에 태그가 있는지 확인하세요.',
-  );
-  process.exit(1);
+let verificationFailed = false;
+for (const { label, attr } of VERIFICATION_METAS) {
+  const missing = htmlFiles.filter(({ html }) => !html.includes(attr));
+  if (missing.length) {
+    verificationFailed = true;
+    console.error(
+      `[seo] ${label} 확인 메타 태그(${attr})가 없는 HTML ${missing.length}개:\n` +
+        missing.map(({ f }) => `  - ${path.relative(dist, f)}`).join('\n') +
+        '\nindex.html의 seo:start ~ seo:end 바깥에 태그가 있는지 확인하세요.',
+    );
+  }
 }
+if (verificationFailed) process.exit(1);
 
 console.log(
   `[seo] sitemap.xml (${routes.length + releasePages.length + posts.length}개 URL) · ` +
     `사전 렌더링 ${routes.length}개 라우트 + 릴리즈 노트 ${releasePages.length}건 + ` +
     `블로그 ${posts.length}편 · 기준 도메인 ${SITE_URL}`,
 );
-console.log(`[seo] Search Console 확인 태그 — HTML ${htmlFiles.length}개 전부 확인`);
+console.log(
+  `[seo] 소유권 확인 태그(${VERIFICATION_METAS.map((v) => v.label).join(' · ')}) — ` +
+    `HTML ${htmlFiles.length}개 전부 확인`,
+);

@@ -7,14 +7,19 @@
     <meta name="theme-color" content="#f97316" />
 
     <!--
-      Google Search Console 소유권 확인 태그 (URL 접두어 속성용).
+      검색엔진 소유권 확인 태그.
       seo:start ~ seo:end 밖에 두어야 경로별 사전 렌더링 후에도 남는다.
-      도메인 속성(orangelabs.xyz)은 이 태그가 아니라 DNS TXT 레코드로 확인한다.
+      data-seo-static을 붙이면 main.tsx가 런타임에 걷어내므로 붙이면 안 된다.
+
+      Google  — Search Console URL 접두어 속성(https://www.orangelabs.xyz/)용.
+                도메인 속성(orangelabs.xyz)은 이 태그가 아니라 DNS TXT로 확인한다.
+      Naver   — 서치어드바이저 사이트 소유확인용.
     -->
     <meta
       name="google-site-verification"
       content="-9vu-vTr89I0u_BkKltxan_rTmkTI8V4jjAYPifVgdQ"
     />
+    <meta name="naver-site-verification" content="8bc642dbe23cce17b042707d162d64acdc679a4b" />
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
