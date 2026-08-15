@@ -20,6 +20,7 @@ export default function Footer() {
         { label: t('nav.userManual'), path: '/resources/user-manual' },
         { label: t('nav.demoVideos'), path: '/resources/demo-videos' },
         { label: t('nav.releaseNotes'), path: '/resources/release-notes' },
+        { label: t('nav.downloads'), path: '/resources/downloads' },
         { label: t('nav.techBlog'), path: '/resources/tech-blog' },
       ],
     },

@@ -20,7 +20,8 @@
     "support": "支援",
     "contactUs": "聯絡我們",
     "login": "登入",
-    "getStarted": "開始使用"
+    "getStarted": "開始使用",
+    "downloads": "資料室"
   },
   "footer": {
     "tagline": "構建智慧客戶端解決方案的未來。",
@@ -825,6 +826,18 @@
     "notFound": {
       "title": "找不到頁面",
       "description": "您要求的頁面不存在或已被移動。"
+    },
+    "downloads": {
+      "title": "資料室",
+      "description": "下載橘色實驗室免費提供的工具。"
     }
+  },
+  "downloads": {
+    "badge": "資料室",
+    "title": "資料室",
+    "desc": "您可以免費下載並使用橘色實驗室開發的工具。安裝或使用中遇到問題，請隨時與我們聯繫。",
+    "download_btn": "下載",
+    "loading": "載入中...",
+    "empty": "暫無可下載的資料，準備就緒後將在此發布。"
   }
 }
