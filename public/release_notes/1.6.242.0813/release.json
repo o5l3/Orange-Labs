@@ -1,0 +1,412 @@
+{
+  "version": "1.6.242.0813",
+  "slug": "1.6.242.0813",
+  "date": "2026-08-13",
+  "pdf": "release-notes.pdf",
+  "items": [
+    {
+      "key": "featurePermission",
+      "kind": "new"
+    },
+    {
+      "key": "detectList",
+      "kind": "new"
+    },
+    {
+      "key": "commandResults",
+      "kind": "improved"
+    },
+    {
+      "key": "remoteControl",
+      "kind": "improved"
+    },
+    {
+      "key": "aiDiagnosis",
+      "kind": "improved"
+    },
+    {
+      "key": "blockAccuracy",
+      "kind": "improved"
+    },
+    {
+      "key": "loadMetrics",
+      "kind": "improved"
+    },
+    {
+      "key": "monitorHistory",
+      "kind": "improved"
+    },
+    {
+      "key": "installStability",
+      "kind": "improved"
+    },
+    {
+      "key": "nodeManagement",
+      "kind": "improved"
+    },
+    {
+      "key": "commandManagement",
+      "kind": "improved"
+    },
+    {
+      "key": "fileTransfer",
+      "kind": "improved"
+    },
+    {
+      "key": "dispatchAccuracy",
+      "kind": "improved"
+    }
+  ],
+  "i18n": {
+    "ko": {
+      "excerpt": "기능별 사용 권한이 들어가, 원격 화면 제어와 AI 진단을 어느 역할·어느 부서까지 쓸 수 있는지 정할 수 있습니다. 증상 목록은 유형·발생·원인 세 축으로 좁혀 들어가며 원인까지 따라갑니다. 원격 화면 제어에는 특수키 툴바와 회선에 맞춘 화질 조절이 더해졌습니다.",
+      "items": {
+        "featurePermission": {
+          "title": "기능별 사용 권한 및 대상 범위",
+          "sub": "설정 › 권한 관리",
+          "desc": "기능마다 어느 역할이 쓸 수 있는지 정하고, 거기에 더해 어느 부서·어느 PC까지 허용할지 범위를 지정합니다. 범위를 벗어난 PC에서는 서버가 실행 자체를 막고, 매니저에서도 버튼이 잠깁니다. 허용·차단 사이에 「수락 시」를 둘 수 있어, 그 PC를 쓰는 사람이 화면에서 수락해야만 원격 제어가 시작됩니다. 범위를 지정하지 않으면 전체 허용이라 지금 쓰시는 설정은 그대로 유지됩니다."
+        },
+        "detectList": {
+          "title": "증상 목록",
+          "sub": "증상 화면",
+          "desc": "증상을 유형·발생·원인 세 축 중 하나로 묶어 보여주고, 한 줄을 고르면 다음 단계로 좁혀 들어갑니다. 각 행 옆에 그 기간의 추이가 작은 막대로 붙어 언제 몰렸는지 목록에서 바로 봅니다. 검색은 화면에 보이는 값이 아니라 원본 증상 정보를 찾으므로, 세 번째 단계까지 들어간 상태에서도 유형명으로 찾을 수 있습니다."
+        },
+        "commandResults": {
+          "title": "대규모 환경에서 명령 결과 보존",
+          "sub": "명령 관리",
+          "desc": "많은 PC를 대상으로 명령을 보낼 때 결과 데이터가 유실될 수 있던 문제를 수정했습니다. 결과를 저장하는 방식을 바꿔 대상 대수와 관계없이 결과가 남고, 기존 결과도 그대로 옮겨져 지난 기록이 계속 보입니다. 실시간으로 볼 때와 나중에 다시 열어볼 때 건수가 서로 다르던 것도 맞췄습니다."
+        },
+        "remoteControl": {
+          "title": "원격 화면 제어",
+          "sub": "노드 상세 · 베타",
+          "desc": "특수키 툴바가 생겨 Ctrl+Alt+Del·한/영·Alt+Tab·화면 잠금을 원격에서 바로 누릅니다. 회선 상태에 따라 전송 품질이 4단계로 자동 오르내리고, 대상 PC에 뜨는 알림은 그 PC의 언어로 「보기」와 「제어」를 구분해 보여줍니다. 로그온을 바꿔도 세션이 끊기지 않습니다."
+        },
+        "aiDiagnosis": {
+          "title": "AI 진단",
+          "sub": "정팀장",
+          "desc": "검사 항목 7종이 늘었고, 응답을 기다리는 동안 경과 시간과 실패 사유가 보이며 도중에 세울 수 있습니다. 조회는 바로 실행하되 변경·설정 명령은 승인을 받도록 바로잡았습니다."
+        },
+        "blockAccuracy": {
+          "title": "접속 차단이 잘못 걸리지 않도록",
+          "sub": "서버",
+          "desc": "서버는 잘못된 접근이 반복되면 그 주소를 자동으로 차단하는데, 이 판단이 잘못 내려질 수 있는 경로를 막았습니다. 정상 사용자가 이유 없이 차단되거나, 반대로 차단을 피해 가는 일이 없도록 했습니다."
+        },
+        "loadMetrics": {
+          "title": "부하 수치 누락 복구",
+          "sub": "부하 화면",
+          "desc": "늦게 도착한 자료까지 여러 차례에 걸쳐 다시 거두도록 했습니다. 전에는 시간대별 집계를 한 번만 하고 끝내 뒤늦게 올라온 자료가 반영되지 못했고, 그만큼 수치가 실제보다 낮게 보일 수 있었습니다."
+        },
+        "monitorHistory": {
+          "title": "서버 응답시간 이력 복구",
+          "sub": "서버 모니터",
+          "desc": "서버 내부 저장소가 재시작되면 5분 단위 이력 기록이 멈춰 서비스를 다시 시작할 때까지 복구되지 않았습니다. 이제 스스로 복구합니다."
+        },
+        "installStability": {
+          "title": "설치·제거 중 안정성",
+          "sub": "패키지",
+          "desc": "폐쇄망 업데이트가 운영체제의 기본 구성요소를 지워 이후 설치가 깨지던 사고를 막았습니다. 인터넷 주소 방식이 제한된 사내망에서 설치가 중단되던 것도 해소했고, 제품을 제거할 때 우리 방화벽 규칙만 정확히 지워지도록 했습니다."
+        },
+        "nodeManagement": {
+          "title": "노드 관리 개선",
+          "sub": "노드 관리 위젯",
+          "desc": "그리드형과 카드형을 토글하며 볼 수 있습니다. 카드는 「누구인가 → 지금 어떤가 → 언제·무엇으로」 3층으로 읽히고, 목록에서 노드를 우클릭하면 Agent 재시작·업데이트, PC 재부팅·종료 같은 제어 메뉴가 뜹니다(권한 있는 계정에만 보입니다)."
+        },
+        "commandManagement": {
+          "title": "명령 관리 개선",
+          "sub": "명령 관리",
+          "desc": "검색·상태·생성일 필터가 받아 둔 첫 페이지가 아니라 전체 명령에 걸립니다. 템플릿 목록의 100건 상한도 없어져 스크롤로 계속 이어집니다. 고른 명령을 한 번에 템플릿으로 저장·삭제·내보낼 수 있습니다."
+        },
+        "fileTransfer": {
+          "title": "파일 보내기와 접속 상태 표시",
+          "sub": "명령 창",
+          "desc": "명령 창에서 파일 보내기가 다시 동작합니다. 절대 경로, 공백이 든 경로, 와일드카드, 현재 폴더 기준 상대 경로를 모두 받습니다. 서버를 옮긴 뒤에도 옛 서버에 그 PC가 접속 중으로 남아 있던 것을 바로잡았습니다."
+        },
+        "dispatchAccuracy": {
+          "title": "명령 발송·기록의 정확도",
+          "sub": "서버",
+          "desc": "신호가 실제로 나가지 않았는데 「발송 완료」로 보이던 것을 고쳤습니다. 이제 나갔는지 확인하고, 실패하면 몇 건이 실패했는지 알립니다. 접속 기록 검색에서 목록과 건수가 어긋나던 것도 맞췄습니다."
+        }
+      }
+    },
+    "en": {
+      "excerpt": "Feature-level permissions arrived: decide which roles and which departments may use remote screen control and AI diagnosis. The new symptom list narrows by type, source and cause until you reach the origin. Remote screen control gained a special-key toolbar and quality that follows the line.",
+      "items": {
+        "featurePermission": {
+          "title": "Feature permissions and target scope",
+          "sub": "Settings › Permissions",
+          "desc": "Decide which roles may use each feature, then narrow it further to specific departments or PCs. Outside that scope the server refuses to run the command and the button is locked in Manager. Between allow and deny there is an on-consent option, where remote control starts only after the person at that PC accepts. Leave the scope unset and everything stays allowed, so your current setup is unchanged."
+        },
+        "detectList": {
+          "title": "Symptom list",
+          "sub": "Symptoms",
+          "desc": "Group symptoms by type, by where they occurred, or by what caused them, then pick a row to narrow to the next step. A small trend bar sits beside each row so you can see when they clustered. Search reads the underlying symptom records rather than what is on screen, so a type name still finds matches three levels deep."
+        },
+        "commandResults": {
+          "title": "Command results kept at scale",
+          "sub": "Command management",
+          "desc": "Fixed a case where result data could be lost when sending a command to many PCs. Results are now stored differently and survive regardless of how many machines were targeted; existing results carry over, so past records stay visible. Live and reopened views no longer disagree on the count."
+        },
+        "remoteControl": {
+          "title": "Remote screen control",
+          "sub": "Node detail · Beta",
+          "desc": "A special-key toolbar puts Ctrl+Alt+Del, Hangul/English, Alt+Tab and screen lock one click away. Transmission quality now moves across four levels with line conditions, and the notice on the target PC appears in that PC's language, distinguishing viewing from controlling. Switching logon no longer drops the session."
+        },
+        "aiDiagnosis": {
+          "title": "AI diagnosis",
+          "sub": "Team Lead Jung",
+          "desc": "Seven more checks were added. While a response is pending you can see elapsed time and the reason for failure, and stop it partway. Read-only queries run immediately, while commands that change settings now require approval."
+        },
+        "blockAccuracy": {
+          "title": "More accurate access blocking",
+          "sub": "Server",
+          "desc": "The server automatically blocks an address after repeated bad access attempts. We closed the paths where that judgement could be made incorrectly, so legitimate users are not blocked without cause and blocks cannot be evaded."
+        },
+        "loadMetrics": {
+          "title": "Recovered missing load figures",
+          "sub": "Load view",
+          "desc": "Late-arriving data is now collected again over several passes. Previously the hourly rollup ran once and stopped, so data that came in afterwards was never counted and figures could read lower than reality."
+        },
+        "monitorHistory": {
+          "title": "Response-time history recovers itself",
+          "sub": "Server monitor",
+          "desc": "When the server's internal store restarted, five-minute history recording stopped and did not resume until the service was restarted. It now recovers on its own."
+        },
+        "installStability": {
+          "title": "Stability during install and removal",
+          "sub": "Package",
+          "desc": "Closed-network updates could delete a core operating-system component and break later installs; that is fixed. Installs that stalled on internal networks with restricted address schemes now complete, and removing the product now deletes only our own firewall rules."
+        },
+        "nodeManagement": {
+          "title": "Node management",
+          "sub": "Node management widget",
+          "desc": "Switch between grid and card views. A card reads in three tiers - who this is, how it is doing now, and when and with what - and right-clicking a node in the list opens controls such as agent restart or update and PC reboot or shutdown (visible only to accounts with permission)."
+        },
+        "commandManagement": {
+          "title": "Command management",
+          "sub": "Command management",
+          "desc": "Search, status and date filters now apply to every command rather than the first page already fetched. The 100-item cap on the template list is gone and scrolling continues. Selected commands can be saved as templates, deleted, or exported in one go."
+        },
+        "fileTransfer": {
+          "title": "File upload and connection state",
+          "sub": "Command console",
+          "desc": "File upload works again from the command console, accepting absolute paths, paths with spaces, wildcards and paths relative to the current folder. A PC no longer stays listed as connected on its old server after being moved."
+        },
+        "dispatchAccuracy": {
+          "title": "Accurate dispatch and records",
+          "sub": "Server",
+          "desc": "Commands that never actually went out could still show as dispatched; that is fixed. The server now confirms the signal left and reports how many failed. Access-record search no longer disagrees with its own count."
+        }
+      }
+    },
+    "ja": {
+      "excerpt": "機能別の使用権限が追加され、遠隔画面制御や AI 診断を利用できる役割・部署を指定できます。症状一覧は種類・発生元・原因の3軸で絞り込み、原因まで辿れます。遠隔画面制御には特殊キーツールバーと回線に応じた品質調整が加わりました。",
+      "items": {
+        "featurePermission": {
+          "title": "機能別の使用権限と対象範囲",
+          "sub": "設定 › 権限管理",
+          "desc": "機能ごとに使用できる役割を定め、さらに部署や PC 単位で範囲を指定できます。範囲外の PC ではサーバーが実行自体を拒否し、マネージャー側でもボタンが無効になります。許可と拒否の間に「承諾時」を置くこともでき、その PC の利用者が画面で承諾した場合にのみ遠隔操作が始まります。範囲を指定しなければ全体許可のままなので、現在の設定はそのまま維持されます。"
+        },
+        "detectList": {
+          "title": "症状一覧",
+          "sub": "症状画面",
+          "desc": "症状を種類・発生元・原因のいずれかの軸でまとめて表示し、行を選ぶと次の段階へ絞り込みます。各行の横には期間内の推移が小さな棒で表示され、いつ集中したかが一覧のまま分かります。検索は画面上の値ではなく元の症状情報を対象とするため、3段階目まで進んだ状態でも種類名で見つけられます。"
+        },
+        "commandResults": {
+          "title": "大規模環境での命令結果の保持",
+          "sub": "命令管理",
+          "desc": "多数の PC に命令を送った際に結果データが失われる可能性があった問題を修正しました。保存方式を変更し、対象台数に関わらず結果が残ります。既存の結果もそのまま引き継がれ、過去の記録は引き続き参照できます。リアルタイム表示と再表示で件数が食い違う問題も解消しました。"
+        },
+        "remoteControl": {
+          "title": "遠隔画面制御",
+          "sub": "ノード詳細 · ベータ",
+          "desc": "特殊キーツールバーが追加され、Ctrl+Alt+Del・半角/全角・Alt+Tab・画面ロックを遠隔からすぐ操作できます。回線状況に応じて転送品質が4段階で自動調整され、対象 PC に表示される通知はその PC の言語で「表示中」と「操作中」を区別して示します。ログオンを切り替えてもセッションは維持されます。"
+        },
+        "aiDiagnosis": {
+          "title": "AI 診断",
+          "sub": "チョン室長",
+          "desc": "検査項目を7種類追加しました。応答待ちの間は経過時間と失敗理由が表示され、途中で停止できます。参照系はすぐ実行し、変更・設定を伴う命令は承認を必要とするよう修正しました。"
+        },
+        "blockAccuracy": {
+          "title": "接続遮断の誤判定を防止",
+          "sub": "サーバー",
+          "desc": "サーバーは不正な接続が繰り返されるとそのアドレスを自動的に遮断しますが、この判断が誤って下される経路を塞ぎました。正常な利用者が理由なく遮断されたり、逆に遮断を回避されたりしないようにしています。"
+        },
+        "loadMetrics": {
+          "title": "負荷数値の欠落を復旧",
+          "sub": "負荷画面",
+          "desc": "遅れて届いたデータも複数回にわたり再収集するようにしました。以前は時間帯別の集計を一度で終えていたため、後から届いたデータが反映されず、数値が実際より低く見える場合がありました。"
+        },
+        "monitorHistory": {
+          "title": "応答時間履歴の自動復旧",
+          "sub": "サーバーモニター",
+          "desc": "サーバー内部ストレージが再起動すると5分単位の履歴記録が停止し、サービスを再起動するまで復旧しませんでした。現在は自動的に復旧します。"
+        },
+        "installStability": {
+          "title": "インストール・削除時の安定性",
+          "sub": "パッケージ",
+          "desc": "閉域網での更新が OS の基本構成要素を削除し、以降のインストールが失敗する事象を防ぎました。アドレス方式が制限された社内網でインストールが中断する問題も解消し、製品削除時には自社のファイアウォール規則のみを正確に削除するようにしました。"
+        },
+        "nodeManagement": {
+          "title": "ノード管理の改善",
+          "sub": "ノード管理ウィジェット",
+          "desc": "グリッド表示とカード表示を切り替えられます。カードは「誰か → 現在の状態 → いつ・何で」の3層で読め、一覧でノードを右クリックするとエージェントの再起動・更新、PC の再起動・シャットダウンなどの制御メニューが表示されます（権限のあるアカウントにのみ表示）。"
+        },
+        "commandManagement": {
+          "title": "命令管理の改善",
+          "sub": "命令管理",
+          "desc": "検索・状態・作成日フィルターが、取得済みの先頭ページではなく全命令に適用されます。テンプレート一覧の100件上限もなくなり、スクロールで継続して表示されます。選択した命令をまとめてテンプレート保存・削除・エクスポートできます。"
+        },
+        "fileTransfer": {
+          "title": "ファイル送信と接続状態の表示",
+          "sub": "命令コンソール",
+          "desc": "命令コンソールからのファイル送信が再び動作します。絶対パス、空白を含むパス、ワイルドカード、現在フォルダ基準の相対パスすべてに対応します。サーバーを移した後も旧サーバーに接続中として残っていた問題を修正しました。"
+        },
+        "dispatchAccuracy": {
+          "title": "命令送信・記録の正確性",
+          "sub": "サーバー",
+          "desc": "実際には送信されていないのに「送信完了」と表示される問題を修正しました。送信されたかを確認し、失敗した場合は件数を通知します。接続記録の検索で一覧と件数が食い違う問題も解消しました。"
+        }
+      }
+    },
+    "zh": {
+      "excerpt": "新增按功能划分的使用权限，可指定哪些角色、哪些部门能够使用远程屏幕控制与 AI 诊断。新的症状列表按类型、发生对象与原因三个维度逐级细化，直至找到根源。远程屏幕控制新增特殊按键工具栏与随线路自动调整的画质。",
+      "items": {
+        "featurePermission": {
+          "title": "按功能划分的使用权限与适用范围",
+          "sub": "设置 › 权限管理",
+          "desc": "可为每个功能指定允许使用的角色，并进一步限定到具体部门或 PC。超出范围的 PC 上服务器会直接拒绝执行，管理端的按钮也会锁定。在允许与禁止之间还可设置「经同意后」，此时需该 PC 的使用者在屏幕上确认后才会开始远程控制。未指定范围即为全部允许，因此现有设置保持不变。"
+        },
+        "detectList": {
+          "title": "症状列表",
+          "sub": "症状界面",
+          "desc": "按类型、发生对象或原因三个维度之一归类展示症状，选择某一行即可逐级细化。每行旁附有该时段的趋势小柱图，可直接在列表中看出何时集中出现。搜索针对原始症状数据而非界面显示值，因此进入第三级后仍可按类型名称查找。"
+        },
+        "commandResults": {
+          "title": "大规模环境下保留命令结果",
+          "sub": "命令管理",
+          "desc": "修复了向大量 PC 下发命令时结果数据可能丢失的问题。存储方式已调整，无论目标数量多少结果都会保留，原有结果一并迁移，历史记录仍可查看。实时查看与稍后重新打开时条数不一致的问题也已修正。"
+        },
+        "remoteControl": {
+          "title": "远程屏幕控制",
+          "sub": "节点详情 · 测试版",
+          "desc": "新增特殊按键工具栏，可直接远程按下 Ctrl+Alt+Del、中/英切换、Alt+Tab 与锁屏。传输质量会依线路状况在四个档位间自动调整，目标 PC 上的提示以该 PC 的语言显示，并区分「查看」与「控制」。切换登录用户后会话也不会中断。"
+        },
+        "aiDiagnosis": {
+          "title": "AI 诊断",
+          "sub": "郑组长",
+          "desc": "新增 7 项检查项目。等待响应期间可查看已用时间与失败原因，并可中途停止。查询类命令立即执行，涉及变更与设置的命令则需经过审批。"
+        },
+        "blockAccuracy": {
+          "title": "避免误判导致的连接封锁",
+          "sub": "服务器",
+          "desc": "服务器在反复出现异常访问时会自动封锁该地址，我们封堵了可能导致该判断出错的途径，避免正常用户被无故封锁，也防止绕过封锁。"
+        },
+        "loadMetrics": {
+          "title": "恢复缺失的负载数值",
+          "sub": "负载界面",
+          "desc": "现在会分多次重新收集迟到的数据。此前按时段汇总只执行一次即结束，后续上报的数据无法计入，数值可能低于实际。"
+        },
+        "monitorHistory": {
+          "title": "响应时间历史自动恢复",
+          "sub": "服务器监控",
+          "desc": "服务器内部存储重启后，5 分钟粒度的历史记录会停止，且在服务重启前无法恢复。现在可自行恢复。"
+        },
+        "installStability": {
+          "title": "安装与卸载过程的稳定性",
+          "sub": "安装包",
+          "desc": "避免了内网更新删除操作系统基本组件、导致后续安装失败的问题。地址方式受限的内部网络中安装中断的问题也已解决，卸载产品时仅精确删除本产品的防火墙规则。"
+        },
+        "nodeManagement": {
+          "title": "节点管理改进",
+          "sub": "节点管理组件",
+          "desc": "可在网格视图与卡片视图间切换。卡片按「是谁 → 当前状态 → 何时、以何版本」三层呈现；在列表中右键点击节点可打开代理重启与更新、PC 重启与关机等控制菜单（仅对有权限的账号显示）。"
+        },
+        "commandManagement": {
+          "title": "命令管理改进",
+          "sub": "命令管理",
+          "desc": "搜索、状态与创建日期筛选现在作用于全部命令，而非已加载的首页。模板列表的 100 条上限已取消，可持续滚动加载。可将选中的命令一次性保存为模板、删除或导出。"
+        },
+        "fileTransfer": {
+          "title": "文件发送与连接状态显示",
+          "sub": "命令控制台",
+          "desc": "命令控制台中的文件发送已恢复正常，支持绝对路径、含空格的路径、通配符以及基于当前目录的相对路径。修正了迁移服务器后该 PC 仍在旧服务器上显示为已连接的问题。"
+        },
+        "dispatchAccuracy": {
+          "title": "命令下发与记录的准确性",
+          "sub": "服务器",
+          "desc": "修复了信号实际未发出却显示「已发送」的问题。现在会确认是否发出，失败时告知失败条数。连接记录搜索中列表与条数不一致的问题也已修正。"
+        }
+      }
+    },
+    "zh-Hant": {
+      "excerpt": "新增依功能劃分的使用權限，可指定哪些角色、哪些部門能夠使用遠端畫面控制與 AI 診斷。新的症狀列表依類型、發生對象與原因三個維度逐層細化，直至找到根源。遠端畫面控制新增特殊按鍵工具列與隨線路自動調整的畫質。",
+      "items": {
+        "featurePermission": {
+          "title": "依功能劃分的使用權限與適用範圍",
+          "sub": "設定 › 權限管理",
+          "desc": "可為每個功能指定允許使用的角色，並進一步限定至特定部門或 PC。超出範圍的 PC 上伺服器會直接拒絕執行，管理端的按鈕也會鎖定。在允許與禁止之間還可設定「經同意後」，此時需該 PC 的使用者在畫面上確認後才會開始遠端控制。未指定範圍即為全部允許，因此現有設定維持不變。"
+        },
+        "detectList": {
+          "title": "症狀列表",
+          "sub": "症狀畫面",
+          "desc": "依類型、發生對象或原因三個維度之一歸類顯示症狀，選擇某一列即可逐層細化。每列旁附有該期間的趨勢小長條圖，可直接在列表中看出何時集中出現。搜尋針對原始症狀資料而非畫面顯示值，因此進入第三層後仍可依類型名稱查找。"
+        },
+        "commandResults": {
+          "title": "大規模環境下保留命令結果",
+          "sub": "命令管理",
+          "desc": "修正了向大量 PC 下達命令時結果資料可能遺失的問題。儲存方式已調整，無論目標數量多少結果都會保留，原有結果一併移轉，歷史記錄仍可查看。即時檢視與稍後重新開啟時筆數不一致的問題也已修正。"
+        },
+        "remoteControl": {
+          "title": "遠端畫面控制",
+          "sub": "節點詳細 · 測試版",
+          "desc": "新增特殊按鍵工具列，可直接遠端按下 Ctrl+Alt+Del、中/英切換、Alt+Tab 與鎖定畫面。傳輸品質會依線路狀況在四個等級間自動調整，目標 PC 上的提示以該 PC 的語言顯示，並區分「檢視」與「控制」。切換登入使用者後工作階段也不會中斷。"
+        },
+        "aiDiagnosis": {
+          "title": "AI 診斷",
+          "sub": "鄭組長",
+          "desc": "新增 7 項檢查項目。等待回應期間可查看已用時間與失敗原因，並可中途停止。查詢類命令立即執行，涉及變更與設定的命令則需經過核准。"
+        },
+        "blockAccuracy": {
+          "title": "避免誤判導致的連線封鎖",
+          "sub": "伺服器",
+          "desc": "伺服器在反覆出現異常存取時會自動封鎖該位址，我們封堵了可能導致該判斷出錯的途徑，避免正常使用者被無故封鎖，也防止繞過封鎖。"
+        },
+        "loadMetrics": {
+          "title": "復原缺失的負載數值",
+          "sub": "負載畫面",
+          "desc": "現在會分多次重新收集延遲送達的資料。先前依時段彙總僅執行一次即結束，後續回報的資料無法計入，數值可能低於實際。"
+        },
+        "monitorHistory": {
+          "title": "回應時間歷史自動復原",
+          "sub": "伺服器監控",
+          "desc": "伺服器內部儲存重新啟動後，5 分鐘粒度的歷史記錄會停止，且在服務重新啟動前無法復原。現在可自行復原。"
+        },
+        "installStability": {
+          "title": "安裝與移除過程的穩定性",
+          "sub": "安裝套件",
+          "desc": "避免了內網更新刪除作業系統基本元件、導致後續安裝失敗的問題。位址方式受限的內部網路中安裝中斷的問題也已解決，移除產品時僅精確刪除本產品的防火牆規則。"
+        },
+        "nodeManagement": {
+          "title": "節點管理改善",
+          "sub": "節點管理元件",
+          "desc": "可在格線檢視與卡片檢視間切換。卡片依「是誰 → 目前狀態 → 何時、以何版本」三層呈現；在列表中右鍵點選節點可開啟代理程式重新啟動與更新、PC 重新啟動與關機等控制選單（僅對有權限的帳號顯示）。"
+        },
+        "commandManagement": {
+          "title": "命令管理改善",
+          "sub": "命令管理",
+          "desc": "搜尋、狀態與建立日期篩選現在作用於全部命令，而非已載入的首頁。範本列表的 100 筆上限已取消，可持續捲動載入。可將選取的命令一次儲存為範本、刪除或匯出。"
+        },
+        "fileTransfer": {
+          "title": "檔案傳送與連線狀態顯示",
+          "sub": "命令主控台",
+          "desc": "命令主控台中的檔案傳送已恢復正常，支援絕對路徑、含空白的路徑、萬用字元以及基於目前資料夾的相對路徑。修正了移轉伺服器後該 PC 仍在舊伺服器上顯示為已連線的問題。"
+        },
+        "dispatchAccuracy": {
+          "title": "命令發送與記錄的準確性",
+          "sub": "伺服器",
+          "desc": "修正了訊號實際未送出卻顯示「已發送」的問題。現在會確認是否送出，失敗時告知失敗筆數。連線記錄搜尋中列表與筆數不一致的問題也已修正。"
+        }
+      }
+    }
+  }
+}
