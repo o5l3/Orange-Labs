@@ -20,7 +20,8 @@
     "support": "Support",
     "contactUs": "Contact Us",
     "login": "Log in",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "downloads": "Downloads"
   },
   "footer": {
     "tagline": "Building the future of intelligent client solutions.",
@@ -825,6 +826,18 @@
     "notFound": {
       "title": "Page Not Found",
       "description": "The page you requested does not exist or has been moved."
+    },
+    "downloads": {
+      "title": "Downloads",
+      "description": "Download the tools Orange Labs gives away for free."
     }
+  },
+  "downloads": {
+    "badge": "Downloads",
+    "title": "Downloads",
+    "desc": "Tools built at Orange Labs, free to download and use. If you get stuck installing or running one, just ask us.",
+    "download_btn": "Download",
+    "loading": "Loading...",
+    "empty": "Nothing here yet. We will post tools as they are ready."
   }
 }

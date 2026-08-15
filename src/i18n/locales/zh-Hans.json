@@ -20,7 +20,8 @@
     "support": "支持",
     "contactUs": "联系我们",
     "login": "登录",
-    "getStarted": "开始使用"
+    "getStarted": "开始使用",
+    "downloads": "资料室"
   },
   "footer": {
     "tagline": "构建智能客户端解决方案的未来。",
@@ -825,6 +826,18 @@
     "notFound": {
       "title": "找不到页面",
       "description": "您请求的页面不存在或已被移动。"
+    },
+    "downloads": {
+      "title": "资料室",
+      "description": "下载橙色实验室免费提供的工具。"
     }
+  },
+  "downloads": {
+    "badge": "资料室",
+    "title": "资料室",
+    "desc": "您可以免费下载并使用橙色实验室开发的工具。安装或使用中遇到问题，请随时与我们联系。",
+    "download_btn": "下载",
+    "loading": "加载中...",
+    "empty": "暂无可下载的资料，准备就绪后将在此发布。"
   }
 }

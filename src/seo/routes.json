@@ -25,6 +25,12 @@
     "changefreq": "weekly",
     "priority": 0.7
   },
+  {
+    "path": "/resources/downloads",
+    "key": "downloads",
+    "changefreq": "monthly",
+    "priority": 0.7
+  },
   { "path": "/resources/tech-blog", "key": "techBlog", "changefreq": "weekly", "priority": 0.8 },
   { "path": "/company/about", "key": "about", "changefreq": "monthly", "priority": 0.7 },
   { "path": "/company/careers", "key": "careers", "changefreq": "weekly", "priority": 0.6 },

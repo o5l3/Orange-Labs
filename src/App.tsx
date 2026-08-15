@@ -7,6 +7,7 @@ import OrangeTheClient from './pages/Products/OrangeTheClient';
 import UserManual from './pages/Resources/UserManual';
 import DemoVideos from './pages/Resources/DemoVideos';
 import ReleaseNotes from './pages/Resources/ReleaseNotes';
+import Downloads from './pages/Resources/Downloads';
 import ReleaseNoteContent from './pages/Resources/ReleaseNoteContent';
 import TechBlog from './pages/Resources/TechBlog';
 import TechBlogContent from './pages/Resources/TechBlogContent';
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="/products/orange-the-client" element={<OrangeTheClient />} />
           <Route path="/resources/user-manual" element={<UserManual />} />
           <Route path="/resources/demo-videos" element={<DemoVideos />} />
+          <Route path="/resources/downloads" element={<Downloads />} />
           <Route path="/resources/release-notes" element={<ReleaseNotes />} />
           <Route path="/resources/release-notes/:slug" element={<ReleaseNoteContent />} />
           <Route path="/resources/tech-blog" element={<TechBlog />} />
