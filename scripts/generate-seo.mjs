@@ -205,12 +205,34 @@ const crawlerNav = [...routes.map((r) => ({ href: r.path, label: locale.seo[r.ke
   .map((l) => `<li><a href="${attrEscape(l.href)}">${htmlEscape(l.label)}</a></li>`)
   .join('');
 
-function fallbackBody({ heading, title, description }) {
+/**
+ * 목록 페이지에서 개별 글로 내려가는 링크.
+ *
+ * 이게 없으면 블로그 68편과 릴리즈 노트는 사이트맵으로만 발견된다. 발견 경로가
+ * 하나뿐이면 사이트맵 수집이 막히는 순간 84개 URL 중 14개만 남는다. 실제로
+ * 네이버는 목록 페이지의 제목·설명만 읽고 개별 글은 하나도 보지 못했다.
+ * 목록 → 글 링크를 원본 HTML에 박아 두면 JS를 실행하지 않는 크롤러도
+ * 링크를 타고 전부 도달할 수 있다.
+ */
+const childLinks = {
+  '/resources/tech-blog': posts,
+  '/resources/release-notes': releasePages,
+};
+
+function linkList(items) {
+  const li = items
+    .map((i) => `<li><a href="${attrEscape(i.path)}">${htmlEscape(i.title)}</a></li>`)
+    .join('');
+  return `<nav><ul>${li}</ul></nav>`;
+}
+
+function fallbackBody({ heading, title, description, links }) {
   return (
     '<div id="root">' +
     '<div data-seo-fallback>' +
     `<h1>${htmlEscape(heading ?? title)}</h1>` +
     `<p>${htmlEscape(description)}</p>` +
+    (links?.length ? linkList(links) : '') +
     `<nav><ul>${crawlerNav}</ul></nav>` +
     '</div>' +
     '</div>'
@@ -242,6 +264,7 @@ for (const route of routes) {
     description: entry.description,
     url: route.path === '/' ? `${SITE_URL}/` : SITE_URL + route.path,
     type: 'website',
+    links: childLinks[route.path],
   });
 }
 
