@@ -3,6 +3,51 @@
     "language": "ko",
     "posts": [
       {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "만료 없이 무한 누적되던 매니저 세션 정리 — 유휴 하한 + 절대 만료 두 축으로",
+        "content": "유휴 만료를 끄면(maxIdleTime=0) 세션을 끝낼 수단이 완전히 사라지는 구조 탓에 Redis에 세션이 TTL 없이 수천 개 쌓였다. 비활성 super_admin 토큰이 그대로 유효하던 실측 현황과, 유휴 만료 하한(12시간) + 절대 만료(24시간)로 정비하고 좀비 세션을 1회 정리한 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.15",
+        "md": "/tech_blog/md/manager-session-expiry-idle-floor-absolute-timeout-zombie-cleanup.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "백신이 우리 워치도그를 드로퍼로 오탐하다 — PowerShell EncodedCommand를 네이티브 실행으로 걷어낸 이야기",
+        "content": "Symantec Endpoint Protection이 에이전트 워치도그 예약 작업을 Scr.Malcode!gen77로 격리했다. EncodedCommand + ExecutionPolicy Bypass + TLS 검증 무력화 + 무인 다운로드 실행이 정확히 드로퍼 휴리스틱에 걸린 사건과, PowerShell 게이트를 네이티브 코드로 옮겨 스크립트 자체를 없앤 대응 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/endpoint-protection-false-positive-watchdog-powershell-to-native.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "지각 도착한 텔레메트리가 시간별 집계에서 사라지는 문제 — 도착 곡선에 맞춘 4단 재집계 사다리",
+        "content": "QoS 0로 늦게 도착한 프로세스 데이터가 raw에는 있는데 hourly 집계에는 없는 구멍. 매시간 최근 24시간을 전부 재집계하는 창 방식 대신, 실측 누적 도착 곡선의 계단을 노려 이득이 몰린 지점만 재방문하는 설계로 8배 저렴하게 구멍을 메운 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/late-arriving-telemetry-hourly-reaggregation-arrival-curve-ladder.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격제어 화질이 흐려지고 CPU가 100%로 — MF_E_TRANSFORM_STREAM_CHANGE 재협상을 놓쳐 소프트웨어 인코딩에 갇힌 사건",
+        "content": "Intel Iris Xe 노트북에서 원격제어 화질이 뭉개지고 대상 PC의 CPU가 100%로 찼다. 하드웨어 인코더가 보낸 스트림 재협상 신호(0xC00D6D61)를 로그만 찍고 넘긴 탓에 소프트웨어 폴백으로 고착된 원인 분석과, 재협상 처리·전송품질 사다리 승급 게이트 수정 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.12",
+        "md": "/tech_blog/md/remote-desktop-hardware-encoder-stream-renegotiation-mf-transform-stream-change.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "현장 블루스크린 305건을 7개 범주로 나누다 — BSOD 카테고리화와 실측 분포",
+        "content": "실제 고객 현장에서 수집한 블루스크린(BSOD) 305건을 Driver·Kernel·Memory·Hardware·Disk/Power·Security/Boot·Misc 7개 범주로 분류한 결과. 어떤 유형이 얼마나 자주 발생하는지, 각 범주가 무엇을 뜻하는지 정리한 리포트.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.11",
+        "md": "/tech_blog/md/bsod-categorization-crash-corpus-distribution.md"
+      },
+      {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
         "subject": "자체 원격 화면 제어 완성과 coturn 표준화·연결 경로 다단화, Signal Command와 노드 자산 번들 API·MQTT 토픽 격리, 그룹 현황 랜딩과 에이전트 드라이브 독립화 — 주간 리뷰 (2026-08-03 ~ 2026-08-10)",
@@ -619,6 +664,51 @@
   {
     "language": "en",
     "posts": [
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "만료 없이 무한 누적되던 매니저 세션 정리 — 유휴 하한 + 절대 만료 두 축으로",
+        "content": "유휴 만료를 끄면(maxIdleTime=0) 세션을 끝낼 수단이 완전히 사라지는 구조 탓에 Redis에 세션이 TTL 없이 수천 개 쌓였다. 비활성 super_admin 토큰이 그대로 유효하던 실측 현황과, 유휴 만료 하한(12시간) + 절대 만료(24시간)로 정비하고 좀비 세션을 1회 정리한 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.15",
+        "md": "/tech_blog/md/manager-session-expiry-idle-floor-absolute-timeout-zombie-cleanup.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "백신이 우리 워치도그를 드로퍼로 오탐하다 — PowerShell EncodedCommand를 네이티브 실행으로 걷어낸 이야기",
+        "content": "Symantec Endpoint Protection이 에이전트 워치도그 예약 작업을 Scr.Malcode!gen77로 격리했다. EncodedCommand + ExecutionPolicy Bypass + TLS 검증 무력화 + 무인 다운로드 실행이 정확히 드로퍼 휴리스틱에 걸린 사건과, PowerShell 게이트를 네이티브 코드로 옮겨 스크립트 자체를 없앤 대응 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/endpoint-protection-false-positive-watchdog-powershell-to-native.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "지각 도착한 텔레메트리가 시간별 집계에서 사라지는 문제 — 도착 곡선에 맞춘 4단 재집계 사다리",
+        "content": "QoS 0로 늦게 도착한 프로세스 데이터가 raw에는 있는데 hourly 집계에는 없는 구멍. 매시간 최근 24시간을 전부 재집계하는 창 방식 대신, 실측 누적 도착 곡선의 계단을 노려 이득이 몰린 지점만 재방문하는 설계로 8배 저렴하게 구멍을 메운 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/late-arriving-telemetry-hourly-reaggregation-arrival-curve-ladder.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격제어 화질이 흐려지고 CPU가 100%로 — MF_E_TRANSFORM_STREAM_CHANGE 재협상을 놓쳐 소프트웨어 인코딩에 갇힌 사건",
+        "content": "Intel Iris Xe 노트북에서 원격제어 화질이 뭉개지고 대상 PC의 CPU가 100%로 찼다. 하드웨어 인코더가 보낸 스트림 재협상 신호(0xC00D6D61)를 로그만 찍고 넘긴 탓에 소프트웨어 폴백으로 고착된 원인 분석과, 재협상 처리·전송품질 사다리 승급 게이트 수정 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.12",
+        "md": "/tech_blog/md/remote-desktop-hardware-encoder-stream-renegotiation-mf-transform-stream-change.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "현장 블루스크린 305건을 7개 범주로 나누다 — BSOD 카테고리화와 실측 분포",
+        "content": "실제 고객 현장에서 수집한 블루스크린(BSOD) 305건을 Driver·Kernel·Memory·Hardware·Disk/Power·Security/Boot·Misc 7개 범주로 분류한 결과. 어떤 유형이 얼마나 자주 발생하는지, 각 범주가 무엇을 뜻하는지 정리한 리포트.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.11",
+        "md": "/tech_blog/md/bsod-categorization-crash-corpus-distribution.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
@@ -1237,6 +1327,51 @@
     "language": "zh",
     "posts": [
       {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "만료 없이 무한 누적되던 매니저 세션 정리 — 유휴 하한 + 절대 만료 두 축으로",
+        "content": "유휴 만료를 끄면(maxIdleTime=0) 세션을 끝낼 수단이 완전히 사라지는 구조 탓에 Redis에 세션이 TTL 없이 수천 개 쌓였다. 비활성 super_admin 토큰이 그대로 유효하던 실측 현황과, 유휴 만료 하한(12시간) + 절대 만료(24시간)로 정비하고 좀비 세션을 1회 정리한 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.15",
+        "md": "/tech_blog/md/manager-session-expiry-idle-floor-absolute-timeout-zombie-cleanup.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "백신이 우리 워치도그를 드로퍼로 오탐하다 — PowerShell EncodedCommand를 네이티브 실행으로 걷어낸 이야기",
+        "content": "Symantec Endpoint Protection이 에이전트 워치도그 예약 작업을 Scr.Malcode!gen77로 격리했다. EncodedCommand + ExecutionPolicy Bypass + TLS 검증 무력화 + 무인 다운로드 실행이 정확히 드로퍼 휴리스틱에 걸린 사건과, PowerShell 게이트를 네이티브 코드로 옮겨 스크립트 자체를 없앤 대응 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/endpoint-protection-false-positive-watchdog-powershell-to-native.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "지각 도착한 텔레메트리가 시간별 집계에서 사라지는 문제 — 도착 곡선에 맞춘 4단 재집계 사다리",
+        "content": "QoS 0로 늦게 도착한 프로세스 데이터가 raw에는 있는데 hourly 집계에는 없는 구멍. 매시간 최근 24시간을 전부 재집계하는 창 방식 대신, 실측 누적 도착 곡선의 계단을 노려 이득이 몰린 지점만 재방문하는 설계로 8배 저렴하게 구멍을 메운 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/late-arriving-telemetry-hourly-reaggregation-arrival-curve-ladder.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격제어 화질이 흐려지고 CPU가 100%로 — MF_E_TRANSFORM_STREAM_CHANGE 재협상을 놓쳐 소프트웨어 인코딩에 갇힌 사건",
+        "content": "Intel Iris Xe 노트북에서 원격제어 화질이 뭉개지고 대상 PC의 CPU가 100%로 찼다. 하드웨어 인코더가 보낸 스트림 재협상 신호(0xC00D6D61)를 로그만 찍고 넘긴 탓에 소프트웨어 폴백으로 고착된 원인 분석과, 재협상 처리·전송품질 사다리 승급 게이트 수정 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.12",
+        "md": "/tech_blog/md/remote-desktop-hardware-encoder-stream-renegotiation-mf-transform-stream-change.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "현장 블루스크린 305건을 7개 범주로 나누다 — BSOD 카테고리화와 실측 분포",
+        "content": "실제 고객 현장에서 수집한 블루스크린(BSOD) 305건을 Driver·Kernel·Memory·Hardware·Disk/Power·Security/Boot·Misc 7개 범주로 분류한 결과. 어떤 유형이 얼마나 자주 발생하는지, 각 범주가 무엇을 뜻하는지 정리한 리포트.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.11",
+        "md": "/tech_blog/md/bsod-categorization-crash-corpus-distribution.md"
+      },
+      {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
         "subject": "자체 원격 화면 제어 완성과 coturn 표준화·연결 경로 다단화, Signal Command와 노드 자산 번들 API·MQTT 토픽 격리, 그룹 현황 랜딩과 에이전트 드라이브 독립화 — 주간 리뷰 (2026-08-03 ~ 2026-08-10)",
@@ -1854,6 +1989,51 @@
     "language": "zh-Hant",
     "posts": [
       {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "만료 없이 무한 누적되던 매니저 세션 정리 — 유휴 하한 + 절대 만료 두 축으로",
+        "content": "유휴 만료를 끄면(maxIdleTime=0) 세션을 끝낼 수단이 완전히 사라지는 구조 탓에 Redis에 세션이 TTL 없이 수천 개 쌓였다. 비활성 super_admin 토큰이 그대로 유효하던 실측 현황과, 유휴 만료 하한(12시간) + 절대 만료(24시간)로 정비하고 좀비 세션을 1회 정리한 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.15",
+        "md": "/tech_blog/md/manager-session-expiry-idle-floor-absolute-timeout-zombie-cleanup.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "백신이 우리 워치도그를 드로퍼로 오탐하다 — PowerShell EncodedCommand를 네이티브 실행으로 걷어낸 이야기",
+        "content": "Symantec Endpoint Protection이 에이전트 워치도그 예약 작업을 Scr.Malcode!gen77로 격리했다. EncodedCommand + ExecutionPolicy Bypass + TLS 검증 무력화 + 무인 다운로드 실행이 정확히 드로퍼 휴리스틱에 걸린 사건과, PowerShell 게이트를 네이티브 코드로 옮겨 스크립트 자체를 없앤 대응 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/endpoint-protection-false-positive-watchdog-powershell-to-native.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "지각 도착한 텔레메트리가 시간별 집계에서 사라지는 문제 — 도착 곡선에 맞춘 4단 재집계 사다리",
+        "content": "QoS 0로 늦게 도착한 프로세스 데이터가 raw에는 있는데 hourly 집계에는 없는 구멍. 매시간 최근 24시간을 전부 재집계하는 창 방식 대신, 실측 누적 도착 곡선의 계단을 노려 이득이 몰린 지점만 재방문하는 설계로 8배 저렴하게 구멍을 메운 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/late-arriving-telemetry-hourly-reaggregation-arrival-curve-ladder.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격제어 화질이 흐려지고 CPU가 100%로 — MF_E_TRANSFORM_STREAM_CHANGE 재협상을 놓쳐 소프트웨어 인코딩에 갇힌 사건",
+        "content": "Intel Iris Xe 노트북에서 원격제어 화질이 뭉개지고 대상 PC의 CPU가 100%로 찼다. 하드웨어 인코더가 보낸 스트림 재협상 신호(0xC00D6D61)를 로그만 찍고 넘긴 탓에 소프트웨어 폴백으로 고착된 원인 분석과, 재협상 처리·전송품질 사다리 승급 게이트 수정 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.12",
+        "md": "/tech_blog/md/remote-desktop-hardware-encoder-stream-renegotiation-mf-transform-stream-change.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "현장 블루스크린 305건을 7개 범주로 나누다 — BSOD 카테고리화와 실측 분포",
+        "content": "실제 고객 현장에서 수집한 블루스크린(BSOD) 305건을 Driver·Kernel·Memory·Hardware·Disk/Power·Security/Boot·Misc 7개 범주로 분류한 결과. 어떤 유형이 얼마나 자주 발생하는지, 각 범주가 무엇을 뜻하는지 정리한 리포트.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.11",
+        "md": "/tech_blog/md/bsod-categorization-crash-corpus-distribution.md"
+      },
+      {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
         "subject": "자체 원격 화면 제어 완성과 coturn 표준화·연결 경로 다단화, Signal Command와 노드 자산 번들 API·MQTT 토픽 격리, 그룹 현황 랜딩과 에이전트 드라이브 독립화 — 주간 리뷰 (2026-08-03 ~ 2026-08-10)",
@@ -2470,6 +2650,51 @@
   {
     "language": "ja",
     "posts": [
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "만료 없이 무한 누적되던 매니저 세션 정리 — 유휴 하한 + 절대 만료 두 축으로",
+        "content": "유휴 만료를 끄면(maxIdleTime=0) 세션을 끝낼 수단이 완전히 사라지는 구조 탓에 Redis에 세션이 TTL 없이 수천 개 쌓였다. 비활성 super_admin 토큰이 그대로 유효하던 실측 현황과, 유휴 만료 하한(12시간) + 절대 만료(24시간)로 정비하고 좀비 세션을 1회 정리한 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.15",
+        "md": "/tech_blog/md/manager-session-expiry-idle-floor-absolute-timeout-zombie-cleanup.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "백신이 우리 워치도그를 드로퍼로 오탐하다 — PowerShell EncodedCommand를 네이티브 실행으로 걷어낸 이야기",
+        "content": "Symantec Endpoint Protection이 에이전트 워치도그 예약 작업을 Scr.Malcode!gen77로 격리했다. EncodedCommand + ExecutionPolicy Bypass + TLS 검증 무력화 + 무인 다운로드 실행이 정확히 드로퍼 휴리스틱에 걸린 사건과, PowerShell 게이트를 네이티브 코드로 옮겨 스크립트 자체를 없앤 대응 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/endpoint-protection-false-positive-watchdog-powershell-to-native.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "지각 도착한 텔레메트리가 시간별 집계에서 사라지는 문제 — 도착 곡선에 맞춘 4단 재집계 사다리",
+        "content": "QoS 0로 늦게 도착한 프로세스 데이터가 raw에는 있는데 hourly 집계에는 없는 구멍. 매시간 최근 24시간을 전부 재집계하는 창 방식 대신, 실측 누적 도착 곡선의 계단을 노려 이득이 몰린 지점만 재방문하는 설계로 8배 저렴하게 구멍을 메운 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.14",
+        "md": "/tech_blog/md/late-arriving-telemetry-hourly-reaggregation-arrival-curve-ladder.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격제어 화질이 흐려지고 CPU가 100%로 — MF_E_TRANSFORM_STREAM_CHANGE 재협상을 놓쳐 소프트웨어 인코딩에 갇힌 사건",
+        "content": "Intel Iris Xe 노트북에서 원격제어 화질이 뭉개지고 대상 PC의 CPU가 100%로 찼다. 하드웨어 인코더가 보낸 스트림 재협상 신호(0xC00D6D61)를 로그만 찍고 넘긴 탓에 소프트웨어 폴백으로 고착된 원인 분석과, 재협상 처리·전송품질 사다리 승급 게이트 수정 기록.",
+        "readMinutes": "4",
+        "createdAt": "2026.08.12",
+        "md": "/tech_blog/md/remote-desktop-hardware-encoder-stream-renegotiation-mf-transform-stream-change.md"
+      },
+      {
+        "category": "Report",
+        "categoryColor": "#10b981",
+        "subject": "현장 블루스크린 305건을 7개 범주로 나누다 — BSOD 카테고리화와 실측 분포",
+        "content": "실제 고객 현장에서 수집한 블루스크린(BSOD) 305건을 Driver·Kernel·Memory·Hardware·Disk/Power·Security/Boot·Misc 7개 범주로 분류한 결과. 어떤 유형이 얼마나 자주 발생하는지, 각 범주가 무엇을 뜻하는지 정리한 리포트.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.11",
+        "md": "/tech_blog/md/bsod-categorization-crash-corpus-distribution.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
