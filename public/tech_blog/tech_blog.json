@@ -3,6 +3,78 @@
     "language": "ko",
     "posts": [
       {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "자체 WebRTC 원격 제어·서버 데이터 파이프라인·68위젯 RBAC·증상→이슈 제품 축 — 분기 리뷰 (2026 Q3)",
+        "content": "매니저·에이전트 파트가 상용 라이브러리 없이 DXGI+Media Foundation+WebRTC 원격 화면 제어를 자체 구현해 폐쇄망 TCP 릴레이까지 실전 배포하고, 서버 백엔드 파트가 프로세스 영향도 서버 파이프라인과 process.py 배치 재설계로 대량 노드 메시지 유실을 없앴으며, 분석 서비스 파트가 68위젯 대시보드에 역할 기반 권한(RBAC) 프론트를 전면 구축하고, 룰·데이터 분석 파트가 증상을 '이슈'로 승격하는 제품 축(조건·근거·조치·검증)을 재정의했다. 커널 드라이버 파트는 orange.sys 언로드 데드락과 DNS ETW 의미를 재정합하고, 프론트엔드 파트는 프로세스 위젯 재설계와 AG-Grid 정렬 comparator 전역 도입으로 프론트 신뢰성을 끌어올렸다.",
+        "readMinutes": "15",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "주간 개발 리뷰 — 2026 W34 (08-17 ~ 08-23)",
+        "content": "이번 주 Orange 플랫폼 팀이 진행한 작업을 규모가 아니라 질 기준으로 정리했다. 라이브 응답·타임라인 흐름 개선, 프로세스 영향도 서버 파이프라인 안정화, 에이전트 성능 계측 확장, 규칙/정책·프론트 위젯 대량 정리까지 한 주의 흐름을 요약한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/weekly-review-2026-w34.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "삭제한 노드가 화면에서 부활한다 — 집계 컬렉션 cascade와 되살아나는 행",
+        "content": "노드를 삭제해도 프로세스 집계가 남아 삭제된 노드가 위젯에 영구 잔존했다. 원인은 cascade 누락이었지만, 단순히 집계를 지우면 집계 데몬이 남은 raw로 행을 되살리는 부활 race가 있었다. 삭제 순서를 고정하고 고아 행을 정리하고 meta 조회에 fallback을 붙인 데이터 무결성 트러블슈팅.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.21",
+        "md": "/tech_blog/md/node-delete-aggregation-resurrection-race-cascade.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "덤프 분석에서 ntdll.dll이 원인으로 나온다면 — 예외 시점 컨텍스트로 콜스택 걷기",
+        "content": "프로세스 크래시 덤프를 분석하면 원인이 자꾸 ntdll.dll로 나온다. ntdll은 검출 지점이지 원인이 아니다. 덤프 기록 시점이 아니라 .ecxr(예외 시점 컨텍스트)에서 콜스택을 걸어야 진짜 원인을 짚을 수 있다는, 7개 증적 덤프로 확인한 트러블슈팅.",
+        "readMinutes": "2",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/crash-dump-ntdll-not-the-cause-exception-context-stack.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "DNS ETW 이벤트 ID의 의미를 잘못 읽으면 — 탐지 6.6배 폭증과 죽어 있던 실패 탐지",
+        "content": "에이전트의 DNS-Client ETW 처리에서 이벤트 ID의 실제 의미가 어긋나 있었다. 로컬 캐시 조회를 서버 통신으로 착각해 정상 PC에서 탐지가 2,491건→13,509건으로 뛰었고, 정작 진짜 실패 탐지(3008)는 통째로 죽어 있었다. 매니페스트와 폐쇄망 재현으로 이벤트 하나하나의 의미를 확정한 기록.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/dns-etw-event-semantics-dead-detection-code.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "윈도우 방화벽이 막았는데 탐지가 안 된다 — ETW TCP 이벤트의 Domain 필드 함정",
+        "content": "윈도우 방화벽으로 나가는 연결을 막아도 에이전트가 증상을 못 만들던 문제. 룰 매칭 직전의 Domain 필드 검사가 방화벽 차단(1020)·커널 자원 부족(1030)·포트 고갈(1050) 이벤트를 통째로 걸러내고 있었다. ETW 트레이스로 원인을 짚고 고친 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/firewall-block-detection-etw-tcp-domain-field.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "0x9F 블루스크린에서 진짜 원인 드라이버 찾기 — 디바이스 스택 워킹으로 미니포트 특정",
+        "content": "0x9F(DRIVER_POWER_STATE_FAILURE)는 콜스택 폴백이 항상 ntoskrnl.exe로 나와 진짜 원인 드라이버를 못 짚는다. DEVICE_OBJECT/DRIVER_OBJECT를 직접 워킹해 PDB 없이도 원인 미니포트를 특정하고, 크래시를 10개 범주로 분류하며, WHEA 레코드를 파싱해 하드웨어 결함까지 짚어낸 덤프 분석기 개선기.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/kernel-dump-device-stack-walking-culprit-driver.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "체크박스는 툴팁만 숨기고 있었다 — '모바일 자동 로그아웃 미적용'이 실제로는 로그아웃을 막지 않던 버그",
+        "content": "매니저 설정의 '모바일 기기에서 자동 로그아웃 미적용' 옵션을 켜도 모바일에서 그대로 로그아웃됐다. 이 옵션이 실제로 바꾸는 건 남은 시간 툴팁을 숨기는 것뿐이었다. 옵션을 켠 사용자가 카운트다운도 못 본 채 예고 없이 튕기던, 설정값 때문에 오래 가려져 있던 버그의 진단 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.18",
+        "md": "/tech_blog/md/mobile-auto-logout-option-only-hid-tooltip.md"
+      },
+      {
         "category": "Guide",
         "categoryColor": "#3b82f6",
         "subject": "만료 없이 무한 누적되던 매니저 세션 정리 — 유휴 하한 + 절대 만료 두 축으로",
@@ -664,6 +736,78 @@
   {
     "language": "en",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "자체 WebRTC 원격 제어·서버 데이터 파이프라인·68위젯 RBAC·증상→이슈 제품 축 — 분기 리뷰 (2026 Q3)",
+        "content": "매니저·에이전트 파트가 상용 라이브러리 없이 DXGI+Media Foundation+WebRTC 원격 화면 제어를 자체 구현해 폐쇄망 TCP 릴레이까지 실전 배포하고, 서버 백엔드 파트가 프로세스 영향도 서버 파이프라인과 process.py 배치 재설계로 대량 노드 메시지 유실을 없앴으며, 분석 서비스 파트가 68위젯 대시보드에 역할 기반 권한(RBAC) 프론트를 전면 구축하고, 룰·데이터 분석 파트가 증상을 '이슈'로 승격하는 제품 축(조건·근거·조치·검증)을 재정의했다. 커널 드라이버 파트는 orange.sys 언로드 데드락과 DNS ETW 의미를 재정합하고, 프론트엔드 파트는 프로세스 위젯 재설계와 AG-Grid 정렬 comparator 전역 도입으로 프론트 신뢰성을 끌어올렸다.",
+        "readMinutes": "15",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "주간 개발 리뷰 — 2026 W34 (08-17 ~ 08-23)",
+        "content": "이번 주 Orange 플랫폼 팀이 진행한 작업을 규모가 아니라 질 기준으로 정리했다. 라이브 응답·타임라인 흐름 개선, 프로세스 영향도 서버 파이프라인 안정화, 에이전트 성능 계측 확장, 규칙/정책·프론트 위젯 대량 정리까지 한 주의 흐름을 요약한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/weekly-review-2026-w34.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "삭제한 노드가 화면에서 부활한다 — 집계 컬렉션 cascade와 되살아나는 행",
+        "content": "노드를 삭제해도 프로세스 집계가 남아 삭제된 노드가 위젯에 영구 잔존했다. 원인은 cascade 누락이었지만, 단순히 집계를 지우면 집계 데몬이 남은 raw로 행을 되살리는 부활 race가 있었다. 삭제 순서를 고정하고 고아 행을 정리하고 meta 조회에 fallback을 붙인 데이터 무결성 트러블슈팅.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.21",
+        "md": "/tech_blog/md/node-delete-aggregation-resurrection-race-cascade.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "덤프 분석에서 ntdll.dll이 원인으로 나온다면 — 예외 시점 컨텍스트로 콜스택 걷기",
+        "content": "프로세스 크래시 덤프를 분석하면 원인이 자꾸 ntdll.dll로 나온다. ntdll은 검출 지점이지 원인이 아니다. 덤프 기록 시점이 아니라 .ecxr(예외 시점 컨텍스트)에서 콜스택을 걸어야 진짜 원인을 짚을 수 있다는, 7개 증적 덤프로 확인한 트러블슈팅.",
+        "readMinutes": "2",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/crash-dump-ntdll-not-the-cause-exception-context-stack.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "DNS ETW 이벤트 ID의 의미를 잘못 읽으면 — 탐지 6.6배 폭증과 죽어 있던 실패 탐지",
+        "content": "에이전트의 DNS-Client ETW 처리에서 이벤트 ID의 실제 의미가 어긋나 있었다. 로컬 캐시 조회를 서버 통신으로 착각해 정상 PC에서 탐지가 2,491건→13,509건으로 뛰었고, 정작 진짜 실패 탐지(3008)는 통째로 죽어 있었다. 매니페스트와 폐쇄망 재현으로 이벤트 하나하나의 의미를 확정한 기록.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/dns-etw-event-semantics-dead-detection-code.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "윈도우 방화벽이 막았는데 탐지가 안 된다 — ETW TCP 이벤트의 Domain 필드 함정",
+        "content": "윈도우 방화벽으로 나가는 연결을 막아도 에이전트가 증상을 못 만들던 문제. 룰 매칭 직전의 Domain 필드 검사가 방화벽 차단(1020)·커널 자원 부족(1030)·포트 고갈(1050) 이벤트를 통째로 걸러내고 있었다. ETW 트레이스로 원인을 짚고 고친 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/firewall-block-detection-etw-tcp-domain-field.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "0x9F 블루스크린에서 진짜 원인 드라이버 찾기 — 디바이스 스택 워킹으로 미니포트 특정",
+        "content": "0x9F(DRIVER_POWER_STATE_FAILURE)는 콜스택 폴백이 항상 ntoskrnl.exe로 나와 진짜 원인 드라이버를 못 짚는다. DEVICE_OBJECT/DRIVER_OBJECT를 직접 워킹해 PDB 없이도 원인 미니포트를 특정하고, 크래시를 10개 범주로 분류하며, WHEA 레코드를 파싱해 하드웨어 결함까지 짚어낸 덤프 분석기 개선기.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/kernel-dump-device-stack-walking-culprit-driver.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "체크박스는 툴팁만 숨기고 있었다 — '모바일 자동 로그아웃 미적용'이 실제로는 로그아웃을 막지 않던 버그",
+        "content": "매니저 설정의 '모바일 기기에서 자동 로그아웃 미적용' 옵션을 켜도 모바일에서 그대로 로그아웃됐다. 이 옵션이 실제로 바꾸는 건 남은 시간 툴팁을 숨기는 것뿐이었다. 옵션을 켠 사용자가 카운트다운도 못 본 채 예고 없이 튕기던, 설정값 때문에 오래 가려져 있던 버그의 진단 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.18",
+        "md": "/tech_blog/md/mobile-auto-logout-option-only-hid-tooltip.md"
+      },
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
@@ -1327,6 +1471,78 @@
     "language": "zh",
     "posts": [
       {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "자체 WebRTC 원격 제어·서버 데이터 파이프라인·68위젯 RBAC·증상→이슈 제품 축 — 분기 리뷰 (2026 Q3)",
+        "content": "매니저·에이전트 파트가 상용 라이브러리 없이 DXGI+Media Foundation+WebRTC 원격 화면 제어를 자체 구현해 폐쇄망 TCP 릴레이까지 실전 배포하고, 서버 백엔드 파트가 프로세스 영향도 서버 파이프라인과 process.py 배치 재설계로 대량 노드 메시지 유실을 없앴으며, 분석 서비스 파트가 68위젯 대시보드에 역할 기반 권한(RBAC) 프론트를 전면 구축하고, 룰·데이터 분석 파트가 증상을 '이슈'로 승격하는 제품 축(조건·근거·조치·검증)을 재정의했다. 커널 드라이버 파트는 orange.sys 언로드 데드락과 DNS ETW 의미를 재정합하고, 프론트엔드 파트는 프로세스 위젯 재설계와 AG-Grid 정렬 comparator 전역 도입으로 프론트 신뢰성을 끌어올렸다.",
+        "readMinutes": "15",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "주간 개발 리뷰 — 2026 W34 (08-17 ~ 08-23)",
+        "content": "이번 주 Orange 플랫폼 팀이 진행한 작업을 규모가 아니라 질 기준으로 정리했다. 라이브 응답·타임라인 흐름 개선, 프로세스 영향도 서버 파이프라인 안정화, 에이전트 성능 계측 확장, 규칙/정책·프론트 위젯 대량 정리까지 한 주의 흐름을 요약한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/weekly-review-2026-w34.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "삭제한 노드가 화면에서 부활한다 — 집계 컬렉션 cascade와 되살아나는 행",
+        "content": "노드를 삭제해도 프로세스 집계가 남아 삭제된 노드가 위젯에 영구 잔존했다. 원인은 cascade 누락이었지만, 단순히 집계를 지우면 집계 데몬이 남은 raw로 행을 되살리는 부활 race가 있었다. 삭제 순서를 고정하고 고아 행을 정리하고 meta 조회에 fallback을 붙인 데이터 무결성 트러블슈팅.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.21",
+        "md": "/tech_blog/md/node-delete-aggregation-resurrection-race-cascade.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "덤프 분석에서 ntdll.dll이 원인으로 나온다면 — 예외 시점 컨텍스트로 콜스택 걷기",
+        "content": "프로세스 크래시 덤프를 분석하면 원인이 자꾸 ntdll.dll로 나온다. ntdll은 검출 지점이지 원인이 아니다. 덤프 기록 시점이 아니라 .ecxr(예외 시점 컨텍스트)에서 콜스택을 걸어야 진짜 원인을 짚을 수 있다는, 7개 증적 덤프로 확인한 트러블슈팅.",
+        "readMinutes": "2",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/crash-dump-ntdll-not-the-cause-exception-context-stack.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "DNS ETW 이벤트 ID의 의미를 잘못 읽으면 — 탐지 6.6배 폭증과 죽어 있던 실패 탐지",
+        "content": "에이전트의 DNS-Client ETW 처리에서 이벤트 ID의 실제 의미가 어긋나 있었다. 로컬 캐시 조회를 서버 통신으로 착각해 정상 PC에서 탐지가 2,491건→13,509건으로 뛰었고, 정작 진짜 실패 탐지(3008)는 통째로 죽어 있었다. 매니페스트와 폐쇄망 재현으로 이벤트 하나하나의 의미를 확정한 기록.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/dns-etw-event-semantics-dead-detection-code.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "윈도우 방화벽이 막았는데 탐지가 안 된다 — ETW TCP 이벤트의 Domain 필드 함정",
+        "content": "윈도우 방화벽으로 나가는 연결을 막아도 에이전트가 증상을 못 만들던 문제. 룰 매칭 직전의 Domain 필드 검사가 방화벽 차단(1020)·커널 자원 부족(1030)·포트 고갈(1050) 이벤트를 통째로 걸러내고 있었다. ETW 트레이스로 원인을 짚고 고친 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/firewall-block-detection-etw-tcp-domain-field.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "0x9F 블루스크린에서 진짜 원인 드라이버 찾기 — 디바이스 스택 워킹으로 미니포트 특정",
+        "content": "0x9F(DRIVER_POWER_STATE_FAILURE)는 콜스택 폴백이 항상 ntoskrnl.exe로 나와 진짜 원인 드라이버를 못 짚는다. DEVICE_OBJECT/DRIVER_OBJECT를 직접 워킹해 PDB 없이도 원인 미니포트를 특정하고, 크래시를 10개 범주로 분류하며, WHEA 레코드를 파싱해 하드웨어 결함까지 짚어낸 덤프 분석기 개선기.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/kernel-dump-device-stack-walking-culprit-driver.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "체크박스는 툴팁만 숨기고 있었다 — '모바일 자동 로그아웃 미적용'이 실제로는 로그아웃을 막지 않던 버그",
+        "content": "매니저 설정의 '모바일 기기에서 자동 로그아웃 미적용' 옵션을 켜도 모바일에서 그대로 로그아웃됐다. 이 옵션이 실제로 바꾸는 건 남은 시간 툴팁을 숨기는 것뿐이었다. 옵션을 켠 사용자가 카운트다운도 못 본 채 예고 없이 튕기던, 설정값 때문에 오래 가려져 있던 버그의 진단 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.18",
+        "md": "/tech_blog/md/mobile-auto-logout-option-only-hid-tooltip.md"
+      },
+      {
         "category": "Guide",
         "categoryColor": "#3b82f6",
         "subject": "만료 없이 무한 누적되던 매니저 세션 정리 — 유휴 하한 + 절대 만료 두 축으로",
@@ -1989,6 +2205,78 @@
     "language": "zh-Hant",
     "posts": [
       {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "자체 WebRTC 원격 제어·서버 데이터 파이프라인·68위젯 RBAC·증상→이슈 제품 축 — 분기 리뷰 (2026 Q3)",
+        "content": "매니저·에이전트 파트가 상용 라이브러리 없이 DXGI+Media Foundation+WebRTC 원격 화면 제어를 자체 구현해 폐쇄망 TCP 릴레이까지 실전 배포하고, 서버 백엔드 파트가 프로세스 영향도 서버 파이프라인과 process.py 배치 재설계로 대량 노드 메시지 유실을 없앴으며, 분석 서비스 파트가 68위젯 대시보드에 역할 기반 권한(RBAC) 프론트를 전면 구축하고, 룰·데이터 분석 파트가 증상을 '이슈'로 승격하는 제품 축(조건·근거·조치·검증)을 재정의했다. 커널 드라이버 파트는 orange.sys 언로드 데드락과 DNS ETW 의미를 재정합하고, 프론트엔드 파트는 프로세스 위젯 재설계와 AG-Grid 정렬 comparator 전역 도입으로 프론트 신뢰성을 끌어올렸다.",
+        "readMinutes": "15",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "주간 개발 리뷰 — 2026 W34 (08-17 ~ 08-23)",
+        "content": "이번 주 Orange 플랫폼 팀이 진행한 작업을 규모가 아니라 질 기준으로 정리했다. 라이브 응답·타임라인 흐름 개선, 프로세스 영향도 서버 파이프라인 안정화, 에이전트 성능 계측 확장, 규칙/정책·프론트 위젯 대량 정리까지 한 주의 흐름을 요약한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/weekly-review-2026-w34.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "삭제한 노드가 화면에서 부활한다 — 집계 컬렉션 cascade와 되살아나는 행",
+        "content": "노드를 삭제해도 프로세스 집계가 남아 삭제된 노드가 위젯에 영구 잔존했다. 원인은 cascade 누락이었지만, 단순히 집계를 지우면 집계 데몬이 남은 raw로 행을 되살리는 부활 race가 있었다. 삭제 순서를 고정하고 고아 행을 정리하고 meta 조회에 fallback을 붙인 데이터 무결성 트러블슈팅.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.21",
+        "md": "/tech_blog/md/node-delete-aggregation-resurrection-race-cascade.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "덤프 분석에서 ntdll.dll이 원인으로 나온다면 — 예외 시점 컨텍스트로 콜스택 걷기",
+        "content": "프로세스 크래시 덤프를 분석하면 원인이 자꾸 ntdll.dll로 나온다. ntdll은 검출 지점이지 원인이 아니다. 덤프 기록 시점이 아니라 .ecxr(예외 시점 컨텍스트)에서 콜스택을 걸어야 진짜 원인을 짚을 수 있다는, 7개 증적 덤프로 확인한 트러블슈팅.",
+        "readMinutes": "2",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/crash-dump-ntdll-not-the-cause-exception-context-stack.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "DNS ETW 이벤트 ID의 의미를 잘못 읽으면 — 탐지 6.6배 폭증과 죽어 있던 실패 탐지",
+        "content": "에이전트의 DNS-Client ETW 처리에서 이벤트 ID의 실제 의미가 어긋나 있었다. 로컬 캐시 조회를 서버 통신으로 착각해 정상 PC에서 탐지가 2,491건→13,509건으로 뛰었고, 정작 진짜 실패 탐지(3008)는 통째로 죽어 있었다. 매니페스트와 폐쇄망 재현으로 이벤트 하나하나의 의미를 확정한 기록.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/dns-etw-event-semantics-dead-detection-code.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "윈도우 방화벽이 막았는데 탐지가 안 된다 — ETW TCP 이벤트의 Domain 필드 함정",
+        "content": "윈도우 방화벽으로 나가는 연결을 막아도 에이전트가 증상을 못 만들던 문제. 룰 매칭 직전의 Domain 필드 검사가 방화벽 차단(1020)·커널 자원 부족(1030)·포트 고갈(1050) 이벤트를 통째로 걸러내고 있었다. ETW 트레이스로 원인을 짚고 고친 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/firewall-block-detection-etw-tcp-domain-field.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "0x9F 블루스크린에서 진짜 원인 드라이버 찾기 — 디바이스 스택 워킹으로 미니포트 특정",
+        "content": "0x9F(DRIVER_POWER_STATE_FAILURE)는 콜스택 폴백이 항상 ntoskrnl.exe로 나와 진짜 원인 드라이버를 못 짚는다. DEVICE_OBJECT/DRIVER_OBJECT를 직접 워킹해 PDB 없이도 원인 미니포트를 특정하고, 크래시를 10개 범주로 분류하며, WHEA 레코드를 파싱해 하드웨어 결함까지 짚어낸 덤프 분석기 개선기.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/kernel-dump-device-stack-walking-culprit-driver.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "체크박스는 툴팁만 숨기고 있었다 — '모바일 자동 로그아웃 미적용'이 실제로는 로그아웃을 막지 않던 버그",
+        "content": "매니저 설정의 '모바일 기기에서 자동 로그아웃 미적용' 옵션을 켜도 모바일에서 그대로 로그아웃됐다. 이 옵션이 실제로 바꾸는 건 남은 시간 툴팁을 숨기는 것뿐이었다. 옵션을 켠 사용자가 카운트다운도 못 본 채 예고 없이 튕기던, 설정값 때문에 오래 가려져 있던 버그의 진단 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.18",
+        "md": "/tech_blog/md/mobile-auto-logout-option-only-hid-tooltip.md"
+      },
+      {
         "category": "Guide",
         "categoryColor": "#3b82f6",
         "subject": "만료 없이 무한 누적되던 매니저 세션 정리 — 유휴 하한 + 절대 만료 두 축으로",
@@ -2650,6 +2938,78 @@
   {
     "language": "ja",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "자체 WebRTC 원격 제어·서버 데이터 파이프라인·68위젯 RBAC·증상→이슈 제품 축 — 분기 리뷰 (2026 Q3)",
+        "content": "매니저·에이전트 파트가 상용 라이브러리 없이 DXGI+Media Foundation+WebRTC 원격 화면 제어를 자체 구현해 폐쇄망 TCP 릴레이까지 실전 배포하고, 서버 백엔드 파트가 프로세스 영향도 서버 파이프라인과 process.py 배치 재설계로 대량 노드 메시지 유실을 없앴으며, 분석 서비스 파트가 68위젯 대시보드에 역할 기반 권한(RBAC) 프론트를 전면 구축하고, 룰·데이터 분석 파트가 증상을 '이슈'로 승격하는 제품 축(조건·근거·조치·검증)을 재정의했다. 커널 드라이버 파트는 orange.sys 언로드 데드락과 DNS ETW 의미를 재정합하고, 프론트엔드 파트는 프로세스 위젯 재설계와 AG-Grid 정렬 comparator 전역 도입으로 프론트 신뢰성을 끌어올렸다.",
+        "readMinutes": "15",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "주간 개발 리뷰 — 2026 W34 (08-17 ~ 08-23)",
+        "content": "이번 주 Orange 플랫폼 팀이 진행한 작업을 규모가 아니라 질 기준으로 정리했다. 라이브 응답·타임라인 흐름 개선, 프로세스 영향도 서버 파이프라인 안정화, 에이전트 성능 계측 확장, 규칙/정책·프론트 위젯 대량 정리까지 한 주의 흐름을 요약한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.08.23",
+        "md": "/tech_blog/md/weekly-review-2026-w34.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "삭제한 노드가 화면에서 부활한다 — 집계 컬렉션 cascade와 되살아나는 행",
+        "content": "노드를 삭제해도 프로세스 집계가 남아 삭제된 노드가 위젯에 영구 잔존했다. 원인은 cascade 누락이었지만, 단순히 집계를 지우면 집계 데몬이 남은 raw로 행을 되살리는 부활 race가 있었다. 삭제 순서를 고정하고 고아 행을 정리하고 meta 조회에 fallback을 붙인 데이터 무결성 트러블슈팅.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.21",
+        "md": "/tech_blog/md/node-delete-aggregation-resurrection-race-cascade.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "덤프 분석에서 ntdll.dll이 원인으로 나온다면 — 예외 시점 컨텍스트로 콜스택 걷기",
+        "content": "프로세스 크래시 덤프를 분석하면 원인이 자꾸 ntdll.dll로 나온다. ntdll은 검출 지점이지 원인이 아니다. 덤프 기록 시점이 아니라 .ecxr(예외 시점 컨텍스트)에서 콜스택을 걸어야 진짜 원인을 짚을 수 있다는, 7개 증적 덤프로 확인한 트러블슈팅.",
+        "readMinutes": "2",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/crash-dump-ntdll-not-the-cause-exception-context-stack.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "DNS ETW 이벤트 ID의 의미를 잘못 읽으면 — 탐지 6.6배 폭증과 죽어 있던 실패 탐지",
+        "content": "에이전트의 DNS-Client ETW 처리에서 이벤트 ID의 실제 의미가 어긋나 있었다. 로컬 캐시 조회를 서버 통신으로 착각해 정상 PC에서 탐지가 2,491건→13,509건으로 뛰었고, 정작 진짜 실패 탐지(3008)는 통째로 죽어 있었다. 매니페스트와 폐쇄망 재현으로 이벤트 하나하나의 의미를 확정한 기록.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/dns-etw-event-semantics-dead-detection-code.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "윈도우 방화벽이 막았는데 탐지가 안 된다 — ETW TCP 이벤트의 Domain 필드 함정",
+        "content": "윈도우 방화벽으로 나가는 연결을 막아도 에이전트가 증상을 못 만들던 문제. 룰 매칭 직전의 Domain 필드 검사가 방화벽 차단(1020)·커널 자원 부족(1030)·포트 고갈(1050) 이벤트를 통째로 걸러내고 있었다. ETW 트레이스로 원인을 짚고 고친 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/firewall-block-detection-etw-tcp-domain-field.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "0x9F 블루스크린에서 진짜 원인 드라이버 찾기 — 디바이스 스택 워킹으로 미니포트 특정",
+        "content": "0x9F(DRIVER_POWER_STATE_FAILURE)는 콜스택 폴백이 항상 ntoskrnl.exe로 나와 진짜 원인 드라이버를 못 짚는다. DEVICE_OBJECT/DRIVER_OBJECT를 직접 워킹해 PDB 없이도 원인 미니포트를 특정하고, 크래시를 10개 범주로 분류하며, WHEA 레코드를 파싱해 하드웨어 결함까지 짚어낸 덤프 분석기 개선기.",
+        "readMinutes": "6",
+        "createdAt": "2026.08.19",
+        "md": "/tech_blog/md/kernel-dump-device-stack-walking-culprit-driver.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "체크박스는 툴팁만 숨기고 있었다 — '모바일 자동 로그아웃 미적용'이 실제로는 로그아웃을 막지 않던 버그",
+        "content": "매니저 설정의 '모바일 기기에서 자동 로그아웃 미적용' 옵션을 켜도 모바일에서 그대로 로그아웃됐다. 이 옵션이 실제로 바꾸는 건 남은 시간 툴팁을 숨기는 것뿐이었다. 옵션을 켠 사용자가 카운트다운도 못 본 채 예고 없이 튕기던, 설정값 때문에 오래 가려져 있던 버그의 진단 기록.",
+        "readMinutes": "3",
+        "createdAt": "2026.08.18",
+        "md": "/tech_blog/md/mobile-auto-logout-option-only-hid-tooltip.md"
+      },
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
