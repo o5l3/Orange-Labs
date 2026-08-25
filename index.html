@@ -11,8 +11,14 @@
       seo:start ~ seo:end 밖에 두어야 경로별 사전 렌더링 후에도 남는다.
       data-seo-static을 붙이면 main.tsx가 런타임에 걷어내므로 붙이면 안 된다.
 
+      아래 두 토큰은 아직 구(舊) 도메인(orangelabs.xyz) 속성의 것이다.
+      정본을 orangelabs.co.kr로 옮기는 중인데, 구글의 '주소 변경' 도구는
+      옛 속성과 새 속성이 **둘 다** 인증되어 있어야 동작한다. 따라서 이 태그는
+      주소 변경이 처리될 때까지(보통 수 주) 지우면 안 된다.
+      새 도메인 속성을 만들면 그 토큰을 아래에 나란히 추가한다.
+
       Google  — Search Console URL 접두어 속성(https://www.orangelabs.xyz/)용.
-                도메인 속성(orangelabs.xyz)은 이 태그가 아니라 DNS TXT로 확인한다.
+                도메인 속성은 이 태그가 아니라 DNS TXT로 확인한다.
       Naver   — 서치어드바이저 사이트 소유확인용.
     -->
     <meta
@@ -39,7 +45,7 @@
       name="description"
       content="오렌지랩스(OrangeLabs)는 실시간 성능 장애 예측으로 IT를 편하게 만듭니다. GS 1등급 인증을 받은 엔드포인트 성능·장애관리 솔루션 Orange The Client를 만나보세요."
     />
-    <link data-seo-static rel="canonical" href="https://www.orangelabs.xyz/" />
+    <link data-seo-static rel="canonical" href="https://www.orangelabs.co.kr/" />
     <meta data-seo-static name="robots" content="index, follow, max-image-preview:large" />
     <meta data-seo-static property="og:site_name" content="OrangeLabs" />
     <meta data-seo-static property="og:type" content="website" />
@@ -53,11 +59,11 @@
       property="og:description"
       content="오렌지랩스(OrangeLabs)는 실시간 성능 장애 예측으로 IT를 편하게 만듭니다. GS 1등급 인증을 받은 엔드포인트 성능·장애관리 솔루션 Orange The Client를 만나보세요."
     />
-    <meta data-seo-static property="og:url" content="https://www.orangelabs.xyz/" />
+    <meta data-seo-static property="og:url" content="https://www.orangelabs.co.kr/" />
     <meta
       data-seo-static
       property="og:image"
-      content="https://www.orangelabs.xyz/images/orangebox.png"
+      content="https://www.orangelabs.co.kr/images/orangebox.png"
     />
     <meta data-seo-static property="og:image:width" content="720" />
     <meta data-seo-static property="og:image:height" content="720" />
@@ -76,7 +82,7 @@
     <meta
       data-seo-static
       name="twitter:image"
-      content="https://www.orangelabs.xyz/images/orangebox.png"
+      content="https://www.orangelabs.co.kr/images/orangebox.png"
     />
     <!-- seo:end -->
   </head>

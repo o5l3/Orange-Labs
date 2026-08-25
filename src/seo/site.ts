@@ -2,7 +2,7 @@
  * 사이트 전역 SEO 상수.
  * 배포 도메인이 바뀌면 VITE_SITE_URL 환경변수로 덮어쓴다.
  */
-export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://www.orangelabs.xyz').replace(
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://www.orangelabs.co.kr').replace(
   /\/+$/,
   '',
 );

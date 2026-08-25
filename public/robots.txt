@@ -11,4 +11,4 @@ Allow: /
 User-agent: Daum
 Allow: /
 
-Sitemap: https://www.orangelabs.xyz/sitemap.xml
+Sitemap: https://www.orangelabs.co.kr/sitemap.xml

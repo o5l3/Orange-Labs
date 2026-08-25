@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 
-const SITE_URL = (process.env.VITE_SITE_URL || 'https://www.orangelabs.xyz').replace(/\/+$/, '');
+const SITE_URL = (process.env.VITE_SITE_URL || 'https://www.orangelabs.co.kr').replace(/\/+$/, '');
 const SITE_NAME = 'OrangeLabs';
 const OG_IMAGE = `${SITE_URL}/images/orangebox.png`;
 const OG_IMAGE_WIDTH = 720;
