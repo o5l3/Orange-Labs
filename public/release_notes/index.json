@@ -1,5 +1,447 @@
 [
   {
+    "version": "1.6.242.0825",
+    "slug": "1.6.242.0825",
+    "date": "2026-08-25",
+    "pdf": "/release_notes/1.6.242.0825/release-notes.pdf",
+    "items": [
+      {
+        "key": "nodePing",
+        "kind": "new"
+      },
+      {
+        "key": "jungteamInline",
+        "kind": "new"
+      },
+      {
+        "key": "webServiceMonitor",
+        "kind": "improved"
+      },
+      {
+        "key": "homeSymptomSummary",
+        "kind": "improved"
+      },
+      {
+        "key": "agentStartupSpeed",
+        "kind": "improved"
+      },
+      {
+        "key": "onlineStateAccuracy",
+        "kind": "improved"
+      },
+      {
+        "key": "aiDiagnosis",
+        "kind": "improved"
+      },
+      {
+        "key": "sessionAndAccounts",
+        "kind": "improved"
+      },
+      {
+        "key": "monitorCheckDelay",
+        "kind": "improved"
+      },
+      {
+        "key": "switchPortVisibility",
+        "kind": "improved"
+      },
+      {
+        "key": "dnsDetection",
+        "kind": "improved"
+      },
+      {
+        "key": "bulkCommand",
+        "kind": "improved"
+      },
+      {
+        "key": "deletedNodeCleanup",
+        "kind": "improved"
+      },
+      {
+        "key": "relayAddressPrompt",
+        "kind": "improved"
+      }
+    ],
+    "i18n": {
+      "ko": {
+        "excerpt": "명령 화면과 증상 화면에서도 정팀장을 쓸 수 있게 되었습니다. 온라인으로 보이는 PC 가 사내망에서 실제로 닿는지 서버가 Ping 을 보내 확인합니다. 에이전트는 부팅 후 매니저에 표시되기까지 22.8초에서 4.6초로 단축되었습니다.",
+        "items": {
+          "nodePing": {
+            "title": "Ping 확인",
+            "sub": "노드 목록 · 우클릭 액션",
+            "desc": "노드 목록·그룹·상세에서 우클릭해 실행하면 서버가 그 PC 주소로 ping 을 보냅니다. 결과는 「도달함」·「응답 없음」·「확인 불가」 로 나오고, 어느 주소로 보냈는지 함께 알려 줍니다. 목록에 온라인으로 보이는 것은 에이전트가 서버로 접속하는 데 성공했다는 뜻이고, ping 은 그 반대 방향이라 온라인이어도 닿지 않을 수 있습니다. 단말 방화벽에서 ping 수신을 허용해 두셔야 하며, 막혀 있으면 정상인 PC 도 「응답 없음」으로 나옵니다."
+          },
+          "jungteamInline": {
+            "title": "명령 화면과 증상 화면에서 쓰는 정팀장",
+            "sub": "명령 관리 · 증상 상세",
+            "desc": "전에는 노드 상세의 「정팀장」 탭에서만 질문할 수 있었습니다. 이제는 명령 화면과 증상 상세에서 그 화면을 보면서 그대로 대화합니다. 명령을 작성할 때에는 필요한 작업을 문장으로 설명하면 정팀장이 명령을 지어 「폼에 적용」으로 채워 주고, 결과를 확인할 때에는 그 결과가 처음 요구에 대한 답이 되는지 판정해 원하는 양식으로 정리해 줍니다. 증상 상세에는 「정팀장」 탭이 새로 생겨 원인과 지점, 문제가 된 파일의 안전 여부를 조사해 결론까지 보고합니다."
+          },
+          "webServiceMonitor": {
+            "title": "웹 서비스를 한 번에 감시",
+            "sub": "서버 모니터",
+            "desc": "웹 서비스로 하나만 등록하면 주소 조회 → 연결 → 인증서 → 응답까지 한 번에 확인하고 어느 단계에서 끊겼는지 알려 줍니다. 인증서 만료가 다가온 대상은 장애가 아니라 「경고」로 따로 표시합니다(기본 30일 전, 대상마다 조정 가능). 기존에 등록해 두신 대상은 자동으로 옮겨지므로 다시 등록하실 필요가 없습니다."
+          },
+          "homeSymptomSummary": {
+            "title": "홈에서 보는 증상 요약",
+            "sub": "홈 대시보드",
+            "desc": "홈 대시보드에 올려 두는 증상 요약을 새로 만들고, 홈의 숫자를 증상 화면의 숫자와 일치하도록 맞추었습니다. 예전에는 두 화면이 세는 방식이 달라 같은 기간인데도 값이 다르게 보였습니다. 홈 요약은 일상적으로 반복되는 증상을 뺀 숫자를 기본으로 보여 줍니다."
+          },
+          "agentStartupSpeed": {
+            "title": "에이전트 시작·종료 속도 단축",
+            "sub": "에이전트",
+            "desc": "부팅 후 매니저에 표시되기까지 22.8초에서 4.6초로 단축되었고, 종료 역시 64초에서 6.9초로 줄었습니다. 상태를 점검하는 주기를 10분에서 1시간으로 늘리고, 서버에 접속하지 못하는 동안 5분마다 하드웨어 정보를 다시 모으던 것도 서버 주소가 바뀐 경우에만 모으도록 했습니다. 평상시 PC 자원을 사용하는 양도 함께 감소했습니다."
+          },
+          "onlineStateAccuracy": {
+            "title": "온·오프라인이 잘못 보이던 문제",
+            "sub": "에이전트",
+            "desc": "네 가지 원인을 해소했습니다. 무선랜 PC 의 상태가 반복해서 바뀌던 것, PC 시각이 실제와 크게 다르면 접속되지 않던 것, 설정 파일이 손상되어 계속 오프라인으로 남던 것, 복구 기능을 사용하는 PC 에서 재부팅할 때마다 설정이 되돌아가던 것입니다. 기존 고객사는 종전 방식 그대로 동작합니다."
+          },
+          "aiDiagnosis": {
+            "title": "AI 진단 첫 답변 단축과 점검 항목 확대",
+            "sub": "정팀장",
+            "desc": "새 대화의 첫 답변이 60~72초에서 18~29초로 빨라졌습니다. 「이상 없나요」처럼 범위를 짚지 않은 질문에도 하드웨어·보안 업데이트·메모리·저장 공간을 빠짐없이 확인하고 항목별로 판정합니다. 웹 검색의 횟수와 건수 상한을 없애고 답변의 인용에서 원문을 곧바로 열 수 있게 했으며, 재부팅이 뒤따르는 작업은 그 PC 가 온라인으로 바뀌면 확인 명령을 실행해 결과까지 이어서 보고합니다."
+          },
+          "sessionAndAccounts": {
+            "title": "로그인 유지 시간과 계정 관리",
+            "sub": "설정 › 계정 관리",
+            "desc": "일정 시간 쓰지 않으면 12시간 뒤, 계속 쓰더라도 로그인한 지 24시간이 지나면 다시 로그인해야 합니다. 전에는 만료 기한이 없어 한 번 로그인하면 계속 유지되었습니다. 사용 중지한 계정은 로그인 자체가 거부되고 이미 열려 있던 화면도 즉시 끊깁니다. 최고 관리자는 다른 계정의 로그인 아이디를 변경할 수 있으므로 계정을 삭제하고 다시 만들지 않아도 됩니다."
+          },
+          "monitorCheckDelay": {
+            "title": "서버 모니터링 점검이 지연되던 문제",
+            "sub": "서버 모니터",
+            "desc": "한 번에 점검하는 대수를 20대에서 60대로 늘리고, 현장 규모에 맞게 조정할 수 있게 했습니다. 응답이 없는 장비 때문에 정상 장비의 점검 순서가 밀리던 문제도 해소했습니다. 연속 세 번 실패한 장비는 점검 주기를 두 배씩 늘려 최대 여덟 배까지 미루되, 아무리 길어도 30분을 넘기지 않습니다."
+          },
+          "switchPortVisibility": {
+            "title": "네트워크 장비 포트를 보고 조치할지 판단할 수 없던 문제",
+            "sub": "서버 모니터",
+            "desc": "포트마다 관리자가 장비에 적어 둔 설명이 함께 나와 어느 포트인지 바로 알 수 있습니다. 에러는 누적값 대신 지난 점검 이후 늘어난 양으로 보여 줍니다. 전에는 장비를 켠 뒤 누적된 총합만 표시되어 300일 동안 쌓인 값인지 오늘 아침부터 발생한 값인지 구분할 수 없었습니다."
+          },
+          "dnsDetection": {
+            "title": "DNS 오류를 증상으로 감지",
+            "sub": "증상 · 룰",
+            "desc": "그동안 감지하지 못하던 세 가지 상황을 새로 잡아냅니다. DNS 서버가 전혀 응답하지 않는 경우, 오류 코드로 응답하는 경우, 네트워크가 끊겨 조회 자체가 실패하는 경우입니다. 어느 도메인을 어느 프로그램이 조회하다 실패했는지와 응답하지 않은 DNS 서버 주소가 함께 기록됩니다. 폐쇄망에서 외부 DNS 가 차단되어 있거나 사내 DNS 가 중단된 경우가 여기에 해당합니다."
+          },
+          "bulkCommand": {
+            "title": "선택한 PC 로 바로 1:N 명령 만들기",
+            "sub": "명령 관리",
+            "desc": "노드 목록이나 조직도에서 대상을 선택하고 「명령 생성」을 누르면, 별도 창이 아니라 명령 관리 화면이 대상이 지정된 상태로 열립니다. 선택해 둔 내용을 잃지 않고 이어서 작성할 수 있습니다."
+          },
+          "deletedNodeCleanup": {
+            "title": "PC 삭제 후 남던 부하 집계와 부서 정보 유실 문제",
+            "sub": "서버",
+            "desc": "PC 를 삭제하면 시간대별 부하 집계까지 함께 정리합니다. 전에는 집계에 그대로 남아 그 PC 에서만 사용하던 프로그램을 조회하면 오류가 발생했습니다. 조직도 조회에 실패한 상태와 「부서 없음」을 구분하지 못해, 일시적인 조회 실패만으로 부서 정보가 덮여 사라지던 문제도 수정했습니다."
+          },
+          "relayAddressPrompt": {
+            "title": "원격 제어 중계 주소를 잘못 넣어도 알려 주지 않던 문제",
+            "sub": "설치 · 업데이트",
+            "desc": "원격 제어는 공유기 뒤에 있는 PC 를 서버가 중계해 연결합니다. 이때 쓸 외부 주소를 잘못 넣으면 연결만 실패하고 이유가 나오지 않았습니다. 이제 설치·업데이트 과정에서 상황별 예시와 함께 그 주소를 물어봅니다. 서버 인증서 만료일이 발급기관 만료일을 넘지 않도록 한 것도 함께 반영했습니다."
+          }
+        }
+      },
+      "en": {
+        "excerpt": "Team Lead Jung now works inside the command screen and the symptom detail. The server can ping a PC to see whether it is actually reachable on the internal network, even when it shows as online. The agent appears in Manager 22.8 seconds after boot no longer - it now takes 4.6.",
+        "items": {
+          "nodePing": {
+            "title": "Ping check",
+            "sub": "Node list · right-click action",
+            "desc": "Right-click a node, a group or an entry in the detail view and the server sends a ping to that PC's address. The result comes back as reachable, no response, or cannot determine, together with the address it was sent to. A node showing as online means the agent reached the server; ping travels the other way, so an online PC may still be unreachable. Allow incoming ping on the endpoint firewall - if it is blocked, a healthy PC also reports no response."
+          },
+          "jungteamInline": {
+            "title": "Team Lead Jung inside the command and symptom screens",
+            "sub": "Command management · Symptom detail",
+            "desc": "Previously you could only ask from the Team Lead Jung tab in the node detail view. Now you talk to it right inside the command screen and the symptom detail, while looking at them. When writing a command, describe the work in plain sentences and it drafts the command and fills the form for you. When reading results, it judges whether they answer the original request and arranges them in the format you want. The symptom detail gained a Team Lead Jung tab that investigates the cause, the place it happened and whether the file involved is safe, and reports a conclusion."
+          },
+          "webServiceMonitor": {
+            "title": "Whole web services watched as one",
+            "sub": "Server monitor",
+            "desc": "Register a web service once and name resolution, connection, certificate and response are all checked in one pass, telling you which step broke. Targets with a certificate nearing expiry are flagged as a warning rather than an outage (30 days ahead by default, adjustable per target). Targets you already registered are migrated automatically, so there is nothing to register again."
+          },
+          "homeSymptomSummary": {
+            "title": "Symptom summary on the home dashboard",
+            "sub": "Home dashboard",
+            "desc": "A symptom summary you can place on the home dashboard is new, and the home figure now matches the symptom screen. The two screens used to count differently, so the same period showed different numbers. The home summary excludes routine, recurring symptoms by default."
+          },
+          "agentStartupSpeed": {
+            "title": "Faster agent start and stop",
+            "sub": "Agent",
+            "desc": "Time from boot to appearing in Manager fell from 22.8 to 4.6 seconds, and shutdown from 64 to 6.9 seconds. The health check interval moved from 10 minutes to 1 hour, and hardware details that were re-collected every 5 minutes while the server was unreachable are now collected only when the server address changes. Everyday resource use on the PC dropped as well."
+          },
+          "onlineStateAccuracy": {
+            "title": "PCs shown online or offline incorrectly",
+            "sub": "Agent",
+            "desc": "Four causes were resolved: Wi-Fi PCs flipping state repeatedly, PCs failing to connect when their clock differs greatly from real time, a damaged settings file leaving a PC permanently offline, and settings reverting on every reboot on PCs that use recovery software. Existing customers keep the previous behaviour."
+          },
+          "aiDiagnosis": {
+            "title": "Faster first answer and wider checks in AI diagnosis",
+            "sub": "Team Lead Jung",
+            "desc": "The first answer in a new conversation dropped from 60-72 seconds to 18-29 seconds. Open questions such as \"is anything wrong?\" now check hardware, security updates, memory and storage without skipping any, and give a verdict per item. Caps on web search count and results are gone, citations open the source directly, and work that requires a reboot is followed up: once the PC comes back online the check runs and the result is reported."
+          },
+          "sessionAndAccounts": {
+            "title": "Session lifetime and account control",
+            "sub": "Settings › Accounts",
+            "desc": "You are signed out after 12 hours of inactivity, and after 24 hours from sign-in even while working. Sessions previously never expired. A disabled account is refused at sign-in and any open screen is cut off immediately. A super administrator can change another account's login ID, so there is no need to delete and recreate the account."
+          },
+          "monitorCheckDelay": {
+            "title": "Monitoring checks falling behind",
+            "sub": "Server monitor",
+            "desc": "The number of targets checked at once rose from 20 to 60 and can be tuned to the size of the site. Unresponsive devices no longer push healthy ones out of turn. A device that fails three times in a row has its interval doubled up to eight times, but never beyond 30 minutes."
+          },
+          "switchPortVisibility": {
+            "title": "Port list you could not act on",
+            "sub": "Server monitor",
+            "desc": "Each port now shows the description the administrator wrote on the device, so you can tell which port it is at a glance. Errors are shown as the increase since the last check instead of a running total. Previously only the total accumulated since the device booted was shown, so there was no way to tell 300 days of history from a problem that started this morning."
+          },
+          "dnsDetection": {
+            "title": "DNS failures raised as symptoms",
+            "sub": "Symptoms · Rules",
+            "desc": "Three situations that went undetected are now caught: the DNS server not responding at all, responding with an error code, and the lookup failing because the network is down. The record includes which program was looking up which domain, and the address of the DNS server that did not answer. Closed networks with external DNS blocked, or an internal DNS that has stopped, fall into this category."
+          },
+          "bulkCommand": {
+            "title": "1:N commands built from the PCs you selected",
+            "sub": "Command management",
+            "desc": "Select targets in the node list or the org chart and press Create command: the command management screen opens with those targets already set, rather than a separate window. Your selection is carried over so you can continue writing."
+          },
+          "deletedNodeCleanup": {
+            "title": "Load figures left behind and departments lost",
+            "sub": "Server",
+            "desc": "Deleting a PC now clears its hourly load aggregates as well. They used to remain, so querying a program used only on that PC raised an error. A failed org-chart lookup was also indistinguishable from \"no department\", which let a temporary failure overwrite and erase department information; that is fixed."
+          },
+          "relayAddressPrompt": {
+            "title": "Wrong relay address accepted without warning",
+            "sub": "Install · Update",
+            "desc": "Remote control reaches PCs behind a router by relaying through the server. If the external address used for that was wrong, the connection simply failed with no reason given. Install and update now ask for that address with examples for each situation. The server certificate expiry is also capped at the issuing authority's expiry."
+          }
+        }
+      },
+      "ja": {
+        "excerpt": "命令画面と症状画面でもチョン室長を利用できるようになりました。オンラインと表示される PC が社内網で実際に到達可能かを、サーバーが ping を送って確認します。エージェントは起動後マネージャーに表示されるまで 22.8秒から 4.6秒に短縮されました。",
+        "items": {
+          "nodePing": {
+            "title": "Ping 確認",
+            "sub": "ノード一覧 · 右クリック操作",
+            "desc": "ノード一覧・グループ・詳細で右クリックして実行すると、サーバーがその PC のアドレスへ ping を送信します。結果は「到達」「応答なし」「判定不可」で表示され、どのアドレスへ送ったかも併せて示します。一覧でオンラインと表示されるのはエージェントがサーバーへ接続できたという意味であり、ping はその逆方向のため、オンラインでも到達しない場合があります。端末のファイアウォールで ping の受信を許可してください。遮断されていると正常な PC も「応答なし」となります。"
+          },
+          "jungteamInline": {
+            "title": "命令画面と症状画面で使えるチョン室長",
+            "sub": "命令管理 · 症状詳細",
+            "desc": "従来はノード詳細の「チョン室長」タブからのみ質問できました。今後は命令画面と症状詳細でその画面を見ながらそのまま対話できます。命令を作成する際は必要な作業を文章で説明すると命令を作成し「フォームに適用」で入力してくれます。結果を確認する際は、その結果が最初の要求への答えになっているかを判定し、希望の形式で整理します。症状詳細には「チョン室長」タブが新設され、発生原因と箇所、問題となったファイルの安全性を調査して結論まで報告します。"
+          },
+          "webServiceMonitor": {
+            "title": "Web サービスを一括で監視",
+            "sub": "サーバーモニター",
+            "desc": "Web サービスとして一つ登録するだけで、名前解決 → 接続 → 証明書 → 応答までを一度に確認し、どの段階で切れたかを通知します。証明書の有効期限が近い対象は障害ではなく「警告」として区別して表示します（既定は30日前、対象ごとに調整可能）。既に登録済みの対象は自動的に移行されるため、登録し直す必要はありません。"
+          },
+          "homeSymptomSummary": {
+            "title": "ホーム画面の症状サマリー",
+            "sub": "ホームダッシュボード",
+            "desc": "ホームダッシュボードに配置できる症状サマリーを新設し、ホームの件数を症状画面の件数と一致させました。従来は二つの画面で集計方法が異なり、同じ期間でも値が違って見えていました。ホームのサマリーは日常的に繰り返される症状を除いた件数を既定で表示します。"
+          },
+          "agentStartupSpeed": {
+            "title": "エージェントの起動・終了時間を短縮",
+            "sub": "エージェント",
+            "desc": "起動後マネージャーに表示されるまで 22.8秒から 4.6秒に、終了も 64秒から 6.9秒に短縮しました。状態確認の周期を10分から1時間に延ばし、サーバーへ接続できない間に5分ごとにハードウェア情報を再収集していた処理も、サーバーアドレスが変わった場合のみ行うようにしました。平常時の PC 資源使用量も減少しています。"
+          },
+          "onlineStateAccuracy": {
+            "title": "オンライン・オフラインが誤表示される問題",
+            "sub": "エージェント",
+            "desc": "四つの原因を解消しました。無線 LAN の PC で状態が繰り返し切り替わる事象、PC の時刻が実時刻と大きく異なると接続できない事象、設定ファイルの破損によりオフラインのまま残る事象、復旧ソフトを使用する PC で再起動のたびに設定が戻る事象です。既存のお客様は従来どおり動作します。"
+          },
+          "aiDiagnosis": {
+            "title": "AI 診断の初回応答短縮と点検項目の拡大",
+            "sub": "チョン室長",
+            "desc": "新しい会話の初回応答が 60〜72秒から 18〜29秒に短縮されました。「異常はありませんか」のように範囲を指定しない質問でも、ハードウェア・セキュリティ更新・メモリ・ストレージを漏れなく確認し、項目ごとに判定します。Web 検索の回数と件数の上限を撤廃し、回答の引用から原文を直接開けるようにしたほか、再起動を伴う作業はその PC がオンラインになった時点で確認命令を実行し、結果まで報告します。"
+          },
+          "sessionAndAccounts": {
+            "title": "ログイン保持時間とアカウント管理",
+            "sub": "設定 › アカウント管理",
+            "desc": "一定時間操作がない場合は12時間後、操作を続けていてもログインから24時間が経過すると再ログインが必要になります。従来は有効期限がなく、一度ログインすると保持され続けていました。利用停止にしたアカウントはログイン自体が拒否され、既に開いている画面も即座に切断されます。最高管理者は他アカウントのログイン ID を変更できるため、アカウントを削除して作り直す必要がありません。"
+          },
+          "monitorCheckDelay": {
+            "title": "監視対象の点検が遅延する問題",
+            "sub": "サーバーモニター",
+            "desc": "一度に点検する台数を20台から60台に増やし、現場の規模に合わせて調整できるようにしました。応答のない機器によって正常な機器の点検順序が後回しになる問題も解消しました。連続3回失敗した機器は点検周期を2倍ずつ最大8倍まで延ばしますが、30分を超えることはありません。"
+          },
+          "switchPortVisibility": {
+            "title": "ポート一覧から対処要否を判断できない問題",
+            "sub": "サーバーモニター",
+            "desc": "ポートごとに管理者が機器に設定した説明が表示され、どのポートかがすぐ分かります。エラーは累計値ではなく前回点検以降の増加分で表示します。従来は機器の起動以降に累積した合計のみが表示され、300日分の蓄積なのか今朝から発生しているのかを区別できませんでした。"
+          },
+          "dnsDetection": {
+            "title": "DNS の異常を症状として検知",
+            "sub": "症状 · ルール",
+            "desc": "これまで検知できなかった三つの状況を新たに捕捉します。DNS サーバーが全く応答しない場合、エラーコードで応答する場合、ネットワーク断により照会自体が失敗する場合です。どのドメインをどのプログラムが照会して失敗したか、応答しなかった DNS サーバーのアドレスも併せて記録されます。閉域網で外部 DNS が遮断されている場合や、社内 DNS が停止している場合が該当します。"
+          },
+          "bulkCommand": {
+            "title": "選択した PC でそのまま 1:N 命令を作成",
+            "sub": "命令管理",
+            "desc": "ノード一覧や組織図で対象を選択して「命令生成」を押すと、別ウィンドウではなく命令管理画面が対象を指定した状態で開きます。選択した内容を失わずに続けて作成できます。"
+          },
+          "deletedNodeCleanup": {
+            "title": "PC 削除後に残る負荷集計と部署情報の消失",
+            "sub": "サーバー",
+            "desc": "PC を削除すると時間帯別の負荷集計まで併せて整理します。従来は集計に残り続け、その PC のみで使用していたプログラムを照会するとエラーが発生していました。組織図の照会失敗と「部署なし」を区別できず、一時的な照会失敗だけで部署情報が上書きされて消える問題も修正しました。"
+          },
+          "relayAddressPrompt": {
+            "title": "中継アドレスの誤入力が通知されない問題",
+            "sub": "インストール · 更新",
+            "desc": "遠隔制御はルーター配下の PC をサーバーが中継して接続します。その際に使う外部アドレスを誤って入力すると、接続だけが失敗し理由が表示されませんでした。今後はインストール・更新の過程で、状況別の例とともにそのアドレスを確認します。サーバー証明書の有効期限が発行機関の期限を超えないようにする対応も併せて反映しています。"
+          }
+        }
+      },
+      "zh": {
+        "excerpt": "命令界面与症状界面现在也可以使用郑组长。对于显示为在线的 PC，服务器可通过 ping 确认其在内网中是否真正可达。代理开机后在管理端显示所需时间从 22.8 秒缩短至 4.6 秒。",
+        "items": {
+          "nodePing": {
+            "title": "Ping 检查",
+            "sub": "节点列表 · 右键操作",
+            "desc": "在节点列表、分组或详情页右键执行后，服务器会向该 PC 的地址发送 ping。结果显示为「已到达」「无响应」「无法判定」，并同时说明发送到了哪个地址。列表中显示在线，表示代理已成功连接服务器；ping 的方向相反，因此即使在线也可能无法到达。请在终端防火墙中允许接收 ping，若被阻止，正常的 PC 也会显示为「无响应」。"
+          },
+          "jungteamInline": {
+            "title": "命令界面与症状界面中的郑组长",
+            "sub": "命令管理 · 症状详情",
+            "desc": "此前只能在节点详情的「郑组长」标签页提问。现在可以在命令界面和症状详情中，一边查看该界面一边直接对话。编写命令时，用文字描述需要执行的操作，郑组长会生成命令并通过「应用到表单」填入。查看结果时，会判定该结果是否回答了最初的需求，并按所需格式整理。症状详情新增「郑组长」标签页，可调查发生原因与位置、涉及文件是否安全，并给出结论。"
+          },
+          "webServiceMonitor": {
+            "title": "一次性监视整个 Web 服务",
+            "sub": "服务器监控",
+            "desc": "只需以 Web 服务登记一次，即可一并检查域名解析 → 连接 → 证书 → 响应，并告知在哪一步中断。证书临近到期的对象不计为故障，而是单独标记为「警告」（默认提前 30 天，可按对象调整）。已登记的对象会自动迁移，无需重新登记。"
+          },
+          "homeSymptomSummary": {
+            "title": "主页的症状摘要",
+            "sub": "主页仪表板",
+            "desc": "新增可放置在主页仪表板的症状摘要，并使主页数值与症状界面一致。此前两个界面的统计方式不同，同一时间段却显示不同数值。主页摘要默认排除日常重复出现的症状。"
+          },
+          "agentStartupSpeed": {
+            "title": "代理启动与退出速度提升",
+            "sub": "代理",
+            "desc": "开机后在管理端显示所需时间从 22.8 秒缩短至 4.6 秒，退出也从 64 秒减少到 6.9 秒。状态检查周期由 10 分钟延长至 1 小时；无法连接服务器期间每 5 分钟重新收集硬件信息的处理，也改为仅在服务器地址变更时执行。日常占用的 PC 资源也随之下降。"
+          },
+          "onlineStateAccuracy": {
+            "title": "在线与离线状态显示错误的问题",
+            "sub": "代理",
+            "desc": "已解决四项原因：无线网络 PC 状态反复切换、PC 时间与实际相差较大时无法连接、配置文件损坏导致持续显示离线、使用还原软件的 PC 每次重启后设置被还原。既有客户仍按原有方式运行。"
+          },
+          "aiDiagnosis": {
+            "title": "AI 诊断首次回复提速与检查项扩充",
+            "sub": "郑组长",
+            "desc": "新会话的首次回复从 60~72 秒缩短至 18~29 秒。对于「有没有异常」这类未限定范围的提问，也会完整检查硬件、安全更新、内存与存储空间，并逐项给出判定。取消了网页搜索的次数与条数上限，可从回答的引用直接打开原文；涉及重启的操作会在该 PC 恢复在线后执行确认命令，并继续汇报结果。"
+          },
+          "sessionAndAccounts": {
+            "title": "登录保持时间与账号管理",
+            "sub": "设置 › 账号管理",
+            "desc": "闲置 12 小时后需要重新登录；即使持续使用，自登录起满 24 小时也需重新登录。此前没有有效期，一次登录即可长期保持。已停用的账号将被拒绝登录，已打开的界面也会立即断开。最高管理员可修改其他账号的登录 ID，无需删除后重建账号。"
+          },
+          "monitorCheckDelay": {
+            "title": "监视对象检查出现延迟的问题",
+            "sub": "服务器监控",
+            "desc": "单次检查的数量从 20 台增加到 60 台，并可根据现场规模调整。无响应设备导致正常设备检查顺序被推后的问题也已解决。连续三次失败的设备，检查周期将逐次加倍最多至八倍，但不会超过 30 分钟。"
+          },
+          "switchPortVisibility": {
+            "title": "无法据端口列表判断是否需要处置的问题",
+            "sub": "服务器监控",
+            "desc": "每个端口会显示管理员在设备上填写的说明，可立即分辨是哪个端口。错误以自上次检查以来的增加量显示，而非累计值。此前仅显示设备启动以来的累计总数，无法区分是 300 天累积的还是今天早上才开始发生的。"
+          },
+          "dnsDetection": {
+            "title": "将 DNS 异常识别为症状",
+            "sub": "症状 · 规则",
+            "desc": "新增捕获此前无法检测的三种情况：DNS 服务器完全无响应、以错误码响应、以及网络中断导致查询本身失败。记录中会一并保存哪个程序查询了哪个域名而失败，以及未响应的 DNS 服务器地址。封闭网络中外部 DNS 被阻断，或内部 DNS 停止服务，均属于此类。"
+          },
+          "bulkCommand": {
+            "title": "用所选 PC 直接创建 1:N 命令",
+            "sub": "命令管理",
+            "desc": "在节点列表或组织架构中选择对象并点击「生成命令」后，将直接打开已指定对象的命令管理界面，而非另开窗口。所选内容会保留，可继续编写。"
+          },
+          "deletedNodeCleanup": {
+            "title": "删除 PC 后残留的负载统计与部门信息丢失",
+            "sub": "服务器",
+            "desc": "删除 PC 时会一并清理按时段的负载统计。此前统计中仍会残留，查询仅该 PC 使用过的程序时会报错。此外，此前无法区分组织架构查询失败与「无部门」，导致一次临时失败即覆盖并清除部门信息，该问题也已修正。"
+          },
+          "relayAddressPrompt": {
+            "title": "中继地址填写错误却无任何提示的问题",
+            "sub": "安装 · 更新",
+            "desc": "远程控制通过服务器中继连接路由器后方的 PC。若填写的外部地址有误，仅表现为连接失败且不显示原因。现在安装与更新过程中会结合各类场景示例询问该地址。同时确保服务器证书的到期日不超过颁发机构的到期日。"
+          }
+        }
+      },
+      "zh-Hant": {
+        "excerpt": "命令畫面與症狀畫面現在也可以使用鄭組長。對於顯示為在線的 PC，伺服器可透過 ping 確認其在內網中是否真正可達。代理程式開機後於管理端顯示所需時間由 22.8 秒縮短至 4.6 秒。",
+        "items": {
+          "nodePing": {
+            "title": "Ping 檢查",
+            "sub": "節點清單 · 右鍵操作",
+            "desc": "在節點清單、群組或詳細頁右鍵執行後，伺服器會向該 PC 的位址傳送 ping。結果顯示為「已到達」「無回應」「無法判定」，並同時說明傳送至哪個位址。清單中顯示在線，表示代理程式已成功連線伺服器；ping 的方向相反，因此即使在線也可能無法到達。請在端點防火牆中允許接收 ping，若遭阻擋，正常的 PC 也會顯示為「無回應」。"
+          },
+          "jungteamInline": {
+            "title": "命令畫面與症狀畫面中的鄭組長",
+            "sub": "命令管理 · 症狀詳細",
+            "desc": "先前只能在節點詳細的「鄭組長」分頁提問。現在可在命令畫面與症狀詳細中，一邊檢視該畫面一邊直接對話。撰寫命令時，以文字描述所需作業，鄭組長會產生命令並透過「套用至表單」填入。檢視結果時，會判定該結果是否回應了最初的需求，並依所需格式整理。症狀詳細新增「鄭組長」分頁，可調查發生原因與位置、相關檔案是否安全，並提出結論。"
+          },
+          "webServiceMonitor": {
+            "title": "一次監視整個 Web 服務",
+            "sub": "伺服器監控",
+            "desc": "只需以 Web 服務登錄一次，即可一併檢查名稱解析 → 連線 → 憑證 → 回應，並告知在哪個階段中斷。憑證接近到期的對象不計為故障，而是另行標示為「警告」（預設提前 30 天，可依對象調整）。已登錄的對象會自動移轉，無須重新登錄。"
+          },
+          "homeSymptomSummary": {
+            "title": "首頁的症狀摘要",
+            "sub": "首頁儀表板",
+            "desc": "新增可放置於首頁儀表板的症狀摘要，並使首頁數值與症狀畫面一致。先前兩個畫面的計算方式不同，同一期間卻顯示不同數值。首頁摘要預設排除日常重複出現的症狀。"
+          },
+          "agentStartupSpeed": {
+            "title": "代理程式啟動與結束速度提升",
+            "sub": "代理程式",
+            "desc": "開機後於管理端顯示所需時間由 22.8 秒縮短至 4.6 秒，結束也由 64 秒減少為 6.9 秒。狀態檢查週期由 10 分鐘延長至 1 小時；無法連線伺服器期間每 5 分鐘重新收集硬體資訊的處理，也改為僅在伺服器位址變更時執行。日常佔用的 PC 資源亦隨之下降。"
+          },
+          "onlineStateAccuracy": {
+            "title": "線上與離線狀態顯示錯誤的問題",
+            "sub": "代理程式",
+            "desc": "已解決四項原因：無線網路 PC 狀態反覆切換、PC 時間與實際相差過大時無法連線、設定檔損毀導致持續顯示離線、使用還原軟體的 PC 每次重新開機後設定被還原。既有客戶仍依原有方式運作。"
+          },
+          "aiDiagnosis": {
+            "title": "AI 診斷首次回覆提速與檢查項目擴充",
+            "sub": "鄭組長",
+            "desc": "新對話的首次回覆由 60~72 秒縮短至 18~29 秒。對於「有沒有異常」這類未限定範圍的提問，也會完整檢查硬體、安全性更新、記憶體與儲存空間，並逐項提出判定。取消網頁搜尋的次數與筆數上限，可自回覆的引用直接開啟原文；涉及重新開機的作業會在該 PC 恢復上線後執行確認命令，並接續回報結果。"
+          },
+          "sessionAndAccounts": {
+            "title": "登入保持時間與帳號管理",
+            "sub": "設定 › 帳號管理",
+            "desc": "閒置 12 小時後需重新登入；即使持續使用，自登入起滿 24 小時亦需重新登入。先前沒有有效期限，登入一次即可長期保持。已停用的帳號將被拒絕登入，已開啟的畫面也會立即中斷。最高管理者可變更其他帳號的登入 ID，無須刪除後重建帳號。"
+          },
+          "monitorCheckDelay": {
+            "title": "監視對象檢查出現延遲的問題",
+            "sub": "伺服器監控",
+            "desc": "單次檢查的數量由 20 台增加至 60 台，並可依現場規模調整。無回應設備導致正常設備檢查順序被延後的問題也已解決。連續三次失敗的設備，檢查週期將逐次加倍最多至八倍，但不會超過 30 分鐘。"
+          },
+          "switchPortVisibility": {
+            "title": "無法依連接埠清單判斷是否需處置的問題",
+            "sub": "伺服器監控",
+            "desc": "每個連接埠會顯示管理者在設備上填寫的說明，可立即辨識是哪個連接埠。錯誤以自上次檢查以來的增加量顯示，而非累計值。先前僅顯示設備啟動以來的累計總數，無法區分是 300 天累積的還是今天早上才開始發生的。"
+          },
+          "dnsDetection": {
+            "title": "將 DNS 異常辨識為症狀",
+            "sub": "症狀 · 規則",
+            "desc": "新增捕捉先前無法偵測的三種情況：DNS 伺服器完全無回應、以錯誤碼回應、以及網路中斷導致查詢本身失敗。記錄中會一併保存哪個程式查詢了哪個網域而失敗，以及未回應的 DNS 伺服器位址。封閉網路中外部 DNS 遭阻擋，或內部 DNS 停止服務，均屬於此類。"
+          },
+          "bulkCommand": {
+            "title": "以所選 PC 直接建立 1:N 命令",
+            "sub": "命令管理",
+            "desc": "在節點清單或組織圖中選擇對象並按下「產生命令」後，將直接開啟已指定對象的命令管理畫面，而非另開視窗。所選內容會保留，可繼續撰寫。"
+          },
+          "deletedNodeCleanup": {
+            "title": "刪除 PC 後殘留的負載統計與部門資訊遺失",
+            "sub": "伺服器",
+            "desc": "刪除 PC 時會一併清理各時段的負載統計。先前統計中仍會殘留，查詢僅該 PC 使用過的程式時會發生錯誤。此外，先前無法區分組織圖查詢失敗與「無部門」，導致一次暫時性失敗即覆蓋並清除部門資訊，該問題亦已修正。"
+          },
+          "relayAddressPrompt": {
+            "title": "中繼位址填寫錯誤卻無任何提示的問題",
+            "sub": "安裝 · 更新",
+            "desc": "遠端控制透過伺服器中繼連線至路由器後方的 PC。若填寫的外部位址有誤，僅表現為連線失敗且不顯示原因。現在安裝與更新過程中會結合各類情境範例詢問該位址。同時確保伺服器憑證的到期日不超過發行機構的到期日。"
+          }
+        }
+      }
+    },
+    "body": "/release_notes/1.6.242.0825/ko.md"
+  },
+  {
     "version": "1.6.242.0813",
     "slug": "1.6.242.0813",
     "date": "2026-08-13",
