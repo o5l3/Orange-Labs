@@ -1,5 +1,563 @@
 [
   {
+    "version": "1.6.242.0901",
+    "slug": "1.6.242.0901",
+    "date": "2026-09-01",
+    "pdf": "/release_notes/1.6.242.0901/release-notes.pdf",
+    "items": [
+      {
+        "key": "switchPortNeighbor",
+        "kind": "new"
+      },
+      {
+        "key": "monitorGroups",
+        "kind": "new"
+      },
+      {
+        "key": "switchPortAccuracy",
+        "kind": "improved"
+      },
+      {
+        "key": "pingSender",
+        "kind": "improved"
+      },
+      {
+        "key": "agentStartup",
+        "kind": "improved"
+      },
+      {
+        "key": "symptomAccuracy",
+        "kind": "improved"
+      },
+      {
+        "key": "nodeIpColumns",
+        "kind": "improved"
+      },
+      {
+        "key": "nodeIdentity",
+        "kind": "improved"
+      },
+      {
+        "key": "bootSymptomHistory",
+        "kind": "improved"
+      },
+      {
+        "key": "recoveryPcSettings",
+        "kind": "improved"
+      },
+      {
+        "key": "remoteControlPermission",
+        "kind": "improved"
+      },
+      {
+        "key": "processIoUnits",
+        "kind": "improved"
+      },
+      {
+        "key": "symptomAxisSwitch",
+        "kind": "improved"
+      },
+      {
+        "key": "aiDiagnosis",
+        "kind": "improved"
+      },
+      {
+        "key": "contextMenuOrder",
+        "kind": "improved"
+      },
+      {
+        "key": "homeWidgets",
+        "kind": "improved"
+      },
+      {
+        "key": "processRetention",
+        "kind": "improved"
+      },
+      {
+        "key": "agentClock",
+        "kind": "improved"
+      }
+    ],
+    "i18n": {
+      "ko": {
+        "excerpt": "스위치 포트마다 어느 기기가 꽂혀 있는지 화면에서 확인할 수 있게 되었습니다. 감시 대상은 서비스 단위로 묶어 봅니다. Ping 은 매니저를 띄운 PC 가 보내는 방식으로 바뀌었고, 에이전트 시작에 걸리던 7.6초를 없앴습니다.",
+        "items": {
+          "switchPortNeighbor": {
+            "title": "스위치 포트에 어느 기기가 꽂혀 있는지",
+            "sub": "서버 모니터 · 대상 상세",
+            "desc": "등록한 스위치의 포트마다 그 포트에 붙은 기기 주소와 제조사가 함께 표시됩니다. 상위 장비 너머에 있는 기기는 그 포트에 직접 꽂힌 것이 아니므로 따로 구분해 보여 줍니다. 스위치가 기억하는 연결 기기 표는 5분이면 지워지므로, 지워지기 전에 받아 적어 둡니다. 제조사는 기기가 한 대만 붙은 포트에만 표시합니다. 여러 대가 붙어 있으면 어느 기기 것인지 가릴 수 없기 때문입니다."
+          },
+          "monitorGroups": {
+            "title": "감시 대상을 서비스 단위로 묶어 보기",
+            "sub": "서버 모니터 · 대상 목록",
+            "desc": "「쇼핑몰 웹 · DB · 도메인」처럼 한 서비스에 속한 대상을 그룹으로 묶어 함께 봅니다. 목록 툴바의 「그룹 추가」로 그룹을 만들고 대상을 끌어다 놓습니다. 그룹을 하나라도 쓰면 그룹이 바깥 기준이 되고, 아무도 쓰지 않으면 종전의 유형별 분류 그대로입니다. 대상을 아직 넣지 않은 빈 그룹도 목록에 나타납니다."
+          },
+          "switchPortAccuracy": {
+            "title": "스위치 포트 수치가 사실과 다르게 보이던 문제",
+            "sub": "서버 모니터",
+            "desc": "포트 목록과 격자가 기본으로 물리 포트만 셉니다. 가상 인터페이스를 보려면 「가상 포함」을 켭니다. 관리자가 포트에 적어 둔 한글 설명도 그대로 보이고, 연결이 없는 포트의 속도는 빈칸으로 나옵니다. 랜선 2개를 꽂은 24포트 스위치가 「4/26 UP」으로 보이던 것은 스위치 자신의 관리용 통로가 함께 세어진 탓이었습니다."
+          },
+          "pingSender": {
+            "title": "Ping 을 보내는 쪽이 서버에서 매니저 PC 로",
+            "sub": "노드 목록 · 우클릭 액션",
+            "desc": "매니저를 띄운 PC 의 에이전트가 직접 Ping 을 보냅니다. 지난 패키지에서는 서버가 보내는 방식으로 안내드렸으나, 전국에 퍼져 있는 환경에서는 중앙 서버에서 단말로 보내는 신호가 방화벽에 막히는 경우가 많아 그 방식으로는 성립하지 않았습니다. 기능이 없어진 것이 아니라 보내는 쪽이 바뀐 것입니다."
+          },
+          "agentStartup": {
+            "title": "에이전트 시작 속도 단축",
+            "sub": "에이전트",
+            "desc": "지울 것이 없는데도 이전 부팅 자료를 정리하느라 6.4초, 파일 정보를 보완 조회하느라 1.2초가 걸리고 있었습니다. 두 조회를 바로잡아 없앴습니다. 시작 직후 함께 실행되던 저장소 정리 작업도 뒤로 미뤘습니다."
+          },
+          "symptomAccuracy": {
+            "title": "증상이 잘못 잡히거나 빠지던 문제",
+            "sub": "증상 · 에이전트",
+            "desc": "브라우저 통신으로 인한 항목이 줄고, 프록시 장애처럼 한쪽 방향만 실패하는 상황이 새로 잡힙니다. 디스크 지연·부팅 지연·시간 변경 증상도 룰에 적힌 기준 그대로 발생합니다. 크기를 견주는 계산이 숫자가 아니라 글자 순서로 처리되어 900 이 1000 보다 크다고 판정되던 것을 고쳤습니다."
+          },
+          "nodeIpColumns": {
+            "title": "노드 목록의 IP 를 외부·내부 두 칸으로",
+            "sub": "노드 목록",
+            "desc": "노드 목록 컬럼 선택에서 「외부 IP」·「내부 IP」를 각각 켭니다. 각 칸은 자기 값만 보여 주고, 값이 없으면 빈칸입니다. 이미 저장해 두신 컬럼 설정은 열 때 자동으로 두 칸으로 펼쳐지며, 보이기와 숨김 상태는 그대로 이어집니다."
+          },
+          "nodeIdentity": {
+            "title": "재설치·랜카드 교체 뒤 같은 PC 가 새 노드로 잡히던 문제",
+            "sub": "에이전트",
+            "desc": "PC 를 알아볼 때 쓰는 랜카드 주소의 사용 순서를 고정했습니다. 같은 랜카드를 그대로 쓰는데도 윈도 사정에 따라 순서가 뒤바뀌어 다른 PC 로 보이던 경우를 막습니다."
+          },
+          "bootSymptomHistory": {
+            "title": "재부팅해도 남는 증상 이력",
+            "sub": "에이전트",
+            "desc": "화면에는 지금 부팅의 증상만 표시하되, 이전 부팅 이력을 30일간 보관합니다. 종전에는 에이전트가 시작할 때 이전 부팅의 증상을 지웠습니다. 메인보드 배터리가 다 되었는지처럼, 여러 번의 부팅에 걸친 이력이 있어야 판단할 수 있는 항목이 있습니다."
+          },
+          "recoveryPcSettings": {
+            "title": "하드복구 PC 에서 서버에 접속하지 못하던 문제",
+            "sub": "에이전트",
+            "desc": "지난 버전에서 설정 파일이 손상되어 에이전트가 자기 식별자를 읽지 못하던 사례가 있었습니다. 직접 만든 파일 처리를 걷어 내고 윈도가 관리하는 저장소로 바꿨습니다. 저장 도중 전원이 끊겨도 윈도가 복구합니다."
+          },
+          "remoteControlPermission": {
+            "title": "권한 없는 계정이 원격 화면 제어에 접속되던 문제",
+            "sub": "설정 › 권한 관리",
+            "desc": "예전에는 권한을 확인하는 곳이 없어 꺼 둔 역할로도 그대로 접속이 됐습니다. 이제 권한이 없으면 연결이 시작되지 않고 사유가 표시되며, 뒤에서 재접속을 계속 시도하지도 않습니다. 제어를 시작할 때 매니저 로그인 정보를 함께 보내 서버가 누가 요청했는지 판정하고, 그 값으로 접속 기록의 요청자도 채웁니다."
+          },
+          "processIoUnits": {
+            "title": "부하 프로세스의 I/O 가 최대 180배 다르게 보이던 문제",
+            "sub": "부하 · 프로세스",
+            "desc": "같은 프로세스가 차트와 목록에서 최대 180배까지 다르게 보이던 것을 바로잡았습니다. 측정 주기만큼 값이 부풀어 있었습니다. 차트 눈금이 자료와 무관하게 벌어지던 것도 실제 최댓값에 맞췄고, 일자별 확산 막대가 누적 최댓값이라 한 번 오르면 내려오지 않던 것은 그날 값으로 고쳤습니다."
+          },
+          "symptomAxisSwitch": {
+            "title": "증상 상세에서 다른 기준으로 바로 갈아타기",
+            "sub": "증상 상세",
+            "desc": "증상 상세의 「증상 정보」에서 유형·발생·원인 칩을 누르면 그 기준으로 목록이 다시 묶입니다. 지금 보고 있는 기준이거나 값이 비어 있으면 눌리지 않습니다. 빈 값으로 넘어가면 목록이 비어 버리기 때문입니다."
+          },
+          "aiDiagnosis": {
+            "title": "AI 진단",
+            "sub": "정팀장",
+            "desc": "확인창은 설정을 바꾸거나 프로세스를 강제로 끝내는 명령에만 나타납니다. 예전에는 그 대화에서 인터넷 검색을 한 번이라도 하면 뒤따르는 조회 명령까지 확인창을 탔습니다. 정팀장이 답하지 않는 상태를 스스로 확인해 복구하므로 중단 시간이 2~3분에서 5초로 줄었고, 명령이 실패하면 오류 내용과 종료 코드를 함께 받아 다음 조치를 정합니다."
+          },
+          "contextMenuOrder": {
+            "title": "노드·그룹 우클릭 메뉴 정리",
+            "sub": "노드 목록",
+            "desc": "메뉴가 읽기 → 생성 → 조직 → 에이전트 → 전원 순으로 놓입니다. 그룹 메뉴도 같은 순서입니다. 최상위 그룹을 우클릭했을 때 직원이 배정되지 않은 노드가 대상에서 통째로 빠지던 문제도 고쳤습니다."
+          },
+          "homeWidgets": {
+            "title": "홈 요약 위젯의 표기 통일과 여는 속도",
+            "sub": "홈 대시보드",
+            "desc": "같은 지표가 위젯마다 다른 색이던 것을 CPU·메모리·I/O·핸들 고정색으로 통일하고, 시각은 전부 같은 형식으로 맞췄습니다. 여는 속도도 손봐 첫 화면이 3.6초에서 1.0초로 줄었습니다."
+          },
+          "processRetention": {
+            "title": "프로세스 기록 보관기간과 서버 자원",
+            "sub": "서버",
+            "desc": "프로세스 원본 기록은 180일이 지나면 자동으로 지워집니다. 규모에 따라 조정할 수 있으며 하한은 56일입니다. 그동안은 이 기록을 지울 수 없었습니다. 네트워크 장비를 점검할 때마다 수백 MB 를 잡던 것도 고쳤습니다."
+          },
+          "agentClock": {
+            "title": "에이전트 시계 오차가 9시간 어긋나 보이던 문제",
+            "sub": "에이전트",
+            "desc": "시계 오차가 실제 값으로 나옵니다. 서버가 내려보내는 시각은 세계 표준시인데 그렇다고 표시되어 있지 않아, 받는 쪽이 한국 시각으로 읽고 다시 변환하고 있었습니다."
+          }
+        }
+      },
+      "en": {
+        "excerpt": "Each switch port now shows what is plugged into it. Monitoring targets can be grouped by service. Ping is now sent from the PC running Manager, and 7.6 seconds of agent startup time is gone.",
+        "items": {
+          "switchPortNeighbor": {
+            "title": "What is plugged into each switch port",
+            "sub": "Server monitor · Target detail",
+            "desc": "Each port on a registered switch now shows the address and manufacturer of the device attached to it. Devices sitting beyond an upstream switch are marked separately, since they are not plugged into that port directly. The table a switch keeps of attached devices is cleared after five minutes, so we read it before it disappears. The manufacturer is shown only for ports with a single device, because with several there is no way to tell whose it is."
+          },
+          "monitorGroups": {
+            "title": "Monitoring targets grouped by service",
+            "sub": "Server monitor · Target list",
+            "desc": "Group the targets that belong to one service, such as a shop's web, database and domain, and watch them together. Create a group from Add group in the list toolbar and drag targets into it. Use even one group and grouping becomes the outer axis; use none and the list stays sorted by type as before. An empty group still appears in the list."
+          },
+          "switchPortAccuracy": {
+            "title": "Switch port figures that did not match reality",
+            "sub": "Server monitor",
+            "desc": "The port list and grid now count physical ports only; turn on Include virtual to see virtual interfaces. Korean descriptions written on the port show correctly, and ports with no link leave the speed blank. A 24-port switch with two cables reading 4/26 UP was counting the switch's own management interface."
+          },
+          "pingSender": {
+            "title": "Ping now sent from the Manager PC, not the server",
+            "sub": "Node list · right-click action",
+            "desc": "The agent on the PC running Manager sends the ping. The previous package described the server sending it, but on sites spread across the country a signal from the central server to an endpoint is often blocked by a firewall, so that approach did not hold. The feature is not gone; only the sender changed."
+          },
+          "agentStartup": {
+            "title": "Faster agent start",
+            "sub": "Agent",
+            "desc": "Even with nothing to delete, clearing the previous boot's data took 6.4 seconds and a supplementary file lookup another 1.2. Both queries were corrected and that time is gone. Storage housekeeping that used to run right at startup was also deferred."
+          },
+          "symptomAccuracy": {
+            "title": "Symptoms raised wrongly or missed",
+            "sub": "Symptoms · Agent",
+            "desc": "Fewer entries come from ordinary browser traffic, and one-directional failures such as a proxy outage are now caught. Disk delay, boot delay and clock change symptoms fire exactly as the rules describe. A size comparison was being evaluated as text rather than numbers, so 900 counted as larger than 1000; that is fixed."
+          },
+          "nodeIpColumns": {
+            "title": "External and internal IP as two columns",
+            "sub": "Node list",
+            "desc": "Turn on External IP and Internal IP separately in the node list column picker. Each column shows only its own value and stays blank when there is none. Column settings you already saved expand into the two columns on open, keeping their shown and hidden state."
+          },
+          "nodeIdentity": {
+            "title": "Same PC registered as a new node after reinstall",
+            "sub": "Agent",
+            "desc": "The order in which network adapter addresses are used to identify a PC is now fixed. This prevents a PC from appearing as a different one when Windows happens to reorder the same adapters."
+          },
+          "bootSymptomHistory": {
+            "title": "Symptom history that survives a reboot",
+            "sub": "Agent",
+            "desc": "The screen shows only the current boot's symptoms, but the history of previous boots is now kept for 30 days. The agent used to delete them at startup. Some judgements, such as whether the motherboard battery is dead, need history spanning several boots."
+          },
+          "recoveryPcSettings": {
+            "title": "PCs with recovery software failing to reach the server",
+            "sub": "Agent",
+            "desc": "In a previous version a damaged settings file left the agent unable to read its own identifier. The hand-written file handling was removed in favour of storage that Windows manages, which Windows repairs even if power is lost mid-write."
+          },
+          "remoteControlPermission": {
+            "title": "Remote control reachable without permission",
+            "sub": "Settings › Permissions",
+            "desc": "There was no place where the permission was checked, so a role with remote control switched off could still connect. Now the connection does not start, the reason is shown, and no reconnection is attempted in the background. The Manager session is sent along so the server can tell who requested it, and that value also fills the requester in the access log."
+          },
+          "processIoUnits": {
+            "title": "Process I/O reading up to 180 times off",
+            "sub": "Load · Processes",
+            "desc": "The same process could read up to 180 times differently between the chart and the list, inflated by the measurement interval. Chart scales that stretched regardless of the data now follow the real maximum, and the daily spread bar, which held a running maximum and never came back down, now shows that day's value."
+          },
+          "symptomAxisSwitch": {
+            "title": "Switching axis straight from the symptom detail",
+            "sub": "Symptom detail",
+            "desc": "In Symptom information, press the type, source or cause chip and the list regroups by that axis. The chip is inert for the axis you are already on or when the value is empty, because moving to an empty value would leave the list blank."
+          },
+          "aiDiagnosis": {
+            "title": "AI diagnosis",
+            "sub": "Team Lead Jung",
+            "desc": "The confirmation dialog now appears only for commands that change a setting or force a process to end. Previously a single web search in the conversation made every following read-only command ask for confirmation as well. Team Lead Jung detects and recovers from its own unresponsive state, cutting downtime from 2-3 minutes to 5 seconds, and a failed command now returns the error text and exit code so the next step can be decided."
+          },
+          "contextMenuOrder": {
+            "title": "Right-click menu order on nodes and groups",
+            "sub": "Node list",
+            "desc": "The menu runs read, create, organisation, agent, power, so the riskier the action the lower it sits. Group menus follow the same order. Nodes with no assigned employee were being dropped entirely when the top-level group was right-clicked; that is fixed."
+          },
+          "homeWidgets": {
+            "title": "Consistent widget labels and a faster home screen",
+            "sub": "Home dashboard",
+            "desc": "The same metric used to appear in a different colour in each widget; CPU, memory, I/O and handles now have fixed colours and timestamps share one format. Opening was reworked too, bringing the first screen from 3.6 seconds to 1.0."
+          },
+          "processRetention": {
+            "title": "Process record retention and server resources",
+            "sub": "Server",
+            "desc": "Raw process records are now deleted automatically after 180 days. The period can be tuned to the size of the site, down to a floor of 56 days. Until now these records could not be deleted at all. Network device polling that held hundreds of megabytes on every check was also fixed."
+          },
+          "agentClock": {
+            "title": "Agent clock offset reading nine hours out",
+            "sub": "Agent",
+            "desc": "The clock offset now shows its real value. The time the server sends is UTC but was not labelled as such, so the receiving side read it as local time and converted it again."
+          }
+        }
+      },
+      "ja": {
+        "excerpt": "スイッチのポートごとに何が接続されているかを画面で確認できるようになりました。監視対象はサービス単位でまとめて表示できます。Ping はマネージャーを起動している PC が送信する方式に変わり、エージェント起動にかかっていた 7.6秒を解消しました。",
+        "items": {
+          "switchPortNeighbor": {
+            "title": "スイッチのポートに何が接続されているか",
+            "sub": "サーバーモニター · 対象詳細",
+            "desc": "登録したスイッチのポートごとに、そのポートに接続された機器のアドレスと製造元を表示します。上位機器の先にある機器はそのポートに直接接続されたものではないため、区別して表示します。スイッチが保持する接続機器の表は5分で消えるため、消える前に取得して保存します。製造元は機器が1台だけ接続されたポートにのみ表示します。複数ある場合はどの機器のものか判別できないためです。"
+          },
+          "monitorGroups": {
+            "title": "監視対象をサービス単位でまとめて表示",
+            "sub": "サーバーモニター · 対象一覧",
+            "desc": "「ショップの Web・DB・ドメイン」のように一つのサービスに属する対象をグループにまとめて確認できます。一覧ツールバーの「グループ追加」でグループを作成し、対象をドラッグして配置します。グループを一つでも使用すると、グループが外側の分類基準になります。まったく使用しない場合は従来どおり種類別の分類のままです。対象を入れていない空のグループも一覧に表示されます。"
+          },
+          "switchPortAccuracy": {
+            "title": "スイッチのポート数値が実際と異なって見える問題",
+            "sub": "サーバーモニター",
+            "desc": "ポート一覧とグリッドは既定で物理ポートのみを数えます。仮想インターフェースを表示するには「仮想を含む」を有効にします。管理者がポートに設定した日本語・韓国語の説明もそのまま表示され、リンクのないポートの速度は空欄になります。LAN ケーブル2本を接続した24ポートスイッチが「4/26 UP」と表示されていたのは、スイッチ自身の管理用インターフェースが一緒に数えられていたためです。"
+          },
+          "pingSender": {
+            "title": "Ping の送信元がサーバーからマネージャー PC へ",
+            "sub": "ノード一覧 · 右クリック操作",
+            "desc": "マネージャーを起動している PC のエージェントが直接 Ping を送信します。前回のパッケージではサーバーが送信する方式でご案内しましたが、全国に分散した環境では中央サーバーから端末への信号がファイアウォールで遮断される場合が多く、その方式では成立しませんでした。機能がなくなったのではなく、送信元が変わったものです。"
+          },
+          "agentStartup": {
+            "title": "エージェントの起動時間を短縮",
+            "sub": "エージェント",
+            "desc": "削除対象がない状態でも、前回起動時のデータ整理に6.4秒、ファイル情報の補完照会に1.2秒を要していました。この二つの照会を修正して解消しました。起動直後に同時実行されていたストレージ整理も後回しにしています。"
+          },
+          "symptomAccuracy": {
+            "title": "症状が誤検知されたり検知されなかった問題",
+            "sub": "症状 · エージェント",
+            "desc": "ブラウザーの通常通信による項目が減り、プロキシ障害のように一方向のみ失敗する状況を新たに検知します。ディスク遅延・起動遅延・時刻変更の症状もルールに記載された基準どおりに発生します。大小比較が数値ではなく文字列順で処理され、900 が 1000 より大きいと判定されていた問題を修正しました。"
+          },
+          "nodeIpColumns": {
+            "title": "ノード一覧の IP を外部・内部の2列に",
+            "sub": "ノード一覧",
+            "desc": "ノード一覧の列選択で「外部 IP」「内部 IP」をそれぞれ有効にします。各列は自身の値のみを表示し、値がない場合は空欄です。既に保存済みの列設定は、開いた時点で自動的に2列に展開され、表示・非表示の状態はそのまま引き継がれます。"
+          },
+          "nodeIdentity": {
+            "title": "再インストールや LAN カード交換後に同じ PC が新規ノードとして登録される問題",
+            "sub": "エージェント",
+            "desc": "PC の識別に使用する LAN カードアドレスの使用順序を固定しました。同じ LAN カードを使用しているにもかかわらず、Windows の状況により順序が入れ替わって別の PC として認識される事象を防ぎます。"
+          },
+          "bootSymptomHistory": {
+            "title": "再起動しても残る症状履歴",
+            "sub": "エージェント",
+            "desc": "画面には現在の起動における症状のみを表示し、以前の起動の履歴は30日間保管します。従来はエージェントの起動時に前回の症状を削除していました。マザーボードの電池切れの有無など、複数回の起動にまたがる履歴がなければ判断できない項目があります。"
+          },
+          "recoveryPcSettings": {
+            "title": "復元ソフト適用 PC がサーバーに接続できない問題",
+            "sub": "エージェント",
+            "desc": "前バージョンで設定ファイルが破損し、エージェントが自身の識別子を読み取れない事例がありました。独自実装のファイル処理を廃止し、Windows が管理するストレージに変更しました。保存中に電源が切れても Windows が復旧します。"
+          },
+          "remoteControlPermission": {
+            "title": "権限のないアカウントが遠隔画面制御に接続できた問題",
+            "sub": "設定 › 権限管理",
+            "desc": "従来は権限を確認する箇所がなく、無効にした役割でもそのまま接続できていました。現在は権限がなければ接続が開始されず理由が表示され、バックグラウンドで再接続を試行することもありません。制御開始時にマネージャーのログイン情報を併せて送信し、サーバーが要求者を判定して接続記録の要求者欄にも反映します。"
+          },
+          "processIoUnits": {
+            "title": "負荷プロセスの I/O が最大180倍異なって見える問題",
+            "sub": "負荷 · プロセス",
+            "desc": "同一プロセスがチャートと一覧で最大180倍まで異なって表示されていた問題を修正しました。測定周期の分だけ値が膨らんでいました。チャートの目盛りがデータと無関係に広がっていた点も実際の最大値に合わせ、日別の分布バーが累積最大値で一度上がると下がらなかった点はその日の値に修正しました。"
+          },
+          "symptomAxisSwitch": {
+            "title": "症状詳細から別の基準へ直接切り替え",
+            "sub": "症状詳細",
+            "desc": "症状詳細の「症状情報」で種類・発生元・原因のチップを押すと、その基準で一覧が再構成されます。現在表示中の基準や値が空の場合は押せません。空の値へ遷移すると一覧が空になるためです。"
+          },
+          "aiDiagnosis": {
+            "title": "AI 診断",
+            "sub": "チョン室長",
+            "desc": "確認ダイアログは、設定を変更する命令とプロセスを強制終了する命令にのみ表示されます。従来はその会話で一度でも Web 検索を行うと、以降の参照系命令にも確認ダイアログが表示されていました。チョン室長が応答しない状態を自ら検知して復旧するため、中断時間が2〜3分から5秒に短縮され、命令が失敗した場合はエラー内容と終了コードを受け取って次の対応を判断します。"
+          },
+          "contextMenuOrder": {
+            "title": "ノード・グループの右クリックメニュー整理",
+            "sub": "ノード一覧",
+            "desc": "メニューが参照 → 作成 → 組織 → エージェント → 電源の順に並び、危険な操作ほど下に配置されます。グループのメニューも同じ順序です。最上位グループを右クリックした際に、担当者が割り当てられていないノードが対象から完全に除外されていた問題も修正しました。"
+          },
+          "homeWidgets": {
+            "title": "ホームのサマリーウィジェットの表記統一と表示速度",
+            "sub": "ホームダッシュボード",
+            "desc": "同じ指標がウィジェットごとに異なる色だったものを、CPU・メモリ・I/O・ハンドルの固定色に統一し、時刻表記もすべて同じ形式に揃えました。表示速度も改善し、初回表示が 3.6秒から 1.0秒に短縮されました。"
+          },
+          "processRetention": {
+            "title": "プロセス記録の保管期間とサーバー資源",
+            "sub": "サーバー",
+            "desc": "プロセスの元データは180日を経過すると自動的に削除されます。規模に応じて調整でき、下限は56日です。従来この記録は削除できませんでした。ネットワーク機器の点検のたびに数百 MB を確保していた処理も修正しています。"
+          },
+          "agentClock": {
+            "title": "エージェントの時計誤差が9時間ずれて見える問題",
+            "sub": "エージェント",
+            "desc": "時計の誤差が実際の値で表示されます。サーバーが送信する時刻は協定世界時ですが、その旨が示されていなかったため、受信側が現地時刻として読み取り再度変換していました。"
+          }
+        }
+      },
+      "zh": {
+        "excerpt": "现在可在界面上确认交换机各端口连接的是哪台设备。监视对象可按服务归组查看。Ping 改为由运行管理端的 PC 发送，代理启动所需的 7.6 秒也已消除。",
+        "items": {
+          "switchPortNeighbor": {
+            "title": "交换机端口上连接的是哪台设备",
+            "sub": "服务器监控 · 对象详情",
+            "desc": "已登记交换机的每个端口都会显示该端口所连设备的地址与制造商。位于上级设备之后的设备并非直接连接在该端口上，因此单独区分显示。交换机记录的已连设备表 5 分钟即会清除，因此会在清除前读取并保存。制造商仅在端口只连接一台设备时显示，连接多台时无法判断归属。"
+          },
+          "monitorGroups": {
+            "title": "按服务归组查看监视对象",
+            "sub": "服务器监控 · 对象列表",
+            "desc": "可将同属一个服务的对象（如商城的 Web、数据库、域名）归入同一组一并查看。通过列表工具栏的「添加组」创建分组，并将对象拖入其中。只要使用了分组，分组即成为外层分类依据；若完全不使用，则维持原有的按类型分类。尚未加入对象的空分组也会显示在列表中。"
+          },
+          "switchPortAccuracy": {
+            "title": "交换机端口数值与实际不符的问题",
+            "sub": "服务器监控",
+            "desc": "端口列表与网格默认仅统计物理端口，如需查看虚拟接口请开启「包含虚拟」。管理员在端口上填写的中文说明可正常显示，未连接的端口速率显示为空。插入 2 根网线的 24 端口交换机显示为「4/26 UP」，是因为交换机自身的管理接口被一并计入。"
+          },
+          "pingSender": {
+            "title": "Ping 的发送方由服务器改为管理端 PC",
+            "sub": "节点列表 · 右键操作",
+            "desc": "由运行管理端的 PC 上的代理直接发送 Ping。上一版本曾说明由服务器发送，但在全国分散部署的环境中，中央服务器发往终端的信号常被防火墙阻断，该方式无法成立。功能并未取消，只是发送方发生了变化。"
+          },
+          "agentStartup": {
+            "title": "代理启动速度提升",
+            "sub": "代理",
+            "desc": "即使没有需要删除的内容，清理上次启动数据仍耗时 6.4 秒，补充查询文件信息又耗时 1.2 秒。修正这两项查询后已消除该耗时。启动后立即执行的存储整理作业也已推迟。"
+          },
+          "symptomAccuracy": {
+            "title": "症状误报或漏报的问题",
+            "sub": "症状 · 代理",
+            "desc": "因浏览器正常通信而产生的条目减少，代理服务器故障等仅单向失败的情况可被检测到。磁盘延迟、启动延迟、时间变更等症状也严格按规则所述标准触发。此前大小比较按字符顺序而非数值处理，导致判定 900 大于 1000，该问题已修复。"
+          },
+          "nodeIpColumns": {
+            "title": "节点列表的 IP 拆分为外部与内部两列",
+            "sub": "节点列表",
+            "desc": "在节点列表的列选择中分别开启「外部 IP」与「内部 IP」。每列仅显示自身的值，无值时为空。已保存的列设置在打开时会自动展开为两列，显示与隐藏状态保持不变。"
+          },
+          "nodeIdentity": {
+            "title": "重装系统或更换网卡后同一台 PC 被登记为新节点的问题",
+            "sub": "代理",
+            "desc": "固定了识别 PC 时所用网卡地址的使用顺序。避免在使用同一网卡的情况下，因 Windows 的状况导致顺序变化而被识别为另一台 PC。"
+          },
+          "bootSymptomHistory": {
+            "title": "重启后仍保留的症状历史",
+            "sub": "代理",
+            "desc": "界面仅显示本次启动的症状，但会将此前启动的历史保留 30 天。此前代理在启动时会删除上次启动的症状。判断主板电池是否耗尽等情形，需要跨多次启动的历史才能得出结论。"
+          },
+          "recoveryPcSettings": {
+            "title": "使用还原软件的 PC 无法连接服务器的问题",
+            "sub": "代理",
+            "desc": "上一版本中曾出现配置文件损坏导致代理无法读取自身标识的情况。已移除自行实现的文件处理，改用 Windows 管理的存储。即使保存过程中断电，Windows 也会自动恢复。"
+          },
+          "remoteControlPermission": {
+            "title": "无权限账号仍可连接远程屏幕控制的问题",
+            "sub": "设置 › 权限管理",
+            "desc": "此前没有校验权限的环节，已关闭该权限的角色仍可正常连接。现在无权限时不会发起连接并显示原因，也不会在后台反复尝试重连。发起控制时会一并发送管理端登录信息，由服务器判定请求者，并据此填写连接记录中的请求人。"
+          },
+          "processIoUnits": {
+            "title": "负载进程的 I/O 相差最多 180 倍的问题",
+            "sub": "负载 · 进程",
+            "desc": "修复了同一进程在图表与列表中相差最多 180 倍的问题，此前数值按测量周期被放大。图表刻度与数据无关地拉伸的问题也已按实际最大值调整；按日分布条此前采用累计最大值，一旦升高便不再回落，现改为显示当日数值。"
+          },
+          "symptomAxisSwitch": {
+            "title": "在症状详情中直接切换查看维度",
+            "sub": "症状详情",
+            "desc": "在症状详情的「症状信息」中点击类型、发生对象或原因标签，列表将按该维度重新归类。当前所处维度或值为空时不可点击，因为切换到空值会导致列表为空。"
+          },
+          "aiDiagnosis": {
+            "title": "AI 诊断",
+            "sub": "郑组长",
+            "desc": "确认弹窗仅在涉及修改设置或强制结束进程的命令时出现。此前只要在该对话中进行过一次网页搜索，后续的查询类命令也会弹出确认。郑组长可自行检测并恢复无响应状态，中断时间从 2~3 分钟缩短至 5 秒；命令失败时会返回错误内容与退出码，据此决定后续处理。"
+          },
+          "contextMenuOrder": {
+            "title": "节点与分组右键菜单的排列调整",
+            "sub": "节点列表",
+            "desc": "菜单按查看 → 创建 → 组织 → 代理 → 电源的顺序排列，越危险的操作位置越靠下。分组菜单亦采用相同顺序。右键点击最上层分组时，未分配员工的节点被完全排除在对象之外的问题也已修复。"
+          },
+          "homeWidgets": {
+            "title": "主页摘要组件的表述统一与打开速度",
+            "sub": "主页仪表板",
+            "desc": "同一指标在各组件中颜色不一的情况，已统一为 CPU、内存、I/O、句柄的固定配色，时间表述也统一为同一格式。打开速度同样进行了优化，首屏从 3.6 秒缩短至 1.0 秒。"
+          },
+          "processRetention": {
+            "title": "进程记录保留期限与服务器资源",
+            "sub": "服务器",
+            "desc": "进程原始记录超过 180 天后将自动删除。可根据规模调整，下限为 56 天。此前这些记录无法删除。每次巡检网络设备时占用数百 MB 的问题也已修复。"
+          },
+          "agentClock": {
+            "title": "代理时钟误差显示相差 9 小时的问题",
+            "sub": "代理",
+            "desc": "时钟误差现按实际值显示。服务器下发的时间为协调世界时，但未标明这一点，导致接收方按本地时间读取后再次转换。"
+          }
+        }
+      },
+      "zh-Hant": {
+        "excerpt": "現在可在畫面上確認交換器各連接埠連接的是哪一台裝置。監視對象可依服務分組檢視。Ping 改為由執行管理端的 PC 傳送，代理程式啟動所需的 7.6 秒也已消除。",
+        "items": {
+          "switchPortNeighbor": {
+            "title": "交換器連接埠上連接的是哪一台裝置",
+            "sub": "伺服器監控 · 對象詳細",
+            "desc": "已登錄交換器的每個連接埠都會顯示該連接埠所連裝置的位址與製造商。位於上層設備之後的裝置並非直接連接於該連接埠，因此另行區分顯示。交換器記錄的已連裝置表 5 分鐘即會清除，因此會在清除前讀取並保存。製造商僅在連接埠只連接一台裝置時顯示，連接多台時無法判斷歸屬。"
+          },
+          "monitorGroups": {
+            "title": "依服務分組檢視監視對象",
+            "sub": "伺服器監控 · 對象清單",
+            "desc": "可將同屬一個服務的對象（如商城的 Web、資料庫、網域）歸入同一群組一併檢視。透過清單工具列的「新增群組」建立群組，並將對象拖曳其中。只要使用了群組，群組即成為外層分類依據；若完全不使用，則維持原有的依類型分類。尚未加入對象的空群組也會顯示於清單中。"
+          },
+          "switchPortAccuracy": {
+            "title": "交換器連接埠數值與實際不符的問題",
+            "sub": "伺服器監控",
+            "desc": "連接埠清單與格線預設僅統計實體連接埠，如需檢視虛擬介面請開啟「包含虛擬」。管理者在連接埠上填寫的中文說明可正常顯示，未連線的連接埠速率顯示為空。插入 2 條網路線的 24 埠交換器顯示為「4/26 UP」，是因為交換器自身的管理介面被一併計入。"
+          },
+          "pingSender": {
+            "title": "Ping 的傳送端由伺服器改為管理端 PC",
+            "sub": "節點清單 · 右鍵操作",
+            "desc": "由執行管理端的 PC 上的代理程式直接傳送 Ping。上一版本曾說明由伺服器傳送，但在全國分散部署的環境中，中央伺服器發往終端的訊號常遭防火牆阻擋，該方式無法成立。功能並未取消，只是傳送端有所變更。"
+          },
+          "agentStartup": {
+            "title": "代理程式啟動速度提升",
+            "sub": "代理程式",
+            "desc": "即使沒有需要刪除的內容，清理上次啟動資料仍耗時 6.4 秒，補充查詢檔案資訊又耗時 1.2 秒。修正這兩項查詢後已消除該耗時。啟動後立即執行的儲存整理作業也已延後。"
+          },
+          "symptomAccuracy": {
+            "title": "症狀誤報或漏報的問題",
+            "sub": "症狀 · 代理程式",
+            "desc": "因瀏覽器正常通訊而產生的項目減少，代理伺服器故障等僅單向失敗的情況可被偵測到。磁碟延遲、啟動延遲、時間變更等症狀也嚴格依規則所述標準觸發。先前大小比較依字元順序而非數值處理，導致判定 900 大於 1000，該問題已修正。"
+          },
+          "nodeIpColumns": {
+            "title": "節點清單的 IP 拆分為外部與內部兩欄",
+            "sub": "節點清單",
+            "desc": "在節點清單的欄位選擇中分別開啟「外部 IP」與「內部 IP」。每欄僅顯示自身的值，無值時為空。已儲存的欄位設定在開啟時會自動展開為兩欄，顯示與隱藏狀態維持不變。"
+          },
+          "nodeIdentity": {
+            "title": "重灌系統或更換網路卡後同一台 PC 被登錄為新節點的問題",
+            "sub": "代理程式",
+            "desc": "固定了識別 PC 時所用網路卡位址的使用順序。避免在使用同一網路卡的情況下，因 Windows 的狀況導致順序變動而被辨識為另一台 PC。"
+          },
+          "bootSymptomHistory": {
+            "title": "重新開機後仍保留的症狀歷史",
+            "sub": "代理程式",
+            "desc": "畫面僅顯示本次開機的症狀，但會將先前開機的歷史保留 30 天。先前代理程式在啟動時會刪除上次開機的症狀。判斷主機板電池是否耗盡等情形，需要跨多次開機的歷史才能得出結論。"
+          },
+          "recoveryPcSettings": {
+            "title": "使用還原軟體的 PC 無法連線伺服器的問題",
+            "sub": "代理程式",
+            "desc": "上一版本中曾出現設定檔損毀導致代理程式無法讀取自身識別碼的情況。已移除自行實作的檔案處理，改用 Windows 管理的儲存。即使儲存過程中斷電，Windows 也會自動復原。"
+          },
+          "remoteControlPermission": {
+            "title": "無權限帳號仍可連線遠端畫面控制的問題",
+            "sub": "設定 › 權限管理",
+            "desc": "先前沒有檢核權限的環節，已關閉該權限的角色仍可正常連線。現在無權限時不會發起連線並顯示原因，也不會在背景反覆嘗試重連。發起控制時會一併傳送管理端登入資訊，由伺服器判定請求者，並據此填寫連線記錄中的請求人。"
+          },
+          "processIoUnits": {
+            "title": "負載程序的 I/O 相差最多 180 倍的問題",
+            "sub": "負載 · 程序",
+            "desc": "修正了同一程序在圖表與清單中相差最多 180 倍的問題，先前數值依測量週期被放大。圖表刻度與資料無關地拉伸的問題也已依實際最大值調整；依日分布長條先前採用累計最大值，一旦升高便不再回落，現改為顯示當日數值。"
+          },
+          "symptomAxisSwitch": {
+            "title": "在症狀詳細中直接切換檢視維度",
+            "sub": "症狀詳細",
+            "desc": "在症狀詳細的「症狀資訊」中點選類型、發生對象或原因標籤，清單將依該維度重新歸類。目前所處維度或值為空時無法點選，因為切換至空值會導致清單為空。"
+          },
+          "aiDiagnosis": {
+            "title": "AI 診斷",
+            "sub": "鄭組長",
+            "desc": "確認視窗僅在涉及變更設定或強制結束程序的命令時出現。先前只要在該對話中進行過一次網頁搜尋，後續的查詢類命令也會跳出確認。鄭組長可自行偵測並復原無回應狀態，中斷時間由 2~3 分鐘縮短至 5 秒；命令失敗時會回傳錯誤內容與結束碼，據此決定後續處理。"
+          },
+          "contextMenuOrder": {
+            "title": "節點與群組右鍵選單的排列調整",
+            "sub": "節點清單",
+            "desc": "選單依檢視 → 建立 → 組織 → 代理程式 → 電源的順序排列，越危險的操作位置越靠下。群組選單亦採相同順序。右鍵點選最上層群組時，未指派員工的節點被完全排除在對象之外的問題也已修正。"
+          },
+          "homeWidgets": {
+            "title": "首頁摘要元件的表述統一與開啟速度",
+            "sub": "首頁儀表板",
+            "desc": "同一指標在各元件中顏色不一的情況，已統一為 CPU、記憶體、I/O、控制代碼的固定配色，時間表述也統一為同一格式。開啟速度同樣進行了最佳化，首屏由 3.6 秒縮短至 1.0 秒。"
+          },
+          "processRetention": {
+            "title": "程序記錄保留期限與伺服器資源",
+            "sub": "伺服器",
+            "desc": "程序原始記錄超過 180 天後將自動刪除。可依規模調整，下限為 56 天。先前這些記錄無法刪除。每次巡檢網路設備時占用數百 MB 的問題也已修正。"
+          },
+          "agentClock": {
+            "title": "代理程式時鐘誤差顯示相差 9 小時的問題",
+            "sub": "代理程式",
+            "desc": "時鐘誤差現依實際值顯示。伺服器下發的時間為世界協調時間，但未標明這一點，導致接收方依當地時間讀取後再次轉換。"
+          }
+        }
+      }
+    },
+    "body": "/release_notes/1.6.242.0901/ko.md"
+  },
+  {
     "version": "1.6.242.0825",
     "slug": "1.6.242.0825",
     "date": "2026-08-25",
