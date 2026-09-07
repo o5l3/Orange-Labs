@@ -179,6 +179,16 @@ function main() {
     const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     const category = CATEGORIES[data.category];
     if (!category) {
+      // Jekyll 테마 템플릿으로 쓴 글이 섞여 들어온 적이 있다. 그쪽은 복수형
+      // `categories: [A, B]`를 쓰는데, blogs 저장소도 홈페이지도 단수 `category`만
+      // 읽으므로 양쪽에서 카테고리가 빈 값이 된다. 원인을 바로 알 수 있게 구분해서 알린다.
+      if (data.categories !== undefined) {
+        throw new Error(
+          `${file}: 복수형 categories(${data.categories})가 있고 단수 category가 없습니다.\n` +
+            `  이 저장소는 단수 category만 씁니다. 원본 글의 frontmatter를 ` +
+            `category: ${Object.keys(CATEGORIES).join(' | ')} 중 하나로 고치세요.`,
+        );
+      }
       throw new Error(`${file}: 알 수 없는 category "${data.category}" — CATEGORIES에 추가하세요`);
     }
 

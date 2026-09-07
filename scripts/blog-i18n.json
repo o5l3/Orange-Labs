@@ -970,5 +970,77 @@
       "title": "WMIPrvSE.exe 高CPU佔用原因追蹤指南",
       "excerpt": "詳細介紹Windows WMI Provider Host（WMIPrvSE.exe）佔用高CPU時的原因分析與解決方法，並附帶PowerShell診斷指令說明。"
     }
+  },
+  "weekly-review-2026-w36": {
+    "en": {
+      "title": "Weekly Development Review — 2026 Week 36 (Aug 24–31)",
+      "excerpt": "This week's Orange The Client work: automatic recovery for the AI backend, a shorter time to first response, monitoring groups, and a rework of the sprocess storage layout."
+    },
+    "zh": {
+      "title": "每周开发回顾 — 2026 年第 36 周（8/24~8/31）",
+      "excerpt": "本周 Orange The Client 的开发进展：AI 后端自动恢复、首次响应延迟缩短、监控分组功能，以及 sprocess 存储结构改造。"
+    },
+    "zh-Hant": {
+      "title": "每週開發回顧 — 2026 年第 36 週（8/24~8/31）",
+      "excerpt": "本週 Orange The Client 的開發進展：AI 後端自動復原、首次回應延遲縮短、監控分組功能，以及 sprocess 儲存結構改造。"
+    },
+    "ja": {
+      "title": "週次開発レビュー — 2026年第36週（8/24〜8/31）",
+      "excerpt": "今週の Orange The Client の開発成果 — AI バックエンドの自動復旧、初回応答遅延の短縮、監視グループ機能、sprocess 保存構造の刷新をまとめます。"
+    }
+  },
+  "rule-engine-string-vs-number-comparison": {
+    "en": {
+      "title": "The Rule Engine Said 900 Was Greater Than 1000 — Numeric Rules Compared as Strings",
+      "excerpt": "Size comparisons in the agent's rule engine ran lexicographically instead of numerically. When digit counts differed the verdict flipped, and 5 of the 7 rules using comparisons returned wrong results. We trace three root causes — from ETW values arriving as strings through the comparator and the time-delta math — and absorb the fix inside the engine without changing a single character of the rule files."
+    },
+    "zh": {
+      "title": "规则判定 900 大于 1000 —— 被当作字符串比较的数值规则",
+      "excerpt": "代理规则引擎的大小比较按字符顺序而非数值进行。位数不同时判定会反转，使用比较的 7 条规则中有 5 条给出了错误结果。本文梳理从 ETW 值全部以字符串进入，到比较器与时间差计算的三处成因，并在不改动规则文件一个字符的前提下于引擎侧消化修复。"
+    },
+    "zh-Hant": {
+      "title": "規則判定 900 大於 1000 —— 被當作字串比較的數值規則",
+      "excerpt": "代理規則引擎的大小比較按字元順序而非數值進行。位數不同時判定會反轉，使用比較的 7 條規則中有 5 條給出錯誤結果。本文梳理從 ETW 值全部以字串進入，到比較器與時間差計算的三處成因，並在不更動規則檔案一個字元的前提下於引擎側消化修復。"
+    },
+    "ja": {
+      "title": "ルールが 900 を 1000 より大きいと判定した — 文字列として比較されていた数値ルール",
+      "excerpt": "エージェントのルールエンジンの大小比較が数値ではなく文字列順で行われていた。桁数が異なると判定が反転し、比較を使うルール7件のうち5件が誤判定した。ETW の値がすべて文字列で入る箇所から比較器・時間差計算まで3つの原因を追い、ルールファイルを一文字も変えずにエンジン側で吸収した記録。"
+    }
+  },
+  "sprocess-registry-dimension-table-raw-ttl": {
+    "en": {
+      "title": "Putting a TTL on an Ever-Growing Time Series — Splitting First-Seen and Identity into a Dimension Table",
+      "excerpt": "Process telemetry raw data grew to 4.52 GB in 37 days with no way to apply a TTL, because lifetime questions like “when did we first see this program?” depended on scanning the entire raw history. We moved first-seen and identity metadata into sprocess_registry, a dimension table holding one document per SUID, so every answer stays correct even when no raw card remains — and the four design decisions behind it."
+    },
+    "zh": {
+      "title": "为无限累积的时间序列加上 TTL —— 将首次观测与身份信息拆分到维度表",
+      "excerpt": "进程遥测 raw 数据在 37 天内累积到 4.52GB，却无法设置 TTL——因为“这个程序第一次出现是什么时候”这类终身性问题依赖对 raw 全时段的扫描。我们把首次观测与身份元数据迁移到每个 SUID 一份文档的维度表 sprocess_registry，使得即便一张卡片都不剩，所有回答依然正确。本文记录背后的四个设计判断。"
+    },
+    "zh-Hant": {
+      "title": "為無限累積的時間序列加上 TTL —— 將首次觀測與身分資訊拆分到維度表",
+      "excerpt": "程序遙測 raw 資料在 37 天內累積到 4.52GB，卻無法設定 TTL——因為「這個程式第一次出現是什麼時候」這類終身性問題依賴對 raw 全時段的掃描。我們把首次觀測與身分中繼資料遷移到每個 SUID 一份文件的維度表 sprocess_registry，使得即便一張卡片都不剩，所有回答依然正確。本文記錄背後的四個設計判斷。"
+    },
+    "ja": {
+      "title": "無限に積み上がる時系列に TTL をかけるために — 初回観測とアイデンティティを次元テーブルへ分離",
+      "excerpt": "プロセステレメトリの raw が37日で 4.52GB まで無限に積み上がるのに TTL をかけられなかった。「このプログラムを最初に見たのはいつか」といった生涯にわたる問いが raw の全期間走査に依存していたためだ。SUID ごとに1ドキュメントの次元テーブル sprocess_registry へ初回観測・アイデンティティのメタ情報を移し、カードが1枚もなくてもすべての応答が正解になるようにした設計判断4つ。"
+    }
+  },
+  "tcp-detection-noise-filter-rst-rate-limit": {
+    "en": {
+      "title": "Normal Traffic Erasing Detections, Normal RSTs Flooding Them — Two Fixes for ETW TCP Noise",
+      "excerpt": "In the agent's ETW TCP path a vendor noise filter returned before the circuit breaker and TCB cleanup, corrupting counters and the connection map. Substring matching silently hid symptoms from unrelated domains, and for shared IPs whether the filter applied flipped with the most recent DNS result. We moved the filter behind the bookkeeping, switched to boundary matching, and rate-limited TCP RST detections over a time window."
+    },
+    "zh": {
+      "title": "正常流量抹掉检测，正常 RST 灌满检测 —— ETW TCP 噪声处理的两处修正",
+      "excerpt": "在代理的 ETW TCP 处理中，厂商噪声过滤器早于熔断器与 TCB 清理返回，破坏了计数器和连接映射。子串匹配悄悄掩盖了无关域名的症状，而共享 IP 是否被过滤会随最近一次 DNS 结果反转。我们把过滤器移到记账逻辑之后并改为边界匹配，同时对正常运行中也会反复出现的 TCP RST 检测加上时间窗限流。"
+    },
+    "zh-Hant": {
+      "title": "正常流量抹掉偵測，正常 RST 灌滿偵測 —— ETW TCP 雜訊處理的兩處修正",
+      "excerpt": "在代理的 ETW TCP 處理中，廠商雜訊過濾器早於斷路器與 TCB 清理回傳，破壞了計數器和連線對應表。子字串比對悄悄掩蓋了無關網域的症狀，而共享 IP 是否被過濾會隨最近一次 DNS 結果反轉。我們把過濾器移到記帳邏輯之後並改為邊界比對，同時對正常運作中也會反覆出現的 TCP RST 偵測加上時間窗限流。"
+    },
+    "ja": {
+      "title": "正常なトラフィックが検知を消し、正常な RST が検知を埋める — ETW TCP ノイズ処理の2件",
+      "excerpt": "エージェントの ETW TCP 処理で、ベンダーのノイズフィルタがサーキットブレーカーと TCB 整理より前に return し、カウンタと接続マップを壊していた。部分文字列マッチは無関係なドメインの症状を静かに隠し、共有 IP では直近の DNS 結果によってフィルタの適用可否が反転した。フィルタを台帳処理の後ろへ移して境界マッチに変え、通常運用でも繰り返される TCP RST 検知に時間窓のレートリミットをかけた記録。"
+    }
   }
 }
