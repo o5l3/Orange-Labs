@@ -1,5 +1,737 @@
 [
   {
+    "version": "1.6.242.0910",
+    "slug": "1.6.242.0910",
+    "date": "2026-09-10",
+    "pdf": "/release_notes/1.6.242.0910/release-notes.pdf",
+    "items": [
+      {
+        "key": "remoteAcceptPrompt",
+        "kind": "new"
+      },
+      {
+        "key": "commandExclude",
+        "kind": "new"
+      },
+      {
+        "key": "commandMultiGroup",
+        "kind": "new"
+      },
+      {
+        "key": "groupFeatureBlock",
+        "kind": "new"
+      },
+      {
+        "key": "clockSymptom",
+        "kind": "new"
+      },
+      {
+        "key": "agentUiRewrite",
+        "kind": "new"
+      },
+      {
+        "key": "commandRetention",
+        "kind": "improved"
+      },
+      {
+        "key": "cpuBaseline",
+        "kind": "improved"
+      },
+      {
+        "key": "auditSearchLiteral",
+        "kind": "improved"
+      },
+      {
+        "key": "remoteOfflineInstant",
+        "kind": "improved"
+      },
+      {
+        "key": "remoteKeyInput",
+        "kind": "improved"
+      },
+      {
+        "key": "remoteStillFrame",
+        "kind": "improved"
+      },
+      {
+        "key": "remoteAclBlock",
+        "kind": "improved"
+      },
+      {
+        "key": "agentStartupDisk",
+        "kind": "improved"
+      },
+      {
+        "key": "trayTrend",
+        "kind": "improved"
+      },
+      {
+        "key": "loadIoRemoved",
+        "kind": "improved"
+      },
+      {
+        "key": "listView",
+        "kind": "improved"
+      },
+      {
+        "key": "nodeIpBoth",
+        "kind": "improved"
+      },
+      {
+        "key": "rootAdminRestore",
+        "kind": "improved"
+      },
+      {
+        "key": "relayOnLateNetwork",
+        "kind": "improved"
+      },
+      {
+        "key": "commandHistoryList",
+        "kind": "improved"
+      },
+      {
+        "key": "symptomBarDeselect",
+        "kind": "improved"
+      },
+      {
+        "key": "monitorGroupColumns",
+        "kind": "improved"
+      },
+      {
+        "key": "versionTable",
+        "kind": "improved"
+      }
+    ],
+    "i18n": {
+      "ko": {
+        "excerpt": "원격 제어를 시작하면 대상 PC 에 수락 창이 나타납니다. 명령은 여러 그룹에 한 번에 보내면서 뺄 대상을 지정할 수 있고, 조직 단위로 원격 제어와 Live CMD 를 막는 설정이 생겼습니다. PC 사용자가 보는 에이전트 화면도 새로 만들었습니다.",
+        "items": {
+          "remoteAcceptPrompt": {
+            "title": "원격 제어를 시작하면 대상 PC 에 수락 창",
+            "sub": "원격 제어 · 대상 PC 화면",
+            "desc": "원격 제어를 시작하면 대상 PC 에 수락 창이 나타납니다. 사용자가 거절하면 연결이 곧바로 끝나고, 수락하기 전에는 화면을 캡처하지 않습니다. 관리자 화면에는 「사용자 수락을 기다리는 중입니다」가 나오고 연결이 어느 단계까지 갔는지 표시됩니다. 설정 › 권한 관리에서 「수락 시」로 잡아 둔 그룹에 적용됩니다."
+          },
+          "commandExclude": {
+            "title": "명령 대상에서 특정 그룹·PC 빼기",
+            "sub": "명령 관리 · 새 명령 생성",
+            "desc": "명령 만들기의 대상 줄에서 「제외 대상 선택」으로 뺄 그룹·가상 그룹·PC 를 고릅니다. 대상과 제외를 정하면 그 아래에 「최종 N대에 전송」이 나옵니다. 최종 대수는 서버가 실제로 보낼 대상을 세어 알려 주는 값이며, 제외하고 나서 대상이 한 대도 남지 않으면 보내지 않고 알려 줍니다."
+          },
+          "commandMultiGroup": {
+            "title": "명령 대상으로 그룹을 여러 개 고르기",
+            "sub": "명령 관리 · 대상 선택",
+            "desc": "그룹을 하나만 고를 수 있던 것을, 여러 그룹과 가상 그룹을 함께 골라 보냅니다. 상위를 고른 뒤에도 하위를 따로 풀 수 있고, 선택 요약은 그룹 수와 PC 수를 나눠 셉니다. 보내는 단위가 노드로 바뀌면서 그룹을 옮긴 노드가 옛 그룹 명령을 받던 것과 겹치는 그룹에서 같은 명령이 두 번 실행되던 것도 해소됩니다."
+          },
+          "groupFeatureBlock": {
+            "title": "권한 관리에서 그룹별로 Live CMD·원격 제어 막기",
+            "sub": "설정 › 권한 관리",
+            "desc": "기능 권한이 「그룹별 제한」과 「역할별 허용」 두 탭으로 나뉩니다. 그룹별 제한에서 기능을 고르고 조직도 그룹마다 「미설정 · 수락 시 · 차단」을 잡습니다. 그룹을 펼치면 그 설정이 실제로 걸리는 PC 명단이 나오고, 조직도 밖의 가상 그룹도 규칙에 담을 수 있습니다. 역할·그룹·허용 방식이 겹치면 가장 엄격한 판정이 최종이 됩니다."
+          },
+          "clockSymptom": {
+            "title": "PC 시계가 틀어진 것을 증상으로",
+            "sub": "증상 · 증상 상세",
+            "desc": "서버 시각과 1시간 이상 차이가 나면 「PC 시계가 서버와 다름」이 올라오고, 느린지 빠른지를 나눠 보여 줍니다. PC 시계가 서버 인증서의 유효기간을 벗어나면 「보안 통신 끊김」이 따로 올라옵니다. 증상 상세에 서버 시각과 그 PC 의 시각이 나란히 나오고 조치 순서가 적혀 있습니다."
+          },
+          "agentUiRewrite": {
+            "title": "PC 사용자가 보는 에이전트 화면 교체",
+            "sub": "에이전트 · 트레이 Dashboard",
+            "desc": "웹으로 그리던 화면을 걷어내고 다시 만들었습니다. 트레이에서 여는 첫 화면에 오늘 부하와 최근 2시간 추세, 시각별로 부하가 많았던 프로그램이 함께 나옵니다. 시스템 설정에서는 부팅·원격 데스크톱·윈도 업데이트·디펜더·개인정보 항목의 현재 값을 보고 그 화면에서 바꿉니다."
+          },
+          "commandRetention": {
+            "title": "명령 실행 결과는 90일, 명령 기록은 365일 뒤 자동 삭제",
+            "sub": "서버",
+            "desc": "쌓이기만 하던 명령 자료를 기간이 지나면 지웁니다. 아직 끝나지 않은 명령은 기간과 무관하게 남습니다. 보존 기간은 운영자가 조정할 수 있고, 결과는 7일보다 짧게, 명령은 30일보다 짧게 둘 수 없습니다. 지운 자료는 복구할 수 없습니다."
+          },
+          "cpuBaseline": {
+            "title": "CPU 과점 증상을 평소 기준으로",
+            "sub": "증상 · 에이전트",
+            "desc": "증상 이름이 「CPU 1개 코어 이상 점유」에서 「평소보다 많은 CPU 지속 점유」로 바뀝니다. 그 프로그램 평소의 5배를 넘거나 PC 전체의 절반이 넘는 CPU 를 15분 넘게 계속 쓸 때만 올라옵니다. 증상 상세 맨 앞에 지금·평소·판정선 세 값이 나옵니다."
+          },
+          "auditSearchLiteral": {
+            "title": "접속·조작 기록 검색을 글자 그대로 찾도록",
+            "sub": "서버 · 매니저",
+            "desc": "검색어를 정규식이 아니라 글자 그대로 찾습니다. 대괄호나 별표가 들어간 값을 그대로 넣어도 오류가 나지 않습니다. 마침표가 이제 마침표만 맞추므로 결과가 예전보다 좁아집니다. 검색이 실패하면 서버가 돌려준 사유가 그대로 표시됩니다."
+          },
+          "remoteOfflineInstant": {
+            "title": "원격 제어 중 PC 가 꺼지면 즉시 알림",
+            "sub": "원격 제어",
+            "desc": "화면이 「노드가 오프라인입니다」로 바로 바뀝니다. 전에는 마지막 화면이 굳은 채 수십 초를 기다린 뒤에야 재연결 화면으로 넘어갔습니다. 다시 켜지면 연결이 이어져 있는 경우 그대로 잇고, 끊겼으면 처음부터 다시 엽니다."
+          },
+          "remoteKeyInput": {
+            "title": "원격 제어에서 특수문자와 한/영 전환 입력",
+            "sub": "원격 제어",
+            "desc": "관리자 PC 와 대상 PC 의 키보드 배열이 달라도 특수문자가 그대로 들어갑니다. 한/영 전환 입력도 들어가고, 한글을 조합하는 중에는 입력이 어긋나지 않습니다. 새 입력 방식은 에이전트 판을 확인한 뒤에만 쓰므로 구버전 에이전트에서는 종전 방식 그대로 동작합니다."
+          },
+          "remoteStillFrame": {
+            "title": "원격 제어 정지 화면이 흐린 채 굳던 문제",
+            "sub": "원격 제어",
+            "desc": "움직임이 멎으면 화면이 저절로 선명해집니다. 전에는 움직임이 없으면 화면을 압축하는 부분이 갱신을 멈춰 흐린 화면이 그대로 굳었습니다. 멎은 것을 알아채고 온전한 화면을 한 장 다시 보냅니다."
+          },
+          "remoteAclBlock": {
+            "title": "권한 없는 계정의 원격 제어 접속 차단",
+            "sub": "원격 제어 · 서버",
+            "desc": "권한 판정을 통과하지 못하면 대상 PC 가 접속을 열지 않습니다. 종전에는 접속 정보 발급이 실패해도 매니저가 연결을 그대로 진행해, 권한 없는 계정이 붙을 수 있었습니다. 이제 대상 PC 가 직접 서버에 권한을 묻고 그 판정으로만 엽니다."
+          },
+          "agentStartupDisk": {
+            "title": "에이전트 기동에서 디스크 정리 15.7초 제거",
+            "sub": "에이전트",
+            "desc": "기동 때 15.7초를 쓰던 디스크 정리 작업이 사라집니다. 윈도 시스템 로그와 임시 파일 정리를 주기적으로 돌리고 있었는데, 모니터링 에이전트가 상시로 할 일이 아니라 상시 실행을 껐습니다. 디스크 부족이 확인되면 그때 따로 조치합니다."
+          },
+          "trayTrend": {
+            "title": "트레이 툴팁에 최근 10분 추세 표시",
+            "sub": "에이전트 · 트레이",
+            "desc": "트레이 아이콘에 마우스를 올리면 CPU·메모리·디스크·네트워크·핸들 다섯 항목의 최근 10분 변화가 곡선으로 나옵니다. 게이지와 증감 글자 아홉 행을 이름·값·곡선 다섯 행으로 바꿨습니다. 이미 오고 있는 상태 값을 담아 쓰므로 에이전트에 더 묻지 않습니다."
+          },
+          "loadIoRemoved": {
+            "title": "부하 위젯에서 I/O 지표 제거",
+            "sub": "부하 · 홈 요약",
+            "desc": "지표가 CPU·메모리·핸들·디스크·유선·Wi-Fi 여섯 가지로 정리됐습니다. I/O 는 디스크(읽기와 쓰기)와 같은 값을 다시 보여 주는 것이라 뺐습니다. 집계 이력이 없는 새 PC 의 시간별 부하 막대가 24칸 모두 빨갛게 보이던 것도 고쳐, 그날 가장 높은 시간대만 빨갛게 보입니다."
+          },
+          "listView": {
+            "title": "그룹 요약·명령 이력·템플릿을 리스트형으로 보기",
+            "sub": "그룹 요약 · 명령 이력",
+            "desc": "화면 위 「표시 형태」에서 카드형과 리스트형을 고릅니다. 카드형만 있어 한 화면에 두세 장씩만 보이던 것을 리스트형으로는 여러 건을 함께 볼 수 있습니다. 좁은 화면에서 머리글이 뭉개지던 것을 비롯한 사용성 8건과 결함 5건도 함께 고쳤습니다."
+          },
+          "nodeIpBoth": {
+            "title": "노드 정보에 내부·외부 IP 를 함께 표시",
+            "sub": "노드 정보",
+            "desc": "온라인 표시에 내부 IP 가 왼쪽, 외부 IP 가 오른쪽에 나란히 나옵니다. 두 값이 같거나 한쪽만 있으면 하나만 보여 줍니다. 전에는 설정에 따라 둘 중 하나만 보여, 다른 쪽을 확인하려면 설정을 바꿔야 했습니다."
+          },
+          "rootAdminRestore": {
+            "title": "구 제품에서 옮겨온 서버에서 최고 관리자 기능이 막히던 문제",
+            "sub": "서버",
+            "desc": "최고 관리자 권한이 돌아와 노드 제어와 원격 제어, 설정 화면이 다시 보입니다. 예전 제품에서 계정을 그대로 가져온 서버는 최고 관리자를 나타내는 표시가 계정에 없었습니다. 계정을 새로 만들지 않고 기존 계정에 그 표시만 채웁니다."
+          },
+          "relayOnLateNetwork": {
+            "title": "네트워크 없이 부팅한 서버에서 원격 제어가 되지 않던 문제",
+            "sub": "서버",
+            "desc": "네트워크가 나중에 연결되면 중계 기능이 30초 안에 스스로 올라옵니다. 이미 이 상태인 서버도 업데이트를 한 번 하면 복구됩니다. 1.6.242.0806 이후로 설치하거나 업데이트한 서버가 대상이며, 그 이전에 설치한 서버에는 중계 기능 자체가 없어 해당하지 않습니다."
+          },
+          "commandHistoryList": {
+            "title": "명령 이력 목록이 비거나 같은 명령이 두 번 보이던 문제",
+            "sub": "명령 이력",
+            "desc": "기록 한 건의 값이 어긋나 있어도 나머지 기록은 정상으로 나옵니다. 전에는 기록 한 건만 어긋나도 그 페이지 전체가 오류로 비었습니다. 페이지를 넘길 때 같은 명령이 두 번 나오고 다른 하나가 빠지던 것도 없어집니다."
+          },
+          "symptomBarDeselect": {
+            "title": "증상 시간대별 막대를 다시 눌러 선택 해제",
+            "sub": "증상",
+            "desc": "고른 막대를 다시 누르면 선택이 풀립니다. 전에는 한 번 고르면 다른 시간대로 옮길 수만 있었습니다."
+          },
+          "monitorGroupColumns": {
+            "title": "서버 모니터링 그룹이 배포 서버에서만 한 줄로 쌓이던 문제",
+            "sub": "서버 모니터링",
+            "desc": "그룹이 화면 폭에 맞춰 여러 열로 깔립니다. 개발 환경에서는 나지 않고 배포한 서버에서만 한 줄로 쌓이던 문제라 늦게 발견됐습니다."
+          },
+          "versionTable": {
+            "title": "정보 화면에 구성 요소별 버전 표",
+            "sub": "정보 화면",
+            "desc": "정보 화면 아래쪽 표에서 매니저·API·빌드일·서버 프로필·DB 스키마 버전을 항목 이름과 함께 봅니다. 복사 버튼으로 표 전체를 클립보드에 담아 문의에 그대로 붙여 넣을 수 있습니다. 값이 없는 줄은 그리지 않습니다."
+          }
+        }
+      },
+      "en": {
+        "excerpt": "Starting remote control now raises a consent prompt on the target PC. One command can go to several groups while leaving chosen targets out, and remote control and Live CMD can be blocked per org group. The screen the person at the PC sees was rebuilt as well.",
+        "items": {
+          "remoteAcceptPrompt": {
+            "title": "Consent prompt on the target PC before remote control",
+            "sub": "Remote control · Target PC",
+            "desc": "Starting remote control now raises a consent prompt on the target PC. Decline and the session ends at once; nothing is captured before the user accepts. The administrator sees \"Waiting for the user to accept\" along with how far the connection has progressed. It applies to groups set to \"On accept\" under Settings › Permissions."
+          },
+          "commandExclude": {
+            "title": "Excluding specific groups or PCs from a command",
+            "sub": "Commands · New command",
+            "desc": "On the target row of the command form, use Select exclusions to pick groups, virtual groups or PCs to leave out. Once targets and exclusions are set, \"Sending to N machines\" appears below. That count comes from the server counting what it will actually send to, and if nothing remains after exclusion the command is not sent."
+          },
+          "commandMultiGroup": {
+            "title": "Several groups as the target of one command",
+            "sub": "Commands · Target selection",
+            "desc": "Where only one group could be chosen, several groups and virtual groups can now be selected together. A parent can be picked and children unpicked afterwards, and the summary counts groups and PCs separately. Sending now works per node, which also resolves nodes that moved group receiving the old group's command and duplicate execution across overlapping groups."
+          },
+          "groupFeatureBlock": {
+            "title": "Blocking Live CMD and remote control per group",
+            "sub": "Settings › Permissions",
+            "desc": "Feature permissions now split into Group restrictions and Role allowances. Under group restrictions, pick a feature and set Unset, On accept or Block for each org group. Expanding a group lists the PCs the setting actually reaches, and virtual groups outside the org chart can be included. Where role, group and method overlap, the strictest verdict wins."
+          },
+          "clockSymptom": {
+            "title": "A skewed PC clock raised as a symptom",
+            "sub": "Symptoms · Symptom detail",
+            "desc": "A gap of an hour or more from server time raises \"PC clock differs from the server\", separated into running slow or fast. If the PC clock falls outside the server certificate's validity, \"Secure communication broken\" is raised separately. The detail shows server time and the PC's time side by side, with the steps to fix it."
+          },
+          "agentUiRewrite": {
+            "title": "New agent screen for the person at the PC",
+            "sub": "Agent · Tray dashboard",
+            "desc": "The web-drawn screen was removed and rebuilt. The first screen from the tray shows today's load, the last two hours of trend, and which programs carried the load in each hour. System settings show the current values for startup, Remote Desktop, Windows Update, Defender and privacy, and let you change them there."
+          },
+          "commandRetention": {
+            "title": "Command results kept 90 days, command records 365",
+            "sub": "Server",
+            "desc": "Command data that only ever accumulated is now deleted once it ages out. Commands still running are kept regardless. The periods are adjustable, with a floor of 7 days for results and 30 days for records. Deleted data cannot be recovered."
+          },
+          "cpuBaseline": {
+            "title": "CPU symptoms judged against the program's own normal",
+            "sub": "Symptoms · Agent",
+            "desc": "The symptom name changes from \"Holding at least one CPU core\" to \"Sustained CPU above its usual level\". It is raised only when a program exceeds five times its own usual level, or half the whole machine, for more than fifteen minutes. The detail now opens with the current window average, the usual level and the threshold."
+          },
+          "auditSearchLiteral": {
+            "title": "Access and audit search reads the term literally",
+            "sub": "Server · Manager",
+            "desc": "Search terms are matched literally rather than as regular expressions. Values containing brackets or asterisks no longer raise an error. Because a period now matches only a period, results are narrower than before. When a search fails, the reason returned by the server is shown as it is."
+          },
+          "remoteOfflineInstant": {
+            "title": "Immediate notice when the PC goes down mid-session",
+            "sub": "Remote control",
+            "desc": "The screen switches to \"Node is offline\" right away. Previously the last frame froze for tens of seconds before the reconnect screen appeared. When the PC comes back, a live connection is resumed and a broken one is reopened from the start."
+          },
+          "remoteKeyInput": {
+            "title": "Symbols and Korean/English switching in remote control",
+            "sub": "Remote control",
+            "desc": "Symbols now go through even when the administrator's and the target's keyboard layouts differ. The Korean/English key works, and input no longer slips while Hangul is being composed. The new method is used only after checking the agent version, so older agents behave as before."
+          },
+          "remoteStillFrame": {
+            "title": "Still remote screen left frozen and blurred",
+            "sub": "Remote control",
+            "desc": "When motion stops the picture now sharpens on its own. Previously the encoder stopped refreshing with no motion, leaving the blurred frame frozen. The stall is detected and one full frame is sent again."
+          },
+          "remoteAclBlock": {
+            "title": "Remote control refused for accounts without permission",
+            "sub": "Remote control · Server",
+            "desc": "If the permission check does not pass, the target PC does not open the connection. Previously the manager carried on with the session even when issuing the connection details failed, so an account without permission could attach. The target PC now asks the server directly and opens only on that verdict."
+          },
+          "agentStartupDisk": {
+            "title": "15.7 seconds of disk cleanup removed from agent startup",
+            "sub": "Agent",
+            "desc": "The disk cleanup that took 15.7 seconds at startup is gone. Windows system logs and temporary files were being cleaned on a schedule, which is not a monitoring agent's standing job, so the scheduled run was turned off. Low disk space is handled separately when it is confirmed."
+          },
+          "trayTrend": {
+            "title": "Last ten minutes of trend in the tray tooltip",
+            "sub": "Agent · Tray",
+            "desc": "Hovering the tray icon shows the last ten minutes of CPU, memory, disk, network and handles as curves. Nine rows of gauges and delta text became five rows of name, value and curve. It reuses state values that already arrive, so the agent is not queried again."
+          },
+          "loadIoRemoved": {
+            "title": "I/O metric removed from the load widgets",
+            "sub": "Load · Home summary",
+            "desc": "Metrics are now CPU, memory, handles, disk, wired and Wi-Fi. I/O was showing the same disk activity as Disk (read plus write), so it was dropped. Hourly load bars on a new PC with no history used to show all 24 slots in red regardless of value; only the highest hour of the day is red now."
+          },
+          "listView": {
+            "title": "List view for group summaries, command history and templates",
+            "sub": "Group summary · Command history",
+            "desc": "Choose card or list under Display style at the top of the screen. Where only cards existed and two or three filled the screen, the list shows many at once. Eight usability issues, including headers becoming unreadable on narrow screens, and five defects were fixed alongside."
+          },
+          "nodeIpBoth": {
+            "title": "Internal and external IP shown together in node info",
+            "sub": "Node info",
+            "desc": "The online indicator shows the internal IP on the left and the external IP on the right. When the two are the same, or only one exists, just one is shown. Previously a setting decided which single value appeared, so checking the other meant changing the setting."
+          },
+          "rootAdminRestore": {
+            "title": "Root administrator locked out on servers migrated from the old product",
+            "sub": "Server",
+            "desc": "Root administrator rights are restored, bringing back node control, remote control and the settings screens. Servers that carried accounts over from the old product had no marker identifying the root administrator. The marker is filled in on the existing account rather than creating a new one."
+          },
+          "relayOnLateNetwork": {
+            "title": "Remote control unavailable on servers booted without a network",
+            "sub": "Server",
+            "desc": "Once the network is connected later, the relay comes up on its own within 30 seconds. Servers already in this state recover after a single update. This affects servers installed or updated from 1.6.242.0806 onward; earlier installations have no relay at all."
+          },
+          "commandHistoryList": {
+            "title": "Command history coming back empty or duplicated",
+            "sub": "Command history",
+            "desc": "One record with an inconsistent value no longer takes the rest down with it. Previously a single bad record emptied the whole page with an error. Paging no longer shows the same command twice while dropping another."
+          },
+          "symptomBarDeselect": {
+            "title": "Clicking an hourly symptom bar again clears the selection",
+            "sub": "Symptoms",
+            "desc": "Click a selected bar again and the selection clears. Previously, once an hour was chosen you could only move to a different hour."
+          },
+          "monitorGroupColumns": {
+            "title": "Monitoring groups stacking in a single column on deployed servers",
+            "sub": "Server monitoring",
+            "desc": "Groups now lay out in several columns to fit the screen width. It did not occur in the development environment and only appeared on deployed servers, so it was found late."
+          },
+          "versionTable": {
+            "title": "Component version table on the About screen",
+            "sub": "About screen",
+            "desc": "The table at the bottom of the About screen lists manager, API, build date, server profile and database schema versions with their names. A copy button puts the whole table on the clipboard to paste into an enquiry. Rows with no value are not drawn."
+          }
+        }
+      },
+      "ja": {
+        "excerpt": "遠隔制御を開始すると対象 PC に承諾画面が表示されます。命令は複数のグループへ一度に送信でき、除外する対象も指定できます。組織単位で遠隔制御と Live CMD を遮断する設定も追加しました。PC 利用者が見るエージェント画面も刷新しています。",
+        "items": {
+          "remoteAcceptPrompt": {
+            "title": "遠隔制御の開始時に対象 PC へ承諾画面",
+            "sub": "遠隔制御 · 対象 PC 画面",
+            "desc": "遠隔制御を開始すると対象 PC に承諾画面が表示されます。利用者が拒否すると接続はただちに終了し、承諾前には画面を取得しません。管理者側には「利用者の承諾を待っています」と表示され、接続がどの段階まで進んだかも示されます。設定 › 権限管理で「承諾時」に設定したグループに適用されます。"
+          },
+          "commandExclude": {
+            "title": "命令の対象から特定のグループ・PC を除外",
+            "sub": "命令管理 · 新規命令作成",
+            "desc": "命令作成の対象欄にある「除外対象の選択」で、除外するグループ・仮想グループ・PC を選びます。対象と除外を決めると、その下に「最終 N 台へ送信」が表示されます。この台数はサーバーが実際に送信する対象を数えた値で、除外の結果 1 台も残らない場合は送信せずに通知します。"
+          },
+          "commandMultiGroup": {
+            "title": "一つの命令に複数のグループを指定",
+            "sub": "命令管理 · 対象選択",
+            "desc": "従来はグループを一つしか選べませんでしたが、複数のグループと仮想グループをまとめて選択できます。上位を選んだあとに下位を個別に解除でき、選択の要約はグループ数と PC 数を分けて数えます。送信単位がノードになったことで、グループを移動したノードが以前のグループの命令を受け取る問題と、重複するグループで同じ命令が二度実行される問題も解消します。"
+          },
+          "groupFeatureBlock": {
+            "title": "グループ単位で Live CMD・遠隔制御を遮断",
+            "sub": "設定 › 権限管理",
+            "desc": "機能権限が「グループ別制限」と「役割別許可」の二つのタブに分かれます。グループ別制限で機能を選び、組織図のグループごとに「未設定 · 承諾時 · 遮断」を設定します。グループを展開するとその設定が実際に適用される PC の一覧が表示され、組織図外の仮想グループも規則に含められます。役割・グループ・許可方式が重なる場合は最も厳格な判定が適用されます。"
+          },
+          "clockSymptom": {
+            "title": "PC の時計のずれを症状として検知",
+            "sub": "症状 · 症状詳細",
+            "desc": "サーバー時刻と 1 時間以上の差がある場合に「PC の時計がサーバーと異なる」が発生し、遅れか進みかを区別して表示します。PC の時計がサーバー証明書の有効期間を外れた場合は「セキュア通信の切断」が別途発生します。症状詳細にはサーバー時刻とその PC の時刻が並んで表示され、対処手順も記載されます。"
+          },
+          "agentUiRewrite": {
+            "title": "PC 利用者が見るエージェント画面を刷新",
+            "sub": "エージェント · トレイ Dashboard",
+            "desc": "Web で描画していた画面を廃止し、作り直しました。トレイから開く最初の画面に、本日の負荷と直近 2 時間の推移、時刻ごとに負荷の大きかったプログラムが表示されます。システム設定では起動・リモートデスクトップ・Windows Update・Defender・プライバシー項目の現在値を確認し、その画面で変更できます。"
+          },
+          "commandRetention": {
+            "title": "命令の実行結果は 90 日、命令記録は 365 日で自動削除",
+            "sub": "サーバー",
+            "desc": "蓄積される一方だった命令データを、期間の経過後に削除します。未完了の命令は期間に関わらず保持されます。保存期間は運用者が調整でき、結果は 7 日、命令は 30 日を下限とします。削除したデータは復元できません。"
+          },
+          "cpuBaseline": {
+            "title": "CPU 占有の症状を平常時基準に変更",
+            "sub": "症状 · エージェント",
+            "desc": "症状名が「CPU 1 コア以上の占有」から「平常時を超える CPU の継続占有」に変わります。そのプログラムの平常時の 5 倍、または PC 全体の半分を超える CPU を 15 分以上継続して使用した場合のみ発生します。症状詳細の冒頭に、現在の値・平常時の値・判定線の三つが表示されます。"
+          },
+          "auditSearchLiteral": {
+            "title": "接続・操作記録の検索を文字どおりに照合",
+            "sub": "サーバー · マネージャー",
+            "desc": "検索語を正規表現ではなく文字どおりに照合します。角括弧やアスタリスクを含む値をそのまま入力してもエラーになりません。ピリオドがピリオドのみに一致するようになるため、結果は従来より絞り込まれます。検索が失敗した場合はサーバーが返した理由がそのまま表示されます。"
+          },
+          "remoteOfflineInstant": {
+            "title": "遠隔制御中に対象 PC が停止した際の即時通知",
+            "sub": "遠隔制御",
+            "desc": "画面がただちに「ノードがオフラインです」に切り替わります。従来は最後の画面が固まったまま数十秒待ってから再接続画面に移行していました。再起動後は接続が維持されていればそのまま継続し、切断されていれば最初から開き直します。"
+          },
+          "remoteKeyInput": {
+            "title": "遠隔制御での記号入力と日本語入力切替",
+            "sub": "遠隔制御",
+            "desc": "管理者 PC と対象 PC のキーボード配列が異なる場合でも記号がそのまま入力されます。入力切替キーも有効になり、文字を変換中に入力がずれることもありません。新しい入力方式はエージェントの版を確認したうえでのみ使用するため、旧版のエージェントでは従来どおり動作します。"
+          },
+          "remoteStillFrame": {
+            "title": "静止した遠隔画面が不鮮明なまま固定される問題",
+            "sub": "遠隔制御",
+            "desc": "動きが止まると画面が自動的に鮮明になります。従来は動きがないとエンコーダーが更新を停止し、不鮮明な画面がそのまま固定されていました。停止を検知して完全な画面を一枚再送します。"
+          },
+          "remoteAclBlock": {
+            "title": "権限のないアカウントによる遠隔制御の遮断",
+            "sub": "遠隔制御 · サーバー",
+            "desc": "権限判定を通過しない場合、対象 PC は接続を開きません。従来は接続情報の発行に失敗してもマネージャーがセッションを継続したため、権限のないアカウントが接続できました。現在は対象 PC が直接サーバーに権限を確認し、その判定によってのみ接続を開きます。"
+          },
+          "agentStartupDisk": {
+            "title": "エージェント起動時のディスク整理 15.7 秒を削除",
+            "sub": "エージェント",
+            "desc": "起動時に 15.7 秒を要していたディスク整理処理がなくなります。Windows のシステムログと一時ファイルの整理を定期的に実行していましたが、監視エージェントが常時行う作業ではないため定期実行を停止しました。ディスク不足が確認された場合は個別に対処します。"
+          },
+          "trayTrend": {
+            "title": "トレイのツールチップに直近 10 分の推移を表示",
+            "sub": "エージェント · トレイ",
+            "desc": "トレイアイコンにマウスを重ねると、CPU・メモリー・ディスク・ネットワーク・ハンドルの 5 項目について直近 10 分の変化が曲線で表示されます。ゲージと増減表示の 9 行を、名称・値・曲線の 5 行に変更しました。すでに届いている状態値を利用するため、エージェントへの追加照会は行いません。"
+          },
+          "loadIoRemoved": {
+            "title": "負荷ウィジェットから I/O 指標を削除",
+            "sub": "負荷 · ホーム要約",
+            "desc": "指標が CPU・メモリー・ハンドル・ディスク・有線・Wi-Fi の 6 種類に整理されました。I/O はディスク（読み取りと書き込み）と同じ値を重複して表示していたため削除しました。集計履歴のない新規 PC の時間帯別負荷バーが値に関わらず 24 枠すべて赤く表示されていた点も修正し、その日の最も高い時間帯のみが赤く表示されます。"
+          },
+          "listView": {
+            "title": "グループ要約・命令履歴・テンプレートの一覧表示",
+            "sub": "グループ要約 · 命令履歴",
+            "desc": "画面上部の「表示形式」でカード形式と一覧形式を選択します。カード形式のみで 1 画面に 2、3 件しか表示されなかったものを、一覧形式では複数件をまとめて確認できます。狭い画面で見出しが判読できなくなる点を含む操作性 8 件と、不具合 5 件もあわせて修正しました。"
+          },
+          "nodeIpBoth": {
+            "title": "ノード情報に内部・外部 IP を並記",
+            "sub": "ノード情報",
+            "desc": "オンライン表示に内部 IP を左、外部 IP を右に並べて表示します。両者が同一の場合や一方のみの場合は一つだけ表示します。従来は設定に応じてどちらか一方しか表示されず、もう一方を確認するには設定の変更が必要でした。"
+          },
+          "rootAdminRestore": {
+            "title": "旧製品から移行したサーバーで最上位管理者の機能が使えない問題",
+            "sub": "サーバー",
+            "desc": "最上位管理者の権限が復旧し、ノード制御・遠隔制御・設定画面が再び表示されます。旧製品からアカウントをそのまま引き継いだサーバーには、最上位管理者を示す情報がアカウントに存在しませんでした。アカウントを新規作成せず、既存のアカウントにその情報のみを補います。"
+          },
+          "relayOnLateNetwork": {
+            "title": "ネットワーク未接続で起動したサーバーで遠隔制御ができない問題",
+            "sub": "サーバー",
+            "desc": "ネットワークが後から接続されると、中継機能が 30 秒以内に自動的に起動します。すでにこの状態のサーバーも、一度更新すれば復旧します。1.6.242.0806 以降に設置または更新したサーバーが対象で、それ以前の設置では中継機能自体が存在しないため該当しません。"
+          },
+          "commandHistoryList": {
+            "title": "命令履歴の一覧が空になる、同じ命令が二重に表示される問題",
+            "sub": "命令履歴",
+            "desc": "記録 1 件の値が不正でも、残りの記録は正常に表示されます。従来は 1 件でも不正があるとそのページ全体がエラーで空になっていました。ページ送りの際に同じ命令が二度表示され、別の 1 件が欠落する問題も解消します。"
+          },
+          "symptomBarDeselect": {
+            "title": "時間帯別の症状バーを再度押して選択を解除",
+            "sub": "症状",
+            "desc": "選択したバーをもう一度押すと選択が解除されます。従来は一度選択すると、別の時間帯へ移動することしかできませんでした。"
+          },
+          "monitorGroupColumns": {
+            "title": "配布サーバーでのみ監視グループが 1 列に積まれる問題",
+            "sub": "サーバー監視",
+            "desc": "グループが画面幅に合わせて複数列に配置されます。開発環境では発生せず配布したサーバーでのみ 1 列に積まれる問題であったため、発見が遅れました。"
+          },
+          "versionTable": {
+            "title": "情報画面に構成要素別のバージョン表",
+            "sub": "情報画面",
+            "desc": "情報画面下部の表で、マネージャー・API・ビルド日・サーバープロファイル・データベーススキーマの各バージョンを項目名とともに確認できます。コピーボタンで表全体をクリップボードに取得し、問い合わせにそのまま貼り付けられます。値のない行は表示しません。"
+          }
+        }
+      },
+      "zh": {
+        "excerpt": "发起远程控制时，目标 PC 会出现受理确认窗口。一条命令可同时发往多个分组，并可指定要排除的对象；还新增了按组织屏蔽远程控制与 Live CMD 的设置。PC 用户所见的代理界面也已重做。",
+        "items": {
+          "remoteAcceptPrompt": {
+            "title": "发起远程控制时目标 PC 弹出受理确认",
+            "sub": "远程控制 · 目标 PC 界面",
+            "desc": "发起远程控制后，目标 PC 会出现受理确认窗口。用户拒绝则连接立即结束，在用户受理之前不会采集画面。管理端显示「正在等待用户受理」，并标明连接已进行到哪一步。该机制适用于在设置 › 权限管理中设为「受理时」的分组。"
+          },
+          "commandExclude": {
+            "title": "从命令对象中排除特定分组或 PC",
+            "sub": "命令管理 · 新建命令",
+            "desc": "在命令创建界面的对象行，通过「选择排除对象」指定要排除的分组、虚拟分组或 PC。确定对象与排除后，下方会显示「最终发送至 N 台」。该台数由服务器按实际发送对象统计得出；若排除后一台都不剩，则不发送并给出提示。"
+          },
+          "commandMultiGroup": {
+            "title": "一条命令可选择多个分组作为对象",
+            "sub": "命令管理 · 对象选择",
+            "desc": "此前只能选择一个分组，现在可同时选择多个分组与虚拟分组。选择上级后仍可单独取消下级，选择摘要会分别统计分组数与 PC 数。发送单位改为按节点后，变更分组的节点仍收到原分组命令、以及重叠分组导致同一命令执行两次的问题也一并解决。"
+          },
+          "groupFeatureBlock": {
+            "title": "按分组屏蔽 Live CMD 与远程控制",
+            "sub": "设置 › 权限管理",
+            "desc": "功能权限拆分为「分组限制」与「角色许可」两个页签。在分组限制中选择功能，并为组织架构中的每个分组设定「未设置 · 受理时 · 屏蔽」。展开分组可查看该设置实际生效的 PC 列表，组织架构之外的虚拟分组也可纳入规则。角色、分组与许可方式重叠时，以最严格的判定为准。"
+          },
+          "clockSymptom": {
+            "title": "将 PC 时钟偏差作为症状检出",
+            "sub": "症状 · 症状详情",
+            "desc": "与服务器时间相差 1 小时以上时会触发「PC 时钟与服务器不一致」，并区分偏慢或偏快。若 PC 时钟超出服务器证书有效期，则另行触发「安全通信中断」。症状详情中并列显示服务器时间与该 PC 的时间，并附有处理步骤。"
+          },
+          "agentUiRewrite": {
+            "title": "重做 PC 用户所见的代理界面",
+            "sub": "代理 · 托盘 Dashboard",
+            "desc": "移除以网页方式绘制的界面并重新构建。从托盘打开的首个界面会显示当日负载、最近 2 小时走势，以及各时段负载较高的程序。系统设置中可查看启动、远程桌面、Windows 更新、Defender、隐私等项目的当前值并直接修改。"
+          },
+          "commandRetention": {
+            "title": "命令执行结果保留 90 天、命令记录保留 365 天",
+            "sub": "服务器",
+            "desc": "此前只增不减的命令数据将在超过期限后自动删除。尚未结束的命令不受期限影响。保留期限可由运维人员调整，结果不得短于 7 天，命令不得短于 30 天。已删除的数据无法恢复。"
+          },
+          "cpuBaseline": {
+            "title": "CPU 占用症状改为按平时水平判定",
+            "sub": "症状 · 代理",
+            "desc": "症状名称由「占用 1 个以上 CPU 核心」改为「持续占用超出平时水平的 CPU」。仅当程序超过自身平时水平的 5 倍，或超过整机的一半，并持续 15 分钟以上时才会触发。症状详情开头会显示当前值、平时值与判定线三项。"
+          },
+          "auditSearchLiteral": {
+            "title": "接入与操作记录检索改为按字面匹配",
+            "sub": "服务器 · 管理端",
+            "desc": "检索词按字面匹配，而非作为正则表达式处理。包含方括号或星号的值可直接输入且不再报错。由于句点现在只匹配句点，结果范围较此前收窄。检索失败时，服务器返回的原因会原样显示。"
+          },
+          "remoteOfflineInstant": {
+            "title": "远程控制过程中目标 PC 关机时立即提示",
+            "sub": "远程控制",
+            "desc": "界面会立即切换为「节点已离线」。此前最后一帧画面会僵持数十秒才进入重连界面。目标 PC 重新开机后，连接仍在则直接续接，已断开则重新建立。"
+          },
+          "remoteKeyInput": {
+            "title": "远程控制中的特殊字符与中英文切换输入",
+            "sub": "远程控制",
+            "desc": "即使管理端与目标 PC 的键盘布局不同，特殊字符也能正常输入。输入法切换键可用，且在组字过程中输入不会错位。新的输入方式仅在确认代理版本后使用，旧版代理仍按原方式工作。"
+          },
+          "remoteStillFrame": {
+            "title": "远程画面静止时保持模糊的问题",
+            "sub": "远程控制",
+            "desc": "画面停止变化后会自动恢复清晰。此前没有画面变化时编码停止刷新，模糊的画面就此固定。现在会检测到静止状态并重新发送一帧完整画面。"
+          },
+          "remoteAclBlock": {
+            "title": "拦截无权限账号的远程控制接入",
+            "sub": "远程控制 · 服务器",
+            "desc": "未通过权限判定时，目标 PC 不会开放连接。此前即使连接信息签发失败，管理端仍会继续会话，无权限账号因而可以接入。现在由目标 PC 直接向服务器确认权限，并仅依据该判定开放连接。"
+          },
+          "agentStartupDisk": {
+            "title": "代理启动阶段移除耗时 15.7 秒的磁盘清理",
+            "sub": "代理",
+            "desc": "启动时耗时 15.7 秒的磁盘清理作业已取消。此前会定期清理 Windows 系统日志与临时文件，但这并非监控代理应常驻执行的工作，故停止了定期执行。确认磁盘空间不足时再另行处理。"
+          },
+          "trayTrend": {
+            "title": "托盘提示中显示最近 10 分钟走势",
+            "sub": "代理 · 托盘",
+            "desc": "将鼠标悬停在托盘图标上，会以曲线显示 CPU、内存、磁盘、网络、句柄 5 项最近 10 分钟的变化。原有 9 行仪表与增减文字改为名称、数值、曲线共 5 行。直接使用已经送达的状态值，不会再向代理发起查询。"
+          },
+          "loadIoRemoved": {
+            "title": "负载组件中移除 I/O 指标",
+            "sub": "负载 · 首页摘要",
+            "desc": "指标整理为 CPU、内存、句柄、磁盘、有线、Wi-Fi 六项。I/O 与磁盘（读取加写入）显示的是同一数据，故予以移除。无统计历史的新 PC 的分时负载条此前无论数值高低都显示为 24 格全红，现已修正为仅当日最高时段显示为红色。"
+          },
+          "listView": {
+            "title": "分组摘要、命令历史与模板支持列表视图",
+            "sub": "分组摘要 · 命令历史",
+            "desc": "在界面上方的「显示方式」中选择卡片或列表。此前仅有卡片形式，一屏只能显示两三条，改为列表后可一并查看多条。窄屏下表头无法辨识等 8 项易用性问题与 5 项缺陷也一并修复。"
+          },
+          "nodeIpBoth": {
+            "title": "节点信息中并列显示内部与外部 IP",
+            "sub": "节点信息",
+            "desc": "在线标识处左侧显示内部 IP，右侧显示外部 IP。两者相同或仅有其一时只显示一个。此前由设置决定只显示其中之一，要查看另一个必须先更改设置。"
+          },
+          "rootAdminRestore": {
+            "title": "由旧产品迁移的服务器上最高管理员功能受限的问题",
+            "sub": "服务器",
+            "desc": "最高管理员权限恢复，节点控制、远程控制与设置界面重新可见。直接沿用旧产品账号的服务器，其账号上没有标识最高管理员的信息。现在不新建账号，仅为既有账号补上该标识。"
+          },
+          "relayOnLateNetwork": {
+            "title": "未接网络启动的服务器无法使用远程控制的问题",
+            "sub": "服务器",
+            "desc": "网络在之后连接时，中继功能会在 30 秒内自动启动。已处于该状态的服务器执行一次更新即可恢复。适用于 1.6.242.0806 之后安装或更新的服务器；更早安装的服务器本身不含中继功能，不在此列。"
+          },
+          "commandHistoryList": {
+            "title": "命令历史列表为空或同一命令重复显示的问题",
+            "sub": "命令历史",
+            "desc": "即使其中一条记录的值异常，其余记录仍可正常显示。此前只要有一条异常，整页便会因错误而为空。翻页时同一命令出现两次、另一条被遗漏的问题也已消除。"
+          },
+          "symptomBarDeselect": {
+            "title": "再次点击分时症状条以取消选择",
+            "sub": "症状",
+            "desc": "再次点击已选中的条目即可取消选择。此前一旦选中，就只能切换到其他时段。"
+          },
+          "monitorGroupColumns": {
+            "title": "仅在部署服务器上监控分组堆叠为单列的问题",
+            "sub": "服务器监控",
+            "desc": "分组会按屏幕宽度排布为多列。该问题在开发环境中不出现，仅在部署后的服务器上表现为单列堆叠，因此发现较晚。"
+          },
+          "versionTable": {
+            "title": "信息界面新增各组件版本表",
+            "sub": "信息界面",
+            "desc": "在信息界面下方的表格中，可连同项目名称查看管理端、API、构建日期、服务器配置与数据库架构的版本。通过复制按钮可将整张表复制到剪贴板，直接粘贴到咨询中。无值的行不予显示。"
+          }
+        }
+      },
+      "zh-Hant": {
+        "excerpt": "發起遠端控制時，目標 PC 會出現受理確認視窗。一則命令可同時發往多個群組，並可指定要排除的對象；也新增了依組織封鎖遠端控制與 Live CMD 的設定。PC 使用者所見的代理程式畫面也已重做。",
+        "items": {
+          "remoteAcceptPrompt": {
+            "title": "發起遠端控制時目標 PC 顯示受理確認",
+            "sub": "遠端控制 · 目標 PC 畫面",
+            "desc": "發起遠端控制後，目標 PC 會出現受理確認視窗。使用者拒絕則連線立即結束，在使用者受理之前不會擷取畫面。管理端顯示「正在等待使用者受理」，並標明連線已進行到哪一步。此機制適用於在設定 › 權限管理中設為「受理時」的群組。"
+          },
+          "commandExclude": {
+            "title": "從命令對象中排除特定群組或 PC",
+            "sub": "命令管理 · 新增命令",
+            "desc": "在命令建立畫面的對象列，透過「選擇排除對象」指定要排除的群組、虛擬群組或 PC。確定對象與排除後，下方會顯示「最終傳送至 N 台」。該台數由伺服器依實際傳送對象統計得出；若排除後一台都不剩，則不傳送並給出提示。"
+          },
+          "commandMultiGroup": {
+            "title": "一則命令可選擇多個群組作為對象",
+            "sub": "命令管理 · 對象選擇",
+            "desc": "先前只能選擇一個群組，現在可同時選擇多個群組與虛擬群組。選擇上層後仍可單獨取消下層，選擇摘要會分別統計群組數與 PC 數。傳送單位改為依節點後，變更群組的節點仍收到原群組命令、以及重疊群組導致同一命令執行兩次的問題也一併解決。"
+          },
+          "groupFeatureBlock": {
+            "title": "依群組封鎖 Live CMD 與遠端控制",
+            "sub": "設定 › 權限管理",
+            "desc": "功能權限拆分為「群組限制」與「角色許可」兩個頁籤。在群組限制中選擇功能，並為組織架構中的每個群組設定「未設定 · 受理時 · 封鎖」。展開群組可檢視該設定實際生效的 PC 清單，組織架構之外的虛擬群組也可納入規則。角色、群組與許可方式重疊時，以最嚴格的判定為準。"
+          },
+          "clockSymptom": {
+            "title": "將 PC 時鐘偏差作為症狀偵測",
+            "sub": "症狀 · 症狀詳細",
+            "desc": "與伺服器時間相差 1 小時以上時會觸發「PC 時鐘與伺服器不一致」，並區分偏慢或偏快。若 PC 時鐘超出伺服器憑證有效期，則另行觸發「安全通訊中斷」。症狀詳細中並列顯示伺服器時間與該 PC 的時間，並附有處理步驟。"
+          },
+          "agentUiRewrite": {
+            "title": "重做 PC 使用者所見的代理程式畫面",
+            "sub": "代理程式 · 系統匣 Dashboard",
+            "desc": "移除以網頁方式繪製的畫面並重新建構。從系統匣開啟的第一個畫面會顯示當日負載、最近 2 小時走勢，以及各時段負載較高的程式。系統設定中可檢視啟動、遠端桌面、Windows 更新、Defender、隱私等項目的目前值並直接變更。"
+          },
+          "commandRetention": {
+            "title": "命令執行結果保留 90 天、命令記錄保留 365 天",
+            "sub": "伺服器",
+            "desc": "先前只增不減的命令資料將在超過期限後自動刪除。尚未結束的命令不受期限影響。保留期限可由維運人員調整，結果不得短於 7 天，命令不得短於 30 天。已刪除的資料無法復原。"
+          },
+          "cpuBaseline": {
+            "title": "CPU 佔用症狀改為依平時水準判定",
+            "sub": "症狀 · 代理程式",
+            "desc": "症狀名稱由「佔用 1 個以上 CPU 核心」改為「持續佔用超出平時水準的 CPU」。僅當程式超過自身平時水準的 5 倍，或超過整機的一半，並持續 15 分鐘以上時才會觸發。症狀詳細開頭會顯示目前值、平時值與判定線三項。"
+          },
+          "auditSearchLiteral": {
+            "title": "連線與操作記錄檢索改為依字面比對",
+            "sub": "伺服器 · 管理端",
+            "desc": "檢索詞依字面比對，而非視為正規表示式處理。含有方括號或星號的值可直接輸入且不再報錯。由於句點現在只比對句點，結果範圍較先前收窄。檢索失敗時，伺服器回傳的原因會原樣顯示。"
+          },
+          "remoteOfflineInstant": {
+            "title": "遠端控制過程中目標 PC 關機時立即提示",
+            "sub": "遠端控制",
+            "desc": "畫面會立即切換為「節點已離線」。先前最後一幀畫面會僵持數十秒才進入重新連線畫面。目標 PC 重新開機後，連線仍在則直接續接，已中斷則重新建立。"
+          },
+          "remoteKeyInput": {
+            "title": "遠端控制中的特殊字元與中英文切換輸入",
+            "sub": "遠端控制",
+            "desc": "即使管理端與目標 PC 的鍵盤配置不同，特殊字元也能正常輸入。輸入法切換鍵可用，且在組字過程中輸入不會錯位。新的輸入方式僅在確認代理程式版本後使用，舊版代理程式仍依原方式運作。"
+          },
+          "remoteStillFrame": {
+            "title": "遠端畫面靜止時維持模糊的問題",
+            "sub": "遠端控制",
+            "desc": "畫面停止變化後會自動恢復清晰。先前沒有畫面變化時編碼停止更新，模糊的畫面就此固定。現在會偵測到靜止狀態並重新傳送一幀完整畫面。"
+          },
+          "remoteAclBlock": {
+            "title": "攔截無權限帳號的遠端控制連線",
+            "sub": "遠端控制 · 伺服器",
+            "desc": "未通過權限判定時，目標 PC 不會開放連線。先前即使連線資訊簽發失敗，管理端仍會繼續工作階段，無權限帳號因而可以接入。現在由目標 PC 直接向伺服器確認權限，並僅依該判定開放連線。"
+          },
+          "agentStartupDisk": {
+            "title": "代理程式啟動階段移除耗時 15.7 秒的磁碟整理",
+            "sub": "代理程式",
+            "desc": "啟動時耗時 15.7 秒的磁碟整理作業已取消。先前會定期清理 Windows 系統記錄檔與暫存檔，但這並非監控代理程式應常駐執行的工作，因此停止了定期執行。確認磁碟空間不足時再另行處理。"
+          },
+          "trayTrend": {
+            "title": "系統匣提示中顯示最近 10 分鐘走勢",
+            "sub": "代理程式 · 系統匣",
+            "desc": "將滑鼠停留在系統匣圖示上，會以曲線顯示 CPU、記憶體、磁碟、網路、控制代碼 5 項最近 10 分鐘的變化。原有 9 列儀表與增減文字改為名稱、數值、曲線共 5 列。直接使用已經送達的狀態值，不會再向代理程式發出查詢。"
+          },
+          "loadIoRemoved": {
+            "title": "負載元件中移除 I/O 指標",
+            "sub": "負載 · 首頁摘要",
+            "desc": "指標整理為 CPU、記憶體、控制代碼、磁碟、有線、Wi-Fi 六項。I/O 與磁碟（讀取加寫入）顯示的是同一資料，因此予以移除。無統計歷史的新 PC 的分時負載長條先前無論數值高低都顯示為 24 格全紅，現已修正為僅當日最高時段顯示為紅色。"
+          },
+          "listView": {
+            "title": "群組摘要、命令歷史與範本支援清單檢視",
+            "sub": "群組摘要 · 命令歷史",
+            "desc": "在畫面上方的「顯示方式」中選擇卡片或清單。先前僅有卡片形式，一個畫面只能顯示兩三筆，改為清單後可一併檢視多筆。窄螢幕下表頭無法辨識等 8 項易用性問題與 5 項缺陷也一併修正。"
+          },
+          "nodeIpBoth": {
+            "title": "節點資訊中並列顯示內部與外部 IP",
+            "sub": "節點資訊",
+            "desc": "線上標示處左側顯示內部 IP，右側顯示外部 IP。兩者相同或僅有其一時只顯示一個。先前由設定決定只顯示其中之一，要檢視另一個必須先變更設定。"
+          },
+          "rootAdminRestore": {
+            "title": "由舊產品移轉的伺服器上最高管理者功能受限的問題",
+            "sub": "伺服器",
+            "desc": "最高管理者權限恢復，節點控制、遠端控制與設定畫面重新可見。直接沿用舊產品帳號的伺服器，其帳號上沒有標示最高管理者的資訊。現在不新建帳號，僅為既有帳號補上該標示。"
+          },
+          "relayOnLateNetwork": {
+            "title": "未接網路啟動的伺服器無法使用遠端控制的問題",
+            "sub": "伺服器",
+            "desc": "網路在之後連線時，中繼功能會在 30 秒內自動啟動。已處於該狀態的伺服器執行一次更新即可復原。適用於 1.6.242.0806 之後安裝或更新的伺服器；更早安裝的伺服器本身不含中繼功能，不在此列。"
+          },
+          "commandHistoryList": {
+            "title": "命令歷史清單為空或同一命令重複顯示的問題",
+            "sub": "命令歷史",
+            "desc": "即使其中一筆記錄的值異常，其餘記錄仍可正常顯示。先前只要有一筆異常，整頁便會因錯誤而為空。翻頁時同一命令出現兩次、另一筆被遺漏的問題也已消除。"
+          },
+          "symptomBarDeselect": {
+            "title": "再次點選分時症狀長條以取消選取",
+            "sub": "症狀",
+            "desc": "再次點選已選取的長條即可取消選取。先前一旦選取，就只能切換到其他時段。"
+          },
+          "monitorGroupColumns": {
+            "title": "僅在部署伺服器上監控群組堆疊為單欄的問題",
+            "sub": "伺服器監控",
+            "desc": "群組會依螢幕寬度排列為多欄。此問題在開發環境中不會出現，僅在部署後的伺服器上呈現為單欄堆疊，因此發現較晚。"
+          },
+          "versionTable": {
+            "title": "資訊畫面新增各元件版本表",
+            "sub": "資訊畫面",
+            "desc": "在資訊畫面下方的表格中，可連同項目名稱檢視管理端、API、建置日期、伺服器設定檔與資料庫結構描述的版本。透過複製按鈕可將整張表複製到剪貼簿，直接貼到詢問中。無值的列不予顯示。"
+          }
+        }
+      }
+    },
+    "body": "/release_notes/1.6.242.0910/ko.md"
+  },
+  {
     "version": "1.6.242.0901",
     "slug": "1.6.242.0901",
     "date": "2026-09-01",
