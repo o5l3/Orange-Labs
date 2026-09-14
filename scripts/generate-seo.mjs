@@ -179,6 +179,75 @@ fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap, 'utf8');
 // GSC의 /sitemap.xml 항목이 언젠가 성공으로 바뀌면 이 블록과 파일을 지워도 된다.
 fs.writeFileSync(path.join(dist, 'sitemap-1.xml'), sitemap, 'utf8');
 
+// ---------------------------------------------------------------------- RSS
+
+/**
+ * 기술 블로그 RSS 피드.
+ *
+ * 네이버 서치어드바이저의 'RSS 제출'용이자 일반 구독용이다. 네이버는 사이트맵만
+ * 두면 새 글을 늦게 잡는데, RSS는 갱신 확인 주기가 짧아 주 1회 발행되는 블로그에
+ * 효과가 크다. 구글도 RSS를 사이트맵 대체 포맷으로 받는다.
+ *
+ * 전문이 아니라 제목·요약·링크만 싣는다. 본문은 각 글 페이지에서 읽게 한다.
+ */
+const RSS_MAX = 50; // 피드 관례상 최근분만. 전체 목록은 사이트맵이 담당한다.
+
+/** YYYY-MM-DD → RFC 822 (KST 기준). 형식이 어긋나면 undefined를 돌려 항목에서 뺀다. */
+function rfc822(isoDate) {
+  if (!isoDate) return undefined;
+  const t = Date.parse(`${isoDate}T00:00:00+09:00`);
+  if (Number.isNaN(t)) return undefined;
+  // Date는 UTC로 들고 있으므로 +9시간 보정 후 UTC 필드를 읽으면 KST 벽시계가 된다.
+  const k = new Date(t + 9 * 3600 * 1000);
+  const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][k.getUTCDay()];
+  const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][
+    k.getUTCMonth()
+  ];
+  const p = (n) => String(n).padStart(2, '0');
+  return `${day}, ${p(k.getUTCDate())} ${mon} ${k.getUTCFullYear()} ${p(k.getUTCHours())}:${p(k.getUTCMinutes())}:${p(k.getUTCSeconds())} +0900`;
+}
+
+const feedPosts = [...posts]
+  .sort((a, b) => String(b.lastmod ?? '').localeCompare(String(a.lastmod ?? '')))
+  .slice(0, RSS_MAX);
+
+const rssChannel = locale.seo.techBlog;
+
+const rss = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+  '  <channel>',
+  `    <title>${xmlEscape(`${rssChannel.title} | ${SITE_NAME}`)}</title>`,
+  `    <link>${xmlEscape(`${SITE_URL}/resources/tech-blog`)}</link>`,
+  `    <description>${xmlEscape(rssChannel.description)}</description>`,
+  '    <language>ko</language>',
+  `    <atom:link href="${xmlEscape(`${SITE_URL}/rss.xml`)}" rel="self" type="application/rss+xml" />`,
+  feedPosts.length && rfc822(feedPosts[0].lastmod)
+    ? `    <lastBuildDate>${rfc822(feedPosts[0].lastmod)}</lastBuildDate>`
+    : null,
+  ...feedPosts.map((p) =>
+    [
+      '    <item>',
+      `      <title>${xmlEscape(p.title)}</title>`,
+      `      <link>${xmlEscape(SITE_URL + p.path)}</link>`,
+      `      <guid isPermaLink="true">${xmlEscape(SITE_URL + p.path)}</guid>`,
+      `      <description>${xmlEscape(p.description)}</description>`,
+      p.section ? `      <category>${xmlEscape(p.section)}</category>` : null,
+      rfc822(p.lastmod) ? `      <pubDate>${rfc822(p.lastmod)}</pubDate>` : null,
+      '    </item>',
+    ]
+      .filter(Boolean)
+      .join('\n'),
+  ),
+  '  </channel>',
+  '</rss>',
+  '',
+]
+  .filter(Boolean)
+  .join('\n');
+
+fs.writeFileSync(path.join(dist, 'rss.xml'), rss, 'utf8');
+
 // ---------------------------------------------------------------- robots.txt
 
 const robotsPath = path.join(dist, 'robots.txt');
@@ -376,6 +445,7 @@ for (const { label, attr } of VERIFICATION_METAS) {
 }
 if (verificationFailed) process.exit(1);
 
+console.log(`[seo] rss.xml — 기술 블로그 최근 ${feedPosts.length}편`);
 console.log(
   `[seo] sitemap.xml (${routes.length + releasePages.length + posts.length}개 URL) · ` +
     `사전 렌더링 ${routes.length}개 라우트 + 릴리즈 노트 ${releasePages.length}건 + ` +
