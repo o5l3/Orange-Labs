@@ -64,6 +64,7 @@ const routes = readJson(path.join(root, 'src/seo/routes.json'));
 const locale = readJson(path.join(root, `src/i18n/locales/${BASE_LANG}.json`));
 const blogData = readJson(path.join(root, 'public/tech_blog/tech_blog.json'));
 const releases = readJson(path.join(root, 'public/release_notes/index.json'));
+const orgSchema = readJson(path.join(root, 'src/seo/organization.json'));
 
 if (!fs.existsSync(dist)) {
   console.error('[seo] dist 디렉터리가 없습니다. vite build 후에 실행하세요.');
@@ -279,7 +280,19 @@ const attrEscape = (s) =>
 const htmlEscape = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-function metaBlock({ title, description, url, type, lastmod, section }) {
+/**
+ * 홈에 넣을 Organization / WebSite 구조화 데이터.
+ *
+ * src/seo/organization.ts 도 같은 JSON을 읽어 런타임에 넣지만, 그쪽은 JS가
+ * 실행돼야 나타난다. 네이버·다음은 JS를 실행하지 않고 구글도 렌더링을 별도
+ * 큐로 미루므로, 브랜드 검색에 쓰이는 이 신호는 원본 HTML에 있어야 한다.
+ *
+ * data-seo-static을 붙인다 — main.tsx가 런타임에 걷어내고 Seo.tsx가 자기 것을
+ * 다시 넣으므로 중복이 생기지 않는다.
+ */
+const orgJsonLd = JSON.stringify(orgSchema).replaceAll('{{SITE_URL}}', SITE_URL);
+
+function metaBlock({ title, description, url, type, lastmod, section, jsonLd }) {
   const t = attrEscape(title);
   const d = attrEscape(description);
   const u = attrEscape(url);
@@ -308,6 +321,9 @@ function metaBlock({ title, description, url, type, lastmod, section }) {
     `<meta data-seo-static name="twitter:title" content="${t}" />`,
     `<meta data-seo-static name="twitter:description" content="${d}" />`,
     `<meta data-seo-static name="twitter:image" content="${OG_IMAGE}" />`,
+    jsonLd
+      ? `<script type="application/ld+json" data-seo-static>${jsonLd.replace(/</g, '\\u003c')}</script>`
+      : null,
     '<!-- seo:end -->',
   ]
     .filter(Boolean)
@@ -382,6 +398,7 @@ for (const route of routes) {
     url: route.path === '/' ? `${SITE_URL}/` : SITE_URL + route.path,
     type: 'website',
     links: childLinks[route.path],
+    jsonLd: route.path === '/' ? orgJsonLd : undefined,
   });
 }
 
