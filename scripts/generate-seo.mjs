@@ -161,6 +161,19 @@ const sitemap = [
 
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap, 'utf8');
 
+// 진단용 사본 — 내용은 sitemap.xml과 바이트 단위로 같고 경로만 다르다.
+//
+// Search Console이 /sitemap.xml을 한 달 넘게 "가져올 수 없음"으로 두고 있는데,
+// 브라우저와 curl로는 200 + application/xml이 정상으로 온다. 파일 내용·XML 규격·
+// URL 실존·호스트 일치는 전부 검증했으므로 남은 의심은 경로 쪽이다.
+// 같은 내용을 다른 경로로 두고 그쪽을 제출해 보면 갈린다 —
+//   sitemap-1.xml 은 읽힌다  → /sitemap.xml 경로 자체의 문제
+//   둘 다 못 읽는다          → 경로가 아니라 이 호스트가 크롤러에 응답하는 방식 문제
+//
+// 원인이 밝혀지면 이 블록과 남는 파일을 지운다. 오래 두면 사이트맵이 둘로
+// 보이는 상태가 굳는다.
+fs.writeFileSync(path.join(dist, 'sitemap-1.xml'), sitemap, 'utf8');
+
 // ---------------------------------------------------------------- robots.txt
 
 const robotsPath = path.join(dist, 'robots.txt');
