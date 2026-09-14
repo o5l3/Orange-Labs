@@ -1,6 +1,5 @@
 {
   "_comment": "blogs 저장소(_posts)의 내부용 원문을 공개 기술 블로그로 옮길 때 적용하는 정제 규칙. sync-blog.mjs가 읽는다. 적용 순서: redactions(문장 단위 치환) → dropCodeBlocks → identityMap(계정명 → 파트 라벨) → tagBlocklist. 마지막에 forbiddenPatterns로 잔류 여부를 재검사하고, 하나라도 남으면 동기화를 실패시킨다.",
-
   "identityMap": {
     "smahn9123": "서버 백엔드 파트",
     "kim-tigerj": "매니저·에이전트 파트",
@@ -10,13 +9,12 @@
     "hja-orange": "프론트엔드 파트",
     "hja": "프론트엔드 파트"
   },
-
   "_dropCodeBlocksComment": "첫 줄이 이 정규식과 맞는 fenced code block은 통째로 제거한다. 개인별 커밋/라인 수 통계표가 여기 해당한다. 팀 합산 수치는 표 앞 문단에 이미 산문으로 있어 유실되지 않는다.",
-  "dropCodeBlocks": ["^멤버\\s+커밋"],
-
+  "dropCodeBlocks": [
+    "^멤버\\s+커밋"
+  ],
   "_headerRuleComment": "'## <계정명> — <주제>' 형태의 개인 섹션 헤더에서 계정명을 떼어내고 주제만 남긴다. identityMap의 키가 대상.",
   "stripIdentityFromHeadings": true,
-
   "_tagBlocklistComment": "frontmatter tags에서 제거할 항목. 계정명 태그가 대상.",
   "tagBlocklist": [
     "smahn9123",
@@ -27,10 +25,8 @@
     "hja-orange",
     "hja"
   ],
-
   "_authorComment": "공개본의 author는 개인 계정 대신 조직명으로 통일한다. 기존에 발행된 4개 글도 'Orange Labs'로 되어 있어 같은 규칙이다.",
   "authorOverride": "Orange Labs",
-
   "_redactionsComment": "기계적 치환으로는 자연스럽게 처리되지 않는 문장. 입사일·재직 상태·경력·개인별 실적 평가·고객사 실명이 대상이다. replace가 빈 문자열이면 해당 문장을 삭제한다.",
   "redactions": [
     {
@@ -147,18 +143,36 @@
       "_why": "내부 운영 도메인",
       "find": "o5l3.com MongoDB",
       "replace": "운영 MongoDB"
+    },
+    {
+      "_why": "실명 고객사 2곳(보험사·지자체). 어떤 고객사인지가 아니라 어떤 분석을 했는지만 남긴다.",
+      "find": "- **고객사 현장 분석 (OR-1844, OR-1979)**: 현대해상 TCP/DNS 분석과 용인시청 PC 느려짐·멈춤 현상을 현장 데이터로 분석했습니다.",
+      "replace": "- **고객사 현장 분석 (OR-1844, OR-1979)**: 고객사 두 곳의 TCP/DNS 분석과 PC 느려짐·멈춤 현상을 현장 데이터로 분석했습니다."
     }
   ],
-
   "_particleFixesComment": "계정명이 파트 라벨로 바뀌면서 앞말의 받침이 달라져 어긋난 조사를 바로잡는다. 예: 'smahn9123이' → '서버 백엔드 파트이' → '서버 백엔드 파트가'. identityMap의 라벨을 바꾸면 이 목록도 함께 손봐야 한다.",
   "particleFixes": [
-    { "find": "파트이 ", "replace": "파트가 " },
-    { "find": "파트은 ", "replace": "파트는 " },
-    { "find": "파트을 ", "replace": "파트를 " },
-    { "find": "파트과 ", "replace": "파트와 " },
-    { "find": "파트으로 ", "replace": "파트로 " }
+    {
+      "find": "파트이 ",
+      "replace": "파트가 "
+    },
+    {
+      "find": "파트은 ",
+      "replace": "파트는 "
+    },
+    {
+      "find": "파트을 ",
+      "replace": "파트를 "
+    },
+    {
+      "find": "파트과 ",
+      "replace": "파트와 "
+    },
+    {
+      "find": "파트으로 ",
+      "replace": "파트로 "
+    }
   ],
-
   "_forbiddenPatternsComment": "정제 결과에 아래 패턴이 하나라도 남아 있으면 sync-blog.mjs가 에러로 중단한다. 주간 자동 발행으로 새 표현이 들어왔을 때 조용히 새어 나가는 대신 눈에 띄게 실패하도록 두는 안전장치.",
   "forbiddenPatterns": [
     "smahn9123",
@@ -173,6 +187,7 @@
     "퇴사",
     "연봉",
     "현대해상",
+    "용인시청",
     "순천대",
     "o5l3\\.com",
     "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",

@@ -5,6 +5,114 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "프로세스 부하 지수 재산정과 반복 명령 보관 정책 구현 — 주간 리뷰 (2026-09-14)",
+        "content": "sprocess rev.28, 자원 baseline, 반복 실행 스케줄, COM 통신 실패 탐지를 구현한 Orange Labs 주간 개발 기록",
+        "readMinutes": "1",
+        "createdAt": "2026.09.14",
+        "md": "/tech_blog/md/weekly-review-2026-w38.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "지각 전송은 90일, 미래 시각은 5분: 에이전트 시계 오차를 비대칭으로 처리한 이유",
+        "content": "프로세스 수집 서버가 에이전트 시각의 과거·미래 오차를 모두 90일까지 허용해, 미래 자료가 집계를 오염시키고 최대 270일 남을 수 있었다. 지각 전송은 보존하면서 미래 시각만 5분으로 제한한 근거와 검증 결과를 정리한다.",
+        "readMinutes": "4",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/agent-clock-skew-asymmetric-timestamp-tolerance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MongoDB 정규식 검색이 워커를 28초 묶고 결과까지 빠뜨린 이유",
+        "content": "감사 로그 검색어를 이스케이프하지 않고 MongoDB $regex에 넣어, 파국적 역추적이 워커를 최대 28초 점유하고 일부 문서는 조용히 불일치로 처리됐다. 기본 검색을 부분 일치로 바꾸고 정규식은 선택 기능과 5초 상한으로 분리한 과정을 정리한다.",
+        "readMinutes": "6",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/mongodb-regex-search-timeout-and-silent-mismatch.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "문서 한 건이 목록 전체를 막고 페이지마다 항목이 바뀌던 MongoDB 조회 수정",
+        "content": "명령 이력 문서 한 건의 필드 타입이 다르면 페이지 전체가 500 오류를 냈고, created가 같은 문서는 skip/limit 페이지에서 중복·누락됐다. 필드별 관용 파싱과 created·_id 복합 정렬 및 인덱스로 두 문제를 해결하고 50만 건에서 조회 계획을 검증했다.",
+        "readMinutes": "5",
+        "createdAt": "2026.09.09",
+        "md": "/tech_blog/md/mongodb-stable-pagination-and-tolerant-document-parsing.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "월간 개발 리뷰 — 2026년 8월 (8/1~8/31)",
+        "content": "온프레미스 AI 진단의 응답 속도와 안정성, 자체 원격 화면 제어 완성, 프로세스 저장 구조 개편, 매니저 전 위젯 영어화 등 2026년 8월 Orange The Client 개발 성과를 정리합니다.",
+        "readMinutes": "5",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/monthly-review-202608.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "그룹 명령이 엉뚱한 PC로 나가던 문제와 로컬 LLM 엔진 교체 — 주간 개발 리뷰 2026년 37주차 (8/31~9/7)",
+        "content": "명령 대상 해석을 집합 기반으로 재설계해 그룹 명령이 엉뚱한 노드로 나가던 문제를 잡고, 정팀장 로컬 LLM을 llama.cpp로 옮겼습니다. CPU 과점 탐지 2단계 판정, 노드 위젯 리스트형 뷰, 포트별 연결 기기 관측까지 이번 주 Orange The Client 개발 성과를 정리합니다.",
+        "readMinutes": "4",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/weekly-review-2026-w37.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "서버가 꺼져 있어도 단말 수집은 계속돼야 한다 — 에이전트 시작을 13초 붙잡던 동기 서버 등록 대기 제거",
+        "content": "Windows 엔드포인트 에이전트가 시작할 때 첫 SETTINGS 회차를 무한 대기하는데, 그 회차가 서버 등록을 품고 있어 커널 드라이버 로드와 이벤트 수집 시작이 서버 상태에 묶여 있었다. 서버가 꺼진 폐쇄망에서 매 시작마다 접속 실패 비용을 내던 CAgentHelper3::Start 13초 대기를, 대기가 지키던 전제가 이미 앞쪽으로 옮겨졌음을 코드로 확인하고 삭제한 과정.",
+        "readMinutes": "2",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/agent-startup-blocked-synchronous-server-registration.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "상주 프로세스 텔레메트리가 서버에서 간헐 누락되는 이유 — 에이전트 4건·서버 1건 복합 원인 전수 분석",
+        "content": "상주 프로세스(Meter.exe)의 sprocess가 서버 raw·hourly·daily에 간헐적으로 누락되는 문제를 에이전트·서버 코드와 실측으로 전수 분석했다. 원인은 단일이 아니라 발행 throttle, 열린 버킷의 timestamp NULL, QoS 0 전송 유실, 정렬·처리량 상한에 따른 과거 band starvation, 서버의 지각 도착 hour 미재집계까지 다섯 가지의 복합이었다. '변화 없으면 hourly 누락'이라는 의심 경로는 아님으로 확인한 과정을 포함한다.",
+        "readMinutes": "6",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/sprocess-telemetry-server-loss-five-root-causes.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "네트워크 없이 부팅하면 coturn이 살아나지 않는다 — systemd 재시도 한계와 도커 브리지 함정",
+        "content": "현장 설치에서 네트워크를 연결하지 않은 채 서버를 먼저 부팅하면 coturn이 기동에 실패한 뒤 네트워크를 꽂아도 스스로 올라오지 않았다. 원인은 세 가지 — 리슨 주소가 루프백뿐이면 종료, systemd 기본 시작 제한(10초 내 5회)에 걸려 영구 포기, 그리고 나중에 뜬 도커 브리지에만 바인딩해 active인데 닿지 않는 상태. 세 원인을 컨테이너로 재현하고 드롭인 하나로 전부 막은 과정.",
+        "readMinutes": "6",
+        "createdAt": "2026.09.03",
+        "md": "/tech_blog/md/coturn-systemd-boot-without-network-recovery.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "부팅으로 가장 바쁜 순간에 얹히던 WAL 체크포인트 1.4초 — 주기 루프 첫 틱을 건너뛰다",
+        "content": "SQLite WAL 체크포인트를 5분 주기로 도는 루프가 카운터 0에서 시작해 첫 틱에도 즉시 발동했다. 시작 폭풍이 WAL에 쓴 분량을 HDD에서 곧바로 회수하느라 부팅 직후에 디스크 I/O 1.4초를 얹던 문제를, 같은 파일의 다른 주기 잡이 이미 쓰던 '실행 직후 최초 시점엔 실행 안 함' 방어를 체크포인트 블록에도 넣어 해결한 과정.",
+        "readMinutes": "1",
+        "createdAt": "2026.09.01",
+        "md": "/tech_blog/md/sqlite-wal-checkpoint-first-tick-startup-io.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "삭제 0건인데 6.4초 — SQLite <> 조건의 풀스캔과 재시작마다 반복되는 정리 배치",
+        "content": "에이전트 시작 시 이전 부팅 데이터 정리 배치 다섯 쿼리가 모두 삭제 0건인데 6.4초를 썼다. WHERE BootUID <> ? 가 SQLite에서 인덱스를 타지 않아 44,210행 테이블을 콜드 캐시에서 전량 스캔한 것이 원인이었다. <> 를 < OR > 로 재작성해 커버링 인덱스로 바꾸고, 같은 부팅의 재시작에서는 정리를 건너뛰는 게이트를 신설한 과정.",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-delete-full-scan-boot-cleanup-restart-gate.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "인덱스를 타는데도 매 시작 1.2초 — 부분 인덱스로 죽은 백필 쿼리 잡기",
+        "content": "SQLite에서 인덱스를 타는데도 시작마다 1,179ms를 쓰던 UID 백필 쿼리를 분석했다. 전체 행의 65%가 CompanyUID=0이고 전부 회사명이 빈 파일이라, 인덱스 탐색이 그 3,354행을 전부 짚고 행마다 테이블을 읽어 콜드 캐시에서 HDD 랜덤 읽기 3,354회가 됐다. 쿼리와 C++ 코드는 그대로 두고 인덱스 선언만 부분 인덱스로 바꿔 탐색이 즉시 끝나게 한 과정.",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-partial-index-backfill-query-startup.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "주간 개발 리뷰 — 2026년 36주차 (8/24~8/31)",
         "content": "AI 백엔드 자동 복구와 첫 응답 지연 단축, 모니터링 그룹 기능, sprocess 저장 구조 개편 등 이번 주 Orange The Client 개발 성과를 정리합니다.",
         "readMinutes": "3",
@@ -772,6 +880,114 @@
   {
     "language": "en",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "Recalculating the Process Load Index and a Retention Policy for Repeating Commands — Weekly Review (2026-09-14)",
+        "content": "Orange Labs weekly development log: sprocess rev.28, resource baselines, repeat-execution schedules, and COM communication failure detection.",
+        "readMinutes": "1",
+        "createdAt": "2026.09.14",
+        "md": "/tech_blog/md/weekly-review-2026-w38.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "90 Days for Late Arrivals, 5 Minutes for the Future: Why We Made Agent Clock Skew Asymmetric",
+        "content": "The process collection server accepted agent clock skew of up to 90 days in both directions, so data stamped in the future could poison aggregates and linger for as long as 270 days. Here is the reasoning behind keeping late arrivals while capping future timestamps at five minutes, and how we verified it.",
+        "readMinutes": "4",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/agent-clock-skew-asymmetric-timestamp-tolerance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "How a MongoDB Regex Search Tied Up a Worker for 28 Seconds and Dropped Results Too",
+        "content": "Audit-log search terms went into MongoDB's $regex without escaping, so catastrophic backtracking occupied a worker for up to 28 seconds while some documents were silently treated as non-matching. We describe switching the default search to substring matching and splitting regex out as an opt-in feature with a five-second ceiling.",
+        "readMinutes": "6",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/mongodb-regex-search-timeout-and-silent-mismatch.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Fixing a MongoDB Query Where One Document Blocked the Whole List and Items Shifted Between Pages",
+        "content": "A single command-history document with a mismatched field type returned a 500 for the entire page, and documents sharing the same created value were duplicated or dropped across skip/limit pages. We solved both with per-field tolerant parsing and a compound created + _id sort and index, then verified the query plan at 500,000 documents.",
+        "readMinutes": "5",
+        "createdAt": "2026.09.09",
+        "md": "/tech_blog/md/mongodb-stable-pagination-and-tolerant-document-parsing.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "Monthly Development Review — August 2026 (Aug 1–31)",
+        "content": "August 2026 work on Orange The Client: response speed and stability for on-premise AI diagnostics, completion of our own remote screen control, a rework of the process storage layout, and English localization across every manager widget.",
+        "readMinutes": "5",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/monthly-review-202608.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "Group Commands Reaching the Wrong PCs, and Swapping the Local LLM Engine — Weekly Review, 2026 Week 37 (Aug 31–Sep 7)",
+        "content": "We redesigned command-target resolution around sets to stop group commands from reaching the wrong nodes, and moved the local LLM to llama.cpp. Also: two-stage CPU-hogging detection, a list view for the node widget, and per-port device observation.",
+        "readMinutes": "4",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/weekly-review-2026-w37.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Endpoint Collection Must Continue Even When the Server Is Down — Removing a 13-Second Synchronous Server Registration Wait at Agent Startup",
+        "content": "At startup the Windows endpoint agent waited indefinitely for the first SETTINGS round, and that round carried server registration — tying kernel driver load and event collection to server availability. On air-gapped sites with the server off, every start paid the connection-failure cost. We confirmed in code that the invariant this wait protected had already moved earlier, then deleted the 13-second wait in CAgentHelper3::Start.",
+        "readMinutes": "2",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/agent-startup-blocked-synchronous-server-registration.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Why Resident-Process Telemetry Goes Missing on the Server — A Full Analysis of Five Combined Causes, Four in the Agent and One in the Server",
+        "content": "We traced intermittent loss of sprocess data for a resident process (Meter.exe) across the server's raw, hourly, and daily tiers, working through both agent and server code plus live measurements. The cause was not one thing but five combined: publish throttling, NULL timestamps on open buckets, QoS 0 delivery loss, starvation of older bands under ordering and throughput caps, and the server's failure to re-aggregate hours that arrive late. We also show how we ruled out the suspected \"no change means the hour is dropped\" path.",
+        "readMinutes": "6",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/sprocess-telemetry-server-loss-five-root-causes.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Boot Without a Network and coturn Never Comes Back — systemd Retry Limits and a Docker Bridge Trap",
+        "content": "When a server was powered on before the network was plugged in at a customer site, coturn failed to start and would not come up on its own even after the cable was connected. Three causes: it exits when the only listen address is loopback; systemd's default start limit (five attempts in ten seconds) makes it give up permanently; and it binds only to a Docker bridge that appears later, leaving it active but unreachable. We reproduced all three in containers and closed them with a single drop-in.",
+        "readMinutes": "6",
+        "createdAt": "2026.09.03",
+        "md": "/tech_blog/md/coturn-systemd-boot-without-network-recovery.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "A 1.4-Second WAL Checkpoint Landing at the Busiest Moment of Boot — Skipping the First Tick of a Periodic Loop",
+        "content": "The loop that runs SQLite WAL checkpoints every five minutes started its counter at zero, so it fired immediately on the first tick. Reclaiming what the startup storm had written to the WAL added 1.4 seconds of disk I/O on an HDD right after boot. We fixed it by applying the same \"don't run on the very first pass after launch\" guard that other periodic jobs in the file already used.",
+        "readMinutes": "1",
+        "createdAt": "2026.09.01",
+        "md": "/tech_blog/md/sqlite-wal-checkpoint-first-tick-startup-io.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Zero Rows Deleted, 6.4 Seconds Spent — A SQLite <> Full Scan and a Cleanup Batch Repeating on Every Restart",
+        "content": "Five cleanup queries for previous-boot data took 6.4 seconds at agent startup while deleting nothing. The cause: WHERE BootUID <> ? does not use an index in SQLite, so a 44,210-row table was scanned in full from a cold cache. We rewrote <> as < OR > to reach a covering index, and added a gate that skips cleanup on restarts within the same boot.",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-delete-full-scan-boot-cleanup-restart-gate.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "Indexed and Still 1.2 Seconds Every Start — Catching a Dead Backfill Query with a Partial Index",
+        "content": "A UID backfill query in SQLite used an index yet spent 1,179 ms on every start. 65% of all rows had CompanyUID=0 and every one of them had an empty company name, so the index seek touched all 3,354 of those rows and read the table once per row — 3,354 random HDD reads from a cold cache. We left the query and the C++ code untouched and changed only the index declaration to a partial index, so the seek finishes immediately.",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-partial-index-backfill-query-startup.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
@@ -1545,6 +1761,114 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "重算进程负载指数与重复命令保留策略 —— 每周回顾（2026-09-14）",
+        "content": "Orange Labs 每周开发记录：sprocess rev.28、资源基线、重复执行计划，以及 COM 通信失败检测。",
+        "readMinutes": "1",
+        "createdAt": "2026.09.14",
+        "md": "/tech_blog/md/weekly-review-2026-w38.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "迟到传输容忍 90 天，未来时间只给 5 分钟：为何把代理时钟偏差处理成非对称",
+        "content": "进程采集服务器对代理时间的过去与未来偏差一律容忍到 90 天，导致未来时间的数据污染聚合结果，最长可残留 270 天。本文说明保留迟到数据、仅将未来时间限制为 5 分钟的依据与验证结果。",
+        "readMinutes": "4",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/agent-clock-skew-asymmetric-timestamp-tolerance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MongoDB 正则搜索为何占用工作进程 28 秒并漏掉结果",
+        "content": "审计日志的搜索词未转义便进入 MongoDB $regex，灾难性回溯最长占用工作进程 28 秒，部分文档还被静默判为不匹配。本文记录将默认搜索改为部分匹配、并把正则拆分为可选功能并设置 5 秒上限的过程。",
+        "readMinutes": "6",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/mongodb-regex-search-timeout-and-silent-mismatch.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "修复一份文档阻塞整个列表、翻页时条目还会变化的 MongoDB 查询",
+        "content": "命令历史中只要有一份文档字段类型不同，整页就返回 500 错误；created 相同的文档在 skip/limit 分页中会重复或遗漏。我们以按字段的宽容解析，以及 created 与 _id 的复合排序和索引解决了这两个问题，并在 50 万条数据上验证了查询计划。",
+        "readMinutes": "5",
+        "createdAt": "2026.09.09",
+        "md": "/tech_blog/md/mongodb-stable-pagination-and-tolerant-document-parsing.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "月度开发回顾 —— 2026 年 8 月（8/1~8/31）",
+        "content": "2026 年 8 月 Orange The Client 的开发成果：本地部署 AI 诊断的响应速度与稳定性、自研远程屏幕控制完成、进程存储结构改造，以及管理端全部组件的英文化。",
+        "readMinutes": "5",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/monthly-review-202608.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "群组命令发往错误 PC 的问题与本地 LLM 引擎更换 —— 每周开发回顾 2026 年第 37 周（8/31~9/7）",
+        "content": "我们以集合为基础重新设计命令目标解析，修复群组命令发往错误节点的问题，并将本地 LLM 迁移到 llama.cpp。另有 CPU 过度占用的两阶段判定、节点组件列表视图，以及按端口观测连接设备。",
+        "readMinutes": "4",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/weekly-review-2026-w37.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "服务器关闭时终端采集也必须继续 —— 移除阻塞代理启动 13 秒的同步服务器注册等待",
+        "content": "Windows 端点代理启动时会无限等待首轮 SETTINGS，而该轮次内含服务器注册，使内核驱动加载与事件采集的启动被服务器状态绑定。在服务器关闭的隔离网中，每次启动都要付出连接失败的代价。我们通过代码确认该等待所保护的前提已前移，随后删除了 CAgentHelper3::Start 中的 13 秒等待。",
+        "readMinutes": "2",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/agent-startup-blocked-synchronous-server-registration.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "常驻进程遥测为何在服务器端间歇丢失 —— 代理 4 处、服务器 1 处的复合成因全量分析",
+        "content": "我们针对常驻进程（Meter.exe）的 sprocess 在服务器 raw、hourly、daily 中间歇缺失的问题，结合代理与服务器代码及实测做了全量分析。成因并非单一，而是五项复合：发布节流、打开中分桶的 timestamp 为 NULL、QoS 0 传输丢失、排序与吞吐上限导致的历史分段饥饿，以及服务器未对迟到小时重新聚合。文中也记录了排除“无变化则丢失小时数据”这一可疑路径的过程。",
+        "readMinutes": "6",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/sprocess-telemetry-server-loss-five-root-causes.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "无网络启动后 coturn 再也起不来 —— systemd 重试上限与 Docker 网桥陷阱",
+        "content": "现场安装时若先开机再接网线，coturn 启动失败后即使插上网线也无法自行恢复。原因有三：监听地址只剩回环时进程退出；触发 systemd 默认启动限制（10 秒内 5 次）后永久放弃；以及只绑定到随后才出现的 Docker 网桥，导致服务显示 active 却无法访问。我们用容器复现三种成因，并以一个 drop-in 配置全部堵住。",
+        "readMinutes": "6",
+        "createdAt": "2026.09.03",
+        "md": "/tech_blog/md/coturn-systemd-boot-without-network-recovery.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "落在启动最繁忙时刻的 1.4 秒 WAL 检查点 —— 跳过周期循环的第一次触发",
+        "content": "以 5 分钟为周期执行 SQLite WAL 检查点的循环从计数器 0 开始，因此第一次触发就立即执行。启动风暴写入 WAL 的内容在 HDD 上被立刻回收，令开机后额外产生 1.4 秒磁盘 I/O。我们将同一文件中其他周期任务早已使用的“启动后首次不执行”防护，同样加到检查点代码块中。",
+        "readMinutes": "1",
+        "createdAt": "2026.09.01",
+        "md": "/tech_blog/md/sqlite-wal-checkpoint-first-tick-startup-io.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "删除 0 行却耗时 6.4 秒 —— SQLite <> 条件的全表扫描与每次重启都重复的清理批处理",
+        "content": "代理启动时清理上次启动数据的五条查询全部删除 0 行，却耗费 6.4 秒。原因是 WHERE BootUID <> ? 在 SQLite 中无法使用索引，导致 44,210 行的表在冷缓存下被全量扫描。我们把 <> 改写为 < OR > 以走覆盖索引，并新增了同一次启动内重启时跳过清理的门控。",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-delete-full-scan-boot-cleanup-restart-gate.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "走了索引每次启动仍花 1.2 秒 —— 用部分索引揪出形同虚设的回填查询",
+        "content": "SQLite 中一条走了索引的 UID 回填查询，每次启动仍耗费 1,179 毫秒。全部行中 65% 的 CompanyUID=0 且公司名全为空，导致索引查找逐一命中这 3,354 行并为每行读取表数据，在冷缓存下形成 3,354 次 HDD 随机读取。我们未改动查询与 C++ 代码，仅将索引声明改为部分索引，使查找立即结束。",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-partial-index-backfill-query-startup.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "每周开发回顾 — 2026 年第 36 周（8/24~8/31）",
         "content": "本周 Orange The Client 的开发进展：AI 后端自动恢复、首次响应延迟缩短、监控分组功能，以及 sprocess 存储结构改造。",
         "readMinutes": "3",
@@ -2315,6 +2639,114 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "重算行程負載指數與重複命令保留政策 —— 每週回顧（2026-09-14）",
+        "content": "Orange Labs 每週開發紀錄：sprocess rev.28、資源基準線、重複執行排程，以及 COM 通訊失敗偵測。",
+        "readMinutes": "1",
+        "createdAt": "2026.09.14",
+        "md": "/tech_blog/md/weekly-review-2026-w38.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "遲到傳輸容忍 90 天，未來時間只給 5 分鐘：為何把代理時鐘偏差處理成非對稱",
+        "content": "行程蒐集伺服器對代理時間的過去與未來偏差一律容忍到 90 天，導致未來時間的資料汙染彙總結果，最長可殘留 270 天。本文說明保留遲到資料、僅將未來時間限制為 5 分鐘的依據與驗證結果。",
+        "readMinutes": "4",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/agent-clock-skew-asymmetric-timestamp-tolerance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MongoDB 正規式搜尋為何佔用工作行程 28 秒並漏掉結果",
+        "content": "稽核日誌的搜尋詞未逸出便進入 MongoDB $regex，災難性回溯最長佔用工作行程 28 秒，部分文件還被靜默判為不符合。本文記錄將預設搜尋改為部分比對、並把正規式拆分為選用功能並設定 5 秒上限的過程。",
+        "readMinutes": "6",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/mongodb-regex-search-timeout-and-silent-mismatch.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "修復一份文件阻塞整個列表、翻頁時項目還會變化的 MongoDB 查詢",
+        "content": "命令歷史中只要有一份文件欄位型別不同，整頁就回傳 500 錯誤；created 相同的文件在 skip/limit 分頁中會重複或遺漏。我們以逐欄位的寬容解析，以及 created 與 _id 的複合排序和索引解決了這兩個問題，並在 50 萬筆資料上驗證了查詢計畫。",
+        "readMinutes": "5",
+        "createdAt": "2026.09.09",
+        "md": "/tech_blog/md/mongodb-stable-pagination-and-tolerant-document-parsing.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "月度開發回顧 —— 2026 年 8 月（8/1~8/31）",
+        "content": "2026 年 8 月 Orange The Client 的開發成果：地端 AI 診斷的回應速度與穩定性、自研遠端螢幕控制完成、行程儲存結構改造，以及管理端全部元件的英文化。",
+        "readMinutes": "5",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/monthly-review-202608.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "群組命令發往錯誤 PC 的問題與本地 LLM 引擎更換 —— 每週開發回顧 2026 年第 37 週（8/31~9/7）",
+        "content": "我們以集合為基礎重新設計命令目標解析，修復群組命令發往錯誤節點的問題，並將本地 LLM 遷移到 llama.cpp。另有 CPU 過度佔用的兩階段判定、節點元件列表檢視，以及依連接埠觀測連線裝置。",
+        "readMinutes": "4",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/weekly-review-2026-w37.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "伺服器關閉時終端蒐集也必須繼續 —— 移除阻塞代理啟動 13 秒的同步伺服器註冊等待",
+        "content": "Windows 端點代理啟動時會無限等待首輪 SETTINGS，而該輪次內含伺服器註冊，使核心驅動載入與事件蒐集的啟動被伺服器狀態綁定。在伺服器關閉的封閉網路中，每次啟動都要付出連線失敗的代價。我們透過程式碼確認該等待所保護的前提已前移，隨後刪除了 CAgentHelper3::Start 中的 13 秒等待。",
+        "readMinutes": "2",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/agent-startup-blocked-synchronous-server-registration.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "常駐行程遙測為何在伺服器端間歇遺失 —— 代理 4 處、伺服器 1 處的複合成因全量分析",
+        "content": "我們針對常駐行程（Meter.exe）的 sprocess 在伺服器 raw、hourly、daily 中間歇缺失的問題，結合代理與伺服器程式碼及實測做了全量分析。成因並非單一，而是五項複合：發佈節流、開啟中分桶的 timestamp 為 NULL、QoS 0 傳輸遺失、排序與吞吐上限導致的歷史分段飢餓，以及伺服器未對遲到小時重新彙總。文中也記錄了排除「無變化則遺失小時資料」這一可疑路徑的過程。",
+        "readMinutes": "6",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/sprocess-telemetry-server-loss-five-root-causes.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "無網路啟動後 coturn 再也起不來 —— systemd 重試上限與 Docker 橋接陷阱",
+        "content": "現場安裝時若先開機再接網路線，coturn 啟動失敗後即使插上網路線也無法自行恢復。原因有三：監聽位址只剩回送位址時行程結束；觸發 systemd 預設啟動限制（10 秒內 5 次）後永久放棄；以及只繫結到隨後才出現的 Docker 橋接介面，導致服務顯示 active 卻無法連線。我們以容器重現三種成因，並用一個 drop-in 設定全部堵住。",
+        "readMinutes": "6",
+        "createdAt": "2026.09.03",
+        "md": "/tech_blog/md/coturn-systemd-boot-without-network-recovery.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "落在啟動最繁忙時刻的 1.4 秒 WAL 檢查點 —— 跳過週期迴圈的第一次觸發",
+        "content": "以 5 分鐘為週期執行 SQLite WAL 檢查點的迴圈從計數器 0 開始，因此第一次觸發就立即執行。啟動風暴寫入 WAL 的內容在 HDD 上被立刻回收，令開機後額外產生 1.4 秒磁碟 I/O。我們將同一檔案中其他週期工作早已使用的「啟動後首次不執行」防護，同樣加到檢查點區塊中。",
+        "readMinutes": "1",
+        "createdAt": "2026.09.01",
+        "md": "/tech_blog/md/sqlite-wal-checkpoint-first-tick-startup-io.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "刪除 0 列卻耗時 6.4 秒 —— SQLite <> 條件的全表掃描與每次重啟都重複的清理批次",
+        "content": "代理啟動時清理上次啟動資料的五條查詢全部刪除 0 列，卻耗費 6.4 秒。原因是 WHERE BootUID <> ? 在 SQLite 中無法使用索引，導致 44,210 列的資料表在冷快取下被全量掃描。我們把 <> 改寫為 < OR > 以走涵蓋索引，並新增了同一次開機內重啟時跳過清理的閘門。",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-delete-full-scan-boot-cleanup-restart-gate.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "走了索引每次啟動仍花 1.2 秒 —— 用部分索引揪出形同虛設的回填查詢",
+        "content": "SQLite 中一條走了索引的 UID 回填查詢，每次啟動仍耗費 1,179 毫秒。全部列中 65% 的 CompanyUID=0 且公司名全為空，導致索引查找逐一命中這 3,354 列並為每列讀取資料表，在冷快取下形成 3,354 次 HDD 隨機讀取。我們未更動查詢與 C++ 程式碼，僅將索引宣告改為部分索引，使查找立即結束。",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-partial-index-backfill-query-startup.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "每週開發回顧 — 2026 年第 36 週（8/24~8/31）",
         "content": "本週 Orange The Client 的開發進展：AI 後端自動復原、首次回應延遲縮短、監控分組功能，以及 sprocess 儲存結構改造。",
         "readMinutes": "3",
@@ -3082,6 +3514,114 @@
   {
     "language": "ja",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "プロセス負荷指数の再算出と反復コマンドの保管ポリシー — 週次レビュー（2026-09-14）",
+        "content": "Orange Labs の週次開発記録 — sprocess rev.28、リソースベースライン、反復実行スケジュール、COM 通信失敗検知。",
+        "readMinutes": "1",
+        "createdAt": "2026.09.14",
+        "md": "/tech_blog/md/weekly-review-2026-w38.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "遅延到着は90日、未来時刻は5分 — エージェントの時計ずれを非対称に扱った理由",
+        "content": "プロセス収集サーバがエージェント時刻の過去・未来のずれをいずれも90日まで許容しており、未来の時刻を持つデータが集計を汚染し最長270日残りうる状態だった。遅延到着は保持しつつ未来時刻のみ5分に制限した根拠と検証結果をまとめる。",
+        "readMinutes": "4",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/agent-clock-skew-asymmetric-timestamp-tolerance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MongoDB の正規表現検索がワーカーを28秒占有し、結果まで取りこぼしていた理由",
+        "content": "監査ログの検索語をエスケープせず MongoDB の $regex に渡していたため、破滅的バックトラッキングがワーカーを最大28秒占有し、一部の文書は静かに不一致として扱われていた。既定の検索を部分一致に変え、正規表現はオプション機能として5秒の上限付きで分離した過程をまとめる。",
+        "readMinutes": "6",
+        "createdAt": "2026.09.10",
+        "md": "/tech_blog/md/mongodb-regex-search-timeout-and-silent-mismatch.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "文書1件がリスト全体を止め、ページごとに項目が入れ替わっていた MongoDB 照会の修正",
+        "content": "コマンド履歴の文書1件でもフィールドの型が異なるとページ全体が 500 エラーになり、created が同じ文書は skip/limit のページ間で重複・欠落していた。フィールド単位の寛容なパースと、created・_id の複合ソートおよびインデックスで両方を解決し、50万件で実行計画を検証した。",
+        "readMinutes": "5",
+        "createdAt": "2026.09.09",
+        "md": "/tech_blog/md/mongodb-stable-pagination-and-tolerant-document-parsing.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "月次開発レビュー — 2026年8月（8/1〜8/31）",
+        "content": "2026年8月の Orange The Client の開発成果 — オンプレミス AI 診断の応答速度と安定性、自社製リモート画面制御の完成、プロセス保存構造の刷新、マネージャ全ウィジェットの英語化。",
+        "readMinutes": "5",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/monthly-review-202608.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "グループコマンドが別の PC に飛んでいた問題とローカル LLM エンジンの入れ替え — 週次開発レビュー 2026年第37週（8/31〜9/7）",
+        "content": "コマンド対象の解決を集合ベースで再設計し、グループコマンドが別のノードに飛ぶ問題を解消。ローカル LLM は llama.cpp へ移行した。CPU 過占有検知の2段階判定、ノードウィジェットのリスト表示、ポート単位の接続機器観測も含む。",
+        "readMinutes": "4",
+        "createdAt": "2026.09.07",
+        "md": "/tech_blog/md/weekly-review-2026-w37.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "サーバが落ちていても端末の収集は続くべきだ — エージェント起動を13秒止めていた同期的サーバ登録待ちの除去",
+        "content": "Windows エンドポイントエージェントは起動時に最初の SETTINGS ラウンドを無限に待つが、そのラウンドがサーバ登録を含んでいたため、カーネルドライバのロードとイベント収集の開始がサーバの状態に縛られていた。サーバが停止した閉域網では起動のたびに接続失敗のコストを払っていた。この待機が守っていた前提がすでに前段へ移っていることをコードで確認し、CAgentHelper3::Start の13秒待機を削除した記録。",
+        "readMinutes": "2",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/agent-startup-blocked-synchronous-server-registration.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "常駐プロセスのテレメトリがサーバで間欠的に欠落する理由 — エージェント4件・サーバ1件の複合原因を全数分析",
+        "content": "常駐プロセス（Meter.exe）の sprocess がサーバの raw・hourly・daily で間欠的に欠落する問題を、エージェントとサーバのコードおよび実測から全数分析した。原因は単一ではなく、発行スロットル、開いたバケットの timestamp が NULL、QoS 0 の送信欠落、整列・スループット上限による過去バンドのスタベーション、サーバ側で遅れて届いた hour を再集計しないこと、の5つの複合だった。「変化がなければ hourly が欠落する」という疑いの経路を否定した過程も含む。",
+        "readMinutes": "6",
+        "createdAt": "2026.09.04",
+        "md": "/tech_blog/md/sprocess-telemetry-server-loss-five-root-causes.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "ネットワークなしで起動すると coturn が復帰しない — systemd の再試行上限と Docker ブリッジの罠",
+        "content": "現場導入でネットワークを接続しないままサーバを先に起動すると、coturn は起動に失敗し、後からケーブルを挿しても自力で立ち上がらなかった。原因は3つ — リッスンアドレスがループバックだけだと終了すること、systemd の既定の起動制限（10秒内に5回）に達して恒久的に諦めること、そして後から現れた Docker ブリッジにのみバインドして active なのに到達できない状態になること。3つをコンテナで再現し、ドロップイン1つですべて塞いだ過程。",
+        "readMinutes": "6",
+        "createdAt": "2026.09.03",
+        "md": "/tech_blog/md/coturn-systemd-boot-without-network-recovery.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "起動で最も忙しい瞬間に重なっていた WAL チェックポイント1.4秒 — 周期ループの初回ティックを飛ばす",
+        "content": "SQLite の WAL チェックポイントを5分周期で回すループがカウンタ0から始まり、初回ティックでも即座に発動していた。起動時の書き込みが WAL に残した分を HDD で直ちに回収するため、起動直後にディスク I/O が1.4秒上乗せされていた。同じファイル内の他の周期ジョブがすでに使っていた「起動直後の最初の時点では実行しない」防御を、チェックポイントのブロックにも入れて解決した。",
+        "readMinutes": "1",
+        "createdAt": "2026.09.01",
+        "md": "/tech_blog/md/sqlite-wal-checkpoint-first-tick-startup-io.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "削除0件なのに6.4秒 — SQLite の <> 条件によるフルスキャンと、再起動のたび繰り返される整理バッチ",
+        "content": "エージェント起動時に前回起動分を整理する5本のクエリが、いずれも削除0件でありながら6.4秒を費やしていた。WHERE BootUID <> ? が SQLite でインデックスを使えず、44,210行のテーブルをコールドキャッシュから全件走査していたためだ。<> を < OR > に書き換えてカバリングインデックスに載せ、同じ起動内の再起動では整理を飛ばすゲートを新設した過程。",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-delete-full-scan-boot-cleanup-restart-gate.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "インデックスに載っているのに毎回の起動で1.2秒 — 部分インデックスで死んだバックフィルクエリを捕まえる",
+        "content": "SQLite でインデックスを使っているにもかかわらず、起動のたびに1,179ms を費やしていた UID バックフィルクエリを分析した。全行の65%が CompanyUID=0 で、そのすべてが会社名の空のファイルだったため、インデックス探索がその3,354行をすべてたどり、行ごとにテーブルを読んでコールドキャッシュから HDD ランダム読み取り3,354回になっていた。クエリと C++ コードはそのままに、インデックス宣言だけを部分インデックスへ変えて探索が即座に終わるようにした。",
+        "readMinutes": "2",
+        "createdAt": "2026.08.31",
+        "md": "/tech_blog/md/sqlite-partial-index-backfill-query-startup.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",

@@ -171,6 +171,8 @@ function main() {
   const posts = [];
   const violations = [];
   const missingTranslations = [];
+  /** 게이트 통과 후 한꺼번에 쓸 md 버퍼 */
+  const pending = [];
 
   for (const file of files) {
     const raw = fs.readFileSync(path.join(args.posts, file), 'utf-8');
@@ -227,10 +229,8 @@ function main() {
       });
     }
 
-    if (!args.check) {
-      fs.mkdirSync(MD_DIR, { recursive: true });
-      fs.writeFileSync(path.join(MD_DIR, `${slug}.md`), output, 'utf-8');
-    }
+    // 파일은 아직 쓰지 않는다. 금지 패턴 검사를 전부 통과한 뒤에 한꺼번에 쓴다.
+    pending.push({ slug, output });
   }
 
   if (violations.length) {
@@ -240,6 +240,19 @@ function main() {
       '\nscripts/blog-sanitize.json의 redactions 또는 identityMap에 규칙을 추가한 뒤 다시 실행하세요.\n',
     );
     process.exit(1);
+  }
+
+  // 게이트를 통과한 뒤에만 디스크에 쓴다.
+  //
+  // 예전에는 글을 하나 처리할 때마다 바로 썼다. 그러면 게이트가 뒤에서 동기화를
+  // 막아도 정제되지 않은 md가 이미 작업 트리에 남는다. 실제로 고객사명이 든 글이
+  // 그렇게 남은 적이 있고, `git add -A` 한 번이면 그대로 커밋될 뻔했다.
+  // 차단이 곧 '아무것도 남지 않음'이 되도록 쓰기를 맨 뒤로 미룬다.
+  if (!args.check) {
+    fs.mkdirSync(MD_DIR, { recursive: true });
+    for (const { slug, output } of pending) {
+      fs.writeFileSync(path.join(MD_DIR, `${slug}.md`), output, 'utf-8');
+    }
   }
 
   for (const bucket of posts) {
