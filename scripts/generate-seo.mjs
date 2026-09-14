@@ -13,12 +13,42 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import dns from 'node:dns/promises';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 
-const SITE_URL = (process.env.VITE_SITE_URL || 'https://www.orangelabs.co.kr').replace(/\/+$/, '');
+const SITE_URL = (process.env.VITE_SITE_URL || 'https://www.orangelabs.xyz').replace(/\/+$/, '');
+
+/**
+ * SITE_URL의 호스트가 실제로 존재하는지 확인한다.
+ *
+ * 한 번 크게 데인 자리다. 도메인을 사기만 하고 DNS 연결은 안 된 상태에서
+ * SITE_URL을 그 도메인으로 바꿔 배포한 적이 있다. 그러면 사이트는 멀쩡히
+ * 뜨는데 —
+ *   - 모든 canonical이 존재하지 않는 호스트를 가리키고,
+ *   - sitemap.xml의 URL이 사이트맵 자신과 다른 호스트가 되어 구글이 통째로
+ *     거부한다("가져올 수 없음", 발견된 페이지 0).
+ * 화면상 아무 증상이 없어서 한 달을 모르고 지나갔다.
+ *
+ * 도메인을 옮길 때는 DNS가 붙은 뒤에 이 값을 바꿔야 한다. 이 검사가 그 순서를
+ * 강제한다. 빌드를 실패시키는 쪽을 택한 이유는, 이 사고가 조용히 진행되는 데
+ * 비해 실패는 바로 눈에 띄기 때문이다.
+ */
+const siteHost = new URL(SITE_URL).hostname;
+try {
+  await dns.lookup(siteHost);
+} catch {
+  console.error(
+    `[seo] SITE_URL의 호스트 '${siteHost}'를 DNS에서 찾을 수 없습니다.\n` +
+      `  이대로 배포하면 canonical과 sitemap이 존재하지 않는 도메인을 가리켜\n` +
+      `  검색엔진이 사이트맵을 거부하고 색인이 무너집니다.\n` +
+      `  도메인을 옮기는 중이라면 DNS 연결을 먼저 끝내세요.\n` +
+      `  (현재 값은 VITE_SITE_URL 환경변수 또는 scripts/generate-seo.mjs·src/seo/site.ts의 기본값)`,
+  );
+  process.exit(1);
+}
 const SITE_NAME = 'OrangeLabs';
 const OG_IMAGE = `${SITE_URL}/images/orangebox.png`;
 const OG_IMAGE_WIDTH = 720;
