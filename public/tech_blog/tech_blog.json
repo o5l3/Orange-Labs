@@ -919,8 +919,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "부하 지수를 사람이 기다린 시간으로, 복제 이미지 PC 노드 중복 해결 — 주간 리뷰 (2026-09-21)",
-        "content": "pscore rev.30, 자원 baseline 이상동작 노드 탐지, 복제 이미지 노드 매칭, 정팀장 점검 지식 재편, 프로세스 수집 DB 비용 절감을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "Load Index Recast as Time a Person Waited, and Duplicate Nodes from Cloned Images — Weekly Review (2026-09-21)",
+        "content": "Orange Labs weekly development log: pscore rev.30, detecting nodes that deviate from their resource baseline, matching nodes built from cloned images, a reorganized inspection knowledge base, and cost reduction in the process-collection database.",
         "readMinutes": "2",
         "createdAt": "2026.09.21",
         "md": "/tech_blog/md/weekly-review-2026-w39.md"
@@ -928,8 +928,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "복제 이미지 PC 두 대가 한 노드 문서를 공유하는 경쟁 조건 — MongoDB에서 매칭과 티켓 회전을 원자화하기",
-        "content": "디스크 이미지로 배포한 PC 두 대가 동시에 부팅하면 같은 DeviceTicket으로 같은 노드 문서를 잡는다. read-modify-write 사이에 끼어드는 await와 MongoDB 단일 op 원자성의 한계, 그리고 find_one_and_update로 매칭·회전을 한 번에 묶는 해법을 정리한다.",
+        "subject": "Two PCs from the Same Disk Image Sharing One Node Document — Making Matching and Ticket Rotation Atomic in MongoDB",
+        "content": "When two PCs deployed from the same disk image boot at once, they claim the same node document with the same DeviceTicket. We cover the await that slips into the read-modify-write window, the limits of MongoDB's single-operation atomicity, and how find_one_and_update binds matching and rotation into one step.",
         "readMinutes": "2",
         "createdAt": "2026.09.20",
         "md": "/tech_blog/md/mongodb-atomic-node-auth-race-clone-image.md"
@@ -937,8 +937,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "Windows 10 1507 기본 Edge에서 설치 파일이 안 받아지던 문제 — async·fetch·CSS 변수를 ES5로 되돌리기",
-        "content": "EdgeHTML 12(Windows 10 1507 기본 Edge)는 async/await·fetch()·CSS 변수를 지원하지 않는다. 다운로드 스크립트가 파싱 단계에서 통째로 죽어 파일이 오지 않던 원인과, XMLHttpRequest·msSaveBlob·16진수 색으로 되돌린 조치를 정리한다.",
+        "subject": "Installer Downloads Failing on the Stock Edge in Windows 10 1507 — Rolling async, fetch and CSS Variables Back to ES5",
+        "content": "EdgeHTML 12, the browser shipped with Windows 10 1507, supports neither async/await, fetch(), nor CSS variables. The download script died outright at the parse stage, so no file ever arrived. We cover the cause and the rollback to XMLHttpRequest, msSaveBlob and hex colors.",
         "readMinutes": "3",
         "createdAt": "2026.09.18",
         "md": "/tech_blog/md/legacy-edge-windows10-1507-download-es5-compat.md"
@@ -946,8 +946,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "하드복구(마에스트로) PC에서 드라이브 선택창이 안 뜨던 문제 — NSIS 감지 조건을 벤더 폴더로 완화하기",
-        "content": "하드복구 솔루션이 깔린 PC는 재부팅마다 C: 드라이브를 롤백해 에이전트가 사라진다. 설치 스크립트가 특정 실행파일 경로 하나로만 하드복구를 감지하다 최신 배포판을 놓쳐 C:에 설치되던 문제와, 벤더 폴더 존재만 확인하도록 완화한 조치를 정리한다.",
+        "subject": "No Drive Selection Dialog on PCs with Hard-Recovery Software — Relaxing the NSIS Check to a Vendor Folder",
+        "content": "PCs running hard-recovery software roll the C: drive back on every reboot, so the agent disappears with it. The installer detected that software through a single executable path and missed newer builds, landing the agent on C: anyway. We cover the failure and the change to checking only for the vendor folder.",
         "readMinutes": "3",
         "createdAt": "2026.09.16",
         "md": "/tech_blog/md/hard-recovery-maestro-installer-drive-detection-nsis.md"
@@ -1833,8 +1833,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "부하 지수를 사람이 기다린 시간으로, 복제 이미지 PC 노드 중복 해결 — 주간 리뷰 (2026-09-21)",
-        "content": "pscore rev.30, 자원 baseline 이상동작 노드 탐지, 복제 이미지 노드 매칭, 정팀장 점검 지식 재편, 프로세스 수집 DB 비용 절감을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "将负载指数改为人等待的时间，解决克隆镜像 PC 节点重复 —— 每周回顾（2026-09-21）",
+        "content": "Orange Labs 每周开发记录：pscore rev.30、资源基线异常节点检测、克隆镜像节点匹配、巡检知识库重组，以及进程采集数据库的成本削减。",
         "readMinutes": "2",
         "createdAt": "2026.09.21",
         "md": "/tech_blog/md/weekly-review-2026-w39.md"
@@ -1842,8 +1842,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "복제 이미지 PC 두 대가 한 노드 문서를 공유하는 경쟁 조건 — MongoDB에서 매칭과 티켓 회전을 원자화하기",
-        "content": "디스크 이미지로 배포한 PC 두 대가 동시에 부팅하면 같은 DeviceTicket으로 같은 노드 문서를 잡는다. read-modify-write 사이에 끼어드는 await와 MongoDB 단일 op 원자성의 한계, 그리고 find_one_and_update로 매칭·회전을 한 번에 묶는 해법을 정리한다.",
+        "subject": "两台克隆镜像 PC 共享同一节点文档的竞争条件 —— 在 MongoDB 中原子化匹配与票据轮换",
+        "content": "用磁盘镜像部署的两台 PC 同时启动时，会以相同的 DeviceTicket 抢占同一份节点文档。本文梳理插入在 read-modify-write 之间的 await、MongoDB 单次操作原子性的边界，以及用 find_one_and_update 将匹配与轮换合并为一步的解法。",
         "readMinutes": "2",
         "createdAt": "2026.09.20",
         "md": "/tech_blog/md/mongodb-atomic-node-auth-race-clone-image.md"
@@ -1851,8 +1851,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "Windows 10 1507 기본 Edge에서 설치 파일이 안 받아지던 문제 — async·fetch·CSS 변수를 ES5로 되돌리기",
-        "content": "EdgeHTML 12(Windows 10 1507 기본 Edge)는 async/await·fetch()·CSS 변수를 지원하지 않는다. 다운로드 스크립트가 파싱 단계에서 통째로 죽어 파일이 오지 않던 원인과, XMLHttpRequest·msSaveBlob·16진수 색으로 되돌린 조치를 정리한다.",
+        "subject": "Windows 10 1507 自带 Edge 上无法下载安装文件 —— 将 async·fetch·CSS 变量回退到 ES5",
+        "content": "EdgeHTML 12（Windows 10 1507 自带的 Edge）不支持 async/await、fetch() 与 CSS 变量。下载脚本在解析阶段就整体报错，文件根本不会送达。本文梳理成因，以及回退到 XMLHttpRequest、msSaveBlob 与十六进制颜色的处理。",
         "readMinutes": "3",
         "createdAt": "2026.09.18",
         "md": "/tech_blog/md/legacy-edge-windows10-1507-download-es5-compat.md"
@@ -1860,8 +1860,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "하드복구(마에스트로) PC에서 드라이브 선택창이 안 뜨던 문제 — NSIS 감지 조건을 벤더 폴더로 완화하기",
-        "content": "하드복구 솔루션이 깔린 PC는 재부팅마다 C: 드라이브를 롤백해 에이전트가 사라진다. 설치 스크립트가 특정 실행파일 경로 하나로만 하드복구를 감지하다 최신 배포판을 놓쳐 C:에 설치되던 문제와, 벤더 폴더 존재만 확인하도록 완화한 조치를 정리한다.",
+        "subject": "装有硬盘还原软件的 PC 不弹出驱动器选择窗口 —— 将 NSIS 检测条件放宽为厂商文件夹",
+        "content": "装有硬盘还原方案的 PC 每次重启都会回滚 C: 盘，代理也随之消失。安装脚本仅凭某个可执行文件路径来检测该软件，漏掉了较新的发行版，结果仍装到 C: 盘。本文梳理该问题，以及改为只检查厂商文件夹是否存在的处理。",
         "readMinutes": "3",
         "createdAt": "2026.09.16",
         "md": "/tech_blog/md/hard-recovery-maestro-installer-drive-detection-nsis.md"
@@ -2747,8 +2747,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "부하 지수를 사람이 기다린 시간으로, 복제 이미지 PC 노드 중복 해결 — 주간 리뷰 (2026-09-21)",
-        "content": "pscore rev.30, 자원 baseline 이상동작 노드 탐지, 복제 이미지 노드 매칭, 정팀장 점검 지식 재편, 프로세스 수집 DB 비용 절감을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "將負載指數改為人等待的時間，解決複製映像 PC 節點重複 —— 每週回顧（2026-09-21）",
+        "content": "Orange Labs 每週開發紀錄：pscore rev.30、資源基準線異常節點偵測、複製映像節點比對、巡檢知識庫重組，以及行程蒐集資料庫的成本削減。",
         "readMinutes": "2",
         "createdAt": "2026.09.21",
         "md": "/tech_blog/md/weekly-review-2026-w39.md"
@@ -2756,8 +2756,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "복제 이미지 PC 두 대가 한 노드 문서를 공유하는 경쟁 조건 — MongoDB에서 매칭과 티켓 회전을 원자화하기",
-        "content": "디스크 이미지로 배포한 PC 두 대가 동시에 부팅하면 같은 DeviceTicket으로 같은 노드 문서를 잡는다. read-modify-write 사이에 끼어드는 await와 MongoDB 단일 op 원자성의 한계, 그리고 find_one_and_update로 매칭·회전을 한 번에 묶는 해법을 정리한다.",
+        "subject": "兩台複製映像 PC 共用同一節點文件的競爭條件 —— 在 MongoDB 中原子化比對與票證輪換",
+        "content": "用磁碟映像部署的兩台 PC 同時啟動時，會以相同的 DeviceTicket 搶佔同一份節點文件。本文梳理插入在 read-modify-write 之間的 await、MongoDB 單次操作原子性的邊界，以及用 find_one_and_update 將比對與輪換合併為一步的解法。",
         "readMinutes": "2",
         "createdAt": "2026.09.20",
         "md": "/tech_blog/md/mongodb-atomic-node-auth-race-clone-image.md"
@@ -2765,8 +2765,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "Windows 10 1507 기본 Edge에서 설치 파일이 안 받아지던 문제 — async·fetch·CSS 변수를 ES5로 되돌리기",
-        "content": "EdgeHTML 12(Windows 10 1507 기본 Edge)는 async/await·fetch()·CSS 변수를 지원하지 않는다. 다운로드 스크립트가 파싱 단계에서 통째로 죽어 파일이 오지 않던 원인과, XMLHttpRequest·msSaveBlob·16진수 색으로 되돌린 조치를 정리한다.",
+        "subject": "Windows 10 1507 內建 Edge 上無法下載安裝檔 —— 將 async·fetch·CSS 變數回退到 ES5",
+        "content": "EdgeHTML 12（Windows 10 1507 內建的 Edge）不支援 async/await、fetch() 與 CSS 變數。下載指令碼在剖析階段就整體出錯，檔案根本不會送達。本文梳理成因，以及回退到 XMLHttpRequest、msSaveBlob 與十六進位色碼的處理。",
         "readMinutes": "3",
         "createdAt": "2026.09.18",
         "md": "/tech_blog/md/legacy-edge-windows10-1507-download-es5-compat.md"
@@ -2774,8 +2774,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "하드복구(마에스트로) PC에서 드라이브 선택창이 안 뜨던 문제 — NSIS 감지 조건을 벤더 폴더로 완화하기",
-        "content": "하드복구 솔루션이 깔린 PC는 재부팅마다 C: 드라이브를 롤백해 에이전트가 사라진다. 설치 스크립트가 특정 실행파일 경로 하나로만 하드복구를 감지하다 최신 배포판을 놓쳐 C:에 설치되던 문제와, 벤더 폴더 존재만 확인하도록 완화한 조치를 정리한다.",
+        "subject": "裝有硬碟還原軟體的 PC 不跳出磁碟機選擇視窗 —— 將 NSIS 偵測條件放寬為廠商資料夾",
+        "content": "裝有硬碟還原方案的 PC 每次重新開機都會回復 C: 磁碟機，代理也隨之消失。安裝指令碼僅憑某個執行檔路徑來偵測該軟體，漏掉了較新的發行版，結果仍裝到 C: 磁碟機。本文梳理該問題，以及改為只檢查廠商資料夾是否存在的處理。",
         "readMinutes": "3",
         "createdAt": "2026.09.16",
         "md": "/tech_blog/md/hard-recovery-maestro-installer-drive-detection-nsis.md"
@@ -3661,8 +3661,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "부하 지수를 사람이 기다린 시간으로, 복제 이미지 PC 노드 중복 해결 — 주간 리뷰 (2026-09-21)",
-        "content": "pscore rev.30, 자원 baseline 이상동작 노드 탐지, 복제 이미지 노드 매칭, 정팀장 점검 지식 재편, 프로세스 수집 DB 비용 절감을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "負荷指数を「人が待った時間」に置き換え、複製イメージ PC のノード重複を解消 — 週次レビュー（2026-09-21）",
+        "content": "Orange Labs の週次開発記録 — pscore rev.30、リソースベースラインからの逸脱ノード検知、複製イメージのノード照合、点検ナレッジの再編、プロセス収集 DB のコスト削減。",
         "readMinutes": "2",
         "createdAt": "2026.09.21",
         "md": "/tech_blog/md/weekly-review-2026-w39.md"
@@ -3670,8 +3670,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "복제 이미지 PC 두 대가 한 노드 문서를 공유하는 경쟁 조건 — MongoDB에서 매칭과 티켓 회전을 원자화하기",
-        "content": "디스크 이미지로 배포한 PC 두 대가 동시에 부팅하면 같은 DeviceTicket으로 같은 노드 문서를 잡는다. read-modify-write 사이에 끼어드는 await와 MongoDB 단일 op 원자성의 한계, 그리고 find_one_and_update로 매칭·회전을 한 번에 묶는 해법을 정리한다.",
+        "subject": "複製イメージの PC 2台が1つのノード文書を奪い合う競合 — MongoDB で照合とチケット回転を原子化する",
+        "content": "ディスクイメージから展開した PC 2台が同時に起動すると、同じ DeviceTicket で同じノード文書をつかむ。read-modify-write の間に入り込む await と MongoDB の単一オペレーション原子性の限界、そして find_one_and_update で照合と回転を一度にまとめる解法をまとめる。",
         "readMinutes": "2",
         "createdAt": "2026.09.20",
         "md": "/tech_blog/md/mongodb-atomic-node-auth-race-clone-image.md"
@@ -3679,8 +3679,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "Windows 10 1507 기본 Edge에서 설치 파일이 안 받아지던 문제 — async·fetch·CSS 변수를 ES5로 되돌리기",
-        "content": "EdgeHTML 12(Windows 10 1507 기본 Edge)는 async/await·fetch()·CSS 변수를 지원하지 않는다. 다운로드 스크립트가 파싱 단계에서 통째로 죽어 파일이 오지 않던 원인과, XMLHttpRequest·msSaveBlob·16진수 색으로 되돌린 조치를 정리한다.",
+        "subject": "Windows 10 1507 標準 Edge でインストーラがダウンロードできない — async・fetch・CSS 変数を ES5 に戻す",
+        "content": "EdgeHTML 12（Windows 10 1507 標準の Edge）は async/await・fetch()・CSS 変数のいずれにも対応していない。ダウンロードスクリプトがパース段階で丸ごと落ち、ファイルが届かなかった原因と、XMLHttpRequest・msSaveBlob・16進カラーへ戻した対応をまとめる。",
         "readMinutes": "3",
         "createdAt": "2026.09.18",
         "md": "/tech_blog/md/legacy-edge-windows10-1507-download-es5-compat.md"
@@ -3688,8 +3688,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "하드복구(마에스트로) PC에서 드라이브 선택창이 안 뜨던 문제 — NSIS 감지 조건을 벤더 폴더로 완화하기",
-        "content": "하드복구 솔루션이 깔린 PC는 재부팅마다 C: 드라이브를 롤백해 에이전트가 사라진다. 설치 스크립트가 특정 실행파일 경로 하나로만 하드복구를 감지하다 최신 배포판을 놓쳐 C:에 설치되던 문제와, 벤더 폴더 존재만 확인하도록 완화한 조치를 정리한다.",
+        "subject": "ハードディスク復元ソフトが入った PC でドライブ選択画面が出ない — NSIS の判定条件をベンダーフォルダへ緩和する",
+        "content": "ハードディスク復元ソリューションが入った PC は再起動のたびに C: ドライブをロールバックし、エージェントも消える。インストールスクリプトが特定の実行ファイルのパス1つだけで判定していたため新しい配布版を取りこぼし、C: に入ってしまっていた問題と、ベンダーフォルダの有無だけを見るよう緩和した対応をまとめる。",
         "readMinutes": "3",
         "createdAt": "2026.09.16",
         "md": "/tech_blog/md/hard-recovery-maestro-installer-drive-detection-nsis.md"

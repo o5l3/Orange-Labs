@@ -1258,5 +1258,77 @@
       "title": "インデックスに載っているのに毎回の起動で1.2秒 — 部分インデックスで死んだバックフィルクエリを捕まえる",
       "excerpt": "SQLite でインデックスを使っているにもかかわらず、起動のたびに1,179ms を費やしていた UID バックフィルクエリを分析した。全行の65%が CompanyUID=0 で、そのすべてが会社名の空のファイルだったため、インデックス探索がその3,354行をすべてたどり、行ごとにテーブルを読んでコールドキャッシュから HDD ランダム読み取り3,354回になっていた。クエリと C++ コードはそのままに、インデックス宣言だけを部分インデックスへ変えて探索が即座に終わるようにした。"
     }
+  },
+  "weekly-review-2026-w39": {
+    "en": {
+      "title": "Load Index Recast as Time a Person Waited, and Duplicate Nodes from Cloned Images — Weekly Review (2026-09-21)",
+      "excerpt": "Orange Labs weekly development log: pscore rev.30, detecting nodes that deviate from their resource baseline, matching nodes built from cloned images, a reorganized inspection knowledge base, and cost reduction in the process-collection database."
+    },
+    "zh": {
+      "title": "将负载指数改为人等待的时间，解决克隆镜像 PC 节点重复 —— 每周回顾（2026-09-21）",
+      "excerpt": "Orange Labs 每周开发记录：pscore rev.30、资源基线异常节点检测、克隆镜像节点匹配、巡检知识库重组，以及进程采集数据库的成本削减。"
+    },
+    "zh-Hant": {
+      "title": "將負載指數改為人等待的時間，解決複製映像 PC 節點重複 —— 每週回顧（2026-09-21）",
+      "excerpt": "Orange Labs 每週開發紀錄：pscore rev.30、資源基準線異常節點偵測、複製映像節點比對、巡檢知識庫重組，以及行程蒐集資料庫的成本削減。"
+    },
+    "ja": {
+      "title": "負荷指数を「人が待った時間」に置き換え、複製イメージ PC のノード重複を解消 — 週次レビュー（2026-09-21）",
+      "excerpt": "Orange Labs の週次開発記録 — pscore rev.30、リソースベースラインからの逸脱ノード検知、複製イメージのノード照合、点検ナレッジの再編、プロセス収集 DB のコスト削減。"
+    }
+  },
+  "mongodb-atomic-node-auth-race-clone-image": {
+    "en": {
+      "title": "Two PCs from the Same Disk Image Sharing One Node Document — Making Matching and Ticket Rotation Atomic in MongoDB",
+      "excerpt": "When two PCs deployed from the same disk image boot at once, they claim the same node document with the same DeviceTicket. We cover the await that slips into the read-modify-write window, the limits of MongoDB's single-operation atomicity, and how find_one_and_update binds matching and rotation into one step."
+    },
+    "zh": {
+      "title": "两台克隆镜像 PC 共享同一节点文档的竞争条件 —— 在 MongoDB 中原子化匹配与票据轮换",
+      "excerpt": "用磁盘镜像部署的两台 PC 同时启动时，会以相同的 DeviceTicket 抢占同一份节点文档。本文梳理插入在 read-modify-write 之间的 await、MongoDB 单次操作原子性的边界，以及用 find_one_and_update 将匹配与轮换合并为一步的解法。"
+    },
+    "zh-Hant": {
+      "title": "兩台複製映像 PC 共用同一節點文件的競爭條件 —— 在 MongoDB 中原子化比對與票證輪換",
+      "excerpt": "用磁碟映像部署的兩台 PC 同時啟動時，會以相同的 DeviceTicket 搶佔同一份節點文件。本文梳理插入在 read-modify-write 之間的 await、MongoDB 單次操作原子性的邊界，以及用 find_one_and_update 將比對與輪換合併為一步的解法。"
+    },
+    "ja": {
+      "title": "複製イメージの PC 2台が1つのノード文書を奪い合う競合 — MongoDB で照合とチケット回転を原子化する",
+      "excerpt": "ディスクイメージから展開した PC 2台が同時に起動すると、同じ DeviceTicket で同じノード文書をつかむ。read-modify-write の間に入り込む await と MongoDB の単一オペレーション原子性の限界、そして find_one_and_update で照合と回転を一度にまとめる解法をまとめる。"
+    }
+  },
+  "legacy-edge-windows10-1507-download-es5-compat": {
+    "en": {
+      "title": "Installer Downloads Failing on the Stock Edge in Windows 10 1507 — Rolling async, fetch and CSS Variables Back to ES5",
+      "excerpt": "EdgeHTML 12, the browser shipped with Windows 10 1507, supports neither async/await, fetch(), nor CSS variables. The download script died outright at the parse stage, so no file ever arrived. We cover the cause and the rollback to XMLHttpRequest, msSaveBlob and hex colors."
+    },
+    "zh": {
+      "title": "Windows 10 1507 自带 Edge 上无法下载安装文件 —— 将 async·fetch·CSS 变量回退到 ES5",
+      "excerpt": "EdgeHTML 12（Windows 10 1507 自带的 Edge）不支持 async/await、fetch() 与 CSS 变量。下载脚本在解析阶段就整体报错，文件根本不会送达。本文梳理成因，以及回退到 XMLHttpRequest、msSaveBlob 与十六进制颜色的处理。"
+    },
+    "zh-Hant": {
+      "title": "Windows 10 1507 內建 Edge 上無法下載安裝檔 —— 將 async·fetch·CSS 變數回退到 ES5",
+      "excerpt": "EdgeHTML 12（Windows 10 1507 內建的 Edge）不支援 async/await、fetch() 與 CSS 變數。下載指令碼在剖析階段就整體出錯，檔案根本不會送達。本文梳理成因，以及回退到 XMLHttpRequest、msSaveBlob 與十六進位色碼的處理。"
+    },
+    "ja": {
+      "title": "Windows 10 1507 標準 Edge でインストーラがダウンロードできない — async・fetch・CSS 変数を ES5 に戻す",
+      "excerpt": "EdgeHTML 12（Windows 10 1507 標準の Edge）は async/await・fetch()・CSS 変数のいずれにも対応していない。ダウンロードスクリプトがパース段階で丸ごと落ち、ファイルが届かなかった原因と、XMLHttpRequest・msSaveBlob・16進カラーへ戻した対応をまとめる。"
+    }
+  },
+  "hard-recovery-maestro-installer-drive-detection-nsis": {
+    "en": {
+      "title": "No Drive Selection Dialog on PCs with Hard-Recovery Software — Relaxing the NSIS Check to a Vendor Folder",
+      "excerpt": "PCs running hard-recovery software roll the C: drive back on every reboot, so the agent disappears with it. The installer detected that software through a single executable path and missed newer builds, landing the agent on C: anyway. We cover the failure and the change to checking only for the vendor folder."
+    },
+    "zh": {
+      "title": "装有硬盘还原软件的 PC 不弹出驱动器选择窗口 —— 将 NSIS 检测条件放宽为厂商文件夹",
+      "excerpt": "装有硬盘还原方案的 PC 每次重启都会回滚 C: 盘，代理也随之消失。安装脚本仅凭某个可执行文件路径来检测该软件，漏掉了较新的发行版，结果仍装到 C: 盘。本文梳理该问题，以及改为只检查厂商文件夹是否存在的处理。"
+    },
+    "zh-Hant": {
+      "title": "裝有硬碟還原軟體的 PC 不跳出磁碟機選擇視窗 —— 將 NSIS 偵測條件放寬為廠商資料夾",
+      "excerpt": "裝有硬碟還原方案的 PC 每次重新開機都會回復 C: 磁碟機，代理也隨之消失。安裝指令碼僅憑某個執行檔路徑來偵測該軟體，漏掉了較新的發行版，結果仍裝到 C: 磁碟機。本文梳理該問題，以及改為只檢查廠商資料夾是否存在的處理。"
+    },
+    "ja": {
+      "title": "ハードディスク復元ソフトが入った PC でドライブ選択画面が出ない — NSIS の判定条件をベンダーフォルダへ緩和する",
+      "excerpt": "ハードディスク復元ソリューションが入った PC は再起動のたびに C: ドライブをロールバックし、エージェントも消える。インストールスクリプトが特定の実行ファイルのパス1つだけで判定していたため新しい配布版を取りこぼし、C: に入ってしまっていた問題と、ベンダーフォルダの有無だけを見るよう緩和した対応をまとめる。"
+    }
   }
 }
