@@ -1330,5 +1330,491 @@
       "title": "ハードディスク復元ソフトが入った PC でドライブ選択画面が出ない — NSIS の判定条件をベンダーフォルダへ緩和する",
       "excerpt": "ハードディスク復元ソリューションが入った PC は再起動のたびに C: ドライブをロールバックし、エージェントも消える。インストールスクリプトが特定の実行ファイルのパス1つだけで判定していたため新しい配布版を取りこぼし、C: に入ってしまっていた問題と、ベンダーフォルダの有無だけを見るよう緩和した対応をまとめる。"
     }
+  },
+  "quarterly-review-2026-q3": {
+    "en": {
+      "title": "In-House WebRTC Remote Control, the Server Data Pipeline, RBAC Across 68 Widgets, and Promoting Symptoms to Issues — Quarterly Review (2026 Q3)",
+      "excerpt": "The manager and agent teams built remote screen control on DXGI + Media Foundation + WebRTC with no commercial library and shipped it as far as a TCP relay for air-gapped networks. The server backend reworked the process-impact pipeline and process.py batching to eliminate message loss at scale. The analytics team built role-based access control across a 68-widget dashboard. The rules and data team redefined the product axis that promotes a symptom into an \"issue\" — condition, evidence, action, verification. The kernel driver team resolved an orange.sys unload deadlock and settled DNS ETW semantics; the frontend team rebuilt the process widget and adopted AG Grid sort comparators globally."
+    },
+    "zh": {
+      "title": "自研 WebRTC 远程控制、服务器数据管道、68 个组件的 RBAC、症状升级为问题 —— 季度回顾（2026 Q3）",
+      "excerpt": "管理端与代理团队未使用商业库，以 DXGI + Media Foundation + WebRTC 自研远程屏幕控制，并落地到隔离网的 TCP 中继。服务器后端重构进程影响管道与 process.py 批处理，消除了大量节点消息丢失。分析服务团队为 68 个组件的仪表盘全面构建基于角色的权限（RBAC）。规则与数据分析团队重新定义了将症状升级为「问题」的产品主轴——条件、依据、处置、验证。内核驱动团队解决 orange.sys 卸载死锁并厘清 DNS ETW 语义；前端团队重做进程组件并全局引入 AG Grid 排序比较器。"
+    },
+    "zh-Hant": {
+      "title": "自研 WebRTC 遠端控制、伺服器資料管線、68 個元件的 RBAC、症狀升級為問題 —— 季度回顧（2026 Q3）",
+      "excerpt": "管理端與代理團隊未使用商業函式庫，以 DXGI + Media Foundation + WebRTC 自研遠端螢幕控制，並落地到封閉網路的 TCP 中繼。伺服器後端重構行程影響管線與 process.py 批次處理，消除了大量節點訊息遺失。分析服務團隊為 68 個元件的儀表板全面建構角色權限（RBAC）。規則與資料分析團隊重新定義了將症狀升級為「問題」的產品主軸——條件、依據、處置、驗證。核心驅動團隊解決 orange.sys 卸載死結並釐清 DNS ETW 語意；前端團隊重做行程元件並全域導入 AG Grid 排序比較器。"
+    },
+    "ja": {
+      "title": "自社製 WebRTC リモート制御・サーバデータパイプライン・68ウィジェットの RBAC・症状から課題への昇格 — 四半期レビュー（2026 Q3）",
+      "excerpt": "マネージャ・エージェント担当は商用ライブラリを使わず DXGI + Media Foundation + WebRTC でリモート画面制御を自社実装し、閉域網向け TCP リレーまで実戦投入した。サーババックエンドはプロセス影響度パイプラインと process.py のバッチ設計を見直し、大量ノードのメッセージ欠落をなくした。分析サービス担当は68ウィジェットのダッシュボードにロールベース権限（RBAC）を全面構築。ルール・データ分析担当は症状を「課題」へ昇格させる製品軸（条件・根拠・対処・検証）を再定義した。カーネルドライバ担当は orange.sys のアンロードデッドロックと DNS ETW の意味を整理し、フロントエンド担当はプロセスウィジェットの再設計と AG Grid ソート comparator の全面導入を行った。"
+    }
+  },
+  "weekly-review-2026-w34": {
+    "en": {
+      "title": "Weekly Development Review — 2026 W34 (Aug 17–23)",
+      "excerpt": "This week's work on the Orange platform, organized by substance rather than volume: improvements to live response and timeline flow, stabilization of the process-impact server pipeline, wider performance instrumentation in the agent, and a large cleanup of rules, policies and frontend widgets."
+    },
+    "zh": {
+      "title": "每周开发回顾 —— 2026 W34（08-17 ~ 08-23）",
+      "excerpt": "本周 Orange 平台团队的工作，按质量而非规模整理：实时响应与时间线流程改进、进程影响服务器管道稳定化、代理性能计量扩展，以及规则/策略与前端组件的大规模整理。"
+    },
+    "zh-Hant": {
+      "title": "每週開發回顧 —— 2026 W34（08-17 ~ 08-23）",
+      "excerpt": "本週 Orange 平台團隊的工作，依品質而非規模整理：即時回應與時間軸流程改進、行程影響伺服器管線穩定化、代理效能計量擴充，以及規則/政策與前端元件的大規模整理。"
+    },
+    "ja": {
+      "title": "週次開発レビュー — 2026 W34（08-17 〜 08-23）",
+      "excerpt": "今週 Orange プラットフォームチームが進めた作業を、規模ではなく質を基準に整理した。ライブ応答・タイムラインの流れの改善、プロセス影響度サーバパイプラインの安定化、エージェントの性能計測の拡張、ルール/ポリシーとフロントウィジェットの大量整理まで、一週間の流れをまとめる。"
+    }
+  },
+  "node-delete-aggregation-resurrection-race-cascade": {
+    "en": {
+      "title": "Deleted Nodes Coming Back on Screen — Cascade in Aggregate Collections and the Rows That Resurrect",
+      "excerpt": "Deleting a node left its process aggregates behind, so the deleted node lingered in widgets forever. The cause was a missing cascade, but simply deleting the aggregates opened a resurrection race: the aggregation daemon rebuilt the rows from leftover raw data. A data-integrity investigation covering the fixed deletion order, orphan cleanup, and a fallback on meta lookups."
+    },
+    "zh": {
+      "title": "删除的节点在界面上复活 —— 聚合集合的 cascade 与会重生的行",
+      "excerpt": "删除节点后进程聚合仍然留存，导致已删除节点在组件中长期残留。成因是缺少 cascade，但若只是删掉聚合，聚合守护进程又会用残留的 raw 数据把行重建回来，形成复活竞争。本文记录固定删除顺序、清理孤儿行、并为 meta 查询加上回退的数据完整性排查。"
+    },
+    "zh-Hant": {
+      "title": "刪除的節點在畫面上復活 —— 彙總集合的 cascade 與會重生的資料列",
+      "excerpt": "刪除節點後行程彙總仍然留存，導致已刪除節點在元件中長期殘留。成因是缺少 cascade，但若只是刪掉彙總，彙總常駐程式又會用殘留的 raw 資料把資料列重建回來，形成復活競爭。本文記錄固定刪除順序、清理孤兒列、並為 meta 查詢加上回退的資料完整性排查。"
+    },
+    "ja": {
+      "title": "削除したノードが画面に復活する — 集計コレクションの cascade と蘇る行",
+      "excerpt": "ノードを削除してもプロセス集計が残り、削除済みノードがウィジェットに残り続けていた。原因は cascade の欠落だったが、集計をただ消すと集計デーモンが残った raw から行を作り直す復活レースが起きる。削除順序の固定、孤児行の整理、meta 参照へのフォールバック追加までのデータ整合性トラブルシューティング。"
+    }
+  },
+  "crash-dump-ntdll-not-the-cause-exception-context-stack": {
+    "en": {
+      "title": "When Dump Analysis Blames ntdll.dll — Walking the Call Stack from the Exception Context",
+      "excerpt": "Analyze a process crash dump and the culprit keeps coming back as ntdll.dll. But ntdll is where the fault was detected, not where it came from. You have to walk the call stack from .ecxr — the context at the moment of the exception — rather than from the moment the dump was written. Confirmed across seven collected dumps."
+    },
+    "zh": {
+      "title": "当转储分析把原因指向 ntdll.dll —— 从异常时刻的上下文回溯调用栈",
+      "excerpt": "分析进程崩溃转储时，原因总是落在 ntdll.dll 上。但 ntdll 是检出点，不是成因。必须从 .ecxr（异常时刻的上下文）而非转储写入时刻回溯调用栈，才能找到真正的原因。本文以 7 份实证转储验证。"
+    },
+    "zh-Hant": {
+      "title": "當傾印分析把原因指向 ntdll.dll —— 從例外時刻的內容回溯呼叫堆疊",
+      "excerpt": "分析行程當機傾印時，原因總是落在 ntdll.dll 上。但 ntdll 是偵測點，不是成因。必須從 .ecxr（例外時刻的內容）而非傾印寫入時刻回溯呼叫堆疊，才能找到真正的原因。本文以 7 份實證傾印驗證。"
+    },
+    "ja": {
+      "title": "ダンプ解析で ntdll.dll が原因に見えるとき — 例外時点のコンテキストからコールスタックを辿る",
+      "excerpt": "プロセスのクラッシュダンプを解析すると原因が ntdll.dll ばかりになる。ntdll は検出地点であって原因ではない。ダンプ記録時点ではなく .ecxr（例外時点のコンテキスト）からコールスタックを辿ってはじめて真因に届く、という7件の実ダンプで確認した記録。"
+    }
+  },
+  "dns-etw-event-semantics-dead-detection-code": {
+    "en": {
+      "title": "Misreading DNS ETW Event IDs — A 6.6× Detection Surge and a Failure Path That Was Dead",
+      "excerpt": "In the agent's DNS-Client ETW handling, the actual meaning of the event IDs was off. Local cache lookups were mistaken for server queries, so detections on a healthy PC jumped from 2,491 to 13,509 — while the real failure detection (3008) was dead entirely. We pinned down each event's meaning from the manifest and reproduced it on an air-gapped network."
+    },
+    "zh": {
+      "title": "误读 DNS ETW 事件 ID 的后果 —— 检测量暴增 6.6 倍，真正的失败检测却是死代码",
+      "excerpt": "代理的 DNS-Client ETW 处理中，事件 ID 的实际含义存在偏差。本地缓存查询被误当作服务器通信，使正常 PC 的检测从 2,491 条跃升至 13,509 条；而真正的失败检测（3008）却完全失效。本文记录如何依据清单与隔离网复现逐一确定每个事件的含义。"
+    },
+    "zh-Hant": {
+      "title": "誤讀 DNS ETW 事件 ID 的後果 —— 偵測量暴增 6.6 倍，真正的失敗偵測卻是死碼",
+      "excerpt": "代理的 DNS-Client ETW 處理中，事件 ID 的實際含義存在偏差。本機快取查詢被誤當作伺服器通訊，使正常 PC 的偵測從 2,491 筆躍升至 13,509 筆；而真正的失敗偵測（3008）卻完全失效。本文記錄如何依據資訊清單與封閉網路重現逐一確定每個事件的含義。"
+    },
+    "ja": {
+      "title": "DNS ETW イベント ID の意味を読み違えると — 検知が6.6倍に膨れ、失敗検知は死んでいた",
+      "excerpt": "エージェントの DNS-Client ETW 処理でイベント ID の実際の意味がずれていた。ローカルキャッシュの参照をサーバ通信と取り違え、正常な PC で検知が 2,491件→13,509件 に跳ね上がった一方、本来の失敗検知（3008）は丸ごと死んでいた。マニフェストと閉域網での再現でイベント一つひとつの意味を確定した記録。"
+    }
+  },
+  "firewall-block-detection-etw-tcp-domain-field": {
+    "en": {
+      "title": "Windows Firewall Blocked It but Nothing Was Detected — The Domain Field Trap in ETW TCP Events",
+      "excerpt": "Blocking outbound connections with Windows Firewall produced no symptom from the agent. A Domain-field check just before rule matching was filtering out firewall block (1020), kernel resource exhaustion (1030) and port exhaustion (1050) events wholesale. Traced with ETW and fixed."
+    },
+    "zh": {
+      "title": "Windows 防火墙已拦截却检测不到 —— ETW TCP 事件中 Domain 字段的陷阱",
+      "excerpt": "用 Windows 防火墙拦截外发连接后，代理却生成不了症状。规则匹配前的 Domain 字段检查把防火墙拦截（1020）、内核资源不足（1030）、端口耗尽（1050）事件整体过滤掉了。本文记录以 ETW 追踪定位并修复的过程。"
+    },
+    "zh-Hant": {
+      "title": "Windows 防火牆已攔截卻偵測不到 —— ETW TCP 事件中 Domain 欄位的陷阱",
+      "excerpt": "用 Windows 防火牆攔截對外連線後，代理卻產生不了症狀。規則比對前的 Domain 欄位檢查把防火牆攔截（1020）、核心資源不足（1030）、連接埠耗盡（1050）事件整體過濾掉了。本文記錄以 ETW 追蹤定位並修復的過程。"
+    },
+    "ja": {
+      "title": "Windows ファイアウォールが遮断したのに検知されない — ETW TCP イベントの Domain フィールドの罠",
+      "excerpt": "Windows ファイアウォールで外向き接続を遮断してもエージェントが症状を作れなかった。ルール照合の直前にある Domain フィールドの検査が、ファイアウォール遮断（1020）・カーネル資源不足（1030）・ポート枯渇（1050）のイベントを丸ごと弾いていた。ETW トレースで原因を突き止めて直した記録。"
+    }
+  },
+  "kernel-dump-device-stack-walking-culprit-driver": {
+    "en": {
+      "title": "Finding the Real Culprit Driver Behind a 0x9F Bugcheck — Identifying the Miniport by Walking the Device Stack",
+      "excerpt": "For 0x9F (DRIVER_POWER_STATE_FAILURE) the call-stack fallback always lands on ntoskrnl.exe, so the actual culprit driver stays hidden. We walk DEVICE_OBJECT and DRIVER_OBJECT directly to name the miniport without PDBs, classify crashes into ten categories, and parse WHEA records to reach hardware faults — an account of improving our dump analyzer."
+    },
+    "zh": {
+      "title": "在 0x9F 蓝屏中找出真正的问题驱动 —— 通过遍历设备栈定位微型端口驱动",
+      "excerpt": "0x9F（DRIVER_POWER_STATE_FAILURE）的调用栈回退总是指向 ntoskrnl.exe，无法定位真正的问题驱动。本文直接遍历 DEVICE_OBJECT/DRIVER_OBJECT，在没有 PDB 的情况下确定问题微型端口驱动，将崩溃归为 10 个类别，并解析 WHEA 记录以查明硬件故障——一份转储分析器改进记录。"
+    },
+    "zh-Hant": {
+      "title": "在 0x9F 藍白當機中找出真正的問題驅動 —— 透過走訪裝置堆疊定位迷你連接埠驅動",
+      "excerpt": "0x9F（DRIVER_POWER_STATE_FAILURE）的呼叫堆疊回退總是指向 ntoskrnl.exe，無法定位真正的問題驅動。本文直接走訪 DEVICE_OBJECT/DRIVER_OBJECT，在沒有 PDB 的情況下確定問題迷你連接埠驅動，將當機歸為 10 個類別，並剖析 WHEA 記錄以查明硬體故障——一份傾印分析器改進記錄。"
+    },
+    "ja": {
+      "title": "0x9F ブルースクリーンの真の原因ドライバを特定する — デバイススタックを辿ってミニポートを割り出す",
+      "excerpt": "0x9F（DRIVER_POWER_STATE_FAILURE）はコールスタックのフォールバックが常に ntoskrnl.exe になり、真の原因ドライバに届かない。DEVICE_OBJECT/DRIVER_OBJECT を直接辿って PDB なしで原因ミニポートを特定し、クラッシュを10カテゴリに分類し、WHEA レコードを解析してハードウェア障害まで突き止めた、ダンプ解析ツール改善の記録。"
+    }
+  },
+  "mobile-auto-logout-option-only-hid-tooltip": {
+    "en": {
+      "title": "The Checkbox Only Hid a Tooltip — \"Disable Auto-Logout on Mobile\" Never Actually Stopped the Logout",
+      "excerpt": "Turning on \"do not auto-logout on mobile devices\" in the manager settings changed nothing: mobile users were still logged out. All the option actually did was hide the remaining-time tooltip. Users who enabled it were dropped without warning and without even a countdown — a bug the setting itself kept hidden for a long time."
+    },
+    "zh": {
+      "title": "复选框只是隐藏了提示 —— 「移动端不适用自动登出」其实从未阻止登出",
+      "excerpt": "在管理端设置中打开「移动设备不适用自动登出」后，移动端仍然照常登出。该选项实际改变的只是隐藏剩余时间提示。开启该选项的用户连倒计时都看不到就被无预警踢出——这是一个被设置项长期掩盖的缺陷诊断记录。"
+    },
+    "zh-Hant": {
+      "title": "核取方塊只是隱藏了提示 —— 「行動端不適用自動登出」其實從未阻止登出",
+      "excerpt": "在管理端設定中開啟「行動裝置不適用自動登出」後，行動端仍然照常登出。該選項實際改變的只是隱藏剩餘時間提示。開啟該選項的使用者連倒數計時都看不到就被無預警踢出——這是一個被設定項長期掩蓋的缺陷診斷記錄。"
+    },
+    "ja": {
+      "title": "チェックボックスはツールチップを隠していただけだった — 「モバイルで自動ログアウトを適用しない」が実際にはログアウトを止めていなかったバグ",
+      "excerpt": "マネージャ設定の「モバイル機器で自動ログアウトを適用しない」をオンにしてもモバイルではそのままログアウトされた。この設定が実際に変えていたのは残り時間のツールチップを隠すことだけだった。オンにした利用者はカウントダウンすら見られないまま予告なく切断されていた、設定値によって長く隠れていたバグの診断記録。"
+    }
+  },
+  "manager-session-expiry-idle-floor-absolute-timeout-zombie-cleanup": {
+    "en": {
+      "title": "Manager Sessions Piling Up Without Expiry — Fixing It With an Idle Floor and an Absolute Timeout",
+      "excerpt": "Turning off idle expiry (maxIdleTime=0) removed every means of ending a session, so thousands accumulated in Redis with no TTL. We report the measured state — inactive super_admin tokens still valid — and the fix: a 12-hour idle floor plus a 24-hour absolute timeout, with a one-time sweep of zombie sessions."
+    },
+    "zh": {
+      "title": "无过期而无限累积的管理端会话 —— 以空闲下限与绝对过期两条轴整治",
+      "excerpt": "关闭空闲过期（maxIdleTime=0）后，结束会话的手段完全消失，导致 Redis 中堆积了数千个没有 TTL 的会话。本文记录实测现状（非活跃 super_admin 令牌仍然有效），以及用空闲过期下限（12 小时）与绝对过期（24 小时）整治并一次性清理僵尸会话的过程。"
+    },
+    "zh-Hant": {
+      "title": "無到期而無限累積的管理端工作階段 —— 以閒置下限與絕對到期兩條軸整治",
+      "excerpt": "關閉閒置到期（maxIdleTime=0）後，結束工作階段的手段完全消失，導致 Redis 中堆積了數千個沒有 TTL 的工作階段。本文記錄實測現況（非活躍 super_admin 權杖仍然有效），以及用閒置到期下限（12 小時）與絕對到期（24 小時）整治並一次性清理殭屍工作階段的過程。"
+    },
+    "ja": {
+      "title": "期限なく無限に積み上がるマネージャセッションの整理 — アイドル下限と絶対期限の2軸で",
+      "excerpt": "アイドル期限を切る（maxIdleTime=0）とセッションを終わらせる手段が完全になくなる構造のため、Redis に TTL なしのセッションが数千件たまっていた。非アクティブな super_admin トークンがそのまま有効だった実測状況と、アイドル期限の下限（12時間）＋絶対期限（24時間）で整え、ゾンビセッションを一度掃除した記録。"
+    }
+  },
+  "endpoint-protection-false-positive-watchdog-powershell-to-native": {
+    "en": {
+      "title": "Antivirus Flagged Our Watchdog as a Dropper — Removing PowerShell EncodedCommand in Favor of Native Execution",
+      "excerpt": "Symantec Endpoint Protection quarantined the agent's watchdog scheduled task as Scr.Malcode!gen77. EncodedCommand plus ExecutionPolicy Bypass plus disabled TLS validation plus an unattended download-and-run matched dropper heuristics exactly. We moved the PowerShell gate into native code and removed the script entirely."
+    },
+    "zh": {
+      "title": "杀毒软件把我们的看门狗误报为投放器 —— 用原生执行取代 PowerShell EncodedCommand",
+      "excerpt": "Symantec Endpoint Protection 将代理看门狗的计划任务以 Scr.Malcode!gen77 隔离。EncodedCommand + ExecutionPolicy Bypass + 关闭 TLS 校验 + 无人值守下载执行，恰好命中投放器启发式规则。本文记录将 PowerShell 环节移入原生代码、彻底取消脚本的应对过程。"
+    },
+    "zh-Hant": {
+      "title": "防毒軟體把我們的看門狗誤報為投放器 —— 用原生執行取代 PowerShell EncodedCommand",
+      "excerpt": "Symantec Endpoint Protection 將代理看門狗的排程工作以 Scr.Malcode!gen77 隔離。EncodedCommand + ExecutionPolicy Bypass + 關閉 TLS 驗證 + 無人值守下載執行，恰好命中投放器啟發式規則。本文記錄將 PowerShell 環節移入原生程式碼、徹底取消指令碼的因應過程。"
+    },
+    "ja": {
+      "title": "ウイルス対策製品が自社のウォッチドッグをドロッパーと誤検知した — PowerShell EncodedCommand をネイティブ実行へ置き換えるまで",
+      "excerpt": "Symantec Endpoint Protection がエージェントのウォッチドッグのタスクスケジュールを Scr.Malcode!gen77 として隔離した。EncodedCommand ＋ ExecutionPolicy Bypass ＋ TLS 検証の無効化 ＋ 無人ダウンロード実行が、まさにドロッパーのヒューリスティックに合致していた。PowerShell の入口をネイティブコードへ移し、スクリプト自体をなくした対応記録。"
+    }
+  },
+  "late-arriving-telemetry-hourly-reaggregation-arrival-curve-ladder": {
+    "en": {
+      "title": "Late Telemetry Vanishing From Hourly Aggregates — A Four-Step Re-Aggregation Ladder Matched to the Arrival Curve",
+      "excerpt": "Process data arriving late over QoS 0 was present in raw but missing from the hourly aggregates. Instead of re-aggregating the whole trailing 24 hours every hour, we aimed at the steps in the measured cumulative arrival curve and revisited only the points where the gain is concentrated — closing the gap at an eighth of the cost."
+    },
+    "zh": {
+      "title": "迟到的遥测在小时聚合中消失 —— 依到达曲线设计的四级重聚合阶梯",
+      "excerpt": "以 QoS 0 迟到的进程数据存在于 raw 却缺失于 hourly 聚合。我们没有采用每小时重算最近 24 小时的窗口方式，而是瞄准实测累积到达曲线上的台阶，只重访收益集中的时点，以八分之一的成本补上了缺口。"
+    },
+    "zh-Hant": {
+      "title": "遲到的遙測在小時彙總中消失 —— 依到達曲線設計的四級重新彙總階梯",
+      "excerpt": "以 QoS 0 遲到的行程資料存在於 raw 卻缺失於 hourly 彙總。我們沒有採用每小時重算最近 24 小時的視窗方式，而是瞄準實測累積到達曲線上的階梯，只重訪效益集中的時點，以八分之一的成本補上了缺口。"
+    },
+    "ja": {
+      "title": "遅れて届いたテレメトリが時間別集計から消える問題 — 到着カーブに合わせた4段の再集計ラダー",
+      "excerpt": "QoS 0 で遅れて届いたプロセスデータが raw にはあるのに hourly 集計にない穴。毎時、直近24時間をすべて再集計する窓方式ではなく、実測の累積到着カーブの段差を狙い、利得が集中する地点だけを再訪する設計で8倍安く穴を埋めた記録。"
+    }
+  },
+  "remote-desktop-hardware-encoder-stream-renegotiation-mf-transform-stream-change": {
+    "en": {
+      "title": "Remote Control Going Blurry With CPU at 100% — Stuck in Software Encoding After Missing an MF_E_TRANSFORM_STREAM_CHANGE Renegotiation",
+      "excerpt": "On an Intel Iris Xe laptop, remote control turned blurry and the target PC's CPU hit 100%. The stream-renegotiation signal from the hardware encoder (0xC00D6D61) was merely logged and skipped, leaving the session stuck on the software fallback. Root-cause analysis plus fixes to renegotiation handling and the transmission-quality promotion gate."
+    },
+    "zh": {
+      "title": "远程控制画质变糊、CPU 冲到 100% —— 漏处理 MF_E_TRANSFORM_STREAM_CHANGE 重协商而卡在软件编码",
+      "excerpt": "在 Intel Iris Xe 笔记本上，远程控制画质模糊、目标 PC 的 CPU 占满 100%。硬件编码器发出的流重协商信号（0xC00D6D61）只被记录日志便略过，导致会话固化在软件回退路径。本文记录成因分析，以及重协商处理与传输质量升级门控的修复。"
+    },
+    "zh-Hant": {
+      "title": "遠端控制畫質變糊、CPU 衝到 100% —— 漏處理 MF_E_TRANSFORM_STREAM_CHANGE 重新協商而卡在軟體編碼",
+      "excerpt": "在 Intel Iris Xe 筆電上，遠端控制畫質模糊、目標 PC 的 CPU 佔滿 100%。硬體編碼器發出的串流重新協商訊號（0xC00D6D61）只被記錄日誌便略過，導致工作階段固化在軟體回退路徑。本文記錄成因分析，以及重新協商處理與傳輸品質升級閘門的修復。"
+    },
+    "ja": {
+      "title": "リモート制御の画質が崩れ CPU が100%に — MF_E_TRANSFORM_STREAM_CHANGE の再ネゴシエーションを取りこぼしソフトウェアエンコードに固着した件",
+      "excerpt": "Intel Iris Xe のノート PC でリモート制御の画質が崩れ、対象 PC の CPU が100%になった。ハードウェアエンコーダが送ったストリーム再ネゴシエーション信号（0xC00D6D61）をログに出すだけで流していたため、ソフトウェアフォールバックに固着していた原因分析と、再ネゴシエーション処理・伝送品質ラダーの昇格ゲート修正の記録。"
+    }
+  },
+  "bsod-categorization-crash-corpus-distribution": {
+    "en": {
+      "title": "Sorting 305 Field Blue Screens Into Seven Categories — BSOD Categorization and the Measured Distribution",
+      "excerpt": "We classified 305 blue screens collected from real customer sites into seven categories: Driver, Kernel, Memory, Hardware, Disk/Power, Security/Boot and Misc. A report on how often each type occurs and what each category actually means."
+    },
+    "zh": {
+      "title": "将现场 305 起蓝屏归为七类 —— BSOD 分类与实测分布",
+      "excerpt": "我们将真实客户现场收集的 305 起蓝屏（BSOD）分为 Driver、Kernel、Memory、Hardware、Disk/Power、Security/Boot、Misc 七个类别。本报告整理各类型的发生频次及其含义。"
+    },
+    "zh-Hant": {
+      "title": "將現場 305 起藍白當機歸為七類 —— BSOD 分類與實測分布",
+      "excerpt": "我們將真實客戶現場蒐集的 305 起藍白當機（BSOD）分為 Driver、Kernel、Memory、Hardware、Disk/Power、Security/Boot、Misc 七個類別。本報告整理各類型的發生頻次及其含義。"
+    },
+    "ja": {
+      "title": "現場のブルースクリーン305件を7カテゴリに分ける — BSOD の分類と実測分布",
+      "excerpt": "実際の顧客現場で収集したブルースクリーン（BSOD）305件を Driver・Kernel・Memory・Hardware・Disk/Power・Security/Boot・Misc の7カテゴリに分類した結果。どの類型がどれだけ起きるのか、各カテゴリが何を意味するのかをまとめたレポート。"
+    }
+  },
+  "weekly-review-2026-w33": {
+    "en": {
+      "title": "In-House Remote Screen Control Completed, coturn Standardized With Layered Connection Paths, Signal Command and Node Asset Bundle API, MQTT Topic Isolation — Weekly Review (Aug 3–10, 2026)",
+      "excerpt": "The manager and agent teams implemented remote screen control on DXGI + MF H.264 + libdatachannel, folded in coturn as standard, and added layered P2P→TCP relay fallback, bringing the remote-support stack to production readiness. The server backend shipped the Signal Command infrastructure, a node asset bundle API (2,100 requests → 1 call) and MQTT topic isolation, removing a single point of failure in the node list. Analytics consolidated symptom widget v3 onto one endpoint and stabilized multi-server remote deployment; the kernel driver team made the agent drive-independent with a drive-selectable installer; the frontend completed a per-group node status landing page, command management v2 and a detection-exception widget."
+    },
+    "zh": {
+      "title": "自研远程屏幕控制完成、coturn 标准化与连接路径多级化、Signal Command 与节点资产捆绑 API、MQTT 主题隔离 —— 每周回顾（2026-08-03 ~ 08-10）",
+      "excerpt": "管理端与代理团队以 DXGI + MF H.264 + libdatachannel 自研远程屏幕控制，并纳入 coturn 标准、加入 P2P→TCP 中继的多级回退，将远程支持基础设施推进到实战部署阶段。服务器后端发布 Signal Command 远程控制基础设施、节点资产捆绑 API（2,100 请求→1 次调用）与 MQTT 主题隔离，消除节点列表的单点故障。分析服务团队将症状组件 v3 统一到单一端点并稳定多服务器远程部署；内核驱动团队实现代理驱动器独立化与可选安装驱动器的安装程序；前端团队完成按组的节点状态汇总落地页、命令管理 v2 与检测例外组件。"
+    },
+    "zh-Hant": {
+      "title": "自研遠端螢幕控制完成、coturn 標準化與連線路徑多級化、Signal Command 與節點資產綑綁 API、MQTT 主題隔離 —— 每週回顧（2026-08-03 ~ 08-10）",
+      "excerpt": "管理端與代理團隊以 DXGI + MF H.264 + libdatachannel 自研遠端螢幕控制，並納入 coturn 標準、加入 P2P→TCP 中繼的多級回退，將遠端支援基礎設施推進到實戰部署階段。伺服器後端發佈 Signal Command 遠端控制基礎設施、節點資產綑綁 API（2,100 請求→1 次呼叫）與 MQTT 主題隔離，消除節點清單的單點故障。分析服務團隊將症狀元件 v3 統一到單一端點並穩定多伺服器遠端部署；核心驅動團隊實現代理磁碟機獨立化與可選安裝磁碟機的安裝程式；前端團隊完成依群組的節點狀態彙總到達頁、命令管理 v2 與偵測例外元件。"
+    },
+    "ja": {
+      "title": "自社製リモート画面制御の完成と coturn 標準化・接続経路の多段化、Signal Command とノード資産バンドル API・MQTT トピック分離、グループ状況ランディングとエージェントのドライブ独立化 — 週次レビュー（2026-08-03 〜 08-10）",
+      "excerpt": "マネージャ・エージェント担当がリモート画面制御を DXGI + MF H.264 + libdatachannel で自社実装し、coturn の標準編入と P2P→TCP リレーの多段フォールバックまで進めてリモート支援基盤を実戦投入段階へ引き上げた。サーババックエンドは Signal Command 基盤とノード資産バンドル API（2,100リクエスト→1コール）・MQTT トピック分離を投入し、ノード一覧の単一障害点を除去。分析サービスは症状ウィジェット v3 の単一エンドポイント統合と複数サーバへのリモート配備を安定化、カーネルドライバ担当はエージェントのドライブ独立化とインストール先選択型インストーラを、フロントエンドはグループ別ノード状況ランディングとコマンド管理 v2・検知例外ウィジェットを仕上げた一週間。"
+    }
+  },
+  "signal-command-lightweight-infrastructure": {
+    "en": {
+      "title": "Turning Lightweight Commands Into Infrastructure — A Standard Path With No Result Aggregation, and the Principle That Lightweight ≠ Careless",
+      "excerpt": "We consolidated commands that need no result aggregation onto a single channel (command:signal + dispatch_signal) and built node remote control on top of it — restart, update, reboot and shutdown, individually or by group. An account of the build, including redefining a command's \"weight\" along three axes: result collection, delivery guarantee and audit."
+    },
+    "zh": {
+      "title": "将轻量命令基础设施化 —— 无需结果聚合的标准命令通道与「轻量 ≠ 不负责」原则",
+      "excerpt": "我们把无需结果聚合的轻量命令统一到单一通道（command:signal + dispatch_signal），并在其上开通节点远程控制（重启/更新/重新开机/关机），支持单台与分组。本文记录这套基础设施的构建，以及以结果收集、投递保证、审计三条轴重新定义命令「重量」的过程。"
+    },
+    "zh-Hant": {
+      "title": "將輕量命令基礎設施化 —— 無需結果彙總的標準命令通道與「輕量 ≠ 不負責」原則",
+      "excerpt": "我們把無需結果彙總的輕量命令統一到單一通道（command:signal + dispatch_signal），並在其上開通節點遠端控制（重啟/更新/重新開機/關機），支援單台與分組。本文記錄這套基礎設施的建構，以及以結果蒐集、投遞保證、稽核三條軸重新定義命令「重量」的過程。"
+    },
+    "ja": {
+      "title": "軽量コマンドのインフラ化 — 結果集計を伴わない標準経路と「軽量 ≠ 無責任」の原則",
+      "excerpt": "結果集計が不要な軽量コマンドを単一チャネル（command:signal + dispatch_signal）に統合し、その上にノードのリモート制御（再起動/アップデート/リブート/シャットダウン）を単体・グループ単位で開通させた。コマンドの「重さ」を結果収集・配達保証・監査の3軸で再定義したインフラ構築の記録。"
+    }
+  },
+  "agent-lost-write-corruption-incident": {
+    "en": {
+      "title": "Mass Agent Loss From a Lost Write During Update Installation — Root Cause and Hardened Self-Recovery",
+      "excerpt": "An incident report on agents that terminated on many nodes right after an update rollout and never recovered. We establish the cause as a lost write to the binary caused by an abrupt storage stall, and lay out the design changes made to prevent a recurrence."
+    },
+    "zh": {
+      "title": "更新安装过程中写入丢失导致代理批量失联事件 —— 成因分析与自愈加固",
+      "excerpt": "一份事件分析报告：更新发布后多个节点上的代理终止且未能恢复。我们将成因确定为存储突然停顿导致的二进制写入丢失（lost write），并整理了防止复发的设计改动。"
+    },
+    "zh-Hant": {
+      "title": "更新安裝過程中寫入遺失導致代理批次失聯事件 —— 成因分析與自我修復強化",
+      "excerpt": "一份事件分析報告：更新發布後多個節點上的代理終止且未能復原。我們將成因確定為儲存突然停頓導致的二進位寫入遺失（lost write），並整理了防止再發的設計變更。"
+    },
+    "ja": {
+      "title": "アップデート適用中の書き込み欠落によるエージェント大量消失 — 原因分析と自己復旧の強化",
+      "excerpt": "アップデート配布直後に多数のノードでエージェントが終了し復旧しなかった事故を、ストレージの急停止によるバイナリの書き込み欠落（lost write）と断定し、再発防止の設計をまとめた事故分析レポート。"
+    }
+  },
+  "authenticode-signature-trust-verification": {
+    "en": {
+      "title": "Honoring the Trust Result in Code-Signature Checks — Trust the Signer Name Alone and Tampered Signatures Walk Through",
+      "excerpt": "If Authenticode verification parses only the signer CN and discards the trust verdict (VERIFY_RESULT), expired, revoked and tampered signatures all pass. A security fix that, under air-gapped constraints, determines digest mismatch (tampering) offline and produces and stores a trust verdict."
+    },
+    "zh": {
+      "title": "在代码签名判定中纳入信任结果 —— 只信签名者名称，被篡改的签名就会通过关卡",
+      "excerpt": "若 Authenticode 校验只解析签名者 CN 而丢弃信任判定（VERIFY_RESULT），过期、吊销、被篡改的签名都会通过。本文记录在隔离网约束下，离线判别摘要不匹配（篡改）并生成、保存信任判定的安全修复。"
+    },
+    "zh-Hant": {
+      "title": "在程式碼簽章判定中納入信任結果 —— 只信簽署者名稱，被竄改的簽章就會通過關卡",
+      "excerpt": "若 Authenticode 驗證只剖析簽署者 CN 而丟棄信任判定（VERIFY_RESULT），過期、撤銷、被竄改的簽章都會通過。本文記錄在封閉網路限制下，離線判別摘要不符（竄改）並產生、保存信任判定的安全修復。"
+    },
+    "ja": {
+      "title": "コード署名の判定に信頼結果を反映する — 署名者名だけを信じると改ざん署名がゲートを通る",
+      "excerpt": "Authenticode 検証が署名者 CN だけを読み、信頼判定（VERIFY_RESULT）を捨てると、期限切れ・失効・改ざんの署名まで通ってしまう。閉域網の制約下でダイジェスト不一致（改ざん）のみをオフラインで判別し、信頼判定を生成・保管した security 修正の記録。"
+    }
+  },
+  "sqlite-wal-unbounded-growth-checkpoint": {
+    "en": {
+      "title": "Catching Unbounded SQLite WAL Growth — A Disabled Checkpoint and Size Monitoring Under zipvfs Constraints",
+      "excerpt": "A troubleshooting record on SQLite in WAL mode exhausting the disk because automatic checkpointing was off, solved with measurements, the zipvfs constraints, periodic checkpoints and a size-monitoring design."
+    },
+    "zh": {
+      "title": "治理 SQLite WAL 无限增长 —— 检查点未启用的缺陷与 zipvfs 约束下的大小监控设计",
+      "excerpt": "一份排查记录：WAL 模式的 SQLite 因自动检查点被关闭而耗尽磁盘，通过实测、zipvfs 约束、周期性检查点与大小监控设计加以解决。"
+    },
+    "zh-Hant": {
+      "title": "治理 SQLite WAL 無限成長 —— 檢查點未啟用的缺陷與 zipvfs 限制下的大小監控設計",
+      "excerpt": "一份排查記錄：WAL 模式的 SQLite 因自動檢查點被關閉而耗盡磁碟，透過實測、zipvfs 限制、週期性檢查點與大小監控設計加以解決。"
+    },
+    "ja": {
+      "title": "SQLite WAL の無限成長を止める — チェックポイント無効の不具合と zipvfs 制約下でのサイズ監視設計",
+      "excerpt": "自動チェックポイントが切れた WAL モードの SQLite がディスクを食い尽くした不具合を、実測・zipvfs 制約・定期チェックポイント・サイズ監視の設計で解決したトラブルシューティング記録。"
+    }
+  },
+  "webrtc-dual-nat-black-screen-relay": {
+    "en": {
+      "title": "Debugging a WebRTC Black Screen Behind Double NAT — Forcing a Relay Switch on Media, Not on a False P2P Success",
+      "excerpt": "All five connection stages pass, yet the video stays black. On a double-NAT VM, ICE judged P2P a success and never fell back to the relay. We changed the switch condition from \"connection succeeded\" to \"media actually arrived.\""
+    },
+    "zh": {
+      "title": "WebRTC 双重 NAT 黑屏调试 —— 当 P2P 被误判为成功时，以媒体到达为准强制切换中继",
+      "excerpt": "连接五个阶段全部通过，画面却是黑的。在双重 NAT 的虚拟机上，ICE 把 P2P 误判为成功而不切换到中继。本文记录将切换判据从「连接成功」改为「媒体确实到达」的排查过程。"
+    },
+    "zh-Hant": {
+      "title": "WebRTC 雙重 NAT 黑畫面除錯 —— 當 P2P 被誤判為成功時，以媒體到達為準強制切換中繼",
+      "excerpt": "連線五個階段全部通過，畫面卻是黑的。在雙重 NAT 的虛擬機上，ICE 把 P2P 誤判為成功而不切換到中繼。本文記錄將切換判準從「連線成功」改為「媒體確實到達」的排查過程。"
+    },
+    "ja": {
+      "title": "WebRTC 二重 NAT の黒画面デバッグ — P2P を成功と誤判定するとき、メディア到達を基準にリレーへ強制切替",
+      "excerpt": "接続の5段階はすべて通るのに映像だけが黒い。二重 NAT の VM で ICE が P2P を成功と誤判定し、リレーに移らなかった問題を、「接続成功」ではなく「実際にメディアが届いたか」を基準にリレーへ切り替えるよう直したトラブルシューティング。"
+    }
+  },
+  "webrtc-remote-desktop-control": {
+    "en": {
+      "title": "Building Our Own WebRTC Remote Screen Control — DXGI Capture, MF H.264, libdatachannel, the Secure Desktop and a TCP Relay",
+      "excerpt": "Rather than adopting MeshCentral or RustDesk as-is, we implemented browser-based remote control on DXGI + Media Foundation H.264 + libdatachannel, and carried it through to controlling the secure desktop before login, seamless session switching, and a TCP both-relay for networks where UDP is blocked outright."
+    },
+    "zh": {
+      "title": "基于 WebRTC 的自研远程屏幕控制构建记 —— DXGI 采集、MF H.264、libdatachannel，直到安全桌面与 TCP 中继",
+      "excerpt": "我们没有直接采用 MeshCentral 或 RustDesk，而是以 DXGI + Media Foundation H.264 + libdatachannel 自研网页端远程控制，并完成登录前安全桌面控制、会话切换无缝衔接，以及在全面封锁 UDP 的网络中使用 TCP both-relay。"
+    },
+    "zh-Hant": {
+      "title": "基於 WebRTC 的自研遠端螢幕控制建構記 —— DXGI 擷取、MF H.264、libdatachannel，直到安全桌面與 TCP 中繼",
+      "excerpt": "我們沒有直接採用 MeshCentral 或 RustDesk，而是以 DXGI + Media Foundation H.264 + libdatachannel 自研網頁端遠端控制，並完成登入前安全桌面控制、工作階段切換無縫銜接，以及在全面封鎖 UDP 的網路中使用 TCP both-relay。"
+    },
+    "ja": {
+      "title": "WebRTC ベースの自社製リモート画面制御を作る — DXGI キャプチャ・MF H.264・libdatachannel、セキュアデスクトップと TCP リレーまで",
+      "excerpt": "MeshCentral や RustDesk をそのまま使わず、DXGI + Media Foundation H.264 + libdatachannel でブラウザからのリモート制御を自社実装し、ログイン前のセキュアデスクトップ操作、セッション切替のシームレス化、UDP 全面遮断網での TCP both-relay まで仕上げた記録。"
+    }
+  },
+  "weekly-review-2026-w32": {
+    "en": {
+      "title": "Wiring Up AI Remote Diagnosis and In-House Remote Screen Control, Load Testing With Virtual Agents, Three-Tier MongoDB Instrumentation, Resolving the mosquitto FD-Exhaustion Crash Loop — Weekly Review (Jul 27 – Aug 3, 2026)",
+      "excerpt": "The manager and agent teams wired up AI remote diagnosis Phase 1 and in-house remote screen control (WebRTC/coturn), and reproduced broker FD exhaustion with a virtual-agent (vorange) load tool. The server backend shipped three-tier MongoDB instrumentation and separated node.detect responsibilities, and traced the mosquitto watchdog crash loop to its root cause. Analytics laid down AI diagnosis audit categories, an EWMA+CUSUM node baseline service and customer remote-deployment scripts. The rules and data team produced release note 1.6.242.0724 and the load widget's process tab; the kernel driver team analyzed duplicate PC names and Delivery Optimization at a call center; the frontend team built the per-group node status landing page and reworked widget layout editing and time-zone rules."
+    },
+    "zh": {
+      "title": "AI 远程诊断与自研远程屏幕控制接线、虚拟 Agent 负载验证、MongoDB 三层计量、mosquitto FD 耗尽 crash loop 解除 —— 每周回顾（2026-07-27 ~ 08-03）",
+      "excerpt": "管理端与代理团队接入 AI 远程诊断 Phase 1 与自研远程屏幕控制（WebRTC/coturn），并用虚拟 Agent（vorange）负载工具复现了 broker 的 FD 耗尽。服务器后端发布 MongoDB 三层计量与 node.detect 职责拆分，并查明 mosquitto watchdog crash loop 的根本成因。分析服务团队铺设 AI 诊断审计类别、EWMA+CUSUM 节点基线服务与客户侧远程部署脚本；规则与数据分析团队完成补丁说明 1.6.242.0724 与负载组件的进程页；内核驱动团队分析客户呼叫中心 PC 名重复与 Delivery Optimization；前端团队整备按组的节点状态汇总落地页与组件布局编辑、时区规则。"
+    },
+    "zh-Hant": {
+      "title": "AI 遠端診斷與自研遠端螢幕控制接線、虛擬 Agent 負載驗證、MongoDB 三層計量、mosquitto FD 耗盡 crash loop 解除 —— 每週回顧（2026-07-27 ~ 08-03）",
+      "excerpt": "管理端與代理團隊接入 AI 遠端診斷 Phase 1 與自研遠端螢幕控制（WebRTC/coturn），並用虛擬 Agent（vorange）負載工具重現了 broker 的 FD 耗盡。伺服器後端發佈 MongoDB 三層計量與 node.detect 職責拆分，並查明 mosquitto watchdog crash loop 的根本成因。分析服務團隊鋪設 AI 診斷稽核類別、EWMA+CUSUM 節點基準線服務與客戶端遠端部署指令碼；規則與資料分析團隊完成修補說明 1.6.242.0724 與負載元件的行程頁；核心驅動團隊分析客戶客服中心 PC 名重複與 Delivery Optimization；前端團隊整備依群組的節點狀態彙總到達頁與元件版面編輯、時區規則。"
+    },
+    "ja": {
+      "title": "AI リモート診断・自社製リモート画面制御の配線と仮想 Agent 負荷検証、MongoDB 三層計測・mosquitto FD 枯渇 crash loop の解消、Node baseline サービスとグループ要約ランディング — 週次レビュー（2026-07-27 〜 08-03）",
+      "excerpt": "マネージャ・エージェント担当が AI リモート診断 Phase 1 と自社製リモート画面制御（WebRTC/coturn）を配線し、仮想 Agent（vorange）負荷テストツールでブローカーの FD 枯渇を再現した。サーババックエンドは MongoDB 三層計測と node.detect の責務分離を投入し、mosquitto watchdog の crash loop を根本原因まで解明。分析サービスは AI 診断の監査カテゴリと EWMA+CUSUM の Node baseline サービス・顧客先リモート配備スクリプトを整備、ルール・データ分析はリリースノート 1.6.242.0724 と負荷ウィジェットのプロセスタブを、カーネルドライバ担当は顧客コールセンターの PC 名重複・Delivery Optimization を分析、フロントエンドはグループ別ノード状況ランディングとウィジェットのレイアウト編集・タイムゾーン規則を整えた一週間。"
+    }
+  },
+  "monthly-review-202607": {
+    "en": {
+      "title": "Server-Autonomous AI Remote Diagnosis, the Network Zone Location Engine, and a Root-Cause Fix for the orange.sys IRQL Bugcheck — Monthly Review (July 2026)",
+      "excerpt": "The manager and agent teams built AI remote diagnosis in which the LLM reads the data and issues only the commands it needs to the node, and recast symptom-spread prediction and the load index as a pain index. The server backend shipped the Network Zone engine that determines a PC's location from measured signals (zero silent merges across private ranges), MongoDB operational metrics, and offline security upgrades for air-gapped networks. Analytics delivered the file-store domain and an EWMA+CUSUM node resource baseline service. The kernel driver team fixed the Driver Verifier 0xC4 bugcheck at the root by honoring IRQL rules and tagged ASEP startup entries. The rules and data team built \"why did it rise\" causal impact analysis, and the frontend shipped 1:N command management v2 and the per-group node status landing page."
+    },
+    "zh": {
+      "title": "AI 远程诊断的服务器自治、Network Zone 位置判定引擎、orange.sys IRQL 蓝屏根本修复 —— 月度回顾（2026-07）",
+      "excerpt": "管理端与代理团队构建了由 LLM 读取资料并只向节点下发必要命令的 AI 远程诊断，并将症状扩散预测与负载指数重构为痛苦指数。服务器后端发布以测量信号判定 PC 位置的 Network Zone 引擎（私有网段静默合并 0 例）、MongoDB 运营指标计量，以及隔离网的离线安全升级。分析服务团队交付文件库域与节点资源基线服务（EWMA+CUSUM）。内核驱动团队以遵循 IRQL 规约根本修复 Driver Verifier 0xC4 蓝屏，并完成 ASEP 启动项标记。规则与数据分析团队构建「为何上升」的成因追踪影响分析；前端团队推出 1:N 命令管理 ver.2 与按组的节点状态落地页。"
+    },
+    "zh-Hant": {
+      "title": "AI 遠端診斷的伺服器自治、Network Zone 位置判定引擎、orange.sys IRQL 藍白當機根本修復 —— 月度回顧（2026-07）",
+      "excerpt": "管理端與代理團隊建構了由 LLM 讀取資料並只向節點下發必要命令的 AI 遠端診斷，並將症狀擴散預測與負載指數重構為痛苦指數。伺服器後端發佈以量測訊號判定 PC 位置的 Network Zone 引擎（私有網段靜默合併 0 例）、MongoDB 維運指標計量，以及封閉網路的離線安全升級。分析服務團隊交付檔案庫網域與節點資源基準線服務（EWMA+CUSUM）。核心驅動團隊以遵循 IRQL 規約根本修復 Driver Verifier 0xC4 藍白當機，並完成 ASEP 啟動項標記。規則與資料分析團隊建構「為何上升」的成因追蹤影響分析；前端團隊推出 1:N 命令管理 ver.2 與依群組的節點狀態到達頁。"
+    },
+    "ja": {
+      "title": "AI リモート診断のサーバ自律化、Network Zone 位置判定エンジン、orange.sys IRQL BSOD の根本修正 — 月次レビュー（2026-07）",
+      "excerpt": "マネージャ・エージェント担当は LLM が資料を読んで必要なコマンドだけをノードに発行する AI リモート診断と、症状拡散予測・負荷指数の「苦痛指数」への再設計を実施。サーババックエンドは計測信号から PC の位置を判定する Network Zone エンジン（プライベート帯域の無音マージ0件）・MongoDB 運用指標の計測・閉域網のオフラインセキュリティ更新を投入。分析サービスはファイル領域ドメインとノード資源 baseline サービス（EWMA+CUSUM）を提供。カーネルドライバ担当は Driver Verifier 0xC4 BSOD を IRQL 規約の順守で根本修正し、ASEP スタートアップのタグ付けを実施。ルール・データ分析は「なぜ上がったか」の原因追跡・影響度分析を、フロントエンドは 1:N コマンド管理 ver.2 とグループ別ノード状況ランディングを出した一か月。"
+    }
+  },
+  "powershell-process-collection-race-splitpath-null-groupobject": {
+    "en": {
+      "title": "Why PowerShell Process Collection Intermittently Half-Failed — A Race After the Query and a Null in Split-Path",
+      "excerpt": "Tracking down why a 1:N process-collection template partially failed in 4 of 25 runs. After Get-Process is filtered through Where-Object, a process that then exits leaves .Path null; Split-Path receives the null and that entry breaks. We fixed it by reusing the path string Group-Object already holds in the group name ($_.Name) instead of reading the process object again — partial failures went to zero."
+    },
+    "zh": {
+      "title": "PowerShell 进程采集为何间歇性部分失败 —— 查询后的退出竞争与 Split-Path 的 null",
+      "excerpt": "追踪 1:N 进程采集模板在 25 次中有 4 次部分失败的原因。Get-Process 经 Where-Object 过滤后，若该进程随即退出，.Path 会变为 null，Split-Path 收到 null 后该项即损坏。我们改为复用 Group-Object 已存于组名（$_.Name）中的路径字符串，不再重新读取进程对象，从而将部分失败降为 0。"
+    },
+    "zh-Hant": {
+      "title": "PowerShell 行程蒐集為何間歇性部分失敗 —— 查詢後的結束競爭與 Split-Path 的 null",
+      "excerpt": "追蹤 1:N 行程蒐集範本在 25 次中有 4 次部分失敗的原因。Get-Process 經 Where-Object 過濾後，若該行程隨即結束，.Path 會變為 null，Split-Path 收到 null 後該項即損毀。我們改為重用 Group-Object 已存於群組名稱（$_.Name）中的路徑字串，不再重新讀取行程物件，從而將部分失敗降為 0。"
+    },
+    "ja": {
+      "title": "PowerShell のプロセス収集が間欠的に部分失敗する理由 — 取得後の終了レースと Split-Path の null",
+      "excerpt": "1:N のプロセス収集テンプレートが25回中4回部分失敗していた原因を追った記録。Get-Process を Where-Object で絞った後にそのプロセスが終了すると .Path が null になり、Split-Path が null を受け取ってその項目が壊れるレースを突き止めた。Group-Object がグループ名（$_.Name）にすでに持っているパス文字列を再利用してプロセスオブジェクトを読み直さないよう直し、部分失敗を0にした。"
+    }
+  },
+  "remote-control-cpu-integer-color-convert-dirty-rect": {
+    "en": {
+      "title": "Minimizing Remote-Control CPU Load on Virtual GPU Nodes — Integer BGRA→NV12 Conversion Plus Dirty-Rect Partial Updates",
+      "excerpt": "A two-stage optimization for remote control on nodes with a virtual GPU (VMware SVGA 3D) and no hardware encoder. We rewrote the software BGRA→NV12 conversion from floating point with a per-pixel divide into integer fixed point to let MSVC /O2 auto-vectorize with SSE2, then used DXGI dirty rects so only changed regions are copied GPU→CPU and converted — bringing measured CPU from 10 down to 6 or below in steps."
+    },
+    "zh": {
+      "title": "最小化虚拟 GPU 节点的远程控制 CPU 负载 —— BGRA→NV12 色彩转换整数化 + dirty-rect 局部更新",
+      "excerpt": "一份两阶段优化记录，面向没有硬件编码器的虚拟 GPU（VMware SVGA 3D）节点的远程控制。我们把软件 BGRA→NV12 色彩转换从浮点、逐像素除法改写为整数定点，引导 MSVC /O2 进行 SSE2 自动向量化；再以 DXGI dirty-rect 只对变化区域做 GPU→CPU 复制与转换，将实测 CPU 分阶段从 10 降到 6 以下。"
+    },
+    "zh-Hant": {
+      "title": "最小化虛擬 GPU 節點的遠端控制 CPU 負載 —— BGRA→NV12 色彩轉換整數化 + dirty-rect 局部更新",
+      "excerpt": "一份兩階段最佳化記錄，面向沒有硬體編碼器的虛擬 GPU（VMware SVGA 3D）節點的遠端控制。我們把軟體 BGRA→NV12 色彩轉換從浮點、逐像素除法改寫為整數定點，引導 MSVC /O2 進行 SSE2 自動向量化；再以 DXGI dirty-rect 只對變化區域做 GPU→CPU 複製與轉換，將實測 CPU 分階段從 10 降到 6 以下。"
+    },
+    "ja": {
+      "title": "仮想 GPU ノードのリモート制御 CPU 負荷を最小化する — BGRA→NV12 色変換の整数化 ＋ dirty-rect 部分更新",
+      "excerpt": "ハードウェアエンコーダを持たない仮想 GPU（VMware SVGA 3D）ノードでのリモート制御時の CPU 負荷を下げた2段階の最適化記録。ソフトウェアの BGRA→NV12 色変換を浮動小数・ピクセルごとの除算から整数固定小数へ書き換えて MSVC /O2 の SSE2 自動ベクトル化を引き出し、さらに DXGI の dirty-rect で変化した領域だけを GPU→CPU コピー・変換するようにして、実測 CPU を 10 → 6 以下へ段階的に下げた。"
+    }
+  },
+  "agent-auto-recovery-installer-kills-itself-killprocessinpath": {
+    "en": {
+      "title": "Auto-Recovery Never Ran Once — The Recovery Installer Was Killing Its Own Parent",
+      "excerpt": "Tracking down why the Windows agent's auto-recovery (--recover) never worked at all. During the cleanup step (--remove) the recovery installer kills every process under the data path — and the parent installer that launched it happened to live in that path (Packages\\), so it killed itself, never copied the files, never ran --install, and repeated forever every ten minutes. We establish the cause and derive the fix."
+    },
+    "zh": {
+      "title": "自动恢复一次都没运行过 —— 恢复安装程序把自己的父进程杀掉了",
+      "excerpt": "追踪 Windows 代理的自动恢复（--recover）从一开始就不工作的原因。恢复安装程序在清理既有安装（--remove）阶段会把数据路径下的进程全部 kill，而启动它的父安装程序恰好位于该路径（Packages\\）下，于是自杀，既没能复制文件也没能执行 --install，每 10 分钟无限重复。本文查明成因并给出修复方案。"
+    },
+    "zh-Hant": {
+      "title": "自動復原一次都沒執行過 —— 復原安裝程式把自己的父行程殺掉了",
+      "excerpt": "追蹤 Windows 代理的自動復原（--recover）從一開始就不運作的原因。復原安裝程式在清理既有安裝（--remove）階段會把資料路徑下的行程全部 kill，而啟動它的父安裝程式恰好位於該路徑（Packages\\）下，於是自殺，既沒能複製檔案也沒能執行 --install，每 10 分鐘無限重複。本文查明成因並提出修復方案。"
+    },
+    "ja": {
+      "title": "自動復旧が一度も動いていなかった — 復旧インストーラが自分の親を終了させていた不具合",
+      "excerpt": "Windows エージェントの自動復旧（--recover）が最初から動いていなかった原因を追った記録。復旧インストーラは既存インストールの整理（--remove）でデータパス配下のプロセスを丸ごと kill するが、自分を起動した親インストーラがちょうどそのパス（Packages\\）にいたため自らを殺し、ファイルのコピーも --install もできないまま10分ごとに無限ループしていた不具合を突き止め、修正方針を導いた。"
+    }
+  },
+  "mosquitto-watchdog-fd-exhaustion-sd-notify-crash-loop": {
+    "en": {
+      "title": "A mosquitto 2.1 Watchdog False-Positive Crash Loop — When FD Exhaustion at 1024 Silently Drops sd_notify",
+      "excerpt": "Tracking a crash loop in which the mosquitto broker was SIGABRT-killed every eight minutes under a 1,000-client load test. We establish the causal chain — systemd's default soft FD limit (1024) exhausted → socket creation for sd_notify() fails → the watchdog ping is lost → systemd judges a healthy broker to be hung and kills it — and resolve it with a LimitNOFILE=65536 drop-in."
+    },
+    "zh": {
+      "title": "mosquitto 2.1 watchdog 误判 crash loop —— FD 1024 耗尽导致 sd_notify 被静默丢弃",
+      "excerpt": "追踪 1,000 台并发接入负载测试中 mosquitto broker 每 8 分钟被 SIGABRT 强制终止的 crash loop。本文查明因果链：systemd 默认 FD soft 限制（1024）耗尽 → sd_notify() 所需套接字创建失败 → watchdog ping 丢失 → systemd 将健康的 broker 误判为 hang 而杀死，并以 LimitNOFILE=65536 drop-in 解决。"
+    },
+    "zh-Hant": {
+      "title": "mosquitto 2.1 watchdog 誤判 crash loop —— FD 1024 耗盡導致 sd_notify 被靜默丟棄",
+      "excerpt": "追蹤 1,000 台並行連線負載測試中 mosquitto broker 每 8 分鐘被 SIGABRT 強制終止的 crash loop。本文查明因果鏈：systemd 預設 FD soft 限制（1024）耗盡 → sd_notify() 所需通訊端建立失敗 → watchdog ping 遺失 → systemd 將健康的 broker 誤判為 hang 而終止，並以 LimitNOFILE=65536 drop-in 解決。"
+    },
+    "ja": {
+      "title": "mosquitto 2.1 の watchdog 誤検知による crash loop — FD 1024 枯渇で sd_notify が静かに失われるとき",
+      "excerpt": "1,000台同時接続の負荷テスト中、mosquitto ブローカーが8分周期で SIGABRT 強制終了を繰り返した crash loop を追った記録。systemd の既定 FD ソフト上限（1024）枯渇 → sd_notify() 用ソケットの生成失敗 → watchdog ping の消失 → systemd が正常なブローカーを hang と誤判定して kill、という因果連鎖を解明し、LimitNOFILE=65536 の drop-in で解決した。"
+    }
+  },
+  "windows-machine-name-duplication-delivery-optimization-master-image": {
+    "en": {
+      "title": "Duplicate PC Names and Delivery Optimization in a Master-Image Cloned Environment",
+      "excerpt": "A report analyzing duplicated Windows computer names (hostname/NetBIOS) across many PCs at a call-center customer, together with their Delivery Optimization settings. Both trace back to the same root cause — deploying many identically specified machines from a cloned master image. We show that DO peer identity is based on a random GUID rather than the PC name, and lay out how to collect a unique identifier along with recommended DODownloadMode settings."
+    },
+    "zh": {
+      "title": "母镜像克隆环境中的 PC 名重复与下载优化（Delivery Optimization）分析",
+      "excerpt": "一份报告，分析呼叫中心客户环境中多台 PC 的 Windows 计算机名（hostname/NetBIOS）重复现象及其下载优化（Delivery Optimization）设置。两者同源于以母镜像克隆方式批量部署同规格终端。本文说明 DO 的对等识别基于随机 GUID 而非 PC 名，并整理唯一标识符的采集方法与 DODownloadMode 推荐配置。"
+    },
+    "zh-Hant": {
+      "title": "母映像複製環境中的 PC 名重複與下載最佳化（Delivery Optimization）分析",
+      "excerpt": "一份報告，分析客服中心客戶環境中多台 PC 的 Windows 電腦名稱（hostname/NetBIOS）重複現象及其下載最佳化（Delivery Optimization）設定。兩者同源於以母映像複製方式大量部署同規格終端。本文說明 DO 的對等識別基於隨機 GUID 而非 PC 名稱，並整理唯一識別碼的蒐集方法與 DODownloadMode 建議設定。"
+    },
+    "ja": {
+      "title": "マスターイメージ複製環境における PC 名の重複と配信最適化（Delivery Optimization）の分析",
+      "excerpt": "コールセンター顧客の環境で多数の PC の Windows コンピューター名（hostname/NetBIOS）が重複していた現象と、Windows の配信最適化（Delivery Optimization）設定を分析したレポート。いずれもマスターイメージの複製で同一仕様の端末を多数展開したという共通原因から派生する。DO のピア識別は PC 名ではなくランダムな GUID に基づくことを明らかにし、一意な識別子の収集方法と DODownloadMode の推奨設定をまとめた。"
+    }
   }
 }
