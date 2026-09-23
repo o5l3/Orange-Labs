@@ -1,0 +1,905 @@
+{
+  "version": "1.6.242.0922",
+  "slug": "1.6.242.0922",
+  "date": "2026-09-22",
+  "pdf": "release-notes.pdf",
+  "items": [
+    {
+      "key": "topMenu",
+      "kind": "new"
+    },
+    {
+      "key": "anomalyDetect",
+      "kind": "new"
+    },
+    {
+      "key": "commandSchedule",
+      "kind": "new"
+    },
+    {
+      "key": "resultRetention",
+      "kind": "new"
+    },
+    {
+      "key": "startupPrograms",
+      "kind": "new"
+    },
+    {
+      "key": "specAdvice",
+      "kind": "new"
+    },
+    {
+      "key": "comLinkFail",
+      "kind": "new"
+    },
+    {
+      "key": "detailNewWindow",
+      "kind": "new"
+    },
+    {
+      "key": "findByProduct",
+      "kind": "new"
+    },
+    {
+      "key": "dashboardTabs",
+      "kind": "improved"
+    },
+    {
+      "key": "waitTimeMetric",
+      "kind": "improved"
+    },
+    {
+      "key": "waitCauseSplit",
+      "kind": "improved"
+    },
+    {
+      "key": "diskNetColumns",
+      "kind": "improved"
+    },
+    {
+      "key": "perMachineRank",
+      "kind": "improved"
+    },
+    {
+      "key": "onlineStateFix",
+      "kind": "improved"
+    },
+    {
+      "key": "clonedImageSplit",
+      "kind": "improved"
+    },
+    {
+      "key": "autoLogoutFix",
+      "kind": "improved"
+    },
+    {
+      "key": "settingsSearch",
+      "kind": "improved"
+    },
+    {
+      "key": "urlState",
+      "kind": "improved"
+    },
+    {
+      "key": "virtualGroupEdit",
+      "kind": "improved"
+    },
+    {
+      "key": "staleNodeChart",
+      "kind": "improved"
+    },
+    {
+      "key": "groupValueCounts",
+      "kind": "improved"
+    },
+    {
+      "key": "searchSelectAll",
+      "kind": "improved"
+    },
+    {
+      "key": "aiConsistency",
+      "kind": "improved"
+    },
+    {
+      "key": "aiSymptomGuide",
+      "kind": "improved"
+    },
+    {
+      "key": "aiInstantAnswer",
+      "kind": "improved"
+    },
+    {
+      "key": "netLatencyFalse",
+      "kind": "improved"
+    },
+    {
+      "key": "procInterval",
+      "kind": "improved"
+    },
+    {
+      "key": "installNaming",
+      "kind": "improved"
+    },
+    {
+      "key": "relayInternalBlock",
+      "kind": "improved"
+    }
+  ],
+  "i18n": {
+    "ko": {
+      "excerpt": "매니저의 메뉴가 화면 위쪽으로 옮겨졌습니다. 평소와 다르게 움직이는 PC 를 찾아 주고, PC 가 느린 까닭을 기다린 시간으로 알려 줍니다. 자주 보내는 명령은 정해 둔 주기마다 자동으로 나갑니다.",
+      "items": {
+        "topMenu": {
+          "title": "매니저 메뉴가 화면 위쪽으로",
+          "sub": "매니저 · 모든 화면",
+          "desc": "대시보드·노드·증상·모니터링·명령 관리·설정이 화면 위에 고정됩니다. 계정마다 달랐던 왼쪽 메뉴 대신 모두 같은 메뉴를 씁니다. 대시보드는 요약 카드 여섯 개로 새로 시작하므로 전에 꾸며 두신 배치는 이어지지 않습니다. 보고서는 화면을 새로 만드는 중이라 메뉴에서 잠시 빠졌고, 대시보드 편집에서 「보고서 뷰어」를 넣으면 계속 보실 수 있습니다."
+        },
+        "anomalyDetect": {
+          "title": "평소와 다르게 움직이는 PC 찾기",
+          "sub": "노드 › 이상동작 노드 탐지",
+          "desc": "평소보다 자원을 지나치게 쓰는 PC 만 「이상」·「경계」로 갈라 보여 줍니다. PC 를 고르면 몇 시에 어느 항목이 평소 얼마에서 얼마로 바뀌었는지 나오고, 하루를 24칸으로 나눈 표에서 칸을 누르면 그 시각에 자원을 많이 쓴 프로그램까지 봅니다. 평소 모습은 같은 요일끼리 견주므로 주말과 평일의 쓰임이 다른 PC 가 늘 이상으로 잡히던 일이 없어집니다."
+        },
+        "commandSchedule": {
+          "title": "명령을 정해 둔 주기마다 자동으로 보내기",
+          "sub": "명령 관리 › 스케줄",
+          "desc": "매일·매주·매월·분기마다·매년 가운데 규칙을 정해 두면 서버가 알아서 보냅니다. 매월 말일이나 마지막 금요일 같은 규칙도 되고, 공휴일은 건너뛸 수 있습니다. 규칙 바로 아래에 다음 다섯 번의 실행 날짜가 미리 나오므로 저장하기 전에 확인하실 수 있습니다."
+        },
+        "resultRetention": {
+          "title": "명령마다 결과를 언제까지 보관할지 정하기",
+          "sub": "명령 관리 › 새 명령 만들기",
+          "desc": "감사나 보고 때문에 오래 남겨야 하는 명령은 그 명령만 따로 최대 10년까지 둡니다. 기본값·30일·90일·1년·3년·10년 가운데 고르고, 고른 기간이 실제로 언제까지인지 날짜로 함께 나옵니다. 전체 보관 기간은 설정 › 시스템 › 명령 설정에서 바꾸며, 기간을 줄이면 그보다 오래된 기록이 지워지고 되돌릴 수 없어 저장 전에 확인을 받습니다."
+        },
+        "startupPrograms": {
+          "title": "로그온을 느리게 하는 시작 프로그램 확인하고 끄기",
+          "sub": "에이전트 화면 · 시작 프로그램",
+          "desc": "로그온할 때 실행된 순서와 각각 붙들린 시간이 막대로 나오고, 오래 걸린 것은 따로 표시됩니다. 줄을 펼치면 그 자리에서 로그온 실행을 끄고 켤 수 있습니다. 전에는 작업 관리자나 레지스트리 같은 Windows 도구를 직접 열어야 했습니다."
+        },
+        "specAdvice": {
+          "title": "이 PC 를 그대로 써도 되는지 알려 주기",
+          "sub": "에이전트 화면 · 부하",
+          "desc": "느린 PC 마다 그대로 써도 되는지 손볼 것이 있는지 판정해 줍니다. 손볼 것이 있으면 프로그램 정리를 먼저 적고, 그래도 남는 기다림만큼만 디스크·메모리·CPU 증설을 최소로 산정합니다. 최근 14일 가운데 그 PC 가 바빴던 시간을 골라 판정하며, 잰 시간이 하루에 못 미치면 판정을 미룹니다."
+        },
+        "comLinkFail": {
+          "title": "멈춘 프로그램이 무엇을 기다리다 멈췄는지",
+          "sub": "증상 › 증상 상세",
+          "desc": "프로그램끼리 일을 맡기고 받는 구조에서 일을 맡던 쪽이 먼저 죽어 부르는 쪽이 응답만 기다리는 경우를 증상으로 잡습니다. 로그인처럼 눈에 보이는 오류 없이 진행만 되지 않던 상황이 여기에 해당합니다. 증상 상세는 무슨 일이 있었는지, 그렇게 판단한 근거, 조치 세 부분으로 나뉩니다."
+        },
+        "detailNewWindow": {
+          "title": "PC 상세를 새 창으로 열어 다른 모니터에 두기",
+          "sub": "노드 › 노드 목록",
+          "desc": "노드 상세 위쪽의 버튼이나 목록의 우클릭 메뉴에서 「새 창으로 열기」를 누르면 상세가 별도의 브라우저 창으로 열립니다. PC 마다 창이 하나씩 열리고 창 제목에 사용자 이름과 PC 이름이 붙습니다. 목록의 화면 설정에서 켜 두면 PC 를 누를 때마다 바로 새 창으로 열립니다."
+        },
+        "findByProduct": {
+          "title": "프로그램 이름만 대면 그것이 깔린 PC 찾기",
+          "sub": "명령 관리 · 정팀장",
+          "desc": "정팀장에게 제품 이름을 그대로 물으면 그 프로그램이 깔린 PC 를 추려 줍니다. 서버가 제품 146개의 실행 파일 이름을 미리 알고 있고, 모르는 제품이면 그 자리에서 웹으로 찾아 「웹 추정」을 붙여 구분해 줍니다."
+        },
+        "dashboardTabs": {
+          "title": "대시보드를 탭으로 나눠 쓰기",
+          "sub": "대시보드",
+          "desc": "운영용·보고용처럼 용도별로 탭을 만들고, 끌어서 순서를 바꾸고, 우클릭으로 이름을 바꾸거나 지웁니다. 노드·증상·모니터링 화면의 「대시보드에 고정」을 누르면 어느 탭에 넣을지 고르는 창이 나옵니다."
+        },
+        "waitTimeMetric": {
+          "title": "PC 가 느린 정도를 「기다린 시간」으로 표시",
+          "sub": "부하",
+          "desc": "상한이 없던 점수 대신 PC 가 느려서 기다린 시간(분)으로 잽니다. 한 시간이면 최대 60, 하루면 최대 1,440 이므로 PC 끼리 그대로 견줄 수 있습니다. Windows 자체가 쓰는 몫과 어느 프로그램 몫인지 가를 수 없는 몫이 채워져 같은 PC 의 값이 예전보다 커집니다."
+        },
+        "waitCauseSplit": {
+          "title": "PC 가 느린 원인을 네 가지로 나눠 표시",
+          "sub": "노드 상세 · 부하",
+          "desc": "CPU 차례를 기다린 시간, 메모리가 모자라 디스크에서 다시 불러오기를 기다린 시간, 디스크가 밀려 읽고 쓰기를 기다린 시간, 같은 프로그램이 뜨고 꺼지기를 되풀이하며 쓴 몫으로 나뉩니다. 목록에 「Windows 서비스, 드라이버」 줄이 함께 나오고, 날짜를 하루씩 옮겨 지난 날짜도 볼 수 있습니다."
+        },
+        "diskNetColumns": {
+          "title": "프로그램 목록에서 I/O 대신 디스크·네트워크 표시",
+          "sub": "모니터링 › 프로세스",
+          "desc": "뜻을 알기 어렵던 「I/O」 한 칸을 실제 사용량인 디스크와 네트워크 두 칸으로 나눴습니다. 모든 값은 PC 1대당 평균이고 괄호 안은 가장 많이 쓴 PC 한 대의 값입니다. 기록이 없는 기간에는 선을 그리지 않아 0 으로 잘못 읽지 않게 했습니다."
+        },
+        "perMachineRank": {
+          "title": "프로그램 순위를 PC 1대당 평균으로",
+          "sub": "모니터링",
+          "desc": "순위를 합계가 아니라 그 프로그램이 실행된 PC 1대당 평균으로 매깁니다. 백신처럼 모든 PC 에 깔린 프로그램이 대수 때문에 늘 위에 오던 것이 없어지고, 몇 대에서만 실제로 무거운 프로그램이 올라옵니다."
+        },
+        "onlineStateFix": {
+          "title": "온라인·오프라인 표시가 실제와 다르던 문제",
+          "sub": "에이전트",
+          "desc": "켜져 있는데 오프라인으로, 끊겼는데 온라인으로 보이던 두 경우를 함께 고쳤습니다. Windows 세션 서비스가 응답하지 않으면 에이전트가 그대로 기다리던 것(실측 5시간 4분)과, 절전이나 네트워크 변경으로 끊겼는데 계속 온라인으로 남던 것(엿새 동안 7대에서 27건, 최장 15.4시간)입니다."
+        },
+        "clonedImageSplit": {
+          "title": "같은 이미지로 설치한 PC 들이 한 줄로만 보이던 문제",
+          "sub": "서버",
+          "desc": "이미지에 담긴 식별자를 그대로 물려받은 PC 들이 한 기록을 번갈아 덮어쓰며 이름과 IP 가 계속 바뀌던 문제입니다. 서버가 PC 고유값을 함께 대조해 서로 다른 PC 로 갈라 놓습니다. 업그레이드한 뒤 각 PC 가 다시 인증하면 제 줄을 갖습니다."
+        },
+        "autoLogoutFix": {
+          "title": "자동 로그아웃과 중복 로그인 방지가 동작하지 않던 문제",
+          "sub": "설정",
+          "desc": "지난 업데이트에서 메뉴를 화면 위쪽으로 옮기면서 멈춰 있던 두 보안 설정을 되살렸습니다. 따로 하실 일은 없고 설정해 두신 값대로 다시 동작합니다."
+        },
+        "settingsSearch": {
+          "title": "설정 항목까지 검색으로 바로 찾아가기",
+          "sub": "매니저 · 상단 검색",
+          "desc": "화면 오른쪽 위 돋보기에서 찾을 말을 입력하면 메뉴·설정 탭·설정 항목·화면 안의 탭이 분류별로 나옵니다. 고르면 그 화면을 열어 해당 항목 줄까지 이동합니다. 결과마다 설명과 위치가 옆에 미리 나옵니다."
+        },
+        "urlState": {
+          "title": "조회 조건이 주소에 남아 링크로 그대로 열림",
+          "sub": "매니저 · 목록 화면",
+          "desc": "노드·증상·모니터링·명령 관리·설정 화면의 검색어·기간·탭·보기 방식이 주소에 담깁니다. 새로고침해도 유지되고 링크를 받은 사람도 같은 화면을 봅니다. 증상 목록에서 단계를 내려간 경로도 남아 브라우저 뒤로가기로 한 단계씩 되돌아갑니다."
+        },
+        "virtualGroupEdit": {
+          "title": "가상 그룹 관리를 편집 창 하나로",
+          "sub": "노드 › 가상 그룹 관리",
+          "desc": "버튼·우클릭·목록 아래로 흩어져 있던 그룹 추가·이름 변경·삭제·PC 넣고 빼기를 「가상 그룹 편집」 창 하나에 모았습니다. 바꾼 내용은 「확인」을 누를 때 한 번에 반영되고 취소하면 모두 버려집니다."
+        },
+        "staleNodeChart": {
+          "title": "오래 접속하지 않은 PC 를 그룹·기간별로 보기",
+          "sub": "노드 › 장기 미접속 노드",
+          "desc": "그룹별·기간별 그림에서 조각을 누르면 그 조건의 목록으로 넘어갑니다. 대시보드의 요약에서도 숫자를 누르면 해당 목록이 열립니다. 미접속 기간을 고르는 자리에 「7일 이상」이 생겨 처음 들어오면 전체를 봅니다."
+        },
+        "groupValueCounts": {
+          "title": "그룹 안의 OS·백신·에이전트 버전을 값별 대수로 보기",
+          "sub": "노드 › 그룹 상세",
+          "desc": "「N종 혼재」로만 나오던 것을 값마다 몇 대인지로 바꾸고, 값을 누르면 해당 PC 만 모은 목록으로 이동합니다. OS 설치 시기와 제조 연식은 1년 미만·1~3년·3~5년·5년 이상으로 나눠 오래된 PC 가 몇 대인지 바로 보입니다."
+        },
+        "searchSelectAll": {
+          "title": "PC 를 고르는 창에서 검색한 것만 전체 선택",
+          "sub": "명령 관리 · 대상 선택",
+          "desc": "검색으로 몇 대만 추린 뒤 전체 선택을 누르면 화면에 보이는 PC 만 선택됩니다. 전에는 검색 결과가 4대여도 전 PC 가 선택되었습니다. 목록을 마우스로 끌면 여러 대를 한 번에 선택하거나 해제할 수 있습니다."
+        },
+        "aiConsistency": {
+          "title": "정팀장이 같은 질문에 같은 답을 내도록",
+          "sub": "정팀장",
+          "desc": "같은 PC 에 같은 질문을 다시 물으면 같은 항목을 조사합니다. 어떤 답에는 표와 근거가 붙고 어떤 답에는 「확인합니다」만 나오던 것이 없어집니다. 확인되지 않는 것은 먼저 웹에서 찾고, 그래도 모르면 「알 수 없음」으로 분명히 적고 넘어갑니다."
+        },
+        "aiSymptomGuide": {
+          "title": "정팀장이 증상 종류마다 맞는 방법으로 설명",
+          "sub": "증상 › 증상 상세 · 정팀장",
+          "desc": "강제 종료, 파일 공유 위반, 연결 끊김, 블루스크린처럼 자주 나는 종류마다 분석 방법과 설명 방법을 정해 두었습니다. 필요한 자료가 없으면 없다고 적고 넘어가므로, 없는 자료를 계속 찾다가 답을 못 내던 것이 없어집니다."
+        },
+        "aiInstantAnswer": {
+          "title": "정팀장에게 설치 프로그램·백신을 물으면 기다림 없이 답변",
+          "sub": "정팀장",
+          "desc": "서버가 이미 들고 있는 자료로 바로 답합니다. PC 를 거치지 않으므로 기다리는 시간이 없습니다. 백신은 켜짐과 꺼짐, 실시간 보호가 도는지를 사람이 읽는 말로 알려 줍니다."
+        },
+        "netLatencyFalse": {
+          "title": "실제로는 정상인 연결이 증상으로 잡히던 문제",
+          "sub": "에이전트",
+          "desc": "연결이 느리지 않은데도 「네트워크 연결 지연」이 올라와 멀쩡한 네트워크를 들여다보게 만들던 증상입니다. 연결에 걸린 시간을 Windows 가 기록해 둔 시각으로 재므로, 에이전트가 바빠 그 기록을 늦게 읽어도 값이 흔들리지 않습니다."
+        },
+        "procInterval": {
+          "title": "PC 부담을 줄이려 프로세스 측정 주기를 5분으로",
+          "sub": "에이전트",
+          "desc": "3분마다 모든 프로그램을 재고 그때마다 파일에 적던 것을, 5분마다 재고 한 시간에 한 번만 적도록 바꿨습니다. 화면과 매니저에 나오는 값은 그대로입니다."
+        },
+        "installNaming": {
+          "title": "설치할 때 사용자명·PC 이름을 함께 입력",
+          "sub": "에이전트 설치",
+          "desc": "설치 도중에 사용자명·PC 이름·워크그룹을 함께 입력하고, 「설치 완료 후 자동으로 다시 시작」을 고르면 이름 변경까지 한 번에 끝납니다. 일괄 배포에서는 설치할 드라이브를 인자로 줄 수 있고, 하드복구 프로그램이 깔린 PC 에서 드라이브 선택 창이 나오지 않던 것도 고쳤습니다."
+        },
+        "relayInternalBlock": {
+          "title": "원격 제어 중계가 서버 안쪽 주소로 연결되지 못하게",
+          "sub": "서버",
+          "desc": "중계를 거쳐 서버 내부로 들어오는 길을 막았습니다. 정상 통신은 그대로 지나갑니다. 이미 설치된 서버도 업데이트하면 적용됩니다."
+        }
+      }
+    },
+    "en": {
+      "excerpt": "Manager navigation has moved to the top of the screen. PCs behaving differently from usual are surfaced, and how slow a PC is now reads as the time it spent waiting. Commands you send regularly go out on a schedule you set.",
+      "items": {
+        "topMenu": {
+          "title": "Manager navigation moved to the top of the screen",
+          "sub": "Manager · All screens",
+          "desc": "Dashboard, Nodes, Symptoms, Monitoring, Commands and Settings are now fixed across the top, and every account shares the same menu instead of the per-account left menu. The dashboard restarts with six summary cards, so a layout you arranged earlier is not carried over. Reports are being rebuilt and are temporarily out of the menu; add the Report viewer from dashboard edit to keep using it."
+        },
+        "anomalyDetect": {
+          "title": "Finding PCs behaving differently from usual",
+          "sub": "Nodes › Anomaly detection",
+          "desc": "Only PCs using noticeably more resources than usual are separated into Anomaly and Watch. Pick a PC and it shows which hour moved which metric from its usual value to what; click a cell in the 24-hour grid and you also see the programs that used the most resources at that hour. Usual behaviour is compared day-of-week to day-of-week, so PCs used differently on weekends no longer register as anomalies every time."
+        },
+        "commandSchedule": {
+          "title": "Commands sent automatically on a set schedule",
+          "sub": "Commands › Schedule",
+          "desc": "Set a rule of daily, weekly, monthly, quarterly or yearly and the server sends it for you. Rules like the last day of the month or the last Friday work too, and public holidays can be skipped. The next five run dates appear right under the rule so you can check before saving."
+        },
+        "resultRetention": {
+          "title": "Per-command retention for results",
+          "sub": "Commands › New command",
+          "desc": "A command that has to be kept for audit or reporting can be held on its own for up to ten years. Choose default, 30 days, 90 days, 1 year, 3 years or 10 years, with the actual end date shown alongside. The overall period is set under Settings › System › Commands; shortening it deletes older records irreversibly, so it asks for confirmation first."
+        },
+        "startupPrograms": {
+          "title": "Seeing and disabling the startup programs that slow logon",
+          "sub": "Agent screen · Startup",
+          "desc": "The order programs ran at logon and how long each held things up appear as bars, with the slow ones marked. Expand a row and you can disable or enable it for logon right there. Previously this meant opening Task Manager or the registry."
+        },
+        "specAdvice": {
+          "title": "Telling you whether this PC can be left as it is",
+          "sub": "Agent screen · Load",
+          "desc": "For a slow PC it judges whether it can be left as it is or needs attention. If it needs attention, tidying up programs comes first, and only the waiting left after that is turned into a minimum disk, memory or CPU upgrade. It judges from the busy hours of the last 14 days, and holds off when less than a day has been measured."
+        },
+        "comLinkFail": {
+          "title": "What a stalled program was waiting on",
+          "sub": "Symptoms › Symptom detail",
+          "desc": "Where one program hands work to another, the case of the provider dying first and the caller left waiting is now raised as a symptom. Situations like a login that simply never proceeds, with no visible error, fall under this. The detail is split into what happened, the evidence behind that reading, and what to do."
+        },
+        "detailNewWindow": {
+          "title": "Opening PC details in a separate window for a second monitor",
+          "sub": "Nodes › Node list",
+          "desc": "Open in new window, from the button above the node detail or the right-click menu, opens the detail as its own browser window. One window per PC, with the user name and PC name in the title. Turn it on in the list's display settings and every click opens a new window."
+        },
+        "findByProduct": {
+          "title": "Naming a program to find the PCs it is installed on",
+          "sub": "Commands · AI assistant",
+          "desc": "Ask the assistant by product name and it narrows down the PCs where that program is installed. The server knows the executable names of 146 products, and for anything else it searches the web on the spot and labels the result as a web estimate."
+        },
+        "dashboardTabs": {
+          "title": "Dashboards split into tabs",
+          "sub": "Dashboard",
+          "desc": "Create tabs for different uses such as operations and reporting, drag to reorder, and rename or delete from the right-click menu. Pin to dashboard on the node, symptom and monitoring screens asks which tab to put the summary on."
+        },
+        "waitTimeMetric": {
+          "title": "How slow a PC is, expressed as time spent waiting",
+          "sub": "Load",
+          "desc": "Instead of an unbounded score, it measures the minutes the PC spent waiting. An hour caps at 60 and a day at 1,440, so PCs compare directly. The share used by Windows itself and the share that cannot be attributed to any one program are now included, so the same PC reads higher than before."
+        },
+        "waitCauseSplit": {
+          "title": "Why a PC is slow, split four ways",
+          "sub": "Node detail · Load",
+          "desc": "The bar divides into time waiting for a CPU turn, time waiting to reload from disk when memory ran short, time waiting for disk reads and writes, and the share spent on the same program starting and stopping repeatedly. A Windows services and drivers row is listed alongside, and you can step back a day at a time."
+        },
+        "diskNetColumns": {
+          "title": "Disk and network in place of I/O in the program list",
+          "sub": "Monitoring › Processes",
+          "desc": "The single hard-to-read I/O column is replaced by disk and network, the actual usage. Every value is a per-PC average, with the heaviest single PC in brackets. No line is drawn for periods without records, so missing data is not read as zero."
+        },
+        "perMachineRank": {
+          "title": "Program rankings by per-PC average",
+          "sub": "Monitoring",
+          "desc": "Rankings come from the average per PC the program ran on rather than the total. Programs installed everywhere, such as antivirus, no longer sit at the top purely on installed count, and programs that are genuinely heavy on a few machines rise."
+        },
+        "onlineStateFix": {
+          "title": "Online and offline state not matching reality",
+          "sub": "Agent",
+          "desc": "Two cases are fixed together: a PC that was on but listed offline, and a PC already disconnected but still shown online. The first came from the agent waiting on an unresponsive Windows session service (measured at 5 hours 4 minutes); the second from sleep or a network change (27 occurrences across 7 PCs over six days, the longest 15.4 hours)."
+        },
+        "clonedImageSplit": {
+          "title": "PCs installed from the same image appearing as one row",
+          "sub": "Server",
+          "desc": "PCs that inherited the identifier baked into a disk image were overwriting one record in turn, with its name and IP changing constantly. The server now also compares each PC's own value and separates them. After the upgrade, each PC gets its own row once it authenticates again."
+        },
+        "autoLogoutFix": {
+          "title": "Automatic logout and duplicate-login prevention not working",
+          "sub": "Settings",
+          "desc": "Both security settings had stopped when the menu moved to the top in the previous update, and they work again. Nothing to do on your side; they follow the values you already set."
+        },
+        "settingsSearch": {
+          "title": "Searching straight to a settings item",
+          "sub": "Manager · Top search",
+          "desc": "Type into the magnifier at the top right and menus, settings tabs, settings items and in-screen tabs are listed by category. Choose one and it opens that screen and scrolls to the item. Each result shows its description and location beforehand."
+        },
+        "urlState": {
+          "title": "Filters kept in the address so a link opens the same view",
+          "sub": "Manager · List screens",
+          "desc": "Search terms, periods, tabs and view modes on the node, symptom, monitoring, command and settings screens are held in the address. A refresh keeps them, and whoever opens the link sees the same view. Steps taken down through the symptom list are kept too, so the browser back button retraces them."
+        },
+        "virtualGroupEdit": {
+          "title": "Virtual group management in a single edit dialog",
+          "sub": "Nodes › Virtual groups",
+          "desc": "Adding, renaming and deleting groups and moving PCs in and out, previously spread across a button, a right-click menu and a button under the list, are collected into one Edit virtual groups dialog. Changes apply together on Confirm and are all discarded on cancel."
+        },
+        "staleNodeChart": {
+          "title": "Long-idle PCs by group and by period",
+          "sub": "Nodes › Long-idle nodes",
+          "desc": "Click a slice of the by-group or by-period chart to move to the list for that condition, and the dashboard summary numbers open the same lists. A 7 days or more option was added to the period selector, so the full set is shown on arrival."
+        },
+        "groupValueCounts": {
+          "title": "OS, antivirus and agent versions counted by value",
+          "sub": "Nodes › Group detail",
+          "desc": "What used to read only as \"N kinds mixed\" now shows how many PCs hold each value, and clicking a value opens the list of just those PCs. OS install age and hardware age are grouped as under 1 year, 1-3, 3-5 and over 5 years, so old machines are visible at a glance."
+        },
+        "searchSelectAll": {
+          "title": "Select all now selects only the searched PCs",
+          "sub": "Commands · Target selection",
+          "desc": "Narrow the list by search and Select all takes only the PCs on screen. Previously a search returning four PCs still selected every PC. Dragging across the list selects or clears several at once."
+        },
+        "aiConsistency": {
+          "title": "Same question, same answer from the assistant",
+          "sub": "AI assistant",
+          "desc": "Asking the same question about the same PC now examines the same items. Answers no longer alternate between a full table with evidence and a bare \"checking\". What cannot be confirmed is searched on the web first and then written plainly as unknown."
+        },
+        "aiSymptomGuide": {
+          "title": "Assistant explanations matched to each symptom type",
+          "sub": "Symptoms › Detail · AI assistant",
+          "desc": "Analysis and explanation are now defined per frequent symptom type: forced termination, file sharing violation, dropped connections, blue screens. When data is missing it says so and moves on, instead of searching for absent data and never reaching an answer."
+        },
+        "aiInstantAnswer": {
+          "title": "Instant answers on installed programs and antivirus",
+          "sub": "AI assistant",
+          "desc": "The assistant answers from data the server already holds, without going out to the PC, so there is no wait. Antivirus state is reported in plain words: on, off, and whether real-time protection is running."
+        },
+        "netLatencyFalse": {
+          "title": "Healthy connections raised as a symptom",
+          "sub": "Agent",
+          "desc": "A network connection delay symptom was appearing on connections that were not slow, sending administrators to inspect a healthy network. Connection time is now measured from the timestamp Windows records, so a busy agent reading it late no longer skews the value."
+        },
+        "procInterval": {
+          "title": "Process measurement moved to five minutes to ease the PC",
+          "sub": "Agent",
+          "desc": "Measuring every program every three minutes and writing to file each time became every five minutes, written once an hour. The values on screen and in Manager are unchanged."
+        },
+        "installNaming": {
+          "title": "User name and PC name entered during installation",
+          "sub": "Agent installation",
+          "desc": "User name, PC name and workgroup are entered during installation, and choosing restart automatically after install completes the rename in one pass. Bulk deployment can pass the installation drive as an argument, and the missing drive-selection dialog on PCs with recovery software is fixed."
+        },
+        "relayInternalBlock": {
+          "title": "Remote control relay blocked from reaching internal addresses",
+          "sub": "Server",
+          "desc": "The path from the relay into the server's internal addresses is closed. Normal traffic passes as before. Servers already installed pick this up on update."
+        }
+      }
+    },
+    "ja": {
+      "excerpt": "マネージャーのメニューが画面上部へ移動しました。普段と異なる動きをする PC を抽出し、PC の遅さを待機した時間で示します。繰り返し送信する命令は、設定した周期で自動的に送信されます。",
+      "items": {
+        "topMenu": {
+          "title": "マネージャーのメニューが画面上部へ",
+          "sub": "マネージャー · 全画面",
+          "desc": "ダッシュボード・ノード・症状・モニタリング・命令管理・設定が画面上部に固定され、アカウントごとに異なっていた左メニューに代わり全アカウントが同じメニューを使用します。ダッシュボードは要約カード6個で新しく始まるため、以前に配置された内容は引き継がれません。レポートは画面を作り直しているため一時的にメニューから外れており、ダッシュボード編集で「レポートビューアー」を追加すれば引き続き利用できます。"
+        },
+        "anomalyDetect": {
+          "title": "普段と異なる動きをする PC の抽出",
+          "sub": "ノード › 異常動作ノード検知",
+          "desc": "普段より資源を著しく多く使用している PC のみを「異常」「警戒」に分けて表示します。PC を選択すると、何時にどの項目が普段のどの値からどの値に変わったかが表示され、1日を24区分した表のマスを押すとその時刻に資源を多く使用したプログラムまで確認できます。普段の状態は同じ曜日どうしで比較するため、週末と平日で使い方が異なる PC が常に異常と判定されることがなくなります。"
+        },
+        "commandSchedule": {
+          "title": "命令を設定した周期で自動送信",
+          "sub": "命令管理 › スケジュール",
+          "desc": "毎日・毎週・毎月・四半期ごと・毎年から規則を設定すると、サーバーが自動的に送信します。毎月末日や最終金曜日といった規則にも対応し、祝日はスキップできます。規則のすぐ下に次回以降5回分の実行日が表示されるため、保存前に確認できます。"
+        },
+        "resultRetention": {
+          "title": "命令ごとに結果の保管期限を指定",
+          "sub": "命令管理 › 新規命令作成",
+          "desc": "監査や報告のために長く保管する必要がある命令は、その命令だけ最大10年まで保管できます。既定値・30日・90日・1年・3年・10年から選択し、実際の期限が日付で併記されます。全体の保管期間は設定 › システム › 命令設定で変更し、期間を短縮すると、それより古い記録が削除され復元できないため保存前に確認を求めます。"
+        },
+        "startupPrograms": {
+          "title": "ログオンを遅くするスタートアッププログラムの確認と無効化",
+          "sub": "エージェント画面 · スタートアップ",
+          "desc": "ログオン時に実行された順序と、それぞれが要した時間がバーで表示され、時間を要したものは別途表示されます。行を展開すると、その場でログオン時の実行を無効化・有効化できます。従来はタスクマネージャーやレジストリなどの Windows ツールを直接開く必要がありました。"
+        },
+        "specAdvice": {
+          "title": "この PC をそのまま使用してよいかの判定",
+          "sub": "エージェント画面 · 負荷",
+          "desc": "動作が遅い PC ごとに、そのまま使用してよいか対処が必要かを判定します。対処が必要な場合はプログラムの整理を先に提示し、それでも残る待ち時間の分だけディスク・メモリー・CPU の増設を最小限で算定します。直近14日のうちその PC が繁忙だった時間を選んで判定し、測定時間が24時間に満たない場合は判定を保留します。"
+        },
+        "comLinkFail": {
+          "title": "停止したプログラムが何を待っていたのか",
+          "sub": "症状 › 症状詳細",
+          "desc": "プログラム間で処理を委ねる構成において、処理を担う側が先に終了し、呼び出す側が応答を待ち続ける状況を症状として検知します。ログインが目に見えるエラーもなく進行しないといった状況がこれに該当します。症状詳細は、何が起きたか・そう判断した根拠・対処の三つに分かれます。"
+        },
+        "detailNewWindow": {
+          "title": "PC 詳細を別ウィンドウで開き別モニターに配置",
+          "sub": "ノード › ノード一覧",
+          "desc": "ノード詳細上部のボタン、または一覧の右クリックメニューから「新しいウィンドウで開く」を選択すると、詳細が別のブラウザーウィンドウで開きます。PC ごとにウィンドウが1つ開き、ウィンドウタイトルにユーザー名と PC 名が付きます。一覧の画面設定で有効にすると、PC を選択するたびに新しいウィンドウで開きます。"
+        },
+        "findByProduct": {
+          "title": "製品名を伝えるだけでインストール済み PC を検索",
+          "sub": "命令管理 · AI アシスタント",
+          "desc": "AI アシスタントに製品名をそのまま尋ねると、そのプログラムがインストールされた PC を抽出します。サーバーが製品146件の実行ファイル名を事前に保持しており、未登録の製品はその場で Web 検索し、結果に「Web 推定」を付けて区別します。"
+        },
+        "dashboardTabs": {
+          "title": "ダッシュボードをタブで分割",
+          "sub": "ダッシュボード",
+          "desc": "運用用・報告用のように用途別のタブを作成し、ドラッグで順序を変更、右クリックで名称変更や削除ができます。ノード・症状・モニタリング画面の「ダッシュボードに固定」を選択すると、どのタブに配置するかを選ぶ画面が表示されます。"
+        },
+        "waitTimeMetric": {
+          "title": "PC の遅さを「待機した時間」で表示",
+          "sub": "負荷",
+          "desc": "上限のない指数に代わり、PC が遅くて待機した時間（分）で測定します。1時間なら最大60、1日なら最大1,440となるため、PC どうしをそのまま比較できます。Windows 自体が使用する分と、どのプログラムの分か区別できない分が加わるため、同じ PC の値が従来より大きくなります。"
+        },
+        "waitCauseSplit": {
+          "title": "PC が遅い原因を4種類に分けて表示",
+          "sub": "ノード詳細 · 負荷",
+          "desc": "CPU の順番を待った時間、メモリー不足によりディスクからの再読み込みを待った時間、ディスクの読み書きを待った時間、同一プログラムの起動と終了の繰り返しに費やされた分に分かれます。一覧には「Windows サービス・ドライバー」の行も表示され、日付を1日ずつ遡って確認できます。"
+        },
+        "diskNetColumns": {
+          "title": "プログラム一覧で I/O に代えてディスク・ネットワークを表示",
+          "sub": "モニタリング › プロセス",
+          "desc": "解釈しにくかった「I/O」の1列を、実際の使用量であるディスクとネットワークの2列に置き換えました。すべての値は PC 1台あたりの平均で、括弧内は最も使用量が多い PC 1台の値です。記録のない期間は線を描画しないため、0と誤読されません。"
+        },
+        "perMachineRank": {
+          "title": "プログラムの順位を PC 1台あたりの平均で算出",
+          "sub": "モニタリング",
+          "desc": "順位を合計ではなく、そのプログラムが実行された PC 1台あたりの平均で算出します。ウイルス対策ソフトのように全 PC に導入されたプログラムが台数だけで上位に来ることがなくなり、一部の PC で実際に負荷の大きいプログラムが上位に表示されます。"
+        },
+        "onlineStateFix": {
+          "title": "オンライン・オフライン表示が実態と異なる問題",
+          "sub": "エージェント",
+          "desc": "起動しているのにオフラインと表示される事象と、切断済みなのにオンラインのまま残る事象を同時に修正しました。前者は Windows のセッションサービスが応答しない際にエージェントが待機し続けていたもの（実測5時間4分）、後者はスリープやネットワーク変更による切断です（6日間で7台に27件、最長15.4時間）。"
+        },
+        "clonedImageSplit": {
+          "title": "同一イメージで導入した PC が1行にまとめて表示される問題",
+          "sub": "サーバー",
+          "desc": "ディスクイメージに含まれる識別子をそのまま引き継いだ PC 群が、1つの記録を交互に上書きし、名称と IP が変わり続けていた事象です。サーバーが PC 固有値も照合して別々の PC として区別します。アップグレード後、各 PC が再認証すると個別の行を持ちます。"
+        },
+        "autoLogoutFix": {
+          "title": "自動ログアウトと重複ログイン防止が動作しない問題",
+          "sub": "設定",
+          "desc": "前回の更新でメニューを画面上部へ移動した際に停止していた、二つのセキュリティ設定を復旧しました。操作は不要で、設定済みの値どおりに再び動作します。"
+        },
+        "settingsSearch": {
+          "title": "設定項目まで検索で直接移動",
+          "sub": "マネージャー · 上部検索",
+          "desc": "画面右上の検索から語句を入力すると、メニュー・設定タブ・設定項目・画面内タブが分類別に表示されます。選択するとその画面を開き、該当項目の行まで移動します。結果ごとに説明と位置が併記されます。"
+        },
+        "urlState": {
+          "title": "検索条件が URL に保持され、リンクからも同じ画面が開く",
+          "sub": "マネージャー · 一覧画面",
+          "desc": "ノード・症状・モニタリング・命令管理・設定画面の検索語・期間・タブ・表示形式が URL に保持されます。再読み込みしても維持され、リンクを開いた相手も同じ画面を確認できます。症状一覧で辿った階層も保持され、ブラウザーの戻るで1段階ずつ遡れます。"
+        },
+        "virtualGroupEdit": {
+          "title": "仮想グループ管理を一つの編集画面に集約",
+          "sub": "ノード › 仮想グループ管理",
+          "desc": "ボタン・右クリック・一覧下部に分散していたグループの追加・名称変更・削除・PC の追加と除外を、「仮想グループ編集」画面一つに集約しました。変更内容は「確認」を押した時点で一括反映され、取り消すとすべて破棄されます。"
+        },
+        "staleNodeChart": {
+          "title": "長期未接続 PC をグループ別・期間別に表示",
+          "sub": "ノード › 長期未接続ノード",
+          "desc": "グループ別・期間別の図で領域を選択すると、その条件の一覧へ移動します。ダッシュボードの要約でも数値を選択すると該当の一覧が開きます。未接続期間の選択に「7日以上」が追加され、初回表示では全体が表示されます。"
+        },
+        "groupValueCounts": {
+          "title": "グループ内の OS・ウイルス対策・エージェントのバージョンを値別台数で表示",
+          "sub": "ノード › グループ詳細",
+          "desc": "「N種混在」としか表示されなかったものを、値ごとの台数表示に変更し、値を選択すると該当 PC のみの一覧へ移動します。OS の導入時期と製造年式は1年未満・1〜3年・3〜5年・5年以上に区分され、古い PC の台数がすぐに把握できます。"
+        },
+        "searchSelectAll": {
+          "title": "PC 選択画面で検索結果のみを全選択",
+          "sub": "命令管理 · 対象選択",
+          "desc": "検索で絞り込んだ後に全選択を押すと、画面に表示されている PC のみが選択されます。従来は検索結果が4台でも全 PC が選択されていました。一覧をドラッグすると複数台をまとめて選択・解除できます。"
+        },
+        "aiConsistency": {
+          "title": "同じ質問に同じ回答を返すよう修正",
+          "sub": "AI アシスタント",
+          "desc": "同じ PC に同じ質問を再度行うと、同じ項目を調査します。ある回答には表と根拠が付き、別の回答には「確認します」だけが返るといった差異がなくなります。確認できない事項はまず Web で調べ、それでも不明な場合は「不明」と明記して次へ進みます。"
+        },
+        "aiSymptomGuide": {
+          "title": "症状の種類ごとに適した方法で説明",
+          "sub": "症状 › 症状詳細 · AI アシスタント",
+          "desc": "強制終了、ファイル共有違反、接続切断、ブルースクリーンなど発生頻度の高い種類ごとに、分析方法と説明方法を定めました。必要な資料がない場合はその旨を記載して次へ進むため、存在しない資料を探し続けて回答に至らない事象がなくなります。"
+        },
+        "aiInstantAnswer": {
+          "title": "インストール済みプログラム・ウイルス対策の質問に待機なしで回答",
+          "sub": "AI アシスタント",
+          "desc": "サーバーが保持している資料から直接回答します。PC を経由しないため待機時間がありません。ウイルス対策は有効・無効、リアルタイム保護の稼働状況を平易な表現で回答します。"
+        },
+        "netLatencyFalse": {
+          "title": "正常な接続が症状として検知される問題",
+          "sub": "エージェント",
+          "desc": "接続が遅くないにもかかわらず「ネットワーク接続遅延」が発生し、正常なネットワークを調査させていた症状です。接続所要時間を Windows が記録した時刻で測定するため、エージェントが多忙でその記録を遅れて読み取っても値がぶれません。"
+        },
+        "procInterval": {
+          "title": "プロセス測定周期を5分に変更し PC の負担を軽減",
+          "sub": "エージェント",
+          "desc": "3分ごとに全プログラムを測定しその都度ファイルに記録していたものを、5分ごとの測定、1時間に1回の記録に変更しました。画面およびマネージャーに表示される値は従来どおりです。"
+        },
+        "installNaming": {
+          "title": "インストール時にユーザー名・PC 名を同時に入力",
+          "sub": "エージェントのインストール",
+          "desc": "インストール中にユーザー名・PC 名・ワークグループを入力でき、「インストール完了後に自動で再起動」を選択すると名称変更まで一度に完了します。一括配布ではインストール先ドライブを引数で指定でき、復元ソフト導入 PC でドライブ選択画面が表示されなかった事象も修正しました。"
+        },
+        "relayInternalBlock": {
+          "title": "遠隔制御の中継がサーバー内部アドレスへ接続できないよう制限",
+          "sub": "サーバー",
+          "desc": "中継を経由してサーバー内部へ到達する経路を遮断しました。正常な通信はそのまま通過します。既に導入済みのサーバーも更新により適用されます。"
+        }
+      }
+    },
+    "zh": {
+      "excerpt": "管理端菜单已移至界面顶部。系统会找出运行状况与平时不同的 PC，并以等待时间表示 PC 的缓慢程度。经常发送的命令可按设定周期自动发送。",
+      "items": {
+        "topMenu": {
+          "title": "管理端菜单移至界面顶部",
+          "sub": "管理端 · 全部界面",
+          "desc": "仪表板、节点、症状、监控、命令管理与设置固定在界面顶部，所有账号使用同一套菜单，替代此前因账号而异的左侧菜单。仪表板以 6 个摘要卡片重新开始，此前自行编排的布局不再沿用。报表界面正在重做，暂时从菜单中移除，可在仪表板编辑中添加「报表查看器」继续使用。"
+        },
+        "anomalyDetect": {
+          "title": "查找运行状况与平时不同的 PC",
+          "sub": "节点 › 异常行为节点检测",
+          "desc": "仅将资源使用明显高于平时的 PC 划分为「异常」与「警戒」。选中 PC 后会显示几点、哪个项目从平时的多少变为多少；点击按 24 小时划分的表格单元，还能看到该时段占用资源最多的程序。平时状态按相同星期进行比对，周末与工作日用途不同的 PC 不再总被判为异常。"
+        },
+        "commandSchedule": {
+          "title": "按设定周期自动发送命令",
+          "sub": "命令管理 › 计划",
+          "desc": "设定每日、每周、每月、每季度或每年的规则后，服务器会自动发送。支持每月最后一天、最后一个星期五等规则，并可跳过法定节假日。规则下方会预先列出后续 5 次执行日期，便于保存前确认。"
+        },
+        "resultRetention": {
+          "title": "为每条命令单独设定结果保留期限",
+          "sub": "命令管理 › 新建命令",
+          "desc": "因审计或报告需要长期保留的命令，可单独保留最长 10 年。可在默认值、30 天、90 天、1 年、3 年、10 年中选择，并同时显示实际截止日期。整体保留期限在设置 › 系统 › 命令设置中调整；缩短期限会删除更早的记录且无法恢复，因此保存前会要求确认。"
+        },
+        "startupPrograms": {
+          "title": "查看并关闭拖慢登录的启动程序",
+          "sub": "代理界面 · 启动程序",
+          "desc": "以条形显示登录时各程序的执行顺序及各自占用的时间，耗时较长的会单独标注。展开行即可就地关闭或开启其登录时的执行。此前需要直接打开任务管理器或注册表等 Windows 工具。"
+        },
+        "specAdvice": {
+          "title": "判断这台 PC 是否可以继续使用",
+          "sub": "代理界面 · 负载",
+          "desc": "针对运行缓慢的 PC，判断是可继续使用还是需要处理。需要处理时先列出程序清理建议，仅就清理后仍存在的等待时间，按最小规模测算磁盘、内存或 CPU 的扩容。判定取自最近 14 天中该 PC 较为繁忙的时段；测量时长不足 24 小时时暂缓判定。"
+        },
+        "comLinkFail": {
+          "title": "停止响应的程序究竟在等待什么",
+          "sub": "症状 › 症状详情",
+          "desc": "在程序间相互委托处理的结构中，承担处理的一方先行终止、调用方持续等待响应的情形，现在会作为症状记录。登录等操作没有可见报错却始终无法完成的情况即属此类。症状详情分为发生了什么、判断依据以及处理建议三部分。"
+        },
+        "detailNewWindow": {
+          "title": "将 PC 详情以新窗口打开并置于另一显示器",
+          "sub": "节点 › 节点列表",
+          "desc": "通过节点详情上方的按钮或列表右键菜单选择「在新窗口中打开」，详情将以独立浏览器窗口打开。每台 PC 对应一个窗口，窗口标题包含用户名与 PC 名称。在列表的界面设置中开启后，每次点击 PC 都会直接以新窗口打开。"
+        },
+        "findByProduct": {
+          "title": "只需说出程序名称即可查找已安装该程序的 PC",
+          "sub": "命令管理 · AI 助手",
+          "desc": "直接向 AI 助手询问产品名称，即可筛选出安装了该程序的 PC。服务器预置了 146 款产品的可执行文件名称；对于未收录的产品会即时联网查找，并为结果标注「网络推断」以示区分。"
+        },
+        "dashboardTabs": {
+          "title": "仪表板按标签页分区使用",
+          "sub": "仪表板",
+          "desc": "可按运营、报告等用途创建标签页，拖动调整顺序，通过右键菜单重命名或删除。在节点、症状、监控界面点击「固定到仪表板」时，会提示选择放入哪个标签页。"
+        },
+        "waitTimeMetric": {
+          "title": "以「等待时间」表示 PC 的缓慢程度",
+          "sub": "负载",
+          "desc": "以 PC 因缓慢而等待的时间（分钟）替代此前没有上限的指数。1 小时最高 60，1 天最高 1,440，因此可在 PC 之间直接比较。现已计入 Windows 自身占用以及无法归属到具体程序的部分，同一台 PC 的数值会高于以往。"
+        },
+        "waitCauseSplit": {
+          "title": "将 PC 缓慢的原因分为四类显示",
+          "sub": "节点详情 · 负载",
+          "desc": "分为等待 CPU 调度的时间、内存不足导致等待从磁盘重新读取的时间、等待磁盘读写的时间，以及同一程序反复启动与退出所占的部分。列表中会一并显示「Windows 服务、驱动」一行，并可按天回溯查看。"
+        },
+        "diskNetColumns": {
+          "title": "程序列表中以磁盘、网络取代 I/O",
+          "sub": "监控 › 进程",
+          "desc": "将含义不易理解的「I/O」单列，替换为实际使用量的磁盘与网络两列。所有数值均为每台 PC 的平均值，括号内为使用量最高的单台 PC 数值。无记录的时段不绘制曲线，避免被误读为 0。"
+        },
+        "perMachineRank": {
+          "title": "程序排名改为按每台 PC 平均值计算",
+          "sub": "监控",
+          "desc": "排名依据由合计改为该程序运行过的每台 PC 平均值。杀毒软件等全网安装的程序不再仅因装机数量而长期居前，在少数机器上确实负载较高的程序得以上升。"
+        },
+        "onlineStateFix": {
+          "title": "在线与离线状态与实际不符的问题",
+          "sub": "代理",
+          "desc": "同时修复了两种情形：PC 已开机却显示离线，以及连接已断开却仍显示在线。前者源于 Windows 会话服务无响应时代理持续等待（实测 5 小时 4 分），后者源于休眠或网络变更导致的断开（6 天内 7 台共 27 次，最长 15.4 小时）。"
+        },
+        "clonedImageSplit": {
+          "title": "同一镜像安装的多台 PC 仅显示为一行的问题",
+          "sub": "服务器",
+          "desc": "沿用磁盘镜像中标识的多台 PC 交替覆盖同一条记录，导致该行的名称与 IP 不断变化。服务器现会一并比对 PC 自身的唯一值加以区分。升级后各 PC 重新认证即可拥有独立行。"
+        },
+        "autoLogoutFix": {
+          "title": "自动注销与重复登录防护失效的问题",
+          "sub": "设置",
+          "desc": "上次更新将菜单移至顶部时停止工作的两项安全设置已恢复。无需额外操作，将按已设定的值重新生效。"
+        },
+        "settingsSearch": {
+          "title": "通过搜索直接跳转到设置项",
+          "sub": "管理端 · 顶部搜索",
+          "desc": "在界面右上方的搜索中输入关键词，菜单、设置标签页、设置项与界面内标签会按类别列出。选择后即打开对应界面并定位到该项所在行。每条结果旁会预先显示说明与位置。"
+        },
+        "urlState": {
+          "title": "查询条件保留在地址中，通过链接可打开相同界面",
+          "sub": "管理端 · 列表界面",
+          "desc": "节点、症状、监控、命令管理与设置界面的搜索词、时间范围、标签页与显示方式均保留在地址中。刷新后仍然保持，收到链接的人看到的是同一界面。在症状列表中逐级下钻的路径同样保留，可用浏览器后退逐级返回。"
+        },
+        "virtualGroupEdit": {
+          "title": "虚拟组管理整合到单一编辑窗口",
+          "sub": "节点 › 虚拟组管理",
+          "desc": "此前分散在按钮、右键菜单与列表下方的组新增、重命名、删除以及 PC 的加入与移出，现已整合到「虚拟组编辑」一个窗口中。所做更改在点击「确认」时一并生效，取消则全部放弃。"
+        },
+        "staleNodeChart": {
+          "title": "按组与期间查看长期未连接的 PC",
+          "sub": "节点 › 长期未连接节点",
+          "desc": "在按组、按期间的图形中点击扇区，即可跳转至该条件下的列表；在仪表板摘要中点击数字同样会打开对应列表。未连接期间的选择项新增「7 天以上」，首次进入即显示全部。"
+        },
+        "groupValueCounts": {
+          "title": "按取值统计组内 OS、杀毒软件与代理版本的台数",
+          "sub": "节点 › 组详情",
+          "desc": "此前仅显示为「N 种混合」，现改为显示每个取值对应的台数，点击取值即可跳转至仅含这些 PC 的列表。OS 安装时间与设备年限划分为 1 年以内、1～3 年、3～5 年、5 年以上，可直接看出老旧 PC 的数量。"
+        },
+        "searchSelectAll": {
+          "title": "PC 选择窗口中「全选」仅选中搜索结果",
+          "sub": "命令管理 · 对象选择",
+          "desc": "通过搜索筛选后点击全选，仅会选中界面上显示的 PC。此前即使搜索结果只有 4 台，也会选中全部 PC。用鼠标拖动列表可一次选中或取消多台。"
+        },
+        "aiConsistency": {
+          "title": "修复相同问题回答不一致的问题",
+          "sub": "AI 助手",
+          "desc": "对同一台 PC 再次提出相同问题时，会调查相同的项目。不再出现有的回答附带表格与依据、有的回答仅显示「正在确认」的差异。无法确认的事项会先联网查找，仍无结果时明确标注为「未知」并继续。"
+        },
+        "aiSymptomGuide": {
+          "title": "按症状类型采用相应方式进行说明",
+          "sub": "症状 › 症状详情 · AI 助手",
+          "desc": "针对强制结束、文件共享冲突、连接中断、蓝屏等常见类型，分别制定了分析方式与说明方式。缺少所需资料时会如实说明并继续，避免持续查找不存在的资料而无法给出结论。"
+        },
+        "aiInstantAnswer": {
+          "title": "询问已安装程序与杀毒软件时无需等待即可获得回答",
+          "sub": "AI 助手",
+          "desc": "直接依据服务器已有的数据作答，无需经由 PC，因此没有等待时间。杀毒软件的启用、停用以及实时防护是否运行，均以通俗表述说明。"
+        },
+        "netLatencyFalse": {
+          "title": "正常连接被判定为症状的问题",
+          "sub": "代理",
+          "desc": "连接并不缓慢却出现「网络连接延迟」症状，致使管理员去排查本无问题的网络。现依据 Windows 记录的时间点测量连接耗时，即使代理繁忙而延迟读取该记录，数值也不会波动。"
+        },
+        "procInterval": {
+          "title": "进程测量周期调整为 5 分钟以降低 PC 负担",
+          "sub": "代理",
+          "desc": "此前每 3 分钟测量全部程序并即时写入文件，现改为每 5 分钟测量、每小时写入一次。界面与管理端显示的数值保持不变。"
+        },
+        "installNaming": {
+          "title": "安装时同时输入用户名与 PC 名称",
+          "sub": "代理安装",
+          "desc": "可在安装过程中输入用户名、PC 名称与工作组；选择「安装完成后自动重启」即可一并完成重命名。批量部署可通过参数指定安装盘符，同时修复了装有还原软件的 PC 不显示盘符选择窗口的问题。"
+        },
+        "relayInternalBlock": {
+          "title": "限制远程控制中继连接服务器内部地址",
+          "sub": "服务器",
+          "desc": "已封堵经由中继进入服务器内部的通路，正常通信照常通过。已部署的服务器更新后同样生效。"
+        }
+      }
+    },
+    "zh-Hant": {
+      "excerpt": "管理端選單已移至畫面頂部。系統會找出運作狀況與平時不同的 PC，並以等待時間表示 PC 的緩慢程度。經常傳送的命令可依設定週期自動傳送。",
+      "items": {
+        "topMenu": {
+          "title": "管理端選單移至畫面頂部",
+          "sub": "管理端 · 全部畫面",
+          "desc": "儀表板、節點、症狀、監控、命令管理與設定固定於畫面頂部，所有帳號使用同一套選單，取代先前因帳號而異的左側選單。儀表板以 6 個摘要卡片重新開始，先前自行編排的版面不再沿用。報表畫面正在重製，暫時從選單移除，可於儀表板編輯中加入「報表檢視器」繼續使用。"
+        },
+        "anomalyDetect": {
+          "title": "尋找運作狀況與平時不同的 PC",
+          "sub": "節點 › 異常行為節點偵測",
+          "desc": "僅將資源使用明顯高於平時的 PC 劃分為「異常」與「警戒」。選取 PC 後會顯示幾點、哪個項目從平時的多少變為多少；點選以 24 小時劃分的表格儲存格，還能看到該時段佔用資源最多的程式。平時狀態依相同星期進行比對，週末與平日用途不同的 PC 不再總被判為異常。"
+        },
+        "commandSchedule": {
+          "title": "依設定週期自動傳送命令",
+          "sub": "命令管理 › 排程",
+          "desc": "設定每日、每週、每月、每季或每年的規則後，伺服器會自動傳送。支援每月最後一天、最後一個星期五等規則，並可略過國定假日。規則下方會預先列出後續 5 次執行日期，便於儲存前確認。"
+        },
+        "resultRetention": {
+          "title": "為每則命令單獨設定結果保留期限",
+          "sub": "命令管理 › 新增命令",
+          "desc": "因稽核或報告需要長期保留的命令，可單獨保留最長 10 年。可於預設值、30 天、90 天、1 年、3 年、10 年中選擇，並同時顯示實際截止日期。整體保留期限於設定 › 系統 › 命令設定中調整；縮短期限會刪除更早的記錄且無法復原，因此儲存前會要求確認。"
+        },
+        "startupPrograms": {
+          "title": "檢視並關閉拖慢登入的啟動程式",
+          "sub": "代理程式畫面 · 啟動程式",
+          "desc": "以長條顯示登入時各程式的執行順序及各自佔用的時間，耗時較長者會另行標示。展開該列即可就地關閉或開啟其登入時的執行。先前需要直接開啟工作管理員或登錄檔等 Windows 工具。"
+        },
+        "specAdvice": {
+          "title": "判斷這台 PC 是否可以繼續使用",
+          "sub": "代理程式畫面 · 負載",
+          "desc": "針對運作緩慢的 PC，判斷是可繼續使用或需要處理。需要處理時先列出程式整理建議，僅就整理後仍存在的等待時間，以最小規模估算磁碟、記憶體或 CPU 的擴充。判定取自最近 14 天中該 PC 較為忙碌的時段；量測時長不足 24 小時時暫緩判定。"
+        },
+        "comLinkFail": {
+          "title": "停止回應的程式究竟在等待什麼",
+          "sub": "症狀 › 症狀詳細",
+          "desc": "在程式之間互相委託處理的結構中，承擔處理的一方先行終止、呼叫方持續等待回應的情形，現在會作為症狀記錄。登入等操作沒有可見錯誤卻始終無法完成的情況即屬此類。症狀詳細分為發生了什麼、判斷依據以及處理建議三部分。"
+        },
+        "detailNewWindow": {
+          "title": "將 PC 詳細以新視窗開啟並置於另一螢幕",
+          "sub": "節點 › 節點清單",
+          "desc": "透過節點詳細上方的按鈕或清單右鍵選單選擇「以新視窗開啟」，詳細將以獨立瀏覽器視窗開啟。每台 PC 對應一個視窗，視窗標題包含使用者名稱與 PC 名稱。於清單的畫面設定中啟用後，每次點選 PC 都會直接以新視窗開啟。"
+        },
+        "findByProduct": {
+          "title": "只需說出程式名稱即可尋找已安裝該程式的 PC",
+          "sub": "命令管理 · AI 助理",
+          "desc": "直接向 AI 助理詢問產品名稱，即可篩選出安裝該程式的 PC。伺服器預先收錄了 146 款產品的執行檔名稱；對於未收錄的產品會即時上網查找，並為結果標註「網路推測」以示區別。"
+        },
+        "dashboardTabs": {
+          "title": "儀表板以索引標籤分區使用",
+          "sub": "儀表板",
+          "desc": "可依營運、報告等用途建立索引標籤，拖曳調整順序，透過右鍵選單重新命名或刪除。於節點、症狀、監控畫面點選「釘選至儀表板」時，會提示選擇放入哪個索引標籤。"
+        },
+        "waitTimeMetric": {
+          "title": "以「等待時間」表示 PC 的緩慢程度",
+          "sub": "負載",
+          "desc": "以 PC 因緩慢而等待的時間（分鐘）取代先前沒有上限的指數。1 小時最高 60，1 天最高 1,440，因此可在 PC 之間直接比較。現已計入 Windows 自身佔用以及無法歸屬至特定程式的部分，同一台 PC 的數值會高於以往。"
+        },
+        "waitCauseSplit": {
+          "title": "將 PC 緩慢的原因分為四類顯示",
+          "sub": "節點詳細 · 負載",
+          "desc": "分為等待 CPU 排程的時間、記憶體不足導致等待從磁碟重新讀取的時間、等待磁碟讀寫的時間，以及同一程式反覆啟動與結束所佔的部分。清單中會一併顯示「Windows 服務、驅動程式」一列，並可依日回溯檢視。"
+        },
+        "diskNetColumns": {
+          "title": "程式清單中以磁碟、網路取代 I/O",
+          "sub": "監控 › 處理程序",
+          "desc": "將含義不易理解的「I/O」單欄，替換為實際使用量的磁碟與網路兩欄。所有數值均為每台 PC 的平均值，括號內為使用量最高的單台 PC 數值。無記錄的期間不繪製曲線，避免被誤讀為 0。"
+        },
+        "perMachineRank": {
+          "title": "程式排名改為依每台 PC 平均值計算",
+          "sub": "監控",
+          "desc": "排名依據由合計改為該程式執行過的每台 PC 平均值。防毒軟體等全面安裝的程式不再僅因安裝台數而長期居前，在少數機器上確實負載較高的程式得以上升。"
+        },
+        "onlineStateFix": {
+          "title": "線上與離線狀態與實際不符的問題",
+          "sub": "代理程式",
+          "desc": "同時修正了兩種情形：PC 已開機卻顯示離線，以及連線已中斷卻仍顯示線上。前者源於 Windows 工作階段服務無回應時代理程式持續等待（實測 5 小時 4 分），後者源於睡眠或網路變更導致的中斷（6 天內 7 台共 27 次，最長 15.4 小時）。"
+        },
+        "clonedImageSplit": {
+          "title": "同一映像安裝的多台 PC 僅顯示為一列的問題",
+          "sub": "伺服器",
+          "desc": "沿用磁碟映像中識別碼的多台 PC 輪流覆寫同一筆記錄，導致該列的名稱與 IP 不斷變動。伺服器現在會一併比對 PC 自身的唯一值加以區分。升級後各 PC 重新認證即可擁有獨立列。"
+        },
+        "autoLogoutFix": {
+          "title": "自動登出與重複登入防護失效的問題",
+          "sub": "設定",
+          "desc": "上次更新將選單移至頂部時停止運作的兩項安全設定已復原。無須額外操作，將依已設定的值重新生效。"
+        },
+        "settingsSearch": {
+          "title": "透過搜尋直接跳至設定項目",
+          "sub": "管理端 · 頂部搜尋",
+          "desc": "於畫面右上方的搜尋輸入關鍵字，選單、設定索引標籤、設定項目與畫面內索引標籤會依類別列出。選擇後即開啟對應畫面並定位至該項目所在列。每筆結果旁會預先顯示說明與位置。"
+        },
+        "urlState": {
+          "title": "查詢條件保留於網址中，透過連結可開啟相同畫面",
+          "sub": "管理端 · 清單畫面",
+          "desc": "節點、症狀、監控、命令管理與設定畫面的搜尋詞、時間範圍、索引標籤與顯示方式均保留於網址中。重新整理後仍然維持，收到連結的人看到的是同一畫面。在症狀清單中逐層下探的路徑同樣保留，可用瀏覽器上一頁逐層返回。"
+        },
+        "virtualGroupEdit": {
+          "title": "虛擬群組管理整合至單一編輯視窗",
+          "sub": "節點 › 虛擬群組管理",
+          "desc": "先前分散於按鈕、右鍵選單與清單下方的群組新增、重新命名、刪除以及 PC 的加入與移除，現已整合至「虛擬群組編輯」一個視窗中。所做變更於點選「確認」時一併生效，取消則全部捨棄。"
+        },
+        "staleNodeChart": {
+          "title": "依群組與期間檢視長期未連線的 PC",
+          "sub": "節點 › 長期未連線節點",
+          "desc": "在依群組、依期間的圖形中點選區塊，即可跳至該條件下的清單；在儀表板摘要中點選數字同樣會開啟對應清單。未連線期間的選擇項新增「7 天以上」，首次進入即顯示全部。"
+        },
+        "groupValueCounts": {
+          "title": "依取值統計群組內 OS、防毒軟體與代理程式版本的台數",
+          "sub": "節點 › 群組詳細",
+          "desc": "先前僅顯示為「N 種混合」，現改為顯示每個取值對應的台數，點選取值即可跳至僅含這些 PC 的清單。OS 安裝時間與設備年限劃分為 1 年以內、1～3 年、3～5 年、5 年以上，可直接看出老舊 PC 的數量。"
+        },
+        "searchSelectAll": {
+          "title": "PC 選擇視窗中「全選」僅選取搜尋結果",
+          "sub": "命令管理 · 對象選擇",
+          "desc": "透過搜尋篩選後點選全選，僅會選取畫面上顯示的 PC。先前即使搜尋結果只有 4 台，也會選取全部 PC。以滑鼠拖曳清單可一次選取或取消多台。"
+        },
+        "aiConsistency": {
+          "title": "修正相同問題回答不一致的問題",
+          "sub": "AI 助理",
+          "desc": "對同一台 PC 再次提出相同問題時，會調查相同的項目。不再出現有的回答附帶表格與依據、有的回答僅顯示「正在確認」的差異。無法確認的事項會先上網查找，仍無結果時明確標註為「未知」並繼續。"
+        },
+        "aiSymptomGuide": {
+          "title": "依症狀類型採用相應方式進行說明",
+          "sub": "症狀 › 症狀詳細 · AI 助理",
+          "desc": "針對強制結束、檔案共用衝突、連線中斷、藍色當機畫面等常見類型，分別制定了分析方式與說明方式。缺少所需資料時會據實說明並繼續，避免持續查找不存在的資料而無法得出結論。"
+        },
+        "aiInstantAnswer": {
+          "title": "詢問已安裝程式與防毒軟體時無須等待即可獲得回答",
+          "sub": "AI 助理",
+          "desc": "直接依據伺服器既有的資料作答，無須經由 PC，因此沒有等待時間。防毒軟體的啟用、停用以及即時保護是否運作，均以淺白表述說明。"
+        },
+        "netLatencyFalse": {
+          "title": "正常連線被判定為症狀的問題",
+          "sub": "代理程式",
+          "desc": "連線並不緩慢卻出現「網路連線延遲」症狀，導致管理者去排查本無問題的網路。現依據 Windows 記錄的時間點量測連線耗時，即使代理程式忙碌而延遲讀取該記錄，數值也不會波動。"
+        },
+        "procInterval": {
+          "title": "處理程序量測週期調整為 5 分鐘以降低 PC 負擔",
+          "sub": "代理程式",
+          "desc": "先前每 3 分鐘量測全部程式並即時寫入檔案，現改為每 5 分鐘量測、每小時寫入一次。畫面與管理端顯示的數值維持不變。"
+        },
+        "installNaming": {
+          "title": "安裝時同時輸入使用者名稱與 PC 名稱",
+          "sub": "代理程式安裝",
+          "desc": "可於安裝過程中輸入使用者名稱、PC 名稱與工作群組；選擇「安裝完成後自動重新啟動」即可一併完成重新命名。批次部署可透過參數指定安裝磁碟機，同時修正了裝有還原軟體的 PC 不顯示磁碟機選擇視窗的問題。"
+        },
+        "relayInternalBlock": {
+          "title": "限制遠端控制中繼連線至伺服器內部位址",
+          "sub": "伺服器",
+          "desc": "已封鎖經由中繼進入伺服器內部的通路，正常通訊照常通過。已部署的伺服器更新後同樣生效。"
+        }
+      }
+    }
+  }
+}
