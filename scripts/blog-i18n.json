@@ -1816,5 +1816,77 @@
       "title": "マスターイメージ複製環境における PC 名の重複と配信最適化（Delivery Optimization）の分析",
       "excerpt": "コールセンター顧客の環境で多数の PC の Windows コンピューター名（hostname/NetBIOS）が重複していた現象と、Windows の配信最適化（Delivery Optimization）設定を分析したレポート。いずれもマスターイメージの複製で同一仕様の端末を多数展開したという共通原因から派生する。DO のピア識別は PC 名ではなくランダムな GUID に基づくことを明らかにし、一意な識別子の収集方法と DODownloadMode の推奨設定をまとめた。"
     }
+  },
+  "weekly-review-2026-w40": {
+    "en": {
+      "title": "Identifying Kernel Dump Crash Causes Without Symbols, and Browser Internet Connectivity Diagnosis — Weekly Review (2026-09-28)",
+      "excerpt": "Orange Labs weekly development log: naming the crashing process and the COM-triggering PID in kernel dumps without symbols, a server monitoring widget, a load verdict card across all nodes, browser internet connectivity diagnosis, and automatic network zone discovery."
+    },
+    "zh": {
+      "title": "无符号情况下识别内核转储崩溃成因、浏览器网络连接诊断 —— 每周回顾（2026-09-28）",
+      "excerpt": "Orange Labs 每周开发记录：在无符号的内核转储中识别崩溃进程与触发 COM 的 PID、服务器管控组件、全节点负载判定卡片、浏览器网络连接诊断，以及网络区域自动发现。"
+    },
+    "zh-Hant": {
+      "title": "無符號情況下識別核心傾印當機成因、瀏覽器網路連線診斷 —— 每週回顧（2026-09-28）",
+      "excerpt": "Orange Labs 每週開發紀錄：在無符號的核心傾印中識別當機行程與觸發 COM 的 PID、伺服器管控元件、全節點負載判定卡片、瀏覽器網路連線診斷，以及網路區域自動探索。"
+    },
+    "ja": {
+      "title": "シンボルなしでカーネルダンプのクラッシュ原因を特定、ブラウザのインターネット接続診断 — 週次レビュー（2026-09-28）",
+      "excerpt": "Orange Labs の週次開発記録 — シンボルのないカーネルダンプからクラッシュプロセスと COM 誘発 PID を特定、サーバ監視ウィジェット、全ノードの負荷判定カード、ブラウザのインターネット接続診断、ネットワークゾーンの自動探索。"
+    }
+  },
+  "windows-terminal-service-hang-freezes-agent-ncalrpc": {
+    "en": {
+      "title": "The Agent Going Fully Offline When the Windows Terminal Service Hangs — sc start 1053 and an Unbounded ncalrpc Wait",
+      "excerpt": "The process was alive but sent nothing to the server, and restarting it failed with sc start returning 1053. The local RPC transport (ncalrpc) that WTSEnumerateSessions rides on takes no timeout argument, so when the Terminal Service freezes the calling thread waits forever. We locate the stall through dump analysis and remove the WTS call from the liveness path."
+    },
+    "zh": {
+      "title": "Windows 终端服务卡死导致代理整体离线 —— sc start 1053 与 ncalrpc 无限等待",
+      "excerpt": "进程还活着却什么也发不到服务器，想重新拉起时 sc start 又以 1053 失败。WTSEnumerateSessions 所走的本地 RPC（ncalrpc）没有超时参数，终端服务一旦冻结，调用线程就会无限期挂起。本文通过转储分析定位卡住的位置，并从存活路径中移除 WTS 调用。"
+    },
+    "zh-Hant": {
+      "title": "Windows 終端機服務卡死導致代理整體離線 —— sc start 1053 與 ncalrpc 無限等待",
+      "excerpt": "行程還活著卻什麼也送不到伺服器，想重新啟動時 sc start 又以 1053 失敗。WTSEnumerateSessions 所走的本機 RPC（ncalrpc）沒有逾時參數，終端機服務一旦凍結，呼叫執行緒就會無限期停住。本文透過傾印分析定位卡住的位置，並從存活路徑中移除 WTS 呼叫。"
+    },
+    "ja": {
+      "title": "Windows ターミナルサービスが固まるとエージェントが丸ごとオフラインになる — sc start 1053 と ncalrpc の無期限待ち",
+      "excerpt": "プロセスは生きているのにサーバへ何も送れず、再起動しようにも sc start が 1053 で失敗した。WTSEnumerateSessions が通るローカル RPC（ncalrpc）にはタイムアウト引数がなく、ターミナルサービスが固まると呼び出したスレッドが無期限に止まる。ダンプ解析で止まった箇所を特定し、生存経路から WTS 呼び出しを外した過程をまとめる。"
+    }
+  },
+  "mqtt-auth-response-loss-vm-node-split-ticketb-recovery": {
+    "en": {
+      "title": "A Lost Auth Response Splits a VM Node Into a New Document — Restoring the ticketb Comparison and Blocking Stale Ticket Writebacks",
+      "excerpt": "The server writes to the database and then sends the response; the agent receives it and stores the new ticket. So divergence only ever happens in one direction — the server running ahead. On VMs a fresh guid is issued at every authentication, so when ticket and guid drift together the node splits into a new document. We restore the ticketb stage in POST matching and close the hole that let old values be written back."
+    },
+    "zh": {
+      "title": "认证响应丢失会让 VM 节点分裂为新文档 —— 恢复 ticketb 比对并阻断 stale ticket 回写",
+      "excerpt": "服务器先写入数据库再发送响应，代理收到响应后保存新 ticket。因此不一致只会朝「服务器领先」这一个方向产生。VM 每次认证都会新发 guid，当 ticket 与 guid 同时偏移时，节点便分裂为新文档。本文记录在 POST 匹配中恢复 ticketb 阶段、并堵上旧值回写漏洞的过程。"
+    },
+    "zh-Hant": {
+      "title": "認證回應遺失會讓 VM 節點分裂為新文件 —— 復原 ticketb 比對並阻斷 stale ticket 回寫",
+      "excerpt": "伺服器先寫入資料庫再送出回應，代理收到回應後保存新 ticket。因此不一致只會朝「伺服器領先」這一個方向產生。VM 每次認證都會重新發放 guid，當 ticket 與 guid 同時偏移時，節點便分裂為新文件。本文記錄在 POST 比對中復原 ticketb 階段、並堵上舊值回寫漏洞的過程。"
+    },
+    "ja": {
+      "title": "認証応答が失われると VM ノードが別文書に分裂する — ticketb 照合の復元と stale ticket の書き戻し遮断",
+      "excerpt": "サーバは DB に書いてから応答を送り、エージェントは応答を受けて新しい ticket を保存する。だからズレは「サーバだけが先に進んだ」一方向にしか生じない。VM は認証のたびに guid が新規発行されるため、ticket と guid が同時にずれるとノードが別文書へ分裂した。POST 照合に ticketb の段階を復元し、古い値の書き戻し口を塞いだ過程をまとめる。"
+    }
+  },
+  "mqtt-will-dropped-graceful-disconnect-node-stuck-online-paho": {
+    "en": {
+      "title": "A Graceful Disconnect Discards the MQTT WILL and the Node Stays Stuck Online — paho Reason Codes and Dropping Out Mid-Reauthentication",
+      "excerpt": "If the agent disconnects while re-registering with the server, the MQTT CONNECT is still in flight, so it goes down without ever sending offline. While it waits the connect completes and online goes out, and at the end MQTTAsync_destroy disconnects with reason code 0 (normal), so the broker discards the WILL. The server is left with only online. We narrow the cause through the paho source and broker experiments."
+    },
+    "zh": {
+      "title": "正常断开却令 MQTT WILL 被丢弃、节点卡在 online —— paho 原因码与重认证途中断线",
+      "excerpt": "代理在向服务器重新注册的途中断开连接时，MQTT CONNECT 尚在进行，因而来不及发送 offline 就断了。等待期间连接完成并发出 online，最后 MQTTAsync_destroy 以原因码 0（正常断开）断线，broker 于是丢弃 WILL。服务器上只剩下 online。本文记录通过 paho 源码与 broker 实验缩小成因的过程。"
+    },
+    "zh-Hant": {
+      "title": "正常斷線卻令 MQTT WILL 被丟棄、節點卡在 online —— paho 原因碼與重新認證途中斷線",
+      "excerpt": "代理在向伺服器重新註冊的途中斷開連線時，MQTT CONNECT 尚在進行，因而來不及送出 offline 就斷了。等待期間連線完成並發出 online，最後 MQTTAsync_destroy 以原因碼 0（正常斷線）斷線，broker 於是丟棄 WILL。伺服器上只剩下 online。本文記錄透過 paho 原始碼與 broker 實驗縮小成因的過程。"
+    },
+    "ja": {
+      "title": "正常終了なのに MQTT WILL が破棄されノードが online のまま固まる — paho の理由コードと再認証中の切断",
+      "excerpt": "エージェントがサーバへ再登録している最中に接続を切ると、MQTT CONNECT がまだ進行中のため offline を送れないまま切れる。待っている間に接続が完了して online が出ていき、最後に MQTTAsync_destroy が理由コード0（正常終了）で切るのでブローカーが WILL を捨てる。サーバには online だけが残る。paho のソースとブローカー実験で原因を絞り込んだ過程をまとめる。"
+    }
   }
 }

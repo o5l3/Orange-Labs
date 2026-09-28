@@ -955,8 +955,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "심볼 없이 커널 덤프 크래시 원인 식별, 브라우저 인터넷 연결 진단 — 주간 리뷰 (2026-09-28)",
-        "content": "심볼 없는 커널 덤프 크래시 프로세스·COM 유발자 PID 식별, 정팀장 서버 관제 위젯, 전체 노드 부하 판정 카드, 브라우저 인터넷 연결 진단, 네트워크 구역 자동 찾기를 다룬 Orange Labs 주간 개발 기록",
+        "subject": "Identifying Kernel Dump Crash Causes Without Symbols, and Browser Internet Connectivity Diagnosis — Weekly Review (2026-09-28)",
+        "content": "Orange Labs weekly development log: naming the crashing process and the COM-triggering PID in kernel dumps without symbols, a server monitoring widget, a load verdict card across all nodes, browser internet connectivity diagnosis, and automatic network zone discovery.",
         "readMinutes": "3",
         "createdAt": "2026.09.28",
         "md": "/tech_blog/md/weekly-review-2026-w40.md"
@@ -964,8 +964,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "Windows 터미널 서비스가 멈추자 에이전트가 통째로 오프라인 — sc start 1053과 ncalrpc 무기한 대기",
-        "content": "프로세스는 살아 있는데 서버로는 아무것도 못 보내고, 다시 올리려 해도 sc start가 1053으로 실패했다. WTSEnumerateSessions가 타는 로컬 RPC(ncalrpc)에는 타임아웃 인자가 없어, 터미널 서비스가 굳으면 부른 스레드가 무기한 선다. 덤프 분석으로 멈춘 자리를 찾고, 생존 경로에서 WTS 호출을 걷어낸 과정을 정리한다.",
+        "subject": "The Agent Going Fully Offline When the Windows Terminal Service Hangs — sc start 1053 and an Unbounded ncalrpc Wait",
+        "content": "The process was alive but sent nothing to the server, and restarting it failed with sc start returning 1053. The local RPC transport (ncalrpc) that WTSEnumerateSessions rides on takes no timeout argument, so when the Terminal Service freezes the calling thread waits forever. We locate the stall through dump analysis and remove the WTS call from the liveness path.",
         "readMinutes": "5",
         "createdAt": "2026.09.26",
         "md": "/tech_blog/md/windows-terminal-service-hang-freezes-agent-ncalrpc.md"
@@ -973,8 +973,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "인증 응답이 유실되면 VM 노드가 새 문서로 갈라진다 — ticketb 대조 복원과 stale ticket 되쓰기 차단",
-        "content": "서버는 DB에 쓰고 응답을 보내고, 에이전트는 응답을 받고 새 ticket을 저장한다. 그래서 어긋남은 '서버만 앞서간' 한 방향으로만 생긴다. VM은 인증마다 guid가 새로 발급돼 ticket·guid가 함께 어긋나면서 노드가 새 문서로 분열했다. POST 매칭에 ticketb 단계를 복원하고 옛 값 되쓰기 구멍을 막은 과정을 정리한다.",
+        "subject": "A Lost Auth Response Splits a VM Node Into a New Document — Restoring the ticketb Comparison and Blocking Stale Ticket Writebacks",
+        "content": "The server writes to the database and then sends the response; the agent receives it and stores the new ticket. So divergence only ever happens in one direction — the server running ahead. On VMs a fresh guid is issued at every authentication, so when ticket and guid drift together the node splits into a new document. We restore the ticketb stage in POST matching and close the hole that let old values be written back.",
         "readMinutes": "3",
         "createdAt": "2026.09.24",
         "md": "/tech_blog/md/mqtt-auth-response-loss-vm-node-split-ticketb-recovery.md"
@@ -982,8 +982,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "정상 종료인데 MQTT WILL이 폐기돼 노드가 online으로 굳는다 — paho 이유코드와 재인증 중 끊김",
-        "content": "에이전트가 서버에 다시 등록하는 도중 접속을 끊으면, MQTT CONNECT가 아직 진행 중이라 offline을 보내지 못한 채 끊긴다. 기다리는 사이 접속이 끝나 online이 나가고, 마지막에 MQTTAsync_destroy가 이유코드 0(정상 종료)으로 끊어 브로커가 WILL을 버린다. 서버에는 online만 남는다. paho 소스와 브로커 실험으로 원인을 좁힌 과정을 정리한다.",
+        "subject": "A Graceful Disconnect Discards the MQTT WILL and the Node Stays Stuck Online — paho Reason Codes and Dropping Out Mid-Reauthentication",
+        "content": "If the agent disconnects while re-registering with the server, the MQTT CONNECT is still in flight, so it goes down without ever sending offline. While it waits the connect completes and online goes out, and at the end MQTTAsync_destroy disconnects with reason code 0 (normal), so the broker discards the WILL. The server is left with only online. We narrow the cause through the paho source and broker experiments.",
         "readMinutes": "5",
         "createdAt": "2026.09.23",
         "md": "/tech_blog/md/mqtt-will-dropped-graceful-disconnect-node-stuck-online-paho.md"
@@ -1905,8 +1905,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "심볼 없이 커널 덤프 크래시 원인 식별, 브라우저 인터넷 연결 진단 — 주간 리뷰 (2026-09-28)",
-        "content": "심볼 없는 커널 덤프 크래시 프로세스·COM 유발자 PID 식별, 정팀장 서버 관제 위젯, 전체 노드 부하 판정 카드, 브라우저 인터넷 연결 진단, 네트워크 구역 자동 찾기를 다룬 Orange Labs 주간 개발 기록",
+        "subject": "无符号情况下识别内核转储崩溃成因、浏览器网络连接诊断 —— 每周回顾（2026-09-28）",
+        "content": "Orange Labs 每周开发记录：在无符号的内核转储中识别崩溃进程与触发 COM 的 PID、服务器管控组件、全节点负载判定卡片、浏览器网络连接诊断，以及网络区域自动发现。",
         "readMinutes": "3",
         "createdAt": "2026.09.28",
         "md": "/tech_blog/md/weekly-review-2026-w40.md"
@@ -1914,8 +1914,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "Windows 터미널 서비스가 멈추자 에이전트가 통째로 오프라인 — sc start 1053과 ncalrpc 무기한 대기",
-        "content": "프로세스는 살아 있는데 서버로는 아무것도 못 보내고, 다시 올리려 해도 sc start가 1053으로 실패했다. WTSEnumerateSessions가 타는 로컬 RPC(ncalrpc)에는 타임아웃 인자가 없어, 터미널 서비스가 굳으면 부른 스레드가 무기한 선다. 덤프 분석으로 멈춘 자리를 찾고, 생존 경로에서 WTS 호출을 걷어낸 과정을 정리한다.",
+        "subject": "Windows 终端服务卡死导致代理整体离线 —— sc start 1053 与 ncalrpc 无限等待",
+        "content": "进程还活着却什么也发不到服务器，想重新拉起时 sc start 又以 1053 失败。WTSEnumerateSessions 所走的本地 RPC（ncalrpc）没有超时参数，终端服务一旦冻结，调用线程就会无限期挂起。本文通过转储分析定位卡住的位置，并从存活路径中移除 WTS 调用。",
         "readMinutes": "5",
         "createdAt": "2026.09.26",
         "md": "/tech_blog/md/windows-terminal-service-hang-freezes-agent-ncalrpc.md"
@@ -1923,8 +1923,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "인증 응답이 유실되면 VM 노드가 새 문서로 갈라진다 — ticketb 대조 복원과 stale ticket 되쓰기 차단",
-        "content": "서버는 DB에 쓰고 응답을 보내고, 에이전트는 응답을 받고 새 ticket을 저장한다. 그래서 어긋남은 '서버만 앞서간' 한 방향으로만 생긴다. VM은 인증마다 guid가 새로 발급돼 ticket·guid가 함께 어긋나면서 노드가 새 문서로 분열했다. POST 매칭에 ticketb 단계를 복원하고 옛 값 되쓰기 구멍을 막은 과정을 정리한다.",
+        "subject": "认证响应丢失会让 VM 节点分裂为新文档 —— 恢复 ticketb 比对并阻断 stale ticket 回写",
+        "content": "服务器先写入数据库再发送响应，代理收到响应后保存新 ticket。因此不一致只会朝「服务器领先」这一个方向产生。VM 每次认证都会新发 guid，当 ticket 与 guid 同时偏移时，节点便分裂为新文档。本文记录在 POST 匹配中恢复 ticketb 阶段、并堵上旧值回写漏洞的过程。",
         "readMinutes": "3",
         "createdAt": "2026.09.24",
         "md": "/tech_blog/md/mqtt-auth-response-loss-vm-node-split-ticketb-recovery.md"
@@ -1932,8 +1932,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "정상 종료인데 MQTT WILL이 폐기돼 노드가 online으로 굳는다 — paho 이유코드와 재인증 중 끊김",
-        "content": "에이전트가 서버에 다시 등록하는 도중 접속을 끊으면, MQTT CONNECT가 아직 진행 중이라 offline을 보내지 못한 채 끊긴다. 기다리는 사이 접속이 끝나 online이 나가고, 마지막에 MQTTAsync_destroy가 이유코드 0(정상 종료)으로 끊어 브로커가 WILL을 버린다. 서버에는 online만 남는다. paho 소스와 브로커 실험으로 원인을 좁힌 과정을 정리한다.",
+        "subject": "正常断开却令 MQTT WILL 被丢弃、节点卡在 online —— paho 原因码与重认证途中断线",
+        "content": "代理在向服务器重新注册的途中断开连接时，MQTT CONNECT 尚在进行，因而来不及发送 offline 就断了。等待期间连接完成并发出 online，最后 MQTTAsync_destroy 以原因码 0（正常断开）断线，broker 于是丢弃 WILL。服务器上只剩下 online。本文记录通过 paho 源码与 broker 实验缩小成因的过程。",
         "readMinutes": "5",
         "createdAt": "2026.09.23",
         "md": "/tech_blog/md/mqtt-will-dropped-graceful-disconnect-node-stuck-online-paho.md"
@@ -2855,8 +2855,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "심볼 없이 커널 덤프 크래시 원인 식별, 브라우저 인터넷 연결 진단 — 주간 리뷰 (2026-09-28)",
-        "content": "심볼 없는 커널 덤프 크래시 프로세스·COM 유발자 PID 식별, 정팀장 서버 관제 위젯, 전체 노드 부하 판정 카드, 브라우저 인터넷 연결 진단, 네트워크 구역 자동 찾기를 다룬 Orange Labs 주간 개발 기록",
+        "subject": "無符號情況下識別核心傾印當機成因、瀏覽器網路連線診斷 —— 每週回顧（2026-09-28）",
+        "content": "Orange Labs 每週開發紀錄：在無符號的核心傾印中識別當機行程與觸發 COM 的 PID、伺服器管控元件、全節點負載判定卡片、瀏覽器網路連線診斷，以及網路區域自動探索。",
         "readMinutes": "3",
         "createdAt": "2026.09.28",
         "md": "/tech_blog/md/weekly-review-2026-w40.md"
@@ -2864,8 +2864,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "Windows 터미널 서비스가 멈추자 에이전트가 통째로 오프라인 — sc start 1053과 ncalrpc 무기한 대기",
-        "content": "프로세스는 살아 있는데 서버로는 아무것도 못 보내고, 다시 올리려 해도 sc start가 1053으로 실패했다. WTSEnumerateSessions가 타는 로컬 RPC(ncalrpc)에는 타임아웃 인자가 없어, 터미널 서비스가 굳으면 부른 스레드가 무기한 선다. 덤프 분석으로 멈춘 자리를 찾고, 생존 경로에서 WTS 호출을 걷어낸 과정을 정리한다.",
+        "subject": "Windows 終端機服務卡死導致代理整體離線 —— sc start 1053 與 ncalrpc 無限等待",
+        "content": "行程還活著卻什麼也送不到伺服器，想重新啟動時 sc start 又以 1053 失敗。WTSEnumerateSessions 所走的本機 RPC（ncalrpc）沒有逾時參數，終端機服務一旦凍結，呼叫執行緒就會無限期停住。本文透過傾印分析定位卡住的位置，並從存活路徑中移除 WTS 呼叫。",
         "readMinutes": "5",
         "createdAt": "2026.09.26",
         "md": "/tech_blog/md/windows-terminal-service-hang-freezes-agent-ncalrpc.md"
@@ -2873,8 +2873,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "인증 응답이 유실되면 VM 노드가 새 문서로 갈라진다 — ticketb 대조 복원과 stale ticket 되쓰기 차단",
-        "content": "서버는 DB에 쓰고 응답을 보내고, 에이전트는 응답을 받고 새 ticket을 저장한다. 그래서 어긋남은 '서버만 앞서간' 한 방향으로만 생긴다. VM은 인증마다 guid가 새로 발급돼 ticket·guid가 함께 어긋나면서 노드가 새 문서로 분열했다. POST 매칭에 ticketb 단계를 복원하고 옛 값 되쓰기 구멍을 막은 과정을 정리한다.",
+        "subject": "認證回應遺失會讓 VM 節點分裂為新文件 —— 復原 ticketb 比對並阻斷 stale ticket 回寫",
+        "content": "伺服器先寫入資料庫再送出回應，代理收到回應後保存新 ticket。因此不一致只會朝「伺服器領先」這一個方向產生。VM 每次認證都會重新發放 guid，當 ticket 與 guid 同時偏移時，節點便分裂為新文件。本文記錄在 POST 比對中復原 ticketb 階段、並堵上舊值回寫漏洞的過程。",
         "readMinutes": "3",
         "createdAt": "2026.09.24",
         "md": "/tech_blog/md/mqtt-auth-response-loss-vm-node-split-ticketb-recovery.md"
@@ -2882,8 +2882,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "정상 종료인데 MQTT WILL이 폐기돼 노드가 online으로 굳는다 — paho 이유코드와 재인증 중 끊김",
-        "content": "에이전트가 서버에 다시 등록하는 도중 접속을 끊으면, MQTT CONNECT가 아직 진행 중이라 offline을 보내지 못한 채 끊긴다. 기다리는 사이 접속이 끝나 online이 나가고, 마지막에 MQTTAsync_destroy가 이유코드 0(정상 종료)으로 끊어 브로커가 WILL을 버린다. 서버에는 online만 남는다. paho 소스와 브로커 실험으로 원인을 좁힌 과정을 정리한다.",
+        "subject": "正常斷線卻令 MQTT WILL 被丟棄、節點卡在 online —— paho 原因碼與重新認證途中斷線",
+        "content": "代理在向伺服器重新註冊的途中斷開連線時，MQTT CONNECT 尚在進行，因而來不及送出 offline 就斷了。等待期間連線完成並發出 online，最後 MQTTAsync_destroy 以原因碼 0（正常斷線）斷線，broker 於是丟棄 WILL。伺服器上只剩下 online。本文記錄透過 paho 原始碼與 broker 實驗縮小成因的過程。",
         "readMinutes": "5",
         "createdAt": "2026.09.23",
         "md": "/tech_blog/md/mqtt-will-dropped-graceful-disconnect-node-stuck-online-paho.md"
@@ -3805,8 +3805,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "심볼 없이 커널 덤프 크래시 원인 식별, 브라우저 인터넷 연결 진단 — 주간 리뷰 (2026-09-28)",
-        "content": "심볼 없는 커널 덤프 크래시 프로세스·COM 유발자 PID 식별, 정팀장 서버 관제 위젯, 전체 노드 부하 판정 카드, 브라우저 인터넷 연결 진단, 네트워크 구역 자동 찾기를 다룬 Orange Labs 주간 개발 기록",
+        "subject": "シンボルなしでカーネルダンプのクラッシュ原因を特定、ブラウザのインターネット接続診断 — 週次レビュー（2026-09-28）",
+        "content": "Orange Labs の週次開発記録 — シンボルのないカーネルダンプからクラッシュプロセスと COM 誘発 PID を特定、サーバ監視ウィジェット、全ノードの負荷判定カード、ブラウザのインターネット接続診断、ネットワークゾーンの自動探索。",
         "readMinutes": "3",
         "createdAt": "2026.09.28",
         "md": "/tech_blog/md/weekly-review-2026-w40.md"
@@ -3814,8 +3814,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "Windows 터미널 서비스가 멈추자 에이전트가 통째로 오프라인 — sc start 1053과 ncalrpc 무기한 대기",
-        "content": "프로세스는 살아 있는데 서버로는 아무것도 못 보내고, 다시 올리려 해도 sc start가 1053으로 실패했다. WTSEnumerateSessions가 타는 로컬 RPC(ncalrpc)에는 타임아웃 인자가 없어, 터미널 서비스가 굳으면 부른 스레드가 무기한 선다. 덤프 분석으로 멈춘 자리를 찾고, 생존 경로에서 WTS 호출을 걷어낸 과정을 정리한다.",
+        "subject": "Windows ターミナルサービスが固まるとエージェントが丸ごとオフラインになる — sc start 1053 と ncalrpc の無期限待ち",
+        "content": "プロセスは生きているのにサーバへ何も送れず、再起動しようにも sc start が 1053 で失敗した。WTSEnumerateSessions が通るローカル RPC（ncalrpc）にはタイムアウト引数がなく、ターミナルサービスが固まると呼び出したスレッドが無期限に止まる。ダンプ解析で止まった箇所を特定し、生存経路から WTS 呼び出しを外した過程をまとめる。",
         "readMinutes": "5",
         "createdAt": "2026.09.26",
         "md": "/tech_blog/md/windows-terminal-service-hang-freezes-agent-ncalrpc.md"
@@ -3823,8 +3823,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "인증 응답이 유실되면 VM 노드가 새 문서로 갈라진다 — ticketb 대조 복원과 stale ticket 되쓰기 차단",
-        "content": "서버는 DB에 쓰고 응답을 보내고, 에이전트는 응답을 받고 새 ticket을 저장한다. 그래서 어긋남은 '서버만 앞서간' 한 방향으로만 생긴다. VM은 인증마다 guid가 새로 발급돼 ticket·guid가 함께 어긋나면서 노드가 새 문서로 분열했다. POST 매칭에 ticketb 단계를 복원하고 옛 값 되쓰기 구멍을 막은 과정을 정리한다.",
+        "subject": "認証応答が失われると VM ノードが別文書に分裂する — ticketb 照合の復元と stale ticket の書き戻し遮断",
+        "content": "サーバは DB に書いてから応答を送り、エージェントは応答を受けて新しい ticket を保存する。だからズレは「サーバだけが先に進んだ」一方向にしか生じない。VM は認証のたびに guid が新規発行されるため、ticket と guid が同時にずれるとノードが別文書へ分裂した。POST 照合に ticketb の段階を復元し、古い値の書き戻し口を塞いだ過程をまとめる。",
         "readMinutes": "3",
         "createdAt": "2026.09.24",
         "md": "/tech_blog/md/mqtt-auth-response-loss-vm-node-split-ticketb-recovery.md"
@@ -3832,8 +3832,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "정상 종료인데 MQTT WILL이 폐기돼 노드가 online으로 굳는다 — paho 이유코드와 재인증 중 끊김",
-        "content": "에이전트가 서버에 다시 등록하는 도중 접속을 끊으면, MQTT CONNECT가 아직 진행 중이라 offline을 보내지 못한 채 끊긴다. 기다리는 사이 접속이 끝나 online이 나가고, 마지막에 MQTTAsync_destroy가 이유코드 0(정상 종료)으로 끊어 브로커가 WILL을 버린다. 서버에는 online만 남는다. paho 소스와 브로커 실험으로 원인을 좁힌 과정을 정리한다.",
+        "subject": "正常終了なのに MQTT WILL が破棄されノードが online のまま固まる — paho の理由コードと再認証中の切断",
+        "content": "エージェントがサーバへ再登録している最中に接続を切ると、MQTT CONNECT がまだ進行中のため offline を送れないまま切れる。待っている間に接続が完了して online が出ていき、最後に MQTTAsync_destroy が理由コード0（正常終了）で切るのでブローカーが WILL を捨てる。サーバには online だけが残る。paho のソースとブローカー実験で原因を絞り込んだ過程をまとめる。",
         "readMinutes": "5",
         "createdAt": "2026.09.23",
         "md": "/tech_blog/md/mqtt-will-dropped-graceful-disconnect-node-stuck-online-paho.md"
