@@ -1,0 +1,441 @@
+{
+  "version": "1.6.242.0929",
+  "slug": "1.6.242.0929",
+  "date": "2026-09-29",
+  "pdf": "release-notes.pdf",
+  "items": [
+    {
+      "key": "hourCulprits",
+      "kind": "new"
+    },
+    {
+      "key": "nodeInfoTabs",
+      "kind": "new"
+    },
+    {
+      "key": "switchPortDevices",
+      "kind": "new"
+    },
+    {
+      "key": "dumpAnalyzer",
+      "kind": "new"
+    },
+    {
+      "key": "hourlyBars",
+      "kind": "improved"
+    },
+    {
+      "key": "waitRankSystem",
+      "kind": "improved"
+    },
+    {
+      "key": "unexplainedShare",
+      "kind": "improved"
+    },
+    {
+      "key": "portErrorKinds",
+      "kind": "improved"
+    },
+    {
+      "key": "presetKeepsTabs",
+      "kind": "improved"
+    },
+    {
+      "key": "zoneOverlap",
+      "kind": "improved"
+    },
+    {
+      "key": "bsodGuide",
+      "kind": "improved"
+    },
+    {
+      "key": "answerIntegrity",
+      "kind": "improved"
+    },
+    {
+      "key": "remoteState",
+      "kind": "improved"
+    },
+    {
+      "key": "localAgentSign",
+      "kind": "improved"
+    }
+  ],
+  "i18n": {
+    "ko": {
+      "excerpt": "회사 전체 부하가 오른 시간에 어느 PC 가 올렸는지 짚어 줍니다. 노드 정보의 탭이 열 개에서 여섯 개로 줄었고, 스위치 포트마다 연결된 기기를 찾을 수 있습니다. PC 에서는 블루스크린·프로그램 오류 덤프를 바로 분석합니다.",
+      "items": {
+        "hourCulprits": {
+          "title": "회사 전체 부하가 오른 시간에 어느 PC 가 올렸는지 보기",
+          "sub": "노드 › 전체 노드 부하",
+          "desc": "시간을 고르고 「시간 요약」 카드를 누르면 오른 양이 많은 PC 순서로 나오고, PC 마다 어떤 프로그램이 부하를 얼마나 차지했는지 문장으로 적힙니다. 시간을 고르지 않으면 「오늘 요약」에서 하루 판정 한 문장과 오늘 많이 쓴 PC 를 봅니다."
+        },
+        "nodeInfoTabs": {
+          "title": "노드 정보 탭을 열 개에서 여섯 개로",
+          "sub": "노드 › 노드 정보",
+          "desc": "에이전트·시스템·네트워크·보안프로그램·설치프로그램이 「정보」 탭 하나로 모였습니다. 탭 옆 목록에서 섹션을 고르고, 다시 열면 마지막에 보던 섹션으로 들어갑니다. IP·MAC 은 값 옆의 복사 버튼으로 그 값만 복사합니다."
+        },
+        "switchPortDevices": {
+          "title": "스위치 포트마다 어느 기기가 연결됐는지 보기",
+          "sub": "모니터링 › 서버 모니터링 · 연결 장비",
+          "desc": "「이 PC 가 스위치 몇 번 포트에 꽂혀 있나」를 MAC·IP·PC 이름 어느 것으로든 한 칸에서 찾습니다. 스위치가 본 기기를 적어 둔 기록이라 줄마다 마지막으로 본 시각이 함께 나옵니다."
+        },
+        "dumpAnalyzer": {
+          "title": "블루스크린·프로그램 오류 덤프를 PC 에서 바로 분석",
+          "sub": "에이전트 · 트레이 메뉴",
+          "desc": "트레이 메뉴에서 덤프 분석기를 열고 덤프 파일을 끌어다 놓으면, 판정과 오류 코드, 프로그램이 시작해서 멈추기까지의 순서가 한국어로 나옵니다. 외부에서 파일을 내려받지 않고 PC 안에서 분석을 끝냅니다."
+        },
+        "hourlyBars": {
+          "title": "전체 노드 부하 차트를 1시간 단위로 보기",
+          "sub": "노드 › 전체 노드 부하",
+          "desc": "5분 막대가 촘촘해 흐름이 읽히지 않던 차트가 1시간 막대로 열립니다. 짧게 치솟은 순간은 막대 위 꼬리로 남고, 「5분」으로 바꾸면 전처럼 자세히 봅니다. 카드는 평균을 먼저, 고점을 뒤에 적습니다."
+        },
+        "waitRankSystem": {
+          "title": "부하 원인 목록을 실제로 기다리게 한 프로그램 순으로",
+          "sub": "노드 › 노드 정보 · 부하 원인",
+          "desc": "읽고 쓴 양 순서라 늘 1위이던 System 을 순위에서 빼고 목록 맨 아래 한 줄로 따로 둡니다. 순위는 그 프로그램 때문에 실제로 기다린 시간으로 매깁니다."
+        },
+        "unexplainedShare": {
+          "title": "프로그램으로 설명되지 않는 부하 몫 표시",
+          "sub": "노드 › 노드 정보 · 부하 원인",
+          "desc": "오른 양의 절반도 프로그램으로 설명되지 않으면, 나머지는 공유 메모리·캐시·Windows 내부 등 프로그램 밖이라고 함께 적습니다. 「원인을 못 찾았다」로 끝나던 경우에도 그 사실이 정보로 남습니다."
+        },
+        "portErrorKinds": {
+          "title": "스위치 포트 오류를 종류별로 표시",
+          "sub": "모니터링 › 서버 모니터링",
+          "desc": "「에러 30건」처럼 합계만 보이던 것을 버려진 데이터, 신호가 깨진 것, 양방향 통신 설정 세 갈래로 나눠 보여 줍니다. 회선이 가득 찼을 때 나타나는 버려진 데이터도 새로 걷습니다."
+        },
+        "presetKeepsTabs": {
+          "title": "대시보드 프리셋을 불러와도 직접 만든 탭 유지",
+          "sub": "대시보드",
+          "desc": "프리셋을 불러오면 직접 만든 탭이 사라지던 것을 고쳤습니다. 눌러도 반응이 없던 「내 설정으로 복원」도 동작합니다."
+        },
+        "zoneOverlap": {
+          "title": "네트워크 구역이 겹치게 저장되던 것 막기",
+          "sub": "네트워크 구역 · 구역 자동 찾기",
+          "desc": "이미 있는 구역과 범위가 겹치면 저장하기 전에 막고 그 까닭을 카드에 적어 줍니다. 여러 대역을 쓰는 큰 사내망에서 두 번째 대역부터 구역 만들기가 실패하던 문제도 고쳤습니다."
+        },
+        "bsodGuide": {
+          "title": "정팀장이 블루스크린 원인을 끝까지 짚도록",
+          "sub": "정팀장",
+          "desc": "「판단을 마치지 못했습니다」로 끝나던 질문에, 발생 기록과 그 PC 의 블루스크린 이벤트·덤프 목록을 차례로 보고 확인된 코드에 맞는 지침을 읽은 뒤 답합니다."
+        },
+        "answerIntegrity": {
+          "title": "정팀장 답이 끊기거나 순위가 뒤집히던 문제",
+          "sub": "정팀장",
+          "desc": "형식이 깨져 내용이 빠지던 답은 한 번 더 받아 온전한 것을 씁니다. 답을 다시 쓰며 부하 순위를 거꾸로 적던 것도 고쳤습니다."
+        },
+        "remoteState": {
+          "title": "원격 제어 화면이 실제 상태와 다르게 보이던 문제",
+          "sub": "원격 제어",
+          "desc": "영상이 실제로 들어와야 「연결됨」으로 바뀌고, 30초까지 오지 않으면 다시 시도 버튼이 나옵니다. 끊기지 않았는데 오프라인 안내가 잠깐 나타나던 것도 고쳤습니다."
+        },
+        "localAgentSign": {
+          "title": "관리자 PC 의 에이전트를 부를 때 서버 서명 확인",
+          "sub": "에이전트 · 서버",
+          "desc": "매니저 화면이 관리자 PC 의 에이전트를 부를 때 서버가 서명한 명령만 실행합니다. 같은 PC 의 다른 프로그램이 같은 주소로 명령을 낼 수 있던 통로를 막았습니다."
+        }
+      }
+    },
+    "en": {
+      "excerpt": "See which PCs drove company-wide load up in a given hour. Node info now has six tabs instead of ten, and you can find which device sits on each switch port. On the PC, blue-screen and program-crash dumps can be analysed on the spot.",
+      "items": {
+        "hourCulprits": {
+          "title": "See which PCs drove company-wide load up in a given hour",
+          "sub": "Nodes › All-node load",
+          "desc": "Pick an hour and click the Hour summary card: PCs are listed by how much load they added, each with a sentence on which program took how much. With no hour picked, Today summary gives a one-line verdict for the day and the PCs that used the most."
+        },
+        "nodeInfoTabs": {
+          "title": "Node info tabs cut from ten to six",
+          "sub": "Nodes › Node info",
+          "desc": "Agent, System, Network, Security software and Installed programs now sit under a single Info tab. Pick a section from the list beside the tab; reopening returns to the last section you viewed. IP and MAC values have their own copy button."
+        },
+        "switchPortDevices": {
+          "title": "See which device is connected to each switch port",
+          "sub": "Monitoring › Server monitoring · Connected devices",
+          "desc": "Answer \"which switch port is this PC plugged into\" by searching MAC, IP or PC name in one box. It is a record of devices the switch has seen, so each row shows when it was last seen."
+        },
+        "dumpAnalyzer": {
+          "title": "Analyse blue-screen and program-crash dumps right on the PC",
+          "sub": "Agent · Tray menu",
+          "desc": "Open the dump analyser from the tray menu and drop in a dump file: you get the verdict, the error code and the sequence from program start to crash, explained in Korean. Analysis finishes on the PC without downloading anything."
+        },
+        "hourlyBars": {
+          "title": "All-node load chart in one-hour bars",
+          "sub": "Nodes › All-node load",
+          "desc": "The chart now opens in one-hour bars instead of crowded five-minute ones. Short spikes remain as wicks on each bar, and switching to 5 min shows the detail as before. Cards list the average first and the peak after it."
+        },
+        "waitRankSystem": {
+          "title": "Load-cause list ranked by programs that actually caused waiting",
+          "sub": "Nodes › Node info · Load causes",
+          "desc": "System, always first when ranked by read/write volume, is taken out of the ranking and shown as a separate line at the bottom. Programs are ranked by the time the PC actually spent waiting on them."
+        },
+        "unexplainedShare": {
+          "title": "Showing the share of load no program explains",
+          "sub": "Nodes › Node info · Load causes",
+          "desc": "When programs explain less than half of a rise, the note says the rest lies outside programs, such as shared memory, cache or Windows internals. Cases that used to end in \"cause not found\" now carry that fact as information."
+        },
+        "portErrorKinds": {
+          "title": "Switch port errors shown by type",
+          "sub": "Monitoring › Server monitoring",
+          "desc": "Instead of a single total such as \"30 errors\", errors are split into discarded data, corrupted signal and duplex settings. Discarded data, which appears when a link is full, is now collected as well."
+        },
+        "presetKeepsTabs": {
+          "title": "Dashboard presets no longer remove tabs you created",
+          "sub": "Dashboard",
+          "desc": "Loading a preset used to wipe tabs you had added yourself; they now stay. Restore my settings, which did nothing when clicked, now works."
+        },
+        "zoneOverlap": {
+          "title": "Preventing overlapping network zones from being saved",
+          "sub": "Network zones · Find zones automatically",
+          "desc": "If a range overlaps an existing zone, saving is blocked and the reason is written on the card. Zone creation failing from the second range onward on large multi-range networks is also fixed."
+        },
+        "bsodGuide": {
+          "title": "AI assistant now follows a blue screen to its cause",
+          "sub": "AI assistant",
+          "desc": "Questions that used to end with \"could not finish the assessment\" are now answered after checking the crash history, that PC's blue-screen events and dump list, and the guide for the confirmed stop code."
+        },
+        "answerIntegrity": {
+          "title": "AI assistant answers cut off or with rankings reversed",
+          "sub": "AI assistant",
+          "desc": "Answers whose format broke and lost content are requested once more and the complete one is used. Rewriting an answer no longer reverses the load ranking."
+        },
+        "remoteState": {
+          "title": "Remote control screen not matching the real state",
+          "sub": "Remote control",
+          "desc": "The screen changes to Connected only once video actually arrives, and a retry button appears if none arrives within 30 seconds. A brief offline notice shown while still connected is also fixed."
+        },
+        "localAgentSign": {
+          "title": "Server signature checked when calling the agent on the admin PC",
+          "sub": "Agent · Server",
+          "desc": "When the manager calls the agent on the admin's own PC, only commands signed by the server are run. This closes a path through which another program on the same PC could send commands to the same address."
+        }
+      }
+    },
+    "ja": {
+      "excerpt": "会社全体の負荷が上がった時間に、どの PC が押し上げたかを示します。ノード情報のタブは10個から6個になり、スイッチのポートごとに接続機器を探せます。PC ではブルースクリーンやプログラムエラーのダンプをその場で分析できます。",
+      "items": {
+        "hourCulprits": {
+          "title": "会社全体の負荷が上がった時間に、どの PC が押し上げたかを見る",
+          "sub": "ノード › 全ノード負荷",
+          "desc": "時間を選んで「時間サマリー」カードを押すと、上げた量の多い PC 順に並び、PC ごとにどのプログラムがどれだけ占めたかが文章で示されます。時間を選ばなければ「今日のサマリー」で一日の判定と今日よく使った PC を見られます。"
+        },
+        "nodeInfoTabs": {
+          "title": "ノード情報のタブを10個から6個に",
+          "sub": "ノード › ノード情報",
+          "desc": "エージェント・システム・ネットワーク・セキュリティソフト・インストール済みプログラムが「情報」タブ一つにまとまりました。タブ横の一覧でセクションを選び、再び開くと最後に見ていたセクションに戻ります。IP・MAC は値の横のコピーボタンでその値だけをコピーします。"
+        },
+        "switchPortDevices": {
+          "title": "スイッチのポートごとに、どの機器がつながっているかを見る",
+          "sub": "モニタリング › サーバーモニタリング · 接続機器",
+          "desc": "「この PC はスイッチの何番ポートにつながっているか」を、MAC・IP・PC 名のどれでも一つの欄で探せます。スイッチが見た機器の記録なので、行ごとに最後に見た時刻も表示されます。"
+        },
+        "dumpAnalyzer": {
+          "title": "ブルースクリーン・プログラムエラーのダンプを PC でその場で分析",
+          "sub": "エージェント · トレイメニュー",
+          "desc": "トレイメニューからダンプ分析ツールを開き、ダンプファイルをドロップすると、判定とエラーコード、プログラム開始から停止までの流れが韓国語で表示されます。外部からファイルをダウンロードせず PC 内で分析を終えます。"
+        },
+        "hourlyBars": {
+          "title": "全ノード負荷チャートを1時間単位で見る",
+          "sub": "ノード › 全ノード負荷",
+          "desc": "5分の棒が細かく流れが読みにくかったチャートが、1時間の棒で開きます。短い急上昇は棒の上のひげとして残り、「5分」に切り替えれば従来どおり詳しく見られます。カードは平均を先に、ピークを後に示します。"
+        },
+        "waitRankSystem": {
+          "title": "負荷原因リストを実際に待たせたプログラム順に",
+          "sub": "ノード › ノード情報 · 負荷原因",
+          "desc": "読み書き量の順で常に1位だった System を順位から外し、リスト最下部に別の一行で表示します。順位はそのプログラムのために実際に待った時間で決めます。"
+        },
+        "unexplainedShare": {
+          "title": "プログラムで説明できない負荷の割合を表示",
+          "sub": "ノード › ノード情報 · 負荷原因",
+          "desc": "上昇分の半分もプログラムで説明できない場合、残りは共有メモリ・キャッシュ・Windows 内部などプログラムの外にあると併記します。「原因が見つからない」で終わっていたケースでも、その事実が情報として残ります。"
+        },
+        "portErrorKinds": {
+          "title": "スイッチポートのエラーを種類別に表示",
+          "sub": "モニタリング › サーバーモニタリング",
+          "desc": "「エラー30件」のように合計だけだった表示を、破棄されたデータ・信号の破損・双方向通信設定の三つに分けて示します。回線が埋まったときに現れる破棄データも新たに収集します。"
+        },
+        "presetKeepsTabs": {
+          "title": "ダッシュボードのプリセットを読み込んでも自作タブを保持",
+          "sub": "ダッシュボード",
+          "desc": "プリセットを読み込むと自分で作ったタブが消えていた問題を直しました。押しても反応しなかった「自分の設定に戻す」も動作します。"
+        },
+        "zoneOverlap": {
+          "title": "ネットワーク区域が重なって保存されるのを防止",
+          "sub": "ネットワーク区域 · 区域の自動検出",
+          "desc": "既存の区域と範囲が重なる場合は保存前に止め、その理由をカードに示します。複数の帯域を使う大規模な社内網で、2番目の帯域から区域作成に失敗していた問題も直しました。"
+        },
+        "bsodGuide": {
+          "title": "AI アシスタントがブルースクリーンの原因を最後まで突き止めるように",
+          "sub": "AI アシスタント",
+          "desc": "「判断を終えられませんでした」で終わっていた質問に、発生記録とその PC のブルースクリーンイベント・ダンプ一覧を順に確認し、確認されたコードに合う手引きを読んでから答えます。"
+        },
+        "answerIntegrity": {
+          "title": "AI アシスタントの回答が途切れたり順位が逆になったりしていた問題",
+          "sub": "AI アシスタント",
+          "desc": "形式が崩れて内容が欠けた回答はもう一度受け取り、完全なものを使います。回答を書き直す際に負荷の順位を逆に書いていた問題も直しました。"
+        },
+        "remoteState": {
+          "title": "リモート制御画面が実際の状態と違って見えていた問題",
+          "sub": "リモート制御",
+          "desc": "映像が実際に届いてから「接続済み」に変わり、30秒以内に届かなければ再試行ボタンが表示されます。切断されていないのにオフライン案内が一瞬出ていた問題も直しました。"
+        },
+        "localAgentSign": {
+          "title": "管理者 PC のエージェントを呼ぶときにサーバー署名を確認",
+          "sub": "エージェント · サーバー",
+          "desc": "マネージャー画面が管理者 PC のエージェントを呼ぶとき、サーバーが署名したコマンドだけを実行します。同じ PC の別のプログラムが同じアドレスにコマンドを送れた経路を塞ぎました。"
+        }
+      }
+    },
+    "zh": {
+      "excerpt": "可以查看全公司负载上升的时段是哪些 PC 推高的。节点信息的标签页从十个减为六个，并可查找每个交换机端口连接的设备。在 PC 上可直接分析蓝屏和程序错误转储。",
+      "items": {
+        "hourCulprits": {
+          "title": "查看全公司负载上升的时段是哪些 PC 推高的",
+          "sub": "节点 › 全部节点负载",
+          "desc": "选择时段并点击「时段摘要」卡片，PC 按推高的幅度排列，并用一句话说明每台 PC 上哪个程序占了多少。不选时段时，「今日摘要」给出当天的一句判断和今天用得最多的 PC。"
+        },
+        "nodeInfoTabs": {
+          "title": "节点信息标签页从十个减为六个",
+          "sub": "节点 › 节点信息",
+          "desc": "代理、系统、网络、安全软件、已安装程序合并到一个「信息」标签页。在标签旁的列表中选择分区，再次打开时回到上次查看的分区。IP、MAC 可用值旁的复制按钮单独复制。"
+        },
+        "switchPortDevices": {
+          "title": "查看每个交换机端口连接了哪台设备",
+          "sub": "监控 › 服务器监控 · 连接设备",
+          "desc": "用 MAC、IP 或 PC 名称在同一个输入框中查找「这台 PC 插在交换机几号端口」。这是交换机见过的设备记录，因此每行都显示最后一次看到的时间。"
+        },
+        "dumpAnalyzer": {
+          "title": "在 PC 上直接分析蓝屏和程序错误转储",
+          "sub": "代理 · 托盘菜单",
+          "desc": "从托盘菜单打开转储分析器并拖入转储文件，即可用韩语看到判定、错误代码，以及程序从启动到停止的经过。分析在 PC 内完成，不从外部下载文件。"
+        },
+        "hourlyBars": {
+          "title": "全部节点负载图按 1 小时查看",
+          "sub": "节点 › 全部节点负载",
+          "desc": "原先 5 分钟柱太密、看不出走势的图表，现在以 1 小时柱打开。短暂的尖峰保留为柱上的影线，切换到「5 分钟」即可像以前一样查看细节。卡片先写平均值，再写峰值。"
+        },
+        "waitRankSystem": {
+          "title": "负载原因列表按实际造成等待的程序排序",
+          "sub": "节点 › 节点信息 · 负载原因",
+          "desc": "按读写量排序时总是第一的 System 移出排名，单独显示在列表最下方一行。排名依据该程序实际造成的等待时间。"
+        },
+        "unexplainedShare": {
+          "title": "显示无法由程序解释的负载份额",
+          "sub": "节点 › 节点信息 · 负载原因",
+          "desc": "当上升量连一半都无法由程序解释时，会注明其余部分来自共享内存、缓存、Windows 内部等程序之外。以前以「未找到原因」结束的情况，现在这一事实本身也作为信息保留。"
+        },
+        "portErrorKinds": {
+          "title": "按类型显示交换机端口错误",
+          "sub": "监控 › 服务器监控",
+          "desc": "原先只显示「错误 30 次」这样的合计，现在分为丢弃的数据、信号损坏、双工设置三类。线路占满时出现的丢弃数据也开始采集。"
+        },
+        "presetKeepsTabs": {
+          "title": "加载仪表板预设后仍保留自建标签页",
+          "sub": "仪表板",
+          "desc": "修复了加载预设会删除自己创建的标签页的问题。点击无反应的「恢复为我的设置」也已可用。"
+        },
+        "zoneOverlap": {
+          "title": "防止保存相互重叠的网络区域",
+          "sub": "网络区域 · 自动查找区域",
+          "desc": "范围与现有区域重叠时，保存前即阻止并在卡片上说明原因。还修复了在使用多个网段的大型内网中，从第二个网段起创建区域失败的问题。"
+        },
+        "bsodGuide": {
+          "title": "AI 助手能追查到蓝屏的最终原因",
+          "sub": "AI 助手",
+          "desc": "以前以「未能完成判断」结束的问题，现在会依次查看发生记录、该 PC 的蓝屏事件和转储列表，读取与已确认代码对应的指南后再回答。"
+        },
+        "answerIntegrity": {
+          "title": "AI 助手回答中断或排名颠倒的问题",
+          "sub": "AI 助手",
+          "desc": "格式损坏导致内容缺失的回答会再请求一次并使用完整的回答。重写回答时把负载排名写反的问题也已修复。"
+        },
+        "remoteState": {
+          "title": "远程控制画面与实际状态不符的问题",
+          "sub": "远程控制",
+          "desc": "只有在实际收到画面后才变为「已连接」，30 秒内未收到则显示重试按钮。未断开却短暂出现离线提示的问题也已修复。"
+        },
+        "localAgentSign": {
+          "title": "调用管理员 PC 上的代理时校验服务器签名",
+          "sub": "代理 · 服务器",
+          "desc": "管理器画面调用管理员 PC 上的代理时，只执行服务器签名的命令。堵住了同一台 PC 上的其他程序可向同一地址发送命令的通道。"
+        }
+      }
+    },
+    "zh-Hant": {
+      "excerpt": "可以查看全公司負載上升的時段是哪些 PC 推高的。節點資訊的分頁從十個減為六個，並可查找每個交換器連接埠連接的裝置。在 PC 上可直接分析藍屏與程式錯誤傾印。",
+      "items": {
+        "hourCulprits": {
+          "title": "查看全公司負載上升的時段是哪些 PC 推高的",
+          "sub": "節點 › 全部節點負載",
+          "desc": "選擇時段並點選「時段摘要」卡片，PC 依推高的幅度排列，並用一句話說明每台 PC 上哪個程式占了多少。不選時段時，「今日摘要」提供當天的一句判斷與今天用得最多的 PC。"
+        },
+        "nodeInfoTabs": {
+          "title": "節點資訊分頁從十個減為六個",
+          "sub": "節點 › 節點資訊",
+          "desc": "代理程式、系統、網路、安全軟體、已安裝程式合併到一個「資訊」分頁。在分頁旁的清單中選擇區段，再次開啟時回到上次檢視的區段。IP、MAC 可用值旁的複製按鈕單獨複製。"
+        },
+        "switchPortDevices": {
+          "title": "查看每個交換器連接埠連接了哪台裝置",
+          "sub": "監控 › 伺服器監控 · 連接裝置",
+          "desc": "用 MAC、IP 或 PC 名稱在同一個輸入框中查找「這台 PC 插在交換器幾號連接埠」。這是交換器看過的裝置紀錄，因此每列都顯示最後一次看到的時間。"
+        },
+        "dumpAnalyzer": {
+          "title": "在 PC 上直接分析藍屏與程式錯誤傾印",
+          "sub": "代理程式 · 系統匣選單",
+          "desc": "從系統匣選單開啟傾印分析器並拖入傾印檔，即可用韓語看到判定、錯誤代碼，以及程式從啟動到停止的經過。分析在 PC 內完成，不從外部下載檔案。"
+        },
+        "hourlyBars": {
+          "title": "全部節點負載圖以 1 小時檢視",
+          "sub": "節點 › 全部節點負載",
+          "desc": "原先 5 分鐘柱太密、看不出走勢的圖表，現在以 1 小時柱開啟。短暫的尖峰保留為柱上的影線，切換到「5 分鐘」即可像以前一樣檢視細節。卡片先寫平均值，再寫峰值。"
+        },
+        "waitRankSystem": {
+          "title": "負載原因清單依實際造成等待的程式排序",
+          "sub": "節點 › 節點資訊 · 負載原因",
+          "desc": "依讀寫量排序時總是第一的 System 移出排名，單獨顯示在清單最下方一列。排名依據該程式實際造成的等待時間。"
+        },
+        "unexplainedShare": {
+          "title": "顯示無法由程式解釋的負載份額",
+          "sub": "節點 › 節點資訊 · 負載原因",
+          "desc": "當上升量連一半都無法由程式解釋時，會註明其餘部分來自共享記憶體、快取、Windows 內部等程式之外。以前以「找不到原因」結束的情況，現在這一事實本身也作為資訊保留。"
+        },
+        "portErrorKinds": {
+          "title": "依類型顯示交換器連接埠錯誤",
+          "sub": "監控 › 伺服器監控",
+          "desc": "原先只顯示「錯誤 30 次」這樣的合計，現在分為丟棄的資料、訊號損壞、雙工設定三類。線路滿載時出現的丟棄資料也開始收集。"
+        },
+        "presetKeepsTabs": {
+          "title": "載入儀表板預設後仍保留自建分頁",
+          "sub": "儀表板",
+          "desc": "修正了載入預設會刪除自己建立的分頁的問題。點選無反應的「還原為我的設定」也已可用。"
+        },
+        "zoneOverlap": {
+          "title": "防止儲存互相重疊的網路區域",
+          "sub": "網路區域 · 自動尋找區域",
+          "desc": "範圍與既有區域重疊時，儲存前即阻止並在卡片上說明原因。也修正了在使用多個網段的大型內網中，從第二個網段起建立區域失敗的問題。"
+        },
+        "bsodGuide": {
+          "title": "AI 助理能追查到藍屏的最終原因",
+          "sub": "AI 助理",
+          "desc": "以前以「未能完成判斷」結束的問題，現在會依序查看發生紀錄、該 PC 的藍屏事件與傾印清單，讀取與已確認代碼對應的指南後再回答。"
+        },
+        "answerIntegrity": {
+          "title": "AI 助理回答中斷或排名顛倒的問題",
+          "sub": "AI 助理",
+          "desc": "格式損壞導致內容缺漏的回答會再請求一次並使用完整的回答。改寫回答時把負載排名寫反的問題也已修正。"
+        },
+        "remoteState": {
+          "title": "遠端控制畫面與實際狀態不符的問題",
+          "sub": "遠端控制",
+          "desc": "只有在實際收到畫面後才變為「已連線」，30 秒內未收到則顯示重試按鈕。未中斷卻短暫出現離線提示的問題也已修正。"
+        },
+        "localAgentSign": {
+          "title": "呼叫管理員 PC 上的代理程式時驗證伺服器簽章",
+          "sub": "代理程式 · 伺服器",
+          "desc": "管理器畫面呼叫管理員 PC 上的代理程式時，只執行伺服器簽章的命令。堵住了同一台 PC 上的其他程式可向同一位址發送命令的管道。"
+        }
+      }
+    }
+  }
+}
