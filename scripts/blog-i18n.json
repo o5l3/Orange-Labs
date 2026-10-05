@@ -1888,5 +1888,113 @@
       "title": "正常終了なのに MQTT WILL が破棄されノードが online のまま固まる — paho の理由コードと再認証中の切断",
       "excerpt": "エージェントがサーバへ再登録している最中に接続を切ると、MQTT CONNECT がまだ進行中のため offline を送れないまま切れる。待っている間に接続が完了して online が出ていき、最後に MQTTAsync_destroy が理由コード0（正常終了）で切るのでブローカーが WILL を捨てる。サーバには online だけが残る。paho のソースとブローカー実験で原因を絞り込んだ過程をまとめる。"
     }
+  },
+  "weekly-review-2026-w41": {
+    "en": {
+      "title": "Stabilizing orange.sys Kernel Driver Bugchecks and Handle Leaks, Tracing Kernel Crash Paths in the Dump Analyzer — Weekly Review (2026-10-05)",
+      "excerpt": "Orange Labs weekly development log: a 0x4A bugcheck during file open and handle-leak detection, a dump analyzer that reads .NET exceptions and kernel crash paths without symbols, per-switch-port observation, a large batch of manager UI fixes, and node identification on hard-recovery PCs."
+    },
+    "zh": {
+      "title": "orange.sys 内核驱动蓝屏与句柄泄漏稳定化、转储分析器的内核崩溃路径追踪 —— 每周回顾（2026-10-05）",
+      "excerpt": "Orange Labs 每周开发记录：文件打开过程中的 0x4A 蓝屏与句柄泄漏检测、无符号读取 .NET 异常与内核崩溃路径的转储分析器、按交换机端口的观测画面、管理端界面缺陷批量修复，以及硬盘还原 PC 的节点识别。"
+    },
+    "zh-Hant": {
+      "title": "orange.sys 核心驅動藍白當機與控制代碼洩漏穩定化、傾印分析器的核心當機路徑追蹤 —— 每週回顧（2026-10-05）",
+      "excerpt": "Orange Labs 每週開發紀錄：檔案開啟過程中的 0x4A 藍白當機與控制代碼洩漏偵測、無符號讀取 .NET 例外與核心當機路徑的傾印分析器、依交換器連接埠的觀測畫面、管理端介面缺陷大量修復，以及硬碟還原 PC 的節點識別。"
+    },
+    "ja": {
+      "title": "orange.sys カーネルドライバの BSOD・ハンドルリーク安定化、ダンプ解析ツールのカーネルクラッシュ経路追跡 — 週次レビュー（2026-10-05）",
+      "excerpt": "Orange Labs の週次開発記録 — ファイルオープン中の 0x4A BSOD とハンドルリーク検知、シンボルなしで .NET 例外とカーネルクラッシュ経路を読むダンプ解析ツール、スイッチポート単位の観測画面、マネージャ画面の不具合の大量修正、ハードディスク復元 PC のノード識別。"
+    }
+  },
+  "etw-trace-thread-dies-kill-event-tdhgetproperty": {
+    "en": {
+      "title": "One Process-Kill Event Stopping the Agent's Entire ETW Intake — Per-Build Field Differences and a TdhGetProperty Exception",
+      "excerpt": "After a new build rolled out, the agent's ETW receive thread died with an exception on some Windows 10 nodes. The fields of the process-kill event differ by Windows build, so TdhGetProperty failed — and with no catch in the callback, TCP, DNS and firewall monitoring all stopped at once. We locate the stall from the call stack and lay out the cause."
+    },
+    "zh": {
+      "title": "一个进程强制终止事件让代理的 ETW 接收整体停摆 —— 版本间字段差异与 TdhGetProperty 异常",
+      "excerpt": "新版本发布后，部分 Windows 10 节点上代理的 ETW 接收线程因异常而终止。进程强制终止事件的字段随 Windows 版本而异，导致 TdhGetProperty 失败；而回调中没有 catch，于是 TCP、DNS、防火墙监视一并停止。本文以调用栈定位卡住的位置并梳理成因。"
+    },
+    "zh-Hant": {
+      "title": "一個行程強制終止事件讓代理的 ETW 接收整體停擺 —— 版本間欄位差異與 TdhGetProperty 例外",
+      "excerpt": "新版本發布後，部分 Windows 10 節點上代理的 ETW 接收執行緒因例外而終止。行程強制終止事件的欄位隨 Windows 版本而異，導致 TdhGetProperty 失敗；而回呼中沒有 catch，於是 TCP、DNS、防火牆監視一併停止。本文以呼叫堆疊定位卡住的位置並梳理成因。"
+    },
+    "ja": {
+      "title": "プロセス強制終了イベント1つでエージェントの ETW 受信が丸ごと止まる — ビルドごとのフィールド差と TdhGetProperty の例外",
+      "excerpt": "新しいビルドを配布したところ、一部の Windows 10 ノードでエージェントの ETW 受信スレッドが例外で終了した。プロセス強制終了イベントのフィールドが Windows ビルドごとに異なるため TdhGetProperty が失敗し、コールバックに catch がなかったため TCP・DNS・ファイアウォールの監視まで一度に止まった。コールスタックで止まった箇所を特定し、原因をまとめる。"
+    }
+  },
+  "bsod-dump-selection-memory-dmp-vs-minidump": {
+    "en": {
+      "title": "Picking the Minidump Even When a Kernel Dump Exists — Five Confirmed Defects in BSOD Dump Selection",
+      "excerpt": "With MEMORY.DMP sitting right there, the agent chose a 4 MB minidump as the BSOD analysis target. Five defects compounded — judging dump type by file size, keeping only the newest file, and a wrong offset in the 32-bit branch — so \"prefer the larger dump\" ran backwards. Measurements, root causes and the fix design."
+    },
+    "zh": {
+      "title": "明明有内核转储却选了小型转储 —— BSOD 转储选择逻辑的五处确定缺陷",
+      "excerpt": "MEMORY.DMP 明明完好存在，代理却选了 4 MB 的小型转储作为 BSOD 分析对象。按文件大小判定转储类型、只保留最新一个的逻辑，以及 32 位分支中错误的偏移量，五处缺陷叠加导致「优先选大转储」反向执行。本文附实测数据，梳理成因与修复设计。"
+    },
+    "zh-Hant": {
+      "title": "明明有核心傾印卻選了迷你傾印 —— BSOD 傾印選擇邏輯的五處確定缺陷",
+      "excerpt": "MEMORY.DMP 明明完好存在，代理卻選了 4 MB 的迷你傾印作為 BSOD 分析對象。依檔案大小判定傾印類型、只保留最新一個的邏輯，以及 32 位元分支中錯誤的位移量，五處缺陷疊加導致「優先選大傾印」反向執行。本文附實測資料，梳理成因與修復設計。"
+    },
+    "ja": {
+      "title": "カーネルダンプがあるのにミニダンプを選んでいた BSOD ダンプ収集 — 選択ロジックで確定した5つの不具合",
+      "excerpt": "MEMORY.DMP が問題なく存在するのに、エージェントは4MB のミニダンプを BSOD 解析の対象に選んでいた。ファイルサイズで種類を判定するロジック、最新の1つだけを残す処理、32ビット分岐の誤ったオフセットまで5つの不具合が重なり、「大きいダンプを優先」が逆に働いていた。実測とともに原因と修正設計をまとめる。"
+    }
+  },
+  "tcp-slow-success-latencyms-kernel-timestamp-syn-retransmission": {
+    "en": {
+      "title": "A Detection Says the TCP Connection Took Over Three Seconds — Can You Trust the Number? Kernel Timestamps Instead of Processing Time, and SYN Retransmission",
+      "excerpt": "LatencyMs is the only evidence behind a TCP SLOW_SUCCESS detection — a connection that succeeded but took more than three seconds. Measured from processing time, the old method was wrong in essentially all 53 cases. We switched to kernel timestamps, capped the fictitious values created by TCB reuse, and confirmed over seven days of data that most field values coincide with Windows SYN retransmission."
+    },
+    "zh": {
+      "title": "检测说 TCP 连接耗时超过 3 秒，这个值可信吗 —— 用内核时间取代处理时间，以及 SYN 重传",
+      "excerpt": "连接成功但耗时超过 3 秒的 TCP SLOW_SUCCESS 检测，唯一依据就是 LatencyMs。以处理时间来测量的旧方式，在 53 例中几乎全错。本文记录改用内核时间、以上限阻断 TCB 复用造成的虚构值，并以 7 天数据确认现场值大多与 Windows SYN 重传重合的过程。"
+    },
+    "zh-Hant": {
+      "title": "偵測說 TCP 連線耗時超過 3 秒，這個值可信嗎 —— 用核心時間取代處理時間，以及 SYN 重傳",
+      "excerpt": "連線成功但耗時超過 3 秒的 TCP SLOW_SUCCESS 偵測，唯一依據就是 LatencyMs。以處理時間來量測的舊方式，在 53 例中幾乎全錯。本文記錄改用核心時間、以上限阻斷 TCB 重用造成的虛構值，並以 7 天資料確認現場值大多與 Windows SYN 重傳重合的過程。"
+    },
+    "ja": {
+      "title": "TCP 接続に3秒以上かかったという検知、その値を信じてよいか — 処理時刻ではなくカーネル時刻、そして SYN 再送",
+      "excerpt": "接続は成功したが3秒以上かかったという TCP SLOW_SUCCESS 検知の唯一の根拠は LatencyMs だ。処理時刻で測っていた従来方式は53件中ほぼすべてが誤りだった。カーネル時刻に切り替え、TCB 再利用が生む架空の値を上限で止め、現場の値の大半が Windows の SYN 再送と重なることを7日分のデータで確認した過程をまとめる。"
+    }
+  },
+  "monthly-review-202609": {
+    "en": {
+      "title": "Precision for Multi-Target Commands, Root-Cause Analysis of Anomalous Nodes, and Command Retention Management — Monthly Review (2026-10-01)",
+      "excerpt": "Orange Labs monthly development log: removing the dynamic-target gate and group topics for multi-target commands, deep differential root-cause analysis for anomalous nodes, retention settings for commands and results, a two-level rework of the settings screen with 50,000 lines of dead code removed, logon-check automation, and a server monitoring widget."
+    },
+    "zh": {
+      "title": "多目标命令的精确化与异常节点成因分析、命令保留期管理 —— 月度回顾（2026-10-01）",
+      "excerpt": "Orange Labs 月度开发记录：解除多目标命令的动态目标门控并移除分组主题、异常节点成因的深度差分分析、命令与结果的保留期设置、设置界面二级重排与清理 5 万行无用代码、登录检查自动化，以及服务器管控组件。"
+    },
+    "zh-Hant": {
+      "title": "多目標命令的精確化與異常節點成因分析、命令保留期管理 —— 月度回顧（2026-10-01）",
+      "excerpt": "Orange Labs 月度開發紀錄：解除多目標命令的動態目標閘門並移除群組主題、異常節點成因的深度差分分析、命令與結果的保留期設定、設定介面二層重排與清理 5 萬行無用程式碼、登入檢查自動化，以及伺服器管控元件。"
+    },
+    "ja": {
+      "title": "複数対象コマンドの精緻化と異常ノードの原因分析、コマンド保存期間の管理 — 月次レビュー（2026-10-01）",
+      "excerpt": "Orange Labs の月次開発記録 — 複数対象コマンドの動的ターゲットゲート解除とグループトピックの撤去、異常ノードの原因を深く差分分析、コマンド・結果の保存期間設定、設定画面の2階層再編と未使用コード5万行の整理、ログオン点検の自動化、サーバ監視ウィジェット。"
+    }
+  },
+  "quarterly-review-2026-q3-close": {
+    "en": {
+      "title": "WebRTC Both-Relay Remote Control Completed, Spread Prediction as a Service, Switch-Port Observation, Command Precision — Quarterly Review (2026 Q3)",
+      "excerpt": "The manager and agent teams finished remote screen control with bidirectional TURN-over-TCP relay for air-gapped networks and folded spread prediction and detection from cron into a service. The server backend removed the dynamic-target gate on multi-target commands and split command results into their own collection, lifting the 16 MB array limit. Analytics built a per-switch-port device observation screen and a deep differential root-cause API for anomalous nodes; the rules and data team turned the all-node load summary into a verdict card. The kernel driver team strengthened DNS/TCP domain filters and process-termination path validation, and the frontend reorganized settings and GNB navigation while removing 50,000 lines of dead code."
+    },
+    "zh": {
+      "title": "远程控制 WebRTC both-relay 完成、扩散预测服务化、交换机端口观测、命令精确化 —— 季度回顾（2026 Q3）",
+      "excerpt": "管理端与代理团队以隔离网 TURN-over-TCP 双向中继收官远程屏幕控制，并将扩散预测与检测从 cron 整合为服务。服务器后端解除多目标命令的动态目标门控，并将 command 结果拆分到独立集合，消除 16MB 数组上限。分析服务团队建立按交换机端口的设备观测画面与异常节点成因深度差分分析 API；规则与数据分析团队将全节点负载汇总改为判定卡片。内核驱动团队强化 DNS/TCP 域名过滤与进程终止路径校验；前端团队重排设置与 GNB 导航，并清理 5 万行无用代码。"
+    },
+    "zh-Hant": {
+      "title": "遠端控制 WebRTC both-relay 完成、擴散預測服務化、交換器連接埠觀測、命令精確化 —— 季度回顧（2026 Q3）",
+      "excerpt": "管理端與代理團隊以封閉網路 TURN-over-TCP 雙向中繼收尾遠端螢幕控制，並將擴散預測與偵測從 cron 整合為服務。伺服器後端解除多目標命令的動態目標閘門，並將 command 結果拆分到獨立集合，消除 16MB 陣列上限。分析服務團隊建立依交換器連接埠的裝置觀測畫面與異常節點成因深度差分分析 API；規則與資料分析團隊將全節點負載彙總改為判定卡片。核心驅動團隊強化 DNS/TCP 網域過濾與行程終止路徑驗證；前端團隊重排設定與 GNB 導覽，並清理 5 萬行無用程式碼。"
+    },
+    "ja": {
+      "title": "リモート制御 WebRTC both-relay の完成・拡散予測のサービス化・スイッチポート観測・コマンドの精緻化 — 四半期レビュー（2026 Q3）",
+      "excerpt": "マネージャ・エージェント担当は閉域網の TURN-over-TCP 双方向リレーでリモート画面制御を完成させ、拡散予測・検知を cron からサービスへ統合した。サーババックエンドは複数対象コマンドの動的ターゲットゲートを撤去し、command の結果を別コレクションに分離して 16MB 配列の上限をなくした。分析サービスはスイッチポート単位の機器観測画面と、異常ノードの原因を深く差分分析する API を構築。ルール・データ分析は全ノードの負荷サマリを判定カードに変えた。カーネルドライバ担当は DNS・TCP のドメインフィルタとプロセス終了経路の検証を強化し、フロントエンドは設定・GNB ナビゲーションを再編して未使用コード5万行を整理した。"
+    }
   }
 }

@@ -173,12 +173,32 @@ function main() {
   const missingTranslations = [];
   /** 게이트 통과 후 한꺼번에 쓸 md 버퍼 */
   const pending = [];
+  /** 슬러그 → 그 슬러그를 먼저 차지한 원본 파일명 (중복 검출용) */
+  const slugOwner = new Map();
 
   for (const file of files) {
     const raw = fs.readFileSync(path.join(args.posts, file), 'utf-8');
     const { data, body } = parseFrontMatter(raw, file);
 
     const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+
+    // 슬러그는 날짜 접두어를 뗀 파일명이므로, 날짜만 다르고 이름이 같은 두 글은
+    // 같은 슬러그가 된다. 그대로 두면 나중 글이 앞 글의 md를 덮어쓴다. 목록에는
+    // 제목이 둘 다 남고 본문만 하나가 되므로, 어느 쪽을 눌러도 같은 글이 열리고
+    // 번역도 앞 글 것을 뒤 글이 물려받는다. 조용히 일어나 알아채기 어렵다.
+    // 실제로 분기 리뷰 두 편이 이렇게 겹쳤다. 덮어쓰기 전에 세운다.
+    if (slugOwner.has(slug)) {
+      throw new Error(
+        `슬러그 충돌: "${slug}"\n` +
+          `  ${slugOwner.get(slug)}\n` +
+          `  ${file}\n` +
+          `  두 글의 파일명이 날짜 접두어만 다릅니다. 홈페이지는 날짜를 뗀 이름으로\n` +
+          `  글을 저장하므로 하나가 사라집니다. blogs 저장소에서 한쪽 파일명을 바꾸세요\n` +
+          `  (이미 게시된 쪽을 그대로 두고 새로 올라온 쪽을 바꾸는 편이 안전합니다).`,
+      );
+    }
+    slugOwner.set(slug, file);
+
     const category = CATEGORIES[data.category];
     if (!category) {
       // Jekyll 테마 템플릿으로 쓴 글이 섞여 들어온 적이 있다. 그쪽은 복수형
