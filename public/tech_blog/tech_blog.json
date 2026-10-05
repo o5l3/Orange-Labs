@@ -5,6 +5,60 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "orange.sys 커널 드라이버 BSOD·핸들 누수 안정화, 덤프 분석기 커널 크래시 경로 추적 — 주간 리뷰 (2026-10-05)",
+        "content": "파일 열기 중 0x4A BSOD와 핸들 누수 탐지, 심볼 없이 .NET 예외·커널 크래시 경로를 읽는 덤프 분석기, 스위치 포트별 관측 화면, 매니저 화면 결함 대량 수정, 하드복원 PC 노드 식별을 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.05",
+        "md": "/tech_blog/md/weekly-review-2026-w41.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "프로세스 강제 종료 이벤트 하나에 에이전트 ETW 수신이 통째로 멈추다 — 빌드별 필드 차이와 TdhGetProperty 예외",
+        "content": "새 빌드를 배포하자 Windows 10 노드 일부에서 에이전트의 ETW 수신 스레드가 예외로 끝났다. 프로세스 강제 종료 이벤트의 필드가 Windows 빌드마다 달라 TdhGetProperty가 실패했고, 콜백에 catch가 없어 TCP·DNS·방화벽 감시까지 한꺼번에 멈췄다. 콜스택으로 멈춘 자리를 짚고 원인을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.04",
+        "md": "/tech_blog/md/etw-trace-thread-dies-kill-event-tdhgetproperty.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "커널 덤프가 있어도 미니덤프를 고르던 BSOD 덤프 수집 — 선택 로직의 확정된 결함 5건",
+        "content": "MEMORY.DMP가 멀쩡히 있는데도 에이전트가 4 MB짜리 미니덤프를 BSOD 분석 대상으로 골랐다. 파일 크기로 종류를 판정하고 최신 하나만 남기는 로직, 32비트 분기의 잘못된 오프셋까지 다섯 결함이 겹쳐 「큰 덤프 우선」이 거꾸로 돌았다. 실측과 함께 원인과 수정 설계를 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.03",
+        "md": "/tech_blog/md/bsod-dump-selection-memory-dmp-vs-minidump.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "TCP 연결이 3초 넘게 걸렸다는 탐지, 그 값을 믿어도 되나 — 처리 시각 대신 커널 시각, 그리고 SYN 재전송",
+        "content": "연결은 성공했지만 3초 이상 걸린 TCP SLOW_SUCCESS 탐지의 유일한 근거는 LatencyMs다. 이 값을 처리 시각으로 재던 옛 방식은 53건 중 사실상 전부 틀렸다. 커널 시각으로 바꾸고, TCB 재사용이 만든 허구값을 상한으로 막고, 현장 값 대부분이 Windows SYN 재전송과 겹친다는 것을 7일 데이터로 확인한 과정을 정리한다.",
+        "readMinutes": "8",
+        "createdAt": "2026.10.02",
+        "md": "/tech_blog/md/tcp-slow-success-latencyms-kernel-timestamp-syn-retransmission.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "복수 대상 명령 정확화와 이상동작 노드 원인 분석, 명령 보존 기간 관리 — 월간 리뷰 (2026-10-01)",
+        "content": "복수 대상 명령의 동적 대상 게이트 해제와 그룹 토픽 제거, 이상동작 노드 원인 심층 차분 분석, 명령·결과 보존 기간 설정, 설정 화면 2depth 재편과 미사용 코드 5만 줄 정리, 로그온 점검 자동화와 서버 관제 위젯을 다룬 Orange Labs 월간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/monthly-review-202609.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "원격제어 WebRTC both-relay 완성·확산 예측 서비스화·스위치 포트 관측·명령 정확화 — 분기 리뷰 (2026 Q3)",
+        "content": "매니저·에이전트 파트가 폐쇄망 TURN-over-TCP 양방향 릴레이로 원격 화면 제어를 끝맺고 확산 예측·탐지를 cron에서 서비스로 통합했으며, 서버 백엔드 파트가 복수 대상 명령의 동적 대상 게이트를 걷어내고 command 결과를 별도 컬렉션으로 분리해 16MB 배열 한계를 없앴다. 분석 서비스 파트는 스위치 포트별 기기 관측 화면과 이상동작 노드 원인 심층 차분 분석 API를 세웠고, 룰·데이터 분석 파트는 전체 노드 부하 요약을 판정 카드로 바꿨다. 커널 드라이버 파트는 DNS·TCP 도메인 필터와 프로세스 종료 경로 검증을 보강하고, 프론트엔드 파트는 설정·GNB 네비게이션을 재편하고 미사용 코드 5만 줄을 걷었다.",
+        "readMinutes": "6",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "심볼 없이 커널 덤프 크래시 원인 식별, 브라우저 인터넷 연결 진단 — 주간 리뷰 (2026-09-28)",
         "content": "심볼 없는 커널 덤프 크래시 프로세스·COM 유발자 PID 식별, 정팀장 서버 관제 위젯, 전체 노드 부하 판정 카드, 브라우저 인터넷 연결 진단, 네트워크 구역 자동 찾기를 다룬 Orange Labs 주간 개발 기록",
         "readMinutes": "3",
@@ -952,6 +1006,60 @@
   {
     "language": "en",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "orange.sys 커널 드라이버 BSOD·핸들 누수 안정화, 덤프 분석기 커널 크래시 경로 추적 — 주간 리뷰 (2026-10-05)",
+        "content": "파일 열기 중 0x4A BSOD와 핸들 누수 탐지, 심볼 없이 .NET 예외·커널 크래시 경로를 읽는 덤프 분석기, 스위치 포트별 관측 화면, 매니저 화면 결함 대량 수정, 하드복원 PC 노드 식별을 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.05",
+        "md": "/tech_blog/md/weekly-review-2026-w41.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "프로세스 강제 종료 이벤트 하나에 에이전트 ETW 수신이 통째로 멈추다 — 빌드별 필드 차이와 TdhGetProperty 예외",
+        "content": "새 빌드를 배포하자 Windows 10 노드 일부에서 에이전트의 ETW 수신 스레드가 예외로 끝났다. 프로세스 강제 종료 이벤트의 필드가 Windows 빌드마다 달라 TdhGetProperty가 실패했고, 콜백에 catch가 없어 TCP·DNS·방화벽 감시까지 한꺼번에 멈췄다. 콜스택으로 멈춘 자리를 짚고 원인을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.04",
+        "md": "/tech_blog/md/etw-trace-thread-dies-kill-event-tdhgetproperty.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "커널 덤프가 있어도 미니덤프를 고르던 BSOD 덤프 수집 — 선택 로직의 확정된 결함 5건",
+        "content": "MEMORY.DMP가 멀쩡히 있는데도 에이전트가 4 MB짜리 미니덤프를 BSOD 분석 대상으로 골랐다. 파일 크기로 종류를 판정하고 최신 하나만 남기는 로직, 32비트 분기의 잘못된 오프셋까지 다섯 결함이 겹쳐 「큰 덤프 우선」이 거꾸로 돌았다. 실측과 함께 원인과 수정 설계를 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.03",
+        "md": "/tech_blog/md/bsod-dump-selection-memory-dmp-vs-minidump.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "TCP 연결이 3초 넘게 걸렸다는 탐지, 그 값을 믿어도 되나 — 처리 시각 대신 커널 시각, 그리고 SYN 재전송",
+        "content": "연결은 성공했지만 3초 이상 걸린 TCP SLOW_SUCCESS 탐지의 유일한 근거는 LatencyMs다. 이 값을 처리 시각으로 재던 옛 방식은 53건 중 사실상 전부 틀렸다. 커널 시각으로 바꾸고, TCB 재사용이 만든 허구값을 상한으로 막고, 현장 값 대부분이 Windows SYN 재전송과 겹친다는 것을 7일 데이터로 확인한 과정을 정리한다.",
+        "readMinutes": "8",
+        "createdAt": "2026.10.02",
+        "md": "/tech_blog/md/tcp-slow-success-latencyms-kernel-timestamp-syn-retransmission.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "복수 대상 명령 정확화와 이상동작 노드 원인 분석, 명령 보존 기간 관리 — 월간 리뷰 (2026-10-01)",
+        "content": "복수 대상 명령의 동적 대상 게이트 해제와 그룹 토픽 제거, 이상동작 노드 원인 심층 차분 분석, 명령·결과 보존 기간 설정, 설정 화면 2depth 재편과 미사용 코드 5만 줄 정리, 로그온 점검 자동화와 서버 관제 위젯을 다룬 Orange Labs 월간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/monthly-review-202609.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "In-House WebRTC Remote Control, the Server Data Pipeline, RBAC Across 68 Widgets, and Promoting Symptoms to Issues — Quarterly Review (2026 Q3)",
+        "content": "The manager and agent teams built remote screen control on DXGI + Media Foundation + WebRTC with no commercial library and shipped it as far as a TCP relay for air-gapped networks. The server backend reworked the process-impact pipeline and process.py batching to eliminate message loss at scale. The analytics team built role-based access control across a 68-widget dashboard. The rules and data team redefined the product axis that promotes a symptom into an \"issue\" — condition, evidence, action, verification. The kernel driver team resolved an orange.sys unload deadlock and settled DNS ETW semantics; the frontend team rebuilt the process widget and adopted AG Grid sort comparators globally.",
+        "readMinutes": "6",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
@@ -1905,6 +2013,60 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "orange.sys 커널 드라이버 BSOD·핸들 누수 안정화, 덤프 분석기 커널 크래시 경로 추적 — 주간 리뷰 (2026-10-05)",
+        "content": "파일 열기 중 0x4A BSOD와 핸들 누수 탐지, 심볼 없이 .NET 예외·커널 크래시 경로를 읽는 덤프 분석기, 스위치 포트별 관측 화면, 매니저 화면 결함 대량 수정, 하드복원 PC 노드 식별을 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.05",
+        "md": "/tech_blog/md/weekly-review-2026-w41.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "프로세스 강제 종료 이벤트 하나에 에이전트 ETW 수신이 통째로 멈추다 — 빌드별 필드 차이와 TdhGetProperty 예외",
+        "content": "새 빌드를 배포하자 Windows 10 노드 일부에서 에이전트의 ETW 수신 스레드가 예외로 끝났다. 프로세스 강제 종료 이벤트의 필드가 Windows 빌드마다 달라 TdhGetProperty가 실패했고, 콜백에 catch가 없어 TCP·DNS·방화벽 감시까지 한꺼번에 멈췄다. 콜스택으로 멈춘 자리를 짚고 원인을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.04",
+        "md": "/tech_blog/md/etw-trace-thread-dies-kill-event-tdhgetproperty.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "커널 덤프가 있어도 미니덤프를 고르던 BSOD 덤프 수집 — 선택 로직의 확정된 결함 5건",
+        "content": "MEMORY.DMP가 멀쩡히 있는데도 에이전트가 4 MB짜리 미니덤프를 BSOD 분석 대상으로 골랐다. 파일 크기로 종류를 판정하고 최신 하나만 남기는 로직, 32비트 분기의 잘못된 오프셋까지 다섯 결함이 겹쳐 「큰 덤프 우선」이 거꾸로 돌았다. 실측과 함께 원인과 수정 설계를 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.03",
+        "md": "/tech_blog/md/bsod-dump-selection-memory-dmp-vs-minidump.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "TCP 연결이 3초 넘게 걸렸다는 탐지, 그 값을 믿어도 되나 — 처리 시각 대신 커널 시각, 그리고 SYN 재전송",
+        "content": "연결은 성공했지만 3초 이상 걸린 TCP SLOW_SUCCESS 탐지의 유일한 근거는 LatencyMs다. 이 값을 처리 시각으로 재던 옛 방식은 53건 중 사실상 전부 틀렸다. 커널 시각으로 바꾸고, TCB 재사용이 만든 허구값을 상한으로 막고, 현장 값 대부분이 Windows SYN 재전송과 겹친다는 것을 7일 데이터로 확인한 과정을 정리한다.",
+        "readMinutes": "8",
+        "createdAt": "2026.10.02",
+        "md": "/tech_blog/md/tcp-slow-success-latencyms-kernel-timestamp-syn-retransmission.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "복수 대상 명령 정확화와 이상동작 노드 원인 분석, 명령 보존 기간 관리 — 월간 리뷰 (2026-10-01)",
+        "content": "복수 대상 명령의 동적 대상 게이트 해제와 그룹 토픽 제거, 이상동작 노드 원인 심층 차분 분석, 명령·결과 보존 기간 설정, 설정 화면 2depth 재편과 미사용 코드 5만 줄 정리, 로그온 점검 자동화와 서버 관제 위젯을 다룬 Orange Labs 월간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/monthly-review-202609.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "自研 WebRTC 远程控制、服务器数据管道、68 个组件的 RBAC、症状升级为问题 —— 季度回顾（2026 Q3）",
+        "content": "管理端与代理团队未使用商业库，以 DXGI + Media Foundation + WebRTC 自研远程屏幕控制，并落地到隔离网的 TCP 中继。服务器后端重构进程影响管道与 process.py 批处理，消除了大量节点消息丢失。分析服务团队为 68 个组件的仪表盘全面构建基于角色的权限（RBAC）。规则与数据分析团队重新定义了将症状升级为「问题」的产品主轴——条件、依据、处置、验证。内核驱动团队解决 orange.sys 卸载死锁并厘清 DNS ETW 语义；前端团队重做进程组件并全局引入 AG Grid 排序比较器。",
+        "readMinutes": "6",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "无符号情况下识别内核转储崩溃成因、浏览器网络连接诊断 —— 每周回顾（2026-09-28）",
         "content": "Orange Labs 每周开发记录：在无符号的内核转储中识别崩溃进程与触发 COM 的 PID、服务器管控组件、全节点负载判定卡片、浏览器网络连接诊断，以及网络区域自动发现。",
         "readMinutes": "3",
@@ -2855,6 +3017,60 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "orange.sys 커널 드라이버 BSOD·핸들 누수 안정화, 덤프 분석기 커널 크래시 경로 추적 — 주간 리뷰 (2026-10-05)",
+        "content": "파일 열기 중 0x4A BSOD와 핸들 누수 탐지, 심볼 없이 .NET 예외·커널 크래시 경로를 읽는 덤프 분석기, 스위치 포트별 관측 화면, 매니저 화면 결함 대량 수정, 하드복원 PC 노드 식별을 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.05",
+        "md": "/tech_blog/md/weekly-review-2026-w41.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "프로세스 강제 종료 이벤트 하나에 에이전트 ETW 수신이 통째로 멈추다 — 빌드별 필드 차이와 TdhGetProperty 예외",
+        "content": "새 빌드를 배포하자 Windows 10 노드 일부에서 에이전트의 ETW 수신 스레드가 예외로 끝났다. 프로세스 강제 종료 이벤트의 필드가 Windows 빌드마다 달라 TdhGetProperty가 실패했고, 콜백에 catch가 없어 TCP·DNS·방화벽 감시까지 한꺼번에 멈췄다. 콜스택으로 멈춘 자리를 짚고 원인을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.04",
+        "md": "/tech_blog/md/etw-trace-thread-dies-kill-event-tdhgetproperty.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "커널 덤프가 있어도 미니덤프를 고르던 BSOD 덤프 수집 — 선택 로직의 확정된 결함 5건",
+        "content": "MEMORY.DMP가 멀쩡히 있는데도 에이전트가 4 MB짜리 미니덤프를 BSOD 분석 대상으로 골랐다. 파일 크기로 종류를 판정하고 최신 하나만 남기는 로직, 32비트 분기의 잘못된 오프셋까지 다섯 결함이 겹쳐 「큰 덤프 우선」이 거꾸로 돌았다. 실측과 함께 원인과 수정 설계를 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.03",
+        "md": "/tech_blog/md/bsod-dump-selection-memory-dmp-vs-minidump.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "TCP 연결이 3초 넘게 걸렸다는 탐지, 그 값을 믿어도 되나 — 처리 시각 대신 커널 시각, 그리고 SYN 재전송",
+        "content": "연결은 성공했지만 3초 이상 걸린 TCP SLOW_SUCCESS 탐지의 유일한 근거는 LatencyMs다. 이 값을 처리 시각으로 재던 옛 방식은 53건 중 사실상 전부 틀렸다. 커널 시각으로 바꾸고, TCB 재사용이 만든 허구값을 상한으로 막고, 현장 값 대부분이 Windows SYN 재전송과 겹친다는 것을 7일 데이터로 확인한 과정을 정리한다.",
+        "readMinutes": "8",
+        "createdAt": "2026.10.02",
+        "md": "/tech_blog/md/tcp-slow-success-latencyms-kernel-timestamp-syn-retransmission.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "복수 대상 명령 정확화와 이상동작 노드 원인 분석, 명령 보존 기간 관리 — 월간 리뷰 (2026-10-01)",
+        "content": "복수 대상 명령의 동적 대상 게이트 해제와 그룹 토픽 제거, 이상동작 노드 원인 심층 차분 분석, 명령·결과 보존 기간 설정, 설정 화면 2depth 재편과 미사용 코드 5만 줄 정리, 로그온 점검 자동화와 서버 관제 위젯을 다룬 Orange Labs 월간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/monthly-review-202609.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "自研 WebRTC 遠端控制、伺服器資料管線、68 個元件的 RBAC、症狀升級為問題 —— 季度回顧（2026 Q3）",
+        "content": "管理端與代理團隊未使用商業函式庫，以 DXGI + Media Foundation + WebRTC 自研遠端螢幕控制，並落地到封閉網路的 TCP 中繼。伺服器後端重構行程影響管線與 process.py 批次處理，消除了大量節點訊息遺失。分析服務團隊為 68 個元件的儀表板全面建構角色權限（RBAC）。規則與資料分析團隊重新定義了將症狀升級為「問題」的產品主軸——條件、依據、處置、驗證。核心驅動團隊解決 orange.sys 卸載死結並釐清 DNS ETW 語意；前端團隊重做行程元件並全域導入 AG Grid 排序比較器。",
+        "readMinutes": "6",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "無符號情況下識別核心傾印當機成因、瀏覽器網路連線診斷 —— 每週回顧（2026-09-28）",
         "content": "Orange Labs 每週開發紀錄：在無符號的核心傾印中識別當機行程與觸發 COM 的 PID、伺服器管控元件、全節點負載判定卡片、瀏覽器網路連線診斷，以及網路區域自動探索。",
         "readMinutes": "3",
@@ -3802,6 +4018,60 @@
   {
     "language": "ja",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "orange.sys 커널 드라이버 BSOD·핸들 누수 안정화, 덤프 분석기 커널 크래시 경로 추적 — 주간 리뷰 (2026-10-05)",
+        "content": "파일 열기 중 0x4A BSOD와 핸들 누수 탐지, 심볼 없이 .NET 예외·커널 크래시 경로를 읽는 덤프 분석기, 스위치 포트별 관측 화면, 매니저 화면 결함 대량 수정, 하드복원 PC 노드 식별을 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.05",
+        "md": "/tech_blog/md/weekly-review-2026-w41.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "프로세스 강제 종료 이벤트 하나에 에이전트 ETW 수신이 통째로 멈추다 — 빌드별 필드 차이와 TdhGetProperty 예외",
+        "content": "새 빌드를 배포하자 Windows 10 노드 일부에서 에이전트의 ETW 수신 스레드가 예외로 끝났다. 프로세스 강제 종료 이벤트의 필드가 Windows 빌드마다 달라 TdhGetProperty가 실패했고, 콜백에 catch가 없어 TCP·DNS·방화벽 감시까지 한꺼번에 멈췄다. 콜스택으로 멈춘 자리를 짚고 원인을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.04",
+        "md": "/tech_blog/md/etw-trace-thread-dies-kill-event-tdhgetproperty.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "커널 덤프가 있어도 미니덤프를 고르던 BSOD 덤프 수집 — 선택 로직의 확정된 결함 5건",
+        "content": "MEMORY.DMP가 멀쩡히 있는데도 에이전트가 4 MB짜리 미니덤프를 BSOD 분석 대상으로 골랐다. 파일 크기로 종류를 판정하고 최신 하나만 남기는 로직, 32비트 분기의 잘못된 오프셋까지 다섯 결함이 겹쳐 「큰 덤프 우선」이 거꾸로 돌았다. 실측과 함께 원인과 수정 설계를 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.03",
+        "md": "/tech_blog/md/bsod-dump-selection-memory-dmp-vs-minidump.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "TCP 연결이 3초 넘게 걸렸다는 탐지, 그 값을 믿어도 되나 — 처리 시각 대신 커널 시각, 그리고 SYN 재전송",
+        "content": "연결은 성공했지만 3초 이상 걸린 TCP SLOW_SUCCESS 탐지의 유일한 근거는 LatencyMs다. 이 값을 처리 시각으로 재던 옛 방식은 53건 중 사실상 전부 틀렸다. 커널 시각으로 바꾸고, TCB 재사용이 만든 허구값을 상한으로 막고, 현장 값 대부분이 Windows SYN 재전송과 겹친다는 것을 7일 데이터로 확인한 과정을 정리한다.",
+        "readMinutes": "8",
+        "createdAt": "2026.10.02",
+        "md": "/tech_blog/md/tcp-slow-success-latencyms-kernel-timestamp-syn-retransmission.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "복수 대상 명령 정확화와 이상동작 노드 원인 분석, 명령 보존 기간 관리 — 월간 리뷰 (2026-10-01)",
+        "content": "복수 대상 명령의 동적 대상 게이트 해제와 그룹 토픽 제거, 이상동작 노드 원인 심층 차분 분석, 명령·결과 보존 기간 설정, 설정 화면 2depth 재편과 미사용 코드 5만 줄 정리, 로그온 점검 자동화와 서버 관제 위젯을 다룬 Orange Labs 월간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/monthly-review-202609.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "自社製 WebRTC リモート制御・サーバデータパイプライン・68ウィジェットの RBAC・症状から課題への昇格 — 四半期レビュー（2026 Q3）",
+        "content": "マネージャ・エージェント担当は商用ライブラリを使わず DXGI + Media Foundation + WebRTC でリモート画面制御を自社実装し、閉域網向け TCP リレーまで実戦投入した。サーババックエンドはプロセス影響度パイプラインと process.py のバッチ設計を見直し、大量ノードのメッセージ欠落をなくした。分析サービス担当は68ウィジェットのダッシュボードにロールベース権限（RBAC）を全面構築。ルール・データ分析担当は症状を「課題」へ昇格させる製品軸（条件・根拠・対処・検証）を再定義した。カーネルドライバ担当は orange.sys のアンロードデッドロックと DNS ETW の意味を整理し、フロントエンド担当はプロセスウィジェットの再設計と AG Grid ソート comparator の全面導入を行った。",
+        "readMinutes": "6",
+        "createdAt": "2026.10.01",
+        "md": "/tech_blog/md/quarterly-review-2026-q3.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
