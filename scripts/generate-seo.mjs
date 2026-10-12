@@ -15,6 +15,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import dns from 'node:dns/promises';
 import { fileURLToPath } from 'node:url';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -132,6 +136,7 @@ const releasePages = releases
     title: `${r.version} ${releaseTitle}`,
     description: (r.i18n?.[BASE_LANG] ?? r.i18n?.ko)?.excerpt ?? '',
     lastmod: r.date,
+    body: r.body,
   }));
 
 // ---------------------------------------------------------------- sitemap
@@ -385,12 +390,80 @@ function linkList(items) {
   return `<nav><ul>${li}</ul></nav>`;
 }
 
-function fallbackBody({ heading, title, description, links }) {
+/*
+ * 글 본문을 원본 HTML에 박아 넣는다.
+ *
+ * 이게 없으면 블로그 글 페이지는 제목과 요약 423자만 담긴 채로 나간다.
+ * 본문은 클라이언트가 /tech_blog/md/*.md 를 fetch해서 그리므로, JS를 실행하지
+ * 않는 크롤러에게는 118편 전부가 thin content로 보인다. 평균 4,481자짜리 글이
+ * 423자로 보이면 개별 글이 롱테일 검색어로 잡히지 않고, thin page가 118개
+ * 쌓이면 도메인 전체 평가에도 불리하다.
+ *
+ * 런타임에는 createRoot().render()가 #root를 통째로 교체하므로 여기 넣은
+ * 본문은 저절로 사라진다. 이중 렌더링이나 hydration 불일치는 생기지 않는다.
+ *
+ * 클라이언트(src/components/Markdown.tsx)와 같은 react-markdown·remark-gfm을
+ * 쓰되 Tailwind 클래스는 입히지 않는다. 크롤러에게 필요한 건 의미 구조(h2·p·
+ * ul·code)와 텍스트뿐이고, 어차피 화면에는 쓰이지 않는다.
+ *
+ * react-markdown은 rehype-raw 없이는 원본 HTML을 렌더하지 않고 escape하므로,
+ * 마크다운에 섞인 HTML이 우리 페이지 구조를 깨뜨릴 수 없다.
+ */
+/** src/pages/Resources/TechBlogContent.tsx의 stripFrontMatter와 같은 규칙. */
+const stripFrontMatter = (md) => md.replace(/^---[\s\S]*?---\n/, '');
+
+/** 본문이 비어 보이는 페이지를 잡아내기 위한 집계. */
+const bodyStats = [];
+
+/** publicPath는 public/ 기준 절대 경로(예: /tech_blog/md/foo.md). */
+function renderMarkdownBody(publicPath) {
+  const file = path.join(root, 'public', publicPath);
+  if (!fs.existsSync(file)) {
+    bodyStats.push({ publicPath, chars: 0, missing: true });
+    return undefined;
+  }
+  const md = stripFrontMatter(fs.readFileSync(file, 'utf8'));
+  const html = renderToStaticMarkup(createElement(Markdown, { remarkPlugins: [remarkGfm] }, md));
+  bodyStats.push({ publicPath, chars: html.replace(/<[^>]+>/g, '').trim().length });
+  return html;
+}
+
+/*
+ * 본문 삽입이 조용히 되돌아가는 것을 막는다.
+ *
+ * 마크다운 경로 규칙이 바뀌거나 파일이 빠지면 페이지는 멀쩡히 생성되고 빌드도
+ * 통과한다. 겉으로는 아무 증상이 없지만 크롤러에게는 그 글이 다시 제목·요약만
+ * 있는 thin page로 보인다. 이번에 118편이 그 상태로 한참 나가 있었다.
+ * 그래서 빈 본문은 경고로 넘기지 않고 빌드를 세운다.
+ */
+function assertBodiesRendered() {
+  const MIN_CHARS = 400;
+  const bad = bodyStats.filter((b) => b.missing || b.chars < MIN_CHARS);
+  if (bad.length) {
+    console.error(
+      `[seo] 본문이 비어 있거나 ${MIN_CHARS}자 미만인 페이지가 ${bad.length}개 있습니다.\n` +
+        bad
+          .map((b) => `  ${b.missing ? '파일 없음' : `${b.chars}자`} — ${b.publicPath}`)
+          .join('\n') +
+        `\n  이대로 배포하면 해당 글이 크롤러에게 제목·요약만 있는 thin page로 보입니다.`,
+    );
+    process.exit(1);
+  }
+  const chars = bodyStats.map((b) => b.chars);
+  const avg = Math.round(chars.reduce((a, c) => a + c, 0) / chars.length);
+  console.log(
+    `[seo] 본문 사전 렌더링 ${bodyStats.length}개 — 평균 ${avg}자 ` +
+      `(최소 ${Math.min(...chars)} · 최대 ${Math.max(...chars)})`,
+  );
+}
+
+function fallbackBody({ heading, title, description, links, body }) {
   return (
     '<div id="root">' +
     '<div data-seo-fallback>' +
     `<h1>${htmlEscape(heading ?? title)}</h1>` +
     `<p>${htmlEscape(description)}</p>` +
+    (body ? `<article>${body}</article>` : '') +
     (links?.length ? linkList(links) : '') +
     `<nav><ul>${crawlerNav}</ul></nav>` +
     '</div>' +
@@ -436,6 +509,7 @@ for (const release of releasePages) {
     url: SITE_URL + release.path,
     type: 'article',
     lastmod: release.lastmod,
+    body: release.body ? renderMarkdownBody(release.body) : undefined,
   });
 }
 
@@ -448,8 +522,11 @@ for (const post of posts) {
     type: 'article',
     lastmod: post.lastmod,
     section: post.section,
+    body: renderMarkdownBody(`/tech_blog/md/${post.slug}.md`),
   });
 }
+
+assertBodiesRendered();
 
 // ---------------------------------------------------- 검색엔진 소유권 확인
 
