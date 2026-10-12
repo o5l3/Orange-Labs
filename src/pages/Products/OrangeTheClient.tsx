@@ -231,7 +231,10 @@ export default function OrangeTheClient() {
   const [lbSrc, setLbSrc] = useState('');
   const [lbZoom, setLbZoom] = useState(1);
   const [lbPos, setLbPos] = useState({ x: 0, y: 0 });
-  const lbDragging = useRef(false);
+  // 드래그 여부는 커서와 트랜지션에 쓰이므로 ref가 아니라 state여야 한다.
+  // ref로 두면 값이 바뀌어도 리렌더가 일어나지 않아 cursor: grabbing과
+  // transition: none이 화면에 반영되지 않는다.
+  const [lbDragging, setLbDragging] = useState(false);
   const lbDragStart = useRef({ mx: 0, my: 0, ix: 0, iy: 0 });
 
   const openLightbox = (src: string) => {
@@ -245,19 +248,19 @@ export default function OrangeTheClient() {
   const lbZoomOut = () => setLbZoom((z) => Math.max(+(z - 0.25).toFixed(2), 0.25));
 
   const lbMouseDown = (e: React.MouseEvent) => {
-    lbDragging.current = true;
+    setLbDragging(true);
     lbDragStart.current = { mx: e.clientX, my: e.clientY, ix: lbPos.x, iy: lbPos.y };
     e.preventDefault();
   };
   const lbMouseMove = (e: React.MouseEvent) => {
-    if (!lbDragging.current) return;
+    if (!lbDragging) return;
     setLbPos({
       x: lbDragStart.current.ix + (e.clientX - lbDragStart.current.mx),
       y: lbDragStart.current.iy + (e.clientY - lbDragStart.current.my),
     });
   };
   const lbMouseUp = () => {
-    lbDragging.current = false;
+    setLbDragging(false);
   };
 
   const lbWheel = (e: React.WheelEvent) => {
@@ -290,8 +293,8 @@ export default function OrangeTheClient() {
               zIndex: 1,
               transform: `translate(${lbPos.x}px, ${lbPos.y}px) scale(${lbZoom})`,
               transformOrigin: 'center center',
-              cursor: lbDragging.current ? 'grabbing' : 'grab',
-              transition: lbDragging.current ? 'none' : 'transform 0.15s ease',
+              cursor: lbDragging ? 'grabbing' : 'grab',
+              transition: lbDragging ? 'none' : 'transform 0.15s ease',
             }}
             onMouseDown={lbMouseDown}
           >

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '../theme/ThemeContext';
+import { useTheme } from '../theme/useTheme';
 
 const languages = [
   { code: 'en', label: 'English', short: 'EN' },
