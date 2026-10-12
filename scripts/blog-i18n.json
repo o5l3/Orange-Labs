@@ -1996,5 +1996,131 @@
       "title": "リモート制御 WebRTC both-relay の完成・拡散予測のサービス化・スイッチポート観測・コマンドの精緻化 — 四半期レビュー（2026 Q3）",
       "excerpt": "マネージャ・エージェント担当は閉域網の TURN-over-TCP 双方向リレーでリモート画面制御を完成させ、拡散予測・検知を cron からサービスへ統合した。サーババックエンドは複数対象コマンドの動的ターゲットゲートを撤去し、command の結果を別コレクションに分離して 16MB 配列の上限をなくした。分析サービスはスイッチポート単位の機器観測画面と、異常ノードの原因を深く差分分析する API を構築。ルール・データ分析は全ノードの負荷サマリを判定カードに変えた。カーネルドライバ担当は DNS・TCP のドメインフィルタとプロセス終了経路の検証を強化し、フロントエンドは設定・GNB ナビゲーションを再編して未使用コード5万行を整理した。"
     }
+  },
+  "weekly-review-2026-w42": {
+    "en": {
+      "title": "Lazy Rule Loading in the Agent, Kernel Driver Bugcheck Fixes, and a 59% Smaller Remote-Control Binary on mbedTLS — Weekly Review (2026-10-12)",
+      "excerpt": "Orange Labs weekly development log: restructuring agent startup to read rules on first use, fixing GetPUID and DriverEntry allocation-failure bugchecks, shrinking the remote-control binary from 7.77 MB to 3.14 MB by moving from OpenSSL to mbedTLS, detecting symptoms of CPU throttling and aging batteries, and calibrating Windows event rules against measurements."
+    },
+    "zh": {
+      "title": "代理规则延迟加载与内核驱动蓝屏修复、远程控制可执行文件改用 mbedTLS 缩减 59% —— 每周回顾（2026-10-12）",
+      "excerpt": "Orange Labs 每周开发记录：将代理启动改为首次使用时读取规则、修复 GetPUID 与 DriverEntry 分配失败蓝屏、把远程控制二进制从 OpenSSL 换成 mbedTLS 并从 7.77MB 缩减到 3.14MB、CPU 降频与电池老化等硬件症状检测，以及依实测校正 Windows 事件规则。"
+    },
+    "zh-Hant": {
+      "title": "代理規則延遲載入與核心驅動藍白當機修復、遠端控制執行檔改用 mbedTLS 縮減 59% —— 每週回顧（2026-10-12）",
+      "excerpt": "Orange Labs 每週開發紀錄：將代理啟動改為首次使用時讀取規則、修復 GetPUID 與 DriverEntry 配置失敗藍白當機、把遠端控制二進位從 OpenSSL 換成 mbedTLS 並從 7.77MB 縮減到 3.14MB、CPU 降頻與電池老化等硬體症狀偵測，以及依實測校正 Windows 事件規則。"
+    },
+    "ja": {
+      "title": "エージェントのルール遅延ロードとカーネルドライバの BSOD 修正、リモート制御実行ファイルの mbedTLS 移行で59%削減 — 週次レビュー（2026-10-12）",
+      "excerpt": "Orange Labs の週次開発記録 — ルールを初回使用時に読むよう変えたエージェント起動構造、GetPUID・DriverEntry の割り当て失敗 BSOD 修正、OpenSSL から mbedTLS へ替えて 7.77MB を 3.14MB にしたリモート制御バイナリ、CPU クロック制限・バッテリー劣化といったハードウェア症状の検知、Windows イベントルールの実測による較正。"
+    }
+  },
+  "agent-process-handle-leak-reap-short-lived-stop-lost": {
+    "en": {
+      "title": "Process Handles Leaking in Step With Short-Lived Processes — A Reap Path That Permanently Exempted Anything Missing a Stop",
+      "excerpt": "On PCs that spawn short-lived processes in bulk, the agent's process handles grew by hundreds an hour and never came back. The culprit was the assumption that \"an entry with no Stop message is exempt from reaping as long as it still holds a handle.\" We cover a ten-hour load reproduction and the fix that confirms death through GetExitCodeProcess."
+    },
+    "zh": {
+      "title": "随短命进程数量同步增长的进程句柄泄漏 —— 收不到 Stop 便永久豁免回收的逻辑",
+      "excerpt": "在大量产生短命进程的 PC 上，代理的 Process 句柄每小时增加数百个且不再释放。罪魁是「未收到 Stop 消息的条目，只要还持有句柄就豁免回收」这一前提。本文记录 10 小时负载复现，以及改用 GetExitCodeProcess 确认进程已结束的修复。"
+    },
+    "zh-Hant": {
+      "title": "隨短命行程數量同步成長的行程控制代碼洩漏 —— 收不到 Stop 便永久豁免回收的邏輯",
+      "excerpt": "在大量產生短命行程的 PC 上，代理的 Process 控制代碼每小時增加數百個且不再釋放。罪魁是「未收到 Stop 訊息的項目，只要還持有控制代碼就豁免回收」這一前提。本文記錄 10 小時負載重現，以及改用 GetExitCodeProcess 確認行程已結束的修復。"
+    },
+    "ja": {
+      "title": "短命プロセスの数だけ増え続けたプロセスハンドルのリーク — Stop を受け取れないと永久に回収を免除されていたロジック",
+      "excerpt": "短命プロセスが大量に発生する PC で、エージェントの Process ハンドルが毎時数百個ずつ増え、戻ってこなかった。「Stop メッセージを受け取っていない項目は、ハンドルがある限り回収を免除する」という前提が原因だった。10時間の負荷再現と、GetExitCodeProcess で終了を確定させる修正をまとめる。"
+    }
+  },
+  "minifilter-getpuid-null-nonpaged-alloc-fail-0x1e-bsod": {
+    "en": {
+      "title": "A Kernel Driver Bugchecking on Process Creation Under Memory Pressure — 0x1E From Reading a NULL Buffer Unchecked",
+      "excerpt": "A NonPaged allocation failed and left the buffer NULL, but the next line read it anyway, producing a 0x1E KMODE_EXCEPTION_NOT_HANDLED bugcheck. The path was only reachable on Windows Server 2016, which lacks PsGetProcessStartKey. We reproduced it with Driver Verifier allocation-failure injection and fixed it."
+    },
+    "zh": {
+      "title": "内存不足时进程创建引发蓝屏的内核驱动 —— 未检查便读取 NULL 缓冲区的 0x1E",
+      "excerpt": "NonPaged 内存分配失败导致缓冲区为 NULL，下一行却照样读取它，引发 0x1E KMODE_EXCEPTION_NOT_HANDLED 蓝屏。该路径只有在缺少 PsGetProcessStartKey 的 Windows Server 2016 上才会触及。本文记录用 Driver Verifier 分配失败注入复现并修复的过程。"
+    },
+    "zh-Hant": {
+      "title": "記憶體不足時行程建立引發藍白當機的核心驅動 —— 未檢查便讀取 NULL 緩衝區的 0x1E",
+      "excerpt": "NonPaged 記憶體配置失敗導致緩衝區為 NULL，下一行卻照樣讀取它，引發 0x1E KMODE_EXCEPTION_NOT_HANDLED 藍白當機。該路徑只有在缺少 PsGetProcessStartKey 的 Windows Server 2016 上才會觸及。本文記錄用 Driver Verifier 配置失敗注入重現並修復的過程。"
+    },
+    "ja": {
+      "title": "メモリ不足時のプロセス生成で BSOD を起こしていたカーネルドライバ — NULL バッファを確認せず読んだ 0x1E",
+      "excerpt": "NonPaged メモリの割り当てが失敗してバッファが NULL なのに、次の行がそのバッファを読み、0x1E KMODE_EXCEPTION_NOT_HANDLED の BSOD が発生した。PsGetProcessStartKey がない Windows Server 2016 でのみ踏まれる経路を、Driver Verifier の割り当て失敗注入で再現して修正した。"
+    }
+  },
+  "minifilter-precreate-filename-cpu-wpr-xperf-profiling": {
+    "en": {
+      "title": "A Minifilter Spiking CPU in File-Heavy Programs — Pinning PreCreate Filename Lookup at 28% With WPR and xperf",
+      "excerpt": "With file-error monitoring on, programs that open many files used more CPU. A WPR CPU profile and xperf call-stack aggregation put a number on it: 28% of CPU samples were filename normalization lookups in the minifilter's PreCreate. We cover the fix — not resolving the name at all when the process isn't a target."
+    },
+    "zh": {
+      "title": "在频繁开文件的程序中让 CPU 飙升的迷你筛选器 —— 用 WPR 与 xperf 确认 PreCreate 文件名查询占 28%",
+      "excerpt": "开启文件错误监视后，频繁打开文件的程序 CPU 使用率上升。通过 WPR CPU 剖析与 xperf 调用栈汇总，量化确认 CPU 采样的 28% 来自迷你筛选器 PreCreate 中的文件名规范化查询。本文记录改为在非目标进程时不解析文件名的修复过程。"
+    },
+    "zh-Hant": {
+      "title": "在頻繁開檔的程式中讓 CPU 飆升的迷你篩選器 —— 用 WPR 與 xperf 確認 PreCreate 檔名查詢佔 28%",
+      "excerpt": "開啟檔案錯誤監視後，頻繁開啟檔案的程式 CPU 使用率上升。透過 WPR CPU 剖析與 xperf 呼叫堆疊彙總，量化確認 CPU 取樣的 28% 來自迷你篩選器 PreCreate 中的檔名正規化查詢。本文記錄改為在非目標行程時不解析檔名的修復過程。"
+    },
+    "ja": {
+      "title": "ファイルを多く開くプログラムで CPU が跳ね上がっていたミニフィルタ — WPR・xperf で PreCreate のファイル名参照が28%だと突き止める",
+      "excerpt": "ファイルエラー監視が有効だと、ファイルを多く開くプログラムの CPU 使用が増えていた。WPR の CPU プロファイルと xperf のコールスタック集計により、CPU サンプルの28%がミニフィルタ PreCreate のファイル名正規化参照であることを数値で確定し、対象プロセスでないときは名前を取得しないよう直した過程をまとめる。"
+    }
+  },
+  "remote-control-binary-openssl-to-mbedtls-dtls-srtp": {
+    "en": {
+      "title": "Cutting the Remote-Control Binary by 59% — Swapping OpenSSL for mbedTLS in the DTLS-SRTP Backend",
+      "excerpt": "At 7.77 MB, the remote-control binary distributed over air-gapped networks and PMS was a burden to transfer and install. Most of that size was DTLS/SRTP crypto, so we replaced OpenSSL with mbedTLS and got down to 3.14 MB. We also cover solving fragmented ClientHello reassembly by switching the DTLS role."
+    },
+    "zh": {
+      "title": "将远程控制可执行文件缩减 59% —— 把 DTLS-SRTP 后端从 OpenSSL 换成 mbedTLS",
+      "excerpt": "通过隔离网与 PMS 分发的远程控制二进制达 7.77MB，传输与安装都成负担。体积的主要来源是 DTLS/SRTP 加密部分，我们将 OpenSSL 替换为 mbedTLS，缩减到 3.14MB。文中还记录了通过切换 DTLS 角色来解决分片 ClientHello 重组问题的过程。"
+    },
+    "zh-Hant": {
+      "title": "將遠端控制執行檔縮減 59% —— 把 DTLS-SRTP 後端從 OpenSSL 換成 mbedTLS",
+      "excerpt": "透過封閉網路與 PMS 派送的遠端控制二進位達 7.77MB，傳輸與安裝都成負擔。體積的主要來源是 DTLS/SRTP 加密部分，我們將 OpenSSL 替換為 mbedTLS，縮減到 3.14MB。文中還記錄了透過切換 DTLS 角色來解決分片 ClientHello 重組問題的過程。"
+    },
+    "ja": {
+      "title": "リモート制御の実行ファイルを59%削減 — OpenSSL から mbedTLS へ替えた DTLS-SRTP バックエンド",
+      "excerpt": "閉域網や PMS で配布するリモート制御バイナリが 7.77MB と大きく、転送・導入の負担になっていた。容量の大半を占めていた DTLS/SRTP の暗号部分を OpenSSL から mbedTLS へ置き換え、3.14MB まで縮めた。断片化した ClientHello の再構成問題を DTLS の役割を入れ替えて解いた過程もまとめる。"
+    }
+  },
+  "minifilter-callback-registration-64-limit-silent-load": {
+    "en": {
+      "title": "A Minifilter Loading Quietly Even When Kernel Callback Registration Failed — The Per-Type Limit of 64 and a Monitoring-Free Load",
+      "excerpt": "Even when kernel notification callback registration failed, the driver finished loading as if nothing were wrong. The driver was up and monitoring nothing, and the agent had no idea. On PCs with many security products this can hit the per-type limit of 64. We fixed it by promoting registration failure to load failure."
+    },
+    "zh": {
+      "title": "内核回调注册失败却仍静默加载的迷你筛选器 —— 每类 64 个上限与无监视加载",
+      "excerpt": "即使内核通知回调注册失败，驱动仍以正常加载收场。驱动已加载却什么都没监视，而代理对此毫不知情。在安装了大量安全产品的 PC 上可能触及每类 64 个的上限。本文记录将注册失败提升为加载失败的修复过程。"
+    },
+    "zh-Hant": {
+      "title": "核心回呼註冊失敗卻仍靜默載入的迷你篩選器 —— 每類 64 個上限與無監視載入",
+      "excerpt": "即使核心通知回呼註冊失敗，驅動仍以正常載入收場。驅動已載入卻什麼都沒監視，而代理對此毫不知情。在安裝了大量安全產品的 PC 上可能觸及每類 64 個的上限。本文記錄將註冊失敗提升為載入失敗的修復過程。"
+    },
+    "ja": {
+      "title": "カーネルコールバックの登録に失敗しても静かにロードされていたミニフィルタ — 種類ごとの上限64と無監視ロード",
+      "excerpt": "カーネル通知コールバックの登録に失敗しても、ドライバは正常ロードとして終了していた。ドライバは上がっているのに何も監視せず、エージェントはそれを知らない。セキュリティ製品が多い PC では種類ごとの上限64に当たりうる。登録失敗をロード失敗へ引き上げて直した過程をまとめる。"
+    }
+  },
+  "minifilter-fast-mutex-leak-irql-0x4a-bsod": {
+    "en": {
+      "title": "A 0x4A Bugcheck From a Minifilter Returning While Still Holding a FAST_MUTEX — Lock Leak on the __leave Exception Path",
+      "excerpt": "When a path-string allocation failed under memory pressure, the kernel minifilter returned to user mode at IRQL 1 without releasing the table lock (FAST_MUTEX). We identify the owning thread from the IRQL_GT_ZERO_AT_SYSTEM_SERVICE (0x4A) dump and release the lock in __finally."
+    },
+    "zh": {
+      "title": "迷你筛选器持有 FAST_MUTEX 返回导致的 0x4A 蓝屏 —— __leave 异常路径上的锁泄漏",
+      "excerpt": "内存不足导致路径字符串分配失败时，内核迷你筛选器没有释放表锁（FAST_MUTEX），在 IRQL 1 的状态下返回用户模式。本文从 IRQL_GT_ZERO_AT_SYSTEM_SERVICE（0x4A）转储中定位持有线程，并改为在 __finally 中释放锁。"
+    },
+    "zh-Hant": {
+      "title": "迷你篩選器持有 FAST_MUTEX 返回導致的 0x4A 藍白當機 —— __leave 例外路徑上的鎖洩漏",
+      "excerpt": "記憶體不足導致路徑字串配置失敗時，核心迷你篩選器沒有釋放資料表鎖（FAST_MUTEX），在 IRQL 1 的狀態下返回使用者模式。本文從 IRQL_GT_ZERO_AT_SYSTEM_SERVICE（0x4A）傾印中定位持有執行緒，並改為在 __finally 中釋放鎖。"
+    },
+    "ja": {
+      "title": "ミニフィルタが FAST_MUTEX を保持したまま戻って起きた 0x4A BSOD — __leave 例外経路でのロックリーク",
+      "excerpt": "メモリ不足でパス文字列の割り当てに失敗した際、カーネルミニフィルタがテーブルロック（FAST_MUTEX）を解放せず、IRQL 1 のままユーザーモードへ戻っていた。IRQL_GT_ZERO_AT_SYSTEM_SERVICE（0x4A）のダンプから所有スレッドを特定し、__finally でロックを解放するよう直した過程をまとめる。"
+    }
   }
 }

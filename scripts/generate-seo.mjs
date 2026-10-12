@@ -33,21 +33,47 @@ const SITE_URL = (process.env.VITE_SITE_URL || 'https://www.orangelabs.xyz').rep
  * 화면상 아무 증상이 없어서 한 달을 모르고 지나갔다.
  *
  * 도메인을 옮길 때는 DNS가 붙은 뒤에 이 값을 바꿔야 한다. 이 검사가 그 순서를
- * 강제한다. 빌드를 실패시키는 쪽을 택한 이유는, 이 사고가 조용히 진행되는 데
- * 비해 실패는 바로 눈에 띄기 때문이다.
+ * 강제한다.
+ *
+ * 다만 DNS를 아예 못 쓰는 환경에서도 빌드는 돌아야 한다. 외부 조회가 막힌
+ * 샌드박스에서 이 검사가 오탐으로 빌드를 세운 적이 있다. 그래서 실패했을 때
+ * 대조군 호스트도 함께 확인한다 — 대조군까지 전부 실패하면 도메인이 아니라
+ * 이 환경이 DNS를 못 쓰는 것이므로 경고만 남기고 통과시킨다. 대조군은 되는데
+ * SITE_URL만 안 되면 그때가 진짜 사고다.
+ *
+ * 대조군에는 github.com·registry.npmjs.org 같은 개발 인프라를 쓰지 않는다.
+ * 프록시로 외부 DNS를 막은 환경도 이런 호스트는 허용 목록에 넣어두기 때문에,
+ * 일반 도메인은 하나도 못 찾는데 대조군만 통과해서 오탐이 난다.
+ * 일반 공개 도메인만 대조군으로 둔다.
  */
 const siteHost = new URL(SITE_URL).hostname;
-try {
-  await dns.lookup(siteHost);
-} catch {
-  console.error(
-    `[seo] SITE_URL의 호스트 '${siteHost}'를 DNS에서 찾을 수 없습니다.\n` +
-      `  이대로 배포하면 canonical과 sitemap이 존재하지 않는 도메인을 가리켜\n` +
-      `  검색엔진이 사이트맵을 거부하고 색인이 무너집니다.\n` +
-      `  도메인을 옮기는 중이라면 DNS 연결을 먼저 끝내세요.\n` +
-      `  (현재 값은 VITE_SITE_URL 환경변수 또는 scripts/generate-seo.mjs·src/seo/site.ts의 기본값)`,
+const CONTROL_HOSTS = ['example.com', 'cloudflare.com', 'iana.org'];
+
+const resolves = async (host) => {
+  try {
+    await dns.lookup(host);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+if (!(await resolves(siteHost))) {
+  const controlOk = (await Promise.all(CONTROL_HOSTS.map(resolves))).some(Boolean);
+  if (controlOk) {
+    console.error(
+      `[seo] SITE_URL의 호스트 '${siteHost}'를 DNS에서 찾을 수 없습니다.\n` +
+        `  이대로 배포하면 canonical과 sitemap이 존재하지 않는 도메인을 가리켜\n` +
+        `  검색엔진이 사이트맵을 거부하고 색인이 무너집니다.\n` +
+        `  도메인을 옮기는 중이라면 DNS 연결을 먼저 끝내세요.\n` +
+        `  (현재 값은 VITE_SITE_URL 환경변수 또는 scripts/generate-seo.mjs·src/seo/site.ts의 기본값)`,
+    );
+    process.exit(1);
+  }
+  console.warn(
+    `[seo] DNS 조회가 불가능한 환경이라 SITE_URL 호스트 검사를 건너뜁니다 ` +
+      `(대조군 ${CONTROL_HOSTS.join('·')} 전부 실패). 배포 환경에서는 이 검사가 동작합니다.`,
   );
-  process.exit(1);
 }
 const SITE_NAME = 'OrangeLabs';
 const OG_IMAGE = `${SITE_URL}/images/orangebox.png`;
