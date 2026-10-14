@@ -1,5 +1,360 @@
 [
   {
+    "version": "1.6.242.1013",
+    "slug": "1.6.242.1013",
+    "date": "2026-10-13",
+    "pdf": "/release_notes/1.6.242.1013/release-notes.pdf",
+    "items": [
+      {
+        "key": "hardwareSymptoms",
+        "kind": "new"
+      },
+      {
+        "key": "handleSymptoms",
+        "kind": "new"
+      },
+      {
+        "key": "agentSymptomDetail",
+        "kind": "new"
+      },
+      {
+        "key": "anomalyValues",
+        "kind": "improved"
+      },
+      {
+        "key": "crashGrouping",
+        "kind": "improved"
+      },
+      {
+        "key": "dashboardLoad",
+        "kind": "improved"
+      },
+      {
+        "key": "agentWatchStop",
+        "kind": "improved"
+      },
+      {
+        "key": "hardRestoreDup",
+        "kind": "improved"
+      },
+      {
+        "key": "driverBsod",
+        "kind": "improved"
+      },
+      {
+        "key": "standbyOffline",
+        "kind": "improved"
+      },
+      {
+        "key": "updateFailure",
+        "kind": "improved"
+      }
+    ],
+    "i18n": {
+      "ko": {
+        "excerpt": "이번 릴리즈는 하드웨어 상태와 핸들까지 증상으로 잡아 수집하는 내용이 다양해졌고, 덤프 분석 결과로 증상을 가르고 에이전트 화면에서 상세를 보여 주는 등 분석이 더 깊어졌습니다.",
+        "items": {
+          "hardwareSymptoms": {
+            "title": "PC 의 CPU 속도 제한·배터리 노후·그래픽 드라이버 문제를 증상으로 알림",
+            "sub": "증상 › 증상 목록",
+            "desc": "CPU 가 정격보다 낮은 속도에 묶여 있거나, 배터리가 닳았거나, 그래픽 카드가 제조업체 드라이버 없이 도는 상태를 증상으로 올립니다. 「PC 가 느리다」는 문의에 프로그램 말고 하드웨어 쪽 근거가 생깁니다."
+          },
+          "handleSymptoms": {
+            "title": "핸들을 붙잡고 놓지 않는 프로그램을 증상으로 알림",
+            "sub": "증상 › 증상 목록",
+            "desc": "한 프로그램이 PC 전체 핸들의 절반 이상을 쓰면 「핸들과다점유」, 그 상태에서 여섯 시간 동안 핸들이 계속 늘면 「핸들누수」로 잡습니다. PC 가 점점 느려지다 멈추기 전에 알아챌 수 있습니다."
+          },
+          "agentSymptomDetail": {
+            "title": "에이전트 화면에서 증상 상세와 프로그램별 부하 추이 보기",
+            "sub": "에이전트 화면 › 증상 · 부하 TOP10",
+            "desc": "에이전트 화면에서 증상을 고르면 원인과 걸린 시간, 원인·발생 프로세스, 실행 흐름을 담은 상세 창이 열립니다. 부하 TOP10 에서는 최근 7일 동안 지연을 많이 일으킨 프로그램을 날짜별 막대와 함께 봅니다."
+          },
+          "anomalyValues": {
+            "title": "이상동작 노드 탐지의 메모리·핸들 값이 실제보다 작게 나오던 문제",
+            "sub": "노드 › 이상동작 노드 탐지",
+            "desc": "잰 횟수로 한 번 더 나눠 실제의 수십분의 일로 보이던 메모리·핸들 값을 바로잡았습니다. 업데이트 직후 값이 커져 보이며, 이쪽이 맞는 값입니다."
+          },
+          "crashGrouping": {
+            "title": "비정상 종료·블루스크린 증상을 덤프 분석 결과에 따라 나눠 묶기",
+            "sub": "증상 › 증상 목록",
+            "desc": "같은 줄로 묶였는데 덤프를 열어 보면 서로 다른 내용이던 비정상 종료·블루스크린을, 덤프 분석기의 판정이 같은 것끼리 묶습니다. 새 에이전트에서 올라온 증상부터 기존과 다른 줄로 모입니다."
+          },
+          "dashboardLoad": {
+            "title": "매니저 대시보드 첫 화면 로딩 단축",
+            "sub": "대시보드",
+            "desc": "대시보드 화면이 받는 자료를 1,048KB 에서 510KB 로 줄였고, 대시보드 자료는 로그인 화면에서 미리 받아 둡니다. 매니저를 오래 켜 두면 메모리가 계속 늘던 문제도 고쳤습니다."
+          },
+          "agentWatchStop": {
+            "title": "에이전트 시작 뒤 접속 실패·강제 종료 감시가 멈추던 문제",
+            "sub": "에이전트",
+            "desc": "시험한 16대 가운데 3대에서 에이전트 시작 30분 안에 TCP·DNS 접속 실패와 프로그램 강제 종료 감시가 멈추던 것을 고쳤습니다."
+          },
+          "hardRestoreDup": {
+            "title": "하드복원 PC 가 재부팅마다 새 노드로 등록되던 문제",
+            "sub": "노드 › 노드 목록",
+            "desc": "하드복원 프로그램이 깔린 PC 가 재부팅할 때마다 새 노드로 생기던 것을, 예전 방식의 고유번호로도 같은 PC 를 찾게 해 막았습니다."
+          },
+          "driverBsod": {
+            "title": "메모리가 부족할 때 에이전트 드라이버로 블루스크린이 나던 문제",
+            "sub": "에이전트",
+            "desc": "메모리를 받지 못하고도 그대로 진행하거나 잠금을 풀지 않고 빠져나오던 드라이버 경로를 고쳐, 메모리가 빠듯한 PC 에서 블루스크린이 나지 않게 했습니다."
+          },
+          "standbyOffline": {
+            "title": "절전에서 깬 노트북이 한동안 오프라인으로 보이던 문제",
+            "sub": "에이전트 · 노트북 절전",
+            "desc": "절전에 들어갈 때 서버 연결을 제대로 끊고 화면이 켜지면 바로 다시 붙어, 노트북이 한동안 오프라인으로 보이지 않습니다."
+          },
+          "updateFailure": {
+            "title": "서버 업데이트가 중간에 실패하면 매니저가 내려간 채 끝나던 문제",
+            "sub": "서버 · 업데이트",
+            "desc": "업데이트가 도중에 실패해도 서비스와 매니저를 먼저 올리고 실패한 항목을 목록으로 보여 줍니다. 인터넷이 닫힌 서버에서 업데이트가 멈추던 문제도 고쳤습니다."
+          }
+        }
+      },
+      "en": {
+        "excerpt": "This release collects a wider range of symptoms, now including hardware state and handles, and analyses them more deeply, from grouping by dump analysis results to showing details on the agent screen.",
+        "items": {
+          "hardwareSymptoms": {
+            "title": "Hardware problems reported as symptoms: CPU throttling, worn batteries, graphics drivers",
+            "sub": "Symptoms › Symptom list",
+            "desc": "A CPU held below its rated speed, a worn battery, or a graphics card running without the manufacturer's driver now raises a symptom. \"My PC is slow\" calls get hardware-side evidence, not just program-side."
+          },
+          "handleSymptoms": {
+            "title": "Programs that hold on to handles reported as symptoms",
+            "sub": "Symptoms › Symptom list",
+            "desc": "A program using more than half of all handles on the PC raises Handle overuse; if its handles keep growing for six hours it becomes a separate Handle leak symptom, before the PC slows to a halt."
+          },
+          "agentSymptomDetail": {
+            "title": "Symptom details and per-program load trends on the agent screen",
+            "sub": "Agent screen › Symptoms · Load TOP10",
+            "desc": "Pick a symptom on the agent screen to open a detail window with the cause, how long the call took, the cause and affected processes and the launch sequence. Load TOP10 lists the programs that caused the most delay in the last 7 days, with daily bars."
+          },
+          "anomalyValues": {
+            "title": "Memory and handle values in Anomaly detection shown far too small",
+            "sub": "Nodes › Anomaly detection",
+            "desc": "Memory and handle values were divided once more by the number of samples, showing a few percent of the real figure. Values look larger right after the update, and the larger value is correct."
+          },
+          "crashGrouping": {
+            "title": "Crash and blue-screen symptoms grouped by dump analysis result",
+            "sub": "Symptoms › Symptom list",
+            "desc": "Crashes and blue screens grouped on one row but with different dump contents are now grouped by the dump analyser's verdict. Symptoms from the new agent gather on rows separate from the old ones."
+          },
+          "dashboardLoad": {
+            "title": "Faster first load of the manager dashboard",
+            "sub": "Dashboard",
+            "desc": "Data loaded for the dashboard dropped from 1,048KB to 510KB and is prefetched on the login screen. Memory that kept growing when the manager stayed open is also fixed."
+          },
+          "agentWatchStop": {
+            "title": "Connection-failure and forced-termination monitoring stopping after agent start",
+            "sub": "Agent",
+            "desc": "On 3 of 16 test PCs, monitoring of TCP/DNS connection failures and forced program termination stopped within 30 minutes of agent start. This is fixed."
+          },
+          "hardRestoreDup": {
+            "title": "Hard-restore PCs registered as a new node on every reboot",
+            "sub": "Nodes › Node list",
+            "desc": "PCs with hard-restore software no longer appear as a new node after each reboot; the same PC is now found by its legacy ID as well."
+          },
+          "driverBsod": {
+            "title": "Blue screens caused by the agent driver when memory runs short",
+            "sub": "Agent",
+            "desc": "Driver paths that carried on without the memory they asked for, or left without releasing a lock, are fixed, so PCs short on memory no longer blue-screen."
+          },
+          "standbyOffline": {
+            "title": "Laptops shown offline for a while after waking from sleep",
+            "sub": "Agent · Laptop sleep",
+            "desc": "The agent now closes its server connection properly when entering sleep and reconnects as soon as the screen turns on, so laptops no longer appear offline for minutes."
+          },
+          "updateFailure": {
+            "title": "Manager left down when a server update failed midway",
+            "sub": "Server · Update",
+            "desc": "If an update fails partway, services and the manager are brought back up first and the failed steps are listed. Updates stalling on servers without internet access are also fixed."
+          }
+        }
+      },
+      "ja": {
+        "excerpt": "今回のリリースでは、ハードウェアの状態やハンドルまで症状として捉えて収集する内容が多様になり、ダンプ分析結果による症状の分類やエージェント画面での詳細表示など、分析がより深くなりました。",
+        "items": {
+          "hardwareSymptoms": {
+            "title": "PC の CPU 速度制限・バッテリー劣化・グラフィックドライバーの問題を症状として通知",
+            "sub": "症状 › 症状一覧",
+            "desc": "CPU が定格より低い速度に抑えられている、バッテリーが劣化している、グラフィックカードがメーカー製ドライバーなしで動いている状態を症状として上げます。「PC が遅い」という問い合わせに、プログラム以外のハードウェア側の根拠ができます。"
+          },
+          "handleSymptoms": {
+            "title": "ハンドルを握ったまま離さないプログラムを症状として通知",
+            "sub": "症状 › 症状一覧",
+            "desc": "一つのプログラムが PC 全体のハンドルの半分以上を使うと「ハンドル過剰占有」、その状態で6時間ハンドルが増え続けると「ハンドルリーク」として検知します。PC が次第に遅くなって止まる前に気付けます。"
+          },
+          "agentSymptomDetail": {
+            "title": "エージェント画面で症状の詳細とプログラム別の負荷推移を見る",
+            "sub": "エージェント画面 › 症状 · 負荷 TOP10",
+            "desc": "エージェント画面で症状を選ぶと、原因と所要時間、原因・発生プロセス、実行の流れを示す詳細ウィンドウが開きます。負荷 TOP10 では直近7日間に遅延を多く起こしたプログラムを日別の棒と共に確認できます。"
+          },
+          "anomalyValues": {
+            "title": "異常動作ノード検知のメモリ・ハンドル値が実際より小さく表示されていた問題",
+            "sub": "ノード › 異常動作ノード検知",
+            "desc": "測定回数でもう一度割っていたため実際の数十分の一に見えていたメモリ・ハンドル値を正しました。更新直後は値が大きく見えますが、こちらが正しい値です。"
+          },
+          "crashGrouping": {
+            "title": "異常終了・ブルースクリーンの症状をダンプ分析結果ごとにまとめる",
+            "sub": "症状 › 症状一覧",
+            "desc": "同じ行にまとめられていてもダンプを開くと内容が異なっていた異常終了・ブルースクリーンを、ダンプ分析ツールの判定が同じもの同士でまとめます。新しいエージェントから上がった症状は既存とは別の行に集まります。"
+          },
+          "dashboardLoad": {
+            "title": "マネージャーのダッシュボード初回表示を短縮",
+            "sub": "ダッシュボード",
+            "desc": "ダッシュボード画面が受け取るデータを 1,048KB から 510KB に減らし、ダッシュボードのデータはログイン画面で先に受け取ります。マネージャーを長時間開いているとメモリが増え続けていた問題も直しました。"
+          },
+          "agentWatchStop": {
+            "title": "エージェント起動後に接続失敗・強制終了の監視が止まっていた問題",
+            "sub": "エージェント",
+            "desc": "試験した16台のうち3台で、エージェント起動から30分以内に TCP・DNS 接続失敗とプログラム強制終了の監視が止まっていた問題を直しました。"
+          },
+          "hardRestoreDup": {
+            "title": "ハードリストアの PC が再起動のたびに新しいノードとして登録されていた問題",
+            "sub": "ノード › ノード一覧",
+            "desc": "ハードリストアソフトが入った PC が再起動のたびに新しいノードになっていた問題を、旧方式の固有番号でも同じ PC を見つけられるようにして防ぎました。"
+          },
+          "driverBsod": {
+            "title": "メモリ不足時にエージェントのドライバーでブルースクリーンが起きていた問題",
+            "sub": "エージェント",
+            "desc": "メモリを確保できないまま処理を続けたり、ロックを解放せずに抜けたりしていたドライバーの経路を直し、メモリに余裕のない PC でブルースクリーンが起きないようにしました。"
+          },
+          "standbyOffline": {
+            "title": "スリープから復帰したノート PC がしばらくオフラインに見えていた問題",
+            "sub": "エージェント · ノート PC のスリープ",
+            "desc": "スリープに入る際にサーバー接続を正しく切り、画面がオンになるとすぐ再接続するため、ノート PC がしばらくオフラインに見えることがなくなります。"
+          },
+          "updateFailure": {
+            "title": "サーバー更新が途中で失敗するとマネージャーが停止したまま終わっていた問題",
+            "sub": "サーバー · 更新",
+            "desc": "更新が途中で失敗しても、サービスとマネージャーを先に起動し、失敗した項目を一覧で表示します。インターネットに接続できないサーバーで更新が止まっていた問題も直しました。"
+          }
+        }
+      },
+      "zh": {
+        "excerpt": "本次发布将硬件状态和句柄也纳入症状，收集的内容更加多样；通过按转储分析结果划分症状、在代理画面显示详情等，分析也更加深入。",
+        "items": {
+          "hardwareSymptoms": {
+            "title": "将 PC 的 CPU 限速、电池老化、显卡驱动问题作为症状通知",
+            "sub": "症状 › 症状列表",
+            "desc": "CPU 被限制在低于额定的速度、电池老化、显卡未安装厂商驱动而运行时，会作为症状上报。对于「电脑很慢」的咨询，除了程序之外也有了硬件方面的依据。"
+          },
+          "handleSymptoms": {
+            "title": "将占用句柄不释放的程序作为症状通知",
+            "sub": "症状 › 症状列表",
+            "desc": "一个程序使用 PC 全部句柄的一半以上时报「句柄过度占用」，在此状态下句柄连续六小时增长则另报「句柄泄漏」。可在 PC 逐渐变慢直至卡死之前发现。"
+          },
+          "agentSymptomDetail": {
+            "title": "在代理画面查看症状详情和各程序的负载趋势",
+            "sub": "代理画面 › 症状 · 负载 TOP10",
+            "desc": "在代理画面选择症状，会打开显示原因与耗时、原因和发生进程、启动流程的详情窗口。负载 TOP10 列出最近 7 天造成延迟最多的程序及按日柱状图。"
+          },
+          "anomalyValues": {
+            "title": "异常行为节点检测中内存、句柄值显示过小的问题",
+            "sub": "节点 › 异常行为节点检测",
+            "desc": "内存和句柄值曾再除以一次测量次数，显示为实际的几十分之一，现已更正。更新后数值看起来变大，这才是正确的值。"
+          },
+          "crashGrouping": {
+            "title": "按转储分析结果对异常终止、蓝屏症状分组",
+            "sub": "症状 › 症状列表",
+            "desc": "以前归在同一行、打开转储却内容不同的异常终止和蓝屏，现在按转储分析器判定相同者分组。新代理上报的症状会归入与以往不同的行。"
+          },
+          "dashboardLoad": {
+            "title": "缩短管理器仪表板的首屏加载",
+            "sub": "仪表板",
+            "desc": "仪表板画面加载的数据从 1,048KB 减至 510KB，并在登录画面预先获取。长时间打开管理器时内存持续增长的问题也已修复。"
+          },
+          "agentWatchStop": {
+            "title": "代理启动后连接失败、强制终止监控停止的问题",
+            "sub": "代理",
+            "desc": "修复了在测试的 16 台中有 3 台在代理启动 30 分钟内停止监控 TCP/DNS 连接失败和程序强制终止的问题。"
+          },
+          "hardRestoreDup": {
+            "title": "硬盘还原 PC 每次重启都注册为新节点的问题",
+            "sub": "节点 › 节点列表",
+            "desc": "安装了硬盘还原软件的 PC 每次重启都会成为新节点，现在也能通过旧方式的唯一编号找到同一台 PC，从而避免。"
+          },
+          "driverBsod": {
+            "title": "内存不足时代理驱动引发蓝屏的问题",
+            "sub": "代理",
+            "desc": "修复了驱动在未获得内存时仍继续执行、或未释放锁就退出的路径，内存紧张的 PC 不再蓝屏。"
+          },
+          "standbyOffline": {
+            "title": "笔记本从睡眠唤醒后一段时间显示离线的问题",
+            "sub": "代理 · 笔记本睡眠",
+            "desc": "进入睡眠时正确断开服务器连接，屏幕亮起后立即重新连接，笔记本不再在一段时间内显示为离线。"
+          },
+          "updateFailure": {
+            "title": "服务器更新中途失败时管理器停在已关闭状态的问题",
+            "sub": "服务器 · 更新",
+            "desc": "即使更新中途失败，也会先启动服务和管理器，并以列表显示失败的项目。无法连接互联网的服务器上更新卡住的问题也已修复。"
+          }
+        }
+      },
+      "zh-Hant": {
+        "excerpt": "本次發布將硬體狀態與控制代碼也納入症狀，收集的內容更加多樣；透過依傾印分析結果劃分症狀、在代理程式畫面顯示詳情等，分析也更加深入。",
+        "items": {
+          "hardwareSymptoms": {
+            "title": "將 PC 的 CPU 限速、電池老化、顯示卡驅動程式問題作為症狀通知",
+            "sub": "症狀 › 症狀清單",
+            "desc": "CPU 被限制在低於額定的速度、電池老化、顯示卡未安裝廠商驅動程式而執行時，會作為症狀上報。對於「電腦很慢」的詢問，除了程式之外也有了硬體方面的依據。"
+          },
+          "handleSymptoms": {
+            "title": "將佔用控制代碼不釋放的程式作為症狀通知",
+            "sub": "症狀 › 症狀清單",
+            "desc": "一個程式使用 PC 全部控制代碼的一半以上時報「控制代碼過度佔用」，在此狀態下控制代碼連續六小時增加則另報「控制代碼洩漏」。可在 PC 逐漸變慢直至停住之前發現。"
+          },
+          "agentSymptomDetail": {
+            "title": "在代理程式畫面查看症狀詳情與各程式的負載趨勢",
+            "sub": "代理程式畫面 › 症狀 · 負載 TOP10",
+            "desc": "在代理程式畫面選擇症狀，會開啟顯示原因與耗時、原因與發生處理程序、啟動流程的詳情視窗。負載 TOP10 列出最近 7 天造成延遲最多的程式及每日長條圖。"
+          },
+          "anomalyValues": {
+            "title": "異常行為節點偵測中記憶體、控制代碼值顯示過小的問題",
+            "sub": "節點 › 異常行為節點偵測",
+            "desc": "記憶體與控制代碼值曾再除以一次測量次數，顯示為實際的幾十分之一，現已更正。更新後數值看起來變大，這才是正確的值。"
+          },
+          "crashGrouping": {
+            "title": "依傾印分析結果將異常終止、藍屏症狀分組",
+            "sub": "症狀 › 症狀清單",
+            "desc": "以前歸在同一列、開啟傾印卻內容不同的異常終止與藍屏，現在依傾印分析器判定相同者分組。新代理程式上報的症狀會歸入與以往不同的列。"
+          },
+          "dashboardLoad": {
+            "title": "縮短管理器儀表板的首頁載入",
+            "sub": "儀表板",
+            "desc": "儀表板畫面載入的資料從 1,048KB 減至 510KB，並在登入畫面預先取得。長時間開啟管理器時記憶體持續增加的問題也已修正。"
+          },
+          "agentWatchStop": {
+            "title": "代理程式啟動後連線失敗、強制終止監控停止的問題",
+            "sub": "代理程式",
+            "desc": "修正了在測試的 16 台中有 3 台在代理程式啟動 30 分鐘內停止監控 TCP/DNS 連線失敗與程式強制終止的問題。"
+          },
+          "hardRestoreDup": {
+            "title": "硬碟還原 PC 每次重新開機都註冊為新節點的問題",
+            "sub": "節點 › 節點清單",
+            "desc": "安裝了硬碟還原軟體的 PC 每次重新開機都會成為新節點，現在也能透過舊方式的唯一編號找到同一台 PC，從而避免。"
+          },
+          "driverBsod": {
+            "title": "記憶體不足時代理程式驅動程式引發藍屏的問題",
+            "sub": "代理程式",
+            "desc": "修正了驅動程式在未取得記憶體時仍繼續執行、或未釋放鎖定就離開的路徑，記憶體吃緊的 PC 不再藍屏。"
+          },
+          "standbyOffline": {
+            "title": "筆電從睡眠喚醒後一段時間顯示離線的問題",
+            "sub": "代理程式 · 筆電睡眠",
+            "desc": "進入睡眠時正確中斷伺服器連線，螢幕亮起後立即重新連線，筆電不再在一段時間內顯示為離線。"
+          },
+          "updateFailure": {
+            "title": "伺服器更新中途失敗時管理器停在關閉狀態的問題",
+            "sub": "伺服器 · 更新",
+            "desc": "即使更新中途失敗，也會先啟動服務與管理器，並以清單顯示失敗的項目。無法連上網際網路的伺服器上更新卡住的問題也已修正。"
+          }
+        }
+      }
+    },
+    "body": "/release_notes/1.6.242.1013/ko.md"
+  },
+  {
     "version": "1.6.242.0929",
     "slug": "1.6.242.0929",
     "date": "2026-09-29",
