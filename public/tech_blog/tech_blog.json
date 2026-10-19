@@ -1108,8 +1108,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "에이전트 능동 분석가(Analyst) 신설과 정팀장 구조 개편 착수, 매니저 네트워크 구역 개편안 기능 누락 22건 반영 — 주간 리뷰 (2026-10-19)",
-        "content": "기존 덤프분석기를 대체할 능동 분석가 orange.analyst.exe 신설, 정팀장 서버 개입 지점을 규칙에서 틀과 시험으로 바꾸는 구조 개편 착수, 룰이 집계값을 직접 정의하는 ruleData 체계, 매니저 네트워크 구역 개편안 기능 누락 22건 반영을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "Launching the Agent's Active Analyst, Starting the Team-Lead Restructure, and Folding In 22 Missing Features from the Manager Network-Zone Redesign — Weekly Review (2026-10-19)",
+        "content": "Orange Labs weekly development log covering the new active analyst orange.analyst.exe that will replace the existing dump analyzer, the start of a restructure moving the team-lead server's intervention points from rules to frames and tests, the ruleData scheme in which rules define aggregate values directly, and the 22 missing features folded into the Manager network-zone redesign.",
         "readMinutes": "3",
         "createdAt": "2026.10.19",
         "md": "/tech_blog/md/weekly-review-2026-w43.md"
@@ -1117,8 +1117,8 @@
       {
         "category": "Report",
         "categoryColor": "#10b981",
-        "subject": "블루스크린 덤프 215건 중 81%가 메모리 불량 판정 — 심볼 없이 돌린 체크섬 검사의 오탐이었다",
-        "content": "한 대학에서 수집한 커널 덤프 650개 아카이브를 전수 분석하다, 블루스크린의 81%가 memory corruption(메모리 불량)으로 판정됐다. 이 판정은 비교 대상에 디버그 심볼이 없어 부팅 뒤 커널이 스스로 고쳐 쓰는 자리를 전부 손상으로 센 오탐이었다. 심볼로 다시 본 결과와 PC별 재현 양상으로 판정을 뒤집고, 덤프 분석기의 실제 결함 다섯 가지를 고친 과정을 정리한다.",
+        "subject": "81% of 215 Blue-Screen Dumps Flagged as Bad Memory — It Was a False Positive from Running Checksum Verification Without Symbols",
+        "content": "While analyzing an entire archive of 650 kernel dumps collected at a university, 81% of the blue screens came back as memory corruption. That verdict was a false positive: the comparison target had no debug symbols, so every location the kernel rewrites by itself after boot was counted as damage. We walk through overturning the verdict using the symbol-backed re-run and per-PC reproduction patterns, and through fixing five real defects in the dump analyzer.",
         "readMinutes": "9",
         "createdAt": "2026.10.18",
         "md": "/tech_blog/md/bsod-dump-analysis-memory-corruption-false-positive-chkimg.md"
@@ -1126,8 +1126,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "심볼 없이 COM 호출자 PID를 알아내다 — combase 버전별 ServerCall vtable 표",
-        "content": "WmiPrvSE·dllhost 같은 공용 COM/RPC 호스트가 남의 호출을 처리하다 크래시했을 때, 그 호출자 프로세스의 PID는 PDB 심볼에만 있는 ServerCall vtable 오프셋으로 찾아야 한다. 심볼 다운로드가 금지된 폐쇄망 엔드포인트에서, combase 버전별로 미리 뽑은 vtable·오프셋 표로 심볼 없이 같은 값을 얻어내는 방법을 정리한다.",
+        "subject": "Finding the COM Caller's PID Without Symbols — A ServerCall vtable Table by combase Version",
+        "content": "When a shared COM/RPC host such as WmiPrvSE or dllhost crashes while servicing someone else's call, the calling process's PID has to be found through a ServerCall vtable offset that lives only in PDB symbols. For air-gapped endpoints where symbol downloads are prohibited, we lay out how to obtain the same value without symbols, using a table of vtables and offsets extracted in advance for each combase version.",
         "readMinutes": "2",
         "createdAt": "2026.10.13",
         "md": "/tech_blog/md/com-caller-pid-without-symbols-servercall-vtable-table.md"
@@ -1135,8 +1135,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "증상이 반복될 때 Manager 알림창에 사용자명·부서명이 비던 문제 — detect2 경량 메시지가 그리드 행을 통째로 덮어쓴 원인",
-        "content": "같은 증상이 반복되면 서버가 public/node/detect2로 경량 메시지를 보내는데, Manager(C3)가 이 메시지로 그리드 행 전체를 덮어쓰면서 사용자 id·SUID·FilePath 같은 필드가 사라졌다. 서버는 detect2 메시지에서 사용자 정보를 빼지 않도록 고치고, Manager는 전체 교체 대신 필드 단위 업데이트로 바꿔 해결한 과정을 정리한다.",
+        "subject": "Blank User and Department Names in the Manager Alert Window on Repeat Symptoms — How a Lightweight detect2 Message Overwrote the Whole Grid Row",
+        "content": "When the same symptom repeats, the server sends a lightweight message to public/node/detect2; the Manager (C3) overwrote the entire grid row with it, so fields such as the user id, SUID and FilePath disappeared. We walk through the fix: the server stopped stripping user information from detect2 messages, and the Manager moved from whole-row replacement to field-level updates.",
         "readMinutes": "3",
         "createdAt": "2026.10.13",
         "md": "/tech_blog/md/manager-detect2-partial-update-missing-username-department.md"
@@ -2211,8 +2211,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "에이전트 능동 분석가(Analyst) 신설과 정팀장 구조 개편 착수, 매니저 네트워크 구역 개편안 기능 누락 22건 반영 — 주간 리뷰 (2026-10-19)",
-        "content": "기존 덤프분석기를 대체할 능동 분석가 orange.analyst.exe 신설, 정팀장 서버 개입 지점을 규칙에서 틀과 시험으로 바꾸는 구조 개편 착수, 룰이 집계값을 직접 정의하는 ruleData 체계, 매니저 네트워크 구역 개편안 기능 누락 22건 반영을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "新设代理主动分析器（Analyst）、启动组长架构改造、纳入管理器网络区域改版方案缺失功能 22 项 —— 周报（2026-10-19）",
+        "content": "Orange Labs 周度开发记录：新设用于替代现有转储分析器的主动分析器 orange.analyst.exe，启动将组长服务器介入点由规则改为框架与测试的架构改造，由规则直接定义聚合值的 ruleData 体系，以及纳入管理器网络区域改版方案中缺失的 22 项功能。",
         "readMinutes": "3",
         "createdAt": "2026.10.19",
         "md": "/tech_blog/md/weekly-review-2026-w43.md"
@@ -2220,8 +2220,8 @@
       {
         "category": "Report",
         "categoryColor": "#10b981",
-        "subject": "블루스크린 덤프 215건 중 81%가 메모리 불량 판정 — 심볼 없이 돌린 체크섬 검사의 오탐이었다",
-        "content": "한 대학에서 수집한 커널 덤프 650개 아카이브를 전수 분석하다, 블루스크린의 81%가 memory corruption(메모리 불량)으로 판정됐다. 이 판정은 비교 대상에 디버그 심볼이 없어 부팅 뒤 커널이 스스로 고쳐 쓰는 자리를 전부 손상으로 센 오탐이었다. 심볼로 다시 본 결과와 PC별 재현 양상으로 판정을 뒤집고, 덤프 분석기의 실제 결함 다섯 가지를 고친 과정을 정리한다.",
+        "subject": "蓝屏转储 215 例中 81% 被判定为内存故障 —— 原来是未加载符号就运行校验和检查的误报",
+        "content": "在对某大学收集的 650 个内核转储归档进行全量分析时，81% 的蓝屏被判定为 memory corruption（内存故障）。该判定属于误报：比较对象没有调试符号，于是内核在启动后自行改写的位置全部被计为损坏。本文梳理了如何依据加载符号后的复查结果与各台 PC 的重现情况推翻该判定，以及修复转储分析器五处真实缺陷的过程。",
         "readMinutes": "9",
         "createdAt": "2026.10.18",
         "md": "/tech_blog/md/bsod-dump-analysis-memory-corruption-false-positive-chkimg.md"
@@ -2229,8 +2229,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "심볼 없이 COM 호출자 PID를 알아내다 — combase 버전별 ServerCall vtable 표",
-        "content": "WmiPrvSE·dllhost 같은 공용 COM/RPC 호스트가 남의 호출을 처리하다 크래시했을 때, 그 호출자 프로세스의 PID는 PDB 심볼에만 있는 ServerCall vtable 오프셋으로 찾아야 한다. 심볼 다운로드가 금지된 폐쇄망 엔드포인트에서, combase 버전별로 미리 뽑은 vtable·오프셋 표로 심볼 없이 같은 값을 얻어내는 방법을 정리한다.",
+        "subject": "不依赖符号获取 COM 调用方 PID —— 按 combase 版本整理的 ServerCall vtable 对照表",
+        "content": "当 WmiPrvSE、dllhost 等公共 COM/RPC 宿主在处理他人调用时崩溃，其调用方进程的 PID 必须通过仅存在于 PDB 符号中的 ServerCall vtable 偏移来查找。本文面向禁止下载符号的隔离网络端点，梳理了如何借助预先按 combase 版本提取的 vtable 与偏移对照表，在没有符号的情况下得到相同的值。",
         "readMinutes": "2",
         "createdAt": "2026.10.13",
         "md": "/tech_blog/md/com-caller-pid-without-symbols-servercall-vtable-table.md"
@@ -2238,8 +2238,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "증상이 반복될 때 Manager 알림창에 사용자명·부서명이 비던 문제 — detect2 경량 메시지가 그리드 행을 통째로 덮어쓴 원인",
-        "content": "같은 증상이 반복되면 서버가 public/node/detect2로 경량 메시지를 보내는데, Manager(C3)가 이 메시지로 그리드 행 전체를 덮어쓰면서 사용자 id·SUID·FilePath 같은 필드가 사라졌다. 서버는 detect2 메시지에서 사용자 정보를 빼지 않도록 고치고, Manager는 전체 교체 대신 필드 단위 업데이트로 바꿔 해결한 과정을 정리한다.",
+        "subject": "症状重复出现时 Manager 提示窗中用户名与部门名为空的问题 —— detect2 轻量消息整行覆盖网格行的原因",
+        "content": "同一症状重复出现时，服务器会向 public/node/detect2 发送轻量消息，而 Manager（C3）用该消息覆盖整个网格行，导致用户 id、SUID、FilePath 等字段消失。本文梳理了解决过程：服务器改为不再从 detect2 消息中剔除用户信息，Manager 则由整行替换改为按字段更新。",
         "readMinutes": "3",
         "createdAt": "2026.10.13",
         "md": "/tech_blog/md/manager-detect2-partial-update-missing-username-department.md"
@@ -3314,8 +3314,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "에이전트 능동 분석가(Analyst) 신설과 정팀장 구조 개편 착수, 매니저 네트워크 구역 개편안 기능 누락 22건 반영 — 주간 리뷰 (2026-10-19)",
-        "content": "기존 덤프분석기를 대체할 능동 분석가 orange.analyst.exe 신설, 정팀장 서버 개입 지점을 규칙에서 틀과 시험으로 바꾸는 구조 개편 착수, 룰이 집계값을 직접 정의하는 ruleData 체계, 매니저 네트워크 구역 개편안 기능 누락 22건 반영을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "新設代理主動分析器（Analyst）、啟動組長架構改造、納入管理員網路區域改版方案缺漏功能 22 項 —— 週報（2026-10-19）",
+        "content": "Orange Labs 週度開發記錄：新設用於取代現有傾印分析器的主動分析器 orange.analyst.exe，啟動將組長伺服器介入點由規則改為框架與測試的架構改造，由規則直接定義彙總值的 ruleData 體系，以及納入管理員網路區域改版方案中缺漏的 22 項功能。",
         "readMinutes": "3",
         "createdAt": "2026.10.19",
         "md": "/tech_blog/md/weekly-review-2026-w43.md"
@@ -3323,8 +3323,8 @@
       {
         "category": "Report",
         "categoryColor": "#10b981",
-        "subject": "블루스크린 덤프 215건 중 81%가 메모리 불량 판정 — 심볼 없이 돌린 체크섬 검사의 오탐이었다",
-        "content": "한 대학에서 수집한 커널 덤프 650개 아카이브를 전수 분석하다, 블루스크린의 81%가 memory corruption(메모리 불량)으로 판정됐다. 이 판정은 비교 대상에 디버그 심볼이 없어 부팅 뒤 커널이 스스로 고쳐 쓰는 자리를 전부 손상으로 센 오탐이었다. 심볼로 다시 본 결과와 PC별 재현 양상으로 판정을 뒤집고, 덤프 분석기의 실제 결함 다섯 가지를 고친 과정을 정리한다.",
+        "subject": "藍屏傾印 215 例中 81% 被判定為記憶體故障 —— 原來是未載入符號就執行總和檢查碼檢查的誤判",
+        "content": "在對某大學收集的 650 個核心傾印封存進行全量分析時，81% 的藍屏被判定為 memory corruption（記憶體故障）。該判定屬於誤判：比較對象沒有除錯符號，於是核心在開機後自行改寫的位置全部被計為損毀。本文梳理了如何依據載入符號後的複查結果與各台 PC 的重現情況推翻該判定，以及修復傾印分析器五處真實缺陷的過程。",
         "readMinutes": "9",
         "createdAt": "2026.10.18",
         "md": "/tech_blog/md/bsod-dump-analysis-memory-corruption-false-positive-chkimg.md"
@@ -3332,8 +3332,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "심볼 없이 COM 호출자 PID를 알아내다 — combase 버전별 ServerCall vtable 표",
-        "content": "WmiPrvSE·dllhost 같은 공용 COM/RPC 호스트가 남의 호출을 처리하다 크래시했을 때, 그 호출자 프로세스의 PID는 PDB 심볼에만 있는 ServerCall vtable 오프셋으로 찾아야 한다. 심볼 다운로드가 금지된 폐쇄망 엔드포인트에서, combase 버전별로 미리 뽑은 vtable·오프셋 표로 심볼 없이 같은 값을 얻어내는 방법을 정리한다.",
+        "subject": "不依賴符號取得 COM 呼叫方 PID —— 按 combase 版本整理的 ServerCall vtable 對照表",
+        "content": "當 WmiPrvSE、dllhost 等公用 COM/RPC 主機在處理他人呼叫時當機，其呼叫方行程的 PID 必須透過僅存在於 PDB 符號中的 ServerCall vtable 位移來查找。本文針對禁止下載符號的封閉網路端點，梳理了如何藉助預先按 combase 版本擷取的 vtable 與位移對照表，在沒有符號的情況下取得相同的值。",
         "readMinutes": "2",
         "createdAt": "2026.10.13",
         "md": "/tech_blog/md/com-caller-pid-without-symbols-servercall-vtable-table.md"
@@ -3341,8 +3341,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "증상이 반복될 때 Manager 알림창에 사용자명·부서명이 비던 문제 — detect2 경량 메시지가 그리드 행을 통째로 덮어쓴 원인",
-        "content": "같은 증상이 반복되면 서버가 public/node/detect2로 경량 메시지를 보내는데, Manager(C3)가 이 메시지로 그리드 행 전체를 덮어쓰면서 사용자 id·SUID·FilePath 같은 필드가 사라졌다. 서버는 detect2 메시지에서 사용자 정보를 빼지 않도록 고치고, Manager는 전체 교체 대신 필드 단위 업데이트로 바꿔 해결한 과정을 정리한다.",
+        "subject": "症狀重複出現時 Manager 提示視窗中使用者名稱與部門名稱為空的問題 —— detect2 輕量訊息整列覆寫表格列的原因",
+        "content": "同一症狀重複出現時，伺服器會向 public/node/detect2 傳送輕量訊息，而 Manager（C3）以該訊息覆寫整個表格列，導致使用者 id、SUID、FilePath 等欄位消失。本文梳理了解決過程：伺服器改為不再從 detect2 訊息中剔除使用者資訊，Manager 則由整列取代改為按欄位更新。",
         "readMinutes": "3",
         "createdAt": "2026.10.13",
         "md": "/tech_blog/md/manager-detect2-partial-update-missing-username-department.md"
@@ -4417,8 +4417,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "에이전트 능동 분석가(Analyst) 신설과 정팀장 구조 개편 착수, 매니저 네트워크 구역 개편안 기능 누락 22건 반영 — 주간 리뷰 (2026-10-19)",
-        "content": "기존 덤프분석기를 대체할 능동 분석가 orange.analyst.exe 신설, 정팀장 서버 개입 지점을 규칙에서 틀과 시험으로 바꾸는 구조 개편 착수, 룰이 집계값을 직접 정의하는 ruleData 체계, 매니저 네트워크 구역 개편안 기능 누락 22건 반영을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "エージェント能動アナリスト（Analyst）の新設とチームリーダー構造改編の着手、マネージャーのネットワーク区域改編案における機能漏れ 22 件の反映 — 週次レビュー（2026-10-19）",
+        "content": "既存のダンプ解析器を置き換える能動アナリスト orange.analyst.exe の新設、チームリーダーサーバーの介入ポイントをルールから枠組みとテストへ変える構造改編の着手、ルールが集計値を直接定義する ruleData 体系、マネージャーのネットワーク区域改編案における機能漏れ 22 件の反映を扱った Orange Labs の週次開発記録。",
         "readMinutes": "3",
         "createdAt": "2026.10.19",
         "md": "/tech_blog/md/weekly-review-2026-w43.md"
@@ -4426,8 +4426,8 @@
       {
         "category": "Report",
         "categoryColor": "#10b981",
-        "subject": "블루스크린 덤프 215건 중 81%가 메모리 불량 판정 — 심볼 없이 돌린 체크섬 검사의 오탐이었다",
-        "content": "한 대학에서 수집한 커널 덤프 650개 아카이브를 전수 분석하다, 블루스크린의 81%가 memory corruption(메모리 불량)으로 판정됐다. 이 판정은 비교 대상에 디버그 심볼이 없어 부팅 뒤 커널이 스스로 고쳐 쓰는 자리를 전부 손상으로 센 오탐이었다. 심볼로 다시 본 결과와 PC별 재현 양상으로 판정을 뒤집고, 덤프 분석기의 실제 결함 다섯 가지를 고친 과정을 정리한다.",
+        "subject": "ブルースクリーンのダンプ 215 件のうち 81% がメモリ不良と判定 — シンボルなしで実行したチェックサム検査の誤検知だった",
+        "content": "ある大学で収集したカーネルダンプ 650 個のアーカイブを全数解析する中で、ブルースクリーンの 81% が memory corruption（メモリ不良）と判定された。この判定は、比較対象にデバッグシンボルがなく、起動後にカーネルが自ら書き換える箇所をすべて破損として数えた誤検知だった。シンボルを用いた再解析の結果と PC ごとの再現状況から判定を覆し、ダンプ解析器の実際の不具合 5 つを修正した過程を整理する。",
         "readMinutes": "9",
         "createdAt": "2026.10.18",
         "md": "/tech_blog/md/bsod-dump-analysis-memory-corruption-false-positive-chkimg.md"
@@ -4435,8 +4435,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "심볼 없이 COM 호출자 PID를 알아내다 — combase 버전별 ServerCall vtable 표",
-        "content": "WmiPrvSE·dllhost 같은 공용 COM/RPC 호스트가 남의 호출을 처리하다 크래시했을 때, 그 호출자 프로세스의 PID는 PDB 심볼에만 있는 ServerCall vtable 오프셋으로 찾아야 한다. 심볼 다운로드가 금지된 폐쇄망 엔드포인트에서, combase 버전별로 미리 뽑은 vtable·오프셋 표로 심볼 없이 같은 값을 얻어내는 방법을 정리한다.",
+        "subject": "シンボルなしで COM 呼び出し元の PID を突き止める — combase バージョン別 ServerCall vtable 表",
+        "content": "WmiPrvSE や dllhost のような共用 COM/RPC ホストが他者の呼び出しを処理中にクラッシュした場合、その呼び出し元プロセスの PID は PDB シンボルにしか存在しない ServerCall vtable のオフセットから探す必要がある。シンボルのダウンロードが禁止された閉鎖網のエンドポイントで、combase バージョンごとに事前に抽出した vtable とオフセットの表を用いて、シンボルなしで同じ値を得る方法を整理する。",
         "readMinutes": "2",
         "createdAt": "2026.10.13",
         "md": "/tech_blog/md/com-caller-pid-without-symbols-servercall-vtable-table.md"
@@ -4444,8 +4444,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "증상이 반복될 때 Manager 알림창에 사용자명·부서명이 비던 문제 — detect2 경량 메시지가 그리드 행을 통째로 덮어쓴 원인",
-        "content": "같은 증상이 반복되면 서버가 public/node/detect2로 경량 메시지를 보내는데, Manager(C3)가 이 메시지로 그리드 행 전체를 덮어쓰면서 사용자 id·SUID·FilePath 같은 필드가 사라졌다. 서버는 detect2 메시지에서 사용자 정보를 빼지 않도록 고치고, Manager는 전체 교체 대신 필드 단위 업데이트로 바꿔 해결한 과정을 정리한다.",
+        "subject": "症状が繰り返されると Manager の通知ウィンドウでユーザー名・部署名が空になる問題 — detect2 の軽量メッセージがグリッド行を丸ごと上書きしていた原因",
+        "content": "同じ症状が繰り返されるとサーバーは public/node/detect2 へ軽量メッセージを送るが、Manager（C3）がこのメッセージでグリッド行全体を上書きし、ユーザー id・SUID・FilePath といったフィールドが消えていた。サーバー側は detect2 メッセージからユーザー情報を落とさないように修正し、Manager 側は全体置換ではなくフィールド単位の更新に変えて解決した過程を整理する。",
         "readMinutes": "3",
         "createdAt": "2026.10.13",
         "md": "/tech_blog/md/manager-detect2-partial-update-missing-username-department.md"
