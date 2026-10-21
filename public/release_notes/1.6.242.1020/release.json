@@ -1,0 +1,412 @@
+{
+  "version": "1.6.242.1020",
+  "slug": "1.6.242.1020",
+  "date": "2026-10-20",
+  "pdf": "release-notes.pdf",
+  "items": [
+    {
+      "key": "agentLoadGauges",
+      "kind": "new"
+    },
+    {
+      "key": "transferRateLimit",
+      "kind": "new"
+    },
+    {
+      "key": "networkZoneRedesign",
+      "kind": "new"
+    },
+    {
+      "key": "fileMenu",
+      "kind": "improved"
+    },
+    {
+      "key": "agentSymptomGroups",
+      "kind": "improved"
+    },
+    {
+      "key": "bsodMissing",
+      "kind": "improved"
+    },
+    {
+      "key": "evidenceMissing",
+      "kind": "improved"
+    },
+    {
+      "key": "remoteHangul",
+      "kind": "improved"
+    },
+    {
+      "key": "commandOversize",
+      "kind": "improved"
+    },
+    {
+      "key": "agentUpdateResume",
+      "kind": "improved"
+    },
+    {
+      "key": "jungteamSlowPc",
+      "kind": "improved"
+    },
+    {
+      "key": "jungteamSymptomRecord",
+      "kind": "improved"
+    },
+    {
+      "key": "jungteamUnfinished",
+      "kind": "improved"
+    }
+  ],
+  "i18n": {
+    "ko": {
+      "excerpt": "이번 릴리즈에서는 블루스크린 증상과 증적 파일이 올라오지 않던 문제를 주로 고쳤습니다. 네트워크 구역 화면은 노드를 구역에 배치하는 화면으로 바뀌었습니다. 에이전트 화면의 부하 탭에서는 이 PC 의 시스템 사용량과 CPU·메모리·디스크 대기를 바로 볼 수 있습니다.",
+      "items": {
+        "agentLoadGauges": {
+          "title": "에이전트 화면 부하 탭 위쪽에 시스템 사용량과 CPU·메모리·디스크 대기 게이지 추가",
+          "sub": "에이전트 화면 › 부하",
+          "desc": "부하 탭 맨 위에 「시스템 사용량」 막대와 큰 숫자, 그리고 CPU 대기·메모리(페이지)·디스크 대기 원형 게이지가 나옵니다. 프로그램 목록만으로는 보이지 않던 PC 전체 상태를 바로 봅니다."
+        },
+        "transferRateLimit": {
+          "title": "설정 › 시스템 › 에이전트 설정에 증적 전송 속도 상한 칸 추가",
+          "sub": "설정 › 시스템 › 에이전트 설정",
+          "desc": "증적 파일이 올라오면서 회선을 많이 쓰면 「업로드/다운로드 속도 상한 (Mbps)」에 0 부터 1000 사이의 값을 넣어 제한합니다. 0 은 제한하지 않음이고, 저장한 적이 없으면 에이전트 기본값 4 가 보입니다."
+        },
+        "networkZoneRedesign": {
+          "title": "노드 › 네트워크 구역 화면을 노드 배치·추천 구역 화면으로 교체",
+          "sub": "노드 › 네트워크 구역",
+          "desc": "판정 단계로 나누던 화면이 「구역 요약」과 「노드 목록」 두 탭으로 바뀌었습니다. 배치되지 않은 노드에는 추천 구역이 나오고, 배치한 노드가 다른 곳에서 접속하면 「구역 밖 접속」으로 표시합니다."
+        },
+        "fileMenu": {
+          "title": "파일함을 설정에서 위쪽 메뉴 「파일」로 이동",
+          "sub": "위쪽 메뉴 › 파일",
+          "desc": "설정 › 기록 안에 있던 파일함이 위쪽 메뉴 「파일」로 옮겨졌습니다. 업로드 상한 같은 설정값은 설정 › 시스템 › 파일 설정에서 바꿉니다."
+        },
+        "agentSymptomGroups": {
+          "title": "에이전트 화면 증상 탭에서 증상을 종류별로 묶고 원인 프로그램별 실행 흐름으로 표시",
+          "sub": "에이전트 화면 › 증상",
+          "desc": "한 줄씩 나열되던 증상을 시스템·에이전트·네트워크·이벤트·하드웨어로 묶었고, 프로세스 증상은 원인 프로그램마다 실행 흐름으로 그립니다. 예전 목록은 「세부 증상 보기」에 있습니다."
+        },
+        "bsodMissing": {
+          "title": "블루스크린 증상이 올라오지 않거나 증상 상세에 원인이 비어 있던 문제",
+          "sub": "증상 › 증상 목록 · 증상 상세",
+          "desc": "블루스크린이 났는데 증상이 만들어지지 않던 경우와, 덤프를 끝까지 읽지 못해 원인이 비던 경우를 고쳤습니다. Windows 빌드가 달라도 전체 메모리 덤프를 끝까지 분석합니다."
+        },
+        "evidenceMissing": {
+          "title": "증상 상세에서 증적 파일이 올라오지 않거나 붙지 않던 문제",
+          "sub": "증상 › 증상 상세",
+          "desc": "설정한 업로드 상한이 에이전트에 전달되지 않던 것과 1MB 이하 증적 파일이 증상에 붙지 않던 것을 고쳤습니다. 아직 올라오는 중이면 「보내는 중」을, 올라오지 못했으면 「증적 없음」과 사유를 보여 줍니다."
+        },
+        "remoteHangul": {
+          "title": "원격 제어에서 한글 입력이 제대로 되지 않던 문제",
+          "sub": "노드 상세 › 원격 제어",
+          "desc": "한글 뒤 띄어쓰기가 빠지던 것과, LG 그램·맥북처럼 한/영 키가 없는 노트북에서 한/영 전환이 되지 않던 것을 고쳤습니다."
+        },
+        "commandOversize": {
+          "title": "명령 관리에서 결과가 큰 1:N 명령이 끝나지 않은 채 남던 문제",
+          "sub": "명령 관리",
+          "desc": "응답이 전송 한도를 넘으면 아무것도 보내지 않아 명령이 끝나지 않던 것을, 작은 실패 응답(-24)을 대신 보내 실패로 끝나게 했습니다."
+        },
+        "agentUpdateResume": {
+          "title": "느린 회선에서 에이전트 업데이트가 끝나지 않던 문제",
+          "sub": "에이전트 · 업데이트",
+          "desc": "내려받기가 끊기면 처음부터 다시 받지 않고 끊긴 지점부터 이어받습니다. 받는 중에 같은 파일을 또 받지 않습니다."
+        },
+        "jungteamSlowPc": {
+          "title": "정팀장이 느린 PC 의 원인을 CPU 만 보고 판단하던 문제",
+          "sub": "노드 정보 › 정팀장",
+          "desc": "「느려요」 같은 질문에 CPU 뿐 아니라 메모리 사용량·디스크 I/O·핸들 상위 프로세스까지 보고 원인을 찾습니다. 디스크는 디스크 지연이 높을 때만 원인으로 봅니다."
+        },
+        "jungteamSymptomRecord": {
+          "title": "증상 상세에서 정팀장이 그 증상의 기록을 근거로 답변",
+          "sub": "증상 상세 › 정팀장",
+          "desc": "일반론 대신 그 증상이 언제·몇 번·어느 프로세스에서 났는지를 근거로 답합니다. 증상 설명에도 그 기록을 읽는 법을 더했습니다."
+        },
+        "jungteamUnfinished": {
+          "title": "정팀장이 맞게 조사하고도 「판단을 마치지 못했습니다」로 끝나던 문제",
+          "sub": "정팀장",
+          "desc": "조사를 제대로 해 놓고 결론이 바뀌거나 한 줄로 끝나던 답을, 조사한 결과대로 결론을 내고 끝나게 했습니다. 답이 나오는 속도도 빨라졌습니다."
+        }
+      }
+    },
+    "en": {
+      "excerpt": "This release mainly fixes blue-screen symptoms and evidence files that failed to come through. The network zone screen is now built around placing nodes in zones, and the agent screen's Load tab shows this PC's system usage and CPU, memory and disk waits at a glance.",
+      "items": {
+        "agentLoadGauges": {
+          "title": "System usage and CPU, memory and disk wait gauges at the top of the agent Load tab",
+          "sub": "Agent screen › Load",
+          "desc": "The top of the Load tab now shows a System usage bar with a large figure, plus round gauges for CPU wait, Memory (paging) and Disk wait, so the overall state of the PC is visible without reading the program list."
+        },
+        "transferRateLimit": {
+          "title": "Evidence transfer speed limit added to Settings › System › Agent settings",
+          "sub": "Settings › System › Agent settings",
+          "desc": "If uploading evidence files takes up too much bandwidth, enter a value from 0 to 1000 in Upload/download speed limit (Mbps). 0 means no limit; if nothing has been saved, the agent default of 4 is shown."
+        },
+        "networkZoneRedesign": {
+          "title": "Nodes › Network zones redesigned around placing nodes and suggested zones",
+          "sub": "Nodes › Network zones",
+          "desc": "The screen that split nodes by verdict stage now has two tabs, Zone summary and Node list. Unplaced nodes show a suggested zone, and placed nodes that connect from elsewhere are flagged as Out-of-zone connection."
+        },
+        "fileMenu": {
+          "title": "File storage moved from Settings to the File item in the top menu",
+          "sub": "Top menu › File",
+          "desc": "File storage, previously under Settings › Records, now opens from File in the top menu. Settings such as the upload limit are changed under Settings › System › File settings."
+        },
+        "agentSymptomGroups": {
+          "title": "Agent Symptoms tab grouped by type, with an execution flow per cause program",
+          "sub": "Agent screen › Symptoms",
+          "desc": "Symptoms that were listed one by one are grouped into System, Agent, Network, Event and Hardware, and process symptoms are drawn as an execution flow per cause program. The old list is still under View detailed symptoms."
+        },
+        "bsodMissing": {
+          "title": "Blue-screen symptoms missing or showing no cause in symptom details",
+          "sub": "Symptoms › Symptom list · Symptom details",
+          "desc": "Fixed cases where a blue screen produced no symptom and cases where the dump was not read to the end, leaving the cause empty. Full memory dumps are now analysed to the end even when the Windows build differs."
+        },
+        "evidenceMissing": {
+          "title": "Evidence files not uploaded or not attached in symptom details",
+          "sub": "Symptoms › Symptom details",
+          "desc": "Upload limits set by the administrator were not passed to the agent, and evidence files of 1MB or less were not attached to symptoms; both are fixed. Files still uploading show Sending, and files that could not be uploaded show No evidence with the reason."
+        },
+        "remoteHangul": {
+          "title": "Korean input not working properly in remote control",
+          "sub": "Node details › Remote control",
+          "desc": "Fixed the space being dropped after Korean text, and Korean/English switching not working on laptops without a physical Han/Eng key, such as LG gram or MacBook."
+        },
+        "commandOversize": {
+          "title": "Large-result 1:N commands left unfinished in Commands",
+          "sub": "Commands",
+          "desc": "When a response exceeded the transfer limit nothing was sent and the command never finished. A small failure response (-24) is now sent instead, so the command ends as failed."
+        },
+        "agentUpdateResume": {
+          "title": "Agent updates never finishing on slow connections",
+          "sub": "Agent · Update",
+          "desc": "Interrupted downloads now resume from where they stopped instead of starting over, and the same file is no longer downloaded twice while a download is in progress."
+        },
+        "jungteamSlowPc": {
+          "title": "AI assistant judging slow PCs by CPU alone",
+          "sub": "Node info › AI assistant",
+          "desc": "For questions like \"it's slow\", the AI assistant now also checks top processes by memory usage, disk I/O and handles, and treats the disk as the cause only when disk latency is high."
+        },
+        "jungteamSymptomRecord": {
+          "title": "AI assistant answering from the symptom's own record in symptom details",
+          "sub": "Symptom details › AI assistant",
+          "desc": "Instead of general advice, answers are now based on when, how often and in which process the symptom occurred. Symptom descriptions also explain how to read that record."
+        },
+        "jungteamUnfinished": {
+          "title": "AI assistant ending with \"could not finish the assessment\" after a correct investigation",
+          "sub": "AI assistant",
+          "desc": "Answers that investigated correctly but then changed the conclusion or ended in one line now conclude from what was found. Answers also come back faster."
+        }
+      }
+    },
+    "ja": {
+      "excerpt": "今回のリリースでは、ブルースクリーンの症状と証跡ファイルが上がってこなかった問題を主に直しました。ネットワーク区域画面はノードを区域に配置する画面に変わり、エージェント画面の負荷タブではこの PC のシステム使用量と CPU・メモリ・ディスクの待ちをすぐに確認できます。",
+      "items": {
+        "agentLoadGauges": {
+          "title": "エージェント画面の負荷タブ上部にシステム使用量と CPU・メモリ・ディスク待ちのゲージを追加",
+          "sub": "エージェント画面 › 負荷",
+          "desc": "負荷タブの一番上に「システム使用量」のバーと大きな数字、CPU 待ち・メモリ(ページ)・ディスク待ちの円形ゲージが表示されます。プログラム一覧だけでは見えなかった PC 全体の状態をすぐに確認できます。"
+        },
+        "transferRateLimit": {
+          "title": "設定 › システム › エージェント設定に証跡転送速度の上限欄を追加",
+          "sub": "設定 › システム › エージェント設定",
+          "desc": "証跡ファイルのアップロードで回線を多く使う場合、「アップロード/ダウンロード速度上限 (Mbps)」に 0〜1000 の値を入れて制限します。0 は制限なしで、保存したことがなければエージェント既定値の 4 が表示されます。"
+        },
+        "networkZoneRedesign": {
+          "title": "ノード › ネットワーク区域画面をノード配置・推奨区域の画面に刷新",
+          "sub": "ノード › ネットワーク区域",
+          "desc": "判定段階で分けていた画面が「区域サマリー」と「ノード一覧」の2タブになりました。未配置ノードには推奨区域が表示され、配置したノードが別の場所から接続すると「区域外接続」と表示します。"
+        },
+        "fileMenu": {
+          "title": "ファイルボックスを設定から上部メニュー「ファイル」へ移動",
+          "sub": "上部メニュー › ファイル",
+          "desc": "設定 › 記録 の中にあったファイルボックスが上部メニュー「ファイル」に移りました。アップロード上限などの設定値は 設定 › システム › ファイル設定 で変更します。"
+        },
+        "agentSymptomGroups": {
+          "title": "エージェント画面の症状タブを種類別にまとめ、原因プログラムごとの実行の流れで表示",
+          "sub": "エージェント画面 › 症状",
+          "desc": "一行ずつ並んでいた症状をシステム・エージェント・ネットワーク・イベント・ハードウェアにまとめ、プロセスの症状は原因プログラムごとの実行の流れで描きます。従来の一覧は「詳細な症状を見る」にあります。"
+        },
+        "bsodMissing": {
+          "title": "ブルースクリーンの症状が上がらない、または症状詳細の原因が空だった問題",
+          "sub": "症状 › 症状一覧 · 症状詳細",
+          "desc": "ブルースクリーンが起きても症状が作られなかったケースと、ダンプを最後まで読めず原因が空になっていたケースを直しました。Windows のビルドが異なっても完全メモリダンプを最後まで分析します。"
+        },
+        "evidenceMissing": {
+          "title": "症状詳細で証跡ファイルが上がらない、または添付されなかった問題",
+          "sub": "症状 › 症状詳細",
+          "desc": "設定したアップロード上限がエージェントに伝わらなかった問題と、1MB 以下の証跡ファイルが症状に添付されなかった問題を直しました。アップロード中は「送信中」、上がらなかった場合は「証跡なし」と理由を表示します。"
+        },
+        "remoteHangul": {
+          "title": "リモート制御で韓国語入力が正しくできなかった問題",
+          "sub": "ノード詳細 › リモート制御",
+          "desc": "韓国語の後のスペースが抜けていた問題と、LG gram・MacBook のようにハン/英キーのないノート PC でハン/英切り替えができなかった問題を直しました。"
+        },
+        "commandOversize": {
+          "title": "命令管理で結果の大きい 1:N 命令が終わらないまま残っていた問題",
+          "sub": "命令管理",
+          "desc": "応答が転送上限を超えると何も送られず命令が終わらなかった問題を、小さな失敗応答(-24)を代わりに送って失敗として終わるようにしました。"
+        },
+        "agentUpdateResume": {
+          "title": "低速回線でエージェント更新が終わらなかった問題",
+          "sub": "エージェント · 更新",
+          "desc": "ダウンロードが途切れると最初からやり直さず、途切れた地点から続きを受け取ります。受信中に同じファイルを重ねて受け取ることもなくなりました。"
+        },
+        "jungteamSlowPc": {
+          "title": "AI アシスタントが遅い PC の原因を CPU だけで判断していた問題",
+          "sub": "ノード情報 › AI アシスタント",
+          "desc": "「遅い」といった質問に、CPU だけでなくメモリ使用量・ディスク I/O・ハンドルの上位プロセスまで見て原因を探します。ディスクはディスク遅延が高いときだけ原因とみなします。"
+        },
+        "jungteamSymptomRecord": {
+          "title": "症状詳細で AI アシスタントがその症状の記録を根拠に回答",
+          "sub": "症状詳細 › AI アシスタント",
+          "desc": "一般論ではなく、その症状がいつ・何回・どのプロセスで起きたかを根拠に答えます。症状の説明にもその記録の読み方を加えました。"
+        },
+        "jungteamUnfinished": {
+          "title": "AI アシスタントが正しく調査しても「判断を終えられませんでした」で終わっていた問題",
+          "sub": "AI アシスタント",
+          "desc": "調査はできていたのに結論が変わったり一行で終わったりしていた回答を、調査結果どおりに結論を出して終えるようにしました。回答の速度も上がりました。"
+        }
+      }
+    },
+    "zh": {
+      "excerpt": "本次发布主要修复了蓝屏症状和证据文件未能上传的问题。网络区域画面改为把节点放入区域的画面，代理画面的负载页可直接查看本机的系统使用量以及 CPU、内存、磁盘等待。",
+      "items": {
+        "agentLoadGauges": {
+          "title": "代理画面负载页顶部新增系统使用量与 CPU、内存、磁盘等待仪表",
+          "sub": "代理画面 › 负载",
+          "desc": "负载页最上方显示「系统使用量」条与大号数字，以及 CPU 等待、内存(分页)、磁盘等待三个圆形仪表。无需查看程序列表即可了解整台 PC 的状态。"
+        },
+        "transferRateLimit": {
+          "title": "在 设置 › 系统 › 代理设置 中新增证据传输速度上限",
+          "sub": "设置 › 系统 › 代理设置",
+          "desc": "证据文件上传占用过多带宽时，可在「上传/下载速度上限 (Mbps)」中填入 0 到 1000 之间的值加以限制。0 表示不限制；未保存过时显示代理默认值 4。"
+        },
+        "networkZoneRedesign": {
+          "title": "节点 › 网络区域画面改为以节点放置和推荐区域为中心",
+          "sub": "节点 › 网络区域",
+          "desc": "原先按判定阶段划分的画面改为「区域摘要」和「节点列表」两个页签。未放置的节点会显示推荐区域，已放置的节点从别处连接时显示为「区域外连接」。"
+        },
+        "fileMenu": {
+          "title": "文件箱从设置移到顶部菜单「文件」",
+          "sub": "顶部菜单 › 文件",
+          "desc": "原先位于 设置 › 记录 中的文件箱移到了顶部菜单「文件」。上传上限等设置值在 设置 › 系统 › 文件设置 中修改。"
+        },
+        "agentSymptomGroups": {
+          "title": "代理画面症状页按类型分组，并按原因程序显示执行流程",
+          "sub": "代理画面 › 症状",
+          "desc": "原先逐行罗列的症状按系统、代理、网络、事件、硬件分组，进程症状按原因程序绘制执行流程。原先的列表仍在「查看详细症状」中。"
+        },
+        "bsodMissing": {
+          "title": "蓝屏症状未上报或症状详情中原因为空的问题",
+          "sub": "症状 › 症状列表 · 症状详情",
+          "desc": "修复了发生蓝屏却未生成症状的情况，以及未能读完转储导致原因为空的情况。即使 Windows 版本不同，也会把完整内存转储分析到底。"
+        },
+        "evidenceMissing": {
+          "title": "症状详情中证据文件未上传或未附加的问题",
+          "sub": "症状 › 症状详情",
+          "desc": "修复了设置的上传上限未传给代理、以及 1MB 以下证据文件未附加到症状的问题。仍在上传时显示「发送中」，未能上传时显示「无证据」及原因。"
+        },
+        "remoteHangul": {
+          "title": "远程控制中韩文输入不正常的问题",
+          "sub": "节点详情 › 远程控制",
+          "desc": "修复了韩文后空格丢失，以及 LG gram、MacBook 等没有韩/英键的笔记本无法切换韩/英输入的问题。"
+        },
+        "commandOversize": {
+          "title": "命令管理中结果较大的 1:N 命令一直未结束的问题",
+          "sub": "命令管理",
+          "desc": "以前响应超过传输上限时什么都不发送，命令一直不结束；现在改为发送一个小的失败响应(-24)，命令以失败结束。"
+        },
+        "agentUpdateResume": {
+          "title": "慢速网络下代理更新始终无法完成的问题",
+          "sub": "代理 · 更新",
+          "desc": "下载中断后不再从头开始，而是从中断处继续下载；下载过程中也不会重复下载同一文件。"
+        },
+        "jungteamSlowPc": {
+          "title": "AI 助手仅凭 CPU 判断慢速 PC 原因的问题",
+          "sub": "节点信息 › AI 助手",
+          "desc": "对「电脑很慢」之类的问题，除 CPU 外还会查看内存使用量、磁盘 I/O、句柄的前列进程来寻找原因；仅在磁盘延迟高时才把磁盘视为原因。"
+        },
+        "jungteamSymptomRecord": {
+          "title": "在症状详情中 AI 助手依据该症状的记录作答",
+          "sub": "症状详情 › AI 助手",
+          "desc": "不再泛泛而谈，而是依据该症状何时、发生几次、出现在哪个进程来回答。症状说明中也补充了如何解读这些记录。"
+        },
+        "jungteamUnfinished": {
+          "title": "AI 助手调查正确却以「未能完成判断」结束的问题",
+          "sub": "AI 助手",
+          "desc": "以前调查正确却改变结论或只用一行结束的回答，现在会按调查结果给出结论并结束。回答速度也更快了。"
+        }
+      }
+    },
+    "zh-Hant": {
+      "excerpt": "本次發布主要修正了藍屏症狀與證據檔案未能上傳的問題。網路區域畫面改為把節點放入區域的畫面，代理程式畫面的負載頁可直接查看本機的系統使用量以及 CPU、記憶體、磁碟等待。",
+      "items": {
+        "agentLoadGauges": {
+          "title": "代理程式畫面負載頁頂端新增系統使用量與 CPU、記憶體、磁碟等待儀表",
+          "sub": "代理程式畫面 › 負載",
+          "desc": "負載頁最上方顯示「系統使用量」長條與大號數字，以及 CPU 等待、記憶體(分頁)、磁碟等待三個圓形儀表。不必查看程式清單即可了解整台 PC 的狀態。"
+        },
+        "transferRateLimit": {
+          "title": "在 設定 › 系統 › 代理程式設定 中新增證據傳輸速度上限",
+          "sub": "設定 › 系統 › 代理程式設定",
+          "desc": "證據檔案上傳佔用過多頻寬時，可在「上傳/下載速度上限 (Mbps)」中填入 0 到 1000 之間的值加以限制。0 表示不限制；未儲存過時顯示代理程式預設值 4。"
+        },
+        "networkZoneRedesign": {
+          "title": "節點 › 網路區域畫面改為以節點放置與推薦區域為中心",
+          "sub": "節點 › 網路區域",
+          "desc": "原先依判定階段劃分的畫面改為「區域摘要」與「節點清單」兩個分頁。未放置的節點會顯示推薦區域，已放置的節點從別處連線時顯示為「區域外連線」。"
+        },
+        "fileMenu": {
+          "title": "檔案箱從設定移到頂端選單「檔案」",
+          "sub": "頂端選單 › 檔案",
+          "desc": "原先位於 設定 › 記錄 中的檔案箱移到了頂端選單「檔案」。上傳上限等設定值在 設定 › 系統 › 檔案設定 中修改。"
+        },
+        "agentSymptomGroups": {
+          "title": "代理程式畫面症狀頁依類型分組，並依原因程式顯示執行流程",
+          "sub": "代理程式畫面 › 症狀",
+          "desc": "原先逐列羅列的症狀依系統、代理程式、網路、事件、硬體分組，處理程序症狀依原因程式繪製執行流程。原先的清單仍在「查看詳細症狀」中。"
+        },
+        "bsodMissing": {
+          "title": "藍屏症狀未上報或症狀詳情中原因為空的問題",
+          "sub": "症狀 › 症狀清單 · 症狀詳情",
+          "desc": "修正了發生藍屏卻未產生症狀的情況，以及未能讀完傾印導致原因為空的情況。即使 Windows 版本不同，也會把完整記憶體傾印分析到底。"
+        },
+        "evidenceMissing": {
+          "title": "症狀詳情中證據檔案未上傳或未附加的問題",
+          "sub": "症狀 › 症狀詳情",
+          "desc": "修正了設定的上傳上限未傳給代理程式、以及 1MB 以下證據檔案未附加到症狀的問題。仍在上傳時顯示「傳送中」，未能上傳時顯示「無證據」及原因。"
+        },
+        "remoteHangul": {
+          "title": "遠端控制中韓文輸入不正常的問題",
+          "sub": "節點詳情 › 遠端控制",
+          "desc": "修正了韓文後空格遺失，以及 LG gram、MacBook 等沒有韓/英鍵的筆電無法切換韓/英輸入的問題。"
+        },
+        "commandOversize": {
+          "title": "命令管理中結果較大的 1:N 命令一直未結束的問題",
+          "sub": "命令管理",
+          "desc": "以前回應超過傳輸上限時什麼都不傳送，命令一直不結束；現在改為傳送一個小的失敗回應(-24)，命令以失敗結束。"
+        },
+        "agentUpdateResume": {
+          "title": "慢速網路下代理程式更新始終無法完成的問題",
+          "sub": "代理程式 · 更新",
+          "desc": "下載中斷後不再從頭開始，而是從中斷處繼續下載；下載過程中也不會重複下載同一檔案。"
+        },
+        "jungteamSlowPc": {
+          "title": "AI 助理僅憑 CPU 判斷慢速 PC 原因的問題",
+          "sub": "節點資訊 › AI 助理",
+          "desc": "對「電腦很慢」之類的問題，除 CPU 外還會查看記憶體使用量、磁碟 I/O、控制代碼的前列處理程序來尋找原因；僅在磁碟延遲高時才把磁碟視為原因。"
+        },
+        "jungteamSymptomRecord": {
+          "title": "在症狀詳情中 AI 助理依據該症狀的記錄作答",
+          "sub": "症狀詳情 › AI 助理",
+          "desc": "不再泛泛而談，而是依據該症狀何時、發生幾次、出現在哪個處理程序來回答。症狀說明中也補充了如何解讀這些記錄。"
+        },
+        "jungteamUnfinished": {
+          "title": "AI 助理調查正確卻以「未能完成判斷」結束的問題",
+          "sub": "AI 助理",
+          "desc": "以前調查正確卻改變結論或只用一列結束的回答，現在會依調查結果給出結論並結束。回答速度也更快了。"
+        }
+      }
+    }
+  }
+}
