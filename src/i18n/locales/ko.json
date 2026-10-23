@@ -27,7 +27,13 @@
     "tagline": "지능형 클라이언트 솔루션의 미래를 만들어갑니다.",
     "privacy": "개인정보처리방침",
     "terms": "서비스 이용약관",
-    "rights": "© OrangeLabs. All rights reserved."
+    "rights": "© OrangeLabs. All rights reserved.",
+    "company": "오렌지랩스㈜",
+    "ceo": "대표이사 김범진",
+    "bizNo": "사업자등록번호 506-87-03035",
+    "address": "부산광역시 해운대구 센텀중앙로 97, A동 2801호",
+    "parent": "본사",
+    "parentName": "오렌지시스㈜"
   },
   "home": {
     "badge": "출시: Orange The Client",

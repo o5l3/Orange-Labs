@@ -69,9 +69,32 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* OR-2462 회사 정보 — 본사(오렌지시스㈜) 사이트와 서로 연결. CVP 심사에서 두 법인 관계를 확인할 수 있게 */}
+        <div className="mt-12 text-xs leading-relaxed" style={{ color: 'var(--fg-dimmer)' }}>
+          <p>
+            {t('footer.company')} · {t('footer.ceo')} · {t('footer.bizNo')}
+          </p>
+          <p>{t('footer.address')}</p>
+          <p>
+            {t('footer.parent')}{' '}
+            <a
+              href="https://www.orangesys.co.kr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline transition-colors hover:text-gray-300"
+            >
+              {t('footer.parentName')}
+            </a>
+            {' · '}
+            <a href="mailto:contact@orangesys.co.kr" className="transition-colors hover:text-gray-300">
+              contact@orangesys.co.kr
+            </a>
+          </p>
+        </div>
+
         {/* Bottom bar */}
         <div
-          className="mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
+          className="mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
           style={{ borderTop: '1px solid var(--border)', color: 'var(--fg-dimmer)' }}
         >
           <span>{t('footer.rights')}</span>
