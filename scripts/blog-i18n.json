@@ -2194,5 +2194,95 @@
       "title": "症状が繰り返されると Manager の通知ウィンドウでユーザー名・部署名が空になる問題 — detect2 の軽量メッセージがグリッド行を丸ごと上書きしていた原因",
       "excerpt": "同じ症状が繰り返されるとサーバーは public/node/detect2 へ軽量メッセージを送るが、Manager（C3）がこのメッセージでグリッド行全体を上書きし、ユーザー id・SUID・FilePath といったフィールドが消えていた。サーバー側は detect2 メッセージからユーザー情報を落とさないように修正し、Manager 側は全体置換ではなくフィールド単位の更新に変えて解決した過程を整理する。"
     }
+  },
+  "weekly-review-2026-w44": {
+    "en": {
+      "title": "Seven-Stage Streaming for Analyst Calls in LiveAgent, a New Server-Only Node Dashboard, Resumable Installer Uploads, and Consolidating N+1 APIs on the Manager Node Screen — Weekly Review (2026-10-26)",
+      "excerpt": "Orange Labs weekly development log covering the structure that calls the analyst from LiveAgent and streams its progress in seven stages, a node dashboard that reads PC state from server-side data alone, uploads that resume an interrupted installer from where it left off, consolidation of N+1 API requests on the node screen, and 14 new diagnostic knowledge bases for the team lead."
+    },
+    "zh": {
+      "title": "LiveAgent 分析器调用的七阶段流式反馈、新设仅依赖服务器数据的节点仪表板、安装文件上传断点续传、管理器节点页面 N+1 API 整合 —— 周报（2026-10-26）",
+      "excerpt": "Orange Labs 周度开发记录：从 LiveAgent 调用分析器并以七个阶段流式接收进度的结构、仅凭服务器数据查看 PC 状态的节点仪表板、从断点续传中断的安装文件上传、节点页面 N+1 API 请求的整合，以及组长诊断知识库新增 14 种。"
+    },
+    "zh-Hant": {
+      "title": "LiveAgent 分析器呼叫的七階段串流回饋、新設僅依賴伺服器資料的節點儀表板、安裝檔上傳續傳、管理員節點頁面 N+1 API 整合 —— 週報（2026-10-26）",
+      "excerpt": "Orange Labs 週度開發記錄：從 LiveAgent 呼叫分析器並以七個階段串流接收進度的結構、僅憑伺服器資料檢視 PC 狀態的節點儀表板、從中斷點續傳安裝檔上傳、節點頁面 N+1 API 請求的整合，以及組長診斷知識庫新增 14 種。"
+    },
+    "ja": {
+      "title": "LiveAgent からのアナリスト呼び出しを 7 段階でストリーミング、サーバー専用ノードダッシュボードの新設、インストーラーアップロードの再開、マネージャーのノード画面における N+1 API 統合 — 週次レビュー（2026-10-26）",
+      "excerpt": "LiveAgent からアナリストを呼び出し進行状況を 7 段階でストリーミング受信する構造、サーバー側のデータだけで PC の状態を見るノードダッシュボード、中断したインストーラーを受信済みの位置から再開するアップロード、ノード画面の N+1 API リクエストの統合、チームリーダー診断ナレッジベース 14 種の追加を扱った Orange Labs の週次開発記録。"
+    }
+  },
+  "agent-update-download-resume-slow-network-http-range": {
+    "en": {
+      "title": "An Agent Update That Never Finished After 15 Retries on a Slow Link — Implementing Resumable Downloads with HTTP Range",
+      "excerpt": "On a 5–6 KB/s link, a 14.7 MB installer was retried 15 times over an hour and a half, restarting from byte zero every time before dropping. The cause was a download function that returned true at the point where it had been interrupted. We walk through implementing resumable downloads with WinINet's Range and If-Range requests."
+    },
+    "zh": {
+      "title": "慢速线路上重试 15 次仍无法完成的代理更新 —— 用 HTTP Range 实现断点续传",
+      "excerpt": "在每秒 5~6KB 的线路上，14.7MB 的安装包在 1.5 小时内重试了 15 次，每次都从 0 字节重新下载后中断。原因是下载函数在中断处返回了 true。本文梳理了借助 WinINet 的 Range 与 If-Range 请求实现断点续传的过程。"
+    },
+    "zh-Hant": {
+      "title": "慢速線路上重試 15 次仍無法完成的代理更新 —— 以 HTTP Range 實作續傳",
+      "excerpt": "在每秒 5~6KB 的線路上，14.7MB 的安裝檔在 1.5 小時內重試了 15 次，每次都從 0 位元組重新下載後中斷。原因是下載函式在中斷處回傳了 true。本文梳理了藉助 WinINet 的 Range 與 If-Range 請求實作續傳的過程。"
+    },
+    "ja": {
+      "title": "低速回線で 15 回やり直しても終わらなかったエージェント更新 — HTTP Range によるレジューム実装",
+      "excerpt": "毎秒 5〜6KB の回線で 14.7MB のインストーラーを 1.5 時間かけて 15 回試行しても、毎回 0 バイトから受信し直して切断されていた。中断した地点で true を返していたダウンロード関数が原因だった。WinINet の Range・If-Range リクエストでレジュームを実装した過程を整理する。"
+    }
+  },
+  "mongodb-aggregation-sbe-engine-detect-api-performance": {
+    "en": {
+      "title": "Symptom List Queries Taking Seconds — Moving the Pipeline onto MongoDB's SBE Engine by Relocating $addFields",
+      "excerpt": "The symptom list widget's default 30-day query took several seconds at customers with many nodes. The cause was an $addFields placed right after $match, which pinned the whole pipeline to the classic engine. We walk through reordering with pre-grouping and adding a covering index, cutting 3.4–6.2 s down to 0.5–1.1 s."
+    },
+    "zh": {
+      "title": "症状列表查询耗时数秒的问题 —— 调整 $addFields 位置以启用 MongoDB SBE 引擎",
+      "excerpt": "症状列表小组件默认的 30 天查询，在节点较多的客户环境中耗时数秒。原因是紧随 $match 之后的 $addFields 将整条管道锁定在 classic 引擎上。本文梳理了通过预分组调整顺序并添加覆盖索引，将 3.4~6.2 秒降至 0.5~1.1 秒的过程。"
+    },
+    "zh-Hant": {
+      "title": "症狀清單查詢耗時數秒的問題 —— 調整 $addFields 位置以啟用 MongoDB SBE 引擎",
+      "excerpt": "症狀清單小工具預設的 30 天查詢，在節點較多的客戶環境中耗時數秒。原因是緊接在 $match 之後的 $addFields 將整條管線鎖定在 classic 引擎上。本文梳理了透過預先分組調整順序並加入涵蓋索引，將 3.4~6.2 秒降至 0.5~1.1 秒的過程。"
+    },
+    "ja": {
+      "title": "症状一覧の取得に数秒かかっていた問題 — $addFields の位置を変えて MongoDB の SBE エンジンに載せる",
+      "excerpt": "症状一覧ウィジェットの既定の 30 日間クエリが、ノード数の多い顧客環境で数秒かかっていた。$match の直後にあった $addFields がパイプライン全体を classic エンジンに縛りつけていたことが原因だった。事前グルーピングで順序を変え、カバリングインデックスを追加して 3.4〜6.2 秒を 0.5〜1.1 秒に短縮した過程を整理する。"
+    }
+  },
+  "active-directory-logon-failure-diagnosis-tcp-com-symptoms": {
+    "en": {
+      "title": "Diagnosing Active Directory Logon Delays and Failures — Narrowing the Cause by Port from the PC Side",
+      "excerpt": "What to look at on the PC side when Active Directory problems such as unapplied group policy or logon delays are reported. We separate the symptoms by Kerberos, LDAP and SMB port, and trace everything from DC connectivity to the secure channel using TCP and COM symptoms and LiveCmd commands."
+    },
+    "zh": {
+      "title": "AD 登录延迟与失败诊断 —— 从 PC 侧按端口逐步缩小原因",
+      "excerpt": "当出现组策略未应用、登录延迟等 Active Directory 故障报告时，应从 PC 侧查看哪些内容。本文按 Kerberos、LDAP、SMB 端口区分症状，并借助 TCP、COM 症状与 LiveCmd 命令，从域控连接一路追踪到安全通道。"
+    },
+    "zh-Hant": {
+      "title": "AD 登入延遲與失敗診斷 —— 從 PC 端按通訊埠逐步縮小原因",
+      "excerpt": "當出現群組原則未套用、登入延遲等 Active Directory 故障回報時，應從 PC 端檢視哪些內容。本文按 Kerberos、LDAP、SMB 通訊埠區分症狀，並藉助 TCP、COM 症狀與 LiveCmd 命令，從網域控制站連線一路追蹤到安全通道。"
+    },
+    "ja": {
+      "title": "AD のログオン遅延・失敗の診断 — PC 側からポート単位で原因を絞り込む方法",
+      "excerpt": "グループポリシー未適用やログオン遅延といった Active Directory の障害が報告されたとき、PC 側で何を見るべきかを整理した。Kerberos・LDAP・SMB のポートごとに症状を分け、TCP・COM の症状と LiveCmd コマンドで DC への接続からセキュアチャネルまで追跡する。"
+    }
+  },
+  "mqtt-oversize-packet-node-disconnect-loop-connack-max-packet-size": {
+    "en": {
+      "title": "A Node Disconnecting Every Minute Once MQTT Messages Exceeded the Broker Limit — Filtering Ahead of Time with CONNACK Maximum Packet Size",
+      "excerpt": "One node connected to MQTT every minute and was dropped two to four seconds later with 'oversize packet', repeating 1,116 times. The cause was mosquitto's max_packet_size limit. We fixed it by holding on to MQTT 5's CONNACK Maximum Packet Size and screening the size just before sending."
+    },
+    "zh": {
+      "title": "MQTT 消息超出代理限制后节点每分钟断连的问题 —— 借助 CONNACK Maximum Packet Size 提前过滤",
+      "excerpt": "某个节点每分钟连接一次 MQTT，2~4 秒后便以 'oversize packet' 断开，如此重复了 1,116 次。原因是 mosquitto 的 max_packet_size 限制。改为先取得 MQTT 5 的 CONNACK Maximum Packet Size，并在发送前过滤消息大小，从而解决问题。"
+    },
+    "zh-Hant": {
+      "title": "MQTT 訊息超出代理程式限制後節點每分鐘斷線的問題 —— 藉助 CONNACK Maximum Packet Size 提前過濾",
+      "excerpt": "某個節點每分鐘連線一次 MQTT，2~4 秒後便以 'oversize packet' 斷開，如此重複了 1,116 次。原因是 mosquitto 的 max_packet_size 限制。改為先取得 MQTT 5 的 CONNACK Maximum Packet Size，並在傳送前過濾訊息大小，從而解決問題。"
+    },
+    "ja": {
+      "title": "MQTT メッセージがブローカーの上限を超えてノードが 1 分ごとに切断された問題 — CONNACK Maximum Packet Size で事前に弾く",
+      "excerpt": "あるノードが 1 分ごとに MQTT へ接続し、2〜4 秒後に 'oversize packet' で切断されることを 1,116 回繰り返した。原因は mosquitto の max_packet_size の上限だった。MQTT 5 の CONNACK Maximum Packet Size を受け取っておき、送信直前にサイズを弾く設計に修正した。"
+    }
   }
 }
