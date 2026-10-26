@@ -161,12 +161,26 @@ const urlEntry = ({ loc, lastmod, changefreq, priority }) =>
     .filter(Boolean)
     .join('\n');
 
+// 글 목록 페이지는 하위 글 중 가장 최근 날짜가 곧 수정일이다. 나머지 정적 페이지는
+// 믿을 만한 날짜원이 없어 lastmod를 비운다. 틀린 날짜는 구글이 lastmod 전체를 무시하게 만든다.
+const newest = (items) =>
+  items
+    .map((i) => i.lastmod)
+    .filter(Boolean)
+    .sort()
+    .at(-1);
+const indexLastmod = {
+  '/resources/tech-blog': newest(posts),
+  '/resources/release-notes': newest(releasePages),
+};
+
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   ...routes.map((r) =>
     urlEntry({
       loc: r.path === '/' ? `${SITE_URL}/` : SITE_URL + r.path,
+      lastmod: indexLastmod[r.path],
       changefreq: r.changefreq,
       priority: r.priority,
     }),
