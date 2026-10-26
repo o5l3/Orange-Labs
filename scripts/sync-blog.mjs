@@ -105,11 +105,23 @@ function dropCodeBlocks(text, patterns) {
   });
 }
 
-/** '## <계정명> — <주제>' 헤더에서 계정명을 떼고 주제만 남긴다. */
+/*
+ * '## <계정명> — <주제>' 헤더에서 계정명을 떼고 주제만 남긴다.
+ *
+ * 구분자 앞에 공백을 반드시 요구한다. 그러지 않으면 계정명 안의 하이픈이
+ * 구분자로 먹힌다. 실제로 'hja' 키가 '## hja-orange'에 걸려 'hja-'까지
+ * 먹어치우고 '## orange'라는 제목을 8편에 남겼다. 공백을 요구하면 'hja'는
+ * 매칭에 실패하고, 단독 헤더는 아래 identityMap 치환이 파트 라벨로 바꾼다.
+ *
+ * 긴 계정명부터 시도해 'hja'가 'hja-orange'보다 먼저 걸리는 일도 막는다.
+ */
 function stripIdentityFromHeadings(text, identities) {
   if (!identities.length) return text;
-  const alt = identities.map(escapeRegExp).join('|');
-  return text.replace(new RegExp(`^(#{1,6}) (?:${alt})\\s*[—-]\\s*`, 'gm'), '$1 ');
+  const alt = [...identities]
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp)
+    .join('|');
+  return text.replace(new RegExp(`^(#{1,6}) (?:${alt})(?=\\s)\\s*[—-]\\s*`, 'gm'), '$1 ');
 }
 
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
