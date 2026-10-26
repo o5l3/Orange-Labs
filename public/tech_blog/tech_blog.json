@@ -5,6 +5,51 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "LiveAgent 분석가 호출 7단계 스트리밍과 서버 전용 노드 대시보드 신설, 설치 파일 업로드 끊김 이어받기와 매니저 노드 화면 N+1 API 통합 — 주간 리뷰 (2026-10-26)",
+        "content": "LiveAgent 에서 분석가를 호출해 진행을 7단계로 스트리밍 받는 구조, 서버 자료만으로 PC 상태를 보는 노드 대시보드, 끊긴 설치 파일을 받은 끝에서 이어 올리는 업로드, 노드 화면 N+1 API 요청 통합, 정팀장 진단 지식 베이스 14종 추가를 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.26",
+        "md": "/tech_blog/md/weekly-review-2026-w44.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "느린 회선에서 15번 다시 받아도 끝나지 않던 에이전트 업데이트 — HTTP Range로 이어받기 구현",
+        "content": "초당 5~6KB 회선에서 14.7MB 설치본을 1.5시간 동안 15번 시도해도 매번 0바이트부터 다시 받다 끊겼다. 끊긴 지점을 true로 돌려주던 다운로드 함수가 원인이었다. WinINet의 Range·If-Range 요청으로 이어받기를 구현한 과정을 정리한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/agent-update-download-resume-slow-network-http-range.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "증상 목록 조회가 수 초씩 걸리던 문제 — $addFields 위치를 바꿔 MongoDB SBE 엔진에 올리기",
+        "content": "증상 목록 위젯의 기본 30일 조회가 노드가 많은 고객사에서 수 초씩 걸렸다. $match 바로 뒤의 $addFields가 파이프라인 전체를 classic 엔진에 묶어 둔 것이 원인이었다. 선그룹핑으로 순서를 바꾸고 커버링 인덱스를 더해 3.4~6.2초를 0.5~1.1초로 줄인 과정을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/mongodb-aggregation-sbe-engine-detect-api-performance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "AD 로그온 지연·실패 진단 — PC 쪽에서 포트별로 원인을 좁히는 방법",
+        "content": "그룹 정책 미적용, 로그온 지연 같은 Active Directory 장애가 보고되면 PC 쪽에서 무엇을 봐야 하는지 정리했다. Kerberos·LDAP·SMB 포트별로 증상을 나누고, TCP·COM 증상과 LiveCmd 명령으로 DC 연결부터 보안 채널까지 추적한다.",
+        "readMinutes": "6",
+        "createdAt": "2026.10.20",
+        "md": "/tech_blog/md/active-directory-logon-failure-diagnosis-tcp-com-symptoms.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MQTT 메시지가 브로커 한도를 넘자 노드가 1분마다 접속이 끊긴 문제 — CONNACK Maximum Packet Size로 미리 걸러내기",
+        "content": "한 노드가 1분마다 MQTT에 붙었다가 2~4초 뒤 'oversize packet'으로 끊기기를 1,116번 반복했다. 원인은 mosquitto의 max_packet_size 한도였다. MQTT 5의 CONNACK Maximum Packet Size를 받아 두고 보내기 직전에 크기를 거르는 설계로 고쳤다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.19",
+        "md": "/tech_blog/md/mqtt-oversize-packet-node-disconnect-loop-connack-max-packet-size.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "에이전트 능동 분석가(Analyst) 신설과 정팀장 구조 개편 착수, 매니저 네트워크 구역 개편안 기능 누락 22건 반영 — 주간 리뷰 (2026-10-19)",
         "content": "기존 덤프분석기를 대체할 능동 분석가 orange.analyst.exe 신설, 정팀장 서버 개입 지점을 규칙에서 틀과 시험으로 바꾸는 구조 개편 착수, 룰이 집계값을 직접 정의하는 ruleData 체계, 매니저 네트워크 구역 개편안 기능 누락 22건 반영을 다룬 Orange Labs 주간 개발 기록",
         "readMinutes": "3",
@@ -1105,6 +1150,51 @@
   {
     "language": "en",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "LiveAgent 분석가 호출 7단계 스트리밍과 서버 전용 노드 대시보드 신설, 설치 파일 업로드 끊김 이어받기와 매니저 노드 화면 N+1 API 통합 — 주간 리뷰 (2026-10-26)",
+        "content": "LiveAgent 에서 분석가를 호출해 진행을 7단계로 스트리밍 받는 구조, 서버 자료만으로 PC 상태를 보는 노드 대시보드, 끊긴 설치 파일을 받은 끝에서 이어 올리는 업로드, 노드 화면 N+1 API 요청 통합, 정팀장 진단 지식 베이스 14종 추가를 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.26",
+        "md": "/tech_blog/md/weekly-review-2026-w44.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "느린 회선에서 15번 다시 받아도 끝나지 않던 에이전트 업데이트 — HTTP Range로 이어받기 구현",
+        "content": "초당 5~6KB 회선에서 14.7MB 설치본을 1.5시간 동안 15번 시도해도 매번 0바이트부터 다시 받다 끊겼다. 끊긴 지점을 true로 돌려주던 다운로드 함수가 원인이었다. WinINet의 Range·If-Range 요청으로 이어받기를 구현한 과정을 정리한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/agent-update-download-resume-slow-network-http-range.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "증상 목록 조회가 수 초씩 걸리던 문제 — $addFields 위치를 바꿔 MongoDB SBE 엔진에 올리기",
+        "content": "증상 목록 위젯의 기본 30일 조회가 노드가 많은 고객사에서 수 초씩 걸렸다. $match 바로 뒤의 $addFields가 파이프라인 전체를 classic 엔진에 묶어 둔 것이 원인이었다. 선그룹핑으로 순서를 바꾸고 커버링 인덱스를 더해 3.4~6.2초를 0.5~1.1초로 줄인 과정을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/mongodb-aggregation-sbe-engine-detect-api-performance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "AD 로그온 지연·실패 진단 — PC 쪽에서 포트별로 원인을 좁히는 방법",
+        "content": "그룹 정책 미적용, 로그온 지연 같은 Active Directory 장애가 보고되면 PC 쪽에서 무엇을 봐야 하는지 정리했다. Kerberos·LDAP·SMB 포트별로 증상을 나누고, TCP·COM 증상과 LiveCmd 명령으로 DC 연결부터 보안 채널까지 추적한다.",
+        "readMinutes": "6",
+        "createdAt": "2026.10.20",
+        "md": "/tech_blog/md/active-directory-logon-failure-diagnosis-tcp-com-symptoms.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MQTT 메시지가 브로커 한도를 넘자 노드가 1분마다 접속이 끊긴 문제 — CONNACK Maximum Packet Size로 미리 걸러내기",
+        "content": "한 노드가 1분마다 MQTT에 붙었다가 2~4초 뒤 'oversize packet'으로 끊기기를 1,116번 반복했다. 원인은 mosquitto의 max_packet_size 한도였다. MQTT 5의 CONNACK Maximum Packet Size를 받아 두고 보내기 직전에 크기를 거르는 설계로 고쳤다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.19",
+        "md": "/tech_blog/md/mqtt-oversize-packet-node-disconnect-loop-connack-max-packet-size.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
@@ -2211,6 +2301,51 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "LiveAgent 분석가 호출 7단계 스트리밍과 서버 전용 노드 대시보드 신설, 설치 파일 업로드 끊김 이어받기와 매니저 노드 화면 N+1 API 통합 — 주간 리뷰 (2026-10-26)",
+        "content": "LiveAgent 에서 분석가를 호출해 진행을 7단계로 스트리밍 받는 구조, 서버 자료만으로 PC 상태를 보는 노드 대시보드, 끊긴 설치 파일을 받은 끝에서 이어 올리는 업로드, 노드 화면 N+1 API 요청 통합, 정팀장 진단 지식 베이스 14종 추가를 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.26",
+        "md": "/tech_blog/md/weekly-review-2026-w44.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "느린 회선에서 15번 다시 받아도 끝나지 않던 에이전트 업데이트 — HTTP Range로 이어받기 구현",
+        "content": "초당 5~6KB 회선에서 14.7MB 설치본을 1.5시간 동안 15번 시도해도 매번 0바이트부터 다시 받다 끊겼다. 끊긴 지점을 true로 돌려주던 다운로드 함수가 원인이었다. WinINet의 Range·If-Range 요청으로 이어받기를 구현한 과정을 정리한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/agent-update-download-resume-slow-network-http-range.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "증상 목록 조회가 수 초씩 걸리던 문제 — $addFields 위치를 바꿔 MongoDB SBE 엔진에 올리기",
+        "content": "증상 목록 위젯의 기본 30일 조회가 노드가 많은 고객사에서 수 초씩 걸렸다. $match 바로 뒤의 $addFields가 파이프라인 전체를 classic 엔진에 묶어 둔 것이 원인이었다. 선그룹핑으로 순서를 바꾸고 커버링 인덱스를 더해 3.4~6.2초를 0.5~1.1초로 줄인 과정을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/mongodb-aggregation-sbe-engine-detect-api-performance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "AD 로그온 지연·실패 진단 — PC 쪽에서 포트별로 원인을 좁히는 방법",
+        "content": "그룹 정책 미적용, 로그온 지연 같은 Active Directory 장애가 보고되면 PC 쪽에서 무엇을 봐야 하는지 정리했다. Kerberos·LDAP·SMB 포트별로 증상을 나누고, TCP·COM 증상과 LiveCmd 명령으로 DC 연결부터 보안 채널까지 추적한다.",
+        "readMinutes": "6",
+        "createdAt": "2026.10.20",
+        "md": "/tech_blog/md/active-directory-logon-failure-diagnosis-tcp-com-symptoms.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MQTT 메시지가 브로커 한도를 넘자 노드가 1분마다 접속이 끊긴 문제 — CONNACK Maximum Packet Size로 미리 걸러내기",
+        "content": "한 노드가 1분마다 MQTT에 붙었다가 2~4초 뒤 'oversize packet'으로 끊기기를 1,116번 반복했다. 원인은 mosquitto의 max_packet_size 한도였다. MQTT 5의 CONNACK Maximum Packet Size를 받아 두고 보내기 직전에 크기를 거르는 설계로 고쳤다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.19",
+        "md": "/tech_blog/md/mqtt-oversize-packet-node-disconnect-loop-connack-max-packet-size.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "新设代理主动分析器（Analyst）、启动组长架构改造、纳入管理器网络区域改版方案缺失功能 22 项 —— 周报（2026-10-19）",
         "content": "Orange Labs 周度开发记录：新设用于替代现有转储分析器的主动分析器 orange.analyst.exe，启动将组长服务器介入点由规则改为框架与测试的架构改造，由规则直接定义聚合值的 ruleData 体系，以及纳入管理器网络区域改版方案中缺失的 22 项功能。",
         "readMinutes": "3",
@@ -3314,6 +3449,51 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "LiveAgent 분석가 호출 7단계 스트리밍과 서버 전용 노드 대시보드 신설, 설치 파일 업로드 끊김 이어받기와 매니저 노드 화면 N+1 API 통합 — 주간 리뷰 (2026-10-26)",
+        "content": "LiveAgent 에서 분석가를 호출해 진행을 7단계로 스트리밍 받는 구조, 서버 자료만으로 PC 상태를 보는 노드 대시보드, 끊긴 설치 파일을 받은 끝에서 이어 올리는 업로드, 노드 화면 N+1 API 요청 통합, 정팀장 진단 지식 베이스 14종 추가를 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.26",
+        "md": "/tech_blog/md/weekly-review-2026-w44.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "느린 회선에서 15번 다시 받아도 끝나지 않던 에이전트 업데이트 — HTTP Range로 이어받기 구현",
+        "content": "초당 5~6KB 회선에서 14.7MB 설치본을 1.5시간 동안 15번 시도해도 매번 0바이트부터 다시 받다 끊겼다. 끊긴 지점을 true로 돌려주던 다운로드 함수가 원인이었다. WinINet의 Range·If-Range 요청으로 이어받기를 구현한 과정을 정리한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/agent-update-download-resume-slow-network-http-range.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "증상 목록 조회가 수 초씩 걸리던 문제 — $addFields 위치를 바꿔 MongoDB SBE 엔진에 올리기",
+        "content": "증상 목록 위젯의 기본 30일 조회가 노드가 많은 고객사에서 수 초씩 걸렸다. $match 바로 뒤의 $addFields가 파이프라인 전체를 classic 엔진에 묶어 둔 것이 원인이었다. 선그룹핑으로 순서를 바꾸고 커버링 인덱스를 더해 3.4~6.2초를 0.5~1.1초로 줄인 과정을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/mongodb-aggregation-sbe-engine-detect-api-performance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "AD 로그온 지연·실패 진단 — PC 쪽에서 포트별로 원인을 좁히는 방법",
+        "content": "그룹 정책 미적용, 로그온 지연 같은 Active Directory 장애가 보고되면 PC 쪽에서 무엇을 봐야 하는지 정리했다. Kerberos·LDAP·SMB 포트별로 증상을 나누고, TCP·COM 증상과 LiveCmd 명령으로 DC 연결부터 보안 채널까지 추적한다.",
+        "readMinutes": "6",
+        "createdAt": "2026.10.20",
+        "md": "/tech_blog/md/active-directory-logon-failure-diagnosis-tcp-com-symptoms.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MQTT 메시지가 브로커 한도를 넘자 노드가 1분마다 접속이 끊긴 문제 — CONNACK Maximum Packet Size로 미리 걸러내기",
+        "content": "한 노드가 1분마다 MQTT에 붙었다가 2~4초 뒤 'oversize packet'으로 끊기기를 1,116번 반복했다. 원인은 mosquitto의 max_packet_size 한도였다. MQTT 5의 CONNACK Maximum Packet Size를 받아 두고 보내기 직전에 크기를 거르는 설계로 고쳤다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.19",
+        "md": "/tech_blog/md/mqtt-oversize-packet-node-disconnect-loop-connack-max-packet-size.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "新設代理主動分析器（Analyst）、啟動組長架構改造、納入管理員網路區域改版方案缺漏功能 22 項 —— 週報（2026-10-19）",
         "content": "Orange Labs 週度開發記錄：新設用於取代現有傾印分析器的主動分析器 orange.analyst.exe，啟動將組長伺服器介入點由規則改為框架與測試的架構改造，由規則直接定義彙總值的 ruleData 體系，以及納入管理員網路區域改版方案中缺漏的 22 項功能。",
         "readMinutes": "3",
@@ -4414,6 +4594,51 @@
   {
     "language": "ja",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "LiveAgent 분석가 호출 7단계 스트리밍과 서버 전용 노드 대시보드 신설, 설치 파일 업로드 끊김 이어받기와 매니저 노드 화면 N+1 API 통합 — 주간 리뷰 (2026-10-26)",
+        "content": "LiveAgent 에서 분석가를 호출해 진행을 7단계로 스트리밍 받는 구조, 서버 자료만으로 PC 상태를 보는 노드 대시보드, 끊긴 설치 파일을 받은 끝에서 이어 올리는 업로드, 노드 화면 N+1 API 요청 통합, 정팀장 진단 지식 베이스 14종 추가를 다룬 Orange Labs 주간 개발 기록",
+        "readMinutes": "3",
+        "createdAt": "2026.10.26",
+        "md": "/tech_blog/md/weekly-review-2026-w44.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "느린 회선에서 15번 다시 받아도 끝나지 않던 에이전트 업데이트 — HTTP Range로 이어받기 구현",
+        "content": "초당 5~6KB 회선에서 14.7MB 설치본을 1.5시간 동안 15번 시도해도 매번 0바이트부터 다시 받다 끊겼다. 끊긴 지점을 true로 돌려주던 다운로드 함수가 원인이었다. WinINet의 Range·If-Range 요청으로 이어받기를 구현한 과정을 정리한다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/agent-update-download-resume-slow-network-http-range.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "증상 목록 조회가 수 초씩 걸리던 문제 — $addFields 위치를 바꿔 MongoDB SBE 엔진에 올리기",
+        "content": "증상 목록 위젯의 기본 30일 조회가 노드가 많은 고객사에서 수 초씩 걸렸다. $match 바로 뒤의 $addFields가 파이프라인 전체를 classic 엔진에 묶어 둔 것이 원인이었다. 선그룹핑으로 순서를 바꾸고 커버링 인덱스를 더해 3.4~6.2초를 0.5~1.1초로 줄인 과정을 정리한다.",
+        "readMinutes": "3",
+        "createdAt": "2026.10.23",
+        "md": "/tech_blog/md/mongodb-aggregation-sbe-engine-detect-api-performance.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "AD 로그온 지연·실패 진단 — PC 쪽에서 포트별로 원인을 좁히는 방법",
+        "content": "그룹 정책 미적용, 로그온 지연 같은 Active Directory 장애가 보고되면 PC 쪽에서 무엇을 봐야 하는지 정리했다. Kerberos·LDAP·SMB 포트별로 증상을 나누고, TCP·COM 증상과 LiveCmd 명령으로 DC 연결부터 보안 채널까지 추적한다.",
+        "readMinutes": "6",
+        "createdAt": "2026.10.20",
+        "md": "/tech_blog/md/active-directory-logon-failure-diagnosis-tcp-com-symptoms.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "MQTT 메시지가 브로커 한도를 넘자 노드가 1분마다 접속이 끊긴 문제 — CONNACK Maximum Packet Size로 미리 걸러내기",
+        "content": "한 노드가 1분마다 MQTT에 붙었다가 2~4초 뒤 'oversize packet'으로 끊기기를 1,116번 반복했다. 원인은 mosquitto의 max_packet_size 한도였다. MQTT 5의 CONNACK Maximum Packet Size를 받아 두고 보내기 직전에 크기를 거르는 설계로 고쳤다.",
+        "readMinutes": "1",
+        "createdAt": "2026.10.19",
+        "md": "/tech_blog/md/mqtt-oversize-packet-node-disconnect-loop-connack-max-packet-size.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
