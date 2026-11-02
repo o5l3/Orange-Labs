@@ -1162,8 +1162,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
-        "content": "능동 분석가의 파일 대기 조사, 파일 배포와 업로드 이어하기, 네트워크 구역·파일함 화면 개편을 GitHub 커밋과 Jira 기록으로 정리했습니다.",
+        "subject": "An Analyst That Investigates PC Response Delays, and File Distribution (Monthly Review 2026-11-01)",
+        "content": "A review of the active analyst's file-wait investigation, file distribution and resumable uploads, and the redesign of the network-zone and file-locker screens, compiled from GitHub commits and Jira records.",
         "readMinutes": "7",
         "createdAt": "2026.11.01",
         "md": "/tech_blog/md/monthly-review-202610.md"
@@ -2319,8 +2319,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
-        "content": "능동 분석가의 파일 대기 조사, 파일 배포와 업로드 이어하기, 네트워크 구역·파일함 화면 개편을 GitHub 커밋과 Jira 기록으로 정리했습니다.",
+        "subject": "调查 PC 响应延迟的分析器与文件分发功能（月报 2026-11-01）",
+        "content": "根据 GitHub 提交与 Jira 记录，整理了主动分析器的文件等待调查、文件分发与上传续传，以及网络区域与文件柜页面改版。",
         "readMinutes": "7",
         "createdAt": "2026.11.01",
         "md": "/tech_blog/md/monthly-review-202610.md"
@@ -3476,8 +3476,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
-        "content": "능동 분석가의 파일 대기 조사, 파일 배포와 업로드 이어하기, 네트워크 구역·파일함 화면 개편을 GitHub 커밋과 Jira 기록으로 정리했습니다.",
+        "subject": "調查 PC 回應延遲的分析器與檔案派送功能（月報 2026-11-01）",
+        "content": "根據 GitHub 提交與 Jira 記錄，整理了主動分析器的檔案等待調查、檔案派送與上傳續傳，以及網路區域與檔案櫃頁面改版。",
         "readMinutes": "7",
         "createdAt": "2026.11.01",
         "md": "/tech_blog/md/monthly-review-202610.md"
@@ -4633,8 +4633,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
-        "content": "능동 분석가의 파일 대기 조사, 파일 배포와 업로드 이어하기, 네트워크 구역·파일함 화면 개편을 GitHub 커밋과 Jira 기록으로 정리했습니다.",
+        "subject": "PC の応答遅延を調査するアナリストとファイル配布機能（月次レビュー 2026-11-01）",
+        "content": "能動アナリストによるファイル待ちの調査、ファイル配布とアップロードのレジューム、ネットワーク区域・ファイルボックス画面の改編を、GitHub のコミットと Jira の記録から整理しました。",
         "readMinutes": "7",
         "createdAt": "2026.11.01",
         "md": "/tech_blog/md/monthly-review-202610.md"

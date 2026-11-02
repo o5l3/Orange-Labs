@@ -2284,5 +2284,23 @@
       "title": "MQTT メッセージがブローカーの上限を超えてノードが 1 分ごとに切断された問題 — CONNACK Maximum Packet Size で事前に弾く",
       "excerpt": "あるノードが 1 分ごとに MQTT へ接続し、2〜4 秒後に 'oversize packet' で切断されることを 1,116 回繰り返した。原因は mosquitto の max_packet_size の上限だった。MQTT 5 の CONNACK Maximum Packet Size を受け取っておき、送信直前にサイズを弾く設計に修正した。"
     }
+  },
+  "monthly-review-202610": {
+    "en": {
+      "title": "An Analyst That Investigates PC Response Delays, and File Distribution (Monthly Review 2026-11-01)",
+      "excerpt": "A review of the active analyst's file-wait investigation, file distribution and resumable uploads, and the redesign of the network-zone and file-locker screens, compiled from GitHub commits and Jira records."
+    },
+    "zh": {
+      "title": "调查 PC 响应延迟的分析器与文件分发功能（月报 2026-11-01）",
+      "excerpt": "根据 GitHub 提交与 Jira 记录，整理了主动分析器的文件等待调查、文件分发与上传续传，以及网络区域与文件柜页面改版。"
+    },
+    "zh-Hant": {
+      "title": "調查 PC 回應延遲的分析器與檔案派送功能（月報 2026-11-01）",
+      "excerpt": "根據 GitHub 提交與 Jira 記錄，整理了主動分析器的檔案等待調查、檔案派送與上傳續傳，以及網路區域與檔案櫃頁面改版。"
+    },
+    "ja": {
+      "title": "PC の応答遅延を調査するアナリストとファイル配布機能（月次レビュー 2026-11-01）",
+      "excerpt": "能動アナリストによるファイル待ちの調査、ファイル配布とアップロードのレジューム、ネットワーク区域・ファイルボックス画面の改編を、GitHub のコミットと Jira の記録から整理しました。"
+    }
   }
 }
