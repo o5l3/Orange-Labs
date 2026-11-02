@@ -5,6 +5,15 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
+        "content": "능동 분석가의 파일 대기 조사, 파일 배포와 업로드 이어하기, 네트워크 구역·파일함 화면 개편을 GitHub 커밋과 Jira 기록으로 정리했습니다.",
+        "readMinutes": "7",
+        "createdAt": "2026.11.01",
+        "md": "/tech_blog/md/monthly-review-202610.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "LiveAgent 분석가 호출 7단계 스트리밍과 서버 전용 노드 대시보드 신설, 설치 파일 업로드 끊김 이어받기와 매니저 노드 화면 N+1 API 통합 — 주간 리뷰 (2026-10-26)",
         "content": "LiveAgent 에서 분석가를 호출해 진행을 7단계로 스트리밍 받는 구조, 서버 자료만으로 PC 상태를 보는 노드 대시보드, 끊긴 설치 파일을 받은 끝에서 이어 올리는 업로드, 노드 화면 N+1 API 요청 통합, 정팀장 진단 지식 베이스 14종 추가를 다룬 Orange Labs 주간 개발 기록",
         "readMinutes": "3",
@@ -1150,6 +1159,15 @@
   {
     "language": "en",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
+        "content": "능동 분석가의 파일 대기 조사, 파일 배포와 업로드 이어하기, 네트워크 구역·파일함 화면 개편을 GitHub 커밋과 Jira 기록으로 정리했습니다.",
+        "readMinutes": "7",
+        "createdAt": "2026.11.01",
+        "md": "/tech_blog/md/monthly-review-202610.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
@@ -2301,6 +2319,15 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
+        "content": "능동 분석가의 파일 대기 조사, 파일 배포와 업로드 이어하기, 네트워크 구역·파일함 화면 개편을 GitHub 커밋과 Jira 기록으로 정리했습니다.",
+        "readMinutes": "7",
+        "createdAt": "2026.11.01",
+        "md": "/tech_blog/md/monthly-review-202610.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "LiveAgent 分析器调用的七阶段流式反馈、新设仅依赖服务器数据的节点仪表板、安装文件上传断点续传、管理器节点页面 N+1 API 整合 —— 周报（2026-10-26）",
         "content": "Orange Labs 周度开发记录：从 LiveAgent 调用分析器并以七个阶段流式接收进度的结构、仅凭服务器数据查看 PC 状态的节点仪表板、从断点续传中断的安装文件上传、节点页面 N+1 API 请求的整合，以及组长诊断知识库新增 14 种。",
         "readMinutes": "3",
@@ -3449,6 +3476,15 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
+        "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
+        "content": "능동 분석가의 파일 대기 조사, 파일 배포와 업로드 이어하기, 네트워크 구역·파일함 화면 개편을 GitHub 커밋과 Jira 기록으로 정리했습니다.",
+        "readMinutes": "7",
+        "createdAt": "2026.11.01",
+        "md": "/tech_blog/md/monthly-review-202610.md"
+      },
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
         "subject": "LiveAgent 分析器呼叫的七階段串流回饋、新設僅依賴伺服器資料的節點儀表板、安裝檔上傳續傳、管理員節點頁面 N+1 API 整合 —— 週報（2026-10-26）",
         "content": "Orange Labs 週度開發記錄：從 LiveAgent 呼叫分析器並以七個階段串流接收進度的結構、僅憑伺服器資料檢視 PC 狀態的節點儀表板、從中斷點續傳安裝檔上傳、節點頁面 N+1 API 請求的整合，以及組長診斷知識庫新增 14 種。",
         "readMinutes": "3",
@@ -4594,6 +4630,15 @@
   {
     "language": "ja",
     "posts": [
+      {
+        "category": "Dev Log",
+        "categoryColor": "#8b5cf6",
+        "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
+        "content": "능동 분석가의 파일 대기 조사, 파일 배포와 업로드 이어하기, 네트워크 구역·파일함 화면 개편을 GitHub 커밋과 Jira 기록으로 정리했습니다.",
+        "readMinutes": "7",
+        "createdAt": "2026.11.01",
+        "md": "/tech_blog/md/monthly-review-202610.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
