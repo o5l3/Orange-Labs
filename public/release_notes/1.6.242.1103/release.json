@@ -1,0 +1,412 @@
+{
+  "version": "1.6.242.1103",
+  "slug": "1.6.242.1103",
+  "date": "2026-11-03",
+  "pdf": "release-notes.pdf",
+  "items": [
+    {
+      "key": "remoteExplorer",
+      "kind": "new"
+    },
+    {
+      "key": "scriptWizard",
+      "kind": "new"
+    },
+    {
+      "key": "processAnalysis",
+      "kind": "new"
+    },
+    {
+      "key": "diskAnalysis",
+      "kind": "new"
+    },
+    {
+      "key": "menuPermissions",
+      "kind": "improved"
+    },
+    {
+      "key": "globalSearch",
+      "kind": "improved"
+    },
+    {
+      "key": "fileStoragePanes",
+      "kind": "improved"
+    },
+    {
+      "key": "deploySteps",
+      "kind": "improved"
+    },
+    {
+      "key": "jungteamDailyQuestions",
+      "kind": "improved"
+    },
+    {
+      "key": "networkIssueThreshold",
+      "kind": "improved"
+    },
+    {
+      "key": "analystUpload",
+      "kind": "improved"
+    },
+    {
+      "key": "driverBsod",
+      "kind": "improved"
+    },
+    {
+      "key": "nvmeBackupIssue",
+      "kind": "improved"
+    }
+  ],
+  "i18n": {
+    "ko": {
+      "excerpt": "이번 릴리즈에서는 노드 상세 「원격 탐색기」로 PC의 파일과 설치된 프로그램을 매니저에서 바로 관리합니다. 권한은 위젯별이 아닌 메뉴별로 설정합니다. 새 기능 대부분은 각 PC의 에이전트 버전이 1.6.242.1136 이상이어야 동작합니다.",
+      "items": {
+        "remoteExplorer": {
+          "title": "노드 상세 「원격 탐색기」 탭에서 PC의 파일 찾기·올리기·실행",
+          "sub": "노드 상세 › 원격 탐색기",
+          "desc": "원격제어로 화면을 넘겨받지 않고도 매니저에서 PC의 드라이브와 폴더를 Windows 탐색기처럼 열어, 파일을 찾아 올리거나 실행할 수 있습니다."
+        },
+        "scriptWizard": {
+          "title": "명령 관리 「스크립트 마법사」에서 명령을 직접 입력하지 않고 PC 정보 조회·설정 변경",
+          "sub": "명령 관리 › 스크립트 마법사",
+          "desc": "PowerShell 명령을 직접 입력하지 않아도, 원하는 작업을 선택하면 마법사가 여러 PC에 보낼 명령을 만들어 줍니다."
+        },
+        "processAnalysis": {
+          "title": "모니터링 › 프로세스 「실행 목록」에서 그룹·PC를 선택해 프로세스 부하 분석",
+          "sub": "모니터링 › 프로세스 › 실행 목록",
+          "desc": "전체 PC 기준으로만 표시되던 실행 목록을 조회 기간과 대상(그룹·노드)으로 좁히고, 프로세스 부하를 노드·그룹·날짜·요일·시각별로 묶어 확인할 수 있습니다."
+        },
+        "diskAnalysis": {
+          "title": "분석가 「디스크 분석」에서 드라이브별 공간 사용 현황 확인 및 삭제해도 되는 파일 정리 (노드 상세 Live Agent·에이전트 화면)",
+          "sub": "노드 상세 › Live Agent · 에이전트 화면 › 분석가",
+          "desc": "디스크 여유 공간이 부족한 PC에서 분석가가 드라이브별로 공간을 차지하는 항목을 조사하므로, 삭제해도 되는 파일을 골라 정리할 수 있습니다."
+        },
+        "menuPermissions": {
+          "title": "설정 › 사용자·권한 › 권한 관리에서 메뉴별 보기·관리 권한 지정",
+          "sub": "설정 › 사용자·권한 › 권한 관리",
+          "desc": "「메뉴 권한」 탭에서 메뉴별 「보기」와 「관리」(등록·수정·삭제) 권한을 켜거나 끕니다. 「보기」 권한이 없는 메뉴는 상단 메뉴와 검색 결과에 표시되지 않으며, 주소로 직접 접속해도 「권한 없음」이 표시됩니다."
+        },
+        "globalSearch": {
+          "title": "화면 맨 위 검색창에서 IP·PC 이름·증상·이슈·프로세스 검색",
+          "sub": "화면 맨 위 검색창",
+          "desc": "IP·PC 이름·사용자 이름·부서·프로그램 이름을 입력하면 결과가 노드·증상·이슈·프로세스별로 구분되어 표시됩니다. Enter를 누르면 「검색 결과」 화면에서 유형별로 더 볼 수 있습니다."
+        },
+        "fileStoragePanes": {
+          "title": "파일 › 파일함 화면을 폴더·목록·상세 3개 영역으로 재구성",
+          "sub": "파일 › 파일함",
+          "desc": "왼쪽에서 폴더나 시스템 파일 종류를 선택하면 가운데에 파일 목록이 표시되고, 파일을 선택하면 오른쪽에 상세 정보가 표시됩니다. 시스템 파일은 현재 적용된 버전을 별도로 표시합니다."
+        },
+        "deploySteps": {
+          "title": "파일 › 배포에서 4단계로 새 배포를 만들고 실패한 PC가 있는 배포만 조회",
+          "sub": "파일 › 배포",
+          "desc": "파일 확장자를 기준으로 설치 방식을 자동으로 선택하고, 마지막 단계에서는 설치할 항목과 대상 PC, 설치 시점을 문장으로 요약해 보여 줍니다. 목록 위의 「실패」 칩을 누르면 실패한 PC가 있는 배포만 표시됩니다."
+        },
+        "jungteamDailyQuestions": {
+          "title": "노드 정보 › 정팀장의 추천 질문을 전날 많이 나온 질문으로 매일 변경",
+          "sub": "노드 정보 › 정팀장",
+          "desc": "PC가 켜져 있을 때와 꺼져 있을 때 표시하는 질문이 다르고, 질문 목록을 받지 못하면 이전에 사용하던 질문이 표시됩니다."
+        },
+        "networkIssueThreshold": {
+          "title": "네트워크 이슈 현황에서 소수 PC만 잠깐 실패한 대상까지 이슈로 열리던 문제",
+          "sub": "증상 › 현황 › 네트워크 이슈 현황",
+          "desc": "다음 중 하나일 때만 이슈를 엽니다: 응답한 PC가 2대 이상이고 모두 실패, 실패한 PC가 3대 이상, 한 네트워크 구역에서 응답한 PC의 절반 이상 실패. 이전보다 이슈가 적게 열립니다."
+        },
+        "analystUpload": {
+          "title": "Live Agent에서 분석가를 실행할 때마다 증상이 누적되던 문제",
+          "sub": "노드 상세 › Live Agent",
+          "desc": "보관할 결과는 「업로드」를 누릅니다. 업로드하지 않은 결과는 2시간 뒤 서버에서 삭제되며, 이후 해당 결과를 열면 「보관 기간이 지나 결과가 지워졌습니다」가 표시됩니다."
+        },
+        "driverBsod": {
+          "title": "에이전트를 삭제하거나 업데이트할 때 블루스크린(0x7E)이 발생하던 문제",
+          "sub": "에이전트 · 업데이트",
+          "desc": "이번 에이전트에는 수정된 드라이버가 포함되어 있습니다."
+        },
+        "nvmeBackupIssue": {
+          "title": "위험 경고가 없는 NVMe 데이터 오류가 「지금 백업」 이슈로 등록되던 문제",
+          "sub": "증상 › 현황 › 이슈",
+          "desc": "디스크에서 위험 경고가 발생하지 않은 데이터 오류는 「디스크 데이터 오류 기록」(지켜보기) 증상으로만 기록됩니다. 이미 열린 이슈는 다음 디스크 점검(하루 1번) 때 닫힙니다."
+        }
+      }
+    },
+    "en": {
+      "excerpt": "This release adds Remote Explorer to node details, so you can work with a PC's files and installed programs directly from the manager. Permissions are now set per menu instead of per widget. Most new features require agent version 1.6.242.1136 or later on each PC.",
+      "items": {
+        "remoteExplorer": {
+          "title": "Find, upload and run a PC's files from the Remote Explorer tab in node details",
+          "sub": "Node details › Remote Explorer",
+          "desc": "Without taking over the screen through remote control, open a PC's drives and folders in the manager as in Windows Explorer, and find, upload or run files."
+        },
+        "scriptWizard": {
+          "title": "Query PC information and change settings in the Commands Script Wizard without writing commands",
+          "sub": "Commands › Script Wizard",
+          "desc": "You no longer need to write PowerShell commands: choose the task you want, and the wizard builds the command to send to multiple PCs."
+        },
+        "processAnalysis": {
+          "title": "Analyse process load by selecting groups or PCs in Monitoring › Process › Run list",
+          "sub": "Monitoring › Process › Run list",
+          "desc": "The run list, previously shown only across all PCs, can now be narrowed by period and target (group or node), and process load can be grouped by node, group, date, day of week or hour."
+        },
+        "diskAnalysis": {
+          "title": "See disk usage by drive and clean up files that are safe to delete with Analyst Disk analysis",
+          "sub": "Node details › Live Agent · Agent screen › Analyst",
+          "desc": "On a PC short of disk space, Analyst examines what takes up space on each drive, so you can pick the files that are safe to delete and clean them up."
+        },
+        "menuPermissions": {
+          "title": "View and manage permissions set per menu in Settings › Users & permissions › Permission management",
+          "sub": "Settings › Users & permissions › Permission management",
+          "desc": "On the Menu permissions tab, turn View and Manage (register, edit, delete) on or off for each menu. Menus without View permission disappear from the top menu and search results, and opening their address directly shows \"No permission\"."
+        },
+        "globalSearch": {
+          "title": "Search IPs, PC names, symptoms, issues and processes from the search box at the top of the screen",
+          "sub": "Search box at the top of the screen",
+          "desc": "Enter an IP, PC name, user name, department or program name, and results are sorted into nodes, symptoms, issues and processes. Press Enter to see more of each type on the Search results screen."
+        },
+        "fileStoragePanes": {
+          "title": "File › File storage rebuilt into three areas: folders, list and details",
+          "sub": "File › File storage",
+          "desc": "Select a folder or system file type on the left to list files in the middle, then select a file to see its details on the right. System files show the version currently applied separately."
+        },
+        "deploySteps": {
+          "title": "Create deployments in four steps and list only those with failed PCs in File › Deployment",
+          "sub": "File › Deployment",
+          "desc": "The install method is chosen automatically from the file extension, and the last step summarises what is installed, on which PCs and when in a sentence. The Failed chip above the list shows only deployments with failed PCs."
+        },
+        "jungteamDailyQuestions": {
+          "title": "AI assistant suggested questions updated daily from the previous day's most-asked questions",
+          "sub": "Node info › AI assistant",
+          "desc": "Different questions are shown depending on whether the PC is on or off, and if the question list cannot be received, the previously used questions are shown."
+        },
+        "networkIssueThreshold": {
+          "title": "Targets that failed briefly on only a few PCs opening as issues in Network issue status",
+          "sub": "Symptoms › Status › Network issue status",
+          "desc": "An issue now opens only if one of these applies: two or more PCs responded and all failed, three or more PCs failed, or at least half of the responding PCs in one network zone failed. Fewer issues open than before."
+        },
+        "analystUpload": {
+          "title": "Symptoms piling up each time Analyst ran in Live Agent",
+          "sub": "Node details › Live Agent",
+          "desc": "Press Upload for results you want to keep. Results not uploaded are deleted from the server after 2 hours, and opening them afterwards shows \"Retention period has passed and the result was deleted\"."
+        },
+        "driverBsod": {
+          "title": "Blue screen (0x7E) when removing or updating the agent",
+          "sub": "Agent · Update",
+          "desc": "This agent includes the corrected driver."
+        },
+        "nvmeBackupIssue": {
+          "title": "NVMe data errors without a critical warning raised as Back up now issues",
+          "sub": "Symptoms › Status › Issues",
+          "desc": "Data errors for which the disk raised no critical warning are recorded only as a Disk data error record (Watch) symptom. Issues already open close at the next disk check (once a day)."
+        }
+      }
+    },
+    "ja": {
+      "excerpt": "今回のリリースでは、ノード詳細の「リモートエクスプローラー」で PC のファイルとインストール済みプログラムをマネージャーから直接管理できます。権限はウィジェット単位ではなくメニュー単位で設定します。新機能の多くは、各 PC のエージェントのバージョンが 1.6.242.1136 以上である必要があります。",
+      "items": {
+        "remoteExplorer": {
+          "title": "ノード詳細の「リモートエクスプローラー」タブで PC のファイルを検索・アップロード・実行",
+          "sub": "ノード詳細 › リモートエクスプローラー",
+          "desc": "リモート制御で画面を引き継がなくても、マネージャーから PC のドライブとフォルダーを Windows エクスプローラーのように開き、ファイルを探してアップロードしたり実行したりできます。"
+        },
+        "scriptWizard": {
+          "title": "命令管理の「スクリプトウィザード」で命令を直接入力せずに PC 情報の照会・設定変更",
+          "sub": "命令管理 › スクリプトウィザード",
+          "desc": "PowerShell 命令を直接入力しなくても、行いたい作業を選ぶと、複数の PC に送る命令をウィザードが作成します。"
+        },
+        "processAnalysis": {
+          "title": "モニタリング › プロセス「実行一覧」でグループ・PC を選んでプロセス負荷を分析",
+          "sub": "モニタリング › プロセス › 実行一覧",
+          "desc": "PC 全体の基準でしか表示されなかった実行一覧を期間と対象(グループ・ノード)で絞り込み、プロセス負荷をノード・グループ・日付・曜日・時刻別にまとめて確認できます。"
+        },
+        "diskAnalysis": {
+          "title": "アナリストの「ディスク分析」でドライブ別の使用状況を確認し、削除してよいファイルを整理",
+          "sub": "ノード詳細 › Live Agent · エージェント画面 › アナリスト",
+          "desc": "ディスクの空き容量が不足している PC で、アナリストがドライブごとに容量を占める項目を調査するので、削除してよいファイルを選んで整理できます。"
+        },
+        "menuPermissions": {
+          "title": "設定 › ユーザー・権限 › 権限管理でメニューごとに表示・管理権限を指定",
+          "sub": "設定 › ユーザー・権限 › 権限管理",
+          "desc": "「メニュー権限」タブでメニューごとに「表示」と「管理」(登録・修正・削除)の権限をオン・オフします。「表示」権限がないメニューは上部メニューと検索結果に表示されず、アドレスに直接アクセスしても「権限なし」と表示されます。"
+        },
+        "globalSearch": {
+          "title": "画面上部の検索ボックスで IP・PC 名・症状・イシュー・プロセスを検索",
+          "sub": "画面上部の検索ボックス",
+          "desc": "IP・PC 名・ユーザー名・部署・プログラム名を入力すると、結果がノード・症状・イシュー・プロセス別に表示されます。Enter を押すと「検索結果」画面で種類別にさらに確認できます。"
+        },
+        "fileStoragePanes": {
+          "title": "ファイル › ファイルボックス画面をフォルダー・一覧・詳細の3領域に再構成",
+          "sub": "ファイル › ファイルボックス",
+          "desc": "左でフォルダーやシステムファイルの種類を選ぶと中央にファイル一覧が、ファイルを選ぶと右に詳細情報が表示されます。システムファイルは現在適用中のバージョンを別に表示します。"
+        },
+        "deploySteps": {
+          "title": "ファイル › 配布で4段階で新しい配布を作成し、失敗した PC がある配布だけを照会",
+          "sub": "ファイル › 配布",
+          "desc": "ファイルの拡張子を基準にインストール方式を自動で選び、最後の段階ではインストールする項目と対象 PC、時期を文章で要約して表示します。一覧上部の「失敗」チップを押すと、失敗した PC がある配布だけが表示されます。"
+        },
+        "jungteamDailyQuestions": {
+          "title": "AI アシスタントの推奨質問を前日に多かった質問で毎日更新",
+          "sub": "ノード情報 › AI アシスタント",
+          "desc": "PC の電源が入っているときと切れているときで表示する質問が異なり、質問一覧を受け取れない場合は以前の質問が表示されます。"
+        },
+        "networkIssueThreshold": {
+          "title": "ネットワークイシュー現況で少数の PC だけが一時的に失敗した対象までイシューになっていた問題",
+          "sub": "症状 › 現況 › ネットワークイシュー現況",
+          "desc": "次のいずれかの場合にのみイシューを開きます: 応答した PC が2台以上ですべて失敗、失敗した PC が3台以上、一つのネットワーク区域で応答した PC の半数以上が失敗。以前よりイシューが少なくなります。"
+        },
+        "analystUpload": {
+          "title": "Live Agent でアナリストを実行するたびに症状が累積していた問題",
+          "sub": "ノード詳細 › Live Agent",
+          "desc": "保管する結果は「アップロード」を押します。アップロードしなかった結果は2時間後にサーバーから削除され、その後開くと「保管期間が過ぎて結果が削除されました」と表示されます。"
+        },
+        "driverBsod": {
+          "title": "エージェントの削除・更新時にブルースクリーン(0x7E)が発生していた問題",
+          "sub": "エージェント · 更新",
+          "desc": "今回のエージェントには修正済みのドライバーが含まれています。"
+        },
+        "nvmeBackupIssue": {
+          "title": "危険警告のない NVMe データエラーが「今すぐバックアップ」イシューとして登録されていた問題",
+          "sub": "症状 › 現況 › イシュー",
+          "desc": "ディスクが危険警告を出していないデータエラーは「ディスクデータエラー記録」(様子見)の症状としてのみ記録されます。すでに開いているイシューは次のディスク点検(1日1回)で閉じます。"
+        }
+      }
+    },
+    "zh": {
+      "excerpt": "本次发布在节点详情中新增「远程资源管理器」，可在管理器中直接管理 PC 的文件和已安装程序。权限改为按菜单而非按小组件设置。大部分新功能要求各 PC 的代理版本为 1.6.242.1136 或更高。",
+      "items": {
+        "remoteExplorer": {
+          "title": "在节点详情「远程资源管理器」页查找、上传和运行 PC 的文件",
+          "sub": "节点详情 › 远程资源管理器",
+          "desc": "无需通过远程控制接管画面，即可在管理器中像 Windows 资源管理器一样打开 PC 的驱动器和文件夹，查找、上传或运行文件。"
+        },
+        "scriptWizard": {
+          "title": "在命令管理「脚本向导」中无需手写命令即可查询 PC 信息、更改设置",
+          "sub": "命令管理 › 脚本向导",
+          "desc": "无需手动输入 PowerShell 命令，选择要执行的操作后，向导会生成发送给多台 PC 的命令。"
+        },
+        "processAnalysis": {
+          "title": "在 监控 › 进程「运行列表」中选择分组或 PC 分析进程负载",
+          "sub": "监控 › 进程 › 运行列表",
+          "desc": "以前只能按全部 PC 显示的运行列表，现在可按时间段和对象(分组、节点)缩小范围，并按节点、分组、日期、星期、时段汇总查看进程负载。"
+        },
+        "diskAnalysis": {
+          "title": "用分析师「磁盘分析」查看各驱动器空间使用情况并清理可删除的文件",
+          "sub": "节点详情 › Live Agent · 代理画面 › 分析师",
+          "desc": "在磁盘可用空间不足的 PC 上，分析师会调查各驱动器中占用空间的项目，您可以选择可删除的文件进行清理。"
+        },
+        "menuPermissions": {
+          "title": "在 设置 › 用户与权限 › 权限管理 中按菜单指定查看和管理权限",
+          "sub": "设置 › 用户与权限 › 权限管理",
+          "desc": "在「菜单权限」页中按菜单开启或关闭「查看」和「管理」(注册、修改、删除)权限。没有「查看」权限的菜单不会显示在顶部菜单和搜索结果中，直接访问其地址时也会显示「无权限」。"
+        },
+        "globalSearch": {
+          "title": "在画面顶部搜索框中搜索 IP、PC 名称、症状、问题和进程",
+          "sub": "画面顶部搜索框",
+          "desc": "输入 IP、PC 名称、用户名、部门或程序名称后，结果会按节点、症状、问题、进程分类显示。按 Enter 可在「搜索结果」画面中按类型查看更多内容。"
+        },
+        "fileStoragePanes": {
+          "title": "文件 › 文件箱 画面重新构成为文件夹、列表、详情三个区域",
+          "sub": "文件 › 文件箱",
+          "desc": "在左侧选择文件夹或系统文件类型后，中间显示文件列表；选择文件后，右侧显示详细信息。系统文件会单独显示当前应用的版本。"
+        },
+        "deploySteps": {
+          "title": "在 文件 › 部署 中分四步创建新部署，并只查询有失败 PC 的部署",
+          "sub": "文件 › 部署",
+          "desc": "根据文件扩展名自动选择安装方式，最后一步用文字概括安装的内容、目标 PC 和时间。点击列表上方的「失败」标签，只显示有失败 PC 的部署。"
+        },
+        "jungteamDailyQuestions": {
+          "title": "AI 助手的推荐问题每天更新为前一天问得最多的问题",
+          "sub": "节点信息 › AI 助手",
+          "desc": "PC 开机和关机时显示的问题不同；无法获取问题列表时显示之前使用的问题。"
+        },
+        "networkIssueThreshold": {
+          "title": "网络问题现况中仅少数 PC 短暂失败的对象也被开启为问题",
+          "sub": "症状 › 现况 › 网络问题现况",
+          "desc": "仅在以下任一情况下才开启问题：响应的 PC 有 2 台以上且全部失败、失败的 PC 有 3 台以上、一个网络区域内响应的 PC 有一半以上失败。开启的问题比以前少。"
+        },
+        "analystUpload": {
+          "title": "在 Live Agent 中每次运行分析师都会累积症状的问题",
+          "sub": "节点详情 › Live Agent",
+          "desc": "要保留的结果请点击「上传」。未上传的结果会在 2 小时后从服务器删除，之后打开时显示「已超过保留期限，结果已删除」。"
+        },
+        "driverBsod": {
+          "title": "删除或更新代理时发生蓝屏(0x7E)的问题",
+          "sub": "代理 · 更新",
+          "desc": "本次代理包含已修正的驱动程序。"
+        },
+        "nvmeBackupIssue": {
+          "title": "没有危险警告的 NVMe 数据错误被登记为「立即备份」问题",
+          "sub": "症状 › 现况 › 问题",
+          "desc": "磁盘未发出危险警告的数据错误只记录为「磁盘数据错误记录」(观察)症状。已开启的问题会在下一次磁盘检查(每天 1 次)时关闭。"
+        }
+      }
+    },
+    "zh-Hant": {
+      "excerpt": "本次發布在節點詳情中新增「遠端檔案總管」，可在管理器中直接管理 PC 的檔案與已安裝程式。權限改為依選單而非依小工具設定。大部分新功能要求各 PC 的代理程式版本為 1.6.242.1136 或更高。",
+      "items": {
+        "remoteExplorer": {
+          "title": "在節點詳情「遠端檔案總管」頁尋找、上傳與執行 PC 的檔案",
+          "sub": "節點詳情 › 遠端檔案總管",
+          "desc": "不必透過遠端控制接管畫面，即可在管理器中像 Windows 檔案總管一樣開啟 PC 的磁碟機與資料夾，尋找、上傳或執行檔案。"
+        },
+        "scriptWizard": {
+          "title": "在命令管理「指令碼精靈」中不必手寫命令即可查詢 PC 資訊、變更設定",
+          "sub": "命令管理 › 指令碼精靈",
+          "desc": "不必手動輸入 PowerShell 命令，選擇要執行的作業後，精靈會產生傳送給多台 PC 的命令。"
+        },
+        "processAnalysis": {
+          "title": "在 監控 › 處理程序「執行清單」中選擇群組或 PC 分析處理程序負載",
+          "sub": "監控 › 處理程序 › 執行清單",
+          "desc": "以前只能依全部 PC 顯示的執行清單，現在可依期間與對象(群組、節點)縮小範圍，並依節點、群組、日期、星期、時段彙總查看處理程序負載。"
+        },
+        "diskAnalysis": {
+          "title": "用分析師「磁碟分析」查看各磁碟機空間使用情況並清理可刪除的檔案",
+          "sub": "節點詳情 › Live Agent · 代理程式畫面 › 分析師",
+          "desc": "在磁碟可用空間不足的 PC 上，分析師會調查各磁碟機中佔用空間的項目，您可以選擇可刪除的檔案進行清理。"
+        },
+        "menuPermissions": {
+          "title": "在 設定 › 使用者與權限 › 權限管理 中依選單指定檢視與管理權限",
+          "sub": "設定 › 使用者與權限 › 權限管理",
+          "desc": "在「選單權限」頁中依選單開啟或關閉「檢視」與「管理」(註冊、修改、刪除)權限。沒有「檢視」權限的選單不會顯示在頂端選單與搜尋結果中，直接存取其位址時也會顯示「無權限」。"
+        },
+        "globalSearch": {
+          "title": "在畫面頂端搜尋框中搜尋 IP、PC 名稱、症狀、問題與處理程序",
+          "sub": "畫面頂端搜尋框",
+          "desc": "輸入 IP、PC 名稱、使用者名稱、部門或程式名稱後，結果會依節點、症狀、問題、處理程序分類顯示。按 Enter 可在「搜尋結果」畫面中依類型查看更多內容。"
+        },
+        "fileStoragePanes": {
+          "title": "檔案 › 檔案箱 畫面重新構成為資料夾、清單、詳情三個區域",
+          "sub": "檔案 › 檔案箱",
+          "desc": "在左側選擇資料夾或系統檔案類型後，中間顯示檔案清單；選擇檔案後，右側顯示詳細資訊。系統檔案會另外顯示目前套用的版本。"
+        },
+        "deploySteps": {
+          "title": "在 檔案 › 部署 中分四步建立新部署，並只查詢有失敗 PC 的部署",
+          "sub": "檔案 › 部署",
+          "desc": "依檔案副檔名自動選擇安裝方式，最後一步以文字概述安裝的內容、目標 PC 與時間。點選清單上方的「失敗」標籤，只顯示有失敗 PC 的部署。"
+        },
+        "jungteamDailyQuestions": {
+          "title": "AI 助理的推薦問題每天更新為前一天問得最多的問題",
+          "sub": "節點資訊 › AI 助理",
+          "desc": "PC 開機與關機時顯示的問題不同；無法取得問題清單時顯示之前使用的問題。"
+        },
+        "networkIssueThreshold": {
+          "title": "網路問題現況中僅少數 PC 短暫失敗的對象也被開啟為問題",
+          "sub": "症狀 › 現況 › 網路問題現況",
+          "desc": "僅在以下任一情況下才開啟問題：回應的 PC 有 2 台以上且全部失敗、失敗的 PC 有 3 台以上、一個網路區域內回應的 PC 有一半以上失敗。開啟的問題比以前少。"
+        },
+        "analystUpload": {
+          "title": "在 Live Agent 中每次執行分析師都會累積症狀的問題",
+          "sub": "節點詳情 › Live Agent",
+          "desc": "要保留的結果請點選「上傳」。未上傳的結果會在 2 小時後從伺服器刪除，之後開啟時顯示「已超過保留期限，結果已刪除」。"
+        },
+        "driverBsod": {
+          "title": "刪除或更新代理程式時發生藍屏(0x7E)的問題",
+          "sub": "代理程式 · 更新",
+          "desc": "本次代理程式包含已修正的驅動程式。"
+        },
+        "nvmeBackupIssue": {
+          "title": "沒有危險警告的 NVMe 資料錯誤被登記為「立即備份」問題",
+          "sub": "症狀 › 現況 › 問題",
+          "desc": "磁碟未發出危險警告的資料錯誤只記錄為「磁碟資料錯誤記錄」(觀察)症狀。已開啟的問題會在下一次磁碟檢查(每天 1 次)時關閉。"
+        }
+      }
+    }
+  }
+}
