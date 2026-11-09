@@ -2302,5 +2302,59 @@
       "title": "PC の応答遅延を調査するアナリストとファイル配布機能（月次レビュー 2026-11-01）",
       "excerpt": "能動アナリストによるファイル待ちの調査、ファイル配布とアップロードのレジューム、ネットワーク区域・ファイルボックス画面の改編を、GitHub のコミットと Jira の記録から整理しました。"
     }
+  },
+  "minifilter-unload-bsod-draining-completion-processing": {
+    "en": {
+      "title": "Bug Check 0x7E While Unloading a Driver — A Minifilter Calling Forbidden Completion Processing in FltMgr's DRAINING State",
+      "excerpt": "On a VM with FltMgr's filter Verifier enabled, unloading the minifilter driver reproduced a 0x7E bug check. The cause was a PostWrite callback calling a completion-processing function that is forbidden in the DRAINING state — a pre-existing defect also present in the shipped version."
+    },
+    "zh": {
+      "title": "驱动卸载过程中的 0x7E 蓝屏 —— 在 FltMgr DRAINING 状态下调用禁止的完成处理的微过滤器",
+      "excerpt": "在启用了 FltMgr 过滤器 Verifier 的虚拟机上，卸载微过滤器驱动时复现了 0x7E 蓝屏。原因是 PostWrite 回调调用了在 DRAINING 状态下禁止调用的完成处理函数，这是已发布版本中同样存在的既有缺陷。"
+    },
+    "zh-Hant": {
+      "title": "驅動程式卸載過程中的 0x7E 藍屏 —— 在 FltMgr DRAINING 狀態下呼叫禁止的完成處理的迷你篩選器",
+      "excerpt": "在啟用了 FltMgr 篩選器 Verifier 的虛擬機上，卸載迷你篩選器驅動程式時重現了 0x7E 藍屏。原因是 PostWrite 回呼呼叫了在 DRAINING 狀態下禁止呼叫的完成處理函式，這是已發布版本中同樣存在的既有缺陷。"
+    },
+    "ja": {
+      "title": "ドライバーのアンロード中に発生する 0x7E ブルースクリーン — FltMgr の DRAINING 状態で禁止された完了処理を呼んだミニフィルター",
+      "excerpt": "FltMgr のフィルター Verifier を有効にした VM で、ミニフィルタードライバーのアンロード時に 0x7E のブルースクリーンが再現した。PostWrite コールバックが DRAINING 状態では呼び出しが禁止されている完了処理関数を呼んでいたことが原因で、配布中のバージョンにも存在していた既存の不具合である。"
+    }
+  },
+  "remote-control-korean-ime-space-key-unicode-channel": {
+    "en": {
+      "title": "Why the Space Key Inserts No Space While Typing Korean over Remote Screen Control — The Unicode Character Channel and IME Composition",
+      "excerpt": "When typing Korean on a node PC over remote screen control, pressing space inserts no space and the characters typed afterwards land away from the cursor position. The cause is that the space key goes in through the KEYEVENTF_UNICODE character channel, so the node's IME does not recognize it as a composition-ending key."
+    },
+    "zh": {
+      "title": "远程画面控制下输入韩文时按空格无法分词的原因 —— Unicode 字符通道与 IME 组合",
+      "excerpt": "通过远程画面控制在节点 PC 上输入韩文时，按空格键不会插入空格，之后输入的文字还会脱离光标位置。原因是空格键经由 KEYEVENTF_UNICODE 字符通道传入，导致节点的 IME 未能将其识别为结束组合的按键。"
+    },
+    "zh-Hant": {
+      "title": "遠端畫面控制下輸入韓文時按空白鍵無法分詞的原因 —— Unicode 字元通道與 IME 組合",
+      "excerpt": "透過遠端畫面控制在節點 PC 上輸入韓文時，按空白鍵不會插入空格，之後輸入的文字還會脫離游標位置。原因是空白鍵經由 KEYEVENTF_UNICODE 字元通道傳入，導致節點的 IME 未能將其辨識為結束組合的按鍵。"
+    },
+    "ja": {
+      "title": "リモート画面制御でハングルを入力中にスペースを押しても空白が入らない理由 — Unicode 文字チャネルと IME の変換",
+      "excerpt": "リモート画面制御でノード PC にハングルを入力中、スペースを押しても空白が入らず、その後に打った文字がカーソル位置から外れて書き込まれる。スペースが KEYEVENTF_UNICODE の文字チャネルで送られるため、ノードの IME が変換終了キーとして認識できないことが原因である。"
+    }
+  },
+  "netmonitor-tcp-dns-detect-dedup-suid-flag-table": {
+    "en": {
+      "title": "Report Only Recurrences After Recovery — Compressing Repeated TCP and DNS Failure Detection with a SUID Flag Table",
+      "excerpt": "NetMonitor's TCP and DNS failure events were raised as symptoms the moment they passed rule matching, so hundreds of repeated failures for the same (process, host) pair piled up and buried the recurrence signal that actually mattered. A measured account of switching to an in-memory flag table that raises a symptom only on recurrence after recovery."
+    },
+    "zh": {
+      "title": "只上报恢复后的再次发生 —— 用 SUID 标志表压缩 TCP·DNS 重复失败检测",
+      "excerpt": "NetMonitor 的 TCP、DNS 失败事件一旦通过规则匹配就会立即上报为症状，导致同一（进程，主机）组合的重复失败堆积数百条，反而掩盖了真正需要关注的再次发生信号。本文是改用内存标志表、仅在恢复后再次发生时上报症状的实测记录。"
+    },
+    "zh-Hant": {
+      "title": "只回報復原後的再次發生 —— 以 SUID 旗標表壓縮 TCP·DNS 重複失敗偵測",
+      "excerpt": "NetMonitor 的 TCP、DNS 失敗事件一旦通過規則比對就會立即回報為症狀，導致同一（行程，主機）組合的重複失敗堆積數百筆，反而掩蓋了真正需要關注的再次發生訊號。本文是改用記憶體旗標表、僅在復原後再次發生時回報症狀的實測記錄。"
+    },
+    "ja": {
+      "title": "復旧後の再発だけを上げる — TCP・DNS の繰り返し失敗検出を SUID フラグテーブルで圧縮",
+      "excerpt": "NetMonitor の TCP・DNS 失敗イベントはルールマッチを通ると即座に症状として上がるため、同じ（プロセス、ホスト）の組み合わせの繰り返し失敗が数百件も積み上がり、本来見るべき再発のシグナルを埋もれさせていた。メモリ上のフラグテーブルで、復旧後の再発だけを症状として上げるように変えた実測記録である。"
+    }
   }
 }
