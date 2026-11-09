@@ -3,6 +3,33 @@
     "language": "ko",
     "posts": [
       {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "드라이버 언로드 중 블루스크린 0x7E — FltMgr DRAINING 상태에서 금지된 완료 처리를 부른 미니필터",
+        "content": "FltMgr 필터 Verifier를 켠 VM에서 미니필터 드라이버 언로드 시 0x7E 블루스크린이 재현됐다. PostWrite 콜백이 DRAINING 상태에서 호출이 금지된 완료 처리 함수를 불렀던 것이 원인으로, 배포 중인 버전에도 있던 기존 결함이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/minifilter-unload-bsod-draining-completion-processing.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격 화면제어로 한글 입력 중 스페이스를 치면 띄어쓰기가 안 되는 이유 — 유니코드 문자 채널과 IME 조합",
+        "content": "원격 화면제어로 노드 PC에 한글을 입력하다 스페이스를 치면 띄어쓰기가 되지 않고 뒤에 친 글자가 커서 위치를 벗어나 써진다. 스페이스가 KEYEVENTF_UNICODE 문자 채널로 들어가면서 노드 IME가 조합 종료 키로 인식하지 못한 것이 원인이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/remote-control-korean-ime-space-key-unicode-channel.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "복구 뒤 재발만 올린다 — TCP·DNS 반복 실패 탐지를 SUID 플래그 테이블로 압축",
+        "content": "NetMonitor의 TCP·DNS 실패 이벤트는 룰 매칭을 통과하면 바로 증상으로 올라가, 같은 (프로세스, 호스트) 조합의 반복 실패가 수백 건씩 쌓여 정작 봐야 할 재발 신호를 묻었다. 메모리 플래그 테이블로 복구 뒤 재발만 증상으로 올리도록 바꾼 실측 기록이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.05",
+        "md": "/tech_blog/md/netmonitor-tcp-dns-detect-dedup-suid-flag-table.md"
+      },
+      {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
         "subject": "PC 응답 지연을 조사하는 분석가와 파일 배포 기능 (월간 리뷰 2026-11-01)",
@@ -1159,6 +1186,33 @@
   {
     "language": "en",
     "posts": [
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "드라이버 언로드 중 블루스크린 0x7E — FltMgr DRAINING 상태에서 금지된 완료 처리를 부른 미니필터",
+        "content": "FltMgr 필터 Verifier를 켠 VM에서 미니필터 드라이버 언로드 시 0x7E 블루스크린이 재현됐다. PostWrite 콜백이 DRAINING 상태에서 호출이 금지된 완료 처리 함수를 불렀던 것이 원인으로, 배포 중인 버전에도 있던 기존 결함이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/minifilter-unload-bsod-draining-completion-processing.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격 화면제어로 한글 입력 중 스페이스를 치면 띄어쓰기가 안 되는 이유 — 유니코드 문자 채널과 IME 조합",
+        "content": "원격 화면제어로 노드 PC에 한글을 입력하다 스페이스를 치면 띄어쓰기가 되지 않고 뒤에 친 글자가 커서 위치를 벗어나 써진다. 스페이스가 KEYEVENTF_UNICODE 문자 채널로 들어가면서 노드 IME가 조합 종료 키로 인식하지 못한 것이 원인이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/remote-control-korean-ime-space-key-unicode-channel.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "복구 뒤 재발만 올린다 — TCP·DNS 반복 실패 탐지를 SUID 플래그 테이블로 압축",
+        "content": "NetMonitor의 TCP·DNS 실패 이벤트는 룰 매칭을 통과하면 바로 증상으로 올라가, 같은 (프로세스, 호스트) 조합의 반복 실패가 수백 건씩 쌓여 정작 봐야 할 재발 신호를 묻었다. 메모리 플래그 테이블로 복구 뒤 재발만 증상으로 올리도록 바꾼 실측 기록이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.05",
+        "md": "/tech_blog/md/netmonitor-tcp-dns-detect-dedup-suid-flag-table.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
@@ -2317,6 +2371,33 @@
     "language": "zh",
     "posts": [
       {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "드라이버 언로드 중 블루스크린 0x7E — FltMgr DRAINING 상태에서 금지된 완료 처리를 부른 미니필터",
+        "content": "FltMgr 필터 Verifier를 켠 VM에서 미니필터 드라이버 언로드 시 0x7E 블루스크린이 재현됐다. PostWrite 콜백이 DRAINING 상태에서 호출이 금지된 완료 처리 함수를 불렀던 것이 원인으로, 배포 중인 버전에도 있던 기존 결함이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/minifilter-unload-bsod-draining-completion-processing.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격 화면제어로 한글 입력 중 스페이스를 치면 띄어쓰기가 안 되는 이유 — 유니코드 문자 채널과 IME 조합",
+        "content": "원격 화면제어로 노드 PC에 한글을 입력하다 스페이스를 치면 띄어쓰기가 되지 않고 뒤에 친 글자가 커서 위치를 벗어나 써진다. 스페이스가 KEYEVENTF_UNICODE 문자 채널로 들어가면서 노드 IME가 조합 종료 키로 인식하지 못한 것이 원인이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/remote-control-korean-ime-space-key-unicode-channel.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "복구 뒤 재발만 올린다 — TCP·DNS 반복 실패 탐지를 SUID 플래그 테이블로 압축",
+        "content": "NetMonitor의 TCP·DNS 실패 이벤트는 룰 매칭을 통과하면 바로 증상으로 올라가, 같은 (프로세스, 호스트) 조합의 반복 실패가 수백 건씩 쌓여 정작 봐야 할 재발 신호를 묻었다. 메모리 플래그 테이블로 복구 뒤 재발만 증상으로 올리도록 바꾼 실측 기록이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.05",
+        "md": "/tech_blog/md/netmonitor-tcp-dns-detect-dedup-suid-flag-table.md"
+      },
+      {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
         "subject": "调查 PC 响应延迟的分析器与文件分发功能（月报 2026-11-01）",
@@ -3474,6 +3555,33 @@
     "language": "zh-Hant",
     "posts": [
       {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "드라이버 언로드 중 블루스크린 0x7E — FltMgr DRAINING 상태에서 금지된 완료 처리를 부른 미니필터",
+        "content": "FltMgr 필터 Verifier를 켠 VM에서 미니필터 드라이버 언로드 시 0x7E 블루스크린이 재현됐다. PostWrite 콜백이 DRAINING 상태에서 호출이 금지된 완료 처리 함수를 불렀던 것이 원인으로, 배포 중인 버전에도 있던 기존 결함이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/minifilter-unload-bsod-draining-completion-processing.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격 화면제어로 한글 입력 중 스페이스를 치면 띄어쓰기가 안 되는 이유 — 유니코드 문자 채널과 IME 조합",
+        "content": "원격 화면제어로 노드 PC에 한글을 입력하다 스페이스를 치면 띄어쓰기가 되지 않고 뒤에 친 글자가 커서 위치를 벗어나 써진다. 스페이스가 KEYEVENTF_UNICODE 문자 채널로 들어가면서 노드 IME가 조합 종료 키로 인식하지 못한 것이 원인이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/remote-control-korean-ime-space-key-unicode-channel.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "복구 뒤 재발만 올린다 — TCP·DNS 반복 실패 탐지를 SUID 플래그 테이블로 압축",
+        "content": "NetMonitor의 TCP·DNS 실패 이벤트는 룰 매칭을 통과하면 바로 증상으로 올라가, 같은 (프로세스, 호스트) 조합의 반복 실패가 수백 건씩 쌓여 정작 봐야 할 재발 신호를 묻었다. 메모리 플래그 테이블로 복구 뒤 재발만 증상으로 올리도록 바꾼 실측 기록이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.05",
+        "md": "/tech_blog/md/netmonitor-tcp-dns-detect-dedup-suid-flag-table.md"
+      },
+      {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
         "subject": "調查 PC 回應延遲的分析器與檔案派送功能（月報 2026-11-01）",
@@ -4630,6 +4738,33 @@
   {
     "language": "ja",
     "posts": [
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "드라이버 언로드 중 블루스크린 0x7E — FltMgr DRAINING 상태에서 금지된 완료 처리를 부른 미니필터",
+        "content": "FltMgr 필터 Verifier를 켠 VM에서 미니필터 드라이버 언로드 시 0x7E 블루스크린이 재현됐다. PostWrite 콜백이 DRAINING 상태에서 호출이 금지된 완료 처리 함수를 불렀던 것이 원인으로, 배포 중인 버전에도 있던 기존 결함이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/minifilter-unload-bsod-draining-completion-processing.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "원격 화면제어로 한글 입력 중 스페이스를 치면 띄어쓰기가 안 되는 이유 — 유니코드 문자 채널과 IME 조합",
+        "content": "원격 화면제어로 노드 PC에 한글을 입력하다 스페이스를 치면 띄어쓰기가 되지 않고 뒤에 친 글자가 커서 위치를 벗어나 써진다. 스페이스가 KEYEVENTF_UNICODE 문자 채널로 들어가면서 노드 IME가 조합 종료 키로 인식하지 못한 것이 원인이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.08",
+        "md": "/tech_blog/md/remote-control-korean-ime-space-key-unicode-channel.md"
+      },
+      {
+        "category": "Guide",
+        "categoryColor": "#3b82f6",
+        "subject": "복구 뒤 재발만 올린다 — TCP·DNS 반복 실패 탐지를 SUID 플래그 테이블로 압축",
+        "content": "NetMonitor의 TCP·DNS 실패 이벤트는 룰 매칭을 통과하면 바로 증상으로 올라가, 같은 (프로세스, 호스트) 조합의 반복 실패가 수백 건씩 쌓여 정작 봐야 할 재발 신호를 묻었다. 메모리 플래그 테이블로 복구 뒤 재발만 증상으로 올리도록 바꾼 실측 기록이다.",
+        "readMinutes": "2",
+        "createdAt": "2026.11.05",
+        "md": "/tech_blog/md/netmonitor-tcp-dns-detect-dedup-suid-flag-table.md"
+      },
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
