@@ -219,8 +219,11 @@ fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap, 'utf8');
 // 같은 내용을 이력 없는 경로로 내보내자 즉시 읽혔다 (118 URL 전부 발견).
 // 파일·서빙 문제가 아니라 그 URL에 붙은 실패 이력의 문제라는 뜻이다.
 //
-// robots.txt 의 Sitemap 은 sitemap.xml 을 가리킨 그대로 둔다. 네이버·빙 등은
-// 그쪽을 정상으로 읽는다. GSC만 이 파일을 쓴다.
+// robots.txt 에는 두 경로를 모두 적는다. 전에는 sitemap.xml 만 적어 뒀는데,
+// 그러면 크롤러가 자동발견으로 찾을 수 있는 건 실패 이력이 박힌 URL 하나뿐이다.
+// 실제로 동작하는 sitemap-1.xml 은 GSC에 수동 제출한 기록으로만 알려져 있어,
+// 그 제출이 사라지면 구글은 읽히는 경로를 잃는다. robots.txt 는 Sitemap 줄을
+// 여러 개 허용하고 두 파일은 내용이 같으므로, 둘 다 적어 두는 쪽이 안전하다.
 //
 // GSC의 /sitemap.xml 항목이 언젠가 성공으로 바뀌면 이 블록과 파일을 지워도 된다.
 fs.writeFileSync(path.join(dist, 'sitemap-1.xml'), sitemap, 'utf8');
@@ -298,9 +301,13 @@ fs.writeFileSync(path.join(dist, 'rss.xml'), rss, 'utf8');
 
 const robotsPath = path.join(dist, 'robots.txt');
 if (fs.existsSync(robotsPath)) {
+  // 두 경로를 모두 알린다 — 이유는 sitemap-1.xml 을 내보내는 위쪽 주석 참고.
   const robots = fs
     .readFileSync(robotsPath, 'utf8')
-    .replace(/^Sitemap:.*$/m, `Sitemap: ${SITE_URL}/sitemap.xml`);
+    .replace(
+      /^Sitemap:.*(?:\nSitemap:.*)*$/m,
+      `Sitemap: ${SITE_URL}/sitemap.xml\nSitemap: ${SITE_URL}/sitemap-1.xml`,
+    );
   fs.writeFileSync(robotsPath, robots, 'utf8');
 }
 
