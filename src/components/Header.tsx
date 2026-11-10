@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../theme/useTheme';
+import { localizedPath, splitLangPath } from '../i18n/locales';
 
 const languages = [
   { code: 'en', label: 'English', short: 'EN' },
@@ -18,6 +19,9 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [langOpen, setLangOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { lang } = splitLangPath(location.pathname);
   const headerRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
@@ -68,10 +72,19 @@ export default function Header() {
     },
   ];
 
+  /*
+   * 언어는 URL이 결정하므로 같은 페이지의 해당 언어 주소로 이동한다.
+   * i18n.changeLanguage는 App의 SyncLanguageWithPath가 경로를 보고 호출한다.
+   * 예전처럼 localStorage에 쓰면 URL과 화면의 언어가 어긋난다.
+   *
+   * 쿼리스트링과 해시는 그대로 들고 간다 — 글 목록의 필터 같은 상태가
+   * 언어를 바꿀 때 날아가지 않게 한다.
+   */
   const changeLanguage = (code: string) => {
-    i18n.changeLanguage(code);
-    localStorage.setItem('lang', code);
     setLangOpen(false);
+    if (code === lang) return;
+    const { basePath } = splitLangPath(location.pathname);
+    navigate(localizedPath(basePath, code) + location.search + location.hash);
   };
 
   useEffect(() => {
@@ -86,7 +99,7 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const currentLang = languages.find((l) => l.code === i18n.language) || languages[0];
+  const currentLang = languages.find((l) => l.code === lang) || languages[0];
 
   return (
     <header

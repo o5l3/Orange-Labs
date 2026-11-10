@@ -106,6 +106,7 @@ export default function TechBlogContent() {
           title={currentPost.subject}
           description={currentPost.content}
           path={postPath}
+          localized={false}
           type="article"
           article={{
             publishedTime: toIsoDate(currentPost.createdAt),

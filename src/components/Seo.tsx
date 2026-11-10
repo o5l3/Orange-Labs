@@ -11,6 +11,7 @@ import {
   HTML_LANG,
   absoluteUrl,
 } from '../seo/site';
+import { LOCALES, DEFAULT_LANG, localizedPath, splitLangPath } from '../i18n/locales';
 
 type JsonLd = Record<string, unknown>;
 
@@ -20,11 +21,23 @@ interface SeoProps {
   /** seoKey 대신 직접 지정 (블로그 글처럼 동적인 페이지용) */
   title?: string;
   description?: string;
-  /** 기본값은 현재 경로. 쿼리스트링 없는 정규 경로를 canonical로 쓴다. */
+  /**
+   * 언어 접두어를 뗀 기준 경로. 기본값은 현재 경로에서 접두어를 뗀 것.
+   * canonical과 hreflang은 여기에 현재 언어 접두어를 붙여 만든다.
+   */
   path?: string;
   image?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
+  /**
+   * 이 페이지에 언어별 URL이 존재하는지.
+   *
+   * false면 hreflang을 내보내지 않고 canonical을 기본 언어(접두어 없는)
+   * 주소로 고정한다. 블로그 글이 그렇다 — 제목·요약은 번역돼 있지만 본문
+   * 마크다운은 한국어뿐이어서 언어별 URL을 만들지 않았다. 접두어가 붙은
+   * 주소로 들어와도 한국어 주소로 합쳐지도록 canonical을 고정한다.
+   */
+  localized?: boolean;
   article?: { publishedTime?: string; section?: string };
   jsonLd?: JsonLd | JsonLd[];
 }
@@ -42,6 +55,7 @@ export default function Seo({
   image,
   type = 'website',
   noindex = false,
+  localized = true,
   article,
   jsonLd,
 }: SeoProps) {
@@ -49,8 +63,9 @@ export default function Seo({
   const location = useLocation();
 
   const lang = i18n.language;
-  const resolvedPath = path ?? location.pathname;
-  const url = absoluteUrl(resolvedPath);
+  const basePath = path ?? splitLangPath(location.pathname).basePath;
+  const canonicalPath = localized ? localizedPath(basePath, lang) : basePath;
+  const url = absoluteUrl(canonicalPath);
 
   const rawTitle = title ?? (seoKey ? t(`seo.${seoKey}.title`) : SITE_NAME);
   const rawDesc =
@@ -84,6 +99,26 @@ export default function Seo({
       <title>{fullTitle}</title>
       <meta name="description" content={rawDesc} />
       <link rel="canonical" href={url} />
+      {/*
+        언어별 URL 신고. 모든 언어판이 서로를 가리켜야 구글이 묶어 준다.
+        x-default는 언어가 맞지 않는 방문자에게 보여 줄 판으로, 기본 언어를 쓴다.
+      */}
+      {localized &&
+        LOCALES.map(({ code, hreflang }) => (
+          <link
+            key={hreflang}
+            rel="alternate"
+            hrefLang={hreflang}
+            href={absoluteUrl(localizedPath(basePath, code))}
+          />
+        ))}
+      {localized && (
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={absoluteUrl(localizedPath(basePath, DEFAULT_LANG))}
+        />
+      )}
       {noindex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (

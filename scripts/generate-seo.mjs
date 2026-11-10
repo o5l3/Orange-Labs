@@ -84,14 +84,39 @@ const OG_IMAGE = `${SITE_URL}/images/orangebox.png`;
 const OG_IMAGE_WIDTH = 720;
 const OG_IMAGE_HEIGHT = 720;
 
-/** 사전 렌더링에 사용할 기준 언어 (i18n fallbackLng와 동일) */
-const BASE_LANG = 'ko';
-const BASE_OG_LOCALE = 'ko_KR';
-
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 
+/*
+ * 언어별 URL.
+ *
+ * 기본 언어(한국어)는 접두어가 없고 나머지는 /en, /ja, /zh-Hans, /zh-Hant 를
+ * 쓴다. 설정은 src/seo/locales.json 한 곳에 있고 앱도 같은 파일을 읽는다.
+ *
+ * 블로그 개별 글은 언어별로 만들지 않는다. 제목·요약은 5개 언어로 번역돼
+ * 있지만 본문 마크다운은 한국어뿐이어서, 언어별 URL을 만들면 영어 제목에
+ * 한국어 본문이 붙은 페이지가 수백 개 생긴다. 목록 페이지는 번역된
+ * 제목·요약만으로 완결되므로 언어별로 만든다.
+ */
+const localeCfg = readJson(path.join(root, 'src/seo/locales.json'));
+const LANGS = localeCfg.languages;
+const BASE_LANG = localeCfg.default;
+const baseLocaleEntry = LANGS.find((l) => l.code === BASE_LANG);
+
+const localeText = Object.fromEntries(
+  LANGS.map((l) => [l.code, readJson(path.join(root, `src/i18n/locales/${l.code}.json`))]),
+);
+
+/** 기준 언어 경로를 해당 언어 경로로. src/i18n/locales.ts 의 localizedPath 와 같은 규칙. */
+function localizedPath(basePath, lang) {
+  const { prefix } = LANGS.find((l) => l.code === lang) ?? baseLocaleEntry;
+  if (!prefix) return basePath;
+  return basePath === '/' ? prefix : prefix + basePath;
+}
+
+const absUrl = (p) => (p === '/' ? `${SITE_URL}/` : SITE_URL + p);
+
 const routes = readJson(path.join(root, 'src/seo/routes.json'));
-const locale = readJson(path.join(root, `src/i18n/locales/${BASE_LANG}.json`));
+const locale = localeText[BASE_LANG];
 const blogData = readJson(path.join(root, 'public/tech_blog/tech_blog.json'));
 const releases = readJson(path.join(root, 'public/release_notes/index.json'));
 const orgSchema = readJson(path.join(root, 'src/seo/organization.json'));
@@ -149,13 +174,27 @@ const xmlEscape = (s) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 
-const urlEntry = ({ loc, lastmod, changefreq, priority }) =>
+/*
+ * basePath 를 주면 언어판을 xhtml:link 로 함께 신고한다. HTML 의 hreflang 과
+ * 같은 내용을 사이트맵에도 넣는 것으로, 구글은 둘 중 하나만 있어도 되지만
+ * 양쪽이 일치하면 언어판을 더 빨리 묶는다.
+ */
+const urlEntry = ({ loc, lastmod, changefreq, priority, basePath }) =>
   [
     '  <url>',
     `    <loc>${xmlEscape(loc)}</loc>`,
     lastmod ? `    <lastmod>${lastmod}</lastmod>` : null,
     changefreq ? `    <changefreq>${changefreq}</changefreq>` : null,
     priority !== undefined ? `    <priority>${priority.toFixed(1)}</priority>` : null,
+    ...(basePath
+      ? [
+          ...LANGS.map(
+            (l) =>
+              `    <xhtml:link rel="alternate" hreflang="${l.hreflang}" href="${xmlEscape(absUrl(localizedPath(basePath, l.code)))}" />`,
+          ),
+          `    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEscape(absUrl(localizedPath(basePath, BASE_LANG)))}" />`,
+        ]
+      : []),
     '  </url>',
   ]
     .filter(Boolean)
@@ -174,28 +213,40 @@ const indexLastmod = {
   '/resources/release-notes': newest(releasePages),
 };
 
-const sitemap = [
-  '<?xml version="1.0" encoding="UTF-8"?>',
-  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+/*
+ * 정적 라우트와 릴리즈 노트는 언어마다 한 줄씩 넣는다.
+ * 블로그 개별 글은 기본 언어 한 줄만 — 언어판을 만들지 않았으므로
+ * basePath 를 주지 않아 alternate 도 붙지 않는다.
+ */
+const localizedEntries = LANGS.flatMap(({ code: lang }) => [
   ...routes.map((r) =>
     urlEntry({
-      loc: r.path === '/' ? `${SITE_URL}/` : SITE_URL + r.path,
+      loc: absUrl(localizedPath(r.path, lang)),
       lastmod: indexLastmod[r.path],
       changefreq: r.changefreq,
-      priority: r.priority,
+      priority: lang === BASE_LANG ? r.priority : Math.max(0.1, r.priority - 0.1),
+      basePath: r.path,
     }),
   ),
   ...releasePages.map((r) =>
     urlEntry({
-      loc: SITE_URL + r.path,
+      loc: absUrl(localizedPath(r.path, lang)),
       lastmod: r.lastmod,
       changefreq: 'yearly',
       priority: 0.6,
+      basePath: r.path,
     }),
   ),
+]);
+
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' +
+    ' xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+  ...localizedEntries,
   ...posts.map((p) =>
     urlEntry({
-      loc: SITE_URL + p.path,
+      loc: absUrl(p.path),
       lastmod: p.lastmod,
       changefreq: 'yearly',
       priority: 0.6,
@@ -204,6 +255,8 @@ const sitemap = [
   '</urlset>',
   '',
 ].join('\n');
+
+const sitemapUrlCount = localizedEntries.length + posts.length;
 
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap, 'utf8');
 
@@ -344,7 +397,24 @@ const htmlEscape = (s) =>
  */
 const orgJsonLd = JSON.stringify(orgSchema).replaceAll('{{SITE_URL}}', SITE_URL);
 
-function metaBlock({ title, description, url, type, lastmod, section, jsonLd }) {
+/**
+ * 언어별 URL 신고(hreflang). 모든 언어판이 서로를 가리켜야 구글이 묶어 준다.
+ * x-default 는 언어가 맞지 않는 방문자에게 보여 줄 판으로 기본 언어를 쓴다.
+ * basePath 가 없으면(언어판이 없는 페이지) 아무것도 내보내지 않는다.
+ */
+function alternateLinks(basePath) {
+  if (!basePath) return [];
+  return [
+    ...LANGS.map(
+      (l) =>
+        `<link data-seo-static rel="alternate" hreflang="${l.hreflang}" href="${attrEscape(absUrl(localizedPath(basePath, l.code)))}" />`,
+    ),
+    `<link data-seo-static rel="alternate" hreflang="x-default" href="${attrEscape(absUrl(localizedPath(basePath, BASE_LANG)))}" />`,
+  ];
+}
+
+function metaBlock({ title, description, url, type, lastmod, section, jsonLd, lang, basePath }) {
+  const entry = LANGS.find((l) => l.code === (lang ?? BASE_LANG)) ?? baseLocaleEntry;
   const t = attrEscape(title);
   const d = attrEscape(description);
   const u = attrEscape(url);
@@ -353,6 +423,7 @@ function metaBlock({ title, description, url, type, lastmod, section, jsonLd }) 
     `<title data-seo-static>${htmlEscape(title)}</title>`,
     `<meta data-seo-static name="description" content="${d}" />`,
     `<link data-seo-static rel="canonical" href="${u}" />`,
+    ...alternateLinks(basePath),
     '<meta data-seo-static name="robots" content="index, follow, max-image-preview:large" />',
     `<meta data-seo-static property="og:site_name" content="${SITE_NAME}" />`,
     `<meta data-seo-static property="og:type" content="${type}" />`,
@@ -362,7 +433,7 @@ function metaBlock({ title, description, url, type, lastmod, section, jsonLd }) 
     `<meta data-seo-static property="og:image" content="${OG_IMAGE}" />`,
     `<meta data-seo-static property="og:image:width" content="${OG_IMAGE_WIDTH}" />`,
     `<meta data-seo-static property="og:image:height" content="${OG_IMAGE_HEIGHT}" />`,
-    `<meta data-seo-static property="og:locale" content="${BASE_OG_LOCALE}" />`,
+    `<meta data-seo-static property="og:locale" content="${entry.ogLocale}" />`,
     lastmod
       ? `<meta data-seo-static property="article:published_time" content="${lastmod}" />`
       : null,
@@ -386,9 +457,16 @@ function metaBlock({ title, description, url, type, lastmod, section, jsonLd }) 
  * JS를 실행하지 않는 크롤러(네이버 Yeti 등)에 보여줄 최소한의 본문.
  * createRoot().render()가 #root의 자식을 통째로 교체하므로 실제 화면에는 영향이 없다.
  */
-const crawlerNav = [...routes.map((r) => ({ href: r.path, label: locale.seo[r.key].title }))]
-  .map((l) => `<li><a href="${attrEscape(l.href)}">${htmlEscape(l.label)}</a></li>`)
-  .join('');
+function crawlerNavFor(lang) {
+  const seo = localeText[lang].seo;
+  return routes
+    .filter((r) => seo[r.key])
+    .map(
+      (r) =>
+        `<li><a href="${attrEscape(localizedPath(r.path, lang))}">${htmlEscape(seo[r.key].title)}</a></li>`,
+    )
+    .join('');
+}
 
 /**
  * 목록 페이지에서 개별 글로 내려가는 링크.
@@ -436,6 +514,19 @@ const stripFrontMatter = (md) => md.replace(/^---[\s\S]*?---\n/, '');
 /** 본문이 비어 보이는 페이지를 잡아내기 위한 집계. */
 const bodyStats = [];
 
+/**
+ * 마크다운에서 오지 않은 본문도 같은 가드에 올린다.
+ * 비한국어 릴리즈 노트는 번역된 항목으로 본문을 만들므로 파일이 없다.
+ */
+function recordBody(label, html) {
+  bodyStats.push({
+    publicPath: label,
+    chars: html ? html.replace(/<[^>]+>/g, '').trim().length : 0,
+    missing: !html,
+  });
+  return html;
+}
+
 /** publicPath는 public/ 기준 절대 경로(예: /tech_blog/md/foo.md). */
 function renderMarkdownBody(publicPath) {
   const file = path.join(root, 'public', publicPath);
@@ -478,7 +569,7 @@ function assertBodiesRendered() {
   );
 }
 
-function fallbackBody({ heading, title, description, links, body }) {
+function fallbackBody({ heading, title, description, links, body, nav }) {
   return (
     '<div id="root">' +
     '<div data-seo-fallback>' +
@@ -486,14 +577,21 @@ function fallbackBody({ heading, title, description, links, body }) {
     `<p>${htmlEscape(description)}</p>` +
     (body ? `<article>${body}</article>` : '') +
     (links?.length ? linkList(links) : '') +
-    `<nav><ul>${crawlerNav}</ul></nav>` +
+    `<nav><ul>${nav}</ul></nav>` +
     '</div>' +
     '</div>'
   );
 }
 
+/*
+ * routePath 는 이미 언어 접두어가 붙은 최종 경로다.
+ * <html lang> 은 React가 렌더링하지 못하므로 여기서 직접 바꿔 둔다 —
+ * JS를 실행하지 않는 크롤러에게는 이 값이 그 페이지의 언어다.
+ */
 function writePage(routePath, meta) {
+  const entry = LANGS.find((l) => l.code === (meta.lang ?? BASE_LANG)) ?? baseLocaleEntry;
   const html = indexHtml
+    .replace('<html lang="ko">', `<html lang="${entry.htmlLang}">`)
     .replace(SEO_BLOCK, metaBlock(meta))
     .replace('<div id="root"></div>', fallbackBody(meta));
 
@@ -502,47 +600,142 @@ function writePage(routePath, meta) {
   fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
 }
 
-const BRAND_SUFFIX = '오렌지랩스 OrangeLabs';
-const withBrand = (title) => (title.includes(SITE_NAME) ? title : `${title} | ${BRAND_SUFFIX}`);
+const withBrand = (title, lang) => {
+  const { brandSuffix } = LANGS.find((l) => l.code === lang) ?? baseLocaleEntry;
+  return title.includes(SITE_NAME) ? title : `${title} | ${brandSuffix}`;
+};
 
-for (const route of routes) {
-  const entry = locale.seo[route.key];
-  if (!entry) {
-    console.warn(`[seo] 로케일에 seo.${route.key} 항목이 없어 건너뜁니다.`);
-    continue;
+/** 해당 언어의 글 목록 (제목·요약만 번역돼 있다). 경로는 한국어 글 주소. */
+function postsFor(lang) {
+  const key = (LANGS.find((l) => l.code === lang) ?? baseLocaleEntry).dataKey;
+  const list = blogData.find((d) => d.language === key)?.posts ?? basePosts;
+  return list
+    .map((p) => ({
+      slug: slugOf(p.md),
+      path: `/resources/tech-blog/${slugOf(p.md)}`,
+      title: p.subject,
+      description: p.content,
+      lastmod: isoDate(p.createdAt),
+      section: p.category,
+    }))
+    .filter((p) => p.slug);
+}
+
+/** 해당 언어의 릴리즈 노트. 항목(items)은 번역돼 있고 본문 마크다운은 한국어뿐이다. */
+function releasesFor(lang) {
+  const key = (LANGS.find((l) => l.code === lang) ?? baseLocaleEntry).dataKey;
+  const title = localeText[lang].releaseNotes?.title ?? releaseTitle;
+  return releases
+    .filter((r) => r.slug)
+    .map((r) => {
+      const t = r.i18n?.[key] ?? r.i18n?.[BASE_LANG];
+      return {
+        path: `/resources/release-notes/${r.slug}`,
+        title: `${r.version} ${title}`,
+        description: t?.excerpt ?? '',
+        lastmod: r.date,
+        items: r.items,
+        text: t,
+        body: r.body,
+      };
+    });
+}
+
+/*
+ * 비한국어 릴리즈 노트의 본문. ko.md 는 한국어뿐이라 그대로 넣으면 영어
+ * 제목에 한국어 본문이 붙으므로, 번역된 항목(items)으로 본문을 만든다.
+ * 화면에 보이는 내용과 같다 — ReleaseNoteContent 도 이 항목들을 그린다.
+ */
+function releaseItemsBody(release) {
+  const { items, text } = release;
+  if (!text?.items) return undefined;
+  const html = items
+    .map(({ key }) => {
+      const it = text.items[key];
+      if (!it) return '';
+      return [
+        it.title ? `<h2>${htmlEscape(it.title)}</h2>` : '',
+        it.sub ? `<p><em>${htmlEscape(it.sub)}</em></p>` : '',
+        it.desc ? `<p>${htmlEscape(it.desc)}</p>` : '',
+      ].join('');
+    })
+    .join('');
+  return html || undefined;
+}
+
+for (const { code: lang } of LANGS) {
+  const seo = localeText[lang].seo;
+  const nav = crawlerNavFor(lang);
+  const langPosts = postsFor(lang);
+  const langReleases = releasesFor(lang);
+
+  // 목록 페이지 → 개별 글 링크. 블로그 글은 언어판이 없어 한국어 주소로 보낸다.
+  const links = {
+    '/resources/tech-blog': langPosts,
+    '/resources/release-notes': langReleases.map((r) => ({
+      ...r,
+      path: localizedPath(r.path, lang),
+    })),
+  };
+
+  for (const route of routes) {
+    const entry = seo[route.key];
+    if (!entry) {
+      console.warn(`[seo] ${lang} 로케일에 seo.${route.key} 항목이 없어 건너뜁니다.`);
+      continue;
+    }
+    writePage(localizedPath(route.path, lang), {
+      lang,
+      basePath: route.path,
+      title: withBrand(entry.title, lang),
+      heading: entry.title,
+      description: entry.description,
+      url: absUrl(localizedPath(route.path, lang)),
+      type: 'website',
+      links: links[route.path],
+      nav,
+      jsonLd: route.path === '/' ? orgJsonLd : undefined,
+    });
   }
-  writePage(route.path, {
-    title: withBrand(entry.title),
-    heading: entry.title,
-    description: entry.description,
-    url: route.path === '/' ? `${SITE_URL}/` : SITE_URL + route.path,
-    type: 'website',
-    links: childLinks[route.path],
-    jsonLd: route.path === '/' ? orgJsonLd : undefined,
-  });
+
+  for (const release of langReleases) {
+    writePage(localizedPath(release.path, lang), {
+      lang,
+      basePath: release.path,
+      title: withBrand(release.title, lang),
+      heading: release.title,
+      description: release.description,
+      url: absUrl(localizedPath(release.path, lang)),
+      type: 'article',
+      lastmod: release.lastmod,
+      nav,
+      body:
+        lang === BASE_LANG
+          ? release.body
+            ? renderMarkdownBody(release.body)
+            : undefined
+          : recordBody(localizedPath(release.path, lang), releaseItemsBody(release)),
+    });
+  }
 }
 
-for (const release of releasePages) {
-  writePage(release.path, {
-    title: withBrand(release.title),
-    heading: release.title,
-    description: release.description,
-    url: SITE_URL + release.path,
-    type: 'article',
-    lastmod: release.lastmod,
-    body: release.body ? renderMarkdownBody(release.body) : undefined,
-  });
-}
-
+/*
+ * 블로그 개별 글은 기본 언어만 만든다 — 본문 마크다운이 한국어뿐이다.
+ * 접두어가 붙은 주소로 들어와도 Seo 컴포넌트가 canonical을 이 주소로
+ * 고정하므로 중복으로 색인되지 않는다.
+ */
+const nav = crawlerNavFor(BASE_LANG);
 for (const post of posts) {
   writePage(post.path, {
-    title: withBrand(post.title),
+    lang: BASE_LANG,
+    title: withBrand(post.title, BASE_LANG),
     heading: post.title,
     description: post.description,
-    url: SITE_URL + post.path,
+    url: absUrl(post.path),
     type: 'article',
     lastmod: post.lastmod,
     section: post.section,
+    nav,
     body: renderMarkdownBody(`/tech_blog/md/${post.slug}.md`),
   });
 }
@@ -588,9 +781,10 @@ if (verificationFailed) process.exit(1);
 
 console.log(`[seo] rss.xml — 기술 블로그 최근 ${feedPosts.length}편`);
 console.log(
-  `[seo] sitemap.xml (${routes.length + releasePages.length + posts.length}개 URL) · ` +
-    `사전 렌더링 ${routes.length}개 라우트 + 릴리즈 노트 ${releasePages.length}건 + ` +
-    `블로그 ${posts.length}편 · 기준 도메인 ${SITE_URL}`,
+  `[seo] sitemap.xml (${sitemapUrlCount}개 URL) · ` +
+    `라우트 ${routes.length}개 + 릴리즈 노트 ${releasePages.length}건을 ` +
+    `${LANGS.length}개 언어로 (${LANGS.map((l) => l.code).join('·')}) + ` +
+    `블로그 ${posts.length}편(${BASE_LANG} 전용) · 기준 도메인 ${SITE_URL}`,
 );
 console.log(
   `[seo] 소유권 확인 태그(${VERIFICATION_METAS.map((v) => v.label).join(' · ')}) — ` +

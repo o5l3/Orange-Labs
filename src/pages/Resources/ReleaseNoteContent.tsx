@@ -5,6 +5,7 @@ import Markdown from '../../components/Markdown';
 import Seo from '../../components/Seo';
 import { SITE_NAME, SITE_URL, absoluteUrl } from '../../seo/site';
 import { formatDate } from '../../i18n/date';
+import { localizedPath } from '../../i18n/locales';
 import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNoteData';
 
 export default function ReleaseNoteContent() {
@@ -61,7 +62,10 @@ export default function ReleaseNoteContent() {
             description: text.excerpt,
             datePublished: release.date,
             inLanguage: i18n.language,
-            mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl(notePath) },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': absoluteUrl(localizedPath(notePath, i18n.language)),
+            },
             about: { '@type': 'SoftwareApplication', name: 'Orange The Client' },
             publisher: {
               '@type': 'Organization',

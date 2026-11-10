@@ -1,0 +1,53 @@
+{
+  "_comment": "언어별 URL 설정의 단일 출처. src/seo/site.ts(앱)와 scripts/generate-seo.mjs(빌드)가 함께 읽는다. 빌드 스크립트는 .mjs라 .ts를 import할 수 없어 JSON으로 둔다.",
+  "_prefixComment": "기본 언어 ko는 접두어가 없다. 이미 색인·제출된 한국어 URL을 그대로 유지하기 위한 것이므로 ko에 접두어를 붙이면 안 된다.",
+  "_dataKeyComment": "tech_blog.json과 release_notes/index.json의 i18n 키. 간체가 그쪽에서는 'zh'로 되어 있어 i18n 코드와 다르다.",
+  "default": "ko",
+  "languages": [
+    {
+      "code": "ko",
+      "prefix": "",
+      "htmlLang": "ko",
+      "hreflang": "ko",
+      "ogLocale": "ko_KR",
+      "dataKey": "ko",
+      "brandSuffix": "오렌지랩스 OrangeLabs"
+    },
+    {
+      "code": "en",
+      "prefix": "/en",
+      "htmlLang": "en",
+      "hreflang": "en",
+      "ogLocale": "en_US",
+      "dataKey": "en",
+      "brandSuffix": "OrangeLabs"
+    },
+    {
+      "code": "ja",
+      "prefix": "/ja",
+      "htmlLang": "ja",
+      "hreflang": "ja",
+      "ogLocale": "ja_JP",
+      "dataKey": "ja",
+      "brandSuffix": "OrangeLabs"
+    },
+    {
+      "code": "zh-Hans",
+      "prefix": "/zh-Hans",
+      "htmlLang": "zh-Hans",
+      "hreflang": "zh-Hans",
+      "ogLocale": "zh_CN",
+      "dataKey": "zh",
+      "brandSuffix": "OrangeLabs"
+    },
+    {
+      "code": "zh-Hant",
+      "prefix": "/zh-Hant",
+      "htmlLang": "zh-Hant",
+      "hreflang": "zh-Hant",
+      "ogLocale": "zh_TW",
+      "dataKey": "zh-Hant",
+      "brandSuffix": "OrangeLabs"
+    }
+  ]
+}
