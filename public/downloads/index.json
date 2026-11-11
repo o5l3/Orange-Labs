@@ -1,1 +1,31 @@
-[]
+[
+  {
+    "slug": "orange-analyst",
+    "version": "1.6.242.1166",
+    "date": "2026-11-11",
+    "os": "Windows 10 1507 · Windows Server 2016 이상 · x64 전용 · 관리자 권한",
+    "size": 10905494,
+    "sha256": "3b8746f6bff7f9f789849a6b8372a8c8243cd3b1a18c13d396aafd7cbbfa5232",
+    "file": "https://github.com/o5l3/Orange-Downloads/releases/download/analyst/orange-analyst.zip",
+    "i18n": {
+      "ko": {
+        "name": "Orange 분석가",
+        "desc": "멈추거나 느린 프로그램의 창을 마우스로 가리키면 원인을 찾아 보여 줍니다. 설치 없이 받은 폴더에서 실행합니다. 사용 안내 PDF 가 함께 들어 있습니다."
+      }
+    }
+  },
+  {
+    "slug": "orange-analyst-guide-ko",
+    "version": "1.6.242.1166",
+    "date": "2026-11-11",
+    "size": 420422,
+    "sha256": "d7ff13e4ddca2d600bf94d8ceb23daa10ed4c5cacd49cb3616d5fa5d975a7358",
+    "file": "/downloads/orange-analyst-guide-ko.pdf",
+    "i18n": {
+      "ko": {
+        "name": "Orange 분석가 사용 안내",
+        "desc": "분석가 실행부터 창 찾기, 결과 보기, 결과 저장까지 그림과 함께 설명합니다(한국어 PDF)."
+      }
+    }
+  }
+]
