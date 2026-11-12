@@ -4,13 +4,13 @@
     "version": "1.6.242.1166",
     "date": "2026-11-11",
     "os": "Windows 10 1507 · Windows Server 2016 이상 · x64 전용 · 관리자 권한",
-    "size": 10905494,
-    "sha256": "3b8746f6bff7f9f789849a6b8372a8c8243cd3b1a18c13d396aafd7cbbfa5232",
+    "size": 10909141,
+    "sha256": "abb280f7536da392f5fdae467a3ea22b5ddbe0222273703d57250ee778eed332",
     "file": "https://github.com/o5l3/Orange-Downloads/releases/download/analyst/orange-analyst.zip",
     "i18n": {
       "ko": {
         "name": "Orange 분석가",
-        "desc": "멈추거나 느린 프로그램의 창을 마우스로 가리키면 원인을 찾아 보여 줍니다. 설치 없이 받은 폴더에서 실행합니다. 사용 안내 PDF 가 함께 들어 있습니다."
+        "desc": "멈추거나 느린 프로그램의 창을 마우스로 가리키면 원인을 찾아 보여 줍니다. 설치 없이 받은 폴더에서 실행합니다. 사용 안내 PDF 가 함께 들어 있습니다. 내려받으면 사용 조건(zip 안 사용조건.txt)에 동의한 것으로 봅니다."
       }
     }
   },
@@ -18,8 +18,8 @@
     "slug": "orange-analyst-guide-ko",
     "version": "1.6.242.1166",
     "date": "2026-11-11",
-    "size": 420422,
-    "sha256": "d7ff13e4ddca2d600bf94d8ceb23daa10ed4c5cacd49cb3616d5fa5d975a7358",
+    "size": 423890,
+    "sha256": "8e1bc59d5e6bc48e22b3019196c00af0457139a2a592db48c07acacfcb5f339f",
     "file": "/downloads/orange-analyst-guide-ko.pdf",
     "i18n": {
       "ko": {
