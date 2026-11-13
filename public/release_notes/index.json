@@ -1,5 +1,302 @@
 [
   {
+    "version": "1.6.242.1110",
+    "slug": "1.6.242.1110",
+    "date": "2026-11-10",
+    "pdf": "/release_notes/1.6.242.1110/release-notes.pdf",
+    "items": [
+      {
+        "key": "symptomRelations",
+        "kind": "new"
+      },
+      {
+        "key": "trayMenu",
+        "kind": "new"
+      },
+      {
+        "key": "nodeDetailWindow",
+        "kind": "improved"
+      },
+      {
+        "key": "passwordReset",
+        "kind": "improved"
+      },
+      {
+        "key": "uploadDefaults",
+        "kind": "improved"
+      },
+      {
+        "key": "remotePaste",
+        "kind": "improved"
+      },
+      {
+        "key": "diagPdfToken",
+        "kind": "improved"
+      },
+      {
+        "key": "processListSpeed",
+        "kind": "improved"
+      },
+      {
+        "key": "killGeneral",
+        "kind": "improved"
+      }
+    ],
+    "i18n": {
+      "ko": {
+        "excerpt": "이번 릴리즈에서는 여러 PC에서 블루스크린이 발생했을 때 원인이 집중된 곳을 확인하는 「증상 관계도」가 추가되었고, 노드를 선택하면 노드 상세가 기본으로 새 브라우저 창에서 열립니다. 에이전트 관련 변경은 각 PC의 에이전트 버전이 1.6.242.1152 이상이어야 적용됩니다.",
+        "items": {
+          "symptomRelations": {
+            "title": "증상 › 현황 › 증상 목록에서 블루스크린 「증상 관계도」를 확인해 원인이 집중된 곳 찾기",
+            "sub": "증상 › 현황 › 증상 목록",
+            "desc": "여러 PC에서 블루스크린이 발생하면 유형 · 원인 파일 · Windows 버전 · 기종을 도형과 선으로 연결해 보여 주고 원인이 가장 많이 집중된 곳을 맨 위 「결론」 줄에 표시하므로, 같은 드라이버나 같은 기종에 집중되었는지 바로 확인할 수 있습니다."
+          },
+          "trayMenu": {
+            "title": "설정 › 시스템 › 에이전트 설정에서 PC 사용자의 트레이 메뉴 비활성화",
+            "sub": "설정 › 시스템 › 에이전트 설정",
+            "desc": "PC 사용자가 트레이 아이콘으로 에이전트 화면이나 분석가를 열지 못하게 하려면 「트레이 메뉴 표시」를 끄면 되며, 설정을 끄면 트레이 아이콘에는 툴팁만 표시됩니다."
+          },
+          "nodeDetailWindow": {
+            "title": "노드를 선택하면 노드 상세가 새 브라우저 창으로 열림",
+            "sub": "노드 › 노드 목록 · 대시보드",
+            "desc": "설정을 변경한 적이 없는 계정에서는 노드를 선택하면 새 브라우저 창이 열리며, 기존처럼 현재 화면 위에 표시하려면 노드 › 노드 목록 오른쪽 위의 「화면 설정」에서 「새 창으로 열기」를 끄고 저장합니다."
+          },
+          "passwordReset": {
+            "title": "설정 › 계정 관리에서 다른 계정의 비밀번호를 직접 설정하는 대신 「기본 비밀번호로 초기화」 사용",
+            "sub": "설정 › 사용자·권한 › 계정 관리",
+            "desc": "계정을 선택하고 「기본 비밀번호로 초기화」를 누르면 확인 창에 기본 비밀번호가 표시되고, 초기화를 확인하면 해당 계정은 다음 로그인 때 새 비밀번호를 설정해야 합니다."
+          },
+          "uploadDefaults": {
+            "title": "설정 › 시스템 › 에이전트 설정의 업로드 기본값을 속도 64Mbps · 파일 32GB로 변경",
+            "sub": "설정 › 시스템 › 에이전트 설정",
+            "desc": "업데이트하면 「업로드/다운로드 속도 상한(Mbps)」이 비어 있거나 4인 경우 64로, 「업로드 파일 전체 상한(MB)」이 16384 이하인 경우 32768로, 「업로드 1회 전송 크기 상한(MB)」이 2 이하인 경우 4로 변경됩니다. 0(제한 없음)이거나 이 기준보다 높게 둔 값은 그대로 유지됩니다."
+          },
+          "remotePaste": {
+            "title": "노드 상세 「원격제어」에서 Ctrl+V로 관리자 PC의 클립보드 내용을 원격 PC에 붙여넣기",
+            "sub": "노드 상세 › 원격제어",
+            "desc": "원격 화면을 한 번 클릭한 뒤 Ctrl+V를 누르면 관리자 PC의 클립보드에 복사된 텍스트가 키보드로 입력한 것처럼 전달되며, 한 번에 20,000자까지 붙여넣을 수 있습니다. 처음 사용할 때는 브라우저가 클립보드에 접근해도 되는지 묻습니다."
+          },
+          "diagPdfToken": {
+            "title": "매니저 진단 리포트 PDF에 로그인 토큰이 그대로 표시되던 문제",
+            "sub": "요약 패널 › 매니저 상태",
+            "desc": "PDF의 주소 칸에 표시되던 로그인 토큰(로그인한 상태를 증명하는 값)과 비밀번호 값을 ***로 가려 표시하며, 주소가 깨져 페이지 밖으로 넘치던 문제도 수정했습니다."
+          },
+          "processListSpeed": {
+            "title": "모니터링 › 프로세스의 실행 목록과 프로세스 상세 화면을 여는 데 오래 걸리던 문제",
+            "sub": "모니터링 › 프로세스 › 실행 목록",
+            "desc": "같은 기간과 조건에서 실행 목록과 프로세스 상세 화면이 이전보다 빨리 열리며, 조회 결과는 기존과 같습니다."
+          },
+          "killGeneral": {
+            "title": "「강제종료」 증상에서 다른 프로그램이 종료한 건이 「자체 동작으로 인한 일반 종료」로 분류되던 문제",
+            "sub": "증상 › 증상 목록 › 강제종료",
+            "desc": "종료 이유를 분류 규칙(보안 제품 · 관리 도구 · OS · 서비스 제어 · 설치 등)으로 확인할 수 없는 강제종료는 더 이상 증상으로 기록하지 않으며, 서버에 이미 기록된 건은 그대로 유지됩니다."
+          }
+        }
+      },
+      "en": {
+        "excerpt": "This release adds the Symptom relationship map, which shows where the causes are concentrated when blue screens occur on several PCs, and node details now open in a new browser window by default. Agent-side changes take effect only when each PC's agent is version 1.6.242.1152 or later.",
+        "items": {
+          "symptomRelations": {
+            "title": "See blue screens in the Symptom relationship map under Symptoms › Status › Symptom list and find where causes are concentrated",
+            "sub": "Symptoms › Status › Symptom list",
+            "desc": "When blue screens occur on several PCs, the map links type, cause file, Windows version and model with shapes and lines, and the Conclusion line at the top shows where the cause is most concentrated, so you can see at once whether one driver or one model is behind them."
+          },
+          "trayMenu": {
+            "title": "Disable the PC user's tray menu in Settings › System › Agent settings",
+            "sub": "Settings › System › Agent settings",
+            "desc": "To stop PC users from opening the agent screen or the Analyst from the tray icon, turn off Show tray menu; the tray icon then shows only its tooltip."
+          },
+          "nodeDetailWindow": {
+            "title": "Node details open in a new browser window",
+            "sub": "Nodes › Node list · Dashboard",
+            "desc": "For accounts that have never changed the setting, selecting a node opens a new browser window. To show details over the current screen as before, turn off Open in new window under Screen settings at the top right of Nodes › Node list and save."
+          },
+          "passwordReset": {
+            "title": "Reset to default password instead of setting another account's password in Settings › Account management",
+            "sub": "Settings › Users & permissions › Account management",
+            "desc": "Select an account and press Reset to default password; the confirmation dialog shows the default password, and once confirmed the account must set a new password at its next login."
+          },
+          "uploadDefaults": {
+            "title": "Upload defaults in Settings › System › Agent settings changed to 64 Mbps speed and 32 GB file size",
+            "sub": "Settings › System › Agent settings",
+            "desc": "On update, an empty or 4 Upload/download speed limit (Mbps) becomes 64, an Upload total file limit (MB) of 16384 or less becomes 32768, and an Upload chunk size limit (MB) of 2 or less becomes 4. Values of 0 (no limit) or higher than these stay as they are."
+          },
+          "remotePaste": {
+            "title": "Paste the admin PC's clipboard into the remote PC with Ctrl+V in Node details › Remote control",
+            "sub": "Node details › Remote control",
+            "desc": "Click the remote screen once and press Ctrl+V to send the text copied on the admin PC as if typed on the keyboard, up to 20,000 characters at a time. On first use the browser asks whether it may read the clipboard."
+          },
+          "diagPdfToken": {
+            "title": "Login token shown as-is in the manager diagnostic report PDF",
+            "sub": "Summary panel › Manager status",
+            "desc": "The login token (the value that proves you are signed in) and password values in the PDF address fields are now masked as ***, and addresses that broke and overflowed the page are fixed."
+          },
+          "processListSpeed": {
+            "title": "Run list and process details in Monitoring › Process taking a long time to open",
+            "sub": "Monitoring › Process › Run list",
+            "desc": "With the same period and conditions, the run list and process details open faster than before and return the same results."
+          },
+          "killGeneral": {
+            "title": "Processes ended by another program classified as \"normal termination by own action\" in Forced termination symptoms",
+            "sub": "Symptoms › Symptom list › Forced termination",
+            "desc": "Forced terminations whose reason cannot be identified by the classification rules (security products, management tools, OS, service control, installation, etc.) are no longer recorded as symptoms; records already on the server remain."
+          }
+        }
+      },
+      "ja": {
+        "excerpt": "今回のリリースでは、複数の PC でブルースクリーンが発生したときに原因が集中している箇所を確認できる「症状関係図」を追加し、ノードを選ぶとノード詳細が既定で新しいブラウザーウィンドウに開くようになりました。エージェント関連の変更は、各 PC のエージェントのバージョンが 1.6.242.1152 以上の場合に適用されます。",
+        "items": {
+          "symptomRelations": {
+            "title": "症状 › 現況 › 症状一覧でブルースクリーンの「症状関係図」を確認し、原因が集中している箇所を見つける",
+            "sub": "症状 › 現況 › 症状一覧",
+            "desc": "複数の PC でブルースクリーンが発生すると、種類・原因ファイル・Windows バージョン・機種を図形と線で結んで表示し、原因が最も集中している箇所を上部の「結論」行に示すため、同じドライバーや同じ機種に集中しているかをすぐに確認できます。"
+          },
+          "trayMenu": {
+            "title": "設定 › システム › エージェント設定で PC ユーザーのトレイメニューを無効化",
+            "sub": "設定 › システム › エージェント設定",
+            "desc": "PC ユーザーがトレイアイコンからエージェント画面やアナリストを開けないようにするには「トレイメニュー表示」をオフにします。オフにするとトレイアイコンにはツールチップだけが表示されます。"
+          },
+          "nodeDetailWindow": {
+            "title": "ノードを選ぶとノード詳細が新しいブラウザーウィンドウで開く",
+            "sub": "ノード › ノード一覧 · ダッシュボード",
+            "desc": "設定を変更したことのないアカウントでは、ノードを選ぶと新しいブラウザーウィンドウが開きます。従来どおり現在の画面上に表示するには、ノード › ノード一覧右上の「画面設定」で「新しいウィンドウで開く」をオフにして保存します。"
+          },
+          "passwordReset": {
+            "title": "設定 › アカウント管理で他アカウントのパスワードを直接設定する代わりに「初期パスワードにリセット」を使用",
+            "sub": "設定 › ユーザー・権限 › アカウント管理",
+            "desc": "アカウントを選んで「初期パスワードにリセット」を押すと確認ウィンドウに初期パスワードが表示され、リセットを確定するとそのアカウントは次回ログイン時に新しいパスワードを設定する必要があります。"
+          },
+          "uploadDefaults": {
+            "title": "設定 › システム › エージェント設定のアップロード既定値を速度 64Mbps・ファイル 32GB に変更",
+            "sub": "設定 › システム › エージェント設定",
+            "desc": "更新すると「アップロード/ダウンロード速度上限(Mbps)」が空欄または 4 の場合は 64 に、「アップロードファイル全体上限(MB)」が 16384 以下の場合は 32768 に、「アップロード1回の転送サイズ上限(MB)」が 2 以下の場合は 4 に変更されます。0(制限なし)またはこれより高く設定した値はそのまま維持されます。"
+          },
+          "remotePaste": {
+            "title": "ノード詳細「リモート制御」で Ctrl+V により管理者 PC のクリップボードの内容をリモート PC に貼り付け",
+            "sub": "ノード詳細 › リモート制御",
+            "desc": "リモート画面を一度クリックしてから Ctrl+V を押すと、管理者 PC のクリップボードにコピーしたテキストがキーボードで入力したように送られ、一度に 20,000 文字まで貼り付けられます。初めて使うときは、ブラウザーがクリップボードの読み取りを許可するか確認します。"
+          },
+          "diagPdfToken": {
+            "title": "マネージャー診断レポート PDF にログイントークンがそのまま表示されていた問題",
+            "sub": "要約パネル › マネージャー状態",
+            "desc": "PDF のアドレス欄に表示されていたログイントークン(ログイン状態を証明する値)とパスワードの値を *** で隠して表示し、アドレスが崩れてページからはみ出していた問題も修正しました。"
+          },
+          "processListSpeed": {
+            "title": "モニタリング › プロセスの実行一覧とプロセス詳細画面を開くのに時間がかかっていた問題",
+            "sub": "モニタリング › プロセス › 実行一覧",
+            "desc": "同じ期間と条件で、実行一覧とプロセス詳細画面が以前より速く開き、照会結果は従来と同じです。"
+          },
+          "killGeneral": {
+            "title": "「強制終了」症状で他のプログラムが終了させたものが「自体の動作による通常終了」に分類されていた問題",
+            "sub": "症状 › 症状一覧 › 強制終了",
+            "desc": "分類ルール(セキュリティ製品・管理ツール・OS・サービス制御・インストールなど)で終了理由を確認できない強制終了は症状として記録しなくなり、サーバーにすでに記録されたものはそのまま残ります。"
+          }
+        }
+      },
+      "zh": {
+        "excerpt": "本次发布新增「症状关系图」，可在多台 PC 发生蓝屏时查看原因集中在何处；选择节点时，节点详情默认在新的浏览器窗口中打开。与代理相关的变更需要各 PC 的代理版本为 1.6.242.1152 或更高才会生效。",
+        "items": {
+          "symptomRelations": {
+            "title": "在 症状 › 现况 › 症状列表 中通过蓝屏「症状关系图」查找原因集中之处",
+            "sub": "症状 › 现况 › 症状列表",
+            "desc": "多台 PC 发生蓝屏时，用图形和线条连接类型、原因文件、Windows 版本和机型，并在顶部「结论」行显示原因最集中的地方，可立即确认是否集中在同一驱动程序或同一机型。"
+          },
+          "trayMenu": {
+            "title": "在 设置 › 系统 › 代理设置 中禁用 PC 用户的托盘菜单",
+            "sub": "设置 › 系统 › 代理设置",
+            "desc": "如需禁止 PC 用户通过托盘图标打开代理画面或分析师，请关闭「显示托盘菜单」；关闭后托盘图标只显示提示信息。"
+          },
+          "nodeDetailWindow": {
+            "title": "选择节点时节点详情在新的浏览器窗口中打开",
+            "sub": "节点 › 节点列表 · 仪表板",
+            "desc": "从未更改过设置的账户选择节点时会打开新的浏览器窗口。如需像以前一样显示在当前画面上，请在 节点 › 节点列表 右上角的「画面设置」中关闭「在新窗口中打开」并保存。"
+          },
+          "passwordReset": {
+            "title": "在 设置 › 账户管理 中改用「重置为默认密码」，不再直接设置其他账户的密码",
+            "sub": "设置 › 用户与权限 › 账户管理",
+            "desc": "选择账户并点击「重置为默认密码」后，确认窗口会显示默认密码；确认重置后，该账户在下次登录时必须设置新密码。"
+          },
+          "uploadDefaults": {
+            "title": "设置 › 系统 › 代理设置 的上传默认值改为速度 64Mbps、文件 32GB",
+            "sub": "设置 › 系统 › 代理设置",
+            "desc": "更新后，「上传/下载速度上限(Mbps)」为空或为 4 时改为 64，「上传文件总上限(MB)」为 16384 或以下时改为 32768，「单次上传传输大小上限(MB)」为 2 或以下时改为 4；为 0(不限制)或高于这些标准的值保持不变。"
+          },
+          "remotePaste": {
+            "title": "在节点详情「远程控制」中用 Ctrl+V 将管理员 PC 剪贴板的内容粘贴到远程 PC",
+            "sub": "节点详情 › 远程控制",
+            "desc": "单击一次远程画面后按 Ctrl+V，管理员 PC 剪贴板中复制的文本会像键盘输入一样发送过去，一次最多可粘贴 20,000 字。首次使用时，浏览器会询问是否允许读取剪贴板。"
+          },
+          "diagPdfToken": {
+            "title": "管理器诊断报告 PDF 中原样显示登录令牌的问题",
+            "sub": "摘要面板 › 管理器状态",
+            "desc": "PDF 地址栏中显示的登录令牌(证明已登录的值)和密码值改为以 *** 遮盖显示，地址显示错乱并超出页面的问题也已修复。"
+          },
+          "processListSpeed": {
+            "title": "监控 › 进程 的运行列表和进程详情画面打开很慢的问题",
+            "sub": "监控 › 进程 › 运行列表",
+            "desc": "在相同时间段和条件下，运行列表和进程详情画面比以前打开得更快，查询结果与以前相同。"
+          },
+          "killGeneral": {
+            "title": "「强制终止」症状中由其他程序终止的情况被归类为「自身动作导致的正常终止」的问题",
+            "sub": "症状 › 症状列表 › 强制终止",
+            "desc": "无法通过分类规则(安全产品、管理工具、OS、服务控制、安装等)确定终止原因的强制终止不再记录为症状，服务器上已有的记录保持不变。"
+          }
+        }
+      },
+      "zh-Hant": {
+        "excerpt": "本次發布新增「症狀關係圖」，可在多台 PC 發生藍屏時查看原因集中在何處；選擇節點時，節點詳情預設在新的瀏覽器視窗中開啟。與代理程式相關的變更需要各 PC 的代理程式版本為 1.6.242.1152 或更高才會生效。",
+        "items": {
+          "symptomRelations": {
+            "title": "在 症狀 › 現況 › 症狀清單 中透過藍屏「症狀關係圖」找出原因集中之處",
+            "sub": "症狀 › 現況 › 症狀清單",
+            "desc": "多台 PC 發生藍屏時，以圖形與線條連接類型、原因檔案、Windows 版本與機型，並在頂端「結論」列顯示原因最集中的地方，可立即確認是否集中在同一驅動程式或同一機型。"
+          },
+          "trayMenu": {
+            "title": "在 設定 › 系統 › 代理程式設定 中停用 PC 使用者的系統匣選單",
+            "sub": "設定 › 系統 › 代理程式設定",
+            "desc": "如需禁止 PC 使用者透過系統匣圖示開啟代理程式畫面或分析師，請關閉「顯示系統匣選單」；關閉後系統匣圖示只顯示提示訊息。"
+          },
+          "nodeDetailWindow": {
+            "title": "選擇節點時節點詳情在新的瀏覽器視窗中開啟",
+            "sub": "節點 › 節點清單 · 儀表板",
+            "desc": "從未變更過設定的帳戶選擇節點時會開啟新的瀏覽器視窗。如需像以前一樣顯示在目前畫面上，請在 節點 › 節點清單 右上角的「畫面設定」中關閉「在新視窗中開啟」並儲存。"
+          },
+          "passwordReset": {
+            "title": "在 設定 › 帳戶管理 中改用「重設為預設密碼」，不再直接設定其他帳戶的密碼",
+            "sub": "設定 › 使用者與權限 › 帳戶管理",
+            "desc": "選擇帳戶並點選「重設為預設密碼」後，確認視窗會顯示預設密碼；確認重設後，該帳戶在下次登入時必須設定新密碼。"
+          },
+          "uploadDefaults": {
+            "title": "設定 › 系統 › 代理程式設定 的上傳預設值改為速度 64Mbps、檔案 32GB",
+            "sub": "設定 › 系統 › 代理程式設定",
+            "desc": "更新後，「上傳/下載速度上限(Mbps)」為空或為 4 時改為 64，「上傳檔案總上限(MB)」為 16384 或以下時改為 32768，「單次上傳傳輸大小上限(MB)」為 2 或以下時改為 4；為 0(不限制)或高於這些標準的值維持不變。"
+          },
+          "remotePaste": {
+            "title": "在節點詳情「遠端控制」中以 Ctrl+V 將管理員 PC 剪貼簿的內容貼到遠端 PC",
+            "sub": "節點詳情 › 遠端控制",
+            "desc": "點一下遠端畫面後按 Ctrl+V，管理員 PC 剪貼簿中複製的文字會像鍵盤輸入一樣傳送過去，一次最多可貼上 20,000 字。首次使用時，瀏覽器會詢問是否允許讀取剪貼簿。"
+          },
+          "diagPdfToken": {
+            "title": "管理器診斷報告 PDF 中原樣顯示登入權杖的問題",
+            "sub": "摘要面板 › 管理器狀態",
+            "desc": "PDF 位址欄中顯示的登入權杖(證明已登入的值)與密碼值改為以 *** 遮蓋顯示，位址顯示錯亂並超出頁面的問題也已修正。"
+          },
+          "processListSpeed": {
+            "title": "監控 › 處理程序 的執行清單與處理程序詳情畫面開啟很慢的問題",
+            "sub": "監控 › 處理程序 › 執行清單",
+            "desc": "在相同期間與條件下，執行清單與處理程序詳情畫面比以前開啟得更快，查詢結果與以前相同。"
+          },
+          "killGeneral": {
+            "title": "「強制終止」症狀中由其他程式終止的情況被歸類為「自身動作導致的正常終止」的問題",
+            "sub": "症狀 › 症狀清單 › 強制終止",
+            "desc": "無法透過分類規則(安全性產品、管理工具、OS、服務控制、安裝等)確定終止原因的強制終止不再記錄為症狀，伺服器上已有的記錄維持不變。"
+          }
+        }
+      }
+    },
+    "body": "/release_notes/1.6.242.1110/ko.md"
+  },
+  {
     "version": "1.6.242.1103",
     "slug": "1.6.242.1103",
     "date": "2026-11-03",
