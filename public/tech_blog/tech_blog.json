@@ -1234,8 +1234,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "분석가 프로세스 관계 분석 확장과 블루스크린·비정상종료 통합 증상 관계도, 부하 프로세스 Top10 노드당 평균화와 LLM 명령 응답 harmony 전환 — 주간 리뷰 (2026-11-16)",
-        "content": "분석가 「프로세스 관계 분석」을 과정 시각화·수동 분석·보호장치로 확장한 작업, 블루스크린에 이어 비정상종료까지 묶은 증상 관계도, 부하 프로세스 Top10 카드의 노드당 평균·디스크 읽기/쓰기 분리, sprocess 쿼리 성능 개선, 노드 비교 분석 실험실 신설, LLM 명령 응답을 harmony 형식으로 바꿔 되풀이·지연을 줄인 작업을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "Extending the Analyst's Process Relationship Analysis, a Unified Symptom Graph for Blue Screens and Abnormal Terminations, Per-Node Averaging for the Top 10 Load Processes, and Moving LLM Command Responses to Harmony — Weekly Review (2026-11-16)",
+        "content": "Orange Labs weekly development log covering the extension of the analyst's Process Relationship Analysis with process visualization, manual analysis and safeguards; a symptom graph that now ties abnormal terminations to blue screens; per-node averaging and split disk read/write on the Top 10 load process card; sprocess query performance; a new node comparison lab; and moving LLM command responses to the harmony format to cut repetition and latency.",
         "readMinutes": "2",
         "createdAt": "2026.11.16",
         "md": "/tech_blog/md/weekly-review-2026-w47.md"
@@ -1243,8 +1243,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "블루투스를 쓰지 않는 PC에서도 에이전트 설치가 실행 코드 오류로 막힌 경우",
-        "content": "블루투스 기능을 켜지도 않았는데, bthprops.cpl 파일이 없는 PC에서는 에이전트 설치·실행 자체가 막혔다. 원인은 블루투스 API DLL을 정적 임포트해 둔 한 줄이었다. 동적 로드로 바꾸고 15대 운영 환경과 VM 시험으로 회귀 여부까지 확인한 과정을 정리한다.",
+        "subject": "When Agent Installation Was Blocked by an Executable-Code Error Even on PCs That Never Use Bluetooth",
+        "content": "Bluetooth was never even enabled, yet on PCs without the bthprops.cpl file the agent could not install or run at all. The cause was a single line that statically imported the Bluetooth API DLL. We walk through switching to dynamic loading and confirming no regression across 15 production machines and VM testing.",
         "readMinutes": "4",
         "createdAt": "2026.11.15",
         "md": "/tech_blog/md/bthprops-cpl-static-import-install-failure-dynamic-load.md"
@@ -1252,8 +1252,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "느려진 PC, CPU 사용률은 정상인데 속도가 1/4로 묶여 있었던 경우",
-        "content": "CPU 사용률 100%라 바쁜 것처럼 보였지만 실제로는 속도 자체가 정격의 25%(800MHz)로 묶여 있었다. 펌웨어 CPU 속도 제한, 배터리 이상, GPU 드라이버 미설치가 겹친 Boot Camp Mac 사례를 통해 '바쁨'과 '느림'을 구분하는 법을 정리한다.",
+        "subject": "A Slow PC Where CPU Usage Looked Normal but the Clock Was Pinned to a Quarter of Spec",
+        "content": "CPU usage at 100% made it look busy, but the clock itself was pinned at 25% of spec (800 MHz). Through a Boot Camp Mac case where firmware CPU throttling, a failing battery and a missing GPU driver overlapped, we lay out how to tell 'busy' apart from 'slow'.",
         "readMinutes": "3",
         "createdAt": "2026.11.15",
         "md": "/tech_blog/md/cpu-firmware-throttle-battery-gpu-driver-diagnosis.md"
@@ -1261,8 +1261,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "서비스 정지가 끝나지 않고 멈춰 강제 종료로 이어진 경우",
-        "content": "비동기 I/O를 취소한 뒤 완료를 기다리는 코드 한 줄이 서비스 종료를 영원히 멈추게 했다. IOCP에 묶인 핸들은 취소 완료를 누군가 완료 포트에서 꺼내야 풀린다는 사실을 놓쳤던 두 번의 회귀와, 크래시 덤프로 원인을 좁혀 간 과정을 정리한다.",
+        "subject": "When Service Shutdown Never Finished and Ended in a Forced Kill",
+        "content": "One line that waited for completion after cancelling asynchronous I/O stalled service shutdown forever. We walk through two regressions caused by missing the fact that a handle bound to an IOCP only releases once someone dequeues the cancellation completion from the completion port, and through narrowing the cause from a crash dump.",
         "readMinutes": "5",
         "createdAt": "2026.11.14",
         "md": "/tech_blog/md/iocp-getoverlappedresult-hang-service-stop-pending.md"
@@ -1270,8 +1270,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "탐지가 서버에 며칠 늦게 도착했는데 실제로는 유실도 지연도 아니었던 경우",
-        "content": "PC 세 대에서 탐지한 시각과 서버에 도착한 시각 사이가 최대 6일까지 벌어졌다. 에이전트가 쥐고 있다가 늦게 보낸 것처럼 보였지만, 탐지 시각과 마지막 수신 시각을 초 단위까지 맞춰 보니 PC가 꺼져 있던 시간과 정확히 일치했다. 늦은 도착과 전송 실패를 가르는 데 쓴 시간 상관관계 분석을 정리한다.",
+        "subject": "Detections Arrived at the Server Days Late, and It Was Neither Loss nor Delay",
+        "content": "On three PCs the gap between detection time and arrival at the server stretched to as much as six days. It looked as though the agent had held onto them and sent them late, but matching detection times against last-seen times down to the second lined up exactly with the hours those PCs were powered off. We lay out the time-correlation analysis used to tell late arrival apart from failed transmission.",
         "readMinutes": "3",
         "createdAt": "2026.11.10",
         "md": "/tech_blog/md/delayed-detection-arrival-timestamp-forensics-local-queue.md"
@@ -2463,8 +2463,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "분석가 프로세스 관계 분석 확장과 블루스크린·비정상종료 통합 증상 관계도, 부하 프로세스 Top10 노드당 평균화와 LLM 명령 응답 harmony 전환 — 주간 리뷰 (2026-11-16)",
-        "content": "분석가 「프로세스 관계 분석」을 과정 시각화·수동 분석·보호장치로 확장한 작업, 블루스크린에 이어 비정상종료까지 묶은 증상 관계도, 부하 프로세스 Top10 카드의 노드당 평균·디스크 읽기/쓰기 분리, sprocess 쿼리 성능 개선, 노드 비교 분석 실험실 신설, LLM 명령 응답을 harmony 형식으로 바꿔 되풀이·지연을 줄인 작업을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "扩展分析器的进程关系分析、整合蓝屏与异常终止的症状关系图、负载进程 Top10 按节点取均值、LLM 命令响应改用 harmony —— 周报（2026-11-16）",
+        "content": "Orange Labs 周度开发记录：将分析器的「进程关系分析」扩展为过程可视化、手动分析与保护机制；将异常终止与蓝屏一并纳入的症状关系图；负载进程 Top10 卡片按节点取均值并拆分磁盘读写；sprocess 查询性能改进；新设节点对比分析实验室；以及将 LLM 命令响应改为 harmony 格式以减少重复与延迟。",
         "readMinutes": "2",
         "createdAt": "2026.11.16",
         "md": "/tech_blog/md/weekly-review-2026-w47.md"
@@ -2472,8 +2472,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "블루투스를 쓰지 않는 PC에서도 에이전트 설치가 실행 코드 오류로 막힌 경우",
-        "content": "블루투스 기능을 켜지도 않았는데, bthprops.cpl 파일이 없는 PC에서는 에이전트 설치·실행 자체가 막혔다. 원인은 블루투스 API DLL을 정적 임포트해 둔 한 줄이었다. 동적 로드로 바꾸고 15대 운영 환경과 VM 시험으로 회귀 여부까지 확인한 과정을 정리한다.",
+        "subject": "从不使用蓝牙的 PC 上，代理安装也因可执行代码错误而中断的情况",
+        "content": "蓝牙功能甚至没有开启，但在缺少 bthprops.cpl 文件的 PC 上，代理的安装与运行本身就被阻断。原因是一行对蓝牙 API DLL 的静态导入。本文梳理了改为动态加载，并通过 15 台生产环境机器与虚拟机测试确认无回归的过程。",
         "readMinutes": "4",
         "createdAt": "2026.11.15",
         "md": "/tech_blog/md/bthprops-cpl-static-import-install-failure-dynamic-load.md"
@@ -2481,8 +2481,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "느려진 PC, CPU 사용률은 정상인데 속도가 1/4로 묶여 있었던 경우",
-        "content": "CPU 사용률 100%라 바쁜 것처럼 보였지만 실제로는 속도 자체가 정격의 25%(800MHz)로 묶여 있었다. 펌웨어 CPU 속도 제한, 배터리 이상, GPU 드라이버 미설치가 겹친 Boot Camp Mac 사례를 통해 '바쁨'과 '느림'을 구분하는 법을 정리한다.",
+        "subject": "变慢的 PC：CPU 使用率正常，但主频被锁在额定的 1/4",
+        "content": "CPU 使用率 100% 看起来很忙，实际上主频本身被锁在额定值的 25%（800MHz）。本文通过固件 CPU 频率限制、电池异常与未安装 GPU 驱动三者叠加的 Boot Camp Mac 案例，梳理如何区分「忙」与「慢」。",
         "readMinutes": "3",
         "createdAt": "2026.11.15",
         "md": "/tech_blog/md/cpu-firmware-throttle-battery-gpu-driver-diagnosis.md"
@@ -2490,8 +2490,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "서비스 정지가 끝나지 않고 멈춰 강제 종료로 이어진 경우",
-        "content": "비동기 I/O를 취소한 뒤 완료를 기다리는 코드 한 줄이 서비스 종료를 영원히 멈추게 했다. IOCP에 묶인 핸들은 취소 완료를 누군가 완료 포트에서 꺼내야 풀린다는 사실을 놓쳤던 두 번의 회귀와, 크래시 덤프로 원인을 좁혀 간 과정을 정리한다.",
+        "subject": "服务停止迟迟不结束、最终只能强制终止的情况",
+        "content": "取消异步 I/O 后等待其完成的一行代码，让服务停止永远卡住。绑定到 IOCP 的句柄必须由某处从完成端口取出取消完成通知才会释放——本文梳理了因忽略这一点而发生的两次回归，以及借助崩溃转储逐步缩小原因的过程。",
         "readMinutes": "5",
         "createdAt": "2026.11.14",
         "md": "/tech_blog/md/iocp-getoverlappedresult-hang-service-stop-pending.md"
@@ -2499,8 +2499,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "탐지가 서버에 며칠 늦게 도착했는데 실제로는 유실도 지연도 아니었던 경우",
-        "content": "PC 세 대에서 탐지한 시각과 서버에 도착한 시각 사이가 최대 6일까지 벌어졌다. 에이전트가 쥐고 있다가 늦게 보낸 것처럼 보였지만, 탐지 시각과 마지막 수신 시각을 초 단위까지 맞춰 보니 PC가 꺼져 있던 시간과 정확히 일치했다. 늦은 도착과 전송 실패를 가르는 데 쓴 시간 상관관계 분석을 정리한다.",
+        "subject": "检测结果迟了几天才到服务器，而实际上既非丢失也非延迟",
+        "content": "三台 PC 的检测时间与到达服务器的时间最多相差 6 天。看起来像是代理攥着不发、延后才送出，但把检测时间与最后接收时间精确到秒逐一比对后，恰好与这些 PC 关机的时段完全吻合。本文梳理了用于区分「到达晚」与「传输失败」的时间相关性分析。",
         "readMinutes": "3",
         "createdAt": "2026.11.10",
         "md": "/tech_blog/md/delayed-detection-arrival-timestamp-forensics-local-queue.md"
@@ -3692,8 +3692,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "분석가 프로세스 관계 분석 확장과 블루스크린·비정상종료 통합 증상 관계도, 부하 프로세스 Top10 노드당 평균화와 LLM 명령 응답 harmony 전환 — 주간 리뷰 (2026-11-16)",
-        "content": "분석가 「프로세스 관계 분석」을 과정 시각화·수동 분석·보호장치로 확장한 작업, 블루스크린에 이어 비정상종료까지 묶은 증상 관계도, 부하 프로세스 Top10 카드의 노드당 평균·디스크 읽기/쓰기 분리, sprocess 쿼리 성능 개선, 노드 비교 분석 실험실 신설, LLM 명령 응답을 harmony 형식으로 바꿔 되풀이·지연을 줄인 작업을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "擴充分析器的行程關係分析、整合藍屏與異常終止的症狀關係圖、負載行程 Top10 按節點取平均、LLM 命令回應改用 harmony —— 週報（2026-11-16）",
+        "content": "Orange Labs 週度開發記錄：將分析器的「行程關係分析」擴充為過程視覺化、手動分析與保護機制；將異常終止與藍屏一併納入的症狀關係圖；負載行程 Top10 卡片按節點取平均並拆分磁碟讀寫；sprocess 查詢效能改進；新設節點比較分析實驗室；以及將 LLM 命令回應改為 harmony 格式以減少重複與延遲。",
         "readMinutes": "2",
         "createdAt": "2026.11.16",
         "md": "/tech_blog/md/weekly-review-2026-w47.md"
@@ -3701,8 +3701,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "블루투스를 쓰지 않는 PC에서도 에이전트 설치가 실행 코드 오류로 막힌 경우",
-        "content": "블루투스 기능을 켜지도 않았는데, bthprops.cpl 파일이 없는 PC에서는 에이전트 설치·실행 자체가 막혔다. 원인은 블루투스 API DLL을 정적 임포트해 둔 한 줄이었다. 동적 로드로 바꾸고 15대 운영 환경과 VM 시험으로 회귀 여부까지 확인한 과정을 정리한다.",
+        "subject": "從不使用藍牙的 PC 上，代理程式安裝也因可執行碼錯誤而中斷的情況",
+        "content": "藍牙功能甚至沒有開啟，但在缺少 bthprops.cpl 檔案的 PC 上，代理程式的安裝與執行本身就被阻斷。原因是一行對藍牙 API DLL 的靜態匯入。本文梳理了改為動態載入，並透過 15 台生產環境機器與虛擬機測試確認無回歸的過程。",
         "readMinutes": "4",
         "createdAt": "2026.11.15",
         "md": "/tech_blog/md/bthprops-cpl-static-import-install-failure-dynamic-load.md"
@@ -3710,8 +3710,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "느려진 PC, CPU 사용률은 정상인데 속도가 1/4로 묶여 있었던 경우",
-        "content": "CPU 사용률 100%라 바쁜 것처럼 보였지만 실제로는 속도 자체가 정격의 25%(800MHz)로 묶여 있었다. 펌웨어 CPU 속도 제한, 배터리 이상, GPU 드라이버 미설치가 겹친 Boot Camp Mac 사례를 통해 '바쁨'과 '느림'을 구분하는 법을 정리한다.",
+        "subject": "變慢的 PC：CPU 使用率正常，但時脈被鎖在額定的 1/4",
+        "content": "CPU 使用率 100% 看起來很忙，實際上時脈本身被鎖在額定值的 25%（800MHz）。本文透過固件 CPU 頻率限制、電池異常與未安裝 GPU 驅動三者疊加的 Boot Camp Mac 案例，梳理如何區分「忙」與「慢」。",
         "readMinutes": "3",
         "createdAt": "2026.11.15",
         "md": "/tech_blog/md/cpu-firmware-throttle-battery-gpu-driver-diagnosis.md"
@@ -3719,8 +3719,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "서비스 정지가 끝나지 않고 멈춰 강제 종료로 이어진 경우",
-        "content": "비동기 I/O를 취소한 뒤 완료를 기다리는 코드 한 줄이 서비스 종료를 영원히 멈추게 했다. IOCP에 묶인 핸들은 취소 완료를 누군가 완료 포트에서 꺼내야 풀린다는 사실을 놓쳤던 두 번의 회귀와, 크래시 덤프로 원인을 좁혀 간 과정을 정리한다.",
+        "subject": "服務停止遲遲不結束、最終只能強制終止的情況",
+        "content": "取消非同步 I/O 後等待其完成的一行程式碼，讓服務停止永遠卡住。綁定到 IOCP 的控制代碼必須由某處從完成埠取出取消完成通知才會釋放——本文梳理了因忽略這一點而發生的兩次回歸，以及藉助當機傾印逐步縮小原因的過程。",
         "readMinutes": "5",
         "createdAt": "2026.11.14",
         "md": "/tech_blog/md/iocp-getoverlappedresult-hang-service-stop-pending.md"
@@ -3728,8 +3728,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "탐지가 서버에 며칠 늦게 도착했는데 실제로는 유실도 지연도 아니었던 경우",
-        "content": "PC 세 대에서 탐지한 시각과 서버에 도착한 시각 사이가 최대 6일까지 벌어졌다. 에이전트가 쥐고 있다가 늦게 보낸 것처럼 보였지만, 탐지 시각과 마지막 수신 시각을 초 단위까지 맞춰 보니 PC가 꺼져 있던 시간과 정확히 일치했다. 늦은 도착과 전송 실패를 가르는 데 쓴 시간 상관관계 분석을 정리한다.",
+        "subject": "偵測結果遲了幾天才到伺服器，而實際上既非遺失也非延遲",
+        "content": "三台 PC 的偵測時間與抵達伺服器的時間最多相差 6 天。看起來像是代理程式握著不送、延後才傳出，但把偵測時間與最後接收時間精確到秒逐一比對後，恰好與這些 PC 關機的時段完全吻合。本文梳理了用於區分「抵達晚」與「傳輸失敗」的時間相關性分析。",
         "readMinutes": "3",
         "createdAt": "2026.11.10",
         "md": "/tech_blog/md/delayed-detection-arrival-timestamp-forensics-local-queue.md"
@@ -4921,8 +4921,8 @@
       {
         "category": "Dev Log",
         "categoryColor": "#8b5cf6",
-        "subject": "분석가 프로세스 관계 분석 확장과 블루스크린·비정상종료 통합 증상 관계도, 부하 프로세스 Top10 노드당 평균화와 LLM 명령 응답 harmony 전환 — 주간 리뷰 (2026-11-16)",
-        "content": "분석가 「프로세스 관계 분석」을 과정 시각화·수동 분석·보호장치로 확장한 작업, 블루스크린에 이어 비정상종료까지 묶은 증상 관계도, 부하 프로세스 Top10 카드의 노드당 평균·디스크 읽기/쓰기 분리, sprocess 쿼리 성능 개선, 노드 비교 분석 실험실 신설, LLM 명령 응답을 harmony 형식으로 바꿔 되풀이·지연을 줄인 작업을 다룬 Orange Labs 주간 개발 기록",
+        "subject": "アナリストのプロセス関係分析の拡張とブルースクリーン・異常終了を統合した症状関係図、負荷プロセス Top10 のノードあたり平均化、LLM コマンド応答の harmony 移行 — 週次レビュー（2026-11-16）",
+        "content": "アナリストの「プロセス関係分析」を過程の可視化・手動分析・保護機構へ拡張した作業、ブルースクリーンに続いて異常終了までまとめた症状関係図、負荷プロセス Top10 カードのノードあたり平均とディスク読み書きの分離、sprocess クエリの性能改善、ノード比較分析ラボの新設、LLM コマンド応答を harmony 形式に変えて繰り返しと遅延を減らした作業を扱った Orange Labs の週次開発記録。",
         "readMinutes": "2",
         "createdAt": "2026.11.16",
         "md": "/tech_blog/md/weekly-review-2026-w47.md"
@@ -4930,8 +4930,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "블루투스를 쓰지 않는 PC에서도 에이전트 설치가 실행 코드 오류로 막힌 경우",
-        "content": "블루투스 기능을 켜지도 않았는데, bthprops.cpl 파일이 없는 PC에서는 에이전트 설치·실행 자체가 막혔다. 원인은 블루투스 API DLL을 정적 임포트해 둔 한 줄이었다. 동적 로드로 바꾸고 15대 운영 환경과 VM 시험으로 회귀 여부까지 확인한 과정을 정리한다.",
+        "subject": "Bluetooth を使わない PC でもエージェントのインストールが実行コードエラーで止まっていた件",
+        "content": "Bluetooth 機能を有効にしてもいないのに、bthprops.cpl が存在しない PC ではエージェントのインストールと実行そのものが止まっていた。原因は Bluetooth API の DLL を静的インポートしていた一行だった。動的ロードに変更し、15 台の運用環境と VM 試験で回帰の有無まで確認した過程を整理する。",
         "readMinutes": "4",
         "createdAt": "2026.11.15",
         "md": "/tech_blog/md/bthprops-cpl-static-import-install-failure-dynamic-load.md"
@@ -4939,8 +4939,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "느려진 PC, CPU 사용률은 정상인데 속도가 1/4로 묶여 있었던 경우",
-        "content": "CPU 사용률 100%라 바쁜 것처럼 보였지만 실제로는 속도 자체가 정격의 25%(800MHz)로 묶여 있었다. 펌웨어 CPU 속도 제한, 배터리 이상, GPU 드라이버 미설치가 겹친 Boot Camp Mac 사례를 통해 '바쁨'과 '느림'을 구분하는 법을 정리한다.",
+        "subject": "遅くなった PC、CPU 使用率は正常なのにクロックが定格の 1/4 に固定されていた件",
+        "content": "CPU 使用率 100% で忙しそうに見えたが、実際にはクロック自体が定格の 25%（800MHz）に固定されていた。ファームウェアの CPU クロック制限、バッテリー異常、GPU ドライバー未インストールが重なった Boot Camp Mac の事例を通して、「忙しい」と「遅い」を見分ける方法を整理する。",
         "readMinutes": "3",
         "createdAt": "2026.11.15",
         "md": "/tech_blog/md/cpu-firmware-throttle-battery-gpu-driver-diagnosis.md"
@@ -4948,8 +4948,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "서비스 정지가 끝나지 않고 멈춰 강제 종료로 이어진 경우",
-        "content": "비동기 I/O를 취소한 뒤 완료를 기다리는 코드 한 줄이 서비스 종료를 영원히 멈추게 했다. IOCP에 묶인 핸들은 취소 완료를 누군가 완료 포트에서 꺼내야 풀린다는 사실을 놓쳤던 두 번의 회귀와, 크래시 덤프로 원인을 좁혀 간 과정을 정리한다.",
+        "subject": "サービスの停止が終わらず強制終了に至った件",
+        "content": "非同期 I/O をキャンセルしたあと完了を待つ一行が、サービスの停止を永遠に止めてしまった。IOCP に紐づいたハンドルは、キャンセルの完了を誰かが完了ポートから取り出さないと解放されない — その事実を見落として起きた二度の回帰と、クラッシュダンプから原因を絞り込んだ過程を整理する。",
         "readMinutes": "5",
         "createdAt": "2026.11.14",
         "md": "/tech_blog/md/iocp-getoverlappedresult-hang-service-stop-pending.md"
@@ -4957,8 +4957,8 @@
       {
         "category": "Guide",
         "categoryColor": "#3b82f6",
-        "subject": "탐지가 서버에 며칠 늦게 도착했는데 실제로는 유실도 지연도 아니었던 경우",
-        "content": "PC 세 대에서 탐지한 시각과 서버에 도착한 시각 사이가 최대 6일까지 벌어졌다. 에이전트가 쥐고 있다가 늦게 보낸 것처럼 보였지만, 탐지 시각과 마지막 수신 시각을 초 단위까지 맞춰 보니 PC가 꺼져 있던 시간과 정확히 일치했다. 늦은 도착과 전송 실패를 가르는 데 쓴 시간 상관관계 분석을 정리한다.",
+        "subject": "検知がサーバーに数日遅れて届いたが、実際には欠落でも遅延でもなかった件",
+        "content": "3 台の PC で、検知した時刻とサーバーに届いた時刻の差が最大 6 日まで開いた。エージェントが抱えたまま遅れて送ったように見えたが、検知時刻と最終受信時刻を秒単位まで突き合わせると、その PC の電源が切れていた時間と正確に一致した。遅い到着と送信失敗を切り分けるために用いた時間相関分析を整理する。",
         "readMinutes": "3",
         "createdAt": "2026.11.10",
         "md": "/tech_blog/md/delayed-detection-arrival-timestamp-forensics-local-queue.md"
