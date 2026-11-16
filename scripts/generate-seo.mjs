@@ -395,7 +395,11 @@ const htmlEscape = (s) =>
  * data-seo-static을 붙인다 — main.tsx가 런타임에 걷어내고 Seo.tsx가 자기 것을
  * 다시 넣으므로 중복이 생기지 않는다.
  */
-const orgJsonLd = JSON.stringify(orgSchema).replaceAll('{{SITE_URL}}', SITE_URL);
+// organization.json 의 '_' 로 시작하는 키는 그 파일에 적어 둔 메모라 걷어낸다.
+// src/seo/organization.ts 에도 같은 규칙이 있다.
+const orgJsonLd = JSON.stringify(orgSchema, (k, v) =>
+  k.startsWith('_') ? undefined : v,
+).replaceAll('{{SITE_URL}}', SITE_URL);
 
 /**
  * 언어별 URL 신고(hreflang). 모든 언어판이 서로를 가리켜야 구글이 묶어 준다.

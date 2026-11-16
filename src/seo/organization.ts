@@ -10,6 +10,12 @@ import schema from './organization.json';
  * 크롤러와, 렌더링 큐를 기다려야 하는 구글에게는 그쪽이 먼저 보인다.
  * 양쪽이 갈라지지 않도록 값은 한 곳에만 둔다.
  */
+/**
+ * organization.json 안의 '_' 로 시작하는 키는 그 파일에 적어 둔 메모이므로
+ * 구조화 데이터에서 걷어낸다. 빌드 스크립트에도 같은 규칙이 있다.
+ */
+const dropNotes = (key: string, value: unknown) => (key.startsWith('_') ? undefined : value);
+
 export const organizationJsonLd: Record<string, unknown>[] = JSON.parse(
-  JSON.stringify(schema).replaceAll('{{SITE_URL}}', SITE_URL),
+  JSON.stringify(schema, dropNotes).replaceAll('{{SITE_URL}}', SITE_URL),
 );

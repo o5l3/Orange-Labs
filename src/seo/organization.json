@@ -17,10 +17,12 @@
       "postalCode": "48058",
       "addressCountry": "KR"
     },
+    "_sameAsComment": "같은 법인을 가리키는 외부 프로필만 넣는다. 구글이 '오렌지랩스'라는 이름을 이 도메인에 묶는 근거가 된다. 혁신의숲(innoforest) 프로필은 대표자와 사업자등록번호가 NICE·thevc와 달라, 그쪽 정보가 정정되기 전에는 넣지 않는다 — 어긋난 정보를 가리키면 엔티티 판정에 되레 불리하다.",
     "sameAs": [
       "https://github.com/o5l3",
       "https://www.wanted.co.kr/company/50066",
-      "https://www.nicebizinfo.com/ep/EP0100M002GE.nice?kiscode=QO3353"
+      "https://www.nicebizinfo.com/ep/EP0100M002GE.nice?kiscode=QO3353",
+      "https://thevc.kr/orangelabs"
     ],
     "contactPoint": [
       {
