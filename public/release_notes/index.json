@@ -1,5 +1,215 @@
 [
   {
+    "version": "1.6.242.1118",
+    "slug": "1.6.242.1118",
+    "date": "2026-11-18",
+    "pdf": "/release_notes/1.6.242.1118/release-notes.pdf",
+    "items": [
+      {
+        "key": "processExclusion",
+        "kind": "new"
+      },
+      {
+        "key": "crashRelations",
+        "kind": "new"
+      },
+      {
+        "key": "remoteClipboard",
+        "kind": "new"
+      },
+      {
+        "key": "dumpFileSections",
+        "kind": "improved"
+      },
+      {
+        "key": "remoteOverlayMove",
+        "kind": "improved"
+      },
+      {
+        "key": "liveAgentAnalystConfirm",
+        "kind": "improved"
+      }
+    ],
+    "i18n": {
+      "ko": {
+        "excerpt": "이번 릴리즈에는 모니터링 › 프로세스에서 늘 위에 오는 프로그램을 순위에서 제외하는 「관찰 제외」가 추가되었습니다. 비정상종료의 원인이 집중된 곳을 확인하는 「증상 관계도」도 추가되었습니다. 원격제어 중에는 원격 PC에 복사해 둔 글을 관리자 PC로 가져올 수 있습니다. 화면을 가리는 알림 배지와 통계 막대는 원하는 위치로 끌어서 옮길 수 있습니다. 에이전트 관련 변경은 각 PC의 에이전트가 1.6.242.1182를 받아야 적용됩니다.",
+        "items": {
+          "processExclusion": {
+            "title": "모니터링 › 프로세스에서 늘 위에 오는 프로그램을 「관찰 제외」로 순위에서 제외",
+            "sub": "모니터링 › 프로세스",
+            "desc": "백신이나 브라우저처럼 모든 PC에 설치된 프로그램이 매일 순위 상위에 표시되면 살펴볼 프로그램이 밀려날 수 있습니다. 이때 순위 오른쪽 위의 「관찰 제외」에서 해당 프로그램을 「오늘」의 부하 프로세스 Top 10과 「실행 목록」에서 제외할 수 있습니다. 최근 7일 동안 매일 10위 안에 든 프로그램에는 「매일 상위」가 표시됩니다. 이 표시를 보고 제외할 프로그램을 고를 수 있습니다. 제외 설정은 회사 전체에 적용되며 같은 창에서 언제든 해제할 수 있습니다."
+          },
+          "crashRelations": {
+            "title": "증상 › 현황 › 증상 목록에서 비정상종료의 원인이 집중된 곳을 「증상 관계도」로 확인",
+            "sub": "증상 › 현황 › 증상 목록",
+            "desc": "프로그램이 오류로 갑자기 종료되는 비정상종료가 여러 PC에서 발생하면 「증상 관계도」에서 원인이 집중된 곳을 확인할 수 있습니다. 지난 회차에 블루스크린에 추가한 「증상 관계도」와 같이 오류 코드(예외 코드) · 원인 파일 · Windows 버전 · 기종을 도형으로 연결해 표시합니다. 이를 통해 비정상종료가 같은 모듈이나 같은 Windows 버전에서 발생하는지 확인할 수 있습니다. 원인 파일에는 제품명과 가장 많이 발생한 파일 버전이 함께 표시됩니다. 도형 왼쪽 위의 동그라미를 누르면 오른쪽에 해당 PC 목록과 증상 기록이 열립니다. 기록을 선택하면 증상 상세로 바로 이동할 수 있습니다."
+          },
+          "remoteClipboard": {
+            "title": "노드 상세 「원격제어」에서 원격 PC에 복사해 둔 글을 관리자 PC로 가져오기",
+            "sub": "노드 상세 › 원격제어",
+            "desc": "원격제어 중 원격 PC에서 복사한 오류 메시지나 경로를 관리자 PC로 가져오려면 원격제어 화면 [특수키] 패널 맨 아래의 「노드 클립보드 가져오기」를 누릅니다. 원격 PC 클립보드의 글이 관리자 PC의 클립보드로 복사되고 「노드 클립보드 N자 복사됨」이 표시됩니다. 지난 회차까지는 관리자 PC에서 원격 PC로 글을 붙여넣는 기능만 사용할 수 있었습니다. 원격 PC의 글을 가져오려면 파일로 저장한 뒤 원격 탐색기로 내려받아야 했습니다."
+          },
+          "dumpFileSections": {
+            "title": "트레이 › 분석가 창에서 연 프로세스 덤프 파일의 결과를 메시지 루프 대기 · 락 대기 · CPU 사용 구역으로 구분해 표시",
+            "sub": "트레이 › 분석가",
+            "desc": "결과에 다음 구역이 표시됩니다. 「메시지 루프 대기」에는 창 스레드가 기다리는 대상과 거쳐 간 모듈 및 후킹 정보가 표시됩니다. 「락 대기」에는 기다리는 락과 해당 락을 쥔 스레드가 표시됩니다. 「같은 위치에 멈춘 스레드」 · 「CPU 사용」(모듈별 CPU 시간) · 「프로세스 상태」 · 「WMI 흔적」 구역도 표시됩니다."
+          },
+          "remoteOverlayMove": {
+            "title": "노드 상세 「원격제어」에서 알림 배지 · 통계 막대 위치 이동",
+            "sub": "노드 상세 › 원격제어",
+            "desc": "배지나 통계 막대를 마우스로 누른 채 원하는 위치로 끌어 옮깁니다. 배지는 관리자가 원격 화면에서 옮길 수 있습니다. 해당 PC 사용자도 배지를 옮길 수 있습니다. 배지 위치는 해당 원격제어 세션 동안만 유지됩니다. 통계 막대 위치는 이 브라우저에 유지되므로 다음에 원격제어를 열어도 같은 위치에 표시됩니다."
+          },
+          "liveAgentAnalystConfirm": {
+            "title": "노드 상세 「Live Agent」에서 분석가로 프로세스를 분석할 때 확인 창과 진행 화면 표시",
+            "sub": "노드 상세 › Live Agent",
+            "desc": "분석을 시작하면 「약 10초간 노드 PC 의 스레드 동작을 기록합니다」라는 확인 창이 표시됩니다. 분석하는 동안 진행 화면이 표시됩니다. 분석 결과 관계도에는 회사명 · 프로세스 번호 줄 · 스레드 묶음이 함께 표시됩니다."
+          }
+        }
+      },
+      "en": {
+        "excerpt": "This release adds Monitoring exclusions, which removes programs that always rank at the top from the rankings in Monitoring › Process. The Symptom relationship map, which shows where the causes of abnormal terminations are concentrated, has also been added. During remote control you can bring text copied on the remote PC to the admin PC, and the notification badge and statistics bar that cover the screen can be dragged to any position. Agent-side changes take effect once each PC's agent has received 1.6.242.1182.",
+        "items": {
+          "processExclusion": {
+            "title": "Exclude programs that are always at the top from the rankings with Monitoring exclusions in Monitoring › Process",
+            "sub": "Monitoring › Process",
+            "desc": "When programs installed on every PC, such as antivirus software or browsers, appear at the top of the rankings every day, the programs you need to look at can be pushed down. You can then use Monitoring exclusions at the top right of the rankings to remove them from the Today load process Top 10 and the Run list. Programs that were in the top 10 every day for the last 7 days are marked Daily top, which helps you choose. Exclusions apply to the whole company and can be removed at any time in the same window."
+          },
+          "crashRelations": {
+            "title": "Find where the causes of abnormal terminations are concentrated with the Symptom relationship map in Symptoms › Status › Symptom list",
+            "sub": "Symptoms › Status › Symptom list",
+            "desc": "When abnormal terminations, where a program suddenly closes because of an error, occur on several PCs, you can check where the causes are concentrated in the Symptom relationship map. As with the map added for blue screens in the last release, it links the error code (exception code), cause file, Windows version and model with shapes, so you can see whether abnormal terminations occur in the same module or the same Windows version. Cause files show the product name and the most frequent file version. Clicking the circle at the top left of a shape opens the list of PCs and their symptom records on the right, and selecting a record takes you straight to the symptom details."
+          },
+          "remoteClipboard": {
+            "title": "Get text copied on the remote PC into the admin PC in Node details › Remote control",
+            "sub": "Node details › Remote control",
+            "desc": "To bring an error message or path copied on the remote PC during remote control to the admin PC, press Get node clipboard at the bottom of the Special keys panel. The text on the remote PC's clipboard is copied to the admin PC's clipboard, and a message shows how many characters were copied. Until the last release you could only paste text from the admin PC into the remote PC, so getting text from the remote PC meant saving it to a file and downloading it with the remote explorer."
+          },
+          "dumpFileSections": {
+            "title": "Results of process dump files opened in Tray › Analyst shown in separate sections for message loop waits, lock waits and CPU use",
+            "sub": "Tray › Analyst",
+            "desc": "The results show the following sections. Message loop wait shows what the window thread is waiting for, along with the modules it passed through and hooks. Lock wait shows the lock being waited on and the thread holding it. Threads stopped at the same location, CPU use (CPU time per module), Process state and WMI traces sections are also shown."
+          },
+          "remoteOverlayMove": {
+            "title": "Move the notification badge and statistics bar in Node details › Remote control",
+            "sub": "Node details › Remote control",
+            "desc": "Hold down the mouse on the badge or statistics bar and drag it to where you want. The admin can move the badge on the remote screen, and the user of that PC can move it too. The badge position is kept only for that remote control session. The statistics bar position is saved in this browser, so it appears in the same place the next time you open remote control."
+          },
+          "liveAgentAnalystConfirm": {
+            "title": "Confirmation and progress screens when analyzing a process with the Analyst in Node details › Live Agent",
+            "sub": "Node details › Live Agent",
+            "desc": "When you start an analysis, a confirmation window says the node PC's thread activity will be recorded for about 10 seconds. A progress screen is shown during the analysis. The resulting relationship map also shows company names, process ID rows and thread groups."
+          }
+        }
+      },
+      "ja": {
+        "excerpt": "今回のリリースでは、モニタリング › プロセスで常に上位に表示されるプログラムを順位から除外する「監視除外」を追加しました。異常終了の原因が集中している箇所を確認できる「症状関係図」も追加しました。リモート制御中は、リモート PC でコピーしたテキストを管理者 PC に取り込めます。画面を隠す通知バッジと統計バーは、ドラッグして好きな位置に移動できます。エージェント関連の変更は、各 PC のエージェントが 1.6.242.1182 を受け取ると適用されます。",
+        "items": {
+          "processExclusion": {
+            "title": "モニタリング › プロセスで常に上位に表示されるプログラムを「監視除外」で順位から除外",
+            "sub": "モニタリング › プロセス",
+            "desc": "ウイルス対策ソフトやブラウザーのようにすべての PC にインストールされたプログラムが毎日順位の上位に表示されると、確認すべきプログラムが下に押し出されることがあります。その場合は、順位の右上にある「監視除外」から、該当プログラムを「今日」の負荷プロセス Top 10 と「実行一覧」から除外できます。直近 7 日間、毎日 10 位以内に入ったプログラムには「毎日上位」が表示されるため、除外するプログラムを選びやすくなっています。除外設定は会社全体に適用され、同じウィンドウからいつでも解除できます。"
+          },
+          "crashRelations": {
+            "title": "症状 › 現況 › 症状一覧で異常終了の原因が集中している箇所を「症状関係図」で確認",
+            "sub": "症状 › 現況 › 症状一覧",
+            "desc": "プログラムがエラーで突然終了する異常終了が複数の PC で発生した場合、「症状関係図」で原因が集中している箇所を確認できます。前回ブルースクリーンに追加した「症状関係図」と同様に、エラーコード(例外コード)・原因ファイル・Windows バージョン・機種を図形で結んで表示するため、異常終了が同じモジュールや同じ Windows バージョンで発生しているかを確認できます。原因ファイルには製品名と最も多いファイルバージョンが表示されます。図形の左上の丸を押すと右側に該当 PC の一覧と症状の記録が開き、記録を選ぶと症状詳細にすぐ移動できます。"
+          },
+          "remoteClipboard": {
+            "title": "ノード詳細「リモート制御」でリモート PC にコピーしたテキストを管理者 PC に取り込む",
+            "sub": "ノード詳細 › リモート制御",
+            "desc": "リモート制御中にリモート PC でコピーしたエラーメッセージやパスを管理者 PC に取り込むには、リモート制御画面の[特殊キー]パネルの一番下にある「ノードのクリップボードを取得」を押します。リモート PC のクリップボードのテキストが管理者 PC のクリップボードにコピーされ、コピーした文字数が表示されます。前回までは管理者 PC からリモート PC へテキストを貼り付ける機能しかなかったため、リモート PC のテキストを取り込むにはファイルに保存してからリモートエクスプローラーでダウンロードする必要がありました。"
+          },
+          "dumpFileSections": {
+            "title": "トレイ › アナリストで開いたプロセスダンプファイルの結果をメッセージループ待機・ロック待機・CPU 使用のセクションに分けて表示",
+            "sub": "トレイ › アナリスト",
+            "desc": "結果には次のセクションが表示されます。「メッセージループ待機」には、ウィンドウスレッドが待っている対象と、経由したモジュールおよびフックの情報が表示されます。「ロック待機」には、待っているロックとそのロックを保持しているスレッドが表示されます。「同じ位置で停止したスレッド」・「CPU 使用」(モジュール別の CPU 時間)・「プロセス状態」・「WMI の痕跡」のセクションも表示されます。"
+          },
+          "remoteOverlayMove": {
+            "title": "ノード詳細「リモート制御」で通知バッジ・統計バーの位置を移動",
+            "sub": "ノード詳細 › リモート制御",
+            "desc": "バッジや統計バーをマウスで押したまま、好きな位置までドラッグして移動します。バッジは管理者がリモート画面で移動できるほか、その PC のユーザーも移動できます。バッジの位置はそのリモート制御セッションの間だけ保持されます。統計バーの位置はこのブラウザーに保存されるため、次にリモート制御を開いても同じ位置に表示されます。"
+          },
+          "liveAgentAnalystConfirm": {
+            "title": "ノード詳細「Live Agent」でアナリストによるプロセス分析時に確認ウィンドウと進行画面を表示",
+            "sub": "ノード詳細 › Live Agent",
+            "desc": "分析を始めると、ノード PC のスレッドの動作を約 10 秒間記録するという確認ウィンドウが表示されます。分析中は進行画面が表示されます。分析結果の関係図には、会社名・プロセス ID の行・スレッドのまとまりも表示されます。"
+          }
+        }
+      },
+      "zh": {
+        "excerpt": "本次发布新增「监控排除」，可将在 监控 › 进程 中总是排在前列的程序从排名中排除。还新增了可查看异常终止原因集中之处的「症状关系图」。远程控制时，可将远程 PC 上复制的文本取回到管理员 PC；遮挡画面的通知徽标和统计栏可拖动到任意位置。与代理相关的变更需要各 PC 的代理接收 1.6.242.1182 后才会生效。",
+        "items": {
+          "processExclusion": {
+            "title": "在 监控 › 进程 中用「监控排除」将总是排在前列的程序从排名中排除",
+            "sub": "监控 › 进程",
+            "desc": "杀毒软件或浏览器等安装在所有 PC 上的程序每天都排在前列时，需要关注的程序可能会被挤到后面。此时可在排名右上角的「监控排除」中，将相应程序从「今日」负载进程 Top 10 和「运行列表」中排除。最近 7 天每天都进入前 10 名的程序会显示「每日前列」，便于选择要排除的程序。排除设置适用于整个公司，可在同一窗口中随时解除。"
+          },
+          "crashRelations": {
+            "title": "在 症状 › 现况 › 症状列表 中用「症状关系图」查看异常终止原因集中之处",
+            "sub": "症状 › 现况 › 症状列表",
+            "desc": "程序因错误突然关闭的异常终止在多台 PC 上发生时，可在「症状关系图」中查看原因集中之处。与上次为蓝屏新增的「症状关系图」一样，以图形连接错误代码(异常代码)、原因文件、Windows 版本和机型，可确认异常终止是否发生在同一模块或同一 Windows 版本。原因文件会同时显示产品名和最常见的文件版本。点击图形左上角的圆圈，右侧会打开相应 PC 列表和症状记录，选择记录即可直接进入症状详情。"
+          },
+          "remoteClipboard": {
+            "title": "在节点详情「远程控制」中将远程 PC 上复制的文本取回到管理员 PC",
+            "sub": "节点详情 › 远程控制",
+            "desc": "远程控制时，如需将远程 PC 上复制的错误信息或路径取回到管理员 PC，请点击远程控制画面[特殊键]面板最下方的「获取节点剪贴板」。远程 PC 剪贴板中的文本会复制到管理员 PC 的剪贴板，并显示已复制的字数。在上次发布之前，只能从管理员 PC 向远程 PC 粘贴文本，要取回远程 PC 的文本，必须先保存为文件再用远程资源管理器下载。"
+          },
+          "dumpFileSections": {
+            "title": "在 托盘 › 分析师 中打开的进程转储文件结果按消息循环等待、锁等待、CPU 使用分区显示",
+            "sub": "托盘 › 分析师",
+            "desc": "结果中会显示以下区域。「消息循环等待」显示窗口线程正在等待的对象以及经过的模块和挂钩信息。「锁等待」显示正在等待的锁以及持有该锁的线程。还会显示「停在同一位置的线程」「CPU 使用」(各模块的 CPU 时间)「进程状态」「WMI 痕迹」区域。"
+          },
+          "remoteOverlayMove": {
+            "title": "在节点详情「远程控制」中移动通知徽标和统计栏的位置",
+            "sub": "节点详情 › 远程控制",
+            "desc": "按住鼠标将徽标或统计栏拖动到所需位置即可移动。管理员可在远程画面上移动徽标，该 PC 的用户也可以移动徽标。徽标位置仅在本次远程控制会话期间保留。统计栏位置保存在此浏览器中，下次打开远程控制时仍显示在相同位置。"
+          },
+          "liveAgentAnalystConfirm": {
+            "title": "在节点详情「Live Agent」中用分析师分析进程时显示确认窗口和进度画面",
+            "sub": "节点详情 › Live Agent",
+            "desc": "开始分析时，会显示确认窗口，提示将记录节点 PC 的线程活动约 10 秒。分析期间显示进度画面。分析结果关系图中还会显示公司名、进程 ID 行和线程分组。"
+          }
+        }
+      },
+      "zh-Hant": {
+        "excerpt": "本次發布新增「監控排除」，可將在 監控 › 處理程序 中總是排在前列的程式從排名中排除。也新增了可查看異常終止原因集中之處的「症狀關係圖」。遠端控制時，可將遠端 PC 上複製的文字取回到管理員 PC；遮住畫面的通知徽章和統計列可拖曳到任意位置。與代理程式相關的變更需要各 PC 的代理程式接收 1.6.242.1182 後才會生效。",
+        "items": {
+          "processExclusion": {
+            "title": "在 監控 › 處理程序 中以「監控排除」將總是排在前列的程式從排名中排除",
+            "sub": "監控 › 處理程序",
+            "desc": "防毒軟體或瀏覽器等安裝在所有 PC 上的程式每天都排在前列時，需要關注的程式可能會被擠到後面。此時可在排名右上角的「監控排除」中，將該程式從「今日」負載處理程序 Top 10 和「執行清單」中排除。最近 7 天每天都進入前 10 名的程式會顯示「每日前列」，方便選擇要排除的程式。排除設定適用於整個公司，可在同一視窗中隨時解除。"
+          },
+          "crashRelations": {
+            "title": "在 症狀 › 現況 › 症狀清單 中以「症狀關係圖」查看異常終止原因集中之處",
+            "sub": "症狀 › 現況 › 症狀清單",
+            "desc": "程式因錯誤突然關閉的異常終止在多台 PC 上發生時，可在「症狀關係圖」中查看原因集中之處。與上次為藍屏新增的「症狀關係圖」一樣，以圖形連接錯誤代碼(例外代碼)、原因檔案、Windows 版本與機型，可確認異常終止是否發生在同一模組或同一 Windows 版本。原因檔案會同時顯示產品名稱與最常見的檔案版本。點選圖形左上角的圓圈，右側會開啟該 PC 清單與症狀記錄，選擇記錄即可直接進入症狀詳情。"
+          },
+          "remoteClipboard": {
+            "title": "在節點詳情「遠端控制」中將遠端 PC 上複製的文字取回到管理員 PC",
+            "sub": "節點詳情 › 遠端控制",
+            "desc": "遠端控制時，如需將遠端 PC 上複製的錯誤訊息或路徑取回到管理員 PC，請點選遠端控制畫面[特殊鍵]面板最下方的「取得節點剪貼簿」。遠端 PC 剪貼簿中的文字會複製到管理員 PC 的剪貼簿，並顯示已複製的字數。在上次發布之前，只能從管理員 PC 向遠端 PC 貼上文字，要取回遠端 PC 的文字，必須先存成檔案再以遠端檔案總管下載。"
+          },
+          "dumpFileSections": {
+            "title": "在 系統匣 › 分析師 中開啟的處理程序傾印檔結果依訊息迴圈等待、鎖定等待、CPU 使用分區顯示",
+            "sub": "系統匣 › 分析師",
+            "desc": "結果中會顯示以下區域。「訊息迴圈等待」顯示視窗執行緒正在等待的對象，以及經過的模組與攔截資訊。「鎖定等待」顯示正在等待的鎖定以及持有該鎖定的執行緒。也會顯示「停在同一位置的執行緒」「CPU 使用」(各模組的 CPU 時間)「處理程序狀態」「WMI 痕跡」區域。"
+          },
+          "remoteOverlayMove": {
+            "title": "在節點詳情「遠端控制」中移動通知徽章與統計列的位置",
+            "sub": "節點詳情 › 遠端控制",
+            "desc": "按住滑鼠將徽章或統計列拖曳到所需位置即可移動。管理員可在遠端畫面上移動徽章，該 PC 的使用者也可以移動徽章。徽章位置僅在本次遠端控制工作階段期間保留。統計列位置儲存在此瀏覽器中，下次開啟遠端控制時仍顯示在相同位置。"
+          },
+          "liveAgentAnalystConfirm": {
+            "title": "在節點詳情「Live Agent」中以分析師分析處理程序時顯示確認視窗與進度畫面",
+            "sub": "節點詳情 › Live Agent",
+            "desc": "開始分析時，會顯示確認視窗，提示將記錄節點 PC 的執行緒活動約 10 秒。分析期間會顯示進度畫面。分析結果關係圖中也會顯示公司名稱、處理程序 ID 列與執行緒群組。"
+          }
+        }
+      }
+    },
+    "body": "/release_notes/1.6.242.1118/ko.md"
+  },
+  {
     "version": "1.6.242.1110",
     "slug": "1.6.242.1110",
     "date": "2026-11-10",
