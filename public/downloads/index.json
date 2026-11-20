@@ -1,11 +1,11 @@
 [
   {
     "slug": "orange-analyst",
-    "version": "1.6.242.1166",
-    "date": "2026-11-11",
+    "version": "1.6.242.1190",
+    "date": "2026-11-20",
     "os": "Windows 10 1507 · Windows Server 2016 이상 · x64 전용 · 관리자 권한",
-    "size": 10909141,
-    "sha256": "abb280f7536da392f5fdae467a3ea22b5ddbe0222273703d57250ee778eed332",
+    "size": 11363284,
+    "sha256": "1354c6793b1c460f4e76dab6d39200bb8676fa6c1537234220532e6f21636a1d",
     "file": "https://github.com/o5l3/Orange-Downloads/releases/download/analyst/orange-analyst.zip",
     "i18n": {
       "ko": {
