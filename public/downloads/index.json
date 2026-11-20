@@ -4,8 +4,8 @@
     "version": "1.6.242.1192",
     "date": "2026-11-20",
     "os": "Windows 10 1507 · Windows Server 2016 이상 · x64 전용 · 관리자 권한",
-    "size": 11517309,
-    "sha256": "5b87300d61ebf3ac323a1cc50d48d7c527c9b6bc1183ba0520f4826a17e6422d",
+    "size": 11709987,
+    "sha256": "906c863fe5e330af79d5fdcb25e06aa2d423087bc0afeefdc3847b81fc65db10",
     "file": "https://github.com/o5l3/Orange-Downloads/releases/download/analyst/orange-analyst.zip",
     "i18n": {
       "ko": {
@@ -16,10 +16,10 @@
   },
   {
     "slug": "orange-analyst-guide-ko",
-    "version": "1.6.242.1166",
-    "date": "2026-11-11",
-    "size": 423890,
-    "sha256": "8e1bc59d5e6bc48e22b3019196c00af0457139a2a592db48c07acacfcb5f339f",
+    "version": "1.6.242.1192",
+    "date": "2026-11-20",
+    "size": 645698,
+    "sha256": "e9547f9ee001216f8af31c27dece1b17d6e18149c9dbd025a5cf1f2f020d0689",
     "file": "/downloads/orange-analyst-guide-ko.pdf",
     "i18n": {
       "ko": {
