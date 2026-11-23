@@ -27,5 +27,35 @@
         "desc": "분석가 실행부터 창 찾기, 결과 보기, 결과 저장까지 그림과 함께 설명합니다(한국어 PDF)."
       }
     }
+  },
+  {
+    "slug": "orange-tcp-symptom-tester",
+    "version": "1.6.0.0",
+    "date": "2026-11-23",
+    "os": "Windows 10 1507 · Windows Server 2016 이상 · x64 전용 · 관리자 권한",
+    "size": 679466,
+    "sha256": "56164ef5ff87cae1c38061b79ca5400a4acea1f22026bf0b1cd453b4446b1dc4",
+    "file": "https://github.com/o5l3/Orange-Downloads/releases/download/tcp-symptom-tester/orange-tcp-symptom-tester.zip",
+    "i18n": {
+      "ko": {
+        "name": "Orange TCP 증상 테스터",
+        "desc": "Orange 에이전트의 TCP 증상 탐지·수집을 검증하기 위해 성공·거부·타임아웃·중단·지연·방화벽 차단 같은 TCP 이벤트를 의도적으로 재현합니다. 설치 없이 받은 폴더에서 관리자 권한으로 실행합니다. 사용 안내 PDF 가 함께 들어 있습니다."
+      }
+    }
+  },
+  {
+    "slug": "orange-dns-monitor",
+    "version": "1.6.0.0",
+    "date": "2026-11-23",
+    "os": "Windows 10 1507 · Windows Server 2016 이상 · x64 전용 · 관리자 권한",
+    "size": 576957,
+    "sha256": "e29b252f95e3ddfdb07a3e66d23cccb559f5b5b406b914a425ed6859dd33c833",
+    "file": "https://github.com/o5l3/Orange-Downloads/releases/download/dns-monitor/orange-dns-monitor.zip",
+    "i18n": {
+      "ko": {
+        "name": "Orange DNS 모니터",
+        "desc": "Windows 의 프로세스별 DNS 질의를 실시간으로 보여 줍니다. Microsoft-Windows-DNS-Client ETW 를 구독해 어느 프로세스가 어떤 도메인을 어떻게 질의했는지 한 줄씩 확인합니다. 설치 없이 받은 폴더에서 관리자 권한으로 실행합니다. 사용 안내 PDF 가 함께 들어 있습니다."
+      }
+    }
   }
 ]
