@@ -790,7 +790,11 @@
     "loading": "불러오는 중...",
     "tag_new": "신규",
     "tag_improved": "개선",
-    "tag_fixed": "수정"
+    "tag_fixed": "수정",
+    "moreItems": "외 {{n}}건",
+    "pagination": "페이지 이동",
+    "prevPage": "이전",
+    "nextPage": "다음"
   },
   "seo": {
     "home": {

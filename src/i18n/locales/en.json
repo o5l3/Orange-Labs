@@ -770,7 +770,11 @@
     "loading": "Loading...",
     "tag_new": "NEW",
     "tag_improved": "IMPROVED",
-    "tag_fixed": "FIXED"
+    "tag_fixed": "FIXED",
+    "moreItems": "+{{n}} more",
+    "pagination": "Pagination",
+    "prevPage": "Previous",
+    "nextPage": "Next"
   },
   "seo": {
     "home": {

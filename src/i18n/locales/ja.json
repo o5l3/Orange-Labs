@@ -769,7 +769,11 @@
     "loading": "読み込み中...",
     "tag_new": "新規",
     "tag_improved": "改善",
-    "tag_fixed": "修正"
+    "tag_fixed": "修正",
+    "moreItems": "ほか {{n}} 件",
+    "pagination": "ページ移動",
+    "prevPage": "前へ",
+    "nextPage": "次へ"
   },
   "seo": {
     "home": {

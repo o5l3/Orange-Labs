@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { formatDate } from '../../i18n/date';
 import { INDEX_URL, KIND_STYLE, pickText, type Release } from './releaseNoteData';
 
+/** 한 페이지에 보이는 릴리즈 수 */
+const PAGE_SIZE = 10;
+/** 카드에 보이는 항목 태그 수. 나머지는 「외 N건」으로 묶는다 (한 회차에 30건까지 있었다) */
+const MAX_TAGS = 5;
+
 export default function ReleaseNotes() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [releases, setReleases] = useState<Release[]>([]);
 
   useEffect(() => {
@@ -16,7 +22,19 @@ export default function ReleaseNotes() {
       .catch(() => setReleases([]));
   }, []);
 
+  // ?page=N. 범위를 벗어나거나 숫자가 아니면 가장 가까운 페이지로 맞춘다
+  const pageCount = Math.max(1, Math.ceil(releases.length / PAGE_SIZE));
+  const page = Math.min(Math.max(1, Number(searchParams.get('page')) || 1), pageCount);
+  const visible = releases.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const pageTo = (p: number) => ({ search: p === 1 ? '' : `?page=${p}` });
+
+  // ScrollToTop 은 경로만 보므로 ?page 가 바뀔 때는 여기서 올린다
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [page]);
+
   const cardBase = { backgroundColor: 'var(--surface)', border: '1px solid var(--border)' };
+  const pageBtn = 'min-w-9 h-9 px-3 inline-flex items-center justify-center text-sm rounded-lg';
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-24">
@@ -39,8 +57,11 @@ export default function ReleaseNotes() {
       </p>
 
       <div className="space-y-4">
-        {releases.map((release, i) => {
+        {visible.map((release, i) => {
           const text = pickText(release, i18n.language);
+          // 「외 1건」으로 묶으면 태그 하나 보이는 것과 길이가 같으니 그때는 다 보인다
+          const tagCount = release.items.length <= MAX_TAGS + 1 ? release.items.length : MAX_TAGS;
+          const hidden = release.items.length - tagCount;
           return (
             <article
               key={release.slug}
@@ -54,7 +75,7 @@ export default function ReleaseNotes() {
                 <h2 className="text-xl font-bold" style={{ color: 'var(--fg)' }}>
                   {release.version}
                 </h2>
-                {i === 0 && (
+                {page === 1 && i === 0 && (
                   <span
                     className="px-2 py-0.5 text-xs font-semibold rounded"
                     style={{ backgroundColor: 'rgba(249,115,22,0.15)', color: 'var(--accent)' }}
@@ -72,7 +93,7 @@ export default function ReleaseNotes() {
               </p>
 
               <div className="flex flex-wrap gap-2 mb-4">
-                {release.items.map(({ key, kind }) => (
+                {release.items.slice(0, tagCount).map(({ key, kind }) => (
                   <span
                     key={key}
                     className="px-2 py-1 text-xs rounded-lg"
@@ -84,6 +105,11 @@ export default function ReleaseNotes() {
                     {text.items[key]?.title}
                   </span>
                 ))}
+                {hidden > 0 && (
+                  <span className="px-2 py-1 text-xs font-semibold" style={{ color: 'var(--fg-muted)' }}>
+                    {t('releaseNotes.moreItems', { n: hidden })}
+                  </span>
+                )}
               </div>
 
               <span
@@ -99,6 +125,37 @@ export default function ReleaseNotes() {
           );
         })}
       </div>
+
+      {/* ── 페이지 이동 ── ponytail: 번호를 전부 늘어놓는다. 10쪽을 넘으면 말줄임 추가 */}
+      {pageCount > 1 && (
+        <nav aria-label={t('releaseNotes.pagination')} className="flex justify-center flex-wrap gap-2 mt-12">
+          {page > 1 && (
+            <Link to={pageTo(page - 1)} className={pageBtn} style={{ ...cardBase, color: 'var(--fg-muted)' }}>
+              {t('releaseNotes.prevPage')}
+            </Link>
+          )}
+          {Array.from({ length: pageCount }, (_, i) => i + 1).map((p) => (
+            <Link
+              key={p}
+              to={pageTo(p)}
+              aria-current={p === page ? 'page' : undefined}
+              className={`${pageBtn} font-semibold`}
+              style={
+                p === page
+                  ? { backgroundColor: 'var(--accent)', border: '1px solid var(--accent)', color: '#fff' }
+                  : { ...cardBase, color: 'var(--fg-muted)' }
+              }
+            >
+              {p}
+            </Link>
+          ))}
+          {page < pageCount && (
+            <Link to={pageTo(page + 1)} className={pageBtn} style={{ ...cardBase, color: 'var(--fg-muted)' }}>
+              {t('releaseNotes.nextPage')}
+            </Link>
+          )}
+        </nav>
+      )}
     </div>
   );
 }

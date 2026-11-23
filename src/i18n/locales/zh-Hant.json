@@ -770,7 +770,11 @@
     "loading": "載入中...",
     "tag_new": "新增",
     "tag_improved": "改進",
-    "tag_fixed": "修復"
+    "tag_fixed": "修復",
+    "moreItems": "另有 {{n}} 項",
+    "pagination": "分頁",
+    "prevPage": "上一頁",
+    "nextPage": "下一頁"
   },
   "seo": {
     "home": {
