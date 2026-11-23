@@ -57,5 +57,20 @@
         "desc": "Windows 의 프로세스별 DNS 질의를 실시간으로 보여 줍니다. Microsoft-Windows-DNS-Client ETW 를 구독해 어느 프로세스가 어떤 도메인을 어떻게 질의했는지 한 줄씩 확인합니다. 설치 없이 받은 폴더에서 관리자 권한으로 실행합니다. 사용 안내 PDF 가 함께 들어 있습니다."
       }
     }
+  },
+  {
+    "slug": "orange-com-monitor",
+    "version": "1.6.0.0",
+    "date": "2026-11-23",
+    "os": "Windows 10 1507 · Windows Server 2016 이상 · x64 전용 · 관리자 권한",
+    "size": 1041070,
+    "sha256": "7988a9cd8514d46f051449a170dc8cba34d4c430a2ddc721440137b78e7ee4ca",
+    "file": "https://github.com/o5l3/Orange-Downloads/releases/download/com-monitor/orange-com-monitor.zip",
+    "i18n": {
+      "ko": {
+        "name": "Orange COM 모니터",
+        "desc": "COM/RPC 통신 실패를 직접 재현하면서 Microsoft-Windows-RPC ETW 로 판정 · 쌍 · 유입량을 실시간으로 지켜봅니다. 서버 크래시 · HANG · 좀비 프록시 · 호출 취소 등 11종 시나리오 버튼으로 폐루프 테스트가 됩니다. 테스트용 COM 서버 · 클라이언트 · 인프로세스 DLL 이 함께 들어 있습니다. 설치 없이 받은 폴더에서 관리자 권한으로 실행합니다."
+      }
+    }
   }
 ]
