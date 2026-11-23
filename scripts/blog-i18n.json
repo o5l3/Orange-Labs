@@ -2446,5 +2446,59 @@
       "title": "検知がサーバーに数日遅れて届いたが、実際には欠落でも遅延でもなかった件",
       "excerpt": "3 台の PC で、検知した時刻とサーバーに届いた時刻の差が最大 6 日まで開いた。エージェントが抱えたまま遅れて送ったように見えたが、検知時刻と最終受信時刻を秒単位まで突き合わせると、その PC の電源が切れていた時間と正確に一致した。遅い到着と送信失敗を切り分けるために用いた時間相関分析を整理する。"
     }
+  },
+  "weekly-review-2026-w48": {
+    "en": {
+      "title": "Consolidating the Analyst's Dump Analysis Screen and Engine, SQLite Query Performance, Process Observation Exclusion in Manager and an nginx Security Fix, and Replacing the Running-List Trend and Comparison Panes — Weekly Review (2026-11-23)",
+      "excerpt": "Orange Labs weekly development log covering the merge of the analyst's dump analysis screen and engine into one set; query and event-processing performance work that removed SQLite checkpoint stalls and full-table reads; a new process observation exclusion feature in Manager together with an nginx vulnerability fix; replacement of the running-list trend and comparison panes on Manager's process screen; a fix to per-node-group status; and the new Orange-Tools repository."
+    },
+    "zh": {
+      "title": "整合分析器的转储分析界面与引擎、SQLite 查询性能改进、管理器进程观察排除功能与 nginx 安全修复、运行列表趋势·对比面板更换 —— 周报（2026-11-23）",
+      "excerpt": "Orange Labs 周度开发记录：将分析器的转储分析界面与引擎合为一套；消除 SQLite 检查点停顿与全表读取的查询与事件处理性能改进；新设管理器进程观察排除功能并修复 nginx 安全漏洞；更换管理器进程界面的运行列表趋势与对比面板；修复各节点组现况的缺陷；以及新设 Orange-Tools 仓库。"
+    },
+    "zh-Hant": {
+      "title": "整合分析器的傾印分析介面與引擎、SQLite 查詢效能改進、管理員行程觀察排除功能與 nginx 安全修復、執行清單趨勢·比較面板更換 —— 週報（2026-11-23）",
+      "excerpt": "Orange Labs 週度開發記錄：將分析器的傾印分析介面與引擎合為一套；消除 SQLite 檢查點停頓與全表讀取的查詢與事件處理效能改進；新設管理員行程觀察排除功能並修復 nginx 安全漏洞；更換管理員行程介面的執行清單趨勢與比較面板；修復各節點群組現況的缺陷；以及新設 Orange-Tools 儲存庫。"
+    },
+    "ja": {
+      "title": "アナリストのダンプ解析画面・エンジンの統合と SQLite 照会性能の改善、マネージャーのプロセス観察除外機能と nginx セキュリティ対応、実行リストの推移・比較ペインの置き換え — 週次レビュー（2026-11-23）",
+      "excerpt": "アナリストのダンプ解析画面とエンジンを一式にまとめた作業、SQLite のチェックポイント停止と全件読み取りを解消した照会・イベント処理の性能改善、マネージャーのプロセス観察除外機能の新設と nginx 脆弱性への対応、マネージャーのプロセス画面における実行リストの推移・比較ペインの置き換え、ノードグループ別状況のバグ修正、Orange-Tools リポジトリの新設を扱った Orange Labs の週次開発記録。"
+    }
+  },
+  "agent-server-registry-downgrade-generation-mismatch": {
+    "en": {
+      "title": "An Agent Downgraded to an Older Package Never Came Back Online, Even After Changing Its Server",
+      "excerpt": "The file format that stores the server address split into two generations, but the file name stayed the same. The cause was an asymmetry: when older code opens a new-format file it judges it corrupt and halts itself. We analyze a registry-store generation mismatch that arose during a downgrade rollout."
+    },
+    "zh": {
+      "title": "降级到旧版本包的代理，即使更换服务器也无法恢复在线",
+      "excerpt": "保存服务器地址的文件格式分为两代，但文件名沿用未改。原因是一种不对称结构：旧版本代码打开新格式文件时会判定为损坏并自行停止。本文分析降级部署过程中产生的注册表存储代际不匹配案例。"
+    },
+    "zh-Hant": {
+      "title": "降級到舊版本套件的代理程式，即使更換伺服器也無法恢復上線",
+      "excerpt": "儲存伺服器位址的檔案格式分為兩代，但檔名沿用未改。原因是一種不對稱結構：舊版本程式碼開啟新格式檔案時會判定為損毀並自行停止。本文分析降級部署過程中產生的登錄檔儲存世代不符案例。"
+    },
+    "ja": {
+      "title": "旧バージョンのパッケージに下がったエージェントが、サーバーを変えてもオンラインに戻らない現象",
+      "excerpt": "サーバーアドレスを保存するファイル形式が二世代に分かれたのに、ファイル名はそのまま使っていた。新形式のファイルを旧バージョンのコードが開くと破損と判定して自ら停止してしまう非対称な構造が原因だった。ダウングレード配布中に生じたレジストリストアの世代不一致の事例を分析する。"
+    }
+  },
+  "thread-creation-callback-bsod-irql-driver": {
+    "en": {
+      "title": "Blue Screens Repeating Right After the Morning Boot, Caused by an Unused Call in a Thread Creation Callback",
+      "excerpt": "Code that made three kernel calls on every thread creation just to obtain a parent process ID it never used led to an IRQL_NOT_LESS_OR_EQUAL bug check. We walk through narrowing the cause by lining up the symbol-resolved stack from the crash dump against the driver source."
+    },
+    "zh": {
+      "title": "早晨开机后反复出现的蓝屏，原因是线程创建回调中一个用不到的调用",
+      "excerpt": "为了取得一个根本用不到的父进程 ID，代码在每次创建线程时都进行三次内核调用，最终导致 IRQL_NOT_LESS_OR_EQUAL 蓝屏。本文梳理了将崩溃转储中符号解析后的调用栈与驱动源码逐一对照、从而缩小原因范围的过程。"
+    },
+    "zh-Hant": {
+      "title": "早晨開機後反覆出現的藍屏，原因是執行緒建立回呼中一個用不到的呼叫",
+      "excerpt": "為了取得一個根本用不到的父行程 ID，程式碼在每次建立執行緒時都進行三次核心呼叫，最終導致 IRQL_NOT_LESS_OR_EQUAL 藍屏。本文梳理了將當機傾印中符號解析後的呼叫堆疊與驅動程式原始碼逐一對照、從而縮小原因範圍的過程。"
+    },
+    "ja": {
+      "title": "朝の起動直後に繰り返されたブルースクリーン、原因はスレッド生成コールバックの使われない呼び出しだった",
+      "excerpt": "使ってもいない親プロセス ID を取得するために、スレッドが生成されるたびにカーネル呼び出しを三回ずつ行っていたコードが IRQL_NOT_LESS_OR_EQUAL のブルースクリーンにつながった。クラッシュダンプのシンボル解決済みスタックとドライバーのソースを突き合わせて原因を絞り込んだ過程を整理する。"
+    }
   }
 }
