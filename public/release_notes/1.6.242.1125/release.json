@@ -1,0 +1,238 @@
+{
+  "version": "1.6.242.1125",
+  "slug": "1.6.242.1125",
+  "date": "2026-11-25",
+  "pdf": "release-notes.pdf",
+  "items": [
+    {
+      "key": "nodeGroupStatus",
+      "kind": "new"
+    },
+    {
+      "key": "loadAnalysis",
+      "kind": "new"
+    },
+    {
+      "key": "netRecheckExclusion",
+      "kind": "new"
+    },
+    {
+      "key": "nodeCategoryTabs",
+      "kind": "improved"
+    },
+    {
+      "key": "nodeStatusServiceRestart",
+      "kind": "improved"
+    },
+    {
+      "key": "reconnectOffline",
+      "kind": "improved"
+    },
+    {
+      "key": "bsodUpdateOverlap",
+      "kind": "improved"
+    }
+  ],
+  "i18n": {
+    "ko": {
+      "excerpt": "이번 릴리즈에는 부서별로 이슈와 부하를 비교하는 「노드 그룹별 현황」, 하루치 전사 부하 보고서인 「부하 분석」, 네트워크 이슈의 「재확인 제외」가 추가되었습니다. 노드의 온라인 상태가 잘못 표시되던 서버 문제도 고쳤습니다. 에이전트 관련 변경은 각 PC의 에이전트가 1.6.242.1192를 받아야 적용됩니다.",
+      "items": {
+        "nodeGroupStatus": {
+          "title": "노드 › 현황 › 노드 그룹별 현황에서 부서 · 네트워크 · IP 대역별로 이슈와 부하 비교",
+          "sub": "노드 › 현황",
+          "desc": "부서(또는 네트워크 · IP 대역)별로 이슈와 부하가 어디에 집중되는지 한 화면에서 확인합니다. 「그룹 지도」는 그룹마다 전사 평균 대비 배수를 색으로 표시하고, 「그룹 비교」로 선택한 그룹을 나란히 비교할 수 있습니다."
+        },
+        "loadAnalysis": {
+          "title": "모니터링 › 분석 › 부하 분석에서 하루치 전사 부하 보고서 확인",
+          "sub": "모니터링 › 분석",
+          "desc": "하루 동안 회사 전체 PC가 얼마나 느렸는지 보고서로 확인합니다. 부하 지수 · CPU · 메모리 · 디스크를 노드 1대 평균으로 평소(직전 7일)와 비교하고, 부하를 많이 차지한 프로그램 · 노드 · 부서를 표시합니다."
+        },
+        "netRecheckExclusion": {
+          "title": "증상 › 현황 › 네트워크 이슈 현황에서 계속 표시되는 대상을 「재확인 제외」로 제외",
+          "sub": "증상 › 현황 › 네트워크 이슈 현황",
+          "desc": "일부러 차단한 주소나 쓰지 않는 DNS 서버처럼 고칠 필요가 없는 대상이 계속 이슈로 표시될 때 사용합니다. 제외한 대상은 서버가 다시 확인하지 않고 이슈 목록 · 홈 요약에서도 제외되며, 회사 전체에 적용됩니다."
+        },
+        "nodeCategoryTabs": {
+          "title": "노드 목록 · 장기 미접속 노드의 분류 탭을 조직도 · 네트워크 · IP 대역 셋으로 정리",
+          "sub": "노드 › 노드 목록",
+          "desc": "분류 탭은 「조직도 · 네트워크 · IP 대역」 셋이며, 조직도는 따로 켜지 않아도 사용됩니다. 조직도가 없으면 모든 노드가 「미등록」으로 묶입니다."
+        },
+        "nodeStatusServiceRestart": {
+          "title": "서버의 노드 상태 서비스가 멈춘 뒤 모든 노드가 오프라인으로 표시되던 문제",
+          "sub": "노드 › 노드 목록",
+          "desc": "서비스가 오류로 멈추면 서버가 자동으로 다시 켭니다. 응답한 PC는 온라인으로 돌아옵니다."
+        },
+        "reconnectOffline": {
+          "title": "서버 재연결 뒤 꺼진 PC가 최대 1시간 동안 온라인으로 표시되던 문제",
+          "sub": "노드 › 노드 목록",
+          "desc": "서버가 다시 연결되면 PC에 상태를 묻고, 응답하지 않은 PC를 2분 안에 오프라인으로 바꿉니다."
+        },
+        "bsodUpdateOverlap": {
+          "title": "블루스크린 직후 업데이트가 겹쳐 증상 목록에서 블루스크린이 빠지던 문제",
+          "sub": "증상 › 현황 › 증상 목록",
+          "desc": "블루스크린 뒤 덤프 분석이 끝나기 전에는 에이전트가 주기 업데이트를 확인하지 않습니다(최대 약 30분)."
+        }
+      }
+    },
+    "en": {
+      "excerpt": "This release adds Node Group Status, which compares issues and load by department, a daily company-wide load report in Load Analysis, and Stop rechecking for network issues. A server problem that showed the wrong online status for nodes has also been fixed. Agent-related changes take effect once the agent on each PC receives 1.6.242.1192.",
+      "items": {
+        "nodeGroupStatus": {
+          "title": "Compare issues and load by department, network, and IP range in Nodes › Status › Node Group Status",
+          "sub": "Nodes › Status",
+          "desc": "See on one screen where issues and load are concentrated by department (or network and IP range). The Group map colors each group by how many times the company average it is, and Group comparison lets you compare the selected groups side by side."
+        },
+        "loadAnalysis": {
+          "title": "View the daily company-wide load report in Monitoring › Analysis › Load Analysis",
+          "sub": "Monitoring › Analysis",
+          "desc": "See in a report how slow the PCs across the company were over a day. The load index, CPU, memory, and disk are compared with the usual level (previous 7 days) as a per-node average, and the programs, nodes, and departments that took the most load are shown."
+        },
+        "netRecheckExclusion": {
+          "title": "Exclude targets that keep appearing in Symptoms › Status › Network issue status with Stop rechecking",
+          "sub": "Symptoms › Status › Network issue status",
+          "desc": "Use this when targets that don't need fixing, such as an address you blocked on purpose or a DNS server you no longer use, keep appearing as issues. The server stops rechecking excluded targets, they are removed from the issue list and home summary, and the setting applies to the whole company."
+        },
+        "nodeCategoryTabs": {
+          "title": "Category tabs in Node list and Long-term disconnected nodes reduced to Org chart, Network, and IP range",
+          "sub": "Nodes › Node list",
+          "desc": "The category tabs are Org chart, Network, and IP range, and the org chart is used without turning it on separately. If there is no org chart, all nodes are grouped under Unassigned."
+        },
+        "nodeStatusServiceRestart": {
+          "title": "All nodes shown offline after the server's node status service stopped",
+          "sub": "Nodes › Node list",
+          "desc": "If the service stops with an error, the server now restarts it automatically. PCs that respond come back online."
+        },
+        "reconnectOffline": {
+          "title": "Powered-off PCs shown online for up to an hour after the server reconnected",
+          "sub": "Nodes › Node list",
+          "desc": "When the server reconnects, it asks the PCs for their status and marks PCs that don't respond as offline within 2 minutes."
+        },
+        "bsodUpdateOverlap": {
+          "title": "Blue screens missing from Symptom list when an update overlapped right after the blue screen",
+          "sub": "Symptoms › Status › Symptom list",
+          "desc": "After a blue screen, the agent does not check for periodic updates until the dump analysis finishes (up to about 30 minutes)."
+        }
+      }
+    },
+    "ja": {
+      "excerpt": "今回のリリースでは、部署ごとにイシューと負荷を比較する「ノードグループ別現況」、1 日分の全社負荷レポートを確認する「負荷分析」、ネットワークイシューの「再確認除外」を追加しました。ノードのオンライン状態が正しく表示されなかったサーバーの問題も修正しました。エージェント関連の変更は、各 PC のエージェントが 1.6.242.1192 を受け取ると適用されます。",
+      "items": {
+        "nodeGroupStatus": {
+          "title": "ノード › 現況 › ノードグループ別現況で部署 · ネットワーク · IP 帯域ごとにイシューと負荷を比較",
+          "sub": "ノード › 現況",
+          "desc": "部署(またはネットワーク · IP 帯域)ごとに、イシューと負荷がどこに集中しているかを 1 つの画面で確認できます。「グループマップ」はグループごとに全社平均の何倍かを色で表示し、「グループ比較」で選択したグループを並べて比較できます。"
+        },
+        "loadAnalysis": {
+          "title": "モニタリング › 分析 › 負荷分析で 1 日分の全社負荷レポートを確認",
+          "sub": "モニタリング › 分析",
+          "desc": "1 日のあいだに会社全体の PC がどれだけ遅かったかをレポートで確認できます。負荷指数 · CPU · メモリ · ディスクをノード 1 台あたりの平均で普段(直前 7 日)と比較し、負荷を多く占めたプログラム · ノード · 部署を表示します。"
+        },
+        "netRecheckExclusion": {
+          "title": "症状 › 現況 › ネットワークイシュー現況で表示され続ける対象を「再確認除外」で除外",
+          "sub": "症状 › 現況 › ネットワークイシュー現況",
+          "desc": "意図的に遮断したアドレスや使っていない DNS サーバーのように、修正の必要がない対象がイシューとして表示され続けるときに使います。除外した対象はサーバーが再確認せず、イシュー一覧とホーム要約からも除外されます。設定は会社全体に適用されます。"
+        },
+        "nodeCategoryTabs": {
+          "title": "ノード一覧 · 長期未接続ノードの分類タブを組織図 · ネットワーク · IP 帯域の 3 つに整理",
+          "sub": "ノード › ノード一覧",
+          "desc": "分類タブは「組織図 · ネットワーク · IP 帯域」の 3 つで、組織図は別途有効にしなくても使われます。組織図がない場合は、すべてのノードが「未登録」にまとめられます。"
+        },
+        "nodeStatusServiceRestart": {
+          "title": "サーバーのノード状態サービスが停止した後、すべてのノードがオフラインと表示されていた問題",
+          "sub": "ノード › ノード一覧",
+          "desc": "サービスがエラーで停止すると、サーバーが自動的に再起動します。応答した PC はオンラインに戻ります。"
+        },
+        "reconnectOffline": {
+          "title": "サーバーの再接続後、電源が切れた PC が最大 1 時間オンラインと表示されていた問題",
+          "sub": "ノード › ノード一覧",
+          "desc": "サーバーが再接続すると PC に状態を問い合わせ、応答しない PC を 2 分以内にオフラインに切り替えます。"
+        },
+        "bsodUpdateOverlap": {
+          "title": "ブルースクリーン直後に更新が重なり、症状一覧からブルースクリーンが抜けていた問題",
+          "sub": "症状 › 現況 › 症状一覧",
+          "desc": "ブルースクリーン後、ダンプ分析が終わるまでエージェントは定期更新を確認しません(最大約 30 分)。"
+        }
+      }
+    },
+    "zh": {
+      "excerpt": "本次发布新增按部门比较问题和负载的「节点分组现况」、查看一天全公司负载报告的「负载分析」，以及网络问题的「排除重新确认」。还修复了节点在线状态显示错误的服务器问题。与代理相关的变更需要各 PC 的代理接收 1.6.242.1192 后才会生效。",
+      "items": {
+        "nodeGroupStatus": {
+          "title": "在 节点 › 现况 › 节点分组现况 中按部门 · 网络 · IP 段比较问题和负载",
+          "sub": "节点 › 现况",
+          "desc": "可在一个画面中查看问题和负载按部门(或网络 · IP 段)集中在哪里。「分组地图」用颜色显示各分组是全公司平均值的几倍，并可通过「分组比较」并排比较所选分组。"
+        },
+        "loadAnalysis": {
+          "title": "在 监控 › 分析 › 负载分析 中查看一天的全公司负载报告",
+          "sub": "监控 › 分析",
+          "desc": "通过报告查看一天内全公司 PC 有多慢。以每台节点平均值将负载指数 · CPU · 内存 · 磁盘与平时(前 7 天)比较，并显示占用负载最多的程序 · 节点 · 部门。"
+        },
+        "netRecheckExclusion": {
+          "title": "在 症状 › 现况 › 网络问题现况 中用「排除重新确认」排除持续显示的对象",
+          "sub": "症状 › 现况 › 网络问题现况",
+          "desc": "当故意屏蔽的地址或不再使用的 DNS 服务器等无需修复的对象持续显示为问题时使用。被排除的对象服务器不再重新确认，也会从问题列表和首页摘要中排除，设置适用于整个公司。"
+        },
+        "nodeCategoryTabs": {
+          "title": "将节点列表 · 长期未连接节点的分类标签整理为组织架构 · 网络 · IP 段三个",
+          "sub": "节点 › 节点列表",
+          "desc": "分类标签为「组织架构 · 网络 · IP 段」三个，组织架构无需另行开启即可使用。没有组织架构时，所有节点都归入「未登记」。"
+        },
+        "nodeStatusServiceRestart": {
+          "title": "服务器的节点状态服务停止后所有节点显示为离线的问题",
+          "sub": "节点 › 节点列表",
+          "desc": "服务因错误停止时，服务器会自动重新启动该服务。已响应的 PC 会恢复在线。"
+        },
+        "reconnectOffline": {
+          "title": "服务器重新连接后已关机的 PC 最长 1 小时显示为在线的问题",
+          "sub": "节点 › 节点列表",
+          "desc": "服务器重新连接后会询问 PC 的状态，并在 2 分钟内将未响应的 PC 改为离线。"
+        },
+        "bsodUpdateOverlap": {
+          "title": "蓝屏后紧接着更新重叠导致症状列表中缺少蓝屏的问题",
+          "sub": "症状 › 现况 › 症状列表",
+          "desc": "蓝屏后在转储分析完成之前，代理不检查定期更新(最长约 30 分钟)。"
+        }
+      }
+    },
+    "zh-Hant": {
+      "excerpt": "本次發布新增依部門比較問題與負載的「節點分組現況」、查看一天全公司負載報告的「負載分析」，以及網路問題的「排除重新確認」。也修正了節點線上狀態顯示錯誤的伺服器問題。與代理程式相關的變更需要各 PC 的代理程式接收 1.6.242.1192 後才會生效。",
+      "items": {
+        "nodeGroupStatus": {
+          "title": "在 節點 › 現況 › 節點分組現況 中依部門 · 網路 · IP 區段比較問題與負載",
+          "sub": "節點 › 現況",
+          "desc": "可在一個畫面中查看問題與負載依部門(或網路 · IP 區段)集中在哪裡。「分組地圖」以顏色顯示各分組是全公司平均值的幾倍，並可透過「分組比較」並排比較所選分組。"
+        },
+        "loadAnalysis": {
+          "title": "在 監控 › 分析 › 負載分析 中查看一天的全公司負載報告",
+          "sub": "監控 › 分析",
+          "desc": "透過報告查看一天內全公司 PC 有多慢。以每台節點平均值將負載指數 · CPU · 記憶體 · 磁碟與平時(前 7 天)比較，並顯示占用負載最多的程式 · 節點 · 部門。"
+        },
+        "netRecheckExclusion": {
+          "title": "在 症狀 › 現況 › 網路問題現況 中以「排除重新確認」排除持續顯示的對象",
+          "sub": "症狀 › 現況 › 網路問題現況",
+          "desc": "當刻意封鎖的位址或不再使用的 DNS 伺服器等無需修正的對象持續顯示為問題時使用。被排除的對象伺服器不再重新確認，也會從問題清單與首頁摘要中排除，設定適用於整個公司。"
+        },
+        "nodeCategoryTabs": {
+          "title": "將節點清單 · 長期未連線節點的分類標籤整理為組織圖 · 網路 · IP 區段三個",
+          "sub": "節點 › 節點清單",
+          "desc": "分類標籤為「組織圖 · 網路 · IP 區段」三個，組織圖不需另外開啟即可使用。沒有組織圖時，所有節點都歸入「未登錄」。"
+        },
+        "nodeStatusServiceRestart": {
+          "title": "伺服器的節點狀態服務停止後所有節點顯示為離線的問題",
+          "sub": "節點 › 節點清單",
+          "desc": "服務因錯誤停止時，伺服器會自動重新啟動該服務。已回應的 PC 會恢復上線。"
+        },
+        "reconnectOffline": {
+          "title": "伺服器重新連線後已關機的 PC 最長 1 小時顯示為上線的問題",
+          "sub": "節點 › 節點清單",
+          "desc": "伺服器重新連線後會詢問 PC 的狀態，並在 2 分鐘內將未回應的 PC 改為離線。"
+        },
+        "bsodUpdateOverlap": {
+          "title": "藍屏後緊接著更新重疊導致症狀清單中缺少藍屏的問題",
+          "sub": "症狀 › 現況 › 症狀清單",
+          "desc": "藍屏後在傾印分析完成之前，代理程式不檢查定期更新(最長約 30 分鐘)。"
+        }
+      }
+    }
+  }
+}
